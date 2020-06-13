@@ -18,7 +18,7 @@ a working knowledge of:
 * Probability and statistics
 * Basic data science and machine learning techniques
 
-There will be 36 workbooks for this course. The workbooks are to be
+There will be 36 workbooks for this sequence. The workbooks are to be
 printed out and given to the student. The student is expected to write
 in the books with a pencil: there is no substitute for pencil and
 paper when you are learning to solve deep problems.
@@ -65,13 +65,13 @@ following tests:
 * AP Statistics
 * The TensorFlow Developer Certificate
 
-Politically, it is hoped that this will also make the course easier to
+Politically, it is hoped that this will also make the sequence easier to
 adopt in schools.
 
 Programming Language and Software
 ---------------------------------
 
-This course uses Python, and there are compromises there.  If we were
+This sequence uses Python, and there are compromises there.  If we were
 teaching to the current AP Computer Science A test, we would use
 Java. However, given the exploratory nature of the programming the
 student will be doing, Python and its extensive libraries are the
@@ -82,7 +82,7 @@ natural choice, but at this time Python is a more desireable skill in
 industry. We will use Python.
 
 The student will use only open source software during this
-course. This lowers the cost of software to zero, and empowers the
+sequence. This lowers the cost of software to zero, and empowers the
 student by inviting them to explore the foundational code they rely
 upon.
 
