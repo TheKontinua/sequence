@@ -83,5 +83,54 @@ course. This lowers the cost of software to zero, and empowers the
 student by inviting them to explore the foundational code they rely
 upon.
 
+Markup
+------
+
+As Python is the language of choice, and Python documentation uses
+reStructuredText for markup, documents designed to be read on the web,
+such as this one, will be created in
+`ReStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_,
+not Markdown.
+
+The workbooks themselves will be written in
+`LaTeX <https://www.latex-project.org>`_.
+
+The workbooks are designed to printed onto paper. In commiting to
+LaTeX instead of something like reStructuredText, we giving up nice
+web rendering in return for a lot of control over page layout. I am
+comfortable with this compromise.
+
+Installation
+------------
+
+You will need to install LaTeX.
+
+In the ``Build`` directory, there is are three python scripts called ``build_book.py``, ``build_link_list.py`` and ``clean.py``.
+
+To build a PDF of Workbook 5 for 8.5" x 11" paper::
+
+  python build_book.py 5
+
+Intermediate files will be created in directory ``Build/Intermediate``. You can ignore them.  The final pdf will appear in as ``Build/Workbook_05.pdf``
+
+To build for A4 paper::
+
+  python build_book.py --paper=A4 5
+
+To build all the books::
+
+  python build_book.py all
+
+To build an html page that has all the links (including all the video links) for Workbook 5::
+
+  python build_link_list 5
+
+A file called ``Build/link_list_05.html`` will appear.
+
+To delete all the intermediate files, pdfs, and html files::
+
+  python clean.py
+
+
 
 
