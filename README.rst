@@ -38,8 +38,8 @@ network to access this system.
 Learning these ideas is a journey, and everyone will travel at
 different speeds. Not everyone will make it to through to the
 end. This sequence is designed to accommodate that reality. That said,
-we have tried to design the workbooks so that each one will take, on
-average, about 40 hours of work for student to consume.
+we have tried to design the workbooks so that each one will take about
+40 hours of work for the average student to consume.
 
 Where I live, schools are open about 180 days per year. Thus, if
 students work for two hours per day, they will consume 9 workbooks per
@@ -64,6 +64,9 @@ following tests:
 * AP Physics C: Electricity and Magnetism
 * AP Statistics
 * The TensorFlow Developer Certificate
+
+Politically, it is hoped that this will also make the course easier to
+adopt in schools.
 
 Programming Language and Software
 ---------------------------------
