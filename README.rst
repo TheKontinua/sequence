@@ -106,30 +106,30 @@ Installation
 
 You will need to install LaTeX.
 
-In ``Build/build.cfg`` you can specify where ``pdftex`` is installed
-on your system.  You can also specify your default paper size (``A4``
-or ``Letter``)..
-
 In the ``Build`` directory, there is are three python scripts called
-``build_book.py``, ``build_link_list.py`` and ``clean.py``.
+``build_workbook.py``, ``build_linklist.py`` and ``clean.py``. The first
+time you run any of these, the file ``Build/build.cfg`` will be
+created.  In this file, you can specify where ``pdftex`` is installed
+on your system.  You can also specify your default paper size (``A4``
+or ``Letter``).
 
 To build a PDF of Workbook 5 for your default paper size::
 
-  python build_book.py 5
+  python build_workbook.py 5
 
 Intermediate files will be created in directory
 ``Build/Intermediate``. You can ignore them.  The final pdf will
-appear in as ``Build/Workbook_05.pdf``
+appear in as ``Build/workbook-05-en-us.pdf``
 
 To build all the books::
 
-  python build_book.py all
+  python build_workbook.py all
 
 To build an html page that has all the links (including all the video links) for Workbook 5::
 
-  python build_link_list 5
+  python build_linklist.py 5
 
-A file called ``Build/link_list_05.html`` will appear.
+A file called ``Build/linklist-05-en-us.html`` will appear.
 
 To delete all the intermediate files, pdfs, and html files in ``Build``::
 
