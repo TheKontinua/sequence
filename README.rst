@@ -37,9 +37,9 @@ network to access this system.
 
 Learning these ideas is a journey, and everyone will travel at
 different speeds. Not everyone will make it to through to the
-end. This sequence is designed to accommodate that reality. We have
-tried to design the workbooks so that each one will take, on average,
-about 40 hours of work for student to consume.
+end. This sequence is designed to accommodate that reality. That said,
+we have tried to design the workbooks so that each one will take, on
+average, about 40 hours of work for student to consume.
 
 Where I live, schools are open about 180 days per year. Thus, if
 students work for two hours per day, they will consume 9 workbooks per
@@ -93,9 +93,7 @@ such as this one, will be created in
 not Markdown.
 
 The workbooks themselves will be written in
-`LaTeX <https://www.latex-project.org>`_.
-
-The workbooks are designed to printed onto paper. In commiting to
+`LaTeX <https://www.latex-project.org>`_. The workbooks are designed to printed onto paper. In commiting to
 LaTeX instead of something like reStructuredText, we giving up nice
 web rendering in return for a lot of control over page layout. I am
 comfortable with this compromise.
@@ -105,17 +103,20 @@ Installation
 
 You will need to install LaTeX.
 
-In the ``Build`` directory, there is are three python scripts called ``build_book.py``, ``build_link_list.py`` and ``clean.py``.
+In ``Build/build.cfg`` you can specify where ``pdftex`` is installed
+on your system.  You can also specify your default paper size (``A4``
+or ``Letter``)..
 
-To build a PDF of Workbook 5 for 8.5" x 11" paper::
+In the ``Build`` directory, there is are three python scripts called
+``build_book.py``, ``build_link_list.py`` and ``clean.py``.
+
+To build a PDF of Workbook 5 for your default paper size::
 
   python build_book.py 5
 
-Intermediate files will be created in directory ``Build/Intermediate``. You can ignore them.  The final pdf will appear in as ``Build/Workbook_05.pdf``
-
-To build for A4 paper::
-
-  python build_book.py --paper=A4 5
+Intermediate files will be created in directory
+``Build/Intermediate``. You can ignore them.  The final pdf will
+appear in as ``Build/Workbook_05.pdf``
 
 To build all the books::
 
@@ -127,10 +128,6 @@ To build an html page that has all the links (including all the video links) for
 
 A file called ``Build/link_list_05.html`` will appear.
 
-To delete all the intermediate files, pdfs, and html files::
+To delete all the intermediate files, pdfs, and html files in ``Build``::
 
   python clean.py
-
-
-
-
