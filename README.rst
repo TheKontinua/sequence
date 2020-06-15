@@ -12,7 +12,7 @@ support that approach.
 These topics are deep and difficult to master, but they are closely
 related and mutually reinforcing.  It is my opinion that they should
 be taught as one integrated sequence of learning experiences -- each
-idea stacking neatly on the ideas that came before.
+idea and technique stacking neatly on the ideas and techniques that came before.
 
 These materials assume that the student can type with reasonable speed
 and can solve problems using algebra. At the end the student will have
@@ -110,13 +110,17 @@ LaTeX instead of something like reStructuredText, we giving up nice
 web rendering in return for a lot of control over page layout. I am
 comfortable with this compromise.
 
-Installation
-------------
+Building the books
+------------------
 
-You will need to install LaTeX.
+You will need to have installed git, Python, and LaTeX.
+
+Clone the github repository::
+  
+  git clone https://github.com/hillegass/sequence.git
 
 In the ``Build`` directory, there is are three python scripts called
-``build_workbook.py``, ``build_linklist.py`` and ``clean.py``. The first
+``build_workbook.py``, ``build_resources.py`` and ``clean.py``. The first
 time you run any of these, the file ``Build/build.cfg`` will be
 created.  In this file, you can specify where ``pdftex`` is installed
 on your system.  You can also specify your default paper size (``A4``
@@ -134,13 +138,13 @@ To build all the books::
 
   python build_workbook.py all
 
-To build an html page that has all the links (including all the video links) for Workbook 5::
+To build a compressed tarball with all the digital resources the student will need (including an html page will all the video links) for Workbook 5::
 
-  python build_linklist.py 5
+  python build_resources.py 5
 
-A file called ``Build/linklist-05-en-us.html`` will appear.
+A file called ``Build/resources-05-en-us.tgz`` will appear.
 
-To delete all the intermediate files, pdfs, and html files in ``Build``::
+To delete all the intermediate files, pdfs, and tgz files in ``Build``::
 
   python clean.py
 

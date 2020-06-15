@@ -161,69 +161,6 @@ Math
   * Foci of a hyperbola
   * Identifying conic sections from their equations
 
-* Discrete probability
-
-  * Basic probability
-  * Independent events
-  * Dependent events
-  * Permutations
-  * Combinations
-  * Factorials
-
-* Displaying data
-  
-  * Two-way tables for categorical data
-  * Graphs for quantitative data
-  * Common distributions
-
-* Summarizing quatitative data
-  
-  * Mean and median
-  * Quartiles and percentiles
-  * Variance and standard deviation
-  * Box and whisker plots
-
-* Modeling data distributions
-  
-  * Z-scores
-  * Linear transformations
-  * Density curves
-  * Normal distributions and the empirical rule
-  * Normal distribution calculations
-
-* Bivariate numerical data
-  
-  * Scatterplots
-  * Correlation coefficients
-  * Trend lines
-  * Least-squares regression
-  * Assessing fit in least-squares regression
-
-* Study design
-  
-  * Statistical questions
-  * Sampling and observational studies
-  * Sampling methods
-  * Experiments
-
-* Random variables
-  
-  * Discrete random variables
-  * Continuous random variables
-  * Transforming random variables
-  * Combining random variables
-  * Binomial random variables
-  * Binomial mean and standard deviation formulas
-  * Geometric random variables
-  * Expected value
-  * Poisson distribution
-
-* Making conclusions
-  
-  * Confidence intervals
-  * Significant tests
-  * Chi-squared test
-  * Inference
     
 * Limits and continuity
   
@@ -303,7 +240,7 @@ Math
 
 * Multivariable functions
   
-  * Scalar value
+  * Scalar valued
   * Vector valued
     
 * Derivatives of scalar-valued multivariable functions
@@ -341,15 +278,208 @@ Math
 
 * Eigenvectors and Eigenvalues
   
-  * Single Value Decomposition
+* Single Value Decomposition
   
+Probability and statistics
+-----------------------------------------
 
+* Discrete probability
 
+  * Basic probability
+  * Independent events
+  * Dependent events
+  * Permutations
+  * Combinations
+  * Factorials
+
+* Displaying data
+  
+  * Two-way tables for categorical data
+  * Graphs for quantitative data
+  * Common distributions
+
+* Summarizing quatitative data
+  
+  * Mean and median
+  * Quartiles and percentiles
+  * Variance and standard deviation
+  * Box and whisker plots
+
+* Modeling data distributions
+  
+  * Z-scores
+  * Linear transformations
+  * Density curves
+  * Normal distributions and the empirical rule
+  * Normal distribution calculations
+
+* Bivariate numerical data
+  
+  * Scatterplots
+  * Correlation coefficients
+  * Trend lines
+  * Least-squares regression
+  * Assessing fit in least-squares regression
+
+* Study design
+  
+  * Statistical questions
+  * Sampling and observational studies
+  * Sampling methods
+  * Experiments
+
+* Random variables
+  
+  * Discrete random variables
+  * Continuous random variables
+  * Transforming random variables
+  * Combining random variables
+  * Binomial random variables
+  * Binomial mean and standard deviation formulas
+  * Geometric random variables
+  * Expected value
+  * Poisson distribution
+
+* Making conclusions
+  
+  * Confidence intervals
+  * Significant tests
+  * Chi-squared test
+  * Inference
     
 Physics
 -------
 
+* One-dimensional motion
 
-Computer Science
-----------------
+  * Distance, diplacement, and coordinate systems
+  * Average velocity and speed
+  * Velocity and speed from graphs
+  * Motion with constant accleration
+
+* Two-dimensional and three dimensional motion
+
+  * Angled velocity and acceleration
+
+* Forces and Newton's laws of motion
+
+  * Free body diagrams
+  * Newton's first law: mass and inertia
+  * Newton's second law
+  * Newton's third law
+  * Inclined planes
+  * Friction
+
+* Uniform circular motion and gravitation
+
+  * Centripetal acceleration
+  * Centripetal forces
+  * Newton's law of gravitation
+
+* Work and energy
+  
+  * Kinetic energy
+  * Work-energy theorem
+  * Graviational potential energy and conservative forces
+  * Spring potential energy and Hooke's law
+  * Conservation of energy
+  * Power
+
+* Linear momentum and collisions
+
+  * Elastic collisions and conservation of momentum
+  * Inelastic collisions
+  * Center of mass and two-dimensional collisions
+
+* Torque and angular momentum
+
+  * Angular kinematics
+  * Torque and equilibrium
+  * Rotational inertia and angular second law
+  * Rotational kinetic energy
+  * Angular momentum and angular impulse
+  * Conservation of angular momentum
+  * Graviational potential energy at large distances
+
+* Simple harmonic motion
+
+  * Simple harmonic motion in spring-mass systems
+  * Simple pendulums
+  * Energy in simple harmonic oscillators
+
+* Waves and sound
+
+  * Wave characteristics
+  * Wave interference
+  * Standing waves
+  * Introduction to sound
+  * Interference of sound waves
+  * Doppler effect
+
+* Electric charge and electric force
+
+  * Electric charge
+  * Conservation of charge
+  * Coulomb's law and electric force
+    
+* DC circuits
+  
+  * Electric current, resistance, and Ohm's law
+  * Electric power and DC circuits
+  * Kirchhoff's junction rule
+  * Kirchhoff's loop rule
+  * Series and parallel resistors
+  * DC ammeters and voltmeters
+  * DC circuit analysis
+
+* Magnetic forces, magnetic fields, and Faraday's law
+  
+  * Permanent magnets
+  * Magnetic fields created by current
+  * Electric motors
+  * Magnetic flux and Faraday's law
+
+* Electromagnetic waves
+  
+  * Forms of electromagnetic waves
+  * Interference
+      
+* Fluids
+
+  * Density and pressure
+  * Bouyant force and Archimedes' principle
+  * Fluid dynamics
+
+* Thermodynamics
+
+  * Temperature, kinetic theory, and the ideal gas law
+  * Specific heat and heat transfer
+  * Laws of thermodynamics
+
+* Optics
+  
+  * Reflection
+  * Refraction
+  * Mirrors
+  * Lenses
+
+* Special relativity
+
+  * Lorentz transformation
+
+* Quantum physics
+  
+  * Photons
+  * Atoms and electrons
+  * Quantum numbers and orbitals
+  * Nuclear physics
+    
+
+
+Computer programming
+--------------------
+
+
+Data science and machine learning
+---------------------------------
 
