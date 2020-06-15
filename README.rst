@@ -1,12 +1,18 @@
 The Hillegass Sequence
 ======================
 
-In the future, a significant piece of the workforce will need to be
-able to solve problems using the ideas of math, physics, and computer
-science. These ideas are deep and difficult to master. It is my
-opinion that the topics would be most efficiently taught as an
-integrated toolbox. This will be a collection of educational materials
-to support that approach.
+The workforce of the future will demand scientists, engineers,
+programmers, architects, and data scientists with a deep understanding
+of math, physics, and computer science. Today, some kids go to schools where
+there are good classes in these topics, but most don't. I am going to
+help to fix this problem by introducing a new approach to how these
+ideas are taught and creating a set of free course materials to
+support that approach.
+
+These topics are deep and difficult to master, but they are closely
+related and mutually reinforcing.  It is my opinion that they should
+be taught as one integrated sequence of learning experiences -- each
+idea stacking neatly on the ideas that came before.
 
 These materials assume that the student can type with reasonable speed
 and can solve problems using algebra. At the end the student will have
@@ -24,16 +30,19 @@ in the books with a pencil: there is no substitute for pencil and
 paper when you are learning to solve deep problems.
 
 There will be a collection of lecture videos to accompany the
-workbooks. The videos will be freely available on the internet.
+workbooks. The videos will be freely available on the internet. In the
+meantime, this sequence will utilize the great videos created by Khan
+Academy.
 
 I hope that each student has a mentor who will answer their questions
 and evaluate their progress. It is my hope that the comprehensive
-nature of the materials I am supplying will make the job of this mentor
+nature of the materials will make the job of the mentor
 pretty easy.
 
 To this end, there will be a system that generates a test and its
 answer key for each workbook. Mentors will need to join the mentor
-network to access this system.
+network to access this system.  It is hoped that mentors will also use
+this system to suggest improvements to the materals.
 
 Learning these ideas is a journey, and everyone will travel at
 different speeds. Not everyone will make it to through to the
@@ -78,7 +87,7 @@ student will be doing, Python and its extensive libraries are the
 obvious choice.
 
 Julia, which is a more elegant and efficient language, would also be a
-natural choice, but at this time Python is a more desireable skill in
+good choice, but at this time Python is a more desireable skill in
 industry. We will use Python.
 
 The student will use only open source software during this
@@ -134,3 +143,8 @@ A file called ``Build/linklist-05-en-us.html`` will appear.
 To delete all the intermediate files, pdfs, and html files in ``Build``::
 
   python clean.py
+
+More
+----
+
+Check out the `Topic List <topic_list.rst>`_.
