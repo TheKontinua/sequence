@@ -2,7 +2,7 @@
 Topics
 ======
 
-Here is what needs to be covered.
+Here is what needs to be covered. This is not the order in which it will be taught.
 
 Math
 ----
