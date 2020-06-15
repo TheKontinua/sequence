@@ -313,14 +313,6 @@ Probability and statistics
   * Normal distributions and the empirical rule
   * Normal distribution calculations
 
-* Bivariate numerical data
-  
-  * Scatterplots
-  * Correlation coefficients
-  * Trend lines
-  * Least-squares regression
-  * Assessing fit in least-squares regression
-
 * Study design
   
   * Statistical questions
@@ -340,13 +332,20 @@ Probability and statistics
   * Expected value
   * Poisson distribution
 
+* Bayesian statistics
+
+  * Bayes' rule
+  * Priors and posteriors
+
+* Generating sample data
+    
 * Making conclusions
   
   * Confidence intervals
   * Significant tests
   * Chi-squared test
   * Inference
-    
+
 Physics
 -------
 
@@ -474,12 +473,94 @@ Physics
   * Quantum numbers and orbitals
   * Nuclear physics
     
-
-
 Computer programming
 --------------------
 
+* Getting set up
+  
+  * Installing python
+  * Installing an editor
+  * Testing your installation
+
+* Variables and calling functions
+
+  * Common data types
+  * Some useful functions
+  * The documentation
+
+* Flow control
+
+  * If-then
+  * loops
+
+* Implementing functions
+
+  * Arguments
+  * Return values
+
+* Style
+
+  * Good names
+  * Multiple files
+  * Comments
+  * Assertions
+  * Tests
+
+* Collections and iterators
+
+  * Arrays and tuples
+  * Dictionaries
+  * Sets
+
+* IO
+  
+  * Writing formatted strings to files
+  * Reading formatted strings from files
+
+* Object-oriented programming
+
+  * Classes
+  * Instances
+  * Inheritance
+  * Dispatch
+
+* A tree
+  
+  * The data structure
+  * Recursion
+  * Implementing an iterator
+
+* Numpy
+  
+  * Arrays
+  * Functions
+  * Basic image processing
+  * Reading and writing dataframes with Pandas
 
 Data science and machine learning
 ---------------------------------
+
+* Bivariate numerical data
+  
+  * Scatterplots
+  * Correlation coefficients
+  * Trend lines
+  * Least-squares regression
+  * Assessing fit in least-squares regression
+
+* Nonlinear regression
+  
+* K-nearest neighbor
+
+* Bayes classifiers
+
+* Neural networks for classification
+  
+  * Using TensorFlow
+  
+* Neural networks for regression
+
+* Bayesian networks
+
+* Reinforcement learning
 
