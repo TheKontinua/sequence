@@ -345,6 +345,7 @@ Probability and statistics
   * Significant tests
   * Chi-squared test
   * Inference
+  * Common errors in making conclusions
 
 Physics
 -------
