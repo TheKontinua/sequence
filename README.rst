@@ -119,36 +119,36 @@ Clone the github repository::
   
   git clone https://github.com/hillegass/sequence.git
 
-In the ``Build`` directory, there is are three python scripts called
-``build_workbook.py``, ``build_resources.py`` and ``clean.py``. The first
+In the ``Build`` directory, there are three python scripts called
+``build_workbook.py``, ``gather_resources.py`` and ``clean.py``. The first
 time you run any of these, the file ``Build/build.cfg`` will be
-created.  In this file, you can specify where ``pdftex`` is installed
+created.  In this file, you can specify where ``pdflatex`` is installed
 on your system.  You can also specify your default paper size (``A4``
 or ``Letter``).
 
 To build a PDF of Workbook 5 for your default paper size::
 
-  python build_workbook.py 5
+  python3 build_workbook.py 5
 
 Intermediate files will be created in directory
-``Build/Intermediate``. You can ignore them.  The final pdf will
+``Build/Intermediate``. You can ignore that directory entirely.  The final pdf will
 appear in as ``Build/workbook-05-en-us.pdf``
 
 To build all the books::
 
-  python build_workbook.py all
+  python3 build_workbook.py all
 
 To build a compressed tarball with all the digital resources the student will need (including an html page will all the video links) for Workbook 5::
 
-  python build_resources.py 5
+  python3 gather_resources.py 5
 
 A file called ``Build/resources-05-en-us.tgz`` will appear.
 
-To delete all the intermediate files, pdfs, and tgz files in ``Build``::
+To delete all the pdfs and tgz files in ``Build`` and the entire ``Intermediate`` directory::
 
-  python clean.py
+  python3 clean.py
 
 More
 ----
 
-Check out the `Topic List <topic_list.rst>`_.
+Check out the `Topic List <ProjectDocs/topic_list.rst>`_.
