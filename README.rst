@@ -121,7 +121,7 @@ Clone the github repository::
 
 In the ``Build`` directory, there are three python scripts called
 ``build_workbook.py``, ``gather_resources.py`` and ``clean.py``. The first
-time you run any of these, the file ``Build/build.cfg`` will be
+time you run any of these, the file ``Build/user.cfg`` will be
 created.  In this file, you can specify where ``pdflatex`` is installed
 on your system.  You can also specify your default paper size (``A4``
 or ``Letter``).
@@ -132,7 +132,7 @@ To build a PDF of Workbook 5 for your default paper size::
 
 Intermediate files will be created in directory
 ``Build/Intermediate``. You can ignore that directory entirely.  The final pdf will
-appear in as ``Build/workbook-05-en-us.pdf``
+appear in as ``Build/workbook-05-en_US.pdf``
 
 To build all the books::
 
@@ -142,7 +142,7 @@ To build a compressed tarball with all the digital resources the student will ne
 
   python3 gather_resources.py 5
 
-A file called ``Build/resources-05-en-us.tgz`` will appear.
+A file called ``Build/resources-05-en_US.tgz`` will appear.
 
 To delete all the pdfs and tgz files in ``Build`` and the entire ``Intermediate`` directory::
 

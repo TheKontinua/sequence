@@ -47,22 +47,33 @@ favorites[3] = "Gloves"
 
 \section{Evaluating Polynomials in Python}
 
-If you had a polynomial like $2x^3 -9x + 12$, you could write it like this: $12x^0 + (-9)x^1 + 0x^2 + 2^x3$.  We could use this representation to keep a polynomial in a Python list:
+First, before you go any further, you need to know that raising a
+number to a power is done with ** in Python.  So for example, to get
+$5^2$, you would write \texttt{5**2}.
+
+Back to polynomials: if you had a polynomial like $2x^3 -9x + 12$, you
+could write it like this: $12x^0 + (-9)x^1 + 0x^2 + 2x^3$.  We could
+use this representation to keep a polynomial in a Python list. We
+would simply store all the coefficients in order:
 \begin{Verbatim}
 pn1 = [12,-9,0,2]
 \end{Verbatim}
 
-In the list, the index of each coefficient would correspond to the degree of that monomial. For example, in the list 2 is at index 3, so that entry represents $2x^3$.
+In the list, the index of each coefficient would correspond to the
+degree of that monomial. For example, in the list 2 is at index 3, so
+that entry represents $2x^3$.
 
-In the last chapter, you evaluated the polynomial $x^3 - 3x^2 + 10x - 12$ at $x=4$. Now you will write code that does that evalution.  Create a file called \url{polynomials.py} and type in the following:
+In the last chapter, you evaluated the polynomial $x^3 - 3x^2 + 10x -
+12$ at $x=4$. Now you will write code that does that evalution.
+Create a file called \url{polynomials.py} and type in the following:
 
 \begin{Verbatim}
 def evaluate_polynomial(pn, x):
     sum = 0.0  
     for degree in range(len(pn)):
         coefficient = pn[degree]
-        sum = sum + coefficient * x ** degree
-        
+        term_value = coefficient * x ** degree
+        sum = sum + term_value
     return sum
    
 pn1 = [-12.0, 10.0, -3.0, 1.0]
