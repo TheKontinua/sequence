@@ -39,6 +39,10 @@ def build_book(book_id, locale_list, paper_size):
     for mod in mods:
         trimmed_mod = mod.strip()
         if len(trimmed_mod) > 3:
+            # Look for the graphics in the module directory
+            gpath_string = '\\graphicspath{{{{../../Modules/{}/}}}}\n'.format(trimmed_mod)
+            output_tex.write(gpath_string)
+            
             # Which chapters go into the module?
             chapterlist_path = os.path.join(mod_dir, trimmed_mod, 'chapterlist.txt')
             chapterlist = open(chapterlist_path)
@@ -66,7 +70,7 @@ if not os.path.exists('Intermediate'):
     os.mkdir('Intermediate')
 
 if not os.path.exists('build.cfg'):
-    shutil.copyfile('Support/default.cfg', 'Build.cfg')
+    shutil.copyfile('Support/default.cfg', 'user.cfg')
 
 if len(sys.argv) < 2:
     usage()

@@ -1,3 +1,4 @@
+
 \chapter{Python Lists}
 
 Watch CS Dojo's \textbf{Introduction to Lists in Python} video at \url{https://www.youtube.com/watch?v=tw7ror9x32s}
@@ -102,4 +103,56 @@ print("Polynomial 3: When x is 2.0, y is", y)
 \end{Verbatim} 
 \end{Answer}
 
+\section{Plot the polynomial}
 
+We can evaluate a polynomial at many points and plot them on a
+graph. You are going to write the code to do this.  Create a new file
+called \url{plot_polynomial.py}. Copy your \pyfunction{evaluate\_polynomial}
+function into the new file.
+
+Add a line at the beginning of the program that imports the plotting library matplotlib:
+\begin{Verbatim}
+import matplotlib.pyplot as plt
+\end{Verbatim}
+
+After the \pyfunction{evaluate\_polynomial} function:
+\begin{itemize}
+\item Create a list with polynomial coefficients.
+\item Create two empty arrays, one for x values and one for y values.
+\item Fill the x array with values from -3.5 to 3.5. Evaluate the polynomial at each of these points; put those values
+  in the y array.
+\item Plot them
+\end{itemize}
+
+Like this:
+\begin{Verbatim}
+# x**3 - 7x + 6
+pn = [6.0, -7.0, 0.0, 1.0]
+
+# These lists will hold our x and y values
+x_list = []
+y_list = []
+
+# Start at x=-3.5
+current_x =-3.5
+
+# End at x=3.5
+while current_x <= 3.5:
+    current_y = evaluate_polynomial(pn, current_x)
+
+    # Add x and y to respective lists
+    x_list.append(current_x)
+    y_list.append(current_y)
+
+    # Move x forward
+    current_x += 0.1
+
+# Plot the curve
+plt.plot(x_list, y_list)
+plt.grid(True)
+plt.show()
+\end{Verbatim}
+
+You should get a beautiful plot like this:
+
+\includegraphics[width=\textwidth]{polyplot1.png}
