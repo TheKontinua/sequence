@@ -95,19 +95,20 @@ One common form that you will see is multiplying two binomials together:
 \end{multline*}
 Notice the product has become the sum of four parts: the firsts, the
 inners, the outers, and the lasts. People sometimes use the mnemonic
-FOIL to remember this pattern, but if you know the distributive property
-(which is good for the product of any two polynomials), you don't need
-to FOIL (which is only useful for the specific case of two binomials).
+FOIL to remember this pattern, but there is a general rule that works
+for all product of polynomials, not just binomials.  Here it is: Every
+term in the first will be multiplied by every term in the second, and
+then just add them together.
 
-The bottom line is that when you are multiplying two polynomials
-together, every term in the first will be multiplied by every term in
-the second. So, for example, if you have a polynomial with three terms
-and you multiply it by a polynomial with five terms, you will get a
-sum of 15 terms.  (Of course, several of those terms might have the
-same degree, so they will be combined together when you simplify. Thus
-you will probably end up with a polynomial with less than 15 terms.)
+So, for example, if you have a polynomial $s$ with three terms and you
+multiply it by a polynomial $t$ with five terms, you will get a sum of
+15 terms -- each term is a product of two monomials, one from $s$ and
+one from $t$.  (Of course, several of those terms might have the same
+degree, so they will be combined together when you simplify. Thus you
+typically end up with a polynomial with less than 15 terms.)
 
-Here is how I would multiply two third-degree polynomials:
+Using this rule, here is how I would multiply $2x^2 - 3x + 1$ and
+$5x^2 + 2x - 7$:
 \begin{multline*}
   (2x^2 - 3x + 1)(5x^2 + 2x - 7)  = \begin{matrix}
   (2x^2)(5x^2)& + &(2x^2)(2x)& + &(2x^2)(-7)& + \\
@@ -118,15 +119,45 @@ Here is how I would multiply two third-degree polynomials:
   = 10x^4 + (4 - 15)x^3 + (-14 - 6 + 5)x^2  + (21 + 2)x + (-7) \\
   = 10x^4 - 11x^3 - 15x^2 + 23x - 7
 \end{multline*}
+Note that the product (before combining terms with the same degree) has
+$3 \times 3 = 9$ terms -- every possible combination of a term from the
+first polynomial and a term from the second polynomial.
 
-One common error people make is losing track of the negative
-signs. There is no trick; you just need to be careful.
+One common source of error: losing track of the negative
+signs. You will need to be really careful. I have found that it
+helps to use + between all terms, and use negative coefficients to
+express subtraction. For example, if the problem says $4x^2 - 5x - 3$,
+you should work with that as $4x^2 + (-5)x + (-3)$
 
 \begin{Exercise}[title={Multiplying polynomials}, label=multpolys]
   Multiply the following pairs of polynomials:
   \Question{$2x + 1$ and $3x - 2$}
+  \vspace{15mm}
+  \Question{$-3x^2 + 5$ and $4x -2$}
+  \vspace{15mm}
+  \Question{$-2x - 1$ and $-3x - \pi$}
+  \vspace{15mm}
+  \Question{$-2x^5 + 5x$ and $3x^5 + 2x$}
+  \vspace{15mm}
+
 \end{Exercise}
 \begin{Answer}[ref=multpolys]
   $(2x + 1)(3x - 2) = 6x^2 - x - 2$
+
+  $(-3x^2 + 5)(4x - 2) = -12x^3 + 6x^2 + 20x - 10$
+
+  $(-2x - 1)(-3x - \pi) = 6x^2 + (4 + 2\pi)x + \pi$ 
+
+  $(-2x^5 + 5x)(3x^5 + 2x) = -6x^{10} + 12x^6 + 10x^2$
+\end{Answer}
+
+\begin{Exercise}[title={Observations}, label=obsmultpoly]
+  Let's say I have two polynomials, $p_1$ and $p_2$.  $p_1$ has degree 23.  $p_2$ has degree 12.  What is the degree of their product?
+\end{Exercise}
+\begin{Answer}[ref=obsmultpoly]
+  The degree of the product is determined by the term that is the
+  product of the highest degree term in $p_1$ and the highest degree
+  term in $p_2$. Thus, the product of a degree 23 polynomial and a
+  degree 12 polynomial has degree 35.
 \end{Answer}
   

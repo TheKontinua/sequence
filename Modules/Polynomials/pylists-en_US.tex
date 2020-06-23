@@ -83,6 +83,85 @@ print("Polynomial 1: When x is 4.0, y is", y)
 
 Run it. It should evaluate to 44.0.
 
+\section{Walking the list backwards}
+
+Now you are going to make a function that makes a pretty string to
+represent your polynomial. Here is how it will be used:
+\begin{Verbatim}
+def polynomial_to_string(pn):
+    ...Your Code Here...
+
+pn_test = [-12.0, 10.0, 0.0, 1.0]
+print(polynomial_to_string(pn1))
+\end{Verbatim}
+
+This would output:
+\begin{Verbatim}
+1.0x**3 + 10.0x + -12.0
+\end{Verbatim}
+This is not as simple as you might hope. In particular:
+\begin{itemize}
+\item You must skip the terms with a coefficient of zero
+\item The term of degree 1 has an $x$, but no exponent
+\item The term of degree 0 has neither an $x$ nor an exponent
+\item Standard form demands that you list the terms in the reverse
+  order from that of your coefficients list. You will need to walk the
+  list from last to first.
+\end{itemize}
+
+Add this function to your \filename{polynomials.py} file after your \pyfunction{evaluate\_polynomial} function:
+\begin{Verbatim}
+  def polynomial_to_string(pn):
+    
+    # Make a list of the monomial strings
+    monomial_strings = []
+
+    # Start at the term with the largest degree
+    degree = len(pn) - 1
+
+    # Go through the list backwards stop after constant term
+    while degree >= 0:
+        coefficient = pn[degree]
+
+        # Skip any term with a zero coefficient
+        if coefficient != 0.0:
+
+            # Describe the monomial
+            if degree == 0:
+                monomial_string = "{}".format(coefficient)
+            elif degree == 1:
+                monomial_string = "{}x".format(coefficient)
+            else:
+                monomial_string = "{}x^{}".format(coefficient, degree)
+                
+            # Add it to the list
+            monomial_strings.append(monomial_string)
+
+        # Move to the previous term
+        degree = degree - 1
+
+    # Make a string that joins the terms with a plus sign
+    return " + ".join(monomial_strings)
+\end{Verbatim}
+
+Note that in a list $n$ items, the indices go from 0 to $n-1$. So when
+we are walking the list backwards, we start at \pyfunction{len(pn) -
+  1} and stop at zero.
+
+Look over the code and google the functions you aren't familar
+with. For example, if you want to know about the \pyfunction(join)
+function, google for ``python join''.
+
+Now change your code to use the new function:
+\begin{Verbatim}[commandchars=\\\{\}]
+pn1 = [-12.0, 10.0, -3.0, 1.0]
+y = evaluate_polynomial(pn1, 4.0)
+\textbf{print("y =", polynomial\_to\_string(pn1))}
+print("    When x is 4.0, y is", y)
+\end{Verbatim}
+
+Run the program. Does the function work?
+
 \begin{Exercise}[title={Evaluate Polynomials}, label=pyevalpolynomials]
 Using the function that you just wrote, add a few lines of code to \url{polynomials.py} to evaluate the following polynomials:
 \begin{itemize}

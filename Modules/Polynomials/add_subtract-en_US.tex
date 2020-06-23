@@ -88,21 +88,24 @@ print('Sum =', polynomial3)
 
 Run the program.
 
-Unfortunately, this only works if the polynomails are the same length. For
+Unfortunately, this code only works if the polynomails are the same length. For
 example, try making \pyvar{polynomial1} have a larger degree than
 \pyvar{polynomial2}:
 \begin{Verbatim}
-polynomial1 = [9.0, -4.0, 3.0, -5.0]
-polynomial2 = [-9.0, 0.0, 4.0, 2.0, 1.0]
+# x**4 - 5x**3 + 3x**2 - 4x + 9
+polynomial1 = [9.0, -4.0, 3.0, -5.0, 1.0]
+  
+# 2x**3 + 4x**2 - 9  
+polynomial2 = [-9.0, 0.0, 4.0, 2.0]
 polynomial3 = add_polynomials(polynomial1, polynomial2)
 print('Sum =', polynomial3)
 \end{Verbatim}
-w
+
 See the problem?
 
 \begin{Exercise}[title=Dealing with polynomials of different degrees, label=pyaddpolys]
   
-Can you fix the function \pyfunction{add\_polynomials} to handle this case?
+Can you fix the function \pyfunction{add\_polynomials} to handle polynomials of different degrees?
 
 Here is a hint: In Python, there is a \pyfunction{max} function that returns the largest of the numbers it is passed.
 \begin{Verbatim}
