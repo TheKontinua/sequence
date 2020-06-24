@@ -152,12 +152,13 @@ def scalar_polynomial_multiply(s, pn):
     result = []
     for coefficient in pn:
         result.append(s * coefficient)
+    return result
 \end{Verbatim}
 
 Somewhere near the end of the program, test this function:
 \begin{Verbatim}
 polynomial4 = scalar_polynomial_multiply(5.0, polynomial1)
-print('Scalar product =', polynomial4)
+print('Scalar product =', polynomial_to_string(polynomial4))
 \end{Verbatim}
 
 \begin{Exercise}[title=Subtract polynomials in Python, label=pysubpoly]
@@ -173,7 +174,7 @@ def subtract_polynomial(a, b):
 polynomial5 = [9.0, -4.0, 3.0, -5.0]
 polynomial6 = [-9.0, 0.0, 4.0, 2.0, 1.0]
 polynomial7 = subtract_polynomial(polynomial5, polynomial6)
-print('Difference =', polynomial7)
+print('Difference =', polynomial_to_string(polynomial7))
 \end{Verbatim}
 \end{Exercise}
 \begin{Answer}[ref=pysubpoly]

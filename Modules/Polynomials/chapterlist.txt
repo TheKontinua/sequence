@@ -2,3 +2,4 @@ intro
 pylists
 add_subtract
 multiplying
+pymultpoly
