@@ -1,0 +1,95 @@
+\chapter{Falling Bodies}
+
+One of the interesting uses of polynomials is in calculating the
+velocity and position of something that has constant acceleration. For
+example, if you throw a hammer straight up, from the moment it leaves
+your hand until it hits the ground, it is accelerating at a constant
+rate.
+
+\emph{Acceration} is the change in velocity. If the hammer leaves your
+hand with a velocity of 12 meters per second upward, one second later
+it will be rising, its velocity will have slowed to 2.2 meters per
+second. One second after that, the hammer will be falling at a rate of
+7.6 meters per second. Every second hammer's velocity is changing by
+9.8 meters per second, and that change is always toward the center of
+the earth. When the hammer is rising, gravity is slowing it down by
+9.8 meters per second each second.  When the hammer is falling,
+gravity is speeding it up by 9.8 meters per second each second.
+
+Acceleration due to gravity on earth is a constant negative 9.8 meters per second per second:
+\begin{equation*}
+a = -9.8   
+\end{equation*}
+(Why is it negative? We are talking about height, which increases as
+you go away from the center of the earth. Acceleration is changing the
+velocity in the opposite direction.)
+
+Given that the acceleration is constant, it makes sense that the
+velocity is a straight line. Assuming once again that the hammer
+leaves your hand at 12 meters per second, then the upwards velocity at
+time $t$ is given by:
+\begin{equation*}
+  v = 12 - 9.8t
+\end{equation*}
+
+\begin{Exercise}[title={When is the apex of flight?}, label=vapex]
+  Given the hammer's velocity is given by that formula, at what time (in seconds)
+  does it stop rising and begin to fall?
+\end{Exercise}
+\begin{Answer}[ref=vapex]
+  Solve for when the velocity is zero. $t = \frac{12}{9.8}$
+\end{Answer}
+
+(At this point, I should say something about air resistance. Gravity
+is not the only force on the hammer; as it travels through the air,
+the air tries to slow it down. This force is called \emph{air resistance},
+and for a large, fast moving object (like an airplane) it is very big force. For a
+dense object (like a hammer) moving at a slow speed (what you generate
+with your hand), air resistance doesn't significantly affect acceleration.)
+
+Here is where we tie in polynomials: The height of the hammer is given
+by a 2nd degree polynomial. In fact, we use 2nd degree polynomials so
+much that we have given them a name; A 2nd degree polynomial is known
+as a \emph{quadratic}. If you let go of the hammer when it is 2 meters
+above the ground, the height of the hammer is given by:
+\begin{equation*}
+  h = -\frac{9.8}{2}t^2 + 12t + 2
+\end{equation*}
+
+A natural question at this point is ``When will the hammer hit the
+ground?''  That is, when does $h = 0$. That is, what are the roots of
+this polynomial? After this chapter, we will spend a couple of
+chapters on techniques for finding the roots of polynomials.
+
+\section{Differentiating polynomials}
+
+If you had a function that gave you the height of an object, it would
+be handy to be able to figure out a function that gave you the
+velocity at which it was rising or falling. The process of converting
+the position function into a velocity function is known as
+\emph{differentiation} or \emph{finding the derivative}.
+
+There are a bunch of rules for finding a derivative, but
+differentiating polynomials only requires three:
+\begin{itemize}
+\item The derivative of a sum is equal to the sum of the derivatives.
+\item The derivative of a constant is zero.
+\item The derivative of a nonconstant monomial $at^b$ ($a$ and $b$ are constant numbers, $t$ is time) is $\frac{a}{b}t^{b-1}$ 
+\end{itemize}
+
+So, for example, if I tell you that the height in meters of quadcopter
+at second $t$ is given by $2t^3 - 5t^2 + 9t + 200$. You could tell me
+that its vertical velocity is $\frac{2}{3}t^{2} - \frac{5}{2}t + 9$
+
+\begin{Exercise}[title={Differentation of polynomials}, label=diffpoly]
+  Differentiate the following polynomials
+\end{Exercise}
+\begin{Answer}
+\end{Answer}
+
+Now, if you know that a position is given by a polynomial, you can
+differentate it to find the object's velocity at any time.
+
+The same trick works for acceleration: Let's say you know a function
+that gives an object's velocity. To find its acceleration at any time,
+you take the derivative of the velocity function.
