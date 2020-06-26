@@ -22,3 +22,18 @@ print('A - B =', poly.polynomial_to_string(a_minus_b))
 # Multiplication
 a_times_b = poly.multiply_polynomials(polynomial_a, polynomial_b)
 print('A x B =', poly.polynomial_to_string(a_times_b))
+
+# Derivatives
+# 3x**3 + 2x + 5
+p1 = [5.0, 2.0, 0.0, 3.0]
+d1 = poly.derivative_of_polynomial(p1)
+# d1 should be 9x**2 + 2
+print("Derivative of", poly.polynomial_to_string(p1),"is", poly.polynomial_to_string(d1))
+
+# Check constant polynomials
+p2 = [-9.0]
+d2 = poly.derivative_of_polynomial(p2)
+# d2 should be 0.0
+print("Derivative of", poly.polynomial_to_string(p2),"is", poly.polynomial_to_string(d2))
+
+  

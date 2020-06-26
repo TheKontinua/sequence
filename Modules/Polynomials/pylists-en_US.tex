@@ -6,7 +6,7 @@ To review, Python list is an indexed collection. The indices start at
 zero. You can create a list using square brackets.
 
 Now you are going to write a program that makes an array of
-strings. Type this code into a file called \url{faves.py}:
+strings. Type this code into a file called \filename{faves.py}:
 
 \begin{Verbatim}
 favorites = ["Raindrops", "Whiskers", "Kettles", "Mittens"]
@@ -65,7 +65,7 @@ that entry represents $2x^3$.
 
 In the last chapter, you evaluated the polynomial $x^3 - 3x^2 + 10x -
 12$ at $x=4$. Now you will write code that does that evalution.
-Create a file called \url{polynomials.py} and type in the following:
+Create a file called \filename{polynomials.py} and type in the following:
 
 \begin{Verbatim}
 def evaluate_polynomial(pn, x):
@@ -101,7 +101,7 @@ This would output:
 \end{Verbatim}
 This is not as simple as you might hope. In particular:
 \begin{itemize}
-\item You must skip the terms with a coefficient of zero
+\item You should skip the terms with a coefficient of zero
 \item The term of degree 1 has an $x$, but no exponent
 \item The term of degree 0 has neither an $x$ nor an exponent
 \item Standard form demands that you list the terms in the reverse
@@ -140,6 +140,10 @@ Add this function to your \filename{polynomials.py} file after your \pyfunction{
         # Move to the previous term
         degree = degree - 1
 
+    # Deal with the zero polynomial
+    if len(monomial_strings) == 0:
+        monomial_strings.append("0.0")
+    
     # Make a string that joins the terms with a plus sign
     return " + ".join(monomial_strings)
 \end{Verbatim}
@@ -163,7 +167,8 @@ print("    When x is 4.0, y is", y)
 Run the program. Does the function work?
 
 \begin{Exercise}[title={Evaluate Polynomials}, label=pyevalpolynomials]
-Using the function that you just wrote, add a few lines of code to \url{polynomials.py} to evaluate the following polynomials:
+Using the function that you just wrote, add a few lines of code to
+\filename{polynomials.py} to evaluate the following polynomials:
 \begin{itemize}
 \item Find $4x^4 - 7x^3 - 2x^2 + 5x + 2.5$ at $x = 8.5$.  It should be 16481.875
 \item Find $5x^5 - 9$ at $x = 2.0$.  It should be 151.0
@@ -185,7 +190,7 @@ print("Polynomial 3: When x is 2.0, y is", y)
 
 We can evaluate a polynomial at many points and plot them on a
 graph. You are going to write the code to do this.  Create a new file
-called \url{plot_polynomial.py}. Copy your \pyfunction{evaluate\_polynomial}
+called \filename{plot_polynomial.py}. Copy your \pyfunction{evaluate\_polynomial}
 function into the new file.
 
 Add a line at the beginning of the program that imports the plotting library matplotlib:
