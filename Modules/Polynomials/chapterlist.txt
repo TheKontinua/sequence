@@ -5,3 +5,4 @@ multiplying
 pymultpoly
 falling_bodies
 common_products
+solving_quadratics

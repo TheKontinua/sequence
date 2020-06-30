@@ -36,4 +36,33 @@ d2 = poly.derivative_of_polynomial(p2)
 # d2 should be 0.0
 print("Derivative of", poly.polynomial_to_string(p2),"is", poly.polynomial_to_string(d2))
 
+# We need to use the plotting library
+import matplotlib.pyplot as plt
+
+# x**2 + 5
+pn = [-5.0, 0.0, 1.0]
+
+# These lists will hold our x and y values
+x_list = []
+y_list = []
+
+# Start at x=-3
+current_x =-3.0
+
+# End at x=3.0
+while current_x < 3.0:
+    current_y = poly.evaluate_polynomial(pn, current_x)
+
+    # Add x and y to respective lists
+    x_list.append(current_x)
+    y_list.append(current_y)
+
+    # Move x forward
+    current_x += 0.1
+
+# Plot the curve
+plt.plot(x_list, y_list)
+plt.grid(True)
+plt.show()
+
   
