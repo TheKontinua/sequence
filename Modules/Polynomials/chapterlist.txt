@@ -4,5 +4,7 @@ add_subtract
 multiplying
 pymultpoly
 falling_bodies
+classes
 common_products
+factoring
 solving_quadratics

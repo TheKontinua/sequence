@@ -39,18 +39,16 @@ print("Derivative of", poly.polynomial_to_string(p2),"is", poly.polynomial_to_st
 # We need to use the plotting library
 import matplotlib.pyplot as plt
 
-# x**2 + 5
-pn = [-5.0, 0.0, 1.0]
+# 5x**3 - 45x
+pn = [0.0, -45.0, 0.0, 5.0]
 
 # These lists will hold our x and y values
 x_list = []
 y_list = []
 
-# Start at x=-3
-current_x =-3.0
+current_x =-4.0
 
-# End at x=3.0
-while current_x < 3.0:
+while current_x < 4.0:
     current_y = poly.evaluate_polynomial(pn, current_x)
 
     # Add x and y to respective lists
