@@ -1,4 +1,5 @@
 import poly
+import math
 
 polynomial_a = [9.0, -4.0, 3.0, -5.0]
 print('Polynomial A =', poly.polynomial_to_string(polynomial_a))
@@ -39,8 +40,12 @@ print("Derivative of", poly.polynomial_to_string(p2),"is", poly.polynomial_to_st
 # We need to use the plotting library
 import matplotlib.pyplot as plt
 
-# 5x**3 - 45x
-pn = [0.0, -45.0, 0.0, 5.0]
+# -1x**3 - 1x**2 + 6x - 0
+pn = [0.0, 6.0, -1.0, -1.0]
+print("1.2:", poly.evaluate_polynomial(pn, 1.2))
+print("-1.87:", poly.evaluate_polynomial(pn, -1.87))
+
+
 
 # These lists will hold our x and y values
 x_list = []
@@ -48,15 +53,18 @@ y_list = []
 
 current_x =-4.0
 
-while current_x < 4.0:
+while current_x <= 3.0:
     current_y = poly.evaluate_polynomial(pn, current_x)
 
     # Add x and y to respective lists
     x_list.append(current_x)
     y_list.append(current_y)
 
+    if math.isclose(current_x, round(current_x)):
+        print("f(", current_x, ")=", current_y)
+    
     # Move x forward
-    current_x += 0.1
+    current_x += 0.05
 
 # Plot the curve
 plt.plot(x_list, y_list)

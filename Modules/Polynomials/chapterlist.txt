@@ -8,3 +8,5 @@ classes
 common_products
 factoring
 solving_quadratics
+practice
+graphs
