@@ -12,3 +12,6 @@ c = b.derivative()
 
 print("Derivative of", b ,"is", c)
 
+slope = c(3)
+print("Value of the derivative at 3 is", slope)
+

@@ -102,7 +102,7 @@ class Polynomial:
 
     def __call__(self, x):
         sum = 0.0  
-        for degree, coefficient in self.coefficients:
+        for degree, coefficient in enumerate(self.coefficients):
             sum = sum + coefficient * x ** degree
         return sum
 
@@ -197,6 +197,10 @@ print(a, "minus", b , "is", a-b)
 c = b.derivative()
 
 print("Derivative of", b ,"is", c)
+
+slope = c(3)
+print("Value of the derivative at 3 is", slope)
+
 \end{Verbatim}
 
 Run the test code:

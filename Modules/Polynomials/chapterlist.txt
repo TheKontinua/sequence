@@ -10,3 +10,4 @@ factoring
 solving_quadratics
 practice
 graphs
+interpolating

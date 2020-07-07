@@ -2,6 +2,33 @@ class Polynomial:
     def __init__(self, coeffs):
         self.coefficients = coeffs.copy()
 
+    @classmethod
+    def from_points(cls, x_values, y_values):
+        coef_count = len(x_values)
+
+        # Sums start with a zero polynomial
+        sum_pn = Polynomial([0.0] * coef_count)
+        for i in range(coef_count):
+
+            # Products start with the constant 1 polynomial
+            product_pn = Polynomial([1.0])
+            for j in range(coef_count):
+
+                # Must skip j=i
+                if j != i:
+                    # (1x - x_values[j]) has a root at x_values[j]
+                    factor_pn = Polynomial([-1 * x_values[j], 1])
+                    product_pn = product_pn * factor_pn
+                    
+            # Scale so product_pn(x_values[i]) = y_values[i]
+            scale_factor  = y_values[i] / product_pn(x_values[i])
+            scaled_pn = scale_factor * product_pn
+
+            # Add it to the sum
+            sum_pn = sum_pn + scaled_pn
+            
+        return sum_pn
+
     def __repr__(self):
         # Make a list of the monomial strings
         monomial_strings = []
@@ -37,7 +64,7 @@ class Polynomial:
 
     def __call__(self, x):
         sum = 0.0  
-        for degree, coefficient in self.coefficients:
+        for degree, coefficient in enumerate(self.coefficients):
             sum = sum + coefficient * x ** degree
         return sum
 
