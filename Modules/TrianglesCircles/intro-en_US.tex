@@ -1,0 +1,112 @@
+\chapter{Introduction to Triangles}
+
+Connecting any three points with three line segments will get you a
+triangle. Here is the triangle $ABC$ created by connecting three points $A$, $B$, and $C$:
+
+\begin{tikzpicture}[scale=1.5]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (1, 2) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+\end{tikzpicture}
+
+If all three sides of the triangle are the same length, we say it is an \emph{equilateral triangle}:
+
+\begin{tikzpicture}[scale=1.5]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (1.5, 2.6) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+  \tkzMarkSegment[pos=.5,mark=||](a,b)
+  \tkzMarkSegment[pos=.5,mark=||](b,c)
+  \tkzMarkSegment[pos=.5,mark=||](c,a)
+\end{tikzpicture}
+
+If only two sides of the triangle are the same length, we say it is an \emph{isosceles triangle}:
+
+\begin{tikzpicture}[scale=1.3]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (1.5, 4) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+  \tkzMarkSegment[pos=.5,mark=||](a,b)
+  \tkzMarkSegment[pos=.5,mark=||](c,b)
+\end{tikzpicture}
+
+We talk a lot about the interior angles of a triangle:
+
+\begin{tikzpicture}[scale=2]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (1, 2) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+  \pic [draw, <->, "$a$", angle eccentricity=1.5] {angle = c--a--b};
+  \pic [draw, <->, "$b$", angle eccentricity=1.5] {angle = a--b--c};
+  \pic [draw, <->, "$c$", angle eccentricity=1.5] {angle = b--c--a};
+\end{tikzpicture}
+
+You have probably heard of angles. For example, you know that these line segments meet at a  \emph{right angle}:
+
+\begin{tikzpicture}[scale=2]
+  \coordinate (a) at (0,1) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
+  \coordinate (c) at (1,0) ;
+  \draw (a)--(b);
+  \draw (b)--(c);
+  \pic [draw, <->, "90$^\circ$", angle eccentricity=1.9] {angle = c--b--a};  
+\end {tikzpicture}
+A right angle is $90^\circ$.
+
+A triangle where one of the interior angles is a right angle is said to be a \emph{right triangle}:
+
+\begin{tikzpicture}[scale=1.5]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0,4) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+  \pic [draw, <->, "$90^\circ$", angle eccentricity=1.5] {angle = c--a--b};
+\end{tikzpicture}
+
+
+A right angle can be divided into two $45^\circ$ angles:
+
+\begin{tikzpicture}[scale=2]
+  \coordinate (a) at (0,1) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
+  \coordinate (d) at (0.7, 0.7);
+  \coordinate (c) at (1,0);
+  \draw (b)--(a);
+  \draw (b)--(c);
+  \draw (b)--(d);
+  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.9] {angle = c--b--d};  
+  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.9] {angle = d--b--a};  
+\end {tikzpicture}
+
+An angle that is less than $90^\circ$ is said to be \emph{acute}.
+
+If you add $45^\circ$ to a $90^\circ$ angle, you get a $135^\circ$ angle:
+
+\begin{tikzpicture}[scale=2]
+  \coordinate (a) at (-0.8,0.8) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
+  \coordinate (d) at (0, 0.6);
+  \coordinate (c) at (1,0);
+  \draw (b)--(a);
+  \draw (b)--(c);
+  \draw (b)--(d);
+  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.5] {angle = d--b--a};
+  \pic [draw, <->, "90$^\circ$", angle eccentricity=1.7] {angle = c--b--d};
+  \pic [draw, <->, "135$^\circ$", angle eccentricity=1.25, angle radius=1.5cm] {angle = c--b--a};
+\end {tikzpicture}
+
+Angles that are over $90^\circ$ are said to be \emph{obtuse}.
