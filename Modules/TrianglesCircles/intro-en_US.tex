@@ -41,6 +41,22 @@ If only two sides of the triangle are the same length, we say it is an \emph{iso
   \tkzMarkSegment[pos=.5,mark=||](c,b)
 \end{tikzpicture}
 
+The shortest distance between two points is always the straight line
+between them. Thus, you can be certain that the length of one side
+will \emph{always} be less than the sum of the lengths of the
+remaining two sides. This is known as the \emph{triangle inequality}
+
+For example, in this diagram $c$ must be less than $a + b$.
+
+\begin{tikzpicture}[scale=1.2]
+  \coordinate [circle, fill, inner sep=1pt] (a) at (1.5,0) ;
+  \coordinate [circle, fill, inner sep=1pt] (b) at (0,2) ;
+  \coordinate [circle, fill, inner sep=1pt] (c) at (3.5,0) ;
+  \draw (a)--node[outer sep=3pt, left]{length $b$}(b) ;
+  \draw (b)--node[outer sep=3pt, right]{length $c$}(c) ;
+  \draw (c)--node[outer sep=3pt, below]{length $a$}(a) ;
+\end{tikzpicture}
+
 \section{Interior Angles of a Triangle}
 
 We also talk a lot about the interior angles of a triangle:
@@ -66,7 +82,7 @@ A triangle where one of the interior angles is a right angle is said to be a \em
   \draw (a)--(b) node [outer sep=3pt, above]{$B$};
   \draw (b)--(c) node[outer sep=3pt, right]{$C$};
   \draw (c)--(a) node[outer sep=3pt, left]{$A$};
-  \pic [draw, <->, "$90^\circ$", angle eccentricity=1.5] {angle = c--a--b};
+  \pic [draw,angle eccentricity=1.5] {right angle = c--a--b};
 \end{tikzpicture}
 
 If a triangle has an obtuse interior angle, it is said to be an \emph{obtuse triangle}:
