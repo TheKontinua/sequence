@@ -12,7 +12,9 @@ triangle. Here is the triangle $ABC$ created by connecting three points $A$, $B$
   \draw (c)--(a) node[outer sep=3pt, left]{$A$};
 \end{tikzpicture}
 
-If all three sides of the triangle are the same length, we say it is an \emph{equilateral triangle}:
+\section{Equilateral and Isosceles Triangles}
+
+We talk a lot about the length of the sides of triangles. If all three sides of the triangle are the same length, we say it is an \emph{equilateral triangle}:
 
 \begin{tikzpicture}[scale=1.5]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -39,7 +41,9 @@ If only two sides of the triangle are the same length, we say it is an \emph{iso
   \tkzMarkSegment[pos=.5,mark=||](c,b)
 \end{tikzpicture}
 
-We talk a lot about the interior angles of a triangle:
+\section{Interior Angles of a Triangle}
+
+We also talk a lot about the interior angles of a triangle:
 
 \begin{tikzpicture}[scale=2]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -53,21 +57,9 @@ We talk a lot about the interior angles of a triangle:
   \pic [draw, <->, "$c$", angle eccentricity=1.5] {angle = b--c--a};
 \end{tikzpicture}
 
-You have probably heard of angles. For example, you know that these line segments meet at a  \emph{right angle}:
-
-\begin{tikzpicture}[scale=2]
-  \coordinate (a) at (0,1) ;
-  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
-  \coordinate (c) at (1,0) ;
-  \draw (a)--(b);
-  \draw (b)--(c);
-  \pic [draw, <->, "90$^\circ$", angle eccentricity=1.9] {angle = c--b--a};  
-\end {tikzpicture}
-A right angle is $90^\circ$.
-
 A triangle where one of the interior angles is a right angle is said to be a \emph{right triangle}:
 
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.2]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
   \coordinate [circle, fill, inner sep=2pt] (b) at (0,4) ;
   \coordinate [circle, fill, inner sep=2pt] (c) at (3,0) ;
@@ -77,36 +69,84 @@ A triangle where one of the interior angles is a right angle is said to be a \em
   \pic [draw, <->, "$90^\circ$", angle eccentricity=1.5] {angle = c--a--b};
 \end{tikzpicture}
 
+If a triangle has an obtuse interior angle, it is said to be an \emph{obtuse triangle}:
 
-A right angle can be divided into two $45^\circ$ angles:
+\begin{tikzpicture}[scale=1.2]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (1.5,0) ;
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0,2) ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3.5,0) ;
+  \draw (a)--(b) node [outer sep=3pt, above]{$B$};
+  \draw (b)--(c) node[outer sep=3pt, right]{$C$};
+  \draw (c)--(a) node[outer sep=3pt, left]{$A$};
+  \pic [draw, <->, "obtuse", angle eccentricity=1.7] {angle = c--a--b};
+\end{tikzpicture}
 
-\begin{tikzpicture}[scale=2]
-  \coordinate (a) at (0,1) ;
-  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
-  \coordinate (d) at (0.7, 0.7);
-  \coordinate (c) at (1,0);
-  \draw (b)--(a);
-  \draw (b)--(c);
-  \draw (b)--(d);
-  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.9] {angle = c--b--d};  
-  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.9] {angle = d--b--a};  
-\end {tikzpicture}
+If all three interior angles of a triangle are less than $90^\circ$, it is said to be an \emph{acute triangle}.
 
-An angle that is less than $90^\circ$ is said to be \emph{acute}.
+The measures of the interior angles of a triangle always add up to
+$180^\circ$. For example, if you tell me that a triangle has interior
+angles of $37^\circ$ and $56^\circ$, I can tell you that the third
+interior angle is $87^\circ$.
 
-If you add $45^\circ$ to a $90^\circ$ angle, you get a $135^\circ$ angle:
+\begin{Exercise}[title={Missing Angle}, label=missing_angle]
+One interior angle of a triange is $92^\circ$. A second angle is $42^\circ$. What is the measure of the third interior angle?
+\end{Exercise}
+\begin{Answer}[ref=missing_angle]
+$180^\circ - (92^\circ + 42^\circ) = 46^\circ$
+\end{Answer}
 
-\begin{tikzpicture}[scale=2]
-  \coordinate (a) at (-0.8,0.8) ;
-  \coordinate [circle, fill, inner sep=2pt] (b) at (0,0) ;
-  \coordinate (d) at (0, 0.6);
-  \coordinate (c) at (1,0);
-  \draw (b)--(a);
-  \draw (b)--(c);
-  \draw (b)--(d);
-  \pic [draw, <->, "45$^\circ$", angle eccentricity=1.5] {angle = d--b--a};
-  \pic [draw, <->, "90$^\circ$", angle eccentricity=1.7] {angle = c--b--d};
-  \pic [draw, <->, "135$^\circ$", angle eccentricity=1.25, angle radius=1.5cm] {angle = c--b--a};
-\end {tikzpicture}
 
-Angles that are over $90^\circ$ are said to be \emph{obtuse}.
+How can you know that the sum of the interior angles is $180^\circ$?
+Imagine that you started on the edge of a triangle and walked all the
+way around to where you started. (Let's assume you are going
+counter-clockwise.) You would turn three times to the left:
+
+\begin{tikzpicture}[scale=1.7]
+  \coordinate [circle, fill, inner sep=2pt] (a) at (1.5,0) ;  
+   \node at (a) [outer sep=3pt, left]{$A$};
+  \coordinate [circle, fill, inner sep=2pt] (b) at (0.5,2) ;
+  \node at (b) [outer sep=3pt, above]{$B$} ;
+  \coordinate [circle, fill, inner sep=2pt] (c) at (3.5,0) ;
+    \node at (c)[outer sep=3pt, below]{$C$};
+    
+    \coordinate [circle, fill, inner sep=2pt](start) at (2.75,0);
+    \node at (start)[outer sep=3pt, below]{Start};
+
+   \coordinate (aa) at (1.75,-0.5) ;  
+  \coordinate (bb) at (-0.25,2.5) ;
+  \coordinate (cc) at (4.2,0) ;
+  \draw [->](a)--(cc);
+  \draw [->](b)--(aa);
+  \draw [->](c)--(bb);
+  \pic [draw, ->, "$T_C$", angle eccentricity=1.7] {angle = cc--c--b};
+  \pic [draw, ->, "$T_B$", angle eccentricity=2] {angle = bb--b--a};
+  \pic [draw, ->, "$T_A$", angle eccentricity=2] {angle = aa--a--c};
+\end{tikzpicture}
+
+After these three turns, you would be facing the same direction that
+you started in. Thus $T_A + T_B + T_C = 360^\circ$. Let's call the
+measure of the interior angles $a$, $b$, and $c$.  Notice that $a$ and
+$T_A$ are supplementary. So we know that:
+\begin{itemize}
+\item $T_A = 180 - a$
+\item $T_B = 180 - b$
+\item $T_C = 180 - c$
+\end{itemize}
+So we can rewrite the equation above as
+\begin{equation*}
+  (180 - a) + (180 - b) + (180 - c) = 360^\circ
+\end{equation*}
+Which is equivalent to
+\begin{equation*}
+  a + b + c = 360^\circ
+\end{equation*}
+
+\begin{Exercise}[title={Interior Angles of a Quadrilateral}, label=interior_of_quad]
+  Any four-sided polygon is a \emph{quadrilateral}.  Using the same
+  ``walk around the edge'' logic, what is the sum of the interior
+  angles of any quadrilateral?
+\end{Exercise}
+\begin{Answer}[ref=interior_of_quad]
+$360^\circ$
+\end{Answer}
+
