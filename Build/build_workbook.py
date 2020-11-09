@@ -61,11 +61,11 @@ def build_book(book_id, locale_list, paper_size):
     footer_file.close()
     output_tex.write(footer)
     output_tex.close()
-    os.system('pdflatex {}'.format(output_tex_path))
+    os.system('lualatex {}'.format(output_tex_path))
 
     # If a pdf was made, run it again to get cross-references right
     if os.path.exists(output_pdf_path):
-        os.system('pdflatex {}'.format(output_tex_path))
+        os.system('lualatex {}'.format(output_tex_path))
         shutil.move(output_pdf_path, final_pdf_path)
     else:
         print('Build failed')

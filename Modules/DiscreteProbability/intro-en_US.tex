@@ -16,6 +16,8 @@ the probability that the next bird to fly over my house will weigh
 between 97.2 and 98.1 grams ?'' In this module, we are going to focus
 on the probability problems that deal with discrete quantities.
 
+Watch Khan Academy's Introduction to Probability at \url{https://youtu.be/uzkc-qNVoOk}.
+
 Let's say that I have a cloth sac filled with 100 marbles; 99 are red
 and 1 is white. If I ask you to reach in without looking and pull out
 one marble, you will probably pull out a red one. We say that ``There
@@ -24,10 +26,25 @@ can use percentages and say ``There is a 1\% chance that you will pull
 out a white marble.'' Or we can use decimals and say ``There is a 0.01
 probability that you will pull out a white marble.''
 
+In probability, we often talk about the probability of certain
+events. ``Pulling out a white marble'' is an event, and we can give it
+a symbol like $W$.  Then, in equations we use $p$ to mean ``the
+probability of''.  Thus, we can say ``There is a 0.01 probability that
+you will pull out a white marble'' becomes the equation
+\begin{equation*}
+  p(W) = 0.01
+\end{equation*}
+
+
+\section{The Probability of All Possibilities is 1.0}
+
 We know that you are going to pull out a red marble or a white marble,
 so the probability of a white marble being pulled and the probability
 of a red marble being pulled must add up to be 100\%.  So the odds of
-pulling out a red marble must be 99\% or 0.99.
+pulling out a red marble must be 99\% or 0.99. If we let the event ``Pull out a red marble'' be given by the symbol $R$, we can say:
+\begin{equation*}
+  p(R) = 1.0 - P(W) = 1.0 - 0.01 = 0.99
+\end{equation*}
 
 Now, let's say that I make you take a marble from the bag and then
 toss a coin. What is the probability that you will pull a white marble
@@ -41,4 +58,37 @@ chance.  Do the probabilities still sum to 1?
 \item Red and Tails = $0.99 \times 0.5 = 0.495$
 \end{itemize}
 Yes, the probabilitites of all the possibilities still add to 1.
+
+\begin{Exercise}[title={Rolling Dice}, label=rolling-dice]
+  If I give you three dice to roll, what is the
+  probability that you will roll a 5 on all three dice?
+\end{Exercise}
+\begin{Answer}[ref=rolling-dice]
+  probability of all 5's $ = \frac{1}{6}\times\frac{1}{6}\times\frac{1}{6} = \left(\frac{1}{6}\right)^3 = \frac{1}{216} \approx 0.0046$
+  \end{Answer}
+    
+\begin{Exercise}[title={Flipping Coins}, label=flipping-coins]
+  If I give you five coins to flip, what is the
+  probability that at least one coin will come up heads?
+\end{Exercise}
+\begin{Answer}[ref=rolling-dice]
+  probability of at least one heads = 1.0 - probability of all tails $ = 1.0 - \left(\frac{1}{2}\right)^5 =1.0 - \frac{1}{32} = \frac{31}{32} = \approx 0.97$ 
+  \end{Answer}
+    
+\section{Why 7 is the mostly likely sum of two dice}
+
+If you roll two dice, the sum will can be 2 or 12 or any number in
+between. It is very tempting to assume that the likelihood of any of
+those numbers is the same. In fact, the probability of a 2 is
+$\frac{1}{36} \approx 3\%$ and the probability of a 7 is $\frac{1}{6}
+\approx 17\%$. A 7 is six times more likely than a 12! Why?
+
+When you roll the first die, there are six possibilities with equal
+probability. When you roll the second die, there are six possibilities
+with equal probability. so there are a total of 36 possible events
+with equal probabilities: 1 then 1, 1 then 2, 2 then 1, 1 then 3, 3
+then 1, etc. Only one of these (1 then 1) adds to 2.  But six of these
+sum to 7: 1 then 6, 6 then 1, 2 then 5, 5 then 2, 3 then 4, 4 then
+3. So a 7 is six times more likely than a 2.
+
 
