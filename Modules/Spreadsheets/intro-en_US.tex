@@ -11,7 +11,7 @@ The first spreadsheet program (VisiCalc) was introduced in 1979 as a
 tool for finance people to play ``what if'' games.  For example, a
 company might make a spreadsheet that told them how much more profit
 they would make if they changed from using an expensive metal to using
-a cheaper alloy.
+a cheaper alloy.\index{Spreadsheet}
 
 In honor of its history, let's start by studying a business question:
 I have a friend who dreams of quitting her job to become a cooper. (A
@@ -29,11 +29,12 @@ She has asked you, ``How many barrels do I need to make each month to survive?''
 
 \section{Solving It Symbolically}
 
-Many problems can be solved two ways: symbolically or numerically. To
-solve this problem symbolically, you would write out the facts as
-equations or inequalities and then do symbol manipulations until you
-ended up with an answer. In this case, you would let $b$ be the number
-of barrells and create the following inequality:
+Many problems can be solved two ways: symbolically or
+numerically.\index{symbolic vs. numeric solutions} To solve this
+problem symbolically, you would write out the facts as equations or
+inequalities and then do symbol manipulations until you ended up with
+an answer. In this case, you would let $b$ be the number of barrells
+and create the following inequality:
 
 $$(1.0 - 0.2)\left(b(100 - 45) - 2000\right) \geq 4000$$
 
@@ -86,7 +87,7 @@ It should look like this:
 
 \includegraphics[width=0.5\textwidth]{NoFormulas.png}
 
-Now you are going to put a formula in cell B3.  Select B3, and type ``= B1 + B2''. The spreadsheet knows this is a formula because it starts with `=`. It will look like this as you type:
+Now you are going to put a formula in cell B3.  Select B3, and type ``= B1 + B2''. The spreadsheet knows this is a formula because it starts with `=`. It will look like this as you type:\index{Spreadsheet!Entering formula}
 
 \includegraphics[width=0.5\textwidth]{TypingFirstFormula.png}
 
@@ -194,10 +195,10 @@ Graphing is a little different on every different platform.  Here is what you wa
 
 \includegraphics[width=0.8\textwidth]{BarrelGraph.png}
 
-On Google Sheets:
+On Google Sheets:\index{spreadsheet!graphs}
 
 \begin{enumerate}
-\item Select cells B7 through G7.
+\item Select cells B7 through G7. 
 \item Choose the menu item Insert -> Chart.
 \item Choose the chart type (Line)
 \item Add the X-axis to be B1 through G1.
@@ -230,7 +231,7 @@ You can use the \$ on the row or colum.  In \$A4, the column is
 absolute and the row is relative.  In A\$4, the row is absolute and
 the column is relative.
 
-\subsection{Challenge: Make a spreadsheet}
+\section{Challenge: Make a spreadsheet}
 
 You have a company that bids on painting jobs. Make a
 spreadsheet to help you do bids. Here are the parameters:

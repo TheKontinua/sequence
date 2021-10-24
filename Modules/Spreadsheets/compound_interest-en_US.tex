@@ -1,0 +1,99 @@
+\chapter{Compound Interest}
+
+When you loan money to someone, you typically charge them some sort of
+interest. The most common loan of this sort is what the bank calls a
+``savings account''.  Any money you put in the account is loaned to
+the bank. The bank then lends it to someone else, who pays interest to
+the bank. And the bank gives some of that interest to you.
+
+However, what if you leave the interest in your account? And you start
+making \textit{interest on the interest}? This is known as
+\textit{compound interest}.\index{compound interest}
+
+\section{An example with annual interest payments}
+
+Lets say that you put \$1000 in a savings account that pays 6\%
+interest every year. How much money would you have after 12 years?
+Let's make a spreadsheet.
+
+\includegraphics[width=0.4\textwidth]{StartInterest.png}
+
+Create a new spreadsheet and edit the cells to look like this.  All
+the cells in row 1 - 4 are just values: just type in what you
+see.
+
+The fifth row is all formulas:
+
+\begin{tabular}{c | c | c}
+  After year & Interest & Balance \\
+  \hline 
+  = A4 + 1 & = B\$1 * C4 & = C4 + B5 \\
+\end{tabular}
+
+The interest rate field should be formatted as a percentage. One thing
+to know when dealing with percentages in the spreadsheet: if the field
+says ``600\%'', its value is 6. 
+
+The cells in the Interest and Balance column should be formatted as currency.
+
+You are about to make a bunch of copies of the cells in the fifth row,
+so make sure they look right.
+
+Click on A5 and shift click on C5 to select all three cells. Drag the
+lower-right corner down to fill the rows 6 - 15.
+
+\includegraphics[width=0.5\textwidth]{CopiedCellsInterest.png}
+
+Look at the numbers.  The first interest payment is \$60, but the last
+is \$113.90. Your balance has more than doubled!
+
+\section{Exponential Growth}
+
+We figured this out numerically by repeatedly multiplying the balance
+by the interest rate.  What if you wanted to know what the balance
+would be $n$ years after investing $P_0$ dollars with an annual interest
+rate of $r$? (Note that $r$ in our example would be 0.06, not 6.0.)
+
+Each year, the balance is multiplied by $1 + r$, so after one year,
+$P_0$ would become $P_0 \times (1 + r)$.  The next year you would multiply
+this number by $(1 + r)$ again: $P_0 \times (1 + r) \times (1 + r)$. The
+next year? $P_0 \times (1 + r) \times (1 + r) \times (1 + r)$ See the
+pattern? If we define $P_n$ be this balance after $n$ years, then
+
+$$P_n = P_0 (1+r)^n$$
+
+Because $n$ is an exponent, we call this \textit{exponential growth}.
+And there are few things as terrifying to a scientist as
+the phrase ``The population is undergoing exponential growth''.\index{exponential growth}
+
+\section{Sensitivity to interest rate}
+
+For most people, the first surprising thing about compound interest is
+how quickly your money grows after a few years.  The second thing that
+is surprising is how much difference a small change in the percentage
+rate makes.
+
+Lets add another set of columns that shows what happens to your money
+if you convince the bank to pay you 8\% instead of 6\%.
+
+Copy everything from columns B and C:
+
+\includegraphics[width=0.6\textwidth]{CopyForSecondInterest.png}
+
+Now edit the second interest rate to be 8\%:
+
+\includegraphics[width=0.6\textwidth]{AtBiggerInterestRate.png}
+
+\section{Make Bar Graph}
+
+Try to make a bar graph that shows both balances over time:
+
+\includegraphics[width=0.9\textwidth]{InterestGraph.png}
+
+The year column should be used as the x-axis. There are two series of
+data that come from C4:C16 and E4:E16.  Tidy up the titles and legend
+as much as you like.\index{spreadsheet!graphing multiple series}
+
+Looking at the graph, you can see the balances start the same, but
+balance of the account with the larger interest rate quickly pulls
+away from the account with the smaller interest rate.

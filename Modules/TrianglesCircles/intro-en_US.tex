@@ -1,7 +1,7 @@
 \chapter{Introduction to Triangles}
 
 Connecting any three points with three line segments will get you a
-triangle. Here is the triangle $ABC$ created by connecting three points $A$, $B$, and $C$:
+triangle. Here is the triangle $ABC$ created by connecting three points $A$, $B$, and $C$:\index{triangle}
 
 \begin{tikzpicture}[scale=1.5]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -14,7 +14,7 @@ triangle. Here is the triangle $ABC$ created by connecting three points $A$, $B$
 
 \section{Equilateral and Isosceles Triangles}
 
-We talk a lot about the length of the sides of triangles. If all three sides of the triangle are the same length, we say it is an \emph{equilateral triangle}:
+We talk a lot about the length of the sides of triangles. If all three sides of the triangle are the same length, we say it is an \emph{equilateral triangle}:\index{equilateral triangle}
 
 \begin{tikzpicture}[scale=1.5]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -28,7 +28,7 @@ We talk a lot about the length of the sides of triangles. If all three sides of 
   \tkzMarkSegment[pos=.5,mark=||](c,a)
 \end{tikzpicture}
 
-If only two sides of the triangle are the same length, we say it is an \emph{isosceles triangle}:
+If only two sides of the triangle are the same length, we say it is an \emph{isosceles triangle}:\index{isoscelese triangle}
 
 \begin{tikzpicture}[scale=1.3]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -44,7 +44,7 @@ If only two sides of the triangle are the same length, we say it is an \emph{iso
 The shortest distance between two points is always the straight line
 between them. Thus, you can be certain that the length of one side
 will \emph{always} be less than the sum of the lengths of the
-remaining two sides. This is known as the \emph{triangle inequality}
+remaining two sides. This is known as the \emph{triangle inequality}.\index{triangle inequality}
 
 For example, in this diagram $c$ must be less than $a + b$.
 
@@ -73,7 +73,7 @@ We also talk a lot about the interior angles of a triangle:
   \pic [draw, <->, "$c$", angle eccentricity=1.5] {angle = b--c--a};
 \end{tikzpicture}
 
-A triangle where one of the interior angles is a right angle is said to be a \emph{right triangle}:
+A triangle where one of the interior angles is a right angle is said to be a \emph{right triangle}:\index{right triangle}
 
 \begin{tikzpicture}[scale=1.2]
   \coordinate [circle, fill, inner sep=2pt] (a) at (0,0) ;
@@ -85,7 +85,7 @@ A triangle where one of the interior angles is a right angle is said to be a \em
   \pic [draw,angle eccentricity=1.5] {right angle = c--a--b};
 \end{tikzpicture}
 
-If a triangle has an obtuse interior angle, it is said to be an \emph{obtuse triangle}:
+If a triangle has an obtuse interior angle, it is said to be an \emph{obtuse triangle}:\index{obtuse triange}
 
 \begin{tikzpicture}[scale=1.2]
   \coordinate [circle, fill, inner sep=2pt] (a) at (1.5,0) ;
@@ -97,7 +97,7 @@ If a triangle has an obtuse interior angle, it is said to be an \emph{obtuse tri
   \pic [draw, <->, "obtuse", angle eccentricity=1.7] {angle = c--a--b};
 \end{tikzpicture}
 
-If all three interior angles of a triangle are less than $90^\circ$, it is said to be an \emph{acute triangle}.
+If all three interior angles of a triangle are less than $90^\circ$, it is said to be an \emph{acute triangle}.\index{acute triangle}
 
 The measures of the interior angles of a triangle always add up to
 $180^\circ$. For example, if you tell me that a triangle has interior
