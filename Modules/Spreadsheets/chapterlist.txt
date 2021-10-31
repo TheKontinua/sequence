@@ -2,4 +2,5 @@ intro
 compound_interest
 intro_dataviz
 exponents_review
+exponential_decay
 dc1
