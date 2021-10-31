@@ -90,10 +90,13 @@ Julia, which is a more elegant and efficient language, would also be a
 good choice, but at this time Python is a more desireable skill in
 industry. We will use Python.
 
-The student will use only open source software during this
-sequence. This lowers the cost of software to zero, and empowers the
-student by inviting them to explore the foundational code they rely
-upon.
+For simple problems, the student will use a speadsheet. We are not
+specifying which spreadsheet program the student must use, but the
+book will use Google Sheets.
+
+The student can do this sequence using only open source software. This
+lowers the cost of software to zero, and empowers the student by
+inviting them to explore the foundational code they rely upon.
 
 Markup
 ------
