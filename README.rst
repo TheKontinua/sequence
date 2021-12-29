@@ -117,6 +117,7 @@ Building the books
 ------------------
 
 You will need to have installed git, Python 3, and LaTeX.
+
 (On a Mac, you should install Xcode (from the app store and it includes git) and `brew <https://brew.sh>`_. Then::
 
   brew install python
@@ -126,6 +127,14 @@ Clone the github repository::
   
   git clone https://github.com/hillegass/sequence.git
 
+You will also need some fonts from the `Google Font Collection <https://fonts.google.com/>`_ :
+
+* Marcellus Regular
+* Marcellus SC Regular
+* OpenSans Bold
+* OpenSans Bold Italic
+* OpenSans Semi Bold
+  
 In the ``Build`` directory, there are three python scripts called
 ``build_workbook.py``, ``gather_resources.py`` and ``clean.py``. The first
 time you run any of these, the file ``Build/user.cfg`` will be
