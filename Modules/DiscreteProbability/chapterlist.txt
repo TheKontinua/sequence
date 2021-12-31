@@ -1,4 +1,5 @@
 intro
 combinatorics
 permutations
+conditional_prob
 bayes
