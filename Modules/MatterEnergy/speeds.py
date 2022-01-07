@@ -29,6 +29,8 @@ print(f"Actual mean: {np.mean(samples)}")
 
 print(f"Actual variance: {np.var(samples)}")
 
+np.savetxt("1000cars.csv", samples, fmt='%.4f', delimiter=',')
+
 fig, ax = plt.subplots()
 ax.set_ylabel('Number of cars')
 ax.set_xlabel('Speed in m/s')
