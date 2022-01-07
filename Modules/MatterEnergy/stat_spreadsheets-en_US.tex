@@ -4,7 +4,7 @@ When you did the problems in the last section, you probably noticed
 how tedious it was to compute statistics like the mean, the median,
 and variance by hand. Computers were designed to free us from these
 sorts of tedious tasks. The most basic tool for automating
-calculations is the spreadsheet program.
+calculations is the spreadsheet program.\index{spreadsheet}
 
 There are lots of spreadsheet programs including Microsoft's Excel and
 Apple's Numbers. Any spreadsheet program will work; they are all very
@@ -135,4 +135,21 @@ Play with the formatting to see how pretty you can make yours.  Here is mine:
 
 \includegraphics[width=0.8\textwidth]{final_histogram.png}
 
+\begin{Exercise}[title={RMS}, label=rms_spreadsheet]
 
+  In your spreadsheet, calculate the quadratic mean (the root-mean-squared) of the speeds.
+
+  You will need the following three functions:
+  \begin{itemize}
+  \item \pyfunction{SUMSQ} returns the sum of the squares of a range of cells.
+  \item \pyfunction{COUNT} returns the number of cells in a range that contain numbers.
+  \item \pyfunction{SQRT} returns the square root of a number.
+  \end{itemize}
+
+
+\end{Exercise}
+\begin{Answer}[ref=rms_spreadsheet]
+
+The formula for the RMS is ``=SQRT(SUMSQ(A2:A1001)/COUNT(A2:A1001))''.
+  
+\end{Answer}

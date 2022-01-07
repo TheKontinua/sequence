@@ -1,0 +1,148 @@
+\chapter{Units and Conversions}
+
+At this point, you are working with a lot of units: grams for weight,
+joules for energy, newtons for force, meters for distance, seconds for
+time, etc. For each type of measurement, there are several different
+units; for example, distance can be measured in feet, miles,
+and light-years.
+
+For your reference, here is a table of equivalencies:
+
+\begin{tabular}{r | l}
+  \hline
+  \multicolumn{2}{c}{\textbf{Distance}}\\
+  1 mile & 1.6093 kilometers \\
+  1 foot & 0.3048 meters \\
+  1 inch & 2.54 centimeters \\
+  1 light-year & $9.461 \times 10^{12}$ kilometers\\
+  \hline
+  \multicolumn{2}{c}{\textbf{Volume}}\\
+  1 milliliter & 1 cubic centimeter \\
+  1 quart & 0.9461 liters \\
+  1 gallon & 3.7854 liters \\
+  1 fluid ounce & 29.6 milliliters \\
+  \hline
+  \multicolumn{2}{c}{\textbf{Mass}}\\
+  1 pound & 0.4535924 kilograms\\
+  1 ounce & 0.4535924 grams\\
+  1 metric ton & 1000 kilograms \\
+  \hline
+  \multicolumn{2}{c}{\textbf{Force}}\\
+  1 newton & 1 kilogram meter per sec$^2$\\
+  \hline
+  \multicolumn{2}{c}{\textbf{Pressure}}\\
+  1 pascal & 1 newton per square meter \\
+  1 bar & 0.98692 atmosphere \\
+  1 pound per square inch & 6897 pascals \\
+  \hline
+  \multicolumn{2}{c}{\textbf{Energy}}\\
+  1 joule & 1 newton meter \\
+  1 calorie & 4.184 joules \\
+  1 kilowatt-hour & $3.6 \times 10^{6}$ joules  \\
+\end{tabular}\index{units table}
+
+(You don't need to memorize these! Just remember that this page is here.)
+
+In the metric system, prefixes are often used to express a multiple. Here are the common prefixes:\index{metric system!prefixes}
+
+\begin{tabular}{r | l}
+giga  & $\times 10^{9}$\\
+mega  & $\times 10^{6}$\\
+kilo  & $\times 10^{3}$\\
+milli  & $\div 10^{3}$\\
+micro  & $\div 10^{6}$\\
+nano  & $\div 10^{9}$\\
+\end{tabular}
+
+(These are worth memorizing.)
+
+\section{Conversion Factors}
+
+Here is a really handy trick to remembering how to do conversions
+between units.\index{conversion factors}
+
+Often, you will a table like the one above, and someone will ask you
+``How many miles are in 0.23 light-years?''  You know that 1 mile = 1.6093
+kilometers and that 1 light-year is $9.461 \times 10^{12}$ kilometers.
+How do you do the conversion?
+
+The trick is to treat the two parts of the equality as a fraction that equals 1.  That is, you think:
+
+$$\frac{1 \text{ miles}}{1.6093 \text{ km}} = \frac{1.6093 \text{ km}}{1 \text{ miles}} = 1$$
+
+and
+
+$$\frac{1 \text{ light-years}}{9.461 \times 10^{12} \text{ km}} = \frac{9.461 \times 10^{12} \text{ km}}{1 \text{ light-years}} = 1$$
+
+We call these fractions \textit{conversion factors}.
+
+Now, your problem is
+
+$$0.23 \text{ light-years} \times \textit{ Some conversion factors} = ? \text{ miles}$$
+
+Note that when you multiply fractions together, things in the numerators can cancel with things in the denominator:
+
+$$\left( \frac{31\pi}{47} \right) \left( \frac{11}{37\pi}\right) = \left(\frac{31\cancel{\pi}}{47}\right) \left( \frac{11}{37\cancel{\pi}}\right) = \left(\frac{31}{47} \right) \left( \frac{11}{37} \right)$$
+
+When working with conversion factors, you will do the same with the units:
+
+\begin{multline*}
+  0.23 \text{ light-years} \left( \frac{9.461 \times 10^{12} \text{ km}}{1 \text{ light-years}} \right) \left( \frac{1 \text{ miles}}{1.6093 \text{ km}} \right) = \\
+  0.23 \text{ \cancel{light-years}} \left( \times \frac{9.461 \times 10^{12} \text{ \cancel{km}}}{1 \text{ \cancel{light-years}}} \right) \left( \frac{1 \text{ miles}}{1.6093 \text{ \cancel{km}}}\right) = \frac{(0.23)(9.461 \times 10^{12})}{1.6093} \text{ miles}$$
+\end{multline*}
+
+\begin{Exercise}[title={Simple Conversion Factors}, label=simple_conversion_factors]
+
+  How many calories are in 4.5 killowatt-hours?
+  
+\end{Exercise}
+\begin{Answer}[ref=simple_conversion_factors]
+
+  $$4.5 \text{ \cancel{kWh}} \left( \frac{3.6 \times 10^{6} \text{ \cancel{joules}}}{1 \text{ \cancel{kWh}}} \right) \left( \frac{1 \text{ calories}}{4.184 \text{ \cancel{joules}}}\right) = \frac{(4.5)(3.6 \times 10^6)}{4.184} = 1.08 \times 10^6 \text {calories}$$
+  
+\end{Answer}
+
+\section{Conversion Factors and Ratios}
+
+Conversion factors also work on ratios.  For example, if you are told
+that a bug is moving 0.5 feet every 120 milliseconds. What is that in
+meters per second?
+
+The problem, then is
+
+$$\frac{0.5 \text{ feet}}{120 \text{ milliseconds}} = \frac{\text{? m}}{second}$$
+
+So you will need conversion factors to replace the ``feet'' with ``meters'' and to replace ``milliseconds'' with ``seconds'':
+
+\begin{multline*}
+\left(\frac{0.5 \text{ \cancel{feet}}}{120 \text{ \cancel{milliseconds}}}\right) \left( \frac{0.3048 \text{ meters}}{1 \text{ \cancel{feet}}} \right) \left( \frac{ 1000 \text{ \cancel{milliseconds}}} {1 \text{ second}}\right) = \frac{(0.5)(0.3048)(1000)}{120}\text{ m/second}
+\end{multline*}
+
+\begin{Exercise}[title={Conversion Factors}, label=conversion_factors]
+
+The hole in the bottom of the boat lets in 0.1 gallons every 2 minutes.  How many milliliters per second is that?
+  
+\end{Exercise}
+\begin{Answer}[ref=onversion_factors]
+
+  \begin{multline*}
+    \frac{0.1 \text{ \cancel{gallons}}}{2 \text{ \cancel{minutes}}}
+  \left( \frac{3.7854 \text{ \cancel{liters}}}{1 \text{ \cancel{gallons}}} \right)
+  \left( \frac{1000 \text{ milliliters}}{1\text{ \cancel{liters}}}\right)
+  \left( \frac{1 \text{ \cancel{minutes}}}{60 \text{ seconds}} \right) = \\
+  \frac{(0.1)(3.7854)(1000)}{(2)(60)} \text{ ml/second} = 3.1545 \text{ ml/second}
+  \end{multline*}
+  
+\end{Answer}
+
+\section{When Conversion Factors Don't Work}
+
+Conversion factors only work when the units being converted are
+proportional to each other. Gallons and liters, for example are
+proportional to each other: If you have $n$ gallons, you have $n
+\times 3.7854$ liters.
+
+Degrees celsius and degrees farenheit are \textit{not} proportional to
+each other.  If your food is $n$ degrees celsius, it is $n \times
+\frac{9}{5} + 32$ degrees farenheit.  You can't use conversion factors
+to convert celsius to farenheit.

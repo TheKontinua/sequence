@@ -864,8 +864,11 @@
 
 %% If wanted, makes more graceful math fonts:
 \usepackage{euler}
-
 \usepackage{fontspec}
+
+%% For strikethrough
+\usepackage{cancel}
+
 
 %%% Set Main Text Font
 \setmainfont{TeX Gyre Pagella}[Ligatures=TeX, WordSpace=1.2]
