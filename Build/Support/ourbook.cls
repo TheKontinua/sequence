@@ -808,6 +808,7 @@
 \usepackage{tikz}
 \usepackage{tikz}
 \usepackage{tkz-euclide}
+\usepackage{pgfplots}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
