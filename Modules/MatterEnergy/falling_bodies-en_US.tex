@@ -1,0 +1,198 @@
+\chapter{Falling Bodies}
+
+Because of gravity, if you throw a hammer straight up in the air, from
+the moment it leaves your hand until it hits the ground, it is
+accelerating toward the center of the earth at a constant rate.
+
+\emph{Acceration} is the change in velocity. If the hammer leaves your
+hand with a velocity of 12 meters per second upward, one second later
+it will be rising, its velocity will have slowed to 2.2 meters per
+second. One second after that, the hammer will be falling at a rate of
+7.6 meters per second. Every second hammer's velocity is changing by
+9.8 meters per second, and that change is always toward the center of
+the earth. When the hammer is going up, gravity is slowing it down by
+9.8 meters per second each second.  When the hammer is coming down,
+gravity is speeding it up by 9.8 meters per second each second.\index{acceleration}
+
+Acceleration due to gravity on earth is a constant negative 9.8 meters per second per second:
+\begin{equation*}
+a = -9.8   
+\end{equation*}
+(Why is it negative? We are talking about height, which increases as
+you go away from the center of the earth. Acceleration is changing the
+velocity in the opposite direction.)
+
+\section{Calculating the Velocity}
+
+Given that the acceleration is constant, it makes sense that the
+velocity is a straight line. Assuming once again that the hammer
+leaves your hand at 12 meters per second, then the upwards velocity at
+time $t$ is given by:
+\begin{equation*}
+  v = 12 - 9.8t
+\end{equation*}
+
+Note that the velocity of the hammer is being given as a function. Here is its graph:
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.25,xmax=2.75,
+        ymin=-13,ymax=13,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$t$},
+        ylabel={$v$},
+        ]
+        \addplot[no marks,sdkblue] expression[domain=0:2.25,samples=100]{x * (-9.8) + 12} node[left] {$12 - 9.8t$}; 
+    \end{axis}
+\end{tikzpicture}
+
+\begin{Exercise}[title={When is the apex of flight?}, label=vapex]
+  Given the hammer's velocity is given by $12 - 9.8t$, at what time (in seconds)
+  does it stop rising and begin to fall?
+\end{Exercise}
+\begin{Answer}[ref=vapex]
+  Solve for when the velocity is zero.
+
+  $t = \frac{12}{9.8} = 1.22$ seconds after release.
+\end{Answer}
+
+At this point, we need to say something about air resistance. Gravity
+is not the only force on the hammer; as it travels through the air,
+the air tries to slow it down. This force is called \emph{air resistance},
+and for a large, fast moving object (like an airplane) it is very big force. For a
+dense object (like a hammer) moving at a slow speed (what you generate
+with your hand), air resistance doesn't significantly affect acceleration.
+
+\section{Calculating Position}
+
+If you let go of the hammer when it is 2 meters
+above the ground, the height of the hammer is given by:
+\begin{equation*}
+  p = -\frac{9.8}{2}t^2 + 12t + 2
+\end{equation*}
+
+Here is a graph of this function:
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-1.2,xmax=3.5,
+        ymin=-13,ymax=13,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$t$},
+        ylabel={$p$},
+      ]
+      \addplot[no marks,sdkblue,dashed,<-] expression [domain=-0.7:0,samples=100] {(-4.9)*(x^2) + 12 * x + 2};
+      \addplot[no marks,sdkblue] expression [domain=0:2.58,samples=100] {(-4.9)*(x^2) + 12 * x + 2};
+      \addplot[no marks,sdkblue,dashed,->] expression [domain=2.58:3,samples=100] {(-4.9)*(x^2) + 12 * x + 2};
+    \end{axis}
+\end{tikzpicture}
+
+
+How did I figure this out? \textbf{The change in position between time
+  $0$ and any time $t$ is equal to the area under the velocity graph
+  between $x = 0$ and $x = t$.}
+
+Let's use the velocity graph to figure out how much the position has
+changed in the first second of the hammer's flight. Here's the
+velocity graph with the area under the graph for the first second filled
+in:
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.25,xmax=2.75,
+        ymin=-13,ymax=13,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$t$},
+        ylabel={$v$},
+      ]
+      \addplot[no marks,sdkblue, name path=f] expression[domain=0:2.25,samples=100]{x * (-9.8) + 12} node[left] {$12 - 9.8t$};
+      \path[name path=xaxis] (axis cs:0,0) -- (axis cs:1,0);
+      \addplot[
+        thick,
+        color=sdkblue,
+        fill=sdkblue, 
+        fill opacity=0.05
+    ]
+    fill between[
+        of=f and xaxis,
+        soft clip={domain=0:1},
+    ];
+    \addplot[dashed,gray] coordinates {(0,12)(1,12)};
+    \addplot[dashed,gray] coordinates {(1,12)(1,0)};
+    \end{axis}
+\end{tikzpicture}
+
+The blue filled region is the area of the dashed rectangle minus that
+empty triangle in its upper left.  The height of the rectangle is
+twelve and its width is the amount of time the hammer has been in
+flight ($t$).  The triangle is $t$ wide and and $9.8t$ tall. Thus, the
+area of the blue region is given by $12t - \frac{1}{2}9.8 t^2$.
+
+That's the change in position. Where was it originally? 2 meter off
+the ground.  So the height is given by $p = 2 + 12t - \frac{1}{2}9.8t^2$.
+We usually write terms so that the exponent decreases, so:
+
+$$p = - \frac{1}{2}9.8t^2 + 12t + 2$$
+
+
+
+Finding the area under the curve like this is called
+\textit{integration}.  We say ``To find a function that gives the
+change in position, we just integrate the velocity function.''  A lot
+of the study of calculus is learning to integrate different sorts of
+functions.
+
+One important note about integration: Any time the curve drops under
+the $x$-axis, the area is considered negative. (Which makes sense,
+right? If the velocity is negative, the hammer's position is
+decreasing.)
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.25,xmax=2.75,
+        ymin=-13,ymax=13,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$t$},
+        ylabel={$v$},
+      ]
+      \addplot[no marks,sdkblue, name path=f] expression[domain=0:2.25,samples=100]{x * (-9.8) + 12} node[left] {$12 - 9.8t$};
+      \path[name path=xaxis] (axis cs:0,0) -- (axis cs:2.25,0);
+      \addplot[
+        thick,
+        color=sdkblue,
+        fill=sdkblue, 
+        fill opacity=0.05
+      ]
+      fill between[
+        of=f and xaxis,
+        soft clip={domain=0:1.2245},
+      ];
+      \addplot[
+        thick,
+        color=red,
+        fill=red, 
+        fill opacity=0.07
+      ]
+      fill between[
+        of=f and xaxis,
+        soft clip={domain=1.2245:2.1},
+      ];
+    \end{axis}
+\end{tikzpicture}
+
+A natural question at this point is ``When will the hammer hit the
+ground?''  That is, when does $p = 0$. The values of $t$ where $p = 0$
+are known as the \textit{roots} of the quadratic function. In the next
+chapter, you will get the trick for finding the roots of any quadratic
+function.

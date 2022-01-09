@@ -3,11 +3,10 @@ pylists
 add_subtract
 multiplying
 pymultpoly
-falling_bodies
+differentiating
 classes
 common_products
 factoring
-solving_quadratics
 practice
 graphs
 interpolating

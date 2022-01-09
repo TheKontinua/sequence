@@ -811,6 +811,14 @@
 \usepackage{pgfplots}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
+%%%%%%%%%%%%%%%%%%
+%% Important Box
+\usepackage{mdframed}
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\global\mdfdefinestyle{important}{%
+  linecolor=sdkblue,linewidth=1pt % leftmargin=1cm,rightmargin=1cm
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Colors
 

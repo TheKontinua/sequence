@@ -32,9 +32,15 @@ samples and divide that number by the number of samples.\index{mean}
 The numbers in that table sum to $388.599$.  If you divide that by 12,
 you find that the mean of those samples is 32.217 m/s.
 
-We typically use the greek letter $\mu$ (``mu'') to represent the mean. So if you have a set of samples $x_1, x_2, \ldots, x_n$:
+We typically use the greek letter $\mu$ (``mu'') to represent the mean.
+
+\begin{mdframed}[style=important, frametitle={Definition of Mean}]
+  
+If you have a set of samples $x_1, x_2, \ldots, x_n$, the mean is:
 
 $$ \mu = \frac{1}{n} \sum_{i=1}^n x_i$$
+
+\end{mdframed}
 
 This may be the first time you are seeing a summation ($\sum$).  The equation above is equivalent to:\index{summation symbol}
 
@@ -60,9 +66,13 @@ to have a mean of 31.71?'' To answer this question we use variance.
 
 \section{Variance}
 
+\begin{mdframed}[style=important, frametitle={Definition of Variance}]
+
 If you have $n$ samples $x_1, x_2, \ldots, x_n$ that have a mean of $\mu$, the \textit{variance} is defined to be:\index{variance}
 
 $$v = \frac{1}{n}\sum_{i = 1}^{n} \left(x_i - \mu\right)^2$$
+
+\end{mdframed}
 
 That is, you figure out how far each sample is from the median, you
 square that, and then you take the mean of all those squared
@@ -226,10 +236,16 @@ couple of people who drive a lot faster than anyone else.
 
 Scientists have a mean-like statistic that they love. It is named
 quadratic mean, but everyone just calls it Root-Mean-Squared or
-RMS. If you have a list of numbers $x_1, x_2, \ldots, x_n$, their RMS
+RMS.
+
+\begin{mdframed}[style=important, frametitle={Definition of RMS}]
+
+If you have a list of numbers $x_1, x_2, \ldots, x_n$, their RMS
 is \index{quadratic mean} \index{root-mean-squared} \index{RMS}
 
 $$\sqrt{\frac{1}{n}\left( x_1^2 + x_2^2 + \ldots + x_n^2 \right)}$$
+
+\end{mdframed}
 
 You are taking the square root of the mean of squares of the samples,
 thus the name Root-Mean-Squared.

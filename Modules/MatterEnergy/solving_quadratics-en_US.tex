@@ -1,0 +1,133 @@
+\chapter{Solving Quadratics}
+
+A quadratic function has three terms: $ax^2 + bx + c$. $a$, $b$, and
+$c$ are known as the \textit{coefficents}. The coefficients can be any
+constant, except that $a$ can never be zero. (If $a$ is zero, it is a linear
+function, not a quadratic.)
+
+When you have an equation with a quadratic function on one side and a
+zero on the other, you have a quadratic equation. For example:
+
+$$72x^2 - 12x + 1.2 = 0$$
+
+How can you find the values of $x$ that will make this equation true?
+
+You can always reduce a quadratic equation so that the first
+coefficient is 1, so that your equation looks like this:
+
+$$x^2 +bx + c = 0$$
+
+For example, if you are asked to solve $4x^2 + 8x - 19 = -2x^2 - 7$
+\begin{multline*}
+  4x^2 + 8x - 19 = -2x^2 - 7 \\
+  6x^2 + 8x -12 = 0 \\
+  x^2 + \frac{4}{3}x - 2 = 0
+\end{multline*}
+Here, $b = \frac{4}{3}$ and $c = -2$.
+
+\begin{mdframed}[style=important]
+$x^2 + bx + c = 0$ when
+\begin{equation*}
+x = -\frac{b}{2} \pm \frac{\sqrt{b^2 - 4c}}{2}  
+\end{equation*}
+\end{mdframed}
+
+What does this mean?
+
+For any $b$ and $c$, the graph of $x^2 + bx + c$ is a parabola
+that goes up on each end. Its low point is at $x = -\frac{b}{2}$.
+
+If there are no real roots ($b^2 - 4c < 0$), that means the
+parabola never gets low enough to cross the $x$-axis:
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.5,xmax=2.75,
+        ymin=-1,ymax=5,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$x$},
+        ylabel={$y$},
+      ]
+      \addplot[no marks,sdkblue] expression[domain=-0.25:2.5,samples=100]{x^2 - 2* x + 3} node[above, xshift=-1cm] {$x^2 - 2x + 3$};
+      \addplot[dashed,gray] coordinates {(1,-1)(1,3)};
+    \end{axis}
+\end{tikzpicture}
+
+If there is one real root ($b^2 - 4c = 0$), it means that the parabola just touches the x-axis.
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.5,xmax=3.75,
+        ymin=-0.5,ymax=5,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$x$},
+        ylabel={$y$},
+      ]
+      \addplot[no marks,sdkblue] expression[domain=-0.25:3.5,samples=100]{x^2 - 4*x + 4} node[above, xshift=-1cm] {$x^2 - 4x + 4$};
+      \addplot[dashed,gray] coordinates {(2,-0.5)(2,1)};
+    \end{axis}
+\end{tikzpicture}
+
+If there are two real roots ($b^2 - 4c > 0$), it means that the parabola crosses the x-axis twice as it dips below and then returns:
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.5,xmax=3.75,
+        ymin=-2,ymax=5,
+        axis x line=middle,
+        axis y line=middle,
+        axis line style=<->,
+        xlabel={$x$},
+        ylabel={$y$},
+      ]
+      \addplot[no marks,sdkblue] expression[domain=-0.25:3.5,samples=100]{x^2 - 3*x + 1} node[above, xshift=-1cm] {$x^2 - 4x + 4$};
+      \addplot[dashed,gray] coordinates {(1.5,-2)(1.5,1)};
+    \end{axis}
+\end{tikzpicture}
+
+\begin{Exercise}[title={Roots of a Quadratic}, label=solve_quadratic]
+
+  In the last chapter, you found that the function for the height of your flying hammer is:
+
+  $$p = -\frac{1}{2}9.8 t^2 + 12t + 2$$
+
+  At what time will the hammer hit the ground?
+
+  
+\end{Exercise}
+\begin{Answer}[ref=solve_quadratic]
+
+  For what $t$ is  $-4.9 t^2 + 12t + 2 = 0$?  Start by dividing both sides of the equation by -4.9.
+
+  $$t^2 - 2.45 t - 0.408 = 0$$
+
+  The roots of this are at
+
+  $$x = -\frac{b}{2} \pm \frac{\sqrt{b^2 - 4c}}{2} = -\frac{-2.45}{2} \pm \frac{\sqrt{(-2.45)^2 - 4(-0.408)}}{2} = 1.22 \pm 1.36$$
+
+  We only care about the root after we release the hammer ($t > 0$).
+
+  $1.22 + 1.36 = 2.58$ seconds after releasing the hammer, it will hit the ground.
+
+  
+\end{Answer}
+
+
+\section{The Traditional Quadratic Formula}
+
+I like the approach I just showed you. I find it easier to remember
+and easier to prove than the traditional quadratic fomula, but you
+should probably know the traditional quadratic formula.
+
+\begin{mdframed}[style=important, frametitle={The Quadratic Formula}]
+
+$ax^2 + bx + c = 0$ when
+\begin{equation*}
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation*}
+
+\end{mdframed}
