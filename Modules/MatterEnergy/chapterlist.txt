@@ -2,8 +2,8 @@ intro
 atomic_mass
 work_energy
 units_conversions
-basic_statistics
-stat_spreadsheets
 functions
 falling_bodies
 solving_quadratics
+basic_statistics
+stat_spreadsheets
