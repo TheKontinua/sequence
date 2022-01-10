@@ -3,9 +3,10 @@ atomic_mass
 work_energy
 units_conversions
 heat
+basic_statistics
+stat_spreadsheets
+dc1
 functions
 falling_bodies
 solving_quadratics
-basic_statistics
-stat_spreadsheets
 

@@ -4,4 +4,3 @@ intro_dataviz
 exponents_review
 exponential_decay
 logs
-dc1
