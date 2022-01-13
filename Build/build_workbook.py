@@ -94,5 +94,5 @@ print ('Building workbook ', book)
 
 os.chdir('Intermediate')
 
-build_book(book, ['en_US', 'it_IT'], 'Letter', false)
+build_book(book, ['en_US', 'it_IT'], 'Letter', False)
                         
