@@ -43,6 +43,15 @@ the current -- like a ball of hair.  The battery is what creates the
 pressure that pushes the current through the resistance. We call that
 pressure \textit{voltage}.\index{voltage}
 
+Here is a circuit diagram of your flashlight:
+
+\begin{circuitikz}
+  \draw
+  (0,0) to [battery] (0,4)
+  to [switch] (4,4) -- (4,0)
+  to [lamp] (0,0);
+\end{circuitikz}
+
 Resistance is measured in \textit{ohms}.  Voltage is measured in
 \textit{volts}.\index{ohms}\index{volts}
 

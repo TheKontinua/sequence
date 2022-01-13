@@ -810,6 +810,7 @@
 \usepackage{pgfplots}
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usepackage{tikz-3dplot}
+\usepackage{circuitikz}
 
 %%%%%%%%%%%%%%%%%%
 %% Important Box
