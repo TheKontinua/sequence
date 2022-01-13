@@ -54,9 +54,7 @@ Resistance is measured in \textit{ohms}.  Voltage is measured in
   where $V$ is in volts, $I$ is in amps, and $R$ is in ohms.
 \end{mdframed}
 
-As mentioned in the introduction to work and energy, the amount of
-energy that a resistance consumes is proportional to the square of the
-current passing through the resistance.
+\section{Power and Watts}
 
 \begin{mdframed}[style=important, frametitle={Joule's Law}]\index{Joule's law}
 
@@ -78,10 +76,30 @@ volts) and the current (in amps). So your flashlight giving off $3
 volts \times 1 amp = 3 watts$ of power. Some of that power is given
 off as light, some as heat.\index{watts}
 
+A watt is 1 joule of energy per second. We say that a watt is a
+measure of \textit{power}.
 
+When we talk about how much energy is stored in a battery, we use a
+unit like kilowatt-hour.  A kilowatt-hour is equivalent to 3.6 million
+joules.
 
+\section{Another great use of RMS}
 
+In many electrical problems, the voltage fluctuates a lot.  For
+example, the fluctuations in voltage make the sound come out of an
+audio speaker.
 
+You can use the root-mean-squared of the voltage to figure out the average power
+your speaker is consuming.
 
+Lets say that the RMS of the voltage you are sending to the speaker is $V_{rms}$
+and the resistance of the speaker is $R$ ohms, then the power consumed
+by the speaker is:
 
+$$P = \frac{V_{rms}^2}{R}$$
+
+Similarly, if you know the RMS of the current you are pushing through
+the speaker is $I_{rms}$, then the power consumed by the speaker is:
+
+$$P = I_{rms} R$$
 

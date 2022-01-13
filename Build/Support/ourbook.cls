@@ -806,10 +806,10 @@
 
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{tikz}
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
 \usetikzlibrary{calc,patterns,angles,quotes}
+\usepackage{tikz-3dplot}
 
 %%%%%%%%%%%%%%%%%%
 %% Important Box

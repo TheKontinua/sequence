@@ -1,0 +1,36 @@
+\chapter{Vectors}
+
+We have talked a little about force, but in the calculations that we
+have done, we have only talked about the magnitude of a force. It is
+equally important to talk about its direction. To do the math on
+things with a magnitude and a direction, we need vectors.
+
+A vector is typically represented as a list of numbers, with each
+number representing a particular dimension. For example, if I am
+creating a 3-dimensional vector representing a force, it will have
+three numbers representing the amount of force in each of the three
+axes. For example, if a force of one newton is in the direction of the
+$x$-axis, I might represent the vector as $v = [1, 0, 0]$. Another vector might be $u = [0.5, 0.9, 0.7]$
+
+
+\tdplotsetmaincoords{80}{130} 
+\begin{tikzpicture} [scale=3, tdplot_main_coords, axis/.style={->,sdkblue}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (1.5,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,0.9,0) node[anchor=north west]{$y$};
+\draw[axis] (0,0,0) -- (0,0,0.9) node[anchor=south]{$z$};
+
+%draw a vector from O to P
+\draw[vector] (O) -- (1,0,0) node[above] {v};
+\draw[vector] (O) -- (0.5,0.9,0.7) node[above] {u};
+
+\draw[vector guide] (0.5,0,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.0,0.9,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.5,0.9,0) -- (0.5,0.9,0.7);
+\end{tikzpicture}
