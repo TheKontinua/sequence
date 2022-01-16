@@ -16,9 +16,7 @@ atoms on their way from the battery to the lightbulb and back again.
 
 Electrons are very small, so to study them, scientists came up with a
 unit that represents \textit{a lot} of electrons. 1 \textit{coulomb}
-is about 6,241,509,074,460,762,608 electrons.  When 5 coulombs pass
-through a wire every second, we say ``This wire is carrying 5 ampere of
-current.''\index{coulombs}
+is about 6,241,509,074,460,762,608 electrons.  When 5 coulombs enter one end of the wire every second (and simultaneously 5 coulombs exit the other end), we say ``This wire is carrying 5 ampere of current.''\index{coulombs}
 
 (Truthfully, we usually shorten ampere to just ``amp''.  This is
 sometimes a little awkward because we often shorten the word
@@ -43,16 +41,48 @@ the current -- like a ball of hair.  The battery is what creates the
 pressure that pushes the current through the resistance. We call that
 pressure \textit{voltage}.\index{voltage}
 
+\section{Circuit Diagrams}
+
 Here is a circuit diagram of your flashlight:
 
 \begin{circuitikz}
-  \draw
-  (0,0) to [battery] (0,4)
-  to [switch] (4,4) -- (4,0)
-  to [lamp] (0,0);
+\draw (0,0) to[battery1,invert,l=$3V$] ++(0,3)
+to [switch,i=1A] ++(3,0)
+to [lamp=$1\Omega$,bipoles/length=0.9cm] ++(0,-3) -- (0,0);
 \end{circuitikz}
 
-Resistance is measured in \textit{ohms}.  Voltage is measured in
+The lines are wires.  The symbols that we  will use:
+
+\begin{tabular}{c c c c}
+  Battery & Switch & Lamp & Resistor \\
+\begin{circuitikz}
+\draw (0,0) to[battery1] (2,0); 
+\end{circuitikz}
+&
+\begin{circuitikz}
+\draw (0,0) to[lamp,bipoles/length=0.9cm,l=$3 \Omega$] (2,0); 
+\end{circuitikz}
+&
+\begin{circuitikz}
+\draw (0,0) to[switch,/tikz/circuitikz/bipoles/length=1.0cm] (2,0); 
+\end{circuitikz}
+&
+\begin{circuitikz}
+\draw (0,0) to[R,  l=$3 \Omega$] (2,0); 
+\end{circuitikz} \\
+\end{tabular}
+
+The battery pushes the electrons from one end and pulls them back in at the other,  so the circuit must go around in a circle for current to flow.  This is why the current stops flowing when the switch breaks the circuit.
+
+You can think of a switch as having zero resistance when it is closed and infinite resistance when it is open.
+
+For our purposes, a lamp is just a resistor that gives off light.
+
+\section{Ohm's Law}
+
+Resistance is measured in \textit{ohms}, and we use a Greek capital omega for that: $\Omega$  
+
+Voltage is measured in
 \textit{volts}.\index{ohms}\index{volts}
 
 \begin{mdframed}[style=important, frametitle={Ohm's Law}]\index{Ohm's law}

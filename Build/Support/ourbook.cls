@@ -809,8 +809,8 @@
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
 \usetikzlibrary{calc,patterns,angles,quotes}
+\usepackage[american]{circuitikz}
 \usepackage{tikz-3dplot}
-\usepackage{circuitikz}
 
 %%%%%%%%%%%%%%%%%%
 %% Important Box
