@@ -7,3 +7,4 @@ basic_statistics
 stat_spreadsheets
 dc1
 dc_circuits
+charge
