@@ -1259,9 +1259,11 @@ width 0pt
 \long\def\boxed#1{{\fboxsep=6pt\fbox {\m@th $\displaystyle #1$}}}
 
 
-\newcommand{\pyfunction}[1] {{\tt #1}} \newcommand{\pyvar}[1] {{\tt 
-#1}} \newcommand{\pytype}[1] {{\tt #1}} \newcommand{\filename}[1] 
-{{\tt #1}} 
+\newcommand{\pyfunction}[1] {{\tt #1}} 
+\newcommand{\pyvar}[1] {{\tt #1}}
+\newcommand{\pytype}[1] {{\tt #1}} 
+\newcommand{\filename}[1] {{\tt #1}} 
+\newcommand{\newterm}[1] {{\textit #1}} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
