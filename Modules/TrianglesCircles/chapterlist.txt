@@ -3,3 +3,4 @@ intro
 pythagorean_theorem
 congruence
 vectors
+dot

@@ -3,7 +3,7 @@
 We have talked a some about forces, but in the calculations that we
 have done, we have only talked about the magnitude of a force. It is
 equally important to talk about its direction. To do the math on
-things with a magnitude and a direction (like forces), we need vectors.
+things with a magnitude and a direction (like forces), we need vectors.\index{vectors}
 
 For example, if you jump out of a plane (hopefully with a parachute), 
 several forces with different magnitudes and directions will be acting upon 
@@ -26,7 +26,7 @@ creating a 3-dimensional vector representing a force, it will have
 three numbers representing the amount of force in each of the three
 axes. For example, if a force of one newton is in the direction of the
 $x$-axis, I might represent the vector as $v = [1, 0, 0]$. 
-Another vector might be $u = [0.5, 0.9, 0.7]$
+Another vector might be $u = [0.5, 0.9, 0.7]$ \index{vectors!adding}
 
 \tdplotsetmaincoords{80}{130} 
 \begin{tikzpicture} [scale=4, tdplot_main_coords, axis/.style={->,sdkblue}, 
@@ -142,7 +142,7 @@ Add the following vectors:
 
 It is not uncommon to multiply a vector by a scalar.  For example, a rocket engine
 might have a force vector $v$.  If you fire 9 engines in the exact same direction,
-the resulting force vector would be $9v$.
+the resulting force vector would be $9v$.\index{vectors!multipying by a scalar}
 
 Visually, when we multiply a vector $u$ by a scalar $a$, we get a new vector that
 goes in the same direction as $u$ but has a magnitude $a$ times as long as $u$.
@@ -196,11 +196,133 @@ $$ 3 \times [0.5, 0.9, 0.7] = [1.5, 2.7, 3.6] $$
         \end{itemize}
     \end{Answer}
 
+Note that when you multiply a vector times a negative number, the new vector points 
+in the opposite direction.
+
+\tdplotsetmaincoords{80}{130} 
+\begin{tikzpicture} [scale=5, tdplot_main_coords, axis/.style={->,sdkblue}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (0.55,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,0.95,0) node[anchor=north west]{$y$};
+\draw[axis] (0,0,0) -- (0,0,0.6) node[anchor=south]{$z$};
+
+%draw a vector from O to P
+\draw[vector] (O) -- (0.5,0.9,0.7);
+\draw (0.2,0.36,0.3) node[right] {$u$};
+
+\draw[vector] (O) -- (-0.25,-0.45,-0.35) node[right] {$(-0.5)u$};
+
+\draw[vector guide] (0.5,0,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.0,0.9,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.5,0.9,0) -- (0.5,0.9,0.7);
+
+\draw[vector guide] (-0.25,0,0) -- (-0.25,-0.45,0);
+\draw[vector guide] (0,0,0) -- (-0.25,0,0);
+\draw[vector guide] (0.0,-0.45,0) -- (-0.25,-0.45,0);
+\draw[vector guide] (0,0,0) -- (0,-0.45,0);
+
+\draw[vector guide] (-.25,-0.45,0) -- (-0.25,-0.45,-0.35);
+\end{tikzpicture}
+
+\section{Vector Subtraction}
+
+As you might guess, when you subtract one vector from another, 
+you just do element-wise subtraction:\index{vectors!subtraction}
+
+$$[4,2,0] - [3,-2, 9] = [1, 4, -9]$$
+
+So, $u - v = u + (-1v)$.
+
+So visually, you reverse the one that is being subtracted:
+
+
+\tdplotsetmaincoords{80}{130} 
+\begin{tikzpicture} [scale=5, tdplot_main_coords, axis/.style={->,sdkblue}, 
+light vector/.style={-stealth,dashed,very thick, black}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (0.55,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,1.0,0) node[anchor=north west]{$y$};
+\draw[axis] (0,0,0) -- (0,0,0.75) node[anchor=south]{$z$};
+
+%draw a vector from O to P
+\draw[light vector] (0,0,0) -- (0.5,0.9,0.7);
+\draw[light vector] (0.5, 0.9, 0.7) -- (-0.5, 0.9, 0.7);
+\draw[vector] (0,0,0) -- (-0.5,0.9,0.7) node[right] {u - v};
+\draw (0.1,0.9,0.75) node[left] {-v};
+\draw (0.29,0.34,0.32) node[right] {u};
+
+\draw[vector guide] (0.5,0,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.0,0.9,0) -- (0.5,0.9,0);
+\draw[vector guide] (0.5,0.9,0) -- (0.5,0.9,0.7);
+\draw[vector guide] (0.5,0.9,0) -- (-0.5,0.9,0.0);
+\draw[vector guide] (-0.5,0.9,0.0) -- (-0.5,0.9,0.7);
+\draw[vector guide] (-0.5,0.0,0.0) -- (-0.5,0.9,0.0);
+\draw[vector guide] (0,0.0,0.0) -- (-0.5,0.0,0.0);
+
+\end{tikzpicture}
+
+\section{Magnitude of a Vector}
+
+The \newterm{magnitude} of a vector is just its length. We write the 
+magnitude of a vector $v$ as $|v|$.\index{vectors!magnitude of}
+
+We compute the magnitude using the pythagorean theorem.  If $v = [3,4,5]$, 
+then
+
+\begin{equation*}
+    |v| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{50} \approx 7.07
+\end{equation*}
+
+(You might notice that the notation for the magnitude is exactly like the notation for absolute value.
+If you think of a scalar as a 1-dimensional vector, the absolute value and the magnitude are the same. 
+For example, the absolute value of -5 is 5.  If you take the magnitude of the one-dimenional vector $[-5]$,
+you get $\sqrt{25} = 5$.)
+
+Notice that if you scale up a vector, its magnitude scales by the same amount.  For example:
+
+\begin{equation*}
+|7[3,4,5]| = 7 \sqrt{50} \approx 7 \times 7.07    
+\end{equation*}
+
+The rule then is: If you have any vector $v$ and any scalar $a$:
+\begin{equation*}
+    |a v| = |a| |v|
+\end{equation*}
+
+
+\begin{Exercise}[title={Magnitude of a Vector}, label=vector_mag]
+    Find the magnitude of the following vectors:
+    \begin{itemize}
+        \item $[1, 1, 1]$
+        \item $[-5, -5, -5]$ (that is the same as $-5 \times [1, 1, 1]$)
+        \item $[3, 4, -4] + [-2, -3, 5]$
+    \end{itemize}
+    \end{Exercise}
+    \begin{Answer}[ref=vector_mag]
+        \begin{itemize}
+            \item $|[1, 1, 1]| = \sqrt{3} \approx 1.73 $
+            \item $|[-5, -5, -5]| = |-5 \times [1,1,1]| = 5 \sqrt{3} \approx 8.66$
+            \item $|[3, 4, 5] + [-2, -3, -4]| = | [1,1,1] | = \sqrt{3} \approx 1.73$ 
+        \end{itemize}
+    \end{Answer}
+
 \section{Vectors in Python}
 
 numpy is a library that allows you to work with vectors in Python.  
 You might need to install it on your computer. This is done with \pyfunction{pip}. 
-\pyfunction{pip3} installs things specifically for Python 3.
+\pyfunction{pip3} installs things specifically for Python 3.\index{vectors!in python}
 
 \begin{Verbatim}
 pip3 install numpy
@@ -208,9 +330,12 @@ pip3 install numpy
 
 We can think of a vector as a list of numbers.  
 There are also grids of numbers known as \newterm{matrices}. numpy deals with both the same way, 
-so it refer to both of them as arrays.
+so it refer to both of them as arrays.\index{numpy}
 
-As a convention, everyone who uses numpy, imports it as \textit{np}. 
+The study of vectors and matrices is known as \newterm{Linear Algebra}. Some of the functions we need
+are in a sublibrary of numpy called \pyfunction{linalg}. \index{linalg}
+
+As a convention, everyone who uses numpy, imports it as \textit{np}. \index{np}
 
 Create a file called \filename{first\_vectors.py}:
 
@@ -229,6 +354,12 @@ print(f"u + v = {w}")
 # Multiply by a scalar
 w = v * 3
 print(f"v * 3 = {w}")
+
+# Get the magnitude
+# Get the magnitude
+mv = np.linalg.norm(v)
+mu = np.linalg.norm(u)
+print(f"|v| = {mv}, |u| = {mu}")
 \end{Verbatim}
 
 When you run it, you should see:
@@ -238,4 +369,23 @@ When you run it, you should see:
 u = [-1 -2  3], v = [2 3 4]
 u + v = [1 1 7]
 v * 3 = [ 6  9 12]
+|v| = 5.385164807134504, |u| = 3.7416573867739413
+\end{Verbatim}
+
+\subsection{Formatting Floats}
+
+The numbesr 5.385164807134504 and 3.7416573867739413 are pretty long.  You probably want it 
+rounded off after a couple of decimal places.
+
+Numbers with decimal places are called \newterm{floats}. In the placeholder for your float, you 
+can specify how you want it formatted, including the number of decimal places.
+
+Change the last line to look like this:\index{floats!formatting}
+\begin{Verbatim}
+    print(f"|v| = {mv:.2f}, |u| = {mu:.2f}")
+\end{Verbatim}
+
+When you run the code, it will be neatly rounded off to two decimal places:
+\begin{Verbatim}
+|v| = 5.39, |u| = 3.74
 \end{Verbatim}
