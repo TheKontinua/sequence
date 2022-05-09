@@ -142,13 +142,11 @@ We usually write terms so that the exponent decreases, so:
 
 $$p = - \frac{1}{2}9.8t^2 + 12t + 2$$
 
-
-
 Finding the area under the curve like this is called
 \textit{integration}.  We say ``To find a function that gives the
 change in position, we just integrate the velocity function.''  A lot
 of the study of calculus is learning to integrate different sorts of
-functions.
+functions.\index{integration}
 
 One important note about integration: Any time the curve drops under
 the $x$-axis, the area is considered negative. (Which makes sense,
@@ -191,8 +189,234 @@ decreasing.)
     \end{axis}
 \end{tikzpicture}
 
-A natural question at this point is ``When will the hammer hit the
-ground?''  That is, when does $p = 0$. The values of $t$ where $p = 0$
-are known as the \textit{roots} of the quadratic function. In the next
+
+\section{Quadratic functions}
+
+Functions of the form $f(x) = a x^2 + b x + c$ are called \newterm{quadratic functions}. 
+If $a > 0$, the ends go up.
+If $a < 0$, the ends go down.\index{quadratic functions}
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=-2.2,xmax=1.2,
+      ymin=-2,ymax=3,
+      axis x line=middle,
+      axis y line=middle,
+      axis line style=<->,
+    ]
+    \addplot[no marks,sdkblue] expression [domain=-2:1,samples=100] {(2)*(x^2) + 2 * x - 1};
+  \end{axis}
+  \node[right] at (1,4) {$2x^2 + 2x - 1$};
+\end{tikzpicture}
+\hspace{4mm}
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin=-1.5,xmax=1.5,
+    ymin=-2,ymax=1.5,
+    axis x line=middle,
+    axis y line=middle,
+    axis line style=<->,
+  ]
+  \addplot[no marks,sdkblue] expression [domain=-1.5:1.5,samples=100] {(-1.2)*(x^2) + 0.5 * x + 1};
+\end{axis}
+\node[right] at (0.5,1) {$-1.2 x^2 + 0.5 x + 1$};
+\end{tikzpicture}
+
+The graph of a quadratic function is a \newterm{parabola}.
+
+\section{Simulating a falling body in Python}
+
+Now you are going to write some Python code that simulates the flying hammer. First, we are just going print out the position, speed, and acceleration of the hammer for every 1/100th of a second after it leaves your hand. (Later we will make a graph.)
+
+Create a file called \filename{falling.py} and type this into it:
+
+\begin{Verbatim}
+# Acceleration on earth
+acceleration = -9.8 # m/s/s
+
+# Size of time step
+time_step = 0.01 # seconds
+
+# Initial values
+speed = 12  # m/s upward
+height = 2  # m above the ground
+current_time = 0.0  # seconds after release
+
+# Is the hammer still aloft?
+while height > 0.0:
+
+    # Show the values
+    print(f"{current_time:.2f} s:")
+    print(f"\tacceleration: {acceleration:.2f} m/s/s")
+    print(f"\tspeed: {speed:.2f} m/s")
+    print(f"\theight: {height:.2f} m")
+
+    # Update height
+    height = height + time_step * speed
+
+    # Update speed
+    speed = speed + time_step * acceleration
+
+    # Update time
+    current_time = current_time + time_step
+
+
+print(f"Hit the ground: Complete")
+\end{Verbatim}
+
+When you run it, you will see something like this:
+\begin{Verbatim}
+0.00 s:
+	acceleration: -9.80 m/s/s
+	speed: 12.00 m/s
+	height: 2.00 m
+0.01 s:
+	acceleration: -9.80 m/s/s
+	speed: 11.90 m/s
+	height: 2.12 m
+0.02 s:
+	acceleration: -9.80 m/s/s
+	speed: 11.80 m/s
+	height: 2.24 m
+0.03 s:
+	acceleration: -9.80 m/s/s
+	speed: 11.71 m/s
+	height: 2.36 m
+...
+2.60 s:
+	acceleration: -9.80 m/s/s
+	speed: -13.48 m/s
+	height: 0.20 m
+2.61 s:
+	acceleration: -9.80 m/s/s
+	speed: -13.58 m/s
+	height: 0.07 m
+Hit the ground: Complete
+\end{Verbatim}
+
+Note that the acceleration isn't changing at all, but it is changing
+the speed and the speed is changing the height.
+
+We can see that the hammer in our simulation hits the ground just
+after 2.61 seconds.
+
+\subsection{Graphs and Lists}
+
+Now, we are going to graph the acceleration, speed, and height using a
+library called matplotlib. However, in order to make the graphs, we
+need to gather all the data into lists.\index{matplotlib}
+
+For example, we will have a list of speeds, and the first three
+entries will be 12.0, 11.9, and 11.8.\index{lists, python}
+
+We create an empty list and assign it to a variable like this:
+\begin{Verbatim}
+x = []
+\end{Verbatim}
+
+Then we can add items like this:
+\begin{Verbatim}
+x.append(3.14)
+\end{Verbatim}
+
+To get the first time back, we can ask for the object at index 0.
+\begin{Verbatim}
+y = x[0]
+\end{Verbatim}
+Note that the list starts at 0.  So if you have 32 items in the list,
+the first item is at index 0. The last item is at index 31.
+
+Duplicate the file \filename{falling.py} and name the new copy \filename{falling\_graph.py}
+
+We are going to make a plot of the height over time. At the start of the program, you will import the
+matplotlib library.  At the end of the program, you will create a plot and show it to the user.
+
+In \filename{falling\_graph.py}, add the bold code:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\textbf{import matplotlib.pyplot as plt}
+
+# Acceleration on earth
+acceleration = -9.8 # m/s/s
+
+# Size of time step
+time_step = 0.01 # seconds
+
+# Initial values
+speed = 12  # m/s upward
+height = 2  # m above the ground
+current_time = 0.0  # seconds after release
+
+\textbf{# Create empty lists}
+\textbf{accelerations = []}
+\textbf{speeds = []}
+\textbf{heights = []}
+\textbf{times = []}
+
+# Is the hammer still aloft?
+while height > 0.0:
+
+    \textbf{# Add the data to the lists}
+    \textbf{times.append(current_time)}
+    \textbf{accelerations.append(acceleration)}
+    \textbf{speeds.append(speed)}
+    \textbf{heights.append(height)}
+    
+    # Update height
+    height = height + time_step * speed
+
+    # Update speed
+    speed = speed + time_step * acceleration
+
+    # Update time
+    current_time = current_time + time_step
+
+\textbf{# Make a plot}
+\textbf{fig, ax = plt.subplots()}
+fig.suptitle("Falling Hammer")
+\textbf{ax.set_xlabel("Time (s)")}
+\textbf{ax.set_ylabel("Height (m)")}
+\textbf{ax.plot(times, heights)}
+\textbf{plt.show()}
+\end{Verbatim}
+
+When you run the program, you should see a graph of the height over time.
+
+\includegraphics[width=0.7\linewidth]{heightplot.png}
+
+It is more interesting if we can see all three: acceleration, speed, and height. 
+So lets make three stacked plots.  Change the plotting code in \filename{falling\_graph.py} to:\index{matplotlib!subplots}
+
+\begin{Verbatim}
+# Make a plot with three subplots
+fig, ax = plt.subplots(3,1)
+fig.suptitle("Falling Hammer")
+
+# The first subplot is acceleration
+ax[0].set_ylabel("Acceleration (m/s/s)")
+ax[0].plot(times, accelerations)
+
+# Second subplot is speed
+ax[1].set_ylabel("Speed (m/s)")
+ax[1].plot(times, speeds)
+
+# Third subplot is height
+ax[2].set_xlabel("Time (s)")
+ax[2].set_ylabel("Height (m)")
+ax[2].plot(times, heights)
+plt.show()
+\end{Verbatim}
+
+Now you will get plots of all three variables:
+
+\includegraphics[width=0.8\linewidth]{stackedplot.png}
+
+This is what we expected, right?  The acceleration is a constant negative number.  The speed is a
+straight line with a negative slope.  The height is a parabola.
+
+A natural question at this point is ``When exactly will the hammer hit the
+ground?''  That is, when does $height = 0$? The values of $t$ where a function is zero are
+are known as its \textit{roots}. Height is given by a quadratic function. In the next
 chapter, you will get the trick for finding the roots of any quadratic
 function.
