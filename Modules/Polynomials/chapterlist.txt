@@ -1,6 +1,3 @@
-functions
-falling_bodies
-solving_quadratics
 intro
 pylists
 add_subtract
