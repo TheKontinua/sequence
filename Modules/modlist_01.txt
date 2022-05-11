@@ -1,7 +1,7 @@
 MatterEnergy
 TrianglesCircles
 Functions
-Spreadsheets
-Polynomials
+Exponents
 Oscillations
+Polynomials
 DiscreteProbability
