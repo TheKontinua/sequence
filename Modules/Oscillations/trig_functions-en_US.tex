@@ -125,11 +125,37 @@ tl/.style = {% tick labels
       domain=-6.5:6.5,samples=300,variable=\x] plot (\x,{cos(deg{\x})});
 \end{tikzpicture}
 
-Here is a wonderful property of sine and cosine functions:
-\begin{itemize}
-\item At any point $\theta$, the slope of the sine graph at $\theta$ equals $cos(\theta)$.
-\item At any point $\theta$, the area under the cosine graph from zero to $\theta$ equals $sin(\theta)$.
-\end{itemize}
+\section{Plot cosine in Python}
+
+Create a file called \filename{cos.py}:
+
+\begin{Verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+until = 8.0
+
+# Make a plot of cosine
+thetas = np.linspace(0, until, 32)
+cosines = []
+for theta in thetas:
+    cosines.append(np.cos(theta))
+
+# Plot the data
+fig, ax = plt.subplots()
+ax.plot(thetas, cosines, 'r.', label="Cosine")
+ax.set_title("Cosine")
+plt.show()
+\end{Verbatim}
+
+This will plot 32 points on the cosine wave between 0 and 8.  When you
+run it, you should see something like this:
+
+\includegraphics[width=0.8\textwidth]{cospy.png}
+
+\section{Derivatives of sine and cos}
+
+Here is a wonderful property of sine and cosine functions: At any point $\theta$, the slope of the sine graph at $\theta$ equals $cos(\theta)$.
 
 For example, we know that $\sin(4\pi/3) = -(1/2)\sqrt{3}$ and
 $\cos(4\pi/3) = -1/2$. If we drew a line tangent to the sine curve at
@@ -165,6 +191,113 @@ tl/.style = {% tick labels
 \end{tikzpicture}
 
 We say ``The derivative of the sine function is the cosine function.''
+
+Can you guess the derivative of the cosine function? For any $\theta$, the slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
+
+
+
+\section{A weight on a spring}
+
+Let's say you fill a rollerskate with heavy rocks and attach it to the
+wall with a stiff spring.  If you push the skate toward the wall a
+release it, it will roll back and forth. Engineers would say ``The skate will oscillate.''
+
+Intuitively, you can probably guess:
+\begin{itemize}
+\item If the spring is stronger, the skate will oscillate more times per minute.
+\item If the rocks are lighter, the skate will oscillate more times per minute.
+\end{itemize}
+
+The force that the spring exerts on the skate is proportional to how
+far its length is from its relaxed length.. When you buy a spring, the
+manufacturer advertises its ``spring rate'', which is in pounds per
+inch or newtons per meter.  If a spring has a rate of 5 newtons per
+meter, that means that if stretch or compress it 10 cm, it will push
+back with a force of 0.5 newtons. If you stretch or compress it 20 cm,
+it will push back with a force of 1 newton.
+
+Let's write a simulation of the skate-on-a-spring.  Duplicate \filename{cos.py}, and name the new copy \filename{spring.py}.  Add code to implement the simulation:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+import numpy as np
+import matplotlib.pyplot as plt
+
+until = 8.0
+
+\textbf{# Constants}
+\textbf{mass = 100 # kg}
+\textbf{spring_constant = -1 # newtons per meter displacement}
+\textbf{time_step = 0.01 # s}
+
+\textbf{# Initial state}
+\textbf{displacement = 1.0 # height above equilibrium in meters}
+\textbf{velocity = 0.0}
+\textbf{time = 0.0 # seconds}
+
+\textbf{# Lists to gather data}
+\textbf{displacements = []}
+\textbf{times = []}
+
+\textbf{# Run it for a little while}
+\textbf{while time <= until:}
+\textbf{    # Record data}
+\textbf{    displacements.append(displacement)}
+\textbf{    times.append(time)}
+
+\textbf{    # Calculate the next state}
+\textbf{    time += time_step}
+\textbf{    displacement += time_step * velocity}
+\textbf{    force = spring_constant * displacement }
+\textbf{    acceleration = force / mass}
+\textbf{    velocity += acceleration}
+
+# Make a plot of cosine
+thetas = np.linspace(0, until, 32)
+cosines = []
+for theta in thetas:
+    cosines.append(np.cos(theta))
+
+# Plot the data
+fig, ax = plt.subplots()
+\textbf{ax.plot(times, displacements, 'b', label="Displacement")}
+ax.plot(thetas, cosines, 'r.', label="Cosine")
+
+\textbf{ax.set_title("Weight on Spring vs. Cosine")}
+\textbf{ax.set_xlabel("Time (s)")}
+\textbf{ax.set_ylabel("Displacement (m)")}
+\textbf{ax.legend()}
+plt.show()
+\end{Verbatim}
+When you run it, you should get a plot of your spring and the cosine graph on the same plot.
+
+\includegraphics[width=0.8\textwidth]{springpy.png}
+
+The position of the skate is following a cosine curve. Why?
+
+Because for a sine or cosine waves happen whenever the acceleration of 
+an object is proportional to -1 times its displacement. Or in symbols:
+
+$$a \propto -1 * p$$
+
+where $a$ is acceleration and $p$ is the displacement from equilibrum.
+
+Remember that if you take the derivative of the displacement, you get
+the velocity.  And if you take the derivative of that, you get
+acceleration.  So, the weight on the spring must follow a function $f$ such that
+
+$$f(t) \propto -1 * f''(t)$$
+
+Remember that the derivative of the $\sin(\theta)$ is $\cos(\theta)$.
+
+And the derivative of the $\cos(\theta)$ is $- \sin(\theta)$
+
+Thus these sorts of waves have an almost-magical power: their
+acceleration is proportional to -1 times their displacement.
+
+Thus sine waves of various magnitudes and frequencies are ubiquitous
+in nature and technology.
+
+\section{Integral of sine and cosine}
 
 If we take the area between the graph and the $x$ axis of the cosine
 function (and if the function is below the $x$ axis, it counts as
@@ -205,53 +338,9 @@ tl/.style = {% tick labels
        \draw[thick, draw=black] (4.188790204786391, 1) -- (4.188790204786391,-1) node [right]{area=$-(1/2)\sqrt{3}$};
 \end{tikzpicture}
 
-We say ``The integral of the cosine function is the sine function.''
+We say ``The integral of the cosine function is the sine function.'' 
 
-Can you guess the derivative of the cosine function? For any $\theta$, the slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
 
-\section{A weight on a spring}
-
-If a weight is sitting still on a stiff spring, and you try to push it
-down, it will push back against you, as if trying to return to its
-equilibrium.  The farther you push it, the harder it will push
-back. That is, the magnitude of force is proportional to the magnitude
-of the displacement vector. However the two vectors point in opposite
-directions.
-
-If you release the weight, it will accelerate back toward its
-equilibrium. At any moment of that journey, its acceleration is
-proportional to its displacement.  The acceleration will be zero as
-the weight passes its equilibrium point, however, its velocity will
-not be zero. So it will overshoot its equilibrium point.
-
-If you plotted the displacement of the weight, it would look like a
-sine wave. (However, friction and wind resistance would gradually
-absorb the energy, so the wave would get smaller and eventually the
-weight would come to rest back at its equilibrium point.)
-
-In these sorts of systems (and there are a lot of them), we know the
-acceleration is proportional to the displacement, but in the opposite
-direction. In math symbols:
-
-$$a \propto -1 * p$$
-
-where $a$ is acceleration and $p$ is the displacement from equilibrum.
-
-Remember that if you take the derivative of the displacement, you get
-the velocity.  And if you take the derivative of that, you get
-acceleration.  So, we are looking for a function $f$ such that
-
-$$f(t) \propto -1 * f''(t)$$
-
-Remember that the derivative of the $\sin(\theta)$ is $\cos(\theta)$.
-
-And the derivative of the $\cos(\theta)$ is $- \sin(\theta)$
-
-Thus these sorts of waves have an almost-magical power: their
-acceleration is proportional to -1 times their displacement.
-
-Thus sine waves of various magnitudes and frequencies are ubiquitous
-in nature and technology.
 
 
 
