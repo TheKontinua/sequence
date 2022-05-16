@@ -1253,6 +1253,7 @@ width 0pt
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{fancyvrb}
 %\usepackage{bera}
 

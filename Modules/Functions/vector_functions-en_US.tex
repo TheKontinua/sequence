@@ -1,0 +1,120 @@
+\chapter{Vector-valued Functions}
+
+In the last chapter, you calculated the flight of the shell.  For any
+time $t$, you could find a vector $[distance, height]$. This can be
+thought of as a function $f$ that takes a number and returns a
+2-dimensional vector.  We call this a \newterm{vector-valued} function
+from $\mathbb{R} \rightarrow \mathbb{R}^2$.
+
+We often make a vector-valued function by defining several real-valued
+functions.  For example, if you threw a hammer with an initial upward
+speed of 12 m/2 and a horizontal speed of 4 m/s along the $x$ axis from
+the point $(1, 6, 2)$, its position at time $t$ (during its flight) would be given by:
+
+$$f(t) = [4t + 1, 6, -4.8t^2 + 12t + 2]$$
+
+That is, $x$ is increasing with $t$, $y$ is constant, and $z$ is a parabola.
+
+\tdplotsetmaincoords{80}{20} 
+\begin{tikzpicture} [scale=0.5, tdplot_main_coords, axis/.style={->,sdkblue}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (12,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,7,0) node[above]{$y$};
+\draw[axis] (0,0,0) -- (0,0,10) node[anchor=south]{$z$};
+
+\draw[thick,draw=black,
+      domain=0:2.60563,samples=300,variable=\t] 
+      plot ({4*\t + 1},6, {-4.9*\t^2 + 12*\t + 2});
+\draw[dashed,draw=sdkblue] (1, 6, 0) -- (11.42252, 6, 0);
+\draw[dashed,draw=sdkblue] (11.42252, 0, 0) -- (11.42252, 6, 0);
+\draw[dashed,draw=sdkblue] (1, 6, 0) -- (1, 6, 2);
+\draw[dashed,draw=sdkblue] (1, 6, 0) -- (1, 6, 2);
+\draw[dashed,draw=sdkblue] (1, 6, 0) -- (1, 0, 0);
+
+\filldraw[black] (1,6,2) circle(4pt) node [left]{$f(0) = [1,6,2]$};
+\filldraw[black] (5,6,9.1) circle(4pt) node [above]{$f(1) = [5, 6, 9.1]$};
+\draw[dashed,draw=sdkblue] (5, 6, 0) -- (5, 6, 9.1);
+\filldraw[black] (9,6,6.4) circle(4pt) node [right]{$f(2) = [9, 6, 6.4]$};
+\draw[dashed,draw=sdkblue] (9, 6, 0) -- (9, 6, 6.4);
+\filldraw[black] (11.42252,6,0) circle(4pt) node [right] {$f(2.6) = [11.4, 6, 0]$};
+\end{tikzpicture}
+
+
+
+Now that we have its position vector, we can differentiate each
+component separately to get its velocity as a vector-valued function:
+
+$$f'(t) = [4, 0, -9.8t + 12]$$
+
+That is, the velocity is constant along the $x$-axis, zero along the
+$y$-axis, and decreasing with time along the $z$ axis.
+
+\tdplotsetmaincoords{80}{20} 
+\begin{tikzpicture} [scale=0.5, tdplot_main_coords, axis/.style={->,sdkblue}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (14,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,7,0) node[above]{$y$};
+\draw[axis] (0,0,0) -- (0,0,10) node[anchor=south]{$z$};
+
+\draw[thick,dashed,draw=black,
+      domain=0:2.60563,samples=300,variable=\t] 
+      plot ({4*\t + 1},6, {-4.9*\t^2 + 12*\t + 2});
+
+\filldraw[black] (1,6,2) circle(4pt);
+\draw[->, thick, draw=black] (1,6,2) -- (5, 6, 14) node [right] {$f'(0) = [4,0,12]$};
+\draw[dashed, draw=sdkblue] (1,6,2) -- (5,6,2) -- (5,6,14);
+\filldraw[black] (5,6,9.1) circle(4pt);
+\draw[->, thick, draw=black] (5,6,9.1) -- (9, 6, 11.3) node [right] {$f'(1) = [4,0,2.2]$};
+\draw[dashed, draw=sdkblue] (6,6,9.1) -- (9,6,9.1) -- (9,6,11.3);
+\filldraw[black] (9,6,6.4) circle(4pt);
+\draw[->, thick, draw=black] (9,6,6.4) -- (13, 6, -1.2) node [right] {$f'(2) = [4,0,-7.6]$};
+\filldraw[black] (11.42252,6,0) circle(4pt);
+\draw[dashed, draw=sdkblue] (9,6,6.4) -- (13,6,6.4) -- (13,6,-1.2);
+\end{tikzpicture}
+
+
+Now that we have its velocity, we can get its acceleration as a vector-valued function:
+
+$$f''(t) = [0, 0, -9.8]$$
+
+There is no acceleration along the $x$ or $y$ axes. It is accerating
+down at a constant $9.8 m/s^2$.
+
+\tdplotsetmaincoords{80}{20} 
+\begin{tikzpicture} [scale=0.5, tdplot_main_coords, axis/.style={->,sdkblue}, 
+vector/.style={-stealth,black,very thick}, 
+vector guide/.style={dashed,sdkblue}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%draw axes
+\draw[axis] (0,0,0) -- (14,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,7,0) node[above]{$y$};
+\draw[axis] (0,0,0) -- (0,0,10) node[anchor=south]{$z$};
+
+\draw[thick,dashed,draw=black,
+      domain=0:2.60563,samples=300,variable=\t] 
+      plot ({4*\t + 1},6, {-4.9*\t^2 + 12*\t + 2});
+
+\filldraw[black] (1,6,2) circle(4pt);
+\draw[->, thick, draw=black] (1,6,2) -- (1, 6, -7.8) node [right] {$f''(0) = [0,0,-9.8]$};
+\filldraw[black] (5,6,9.1) circle(4pt);
+\draw[->, thick, draw=black] (5,6,9.1) -- (5, 6, -0.7) node [below] {$f''(1) = [0,0,-9.8]$};
+\filldraw[black] (9,6,6.4) circle(4pt);
+\draw[->, thick, draw=black] (9,6,6.4) -- (9, 6, -3.4) node [right] {$f''(2) = [0,0,-9.8]$};
+\filldraw[black] (11.42252,6,0) circle(4pt);
+\end{tikzpicture}
+
