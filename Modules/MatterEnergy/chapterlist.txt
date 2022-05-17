@@ -2,6 +2,7 @@ intro
 atomic_mass
 work_energy
 units_conversions
+simple_machines
 heat
 basic_statistics
 stat_spreadsheets
