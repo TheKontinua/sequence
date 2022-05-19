@@ -3,6 +3,7 @@ atomic_mass
 work_energy
 units_conversions
 simple_machines
+bouyancy
 heat
 basic_statistics
 stat_spreadsheets
