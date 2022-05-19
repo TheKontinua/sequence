@@ -1,0 +1,158 @@
+\chapter{Circular Motion}
+
+Let's say you tie a 0.16 kg billard ball to a long string and begin to swing
+it around in a circle above your head. Let's say the string is 3
+meters long, and the ball returns to where it started every 4
+seconds. If you start your stopwatch as the the ball crosses the
+$x$-axis, the position of the ball at any time $t$ given by:
+
+$$p(t) = [3 \cos{\left( \frac{2 \pi} {4}t\right)}, 3 \sin{ \left( \frac{2 \pi}{4}t\right) }, 2]$$
+
+(This assumes that the ball would be going counter-clockwise if viewed
+from above. The spot you are standing on is considered the origin $[0, 0, 0]$.)
+
+Notice that the height is a constant -- 2 meters in this
+case. That isn't very interesting, so we will talk just about the the
+first two components.  Here is what it would look like from above:
+
+% 3sin = 1.267854785222098
+% 3cos = 2.71892336110995
+\begin{tikzpicture}[declare function={angle=25;},bullet/.style={inner
+    sep=1pt,fill,draw,circle,solid}, scale=1.7]
+    % Axis
+    \draw[thick,-stealth,black] (-3.2,0)--(3.2,0) node[right] {$x$}; % x axis
+    \draw[thick,-stealth,black] (0,-3.2)--(0,3.2) node[left] {$y$}; % y axis
+    % Rest
+    \draw [dashed, sdkblue] (0,0) circle (3);
+    \draw[thick] (0,0) -- (angle:3.0) node [midway, above] {3};
+    \draw[sdkblue] (1.05, 0.2) node[right] {$\theta = \frac{2\pi t}{4}\text{ radians}$};
+    \draw[-stealth,sdkblue] (1,0) arc (0:angle:1);
+    \draw[dashed, black] (2.71892336110995, 1.267854785222098) -- (2.71892336110995, 0)
+    node[below] {$3 \cos(\theta)$}; % vertical
+    \draw[dashed, black] (2.71892336110995, 1.267854785222098) -- (0, 1.267854785222098)
+    node[left] {$3 \sin(\theta)$}; % horizontal
+    \filldraw[black] (angle:3.0) circle(4pt);
+    \draw[->, thick] (2.71892336110995, 1.267854785222098) --
+    (2.71892336110995 - 3 * 0.1267, 1.267854785222098 + 3 * 0.2718);
+\end{tikzpicture}
+
+In this case, the radius, $r$, is 3 meters.  The period, $T$ is 4
+seconds.  In general, we say that circular motion is given by:
+
+$$p(t) = \left[ r \cos{\frac{2 \pi t}{T}}, r \cos{\frac{2 \pi t}{T}}\right]$$
+
+A common question is ``How fast is it turning right now?''  If you
+divide the $2\pi$ radians of a circle by the 4 seconds it takes, you
+get the answer ``About 1.57 radians per second.''  This is known as
+\newterm{angular velocity} and we typically represent it with the
+lowercase Omega: $\omega$. (Yes, it looks a lot like a ``w''.)  To be
+precise, in our example, the angular velocity is $\omega = \frac{\pi}{2}$.
+
+Notice that this is different from the question ``How fast is it
+going?''  This ball is traveling the circumference of $6\pi \approx
+18.85$ meters every 4 seconds.  So the speed of the ball is about
+4.71 meters per second.
+
+\section{Velocity}
+
+The velocity of the ball is a vector, and we can find that vector by
+differentiating each component of the position vector.
+
+For any constants $a$ and $b$:
+
+\begin{tabular}{c | c }
+  Expression & Derivative \\
+  \hline
+  $a \sin{b t}$ & $ab \cos{b t}$ \\
+  $a \cos{b t}$ & $-ab \sin{b t}$  \\
+\end{tabular}
+
+Thus, in our example, the velocity of the ball at any time $t$ is given by:
+
+$$v(t) = \left[ -\frac{3 (2\pi)}{4} \sin{\frac{2\pi t}{4}}, \frac{3(2\pi)}{4} \cos{\frac{2\pi t}{4}}, 0 \right]$$
+
+Notice that the velocity vector is perpendicular to the position vector.  It has a constant magnitude.
+
+In general, an object traveling in a circle at a constant speed has the velocity vector:
+
+$$v(t) = \left[ -r\omega \sin{\omega t}, r\omega \cos{\omega t}\right]$$
+
+where $t = 0$ is the time that it crosses the $x$ axis.  If \omega is
+negative, that means the motion would be clockwise when viewed from
+above.
+
+The magnitude of the velocity vector is $r\omega$. 
+
+\begin{tikzpicture}[declare function={angle=25;},bullet/.style={inner
+    sep=1pt,fill,draw,circle,solid}, scale=1.7]
+    % Axis
+    \draw[thick,-stealth,black] (-3.2,0)--(3.2,0) node[right] {$x$}; % x axis
+    \draw[thick,-stealth,black] (0,-3.2)--(0,3.2) node[left] {$y$}; % y axis
+    % Rest
+    \draw [dashed, sdkblue] (0,0) circle (3);
+    \filldraw[black] (angle:3.0) circle(4pt);
+    \draw[->, thick] (2.71892336110995, 1.267854785222098) --
+    (2.71892336110995 - 0.6 * 1.267, 1.267854785222098 + 0.6 * 2.718) node[right]{$v(t)=\left[ -r\omega \sin{\omega t}, r\omega \cos{\omega t}\right]$};
+\end{tikzpicture}
+
+\section{Acceleration}
+
+We can get the acceleration by differentiating the components of the velocity vector.
+
+$$a(t) = \left[-r \omega^2 \cos{\omega t}, -r \omega^2 \sin{\omega t} \right]$$
+
+Notice that the acceleration vector points toward the center of the
+circle it is traveling on.  That is, when an object is traveling on a
+circle at a constant speed, its only acceleration is toward the center
+of the circle.
+
+\begin{tikzpicture}[declare function={angle=25;},bullet/.style={inner
+    sep=1pt,fill,draw,circle,solid}, scale=1.7]
+    % Axis
+    \draw[thick,-stealth,black] (-3.2,0)--(3.2,0) node[right] {$x$}; % x axis
+    \draw[thick,-stealth,black] (0,-3.2)--(0,3.2) node[left] {$y$}; % y axis
+    % Rest
+    \draw [dashed, sdkblue] (0,0) circle (3);
+    \filldraw[black] (angle:3.0) circle(4pt);
+    \draw[->, thick] (2.71892336110995, 1.267854785222098) --
+    (2.71892336110995 * 0.2 , 1.267854785222098 * 0.2) node[midway, right]{$a(t) = \left[-r \omega^2 \cos{\omega t}, -r \omega^2 \sin{\omega t} \right]$};
+\end{tikzpicture}
+
+The magnitude of the acceleration vector is $r \omega^2$.
+
+\section{Centripetal force}
+
+How hard is the ball pulling against your hand?  That is, if you let
+go, the ball would fly in a straight line.  The force you are exerting
+on the string is what causes it to accelerate toward the center of the
+circle. We call this the \newterm{centripetal force}.
+
+Recall that $F = m a$.  The magnitude of the acceleration is $r
+\omega^2 = 3 \left(\frac{2 pi}{4}\right)^2 \approx 7.4$ m/s.  The mass
+of the ball is 0.16 kg.  So the force pulling against your hand is
+about 1.18 newtons.
+
+The general rule is that when something is traveling in a circle at a
+constant speed, the centripetal force needed to keep it traveling in a
+circle is:
+
+$$F = m r \omega^2$$
+
+If you know the radius $r$ and the speed $v$ of the the object, here is the rule:
+
+$$F = \frac{m v^2}{r}$$
+
+\begin{Exercise}[title={Circular Motion}, label=circular]
+Just as your car rolls onto a circular track with a radius of 200 m,
+you realize your 0.4 kg cup of coffee is on the slippery dashboard of your
+car.  While driving 120 km/hour, you hold the cup to keep it from sliding.
+
+What is the maximum amount of force you would need to use (The friction of
+the dashboard helps you, but the max is when the friction is zero.)
+
+\end{Exercise}
+\begin{Answer}[ref=circular]
+  $$\frac{120 \text{ km}}{1 hour} = \frac{1000 \text{ m}}{1 \text{ km}}\frac{120 \text{ km}}{1 hour} \frac{1 \text{ hour}}{3600 \text{ seconds}}= 33.3 \text{ m/s}$$
+
+  $$F = \frac{m v^2}{r} = \frac {0.4 (33.3)^2}{200} = 2.2 \text{ newtons}$$
+\end{Answer}
