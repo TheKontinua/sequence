@@ -1,9 +1,9 @@
 \chapter{Introduction to Electricity}
 
-What happens when you turn on a flashlight?  The battery in the
+What happens when you turn on a flashlight? The battery in the
 flashlight acts as an electron pump. The electrons flow through the
-wires to the lightbulb (or LED).  As the electrons pass through the
-lightbulb, they excite the molecules there, which give off light and
+wires to the lightbulb (or LED). As the electrons pass through the
+lightbulb, they excite the molecules within, which gives off light and
 heat. (LEDs also give off light and heat, but they give off a lot less
 heat.) Then the electrons return to the battery to be pumped around
 again.
@@ -13,11 +13,13 @@ neutrons of the copper stay put while the electrons jump between the
 atoms on their way from the battery to the lightbulb and back again.
 
 In some materials, like copper and iron, electrons are loosely bound
-to their nuclei. These are good \textit{electrical conductors}. In
+to their nuclei, forming a sea of electrons, which allows enery to flow. These are good \textit{electrical conductors}. In
 other materials, like glass and plastic, electrons don't leave their
-nuclei easily. There are terrible electrical conductors -- we call
+nuclei easily. Thus, they are terrible electrical conductors -- we call
 them \textit{electrical insulators}. For example, the plastic around a
 wire is electrical insulation.
+
+% KA: https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/charge-electric-force/v/conductors-and-insulators
 
 \section{Units}
 
@@ -32,20 +34,20 @@ from the context.)\index{amp or ampere}
 
 If you look at the circuit breakers or fuses for your home's
 electrical system, you'll see that each one is rated in amps.  For
-example, maybe the circuit that supplies power to your kitchen has 10
+example, maybe the circuit that supplies power to your kitchen has a 10
 amp circuit breaker. If for some reason, more than 10 amps tries to
 pass through that wire, the circuit breaker will turn off the whole
 circuit.
 
-When it is on, your flashlight pushes something like 1 amp of current
-through the lightbulb. (When it is off, there is no current in the
-lightbulb.)
+When it is on, your flashlight pushes about 1 amp of current
+through the lightbulb(When it is off, there is no current in the
+lightbulb).
 
-The lightbulb creates \textit{resistance} that the current pushes
-through.\index{resistance} You can think of plumbing: The current is the amount of water
+The lightbulb creates \textit{Resistance} that the current pushes
+through.\index{resistance} Think of it like plumbing: The current is the amount of water
 passing through a pipe. The resistence is something that tries to stop
-the current -- like a ball of hair.  The battery is what creates the
-pressure that pushes the current through the resistance. We call that
+the current -- like a ball of hair. The battery is what allows
+ the current to push through the resistance; we call that
 pressure \textit{voltage}.\index{voltage}
 
 \section{Circuit Diagrams}
@@ -79,11 +81,13 @@ The lines are wires.  The symbols that we  will use:
 \end{circuitikz} \\
 \end{tabular}
 
-The battery pushes the electrons from one end and pulls them back in at the other,  so the circuit must go around in a circle for current to flow.  This is why the current stops flowing when the switch breaks the circuit.
+The battery pushes the electrons from one end and pulls them back in at the other, so the circuit must go around in a circle for current to flow. This is why the current stops flowing when the switch breaks the circuit.
 
 You can think of a switch as having zero resistance when it is closed and infinite resistance when it is open.
+% ADD: Insert diagram of open and closed switch
 
 For our purposes, a lamp is just a resistor that gives off light.
+% KA: https://www.khanacademy.org/science/high-school-physics/dc-circuits/electric-power-and-dc-circuits/a/circuit-introduction
 
 \section{Ohm's Law}
 
@@ -99,6 +103,7 @@ Voltage is measured in
 
   where $V$ is in volts, $I$ is in amps, and $R$ is in ohms.
 \end{mdframed}
+% KA: https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
 
 \section{Power and Watts}
 
@@ -115,7 +120,7 @@ Of course $V = IR$, so we can extend this to:
 
 $$W = I^2 R = I V = \frac{V^2}{R}$$
 
-Your flashlight's batteries probably provide about 3 volts.  How much
+Your flashlight's batteries provides about 3 volts. How much
 battery power is the flashlight using when it is on? The power (in
 watts) produced by the battery is the product of the voltage (in
 volts) and the current (in amps). So your flashlight giving off $3
@@ -126,13 +131,13 @@ A watt is 1 joule of energy per second. We say that a watt is a
 measure of \textit{power}.
 
 When we talk about how much energy is stored in a battery, we use a
-unit like kilowatt-hour.  A kilowatt-hour is equivalent to 3.6 million
+unit like kilowatt-hour. A kilowatt-hour is equivalent to 3.6 million
 joules.
 
 \section{Another great use of RMS}
 
 In many electrical problems, the voltage fluctuates a lot.  For
-example, the fluctuations in voltage make the sound come out of an
+example, the fluctuations in voltage makes the sound that comes out of an
 audio speaker.
 
 You can use the root-mean-squared of the voltage to figure out the average power
@@ -151,11 +156,11 @@ $$P = I_{rms} R$$
 
 \section{Electricity Dangers}
 
-Large amounts of electricity moving through your body can hurt or kill
-you. You need to be careful around electricity.
+Large amounts of electricity moving through your body can hurt or even kill
+you. You must be careful around electricity.
 
 However, your body is not a very good conductor, so low-voltage
-systems (like a flashlight) don't have enough voltage to move much
+systems (like a flashlight) don't have enough voltage to move succnificant amounts of
 current through your body.
 
 However, the  electricity in a power outlet has much more voltage. The voltage
@@ -175,11 +180,11 @@ electrocution because they grab a wire which pushes enough current
 through their body to prevent them from letting go of the wire.  At 20
 mA, a human's respiratory muscles become paralyzed.
 
-The fuse breaker in a house will often allow 20A to flow through the
+The fuse breaker in a house will often allow 20 A to flow through the
 circuit before it shuts off the power: Always, always, always shut off
 the power before touching any of the wiring in your house.
 
-Water is a mediocre conductor, but it can still deliver enough current
+While water is actually a mediocre conductor, it can still deliver enough current
 to kill you. If you see a wire in a puddle, you should not touch the
 puddle. Interestingly, because of the salt, sea water is more than
 100 times better at conducting electricity than the water you drink.
@@ -187,7 +192,9 @@ puddle. Interestingly, because of the salt, sea water is more than
 If you hold a wire in each hand, how many Ohms of resistance will your
 body have? Once it gets past your skin, you will look like a bag of
 salt water to the electricity. After the skin, your body will have a
-resistance of about 300$\Omega$. The skin, however, is a pretty good
+resistance of about 300$\Omega$. However, the skin is a pretty good
 insulator. If you have dry, calloused hands, your skin may add a
 100,000$\Omega$ to the resistance.
+
+% KA: https://www.khanacademy.org/science/in-in-class10th-physics/in-in-electricity/in-in-electric-power-and-heating-effect-of-current/v/electric-power-energy
 
