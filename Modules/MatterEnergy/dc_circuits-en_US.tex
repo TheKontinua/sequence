@@ -52,17 +52,17 @@ By Ohm's law, the voltage drop across the upper resistor is $I R = 2A \times 3\O
 The voltage drop across the lower resistor is $I R = 2A \times 2\Omega = 4V$.
 
 Notice that the battery pumps the voltage up to $10V$, then the two
-resistors drop it by exactly $10V$.  This is known as ``Kirchhoff's
+resistors drop it by exactly $10V$. This is known as ``Kirchhoff's
 Voltage Law'':
 
 \begin{mdframed}[style=important, frametitle={Kirchhoff's Voltage Law}]\index{Kirchhoff's voltage law}
-As you make a loop around a circuit, the sum of the voltage increases
-must equal the sum of the voltage decreases.
+As you make a loop around a circuit, the sum of the voltage increase
+must equal the sum of the voltage decrease.
 \end{mdframed}
 
-If we think of the negative end of the battery as connected to ``ground'' (that is,
-it has voltage zero), then we can draw the diagram again with the
-voltages. (That symbol in the lower right represents a connection to ground.)
+The negative end of the battery as connected to ``ground'' (
+it has zero voltage), then we can draw a diagram with the
+voltages(That symbol in the lower right represents a connection to ground).
 
 \begin{circuitikz}
 \draw (0,0) to[battery1,invert,l=$6V$] ++(0,5) 
@@ -112,7 +112,7 @@ to [R=$2\Omega$, /tikz/circuitikz/bipoles/length=1.0cm] ++(0,-3) -- (0,0);
 to [R=$3\Omega$, /tikz/circuitikz/bipoles/length=1.0cm] ++(0,-3) -- (3,0);
 \end{circuitikz}
 
-There is 12 volts pushing current through both resistors.  So 6A will
+There is 12 volts pushing current through both resistors. So 6A will
 go through the 2$\Omega$ resistor and 4A will go through the 3$\Omega$
 resistor.
 
@@ -124,15 +124,15 @@ to [R=$2\Omega$, /tikz/circuitikz/bipoles/length=1.0cm,i=6A] ++(0,-3) -- (0,0);
 to [R=$3\Omega$, /tikz/circuitikz/bipoles/length=1.0cm,i=4A] ++(0,-3) -- (3,0);
 \end{circuitikz}
 
-Thus, a total of 10A will be going through the battery.
+Thus, a total of 10 A will be going through the battery.
 
-Imagine you are the battery. You can't see that you have two resistors.
+Imagine you are a battery. You can't see that you have two resistors.
 What does it feel like to you? $\frac{V}{I} = R$, and $V= 12$ and $I =
 10$.  So the effective resistance of the two resistors in parallel is
 $\frac{12}{10}$ or $\frac{6}{5} \Omega$.
 
 \begin{mdframed}[style=important, frametitle={Resistance in Parallel}]\index{resistance!in parallel}
-If you have several resistances $R_1, R_2, \ldots, R_n$wired in
+If you have several resistances $R_1, R_2, \ldots, R_n$ wired in
 parallel, their effective resistance $R_t$ is given by
 
 $$\frac{1}{R_t} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots + \frac{1}{R_n}$$
