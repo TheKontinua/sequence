@@ -1,7 +1,7 @@
 \chapter{Conditional Probability}
 
 Let's say there is a virus going around, and there is a vaccine for it
-that requires 2 shots.  You are working at a school, and you are
+that requires 2 shots. You are working at a school, and you are
 wondering how effective the vaccines are. Some students are
 unvaccinated, some have had one shot, and some have had two shots. One
 day you test all 644 students to see who has the virus. You end up
@@ -25,7 +25,7 @@ Here are what the symbols mean:
 \end {itemize}
 
 So, for example, your data indicates that there were 76 students who
-had only had one of the two shots and tested negative for the virus.
+had only one of the two shots and tested negative for the virus.
 
 Your principal has a few questions. The first is ``If I put five
 randomly choosen students in a study group together, what is the
@@ -33,7 +33,7 @@ probabilty that one of them has the virus?''
 
 The first thing you might do is make a new table that shows what is
 the probability of a randomly choosen student being in any particular
-group.  You just divide each entry by 644 (the total number of
+group. You just divide each entry by 644 (the total number of
 students).
 
 \begin{tabular}{c | c c c}
@@ -44,7 +44,7 @@ students).
 \end{tabular}
 
 (In this table, I expressed the number as a percentage with a decimal
-point -- I had to round off the numbers. If I wanted exact answers, I
+point -- you had to round off the numbers. If you wanted exact answers, you
 would have keep each as a fraction: 36 students represents
 $\frac{9}{161}$ of the student body.)
 
@@ -62,15 +62,14 @@ Now we can sum across the columns and rows.
 \end{tabular}
 
 If a child is choosen randomly from the entire student body, there is
-a 34.2\% that the student has tested positive for the virus. There is
-17.4\% chance that the student has had one shot of the vaccine.
+a 34.2\% that the student has tested positive for the virus. And there is
+17.4\% chance that the student has one shot of the vaccine.
 
-This summing the probabilities across one dimension is known as
-\textit{marginalizing}. I've always thought the word was a lot more
-scary than the idea. Marginalization is just summing across all the
-variable that you don't care about.  You don't care who has the virus,
+This summing of the probabilities across one dimension is known as
+\textit{marginalizing}. Marginalization is just summing across all the
+variable that you don't care about. You don't care who has the virus,
 just the probability that a student has not received even one shot of
-the vaccine? You marginalize over the all the vaccine statuses.
+the vaccine? You marginalize all the vaccine statuses.
 
 To answer the principal's question, the easy thing to do is find the
 answer of the opposite ``if I put five randomly choosen students in a
@@ -86,6 +85,7 @@ opposite is $1.0 - 0.0489 = 0.951$
 The answer, then, is ``If you put 5 kids in a study group together,
 there is a 95.1 \% probability that at least one of them has the
 virus.''
+% KA: https://www.khanacademy.org/math/ap-statistics/probability-ap/stats-conditional-probability/v/testing-independence-from-experimental-data
 
 \section{Conditional Probability}
 
@@ -121,12 +121,13 @@ Notice that this is different from $p( V_{2} | T_{-})$, which is the
 probability that a student has had both vaccinations, given they
 tested negative for the virus.
 
-Back to the principal's question: If you have 5 students who have had
+Back to the principal's question: "If you have 5 students who have had
 both vaccinations, what is the probability that all of them tested
-negative for the virus? The probability that one student is virus-free
+negative for the virus?" The probability that one student is virus-free
 is $\frac{8}{11}$, so the probability that 5 students are virus-free
 is $\frac{8}{11}^5 \approx 0.203$.  So, there is a $79.6\%$ chance
 that at least one of the five has the virus.
+% KA: https://www.khanacademy.org/math/statistics-probability/probability-library/conditional-probability-independence/v/calculating-conditional-probability
 
 \section{Chain Rule for Probability}
 
@@ -171,6 +172,7 @@ bought a ticket and won) times the probability that you crash that car
 (given that you have bought the car, won the lottery, and bought a
 ticket).''
 
+% KA: https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-1a/v/chain-rule-introduction
 
 
 
