@@ -61,12 +61,12 @@ def build_book(book_id, locale_list, paper_size, draft):
     footer_file.close()
     output_tex.write(footer)
     output_tex.close()
-    os.system('c:\texlive\2022\bin\win32\lualatex {}'.format(output_tex_path))
+    os.system('lualatex {}'.format(output_tex_path))
 
     if not draft:
         # If a pdf was made, run it again to get cross-references right
         if not draft and os.path.exists(output_pdf_path):
-            os.system('c:\texlive\2022\bin\win32\lualatex {}'.format(output_tex_path))
+            os.system('lualatex {}'.format(output_tex_path))
             shutil.move(output_pdf_path, final_pdf_path)
         else:
             print('Build failed')
