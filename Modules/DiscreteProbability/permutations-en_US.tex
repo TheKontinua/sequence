@@ -1,6 +1,6 @@
 \chapter{Permutations and Sorting}
 
-In the last chapter, we talked about permutations. If you have a list
+In the previous chapter, we talked about permutations. If you have a list
 of three letters, like $[a, b, c, d]$, you can rearrange them in $4!$
 ways:\index{permutations}
 
@@ -10,6 +10,7 @@ ways:\index{permutations}
   c,b,a,d & c,b,d,a & c, d, b, a & c, d, a, b & c, a, b, d & c, a, d, b \\
   d,b,c,a & d,b,a,c & d, a, b, c & d, a, c, b & d, c, b, a & d, c, a, b
 \end{tabular}
+% KA: https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:prob-comb/x9e81a4f98389efdf:combinations/v/combination-formula
 
 You can make Python generate all the permutations for you:
 
@@ -19,6 +20,7 @@ all_permutations = permutations(('a', 'b', 'c', 'd'))
 for p in all_permutations:
     print(p)
 \end{Verbatim}
+% KA: https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:prob-comb/x9e81a4f98389efdf:combinations/v/introduction-to-combinations
 
 \section{Notation}
 
@@ -59,12 +61,12 @@ $$B \circ A = \begin{pmatrix}
 That is, if we have the list $[a, b, c, d]$ and we apply permutation $A$ and then permutation $B$, we get $[b, a, d, c]$.
 
 \textbf{Important:} Note that permutations are applied from right to
-left.  $B \circ A$ means ``Applying $A$ and then $B$.''  Who cares?
+left. $B \circ A$ means ``Applying $A$ and then $B$.''  Why does this matter?
 Permutations are not necessarily commutative. That is, if you have two
 permutations $S$ and $T$, $S \circ T$ is not always the same as $T
 \circ S$.
 
-Note that ``don't change anything'' is also a permutation. We call it
+Also, note that ``don't change anything'' is a permutation. We call it
 \textit{the identity permutation}. If you have four items, the identity
 permutation would be written:\index{permutations!identity permutation}
 
@@ -99,6 +101,7 @@ grades_best_to_worst = sorted(my_grades, reverse=True)
 Note that \pyfunction{sorted} makes a new list with the correct
 order. If you want to sort the array in place, you can use the
 \pyfunction{sort} method:
+% ADD: Need to define array
 
 \begin{Verbatim}
 my_grades = [92, 87, 76, 99, 91, 93]
@@ -131,7 +134,7 @@ the first spot.
 use ``to the negative one'' to indicate inverses in lots of places.)
 
 Mechanically, how do you find the inverse? Flip the rows, and then sort the columns using the top number:
-
+% ADD: Inveserse should probably be defined
 $$\begin{pmatrix}
   1 & 2 & 3 & 4 \\
   3 & 4 & 2 & 1
@@ -148,11 +151,11 @@ $$\begin{pmatrix}
 \end{pmatrix}
 $$    
 
-Let's say you have two permutations $A$ and $B$.  Permuting by $B$ and then $A$ would look like this:
+Let's say you have two permutations $A$ and $B$. Permuting by $B$ and then $A$ would look like this:
 
 $$C = A \circ B$$
 
-If you know $A^{-1}$ and $B^{-1}$, what is $C^{-1}$?  You would un-$A$ and then un-$B$, so
+If you know $A^{-1}$ and $B^{-1}$, what is $C^{-1}$?  You would undo-$A$ and then undo-$B$, so
 
 $$C^{-1} = B^{-1} \circ A^{-1}$$
 

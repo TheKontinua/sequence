@@ -29,19 +29,19 @@ probability that you will pull out a white marble.''
 
 In probability, we often talk about the probability of certain
 events. ``Pulling out a white marble'' is an event, and we can give it
-a symbol like $W$.  Then, in equations we use $p$ to mean ``the
+a symbol like $W$. Then, in equations we use $p$ to mean ``the
 probability of''.  Thus, we can say ``There is a 0.01 probability that
 you will pull out a white marble'' becomes the equation
 \begin{equation*}
   p(W) = 0.01
 \end{equation*}\index{probability}
-
+% ADD: Make sure functions come before this chapter, connect to functions
 
 \section{The Probability of All Possibilities is 1.0}
 
-We know that you are going to pull out a red marble or a white marble,
+We know that you are either going to pull out a red marble or a white marble,
 so the probability of a white marble being pulled and the probability
-of a red marble being pulled must add up to be 100\%.  So the odds of
+of a red marble being pulled must add up to be 100\%. Therefore, the odds of
 pulling out a red marble must be 99\% or 0.99. If we let the event ``Pull out a red marble'' be given by the symbol $R$, we can say:
 \begin{equation*}
   p(R) = 1.0 - P(W) = 1.0 - 0.01 = 0.99
@@ -50,13 +50,14 @@ pulling out a red marble must be 99\% or 0.99. If we let the event ``Pull out a 
 Now, let's say that I make you take a marble from the bag and then
 toss a coin. What is the probability that you will pull a white marble
 and then get heads on the coin? It is the product of the two
-probabilities: $0.01 \times 0.5 = 0.005$, so one half of one percent
-chance.  Do the probabilities still sum to 1?
+probabilities: $0.01 \times 0.5 = 0.005$, so one half of a one percent
+chance. Do the probabilities still sum to 1?
 \begin{itemize}
 \item White and Heads = $0.01 \times 0.5 = 0.005$
 \item White and Tails = $0.01 \times 0.5 = 0.005$
 \item Red and Heads = $0.99 \times 0.5 = 0.495$
 \item Red and Tails = $0.99 \times 0.5 = 0.495$
+% ADD: add up the values at the end for clarity
 \end{itemize}
 Yes, the probabilitites of all the possibilities still add to 1.
 
@@ -74,9 +75,12 @@ from the bag, the outcome of the coin toss will always be 50-50.\index{independe
 What are two events that are not independent? The probability that a
 person is a professional basketball player and the probability that
 someone wears a shoe that is size 13 or larger are \textit{not}
-independent.  After all, height is an advantage in basketball and most
-tall people also have large feet.  So if you know someone is a
+independent. After all, height is an advantage in basketball and most
+tall people also have large feet. So if you know someone is a
 basketball player, it is very likely that they wear a large shoe.
+% ADD: Correlation for Causeation 
+% Weird Correlations Website: https://www.tylervigen.com/spurious-correlations
+% KA: https://youtu.be/R-NeYKSEqns
 
 \begin{Exercise}[title={Rolling Dice}, label=rolling-dice]
   If I give you three dice to roll, what is the
@@ -128,15 +132,16 @@ Here is the complete table:
   12  &     &     &     &     &     & 6,6 &   1    & 1/36
 \end{tabular}
 
-When I bumped into this, I was skeptical.  I decided to test it, so I
+When I bumped into this, I was skeptical. I decided to test it, so I
 rolled a pair of dice hundreds of times and made a histogram. It was a
 tedious and time-consuming task -- just the sort of thing that we make
 computers do for us.
+% ADD: Define Histogram
 
 \section{Random Numbers and Python}
 
 You are going to write a simulation of rolling dice in Python. To do
-this, you will need to generate a random sequence of numbers.  The
+this, you will need to generate a random sequence of numbers. The
 numbers will need to be in the range 1 to 6, and they will need to
 appear in the sequence with the same frequency.  We say the sequence
 will follow \textit{the uniform distribution}.  That is, the
@@ -165,7 +170,7 @@ Start python and try a few of the different ways to generate random numbers:
 >>> \textbf{random.sample(a, 10)} # Return 10 randomly chosen items from the sequence
 [8, 7, 20, 9, 25, 13, 23, 11, 14, 16]
 \end{Verbatim}
-
+% KA: https://www.youtube.com/watch?v=Jua-KWBdzfU
 Clearly Python has a lot of ways to do things that look random. I
 should be honest with you at this point: they aren't really
 random. The computer that you are using can't generate random
@@ -175,7 +180,7 @@ very important for cryptography and data security.
 
 What if you want real random data? There are companies that are using
 the decay of radioactive materials to generate real random data. You
-can pay to download it.  For our purposes, Python's pseudorandom
+can pay to download it. For our purposes, Python's pseudorandom
 numbers are quite sufficient.
 
 If we generate two random numbers in the range 1 through 6 and add them together, we
@@ -188,7 +193,7 @@ will have simulated rolling a pair of dice. Like this:
 8
 \end{Verbatim}
 
-First, let's write a program that just rolls the dice 100 times and shows the result.  Make a file \url{dice.py}:
+First, let's write a program that just rolls the dice 100 times and shows the result. Make a file \url{dice.py}:
 \begin{Verbatim}
 import random
 
@@ -218,7 +223,7 @@ Now we want to count occurences of each possible outcome. Let's use an
 array of integers. We will start with an array of zeros. And, for
 example, when we roll a 3, we'll add 1 to item 3 in the array. (We can
 never roll a zero or a one, so those two entries will always be zero.)
-
+% ADD: Define Array
 \begin{Verbatim}[commandchars=\\\{\}]
 import random
 
@@ -292,7 +297,7 @@ Now you should see something like:
 \end{Verbatim}
 
 Whenever you are dealing with random numbers, the outcome will seldom
-be \textit{exactly} what you expected.  In this case, you should see that you
+be \textit{exactly} what you expected. In this case, however, you should see that you
 predictions are pretty close.
 
 \subsection{Making a bar graph}
@@ -304,7 +309,7 @@ A bar graph is a nice way to look at quantities like this.  Let's make a bar gra
 \includegraphics[width= 0.85\textwidth]{dice1.png}
 
 We need to describe the set of rectangles, to do this we will loop through each possible roll (2 - 12) and put data in four lists for each:
-
+% ADD: Define lists
 \begin{Verbatim}[commandchars=\\\{\}]
 import random
 \textbf{import matplotlib.pyplot as plt}
@@ -352,3 +357,4 @@ for i in range(2,13):
 \textbf{plt.show()}
 \end{Verbatim}
 
+% ADD: For extra guideance: https://pythoniseasytolearn.blogspot.com/2019/09/rolling-two-dice.html

@@ -1,21 +1,21 @@
 \chapter{Basic Statistics in Spreadsheets}
 
-When you did the problems in the last section, you probably noticed
-how tedious it was to compute statistics like the mean, the median,
-and variance by hand. Computers were designed to free us from these
+When you completed the problems in the last section, you probably noticed
+how long it took to compute statistics like the mean, the median,
+and variance by hand. Luckliy, computers were designed to free us from these
 sorts of tedious tasks. The most basic tool for automating
 calculations is the spreadsheet program.\index{spreadsheet}
 
 There are lots of spreadsheet programs including Microsoft's Excel and
 Apple's Numbers. Any spreadsheet program will work; they are all very
-similar.  The instructions and screenshots here will be from Google
-Sheets -- a spreadsheet program you use through your web browser.
+similar. The instructions and screenshots here will be from Google
+Sheets -- a free spreadsheet program you use through your web browser.
 
 \section{Your First Spreadsheet}
 
 In whatever spreadsheet program you are using, create a new spreadsheet document.
 
-A spreadsheet is a grid of cells.  In each cell you can put data (like a number or some text) or a formula.
+A spreadsheet is essentially a grid of cells. In each cell you can put data (like numbers or text) and a formulas.
 
 \includegraphics[width=0.6\textwidth]{BlankSheet.png}
 
@@ -31,7 +31,7 @@ It should look like this:
 
 \includegraphics[width=0.5\textwidth]{NoFormulas.png}
 
-Now you are going to put a formula in cell B3.  Select B3, and type ``= B1 + B2''. The spreadsheet knows this is a formula because it starts with `=`. It will look like this as you type:\index{Spreadsheet!Entering formula}
+Now put a formula in cell B3. Select B3, and type ``= B1 + B2''. The spreadsheet knows this is a formula because it starts with `=`. It will look like this as you type:\index{Spreadsheet!Entering formula}
 
 \includegraphics[width=0.5\textwidth]{TypingFirstFormula.png}
 
@@ -43,7 +43,7 @@ If you change the values of cell B1 or B2, the cell B3 will automatically be rec
 
 \section{Formatting}
 
-Every spreadsheet lets you change the formatting of your columns and cells. They are all a little different, so play with yours a little now.  Try to do the following:
+Every spreadsheet lets you change the formatting of your columns and cells. They are all a little different, so play with your spreadsheet a little now. Try to do the following:
 \begin{itemize}
 \item Set the background of the first column to light gray.
 \item Right-justify the text in the first column.
@@ -56,7 +56,7 @@ It should look something like this:
 \includegraphics[width=0.6\textwidth]{FirstFormatting.png}
 
 That's a spreadsheet. You have grid of cells. Each cell can hold a
-value or a formula that uses values from other cells.  The cells with
+value or a formula that uses values from other cells. The cells with
 formulas automatically update as you edit the values in the other
 cells.
 
@@ -101,14 +101,14 @@ You should see a long, long column of data appear. (Mine goes from cell A2 throu
 \section{Statistics in Spreadsheets}
 
 Let's take the mean all 1000 numbers.  In cell B2, type in a label:
-``Mean''. (Feel free to format your labels as you wish. I usually put them in bold.)
+``Mean''. (Feel free to format your labels as you wish. Bolding is recommended.)
 
 In cell C2, enter the formula ``=AVERAGE(A2:A1001)''. When
-you press return, the cell will show the mean: 31.70441.
+you press return, the cell will show the mean: 31.70441, if done correctly .
 
 \includegraphics[width=0.4\textwidth]{Spread_mean.png}
 
-Notice that we specified that the function \pyfunction{AVERAGE} was to
+Notice that by specifing that the function \pyfunction{AVERAGE} was to
 be performed on a range of cells: cells A2 through A1001.
 
 Do the calculations for variance, standard deviation, and median.
@@ -123,15 +123,16 @@ Do the calculations for variance, standard deviation, and median.
 
 \section{Histogram}
 
-Most spreadsheets have the ability to create a histogram.  In Google
+Most spreadsheets have the ability to create a histogram. In Google
 Sheets, you select the entire range A2:A1001 by selecting the first
 cell and then shift-clicking the last. Then you choose
 Insert$\rightarrow$Chart. In the inspector, change the type of the
 chart to histogram. This will get you a basic histogram.
+% Add: Define histogram or give example, defined in basic statistics, must come previous
 
 \includegraphics[width=0.7\textwidth]{default_histogram.png}
 
-Play with the formatting to see how pretty you can make yours.  Here is mine:
+Play with the formatting to see how unquie you can make data. Here is an example:
 
 \includegraphics[width=0.8\textwidth]{final_histogram.png}
 
@@ -151,5 +152,6 @@ Play with the formatting to see how pretty you can make yours.  Here is mine:
 \begin{Answer}[ref=rms_spreadsheet]
 
 The formula for the RMS is ``=SQRT(SUMSQ(A2:A1001)/COUNT(A2:A1001))''.
-  
+% KA: https://www.khanacademy.org/computing/ap-computer-science-principles/data-analysis-101/data-tools/a/learning-from-data-sets
+
 \end{Answer}

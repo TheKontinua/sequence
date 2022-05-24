@@ -6,12 +6,12 @@ You say ``Pretty fast.''
 
 And they say, ``Can you be more specific?''
 
-And you point your radar speed reader at a car, and say ``That one is going 32.131 meters per second.''
+And you point your radar gun at a car, and say ``That one is going 32.131 meters per second.''
 
 And they say, ``I don't want to know about that specific car. I want to know about all the cars.''
 
 So, you spend the day beside the freeway measuring the speed of every
-car that goes by.  And you get a list of a thousand numbers. Here is part of the
+car that goes by. And you get a list of a thousand numbers. Here is part of the
 list:
 
 \begin{tabular}{c | c | c}
@@ -21,12 +21,12 @@ list:
 31.312 m/s & 37.637 m/s & 30.891 m/s
 \end {tabular}
 
-There are 12 numbers here.  We say that there are 12 \textit{samples}.\index{samples}
+There are 12 numbers here. We say that there are 12 \textit{samples}.\index{samples}
 
 \section{Mean}
 
-We often talk about the \textit{average} of a set of samples when we
-are talking about the \textit{mean}.  To get the mean, you sum up the
+We often talk about the \textit{average} of a set of samples, which is the 
+same as the \textit{mean}. To get the mean, sum up the
 samples and divide that number by the number of samples.\index{mean}
 
 The numbers in that table sum to $388.599$.  If you divide that by 12,
@@ -42,15 +42,15 @@ $$ \mu = \frac{1}{n} \sum_{i=1}^n x_i$$
 
 \end{mdframed}
 
-This may be the first time you are seeing a summation ($\sum$).  The equation above is equivalent to:\index{summation symbol}
+This may be the first time you are seeing a summation ($\sum$). The equation above is equivalent to:\index{summation symbol}
 
 $$ \mu = \frac{1}{n} \left(x_1 + x_2 + \ldots + x_n\right)$$
 
 \begin{Exercise}[title={Mean Grade}, label=grades_mean]
 
-  Teachers often use the mean for grading.  For example, if you took
+  Teachers often use the mean for grading. For example, if you took
   six quizzes in a class, your final grade might be the mean of the six
-  scores.  Find the mean of these six grades: 87, 91, 98, 65, 87, 100.
+  scores. Find the mean of these six grades: 87, 91, 98, 65, 87, 100.
 
 \end{Exercise}
 \begin{Answer}[ref=grades_mean]
@@ -71,7 +71,7 @@ to have a mean of 31.71?'' To answer this question we use variance.
 If you have $n$ samples $x_1, x_2, \ldots, x_n$ that have a mean of $\mu$, the \textit{variance} is defined to be:\index{variance}
 
 $$v = \frac{1}{n}\sum_{i = 1}^{n} \left(x_i - \mu\right)^2$$
-
+% ADD: Maybe connect to Chi-squared test
 \end{mdframed}
 
 That is, you figure out how far each sample is from the median, you
@@ -99,11 +99,11 @@ $\sum x = 386.599$ & & $\sum (x - \mu)^2 = 323.605$\\
 mean = 32.217 & & variance = 26.967
 \end{tabular}
 
-Thus, the variance of the 12 samples is 26.967.  Bigger variances mean
-that the samples are spread widely; small variances indicate that the
-samples are clustered neatly around the mean.
+Thus, the variance of the 12 samples is 26.967. The bigger the variances, 
+the farther the samples are spread apart; the smaller the variances, the closer
+samples are clustered around the mean.
 
-Notice that most of the data points deviate from the my by 1 to 5
+Notice that most of the data points deviate from the mu by 1 to 5
 m/s. Isn't it odd that the variance is a big number like 26.967?
 Remember that it represents the average of the squares. Sometimes, to
 get a better feel for how far the samples are from the mean, we use
@@ -112,19 +112,21 @@ the square root of the variance, which is called \textit{the standard
 
 The standard deviation of your 12 samples would be $\sqrt{26.9677} =
   5.193$ m/s.
+% ADD: Bell curve, KA: https://www.khanacademy.org/computer-programming/spin-off-of-galton-board-exploration/1930953307/embedded?embed=yes&article=yes&editor=no&buttons=no&author=no&width=400&height=400
 
-The standard deviation is used to figure out if something is an
+The standard deviation is used to figure out a data point is an
 outlier. For example, if you are asked``That car that just sped
 past. Was it going freakishly fast?'' You might respond, ``No, it was
 within a standard deviation of the mean.'' or ``Yes, it's speed was 2
 standard deviations more than the mean. They will probably get a ticket.''
+% ADD: Box and whiskers plot?
 
-Just a $\mu$ usually represents the mean. $\sigma$ usually represents
-the standard deviation.  So $\sigma^2$ represents the variance.
+A singular $\mu$ usually represents the mean. $\sigma$ usually represents
+the standard deviation. So $\sigma^2$ represents the variance.
 
 \begin{Exercise}[title={Variance of Grades}, label=grades_variance]
 
-  Now find the variance for your six grades.  As a reminder, they were: 87, 91, 98, 65, 87, 100.
+  Now find the variance for your six grades. As a reminder, they were: 87, 91, 98, 65, 87, 100.
 
   What is your standard deviation?
 
@@ -148,8 +150,9 @@ Sometimes you want to know where the middle is. For example, you want
 to know the speed at which half the cars are going faster and half are
 going slower. To get the median, you sort your samples from smallest
 to largest. If you have an odd number of samples, the one in the
-middle is the median.  If you have an even number of samples, we take
+middle is the median. If you have an even number of samples, we take
 the mean of the two numbers in the middle.\index{median}
+% KA: https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics/mean-and-median/v/statistics-intro-mean-median-and-mode
 
 In our example, you would sort your numbers and find the two in the middle:
 
@@ -173,7 +176,7 @@ In our example, you would sort your numbers and find the two in the middle:
 You take the mean of the two middle numbers: $(30.462 + 30.891)/2 =
 30.692$.  The median speed would be 30.692 m/s.
 
-Medians are often used when a small number of samples really skew the
+Medians are often used when a small number of outliers majorly skew the
 mean. For example, income statistics usually use the median income
 because a few hundred billionares raise the mean a lot.
 
@@ -196,8 +199,9 @@ because a few hundred billionares raise the mean a lot.
 A histogram is a bar chart that shows how many samples are in each
 group. In our example, we group cars by speed. Maybe we count the
 number of cars going between 30 and 32 m/s.  And then we count the
-cars going between 32 and 34 m/2.  And then we make a bar chart from
+cars going between 32 and 34 m/2. And then we make a bar chart from
 that data.\index{histograms}
+% ADD: Have not explained histograms yet
 
 Your 1000 cars would break up into these groups:
 
@@ -223,19 +227,19 @@ Your 1000 cars would break up into these groups:
 48 - 50 m/s & 0 cars \\
 \end{tabular}
 
-Now you make a bar chart from that:
+Now we make a bar chart from that:
 
 \includegraphics[width=\textwidth] {speed_histo.png}
 
 Often a histogram will tell the story of the data. Here, you can see
 that no one is going less than 24 m/s, but a lot of people travel at
-30 m/s. There are few people who travel over 40 m/s, but there are a
+30 m/s. There are a few people who travel over 40 m/s, but there are also a
 couple of people who drive a lot faster than anyone else.
 
 \section{Root-Mean-Squared}
 
 Scientists have a mean-like statistic that they love. It is named
-quadratic mean, but everyone just calls it Root-Mean-Squared or
+quadratic mean, but most just calls it Root-Mean-Squared or
 RMS.
 
 \begin{mdframed}[style=important, frametitle={Definition of RMS}]
@@ -273,8 +277,8 @@ Using your 12 samples:
   \end{tabular}
 
 Why is RMS useful? Let's say that all cars had the same mass $m$, and
-you need to know what the average kinetic energy per car is.  If you
-know that the RMS of the speeds of the cars is $v_{rms}$, the average kinetic energy for
+you need to know what the average kinetic energy per car is. If you
+know the RMS of the speeds of the cars is $v_{rms}$, the average kinetic energy for
 each car is
 
 $$k = \frac{1}{2}m v_{rms}^2$$
@@ -294,10 +298,12 @@ $$k = \frac{1}{n} \left( \frac{1}{2} m x_1^2 + \frac{1}{2}m x_2^2 + \ldots + \fr
 
 That is all the kinetic energy divided by the number of cars, which is
 the mean kinetic enegy per car. Quod erat demonstrandum! (That is a
-Latin phrase that means ``which is what I was trying
+Latin phrase that means ``which is what I was trying to
 demonstrate''. You will sometimes see ``QED'' at the end of a long
 mathematic proof.))
 
 Now you are ready for the punchline: kinetic energy and heat are the
 same thing. Instead of cars, heat is the kinetic energy of molecules
 moving around. More on this soon.
+
+Video: Mean, Median, Mode: https://www.youtube.com/watch?v=5C9LBF3b65s
