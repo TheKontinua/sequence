@@ -1,0 +1,170 @@
+\chapter{How Cameras Work}
+
+Let's say it is a sunny day and you are standing in field a few meters
+from a cow. You use the camera on your phone to take a picture of the
+cow. How does that whole process work?
+
+\section{The Light That Shines On the Cow}
+
+The sun is a sphere of hot gas. About 70\% of the gas is
+hydrogen. About 28\% is helium. There's also a little carbon, nitroge,
+and oxygen.
+
+Gradually, the sun is converting hydrogen into helium through a
+process known as ``nuclear fusion''. (We will talk more about nuclear
+fusion in a later chapter.) A lot of heat is created in this
+process. The heat makes the gases glow.
+
+How does heat make things glow? The heat pushes the electrons into
+higher orbitals.  When the fall back down to a lower orbital, they
+release a photon of energy, which travels away from the atam as an
+electromagnetic wave.
+
+Heat isn't the only way to push the electrons into a higher
+orbital. For example, a flourescent lightbulb is filled with gas.
+When we pass electricity through the gas, its electrons are moved to a
+higher orbital.  When they fall, light is created.
+
+What is the frequency of the wave that the photon travels on?
+Depending on what orbital it falls from and how far it falls, the
+photon created has different amounts of energy. The amount of energy
+determines the frequency of the electromagnetic wave.
+
+\begin{mdframed}[style=important, frametitle={Formula for enegy of a photon}]
+
+If you want to know the amount of energy $E$ in a photon, here is the formula:
+
+$$E = \frac{h c}{\lambda}$$
+
+where $c$ is the speed of light, $\lambda$ is the wavelength of the
+electromagnetic wave, and $h$ Planck's constant: $6.63 \times 10^{-34} m^2 kg/s$
+
+For example, a red laser light has a wavelength of about 630 nm. So the energy in each photon is:
+
+$$\frac{(300 \times 10^6) (6.63 \times 10^{-34})}{630 \times 10^{-9}} = 3.1 \times 10^{-19} \text{ joules}$$
+
+\end{mdframed}
+
+In the sun, there are several kinds of molecules and each has a few
+different orbitals that the electrons can live in.  Thus, the light
+coming from the sun is made up of electromagnetic waves of many
+different frequencies.
+
+We can see some of these frequencies as different colors, but some are
+invisible to humans, for example ultraviolet and infrared.
+
+\section{Light Hits the Cow}
+
+When these photons from the sun hit the cow, the hide and hairs of the
+cow will absorb some of the photons. These photons will become heat
+and make the cow feel warm.  Some of the photons will not be absorbed
+-- they will leave the cow.  When you say ``I see the cow,'' what you are
+really saying is ``I see some photons that were not absorbed by the cow.''
+
+Different materials absorb different amounts of each wavelength. A
+plant, for example, absorbs large percentage of all blue and red
+photons that hit it, but it absorbs only a small percentage of the
+green photons that hit it.  Thus we say ``That plant is green.''
+
+White things absorb very small percentages of photons of any visible
+wavelength.  Black things absorb very \emph{large} percentages of
+photons of any visible wavelength.
+
+Before we go on, let's review: The sun creates photons that travel as
+electromagnetic waves of assorted wavelengths to the cow.  Many of
+those photons are absorbed, but some are not.  Some of those photons
+that are not absorbed go into the lens of our camera.
+
+\section{Pinhole camera}
+
+The simplest cameras have no lenses. They are just a box.  The box has
+a tiny hole that allows photons to enter.  The side of the box
+opposite the hole is flat and covered with film or some other
+photo-sensitive material.
+
+The photons entering the box continue in the same direction they were
+going when they passed through the hole.  Thus, the photons that
+entered from high, hit the back wall low.  The photons that came from
+the left, hit the back wall on the right. Thus the image is projected
+onto the back wall rotated 180 degrees: What was up is down, what was
+on the left is on the right.
+
+FIXME: picture here
+
+\begin{Exercise}[title={Height of the image}, label=image_height]
+
+Let's say that that the pinhole is exactly the same height as the
+shoulder of the cow and that the shoulder is directly above one hoof.
+Than the pinhole, the shoulder, and the hoof form a right triangle.
+
+Now, let's say that the camera is being held perpendicular to the
+ground.  Now, the pinhole, the image of the shoulder, and the image of
+the hoof on the back wall of the camera also form a right triangle.
+
+These two triangles are similar.
+
+The shoulder is 2 meters from the hoof.  The cow is standing 3 meters
+from the camera.  The distance from the pinhole to the back wall of
+the camera is 3 cm.  How tall is the image of the cow on the back wall
+of the camera?
+
+\end{Exercise}
+\begin{Answer}[ref=image_height]
+
+The two triangles are similar, one is 2 m and 3m.  The other is $x$ cm and 3 cm.
+
+The image of the cow is 2 cm tall.
+
+\end{Answer}
+
+\section{Lenses}
+
+Quick review: A photon leaves the sun in some random direction. It
+travels 150 million km from the sun and hits a cow.  It is not
+absorbed by the cow, and heads off in a new direction.  It passes
+through the pinhole and hits the back wall of the camera.  That seems
+incredibly improbable, right?
+
+It actually is kind of improbable, especially if there isn't a lot of
+light -- like you are taking the picture at dusk.  To increase the
+odds, we added a \newterm{lens} to the camera.
+
+If you focus a lens on a wall, and then you draw a dot on the
+wall. The lens is designed such that all the photons from the dot that
+hit the lens get redirected to the same spot on the back wall of the
+camera -- regardless of which path it took to get to the lens.
+
+FIXME: illustration here
+
+Note that the image still gets flipped.  There is a \newterm{ focal
+point } that all the photons pass through.
+
+FIXME: illustration here
+
+The distance from the lens to its focal point is called the lens's
+\newterm{focal length}. Telephoto lenses, that let you take big
+pictures of things that are far away, have long focal lengths.
+Wide-angle lenses have short focal lengths.
+
+\section{Sensors}
+
+The camera on your phone has a sensor on the back wall of the
+camera. The sensor is broken up into tiny rectangular regions called
+pixels.  When you say a sensor is 6000 by 4000 pixels, we are saying
+the sensor is a grid of 24,000,000 pixels: 6000 pixels wide and
+4000 pixels tall.
+
+Each pixel has three types of cavities that take in photos. One of the
+cavities measures the amount of short wavelength light, like blues and
+violets. One of the cavities measures the long wavelength light, like
+reds and oranges. One of the cavities measures the intensity of
+wavelengths in the middle, like greens.
+
+Thus, if your camera has a resolution of $6000 \times 4000$, the image
+is 72,000,000 numbers: Every one of the 24,000,000 pixels yeilds three
+numbers: intensity of long wavelength, mid wavelength, and long
+wavelength light. We call these numbers ``RGB'' for Red, Green, and
+Blue.
+
+
+
