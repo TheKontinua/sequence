@@ -1,5 +1,6 @@
 \chapter{Congruence}
-
+% Add: simple triangles
+% Image: KA Special Triangles
 Look at this picture of two geometric figures.
 
 \begin{tikzpicture}
@@ -22,27 +23,28 @@ They are the same shape, right? If you cut one out with scissors, it
 would lay perfectly on top of the other. In geometry, we say they are
 \emph{congruent}.
 
-What is the official definition of ``congruent''? Two geometric
-figures are congruent if you can transform one into the other using
-only rigid transformations.  So, what are rigid transformations?
+What is the official definition of ``congruent''? 
+Two geometric figures are congruent if you can transform one into the other using
+only rigid transformations. 
 
+Which you might be wondering now, what are rigid transformations?
 A transformation is \emph{Rigid} if it doesn't change the distances
 between the points or the measure of the angles between the lines they
 form. These are all rigid transformations:
 \begin{itemize}
 \item Translations
 \item Rotations
-\item Reflection 
+\item Reflections 
 \end{itemize}
 
-If you once again imagine cutting one figure out with scissors and trying to match it with the second:
+Once again imagine cutting out one figure with scissors and trying to match it with the second figure, your actions are rigid transformations:
 \begin{itemize}
 \item Translations - sliding the cutout left and right and up and down
 \item Rotations	- rotating the cutout clockwise and counterclockwise
 \item Reflection - flipping the piece of paper over
 \end{itemize}
 
-A transformation is rigid if and only if it is some combination of translations, rotations, and reflections.
+A transformation is rigid if it is some combination of translations, rotations, and reflections.
 
 \section{Triangle Congruency}
 
@@ -61,6 +63,7 @@ If the sides of two triangles have the same length, the triangles must be congru
 To be precise, the Side-Side-Side Congruency Test says that two triangles are
 congruent if three sides in one triangle are the same length as the
 corresponding sides in the other. We usually refer to this as the SSS test.
+% Explain with a^2 + b^2 = c^2
 
 Note that two triangles with all three angles equal are not necessarily congruent.
 For example, here are two triangles with the same interior angles, but they are
@@ -90,14 +93,14 @@ different sizes:
 
 \end{tikzpicture}
 
-These triangles are not congruent, but they are \emph{similar}. That
-is, they have the same shape, but are not necessarily the same
-scale.
+These triangles are not congruent, but they are \emph{similar}. Meaning
+ they have the same shape, but are not necessarily the same
+size.
 
-If you know two angles, you can calculate the third. So it makes sense
+Therefore, if you know two angles of a triangle, you can calculate the third. So it makes sense
 to say ``If two triangles have two angles that are equal, they are
 similar triangles.''  And if two similar triangles have one side that
-is equal in length, they must be the same scale -- so they are
+is equal in length, they must be the same size -- so they are
 congruent. Thus, the Side-Angle-Angle Congruency Test says that
 two triangles are congruent if two angles and side match.
 
@@ -176,7 +179,7 @@ different triangles satisfy this:
   \pic [draw, "$45^\circ$", angle eccentricity=1.5] {angle = c2--b2--a2};
 \end{tikzpicture}
 
-I think it will help to see how this happens if I lay one triangle on top of the other:
+Let's see this another way by laying one triangle on top of the other:
 
 \begin{tikzpicture}
   \coordinate [circle, fill, inner sep=1pt] (a1) at (0,0) ;
@@ -334,6 +337,7 @@ Congruent by the Side-Angle-Angle Congruency Test.
 
 We don't know if they are congruent. The measured angle is not between the measured sides.
 
+% Image: Congruence Cheat Sheat
 \end{multicols}
 
 \end{Answer}
