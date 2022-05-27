@@ -1,12 +1,12 @@
 \chapter{Angles}
 
-In the videos I'm about to recommend, the narrator will talk about
+In the following recommend videos, the narrator talks about
 lines, line segments, and rays. When mathematicians talk about
-\emph{lines}, they mean a straight line that goes forever in both
-directions. Pick any two points on a line; the points between them are
+\emph{lines}, they mean a straight line that goes forever in two
+directions. And if you pick any two points on that line; the space between them is
 a \emph{line segment}. If you take any line, pick a point on that line
 and discard all the points on one side of the point, that is a
-\emph{ray}. All three are infinitely thin.
+\emph{ray}. All three have no width.
 
 \begin{tikzpicture}[scale=1.5]
   \coordinate (a) at (-0.3, -0.6);
@@ -54,12 +54,12 @@ When two lines cross, they form four angles:
 
 What do we know about those angles?
 \begin{itemize}
-\item The sum of any two adjacent angles add to be $180^\circ$.  So, for example, $m \angle AEB + m \angle BEC = 180^\circ$. We use the phrase ``add to be $180^{\circ}$'' so often that we have a special word for it: We say that two angles are \emph{supplementary} if they add to be $180^\circ$.
+\item The sum of any two adjacent angles add to be $180^\circ$.  So, for example, $m \angle AEB + m \angle BEC = 180^\circ$. We use the phrase ``add to be $180^{\circ}$'' so often that we have a special word for it: \emph{supplementary}.
 \item The sum of all four angles is $360^\circ$.
 \item Angles opposite each other are equal. So, for example, $m \angle AEB = m \angle CED$.
 \end{itemize}
 
-In a diagram, when we want to indicate that two angles are equal, we often put hash marks in the angle:
+In a diagram, to indicate that two angles are equal we often put hash marks in the angle:
 
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0, 1.5);
@@ -93,6 +93,7 @@ When two lines are perpendicular, the angle between them is $90^\circ$ and we sa
 When an angle is less than $90^\circ$, it is said to be
 \emph{acute}. When an angle is more than $90^\circ$, it is said to be
 \emph{obtuse}.
+% Add: Complementary Angles
 
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0.4, 0.6);
@@ -112,7 +113,7 @@ When an angle is less than $90^\circ$, it is said to be
   \pic [draw, <->, "obtuse", angle radius = 0.6cm, angle eccentricity=1.5] {angle = a--b--c};
 \end{tikzpicture}
 
-If two lines are parallel, line segments that intersect both form the same angles:
+If two lines are parallel, line segments that intersect both lines, form the same angles with each line:
 
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0, 1);
