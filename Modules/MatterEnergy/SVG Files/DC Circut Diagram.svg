@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="DC Circut Diagram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="419.15257"
+     inkscape:cy="528.46017"
+     inkscape:window-width="1405"
+     inkscape:window-height="1481"
+     inkscape:window-x="982"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="marker2986"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path2984" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2986-1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path2984-6" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke-width:1.5;fill-opacity:1;stroke:#15b100;stroke-opacity:1;stroke-dasharray:none"
+       id="rect61"
+       width="121.69053"
+       height="68.297981"
+       x="42.714043"
+       y="101.66833" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.5;stroke-dasharray:none;stroke-opacity:1"
+       d="m 83.151195,103.08093 5.444666,-13.528664 7.454685,14.073974 6.337974,-13.966674 5.45771,13.391004 5.65329,-11.747237 1.12788,-1.993504 5.68019,13.392731"
+       id="path1488" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.33898;stroke-dasharray:none;stroke-opacity:1"
+       d="m 32.263769,125.13776 20.90055,0.22454"
+       id="path2270-7" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.33898;stroke-dasharray:none;stroke-opacity:1"
+       d="m 31.818831,125.36023 20.90055,0.22454"
+       id="path2270-7-6" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.25379;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2443"
+       width="8.9224968"
+       height="13.149405"
+       x="38.364029"
+       y="126.90669" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.12975;stroke-dasharray:none;stroke-opacity:1"
+       d="m 34.496199,130.47532 14.655938,0.22795"
+       id="path2270-9-9" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.33898;stroke-dasharray:none;stroke-opacity:1"
+       d="m 32.0413,135.37134 20.90055,0.22454"
+       id="path2270-7-5" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#15b200;stroke-width:1.12975;stroke-dasharray:none;stroke-opacity:1"
+       d="m 34.496199,140.48641 14.655938,0.22796"
+       id="path2270-9-9-0" />
+    <path
+       style="fill:#1515ea;fill-opacity:1;stroke:#5156e6;stroke-width:0.947;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2986)"
+       d="m 88.033924,176.60111 75.495786,-0.27759"
+       id="path2772" />
+    <path
+       style="fill:#1515ea;fill-opacity:1;stroke:#5156e6;stroke-width:0.947;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2986-1)"
+       d="M 116.47422,83.213838 40.978436,82.936248"
+       id="path2772-5" />
+    <path
+       style="fill:#1515ea;fill-opacity:1;stroke:#5156e6;stroke-width:0.742963;stroke-dasharray:none;stroke-opacity:1"
+       d="m 29.861439,146.72704 c 5.981453,0.25691 6.215899,-0.003 6.215899,-0.003"
+       id="path3136" />
+    <path
+       style="fill:#1515ea;fill-opacity:1;stroke:#5156e6;stroke-width:0.742963;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30.145069,118.17889 c 5.985701,0.1231 6.214279,-0.14193 6.214279,-0.14193"
+       id="path3136-6" />
+    <path
+       style="fill:#1515ea;fill-opacity:1;stroke:#5156e6;stroke-width:0.742963;stroke-dasharray:none;stroke-opacity:1"
+       d="m 33.408609,121.13891 c -0.04365,-5.9868 -0.314947,-6.20791 -0.314947,-6.20791"
+       id="path3136-6-7"
+       inkscape:transform-center-x="-5.7806538"
+       inkscape:transform-center-y="0.02098253" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;white-space:pre;inline-size:17.74;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0544837;stroke-dasharray:none;stroke-opacity:1"
+       x="86.317963"
+       y="110.12215"
+       id="text3236"
+       transform="matrix(2.0087635,0,0,2.89882,-84.738481,-204.26508)"><tspan
+         x="86.317963"
+         y="110.12215"
+         id="tspan5232">Resistor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;white-space:pre;inline-size:17.74;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0544837;stroke-dasharray:none;stroke-opacity:1"
+       x="86.317963"
+       y="110.12215"
+       id="text3236-7"
+       transform="matrix(1.9420885,0,0,2.4285076,-120.89342,-117.61367)"><tspan
+         x="86.317963"
+         y="110.12215"
+         id="tspan5234">Battery</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="Probability.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="427.14044"
+     inkscape:cy="590.261"
+     inkscape:window-width="2400"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow4"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path1741" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow4-4"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path1741-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow4-4-5"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path1741-5-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow4-4-5-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow4"
+       markerWidth="5"
+       markerHeight="6"
+       viewBox="0 0 5 6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="m 1,0 -3,3 h -2 l 3,-3 -3,-3 h 2 z"
+         id="path1741-5-8-7" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#0000ff;stroke:#3245c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+       x="18.019987"
+       y="130.36682"
+       id="text1467"><tspan
+         sodipodi:role="line"
+         id="tspan1465"
+         style="fill:#0000ff;stroke:#3245c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+         x="18.019987"
+         y="130.36682">P (A|B)=</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#0000ff;stroke:#3245c0;stroke-width:0.799999;stroke-dasharray:none;stroke-opacity:1"
+       x="75.63945"
+       y="119.68831"
+       id="text2143"><tspan
+         sodipodi:role="line"
+         id="tspan2141"
+         style="stroke-width:0.8"
+         x="75.63945"
+         y="119.68831">P(B|A) P(A)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#0000ff;stroke:#3245c0;stroke-width:0.799999;stroke-dasharray:none;stroke-opacity:1"
+       x="96.996475"
+       y="137.04089"
+       id="text2147"><tspan
+         sodipodi:role="line"
+         id="tspan2145"
+         style="stroke-width:0.8"
+         x="96.996475"
+         y="137.04089">P(B)</tspan></text>
+    <path
+       style="fill:#0000ff;stroke:#3245c0;stroke-width:1.7;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.082168,125.25004 c 69.855262,0.66741 69.855262,0.88987 69.855262,0.88987"
+       id="path2203" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+       x="13.348138"
+       y="75.194511"
+       id="text2207"><tspan
+         id="tspan2205"
+         style="fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+         x="13.348138"
+         y="75.194511"
+         sodipodi:role="line">Likelihood</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.55172px;fill:#3144bf;fill-opacity:1;stroke:#6d32c0;stroke-width:0.464294;stroke-dasharray:none;stroke-opacity:1"
+       x="13.522487"
+       y="82.989967"
+       id="text2519"
+       transform="scale(0.99737462,1.0026323)"><tspan
+         sodipodi:role="line"
+         id="tspan2517"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="13.522487"
+         y="82.989967">The probability of &quot;B&quot; being</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="13.522487"
+         y="91.179619"
+         id="tspan2521">True, given &quot;A&quot; is True</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.55172px;fill:#3144bf;fill-opacity:1;stroke:#6d32c0;stroke-width:0.464294;stroke-dasharray:none;stroke-opacity:1"
+       x="16.647072"
+       y="166.36597"
+       id="text2519-7"
+       transform="scale(0.99737462,1.0026323)"><tspan
+         sodipodi:role="line"
+         id="tspan2517-3"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="16.647072"
+         y="166.36597">The probability of &quot;A&quot; being</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="16.647072"
+         y="174.55562"
+         id="tspan2521-9">True, given &quot;B&quot; is True</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.55172px;fill:#3144bf;fill-opacity:1;stroke:#6d32c0;stroke-width:0.464294;stroke-dasharray:none;stroke-opacity:1"
+       x="115.2372"
+       y="81.384064"
+       id="text2519-4"
+       transform="scale(0.99737462,1.0026323)"><tspan
+         sodipodi:role="line"
+         id="tspan2517-6"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="115.2372"
+         y="81.384064">The probability of &quot;A&quot; being</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="115.2372"
+         y="89.573715"
+         id="tspan2521-7">True. This is the known.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+       x="114.40714"
+       y="74.280746"
+       id="text2207-6"><tspan
+         id="tspan2205-7"
+         style="fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+         x="114.40714"
+         y="74.280746"
+         sodipodi:role="line">Prior</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+       x="116.59745"
+       y="158.66187"
+       id="text2207-6-0"><tspan
+         id="tspan2205-7-5"
+         style="fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+         x="116.59745"
+         y="158.66187"
+         sodipodi:role="line">Marginalization</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+       x="16.520802"
+       y="158.5965"
+       id="text2207-60"><tspan
+         id="tspan2205-8"
+         style="fill:#3144bf;fill-opacity:1;stroke:#6e32c0;stroke-width:0.8;stroke-dasharray:none;stroke-opacity:1"
+         x="16.520802"
+         y="158.5965"
+         sodipodi:role="line">Posterior</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.55172px;fill:#3144bf;fill-opacity:1;stroke:#6d32c0;stroke-width:0.464294;stroke-dasharray:none;stroke-opacity:1"
+       x="117.69719"
+       y="166.58788"
+       id="text2519-7-9"
+       transform="scale(0.99737462,1.0026323)"><tspan
+         sodipodi:role="line"
+         id="tspan2517-3-2"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="117.69719"
+         y="166.58788">The probability of &quot;B&quot; being</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#6d32c0;stroke-width:0.464294;stroke-opacity:1"
+         x="117.69719"
+         y="174.77753"
+         id="tspan2521-9-5">True.</tspan></text>
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:#5b5b5b;stroke-width:1.6;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow4)"
+       d="M 67.87081,110.17552 C 56.302423,97.27232 56.079953,97.49479 56.079953,97.49479"
+       id="path2907" />
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:#5b5b5b;stroke-width:1.6;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow4-4)"
+       d="M 146.93187,109.37019 C 158.50026,96.466991 158.72273,96.689461 158.72273,96.689461"
+       id="path2907-4" />
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:#5b5b5b;stroke-width:1.6;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow4-4-5)"
+       d="m 63.95094,139.12766 c 11.56839,12.90319 11.79086,12.68072 11.79086,12.68072"
+       id="path2907-4-2" />
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:#5b5b5b;stroke-width:1.6;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow4-4-5-2)"
+       d="m 132.69386,136.6805 c 11.56839,12.90319 11.79086,12.68072 11.79086,12.68072"
+       id="path2907-4-2-5" />
+  </g>
+</svg>
