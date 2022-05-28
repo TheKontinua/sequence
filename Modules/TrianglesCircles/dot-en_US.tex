@@ -1,4 +1,5 @@
 \chapter{The Dot Product}
+% Reference for diagrams:https://www.mathsisfun.com/algebra/vectors-dot-product.html
 
 If you have two vectors $u = [u_1, u_2, \dots, w_n]$ and $v = [v_1, v_2,\dots, v_n]$ , 
 we define the \newterm{dot product} $u \cdot v$ as 
@@ -11,9 +12,9 @@ So, for example,
     [2,4, -3] \cdot [5, -1, 1] = 2 \times 5 + 4 \times -1 + -3 \times 1 = 3
 \end{equation*}\index{dot product}
 
-I know, this doesn't seem like a very powerful idea, but dot products actually turn out to 
-be \emph{incredibly} useful.  The enormous GPUs that let video games render scenes so quickly? 
-They are primarily designed to do huge numbers of dot products at mind-boggling speeds. 
+This may not seem like a very powerful idea, but dot products are \emph{incredibly} useful. 
+The enormous GPUs(Graphics Processing Unit) that let video games render scenes so quickly? 
+They are primarily function by computing huge numbers of dot products at mind-boggling speeds. 
 
 \begin{Exercise}[title={Basic dot products}, label=dot_products]
     Compute the dot product of each pair of vectors:
@@ -33,8 +34,8 @@ They are primarily designed to do huge numbers of dot products at mind-boggling 
 
 \section{Properties of the dot product}
 
-Sometimes I need an easy way to say ``The vector of appropriate length that is filled with zeros.''
-I will use the notation $\vec{0}$ to represent this. Then, for any vector $v$, this is true:
+Sometimes we need an easy way to say ``The vector of appropriate length is filled with zeros.''
+We use the notation $\vec{0}$ to represent this. Then, for any vector $v$, this is true:
 
 $$v \cdot \vec{0} = 0$$
 
@@ -60,7 +61,7 @@ If $v$ and $w$ are vectors that go in opposite directions,
 
 \section{Cosines and dot products}
 
-Here is the property of dot products is what makes them so useful: 
+Furthermore, dot products' interaction with cosine makes them even more useful is what makes them so useful: 
 If you have two vectors $v$ and $u$,
 
 $$v \cdot u = |v| |u| \cos \theta$$
@@ -70,6 +71,7 @@ where $\theta$ is the angle between them.
 So, for example, if two vectors $v$ and $u$ are perpendicular, the angle between them is $\pi/2$.  
 The cosine of $\pi/2$ is 0: The dot product of any two perpendicular vectors is always 0. In fact, if 
 the dot product of two non-zero vectors is 0, the vectors \textit{must be} perpendicular.
+% diagram needed 
 
 \begin{Exercise}[title={Using dot products}, label=cos_dot_products]
     What is the angle between these each pair of vectors:
@@ -89,11 +91,11 @@ the dot product of two non-zero vectors is 0, the vectors \textit{must be} perpe
 If you have two non-zero vectors $v$ and $u$, you can always compute the angle between them:\index{vectors!angle between}
 
 $$\theta = \arccos(\frac{v \cdot u}{|v| |u|})$$
-
+% Breif Description of arccos
 \section{Dot products in Python}
 
-numpy will let you do dot products using the the symbol @.  Open \filename{first\_vectors.py} 
-and add the following to the end:
+NumPy will let you do dot products using the the symbol @.  Open \filename{first\_vectors.py} 
+and add the following to the end of the script:
 
 \begin{Verbatim}
     # Take the dot product
@@ -112,16 +114,16 @@ The angle between u and v is 78.55 degrees
 \end{Verbatim}
 
 \section{Work and Power}
-
+%diagram here
 Earlier, we mentioned that mechanical work is the product of the 
 force you apply to something and the amount it moves. For example, if you 
-push a train with a force of 10 newtons as it moves 5 meters, you have done 15 joules of work.
+push a train with a force of 10 newtons as it moves 5 meters, you have done 50 joules of work.
 
 What if you try to push the train sideways? That is, it moves down the track 5 meters, 
 but you push it as if you were trying to derail it -- perpendicular to its motion.  
 You have done no work because the train didn't move at all in the direction you were pushing.
 
-Now that you know about dot products, I can tell you the whole truth: The work you do is the dot
+Now that you know about dot products: The work you do is the dot
 product of the force vector you apply and the displacement vector of the train. (The displacement
 vector is the vector that tells how the train moved while you pushed it.) \index{work}
 
@@ -131,3 +133,4 @@ mass you are applying it to. It is actually the dot product of the force vector 
 For example, if you are pushing sled with a force of 10 newtons and it is moving 2 meters per second, 
 but your push is 20 degrees off, you aren't transferring 20 watts of power to the sled.  
 You are transferring $10 \times 2 \times \cos(20 \text{ degrees}) \approx 18.8$ watts of power.
+%add ramps and sin
