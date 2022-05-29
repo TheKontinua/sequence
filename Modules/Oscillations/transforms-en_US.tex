@@ -41,7 +41,7 @@ There are four kinds of transformations that we do all the time:
 
 Now I will demonstrate each of the four using the graph of $\sin(x)$.
 
-\subsection{Translation up and down}
+\section{Translation up and down}
 
 When you add a positive constant to a function, you translate the
 whole graph up that much. A negative constant translates it down.
@@ -81,7 +81,7 @@ tl/.style = {% tick labels
       plot (\x,{sin(deg{\x}) - 0.5});
 \end{tikzpicture}
 
-\subsection{Translation left and right}
+\section{Translation left and right}
 
 When you add a positive number to $x$ before running it through $f$,
 you translate the graph to the left that much. Adding a negative
@@ -128,7 +128,7 @@ Notice the sign:
 \item Subtract from $x$ before processing with the function translates the graph to the \emph{right}
 \end{itemize}
 
-\subsection{Scaling up and down in the $y$ direction}
+\section{Scaling up and down in the $y$ direction}
 
 To scale the function up and down, you multiply the result of the
 function by a constant.  If the constant is larger than 1, it
@@ -212,7 +212,7 @@ tl/.style = {% tick labels
 
 Amplitude is never negative.  Thus, the amplitude of this wave is 0.5.
 
-\subsection{Scaling up and down in the $x$ direction}
+\section{Scaling up and down in the $x$ direction}
 
 If you multiply $x$ by a number larger than 1 before running it
 through the function, the graph gets compressed toward zero.
@@ -277,7 +277,7 @@ Here is $y = 2^{(-0.5x)}$. Notice that it has flipped around the $y$ axis and is
       node[above, xshift=-6mm] {$2^{-0.5x}$};
     \end{axis}\end{tikzpicture}
 
-\subsection{Order is important!}
+\section{Order is important!}
 
 We can combine these transformations. This allows us, for example, to
 translate a function up 2 and then scale along the $y$ axis by 3.
