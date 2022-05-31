@@ -1,0 +1,63 @@
+\chapter{Limits}
+
+Here is a function:
+
+$$f(x) = \frac{x^2}{x} + 1$$
+
+This $f$ is defined for any real number \emph{except 0}. (You can't
+divide anything, including zero, by zero.)
+
+Let's plot $f$:
+
+\begin{tikzpicture}[
+tl/.style = {% tick labels
+    fill=white, inner sep=1pt, font=\scriptsize,
+            },                        ]
+% grid
+\draw[sdkblue, very thin] (-3,-3) grid (3,3);
+
+
+    \draw[<->,thick,dashed] (-3.2,0) -- (3.2,0) node[right] {$x$};
+    \draw[<->,thick,dashed] (0,-3.2) -- (0, 3.2) node[above] {$y$};
+% curve
+\draw[<-,draw=black,thick,domain=-3:-0.1,samples=300,variable=\x] plot (\x,{\x + 1});
+\draw[thick] (0,1) circle (0.1);
+\draw[->,draw=black,thick,domain=0.1:2,samples=300,variable=\x] plot (\x,{\x + 1});
+\end{tikzpicture}
+
+You can see that the function is the same as $x + 1$ everywhere except
+$x = 0$.  You can see that as the function approaches $x=0$ from the
+left, the value of the function approaches 1.  You can see that as the
+function approaches $x=1$ from the right, the value of the function
+approaches 1.
+
+Mathematicians say ``The \newterm{limit} of $f$ as $x$ approaches 0, is 1.''  We have a notation for this:
+
+$$\lim_{x \rightarrow 0} f(x) = 1$$
+
+We generally use limit whenever we mean ``We are getting arbitrarily
+close, but we can never really get there.''  For example, you might
+say ``The limit of $1/t$ as $t$ goes to infinity is 0.''
+
+\begin{tikzpicture}[
+tl/.style = {% tick labels
+    fill=white, inner sep=1pt, font=\scriptsize,
+            },                        ]
+% grid
+\draw[sdkblue, very thin] (-5,-5) grid (5,5);
+    \draw[<->,thick,dashed] (-5.2,0) -- (5.2,0) node[below] {$t$};
+    \draw[<->,thick,dashed] (0,-5.2) -- (0, 5.2);
+% curve
+\draw[<->,draw=black,thick,domain=0.2:5,samples=300,variable=\x] plot (\x,{1/\x});
+\draw[<->,draw=black,thick,domain=-5:-0.2,samples=300,variable=\x] plot (\x,{1/\x});
+\draw (5.0, 0.2) node[above] {$t \rightarrow \infty$, $1/t \rightarrow 0$};
+\draw (0.0, 5.2) node[above] {$t \rightarrow 0$ from the right, $1/t \rightarrow \infty$};
+\draw (0.0, -5.2) node[below] {$t \rightarrow 0$ from the left, $1/t \rightarrow -\infty$};
+\draw (-5.0, -0.2) node[below] {$t \rightarrow -\infty$, $1/t \rightarrow 0$};
+
+\end{tikzpicture}
+
+What is the limit of $1/t$ as $t$ approaches zero? The limit isn't
+defined because if you approach from the right, $1/t$ goes to
+infinity, but if you approach from the left, $1/t$ goes to negative
+infinity.

@@ -4,4 +4,5 @@ Functions
 Exponents
 Oscillations
 Polynomials
+Limits
 DiscreteProbability
