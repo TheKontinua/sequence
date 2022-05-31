@@ -3,5 +3,6 @@ TrianglesCircles
 Functions
 Exponents
 Oscillations
+Limits
 Polynomials
 DiscreteProbability
