@@ -2,7 +2,7 @@
 
 When you completed the problems in the last section, you probably noticed
 how long it took to compute statistics like the mean, the median,
-and variance by hand. Luckliy, computers were designed to free us from these
+and variance by hand. Luckily, computers were designed to free us from these
 sorts of tedious tasks. The most basic tool for automating
 calculations is the spreadsheet program.\index{spreadsheet}
 
@@ -15,7 +15,7 @@ Sheets -- a free spreadsheet program you use through your web browser.
 
 In whatever spreadsheet program you are using, create a new spreadsheet document.
 
-A spreadsheet is essentially a grid of cells. In each cell you can put data (like numbers or text) and a formulas.
+A spreadsheet is essentially a grid of cells. In each cell you can put data (like numbers or text) and formulas.
 
 \includegraphics[width=0.6\textwidth]{BlankSheet.png}
 
@@ -55,7 +55,7 @@ It should look something like this:
 
 \includegraphics[width=0.6\textwidth]{FirstFormatting.png}
 
-That's a spreadsheet. You have grid of cells. Each cell can hold a
+That's a spreadsheet. You have a grid of cells. Each cell can hold a
 value or a formula that uses values from other cells. The cells with
 formulas automatically update as you edit the values in the other
 cells.
@@ -100,15 +100,15 @@ You should see a long, long column of data appear. (Mine goes from cell A2 throu
 
 \section{Statistics in Spreadsheets}
 
-Let's take the mean all 1000 numbers.  In cell B2, type in a label:
+Let's take the mean of all 1000 numbers.  In cell B2, type in a label:
 ``Mean''. (Feel free to format your labels as you wish. Bolding is recommended.)
 
 In cell C2, enter the formula ``=AVERAGE(A2:A1001)''. When
-you press return, the cell will show the mean: 31.70441, if done correctly .
+you press return, the cell will show the mean: 31.70441, if done correctly.
 
 \includegraphics[width=0.4\textwidth]{Spread_mean.png}
 
-Notice that by specifing that the function \pyfunction{AVERAGE} was to
+Notice that by specifying that the function \pyfunction{AVERAGE} was to
 be performed on a range of cells: cells A2 through A1001.
 
 Do the calculations for variance, standard deviation, and median.
@@ -127,12 +127,12 @@ Most spreadsheets have the ability to create a histogram. In Google
 Sheets, you select the entire range A2:A1001 by selecting the first
 cell and then shift-clicking the last. Then you choose
 Insert$\rightarrow$Chart. In the inspector, change the type of the
-chart to histogram. This will get you a basic histogram.
+chart to a histogram. This will get you a basic histogram.
 % Add: Define histogram or give example, defined in basic statistics, must come previous
 
 \includegraphics[width=0.7\textwidth]{default_histogram.png}
 
-Play with the formatting to see how unquie you can make data. Here is an example:
+Play with the formatting to see how unique you can make data. Here is an example:
 
 \includegraphics[width=0.8\textwidth]{final_histogram.png}
 
@@ -143,7 +143,7 @@ Play with the formatting to see how unquie you can make data. Here is an example
   You will need the following three functions:
   \begin{itemize}
   \item \pyfunction{SUMSQ} returns the sum of the squares of a range of cells.
-  \item \pyfunction{COUNT} returns the number of cells in a range that contain numbers.
+  \item \pyfunction{COUNT} returns the number of cells in a range that contains numbers.
   \item \pyfunction{SQRT} returns the square root of a number.
   \end{itemize}
 
