@@ -9,7 +9,7 @@ For example, if you jump out of a plane (hopefully with a parachute),
 several forces with different magnitudes and directions will be acting upon 
 you. Gravity will push you straight down. That force will be proportional to your weight.
 If there were a wind from the west, it would push you toward the east. That force
-will be proportional to the square of speed of the wind and approximately proportional to 
+will be proportional to the square of the speed of the wind and approximately proportional to 
 your size. Once you are falling, there will be resistance from the air 
 that you are pushing through -- that force will point in the opposite direction
 from the direction you are moving and will be proportional to the square of your
@@ -320,27 +320,27 @@ The rule then is: If you have any vector $v$ and any scalar $a$:
 
 \section{Vectors in Python}
 
-numpy is a library that allows you to work with vectors in Python.  
+NumPy is a library that allows you to work with vectors in Python.  
 You might need to install it on your computer. This is done with \pyfunction{pip}. 
 \pyfunction{pip3} installs things specifically for Python 3.\index{vectors!in python}
 
 \begin{Verbatim}
-pip3 install numpy
+pip3 install NumPy
 \end{Verbatim}
 
 We can think of a vector as a list of numbers.  
-There are also grids of numbers known as \newterm{matrices}. numpy deals with both the same way, 
-so it refer to both of them as arrays.\index{numpy}
+There are also grids of numbers known as \newterm{matrices}. NumPy deals with both in the same way, 
+so it refers to both of them as arrays.\index{NumPy}
 
 The study of vectors and matrices is known as \newterm{Linear Algebra}. Some of the functions we need
-are in a sublibrary of numpy called \pyfunction{linalg}. \index{linalg}
+are in a sublibrary of NumPy called \pyfunction{linalg}. \index{linalg}
 
-As a convention, everyone who uses numpy, imports it as \textit{np}. \index{np}
+As a convention, everyone who uses NumPy, imports it as \textit{np}. \index{np}
 
 Create a file called \filename{first\_vectors.py}:
 
 \begin{Verbatim}
-import numpy as np
+import NumPy as np
 
 # Create two vectors
 v = np.array([2,3,4])
@@ -374,7 +374,7 @@ v * 3 = [ 6  9 12]
 
 \subsection{Formatting Floats}
 
-The numbesr 5.385164807134504 and 3.7416573867739413 are pretty long.  You probably want it 
+The numbers 5.385164807134504 and 3.7416573867739413 are pretty long.  You probably want it 
 rounded off after a couple of decimal places.
 
 Numbers with decimal places are called \newterm{floats}. In the placeholder for your float, you 
