@@ -4,15 +4,16 @@ Because of gravity, if you throw a hammer straight up in the air, from
 the moment it leaves your hand until it hits the ground, it is
 accelerating toward the center of the earth at a constant rate.
 
-\emph{Acceration} is the change in velocity. If the hammer leaves your
+\emph{Acceleration} can be defined as change in velocity. If the hammer leaves your
 hand with a velocity of 12 meters per second upward, one second later
-it will be rising, its velocity will have slowed to 2.2 meters per
+it will be rising, and its velocity will have slowed to 2.2 meters per
 second. One second after that, the hammer will be falling at a rate of
 7.6 meters per second. Every second the hammer's velocity is changing by
 9.8 meters per second, and that change is always toward the center of
 the earth. When the hammer is going up, gravity is slowing it down by
-9.8 meters per second each second.  When the hammer is coming down,
-gravity is speeding it up by 9.8 meters per second each second.\index{acceleration}
+9.8 meters per second, each second it is in the air.  When the hammer is coming down,
+gravity is speeding it up by 9.8 meters per second.\index{acceleration}
+% Connect to vectors
 
 Acceleration due to gravity on earth is a constant negative 9.8 meters per second per second:
 \begin{equation*}
@@ -58,12 +59,13 @@ Note that the velocity of the hammer is being given as a function. Here is its g
   $t = \frac{12}{9.8} = 1.22$ seconds after release.
 \end{Answer}
 
-At this point, we need to say something about air resistance. Gravity
+At this point, we need to acknowledge air resistance. Gravity
 is not the only force on the hammer; as it travels through the air,
 the air tries to slow it down. This force is called \emph{air resistance},
-and for a large, fast moving object (like an airplane) it is very big force. For a
+and for a large, fast-moving object (like an airplane) it is GIGANTIC force. For a
 dense object (like a hammer) moving at a slow speed (what you generate
 with your hand), air resistance doesn't significantly affect acceleration.
+% Relate to f=ma
 
 \section{Calculating Position}
 
@@ -92,7 +94,7 @@ Here is a graph of this function:
 \end{tikzpicture}
 
 
-How did I figure this out? \textbf{The change in position between time
+How do we know? \textbf{The change in position between time
   $0$ and any time $t$ is equal to the area under the velocity graph
   between $x = 0$ and $x = t$.}
 
@@ -133,17 +135,17 @@ in:
 The blue filled region is the area of the dashed rectangle minus that
 empty triangle in its upper left.  The height of the rectangle is
 twelve and its width is the amount of time the hammer has been in
-flight ($t$).  The triangle is $t$ wide and and $9.8t$ tall. Thus, the
+flight ($t$). The triangle is $t$ wide and $9.8t$ tall. Thus, the
 area of the blue region is given by $12t - \frac{1}{2}9.8 t^2$.
 
-That's the change in position. Where was it originally? 2 meter off
-the ground.  So the height is given by $p = 2 + 12t - \frac{1}{2}9.8t^2$.
+That's the change in position. Where was it originally? 2 meters off
+the ground. So the height is given by $p = 2 + 12t - \frac{1}{2}9.8t^2$.
 We usually write terms so that the exponent decreases, so:
 
 $$p = - \frac{1}{2}9.8t^2 + 12t + 2$$
 
 Finding the area under the curve like this is called
-\textit{integration}.  We say ``To find a function that gives the
+\textit{integration}. We say ``To find a function that gives the
 change in position, we just integrate the velocity function.''  A lot
 of the study of calculus is learning to integrate different sorts of
 functions.\index{integration}
@@ -227,7 +229,7 @@ The graph of a quadratic function is a \newterm{parabola}.
 
 \section{Simulating a falling body in Python}
 
-Now you are going to write some Python code that simulates the flying hammer. First, we are just going print out the position, speed, and acceleration of the hammer for every 1/100th of a second after it leaves your hand. (Later we will make a graph.)
+Now you are going to write some Python code that simulates the flying hammer. First, we are just going to print out the position, speed, and acceleration of the hammer for every 1/100th of a second after it leaves your hand. (Later we will make a graph.)
 
 Create a file called \filename{falling.py} and type this into it:
 
@@ -296,7 +298,7 @@ Hit the ground: Complete
 \end{Verbatim}
 
 Note that the acceleration isn't changing at all, but it is changing
-the speed and the speed is changing the height.
+the speed, and the speed is changing the height.
 
 We can see that the hammer in our simulation hits the ground just
 after 2.61 seconds.
@@ -304,7 +306,7 @@ after 2.61 seconds.
 \subsection{Graphs and Lists}
 
 Now, we are going to graph the acceleration, speed, and height using a
-library called matplotlib. However, in order to make the graphs, we
+library called matplotlib. However, to make the graphs, we
 need to gather all the data into lists.\index{matplotlib}
 
 For example, we will have a list of speeds, and the first three
@@ -417,6 +419,6 @@ straight line with a negative slope.  The height is a parabola.
 
 A natural question at this point is ``When exactly will the hammer hit the
 ground?''  That is, when does $height = 0$? The values of $t$ where a function is zero are
-are known as its \textit{roots}. Height is given by a quadratic function. In the next
+known as its \textit{roots}. Height is given by a quadratic function. In the next
 chapter, you will get the trick for finding the roots of any quadratic
 function.
