@@ -24,15 +24,15 @@ Here are what the symbols mean:
 \item $T_{-}$: student tested negative for the virus
 \end {itemize}
 
-So, for example, your data indicates that there were 76 students who
+So, for example, your data indicates that 76 students who
 had only one of the two shots and tested negative for the virus.
 
 Your principal has a few questions. The first is ``If I put five
-randomly choosen students in a study group together, what is the
-probabilty that one of them has the virus?''
+randomly chosen students in a study group together, what is the
+probabiltiy that one of them has the virus?''
 
 The first thing you might do is make a new table that shows what is
-the probability of a randomly choosen student being in any particular
+the probability of a randomly chosen student being in any particular
 group. You just divide each entry by 644 (the total number of
 students).
 
@@ -45,7 +45,7 @@ students).
 
 (In this table, I expressed the number as a percentage with a decimal
 point -- you had to round off the numbers. If you wanted exact answers, you
-would have keep each as a fraction: 36 students represents
+would have to keep each as a fraction: 36 students represents
 $\frac{9}{161}$ of the student body.)
 
 \section{Marginalization}
@@ -61,22 +61,22 @@ Now we can sum across the columns and rows.
   sum & $p(V_0) = 0.280$ & $p(V_1) = 0.174$ & $p(V_2) = 0.547$ & 
 \end{tabular}
 
-If a child is choosen randomly from the entire student body, there is
+If a child is chosen randomly from the entire student body, there is
 a 34.2\% that the student has tested positive for the virus. And there is
 17.4\% chance that the student has one shot of the vaccine.
 
 This summing of the probabilities across one dimension is known as
 \textit{marginalizing}. Marginalization is just summing across all the
-variable that you don't care about. You don't care who has the virus,
+variables that you don't care about. You don't care who has the virus,
 just the probability that a student has not received even one shot of
 the vaccine? You marginalize all the vaccine statuses.
 
 To answer the principal's question, the easy thing to do is find the
-answer of the opposite ``if I put five randomly choosen students in a
-study group together, what is the probabilty that \textit{none} of
+answer of the opposite ``if I put five randomly chosen students in a
+study group together, what is the probabiltiy that \textit{none} of
 them has tested positive for the virus?''
 
-The chance that a randomly choose student doesn't have the virus
+The chance that a randomly chosen student doesn't have the virus
 ($p(T_{-}$) is 54.7\%.  Thus the chance that 5 randomly chosen
 students don't have the virus is $0.547 \times 0.547 \times 0.547
 \times 0.547 \times 0.547 = 0.0489$ Thus the probability of the
@@ -95,7 +95,7 @@ has tested positive for the virus?''
 
 This involves the idea of \textit{Conditional probability}.  You want
 to know the odds that a student doesn't have the virus given that
-student has had both shots of the vaccine.
+the student has had both shots of the vaccine.
 
 There is a mathematical notation for this:
 
@@ -111,8 +111,8 @@ divide by the total number of students who had both vaccination shots.
 $$p(T_{-} | V_{2}) = \frac{256}{96 + 256} = \frac{8}{11} \approx 72.7\%$$
 
 If we are working from the probabilities, you can get the same result
-this way: Divide the probability that a randomly choosen student had a
-positive test \textit{and} both vaccination shots by the probabilty
+this way: Divide the probability that a randomly chosen student had a
+positive test \textit{and} both vaccination shots by the probabiltiy
 that a student had both vaccination shots:
 
 $$p(T_{-} | V_{2}) = \frac{p(T_{-} \text{ AND } V_{2})}{p(T_{-})} =  \frac{0.398}{0.547} \approx 72.7\%$$

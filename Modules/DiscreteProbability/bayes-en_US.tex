@@ -1,6 +1,6 @@
 \chapter{Bayes' Theorem}
 
-Let's say that that you are holding two bags of marbles.
+Let's say that you are holding two bags of marbles.
 You know that one bag contains 60 white marbles and 40 red marbles. And you
 know that the other holds 10 white marbles and 90 red marbles. You
 don't know which is which -- and you can't see the marbles.
@@ -12,7 +12,7 @@ I say ``Guess which bag is mostly red marbles.'' You pick one.
 also a 50 percent probability that it is the mostly-white-marbles bag.''
 
 Then you pick one marble from the bag. It is red. Now you must
-update your beliefs. Clearly, it is more likely that this is the
+update your beliefs. It is more likely that this is the
 mostly-red-marbles bag. What is the probability now?
 
 Bayes Theorem gives you the rule for updating your beliefs based on
@@ -34,7 +34,7 @@ or
 
 $$p(C \text{ AND } D) = p(C | D) p(D)$$
 
-(The probability the person has a cough multiplied by the probability they are at the doctor if they have a cough.)
+(The probabilitiy the person has a cough multiplied by the probabilitiy they are at the doctor if they have a cough.)
 % ADD: This needs a little more explanation
 % Image: https://miro.medium.com/max/1400/1*CnoTGGO7XeUpUMeXDrIfvA.png
 
@@ -48,7 +48,7 @@ know:
 
 \begin{itemize}
 \item $p(C | D)$ (The probability that you have a cough given that you are waiting to see a doctor)
-\item $p(D)$ (The probabilty that you are waiting for a doctor for any reason.)
+\item $p(D)$ (The probability that you are waiting for a doctor for any reason.)
 \item $p(C)$ (The probability that you have a cough anywhere)
 \end{itemize}
 
@@ -69,7 +69,7 @@ Back to the example at the beginning. To review:
 \item You pull one marble from the selected bag -- it is red.
 \end{itemize}
 
-What is the probabilty that the selected bag is Bag R? Intuitively,
+What is the probability that the selected bag is Bag R? Intuitively,
 you know that the probability is now more than 0.5. What is the exact
 number?
 
@@ -91,7 +91,7 @@ out a marble. Both bags look the same, so $P(B_R)= 0.5$. This is
 called \textit{the prior} because it represents what you thought the
 probability was before you got more information.
 
-$P(D_R)$ is the probabilty of drawing a red marble. There was 0.5
+$P(D_R)$ is the probability of drawing a red marble. There was 0.5
 probability that you put your hand into Bag W (in which 40 of the 100
 marbles are red) and a 0.5 probability that you put your hand into Bag
 R (in which 90 of the 100 marbles are red).  So
@@ -109,7 +109,7 @@ that you have selected the bag with 90 red marbles.
 
 Bayes' Theorem, then, is about updating your beliefs based on
 evidence.  Before you drew out the red marble, you selected one bag
-thinking it might contain 90 red marbles. How certain were you? 0.0 being complete disbelief and 1.0 completly
+thinking it might contain 90 red marbles. How certain were you? 0.0 being complete disbelief and 1.0 entirely
 confidence, you were 0.5. After pulling out the red marble, you were about 0.69
 confident that you had chosen the bag with 90 red marbles.
 

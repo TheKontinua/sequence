@@ -1,7 +1,7 @@
 \chapter{Introduction to Discrete Probability}
 
 First, let's take care of the word \emph{discrete} vs \emph{discreet}.
-They sound exactly same, but ``discrete'' means ``individually
+They sound exactly the same, but ``discrete'' means ``individually
 separate and distinct'' and ``discreet'' means ``careful about what
 other people know''.  So you might say, ``You can think of light as a
 continuous wave or as a blast of discrete particles.'' And you might
@@ -9,9 +9,9 @@ say, ``Please go get the box of doughnuts from the kitchen. Oh, and
 there are a lot of hungry people in the house, so be
 discreet.''\index{discrete vs. discreet}
 
-When we are talking about probabilities, there are problems that deal
+When we are talking about probabilities, some problems deal
 with discrete quantities like ``What is the probability that I will
-throw these three dice and the numbers that come up sum to 9?''. There
+throw these three dice and the numbers that roll face up sum to 9?''. There
 are also problems that deal with continuous properties like ``What is
 the probability that the next bird to fly over my house will weigh
 between 97.2 and 98.1 grams ?'' In this module, we are going to focus
@@ -19,7 +19,7 @@ on the probability problems that deal with discrete quantities.
 
 Watch Khan Academy's Introduction to Probability at \url{https://youtu.be/uzkc-qNVoOk}.
 
-Let's say that I have a cloth sac filled with 100 marbles; 99 are red
+Let's say that I have a cloth sack filled with 100 marbles; 99 are red
 and 1 is white. If I ask you to reach in without looking and pull out
 one marble, you will probably pull out a red one. We say that ``There
 is a 1 in 100 chance that you would pull out a white marble.'' Or we
@@ -31,7 +31,7 @@ In probability, we often talk about the probability of certain
 events. ``Pulling out a white marble'' is an event, and we can give it
 a symbol like $W$. Then, in equations we use $p$ to mean ``the
 probability of''.  Thus, we can say ``There is a 0.01 probability that
-you will pull out a white marble'' becomes the equation
+you will pull out a white marble'' which becomes the equation
 \begin{equation*}
   p(W) = 0.01
 \end{equation*}\index{probability}
@@ -41,7 +41,7 @@ you will pull out a white marble'' becomes the equation
 
 We know that you are either going to pull out a red marble or a white marble,
 so the probability of a white marble being pulled and the probability
-of a red marble being pulled must add up to be 100\%. Therefore, the odds of
+of a red marble being pulled must add up to 100\%. Therefore, the odds of
 pulling out a red marble must be 99\% or 0.99. If we let the event ``Pull out a red marble'' be given by the symbol $R$, we can say:
 \begin{equation*}
   p(R) = 1.0 - P(W) = 1.0 - 0.01 = 0.99
@@ -50,7 +50,7 @@ pulling out a red marble must be 99\% or 0.99. If we let the event ``Pull out a 
 Now, let's say that I make you take a marble from the bag and then
 toss a coin. What is the probability that you will pull a white marble
 and then get heads on the coin? It is the product of the two
-probabilities: $0.01 \times 0.5 = 0.005$, so one half of a one percent
+probabilities: $0.01 \times 0.5 = 0.005$, so one-half of a one percent
 chance. Do the probabilities still sum to 1?
 \begin{itemize}
 \item White and Heads = $0.01 \times 0.5 = 0.005$
@@ -68,16 +68,16 @@ In the last section, I told you that the probability of two events
 toss'') is the product of the probability of each event: $0.99 \times 0.5 = 0.495$.
 
 This is true if the two events are \textit{independent}, that is the
-outcome of one doesn't change the probabilty of the other.  The
+outcome of one doesn't change the probability of the other.  The
 example I gave is independent: It doesn't matter what ball you pull
 from the bag, the outcome of the coin toss will always be 50-50.\index{independent}
 
 What are two events that are not independent? The probability that a
 person is a professional basketball player and the probability that
-someone wears a shoe that is size 13 or larger are \textit{not}
+someone wears a shoe that is size 13 or larger is \textit{not}
 independent. After all, height is an advantage in basketball and most
 tall people also have large feet. So if you know someone is a
-basketball player, it is very likely that they wear a large shoe.
+basketball player, they likely wear large shoes.
 % ADD: Correlation for Causeation 
 % Weird Correlations Website: https://www.tylervigen.com/spurious-correlations
 % KA: https://youtu.be/R-NeYKSEqns
@@ -98,9 +98,9 @@ basketball player, it is very likely that they wear a large shoe.
   probability of at least one heads = 1.0 - probability of all tails $ = 1.0 - \left(\frac{1}{2}\right)^5 =1.0 - \frac{1}{32} = \frac{31}{32} = \approx 0.97$ 
   \end{Answer}
     
-\section{Why 7 is the mostly likely sum of two dice}
+\section{Why 7 is the most likely sum of two dice}
 
-If you roll two dice, the sum will can be 2 or 12 or any number in
+If you roll two dice, the sum will be 2 or 12 or any number in
 between. It is very tempting to assume that the likelihood of any of
 those numbers is the same. In fact, the probability of a 2 is
 $\frac{1}{36} \approx 3\%$ and the probability of a 7 is $\frac{1}{6}
@@ -171,14 +171,14 @@ Start python and try a few of the different ways to generate random numbers:
 [8, 7, 20, 9, 25, 13, 23, 11, 14, 16]
 \end{Verbatim}
 % KA: https://www.youtube.com/watch?v=Jua-KWBdzfU
-Clearly Python has a lot of ways to do things that look random. I
+Clearly, Python has a lot of ways to do things that look random. I
 should be honest with you at this point: they aren't really
 random. The computer that you are using can't generate random
 data. Instead, it uses tricks to create data that looks random; we
 call this \textit{pseudorandom} data. Good pseudorandom algorithms are
 very important for cryptography and data security.
 
-What if you want real random data? There are companies that are using
+What if you want real random data? Some companies that are using
 the decay of radioactive materials to generate real random data. You
 can pay to download it. For our purposes, Python's pseudorandom
 numbers are quite sufficient.
@@ -219,7 +219,7 @@ Toss 98: 5 + 2 = 7
 Toss 99: 5 + 2 = 7
 \end{Verbatim}
 
-Now we want to count occurences of each possible outcome. Let's use an
+Now we want to count occurrences of each possible outcome. Let's use an
 array of integers. We will start with an array of zeros. And, for
 example, when we roll a 3, we'll add 1 to item 3 in the array. (We can
 never roll a zero or a one, so those two entries will always be zero.)
@@ -297,7 +297,7 @@ Now you should see something like:
 \end{Verbatim}
 
 Whenever you are dealing with random numbers, the outcome will seldom
-be \textit{exactly} what you expected. In this case, however, you should see that you
+be \textit{exactly} what you expected. In this case, however, you should see that your
 predictions are pretty close.
 
 \subsection{Making a bar graph}

@@ -28,14 +28,14 @@ How do we define or write down a single permutation? You could say
 something like ``Swap the first and second items and swap the third
 and fourth items.'' However, that gets pretty difficult to read. So we
 usually write a permutation as two lines: the first line is before
-permutation and the second line is after.  Like this:
+the permutation and the second line is after.  Like this:
 
 $$\begin{pmatrix}
   1 & 2 & 3 & 4 \\
   2 & 1 & 4 & 3
 \end{pmatrix}$$
 
-And can we assign permutations to variables. For example, if we wanted the
+And we can assign permutations to variables. For example, if we wanted the
 variable $A$ to represent ``swapping the first and second item'', we
 would write this:
 
@@ -58,7 +58,7 @@ $$B \circ A = \begin{pmatrix}
   2 & 1 & 4 & 3
 \end{pmatrix}$$
 
-That is, if we have the list $[a, b, c, d]$ and we apply permutation $A$ and then permutation $B$, we get $[b, a, d, c]$.
+That is if we have the list $[a, b, c, d]$ and we apply permutation $A$ and then permutation $B$, we get $[b, a, d, c]$.
 
 \textbf{Important:} Note that permutations are applied from right to
 left. $B \circ A$ means ``Applying $A$ and then $B$.''  Why does this matter?
@@ -75,7 +75,7 @@ $$I = \begin{pmatrix}
   1 & 2 & 3 & 4
 \end{pmatrix}$$
 
-(We use capital ``I'' for the identity.)
+(We use a capital ``I'' for the identity.)
 
 \subsection{Challenge} Find an example of two permutations $S$ and $T$ such that $S \circ T$ does not equal $T \circ S$.
 
@@ -91,7 +91,7 @@ my_grades = [92, 87, 76, 99, 91, 93]
 grades_worst_to_best = sorted(my_grades)
 \end{Verbatim}
 
-You want to sort backwards?
+Do you want to sort backwards?
 
 \begin{Verbatim}
 my_grades = [92, 87, 76, 99, 91, 93]
@@ -127,7 +127,7 @@ $$S^{-1} = \begin{pmatrix}
 \end{pmatrix}$$
 
 That is, the original moved an item in the first spot to the third
-spot. The inverse must move what ever was in the third spot back to
+spot. The inverse must move whatever was in the third spot back to
 the first spot.
 
 (Notation note: Because in multiplication, $b \times b^{-1} = 1$, we
@@ -185,7 +185,7 @@ $$T = \begin{pmatrix}
 \end{pmatrix} = (1 \rightarrow 2 \rightarrow 4)(3 \rightarrow 5)$$
 
 The first handy thing about this notation is that it makes it easy for
-us to describe the inverse: we just run the cycles backwards:
+us to describe the inverse: we just run the cycles backward:
 
 $$T^{-1} = (4 \rightarrow 2 \rightarrow 1)(5 \rightarrow 3)$$
 
