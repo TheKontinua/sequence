@@ -5,21 +5,21 @@ interest. The most common loan of this sort is what the bank calls a
 ``savings account''.  Any money you put in the account is loaned to
 the bank. The bank then lends it to someone else, who pays interest to
 the bank. And the bank gives some of that interest to you.
-
+% Diagram needed
 However, what if you leave the interest in your account? And you start
 making \textit{interest on the interest}? This is known as
 \textit{compound interest}.\index{compound interest}
 
 \section{An example with annual interest payments}
 
-Lets say that you put \$1000 in a savings account that pays 6\%
+Let's say that you put \$1000 in a savings account that pays 6\%
 interest every year. How much money would you have after 12 years?
 Let's make a spreadsheet.
 
 \includegraphics[width=0.4\textwidth]{StartInterest.png}
 
 Create a new spreadsheet and edit the cells to look like this.  All
-the cells in row 1 - 4 are just values: just type in what you
+the cells in rows 1 - 4 are just values: just type in what you
 see.
 
 The fifth row is all formulas:
@@ -39,7 +39,7 @@ The cells in the Interest and Balance column should be formatted as currency.
 You are about to make a bunch of copies of the cells in the fifth row,
 so make sure they look right.
 
-Click on A5 and shift click on C5 to select all three cells. Drag the
+Click on A5 and shift-click on C5 to select all three cells. Drag the
 lower-right corner down to fill the rows 6 - 15.
 
 \includegraphics[width=0.5\textwidth]{CopiedCellsInterest.png}
@@ -50,7 +50,7 @@ is \$113.90. Your balance has more than doubled!
 \section{Exponential Growth}
 
 We figured this out numerically by repeatedly multiplying the balance
-by the interest rate.  What if you wanted to know what the balance
+by the interest rate. What if you wanted to know what the balance
 would be $n$ years after investing $P_0$ dollars with an annual interest
 rate of $r$? (Note that $r$ in our example would be 0.06, not 6.0.)
 
@@ -58,13 +58,14 @@ Each year, the balance is multiplied by $1 + r$, so after one year,
 $P_0$ would become $P_0 \times (1 + r)$.  The next year you would multiply
 this number by $(1 + r)$ again: $P_0 \times (1 + r) \times (1 + r)$. The
 next year? $P_0 \times (1 + r) \times (1 + r) \times (1 + r)$ See the
-pattern? If we define $P_n$ be this balance after $n$ years, then
+pattern? $P_n$ is this balance after $n$ years, then
 
 $$P_n = P_0 (1+r)^n$$
 
 Because $n$ is an exponent, we call this \textit{exponential growth}.
 And there are few things as terrifying to a scientist as
 the phrase ``The population is undergoing exponential growth''.\index{exponential growth}
+% Diagram/ Explain
 
 \section{Sensitivity to interest rate}
 
@@ -73,7 +74,7 @@ how quickly your money grows after a few years.  The second thing that
 is surprising is how much difference a small change in the percentage
 rate makes.
 
-Lets add another set of columns that shows what happens to your money
+Let's add another set of columns that shows what happens to your money
 if you convince the bank to pay you 8\% instead of 6\%.
 
 Copy everything from columns B and C:
