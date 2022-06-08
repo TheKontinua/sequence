@@ -167,3 +167,61 @@ stripes.  In the other half, you will see that green fades to cyan
 down the left side and yellow fades to white down the right side.
 
 \includegraphics[width=0.4\linewidth]{rgb.png}
+
+\section{Using an existing image}
+
+imageio can also be used to read in any common image file
+format. Let's read in an image and save each of the red, green, and blue
+channels out as its own image.
+
+Create a new file called \filename{separate\_image.py}:
+
+\begin{Verbatim}
+import imageio
+import sys
+import os
+
+# Check command line arguments
+if len(sys.argv) < 2:
+    print(f"Usage {sys.argv[0]} <infile>")
+    sys.exit(1)
+
+# Read the image
+path = sys.argv[1]
+image = imageio.imread(path)
+
+# What is the filename?
+filename = os.path.basename(path)
+
+# What is the shape of the array?
+original_shape = image.shape
+
+# Log it
+print(f"Shape of {filename}:{original_shape}")
+
+# Names of the colors for the filenames
+colors = ['red','green','blue']
+
+# Step through each of the colors
+for i in range(3):
+
+    # Create a new image
+    newimage = np.zeros(original_shape, dtype=np.uint8)
+
+    # Copy one channel
+    newimage[:,:,i] = image[:,:,i]
+
+    # Save to a file
+    new_filename = f"{colors[i]}_{filename}"
+    print(f"Writing {new_filename}")
+    imageio.imwrite(new_filename, newimage)
+\end{Verbatim}
+
+Now you can run the program with any common RGB image type:
+
+\begin{Verbatim}
+python3 separate_image.py dog.jpg
+\end{Verbatim}
+
+This will create three images: \filename{red\_dog.jpg},
+\filename{green\_dog.jpg}, and \filename{blue\_dog.jpg}.
