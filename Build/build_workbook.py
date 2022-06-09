@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+import json
 
 # Paths are from Intermediate
 mod_dir = '../../Chapters'
@@ -15,7 +16,11 @@ def path_for_chapter_locale_list(chapter, locale_list):
     # FIXME: When we start localizing, this will need to be smarter
     return os.path.join(mod_dir, chapter, 'en_US', 'student.tex')
 
-def build_book(book_id, locale_list, paper_size, draft):
+def build_book(book_id, config, draft):
+    locale_list = config['Languages']
+    paper_size = config['Paper']
+    tool = config['LatexExecutable']
+
     output_tex_path = 'workbook-{}-{}.tex'.format(book_id, locale_list[0])
     output_pdf_path = 'workbook-{}-{}.pdf'.format(book_id, locale_list[0])
     final_pdf_path = '../{}'.format(output_pdf_path)
@@ -38,7 +43,7 @@ def build_book(book_id, locale_list, paper_size, draft):
     
     for chapter in chapters:
         trimmed_chapter = chapter.strip()
-        if len(trimmed_chapter) > 3:
+        if len(trimmed_chapter) > 0:
             # Look for the graphics in the module directory
             gpath_string = '\\graphicspath{{{{../../Chapters/{}/en_US}}}}\n'.format(trimmed_chapter)
             output_tex.write(gpath_string)
@@ -53,7 +58,7 @@ def build_book(book_id, locale_list, paper_size, draft):
     footer_file.close()
     output_tex.write(footer)
     output_tex.close()
-    os.system('lualatex {}'.format(output_tex_path))
+    os.system(f"{tool} {output_tex_path}")
 
     if not draft:
         # If a pdf was made, run it again to get cross-references right
@@ -68,6 +73,9 @@ if not os.path.exists('Intermediate'):
 
 if not os.path.exists('user.cfg'):
     shutil.copyfile('Support/default.cfg', 'user.cfg')
+
+with open('user.cfg','r') as config_fd:
+    config = json.load(config_fd)
 
 if len(sys.argv) < 2:
     usage()
@@ -86,5 +94,5 @@ print ('Building workbook ', book)
 
 os.chdir('Intermediate')
 
-build_book(book, ['en_US', 'it_IT'], 'Letter', False)
+build_book(book, config, False)
                         
