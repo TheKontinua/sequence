@@ -3,17 +3,17 @@ import sys
 import shutil
 
 # Paths are from Intermediate
-mod_dir = '../../Modules'
+mod_dir = '../../Chapters'
 
 def usage():
     print('Usage: python3 build_workbook.py <i>')
     print('   or  python3 build_workbook.py all')
     sys.exit(1)
 
-def path_for_chapter_locale_list(mod, chapter, locale_list):
+def path_for_chapter_locale_list(chapter, locale_list):
     # Assumes mod has already been stripped of whitespace
     # FIXME: When we start localizing, this will need to be smarter
-    return os.path.join(mod_dir, mod, '{}-en_US.tex'.format(chapter))
+    return os.path.join(mod_dir, chapter, 'en_US', 'student.tex')
 
 def build_book(book_id, locale_list, paper_size, draft):
     output_tex_path = 'workbook-{}-{}.tex'.format(book_id, locale_list[0])
@@ -30,30 +30,22 @@ def build_book(book_id, locale_list, paper_size, draft):
     output_tex.write(header)
     
     # Which modules go into the book?
-    modlist_filename = 'modlist_{}.txt'.format(book)
+    modlist_filename = 'book_{}.txt'.format(book)
     modlist_path = os.path.join(mod_dir, modlist_filename)
     modlist = open(modlist_path, 'r')
-    mods = modlist.readlines()
+    chapters = modlist.readlines()
     modlist.close()
     
-    for mod in mods:
-        trimmed_mod = mod.strip()
-        if len(trimmed_mod) > 3:
+    for chapter in chapters:
+        trimmed_chapter = chapter.strip()
+        if len(trimmed_chapter) > 3:
             # Look for the graphics in the module directory
-            gpath_string = '\\graphicspath{{{{../../Modules/{}/}}}}\n'.format(trimmed_mod)
+            gpath_string = '\\graphicspath{{{{../../Chapters/{}/en_US}}}}\n'.format(trimmed_chapter)
             output_tex.write(gpath_string)
             
-            # Which chapters go into the module?
-            chapterlist_path = os.path.join(mod_dir, trimmed_mod, 'chapterlist.txt')
-            chapterlist = open(chapterlist_path)
-            chapters = chapterlist.readlines()
-            chapterlist.close()
-            for chapter in chapters:
-                trimmed_chapter = chapter.strip()
-                if len(trimmed_chapter) > 1:
-                    chapter_path = path_for_chapter_locale_list(trimmed_mod, trimmed_chapter, locale_list)
-                    include_string = '\\input{{{}}}\n'.format(chapter_path)
-                    output_tex.write(include_string)
+            chapter_path = path_for_chapter_locale_list(trimmed_chapter, locale_list)
+            include_string = '\\input{{{}}}\n'.format(chapter_path)
+            output_tex.write(include_string)
 
     # Write the footer
     footer_file = open('../Support/bookfooter.tex', 'r')
