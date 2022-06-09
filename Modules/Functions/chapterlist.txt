@@ -1,5 +1,0 @@
-functions
-falling_bodies
-solving_quadratics
-drag
-vector_functions
