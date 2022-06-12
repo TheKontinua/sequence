@@ -51,6 +51,7 @@ factoring_polynomials
 practice_polynomials
 graphs_polynomials
 interpolating_polynomials
+pandas
 limits
 differentiation
 discrete_probability
