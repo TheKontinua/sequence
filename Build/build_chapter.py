@@ -48,15 +48,13 @@ def build_chapter(chapter_file, chap_dir, config):
 
     
 
-if len(sys.argv) < 2:
-    usage()
-chap_file = sys.argv[1]
+chap_file = 'student.tex'
+chap_dir = os.getcwd()
+os.chdir('../../../Build/Intermediate')
 
-with open('user.cfg','r') as config_fd:
+with open('../user.cfg','r') as config_fd:
     config = json.load(config_fd)
 
-chap_dir = os.getcwd()
-os.chdir('../../Build/Intermediate')
 print(f"Building {chap_file} (in {chap_dir})")
 build_chapter(chap_file, chap_dir, config)
                         
