@@ -23,7 +23,7 @@ falling_bodies
 solving_quadratics
 drag
 vector_functions
-exponents
+basic_spreadsheet
 compound_interest
 intro_dataviz
 exponents_review
@@ -52,6 +52,7 @@ practice_polynomials
 graphs_polynomials
 interpolating_polynomials
 pandas
+sql_1
 limits
 differentiation
 discrete_probability
