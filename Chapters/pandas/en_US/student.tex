@@ -318,6 +318,41 @@ df.to_csv('bikes2.csv')
 
 Run the program and open \filename{bikes2.csv} in a text editor.
 
+\section{Derived columns}
+
+Let's say that you want to add a column with age of the bicycle in days:
+\begin{Verbatim}
+bike_id,brand,size,purchase_price,purchase_date,status,age_in_days
+5636248,GT,57,277.99,1986-09-07,available,13061
+4156134,Giant,56,201.52,2005-01-09,rented,6362
+7971254,Cannondale,54,292.25,1978-02-28,available,16174
+\end{Verbatim}
+
+Your first problem is that the \texttt{purchase\_date} column looks
+like a date, but really it is a string. So you need to convert it to a
+date.  You can do this by applying a function to every item in the series:
+\begin{Verbatim}
+df['purchase_date'] = df['purchase_date'].apply(lambda s: datetime.date.fromisoformat(s))
+\end{Verbatim}
+
+(With pandas, there is often more than one way to do things.  pandas
+has a \pyfunction{to\_datetime} function that converts every entry in
+a sequence to a \pytype{datetime} object. So here is another way to
+convert the string column in to a date column:
+\begin{Verbatim}
+df['purchase_date'] = pd.to_datetime(df['purchase_date']).dt.date
+\end{Verbatim}
+You can look up \pyfunction{dt} and \pyfunction{date} if you are curious.)
+
+Now, we can use the same trick to create a new column with the age in days:
+\begin{Verbatim}
+today = datetime.date.today()
+df['age_in_days'] = df['purchase_date'].apply(lambda d: (today - d).days)
+\end{Verbatim}
+
+When you run this, the new \filename{bikes.csv} will have an \texttt{age\_by\_date} column.
+
+
 
 
 

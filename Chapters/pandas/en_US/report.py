@@ -1,6 +1,5 @@
 import pandas as pd
-from random import randint
-
+import datetime
 # Read the CSV and create a dataframe                                                                                           
 df = pd.read_csv('bikes.csv', index_col="bike_id")
 
@@ -17,6 +16,12 @@ print(f"These bikes have no status:{missing_ids}")
 
 # Just keep the rows that do not have null statuses
 df = df[~missing_mask]
+
+# Create real date column
+df['purchase_date'] = df['purchase_date'].apply(lambda s: datetime.date.fromisoformat(s))
+today = datetime.date.today()
+df['age_in_days'] = df['purchase_date'].apply(lambda d: (today - d).days)
+# df['age_in_days'] = (today - df['purchase_date']).days
 
 # Show the shape of the dataframe
 (row_count, col_count) = df.shape

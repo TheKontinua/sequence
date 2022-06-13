@@ -63,7 +63,7 @@ def build_book(book_id, config, draft):
     if not draft:
         # If a pdf was made, run it again to get cross-references right
         if not draft and os.path.exists(output_pdf_path):
-            os.system('lualatex {}'.format(output_tex_path))
+            os.system(f"{tool} {output_tex_path}")
             shutil.move(output_pdf_path, final_pdf_path)
         else:
             print('Build failed')
