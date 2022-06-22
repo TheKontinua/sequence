@@ -1,4 +1,4 @@
-The Hillegass Sequence
+The Technical Sequence
 ======================
 
 The workforce of the future will demand scientists, engineers,
