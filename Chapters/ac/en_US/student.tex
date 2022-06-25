@@ -46,7 +46,7 @@ alternates back and forth this way 60 times per second.
 
 Let's say you turn on your toaster which has a resistance of 14.4
 ohms. How much energy (in watts) does it change from electrical energy
-to heat?  We know that $I = V/R$ and we know that watts of power is
+to heat?  We know that $I = V/R$ and we know that watts of power are
 $IV$. So given a voltage of $V$, the toaster is consuming $V^2/R$
 watts.
 
@@ -76,7 +76,7 @@ tl/.style = {% tick labels
 Another sine wave! Here is a lesser-known trig identity: $\left( \sin(x) \right)^2 = \frac{1}{2} - \frac{1}{2}\cos(2x)$
 
 So this is actually a cosine wave flipped upside down, scaled down by
-half the peak power and translated up so that it is never
+half the peak power, and translated up so that it is never
 negative. Note that it is also twice the frequency of the voltage sine
 wave.
 
@@ -89,7 +89,7 @@ As a toaster user and as someone who pays a power bill, you are mostly
 interested in the average power.  To get the average power, you take
 the area under the power graph and divide it by the amount of time.
 
-We can think of the area under the curve as two easy-to-integrate quantites summed:
+We can think of the area under the curve as two easy-to-integrate quantities summed:
 \begin{itemize}
 \item A constant function of $y = frac{V_p^2}{2R}$
 \item A wave $y = - \frac{V_p^2}{2R} \cos \left(\frac{2\pi t}{120} \right)$
@@ -164,7 +164,7 @@ only 0.01 amps RMS flow through your home. When that current goes
 through the wire $I^2R = (0.0001)(20) = .002$ watts of power are lost
 on the power lines.
 
-It is much, much more efficent. The only problem is that 120,000 volts
+It is much, much more efficient. The only problem is that 120,000 volts
 would be incredibly dangerous.  So the power company moves power long
 distances at very high voltages, like 765 kV.  Before the power is
 brought into your home, it is converted into a lower voltage using a
@@ -173,8 +173,8 @@ brought into your home, it is converted into a lower voltage using a
 \section{Transformers}
 
 A transformer is a device that converts electrical power from one
-voltage to another. A good tranformer is more than 95\% efficient. The
-details of magnetic fields, flux, and inductance are beyond this scope
+voltage to another. A good transformer is more than 95\% efficient. The
+details of magnetic fields, flux, and inductance are beyond the scope
 of this chapter, so I am going to give a relatively simple explanation
 and admit that it is incomplete.
 
@@ -184,8 +184,8 @@ A transformer is a ring with two sets of coils wrapped around it.
 
 (Diagram from Wikipedia)
 
-When AC current is run through the primary winding, it create magnetic
-flux in the ring.  The magnetic flux induces current in the secondary
+When alternating current is run through the primary winding, it creates magnetic
+flux in the ring. The magnetic flux induces current in the secondary
 winding.
 
 If $V_P$ is the voltage across the primary winding and $V_S$ is the
@@ -198,7 +198,7 @@ where $N_P$ and $N_S$ are the number of turns in the primary and
 secondary windings.
 
 There are usually at least two transformers between you and the very
-high voltage lines.  There are tranformers at the substation that make
+high voltage lines.  There are transformers at the substation that make
 the voltage low enough to travel on regular utility poles. On the
 utility poles, you will see cans that contain smaller
 transformers. Those step the voltage down to make the power safe to
@@ -206,7 +206,7 @@ enter your home.
 
 \section{Phase and 3-phase power}
 
-If two waves that are ``in sync'' we say they have the same \newterm{phase}.
+If two waves are ``in sync'' we say they have the same \newterm{phase}.
 
 \begin{tikzpicture}[
 tl/.style = {% tick labels fill=white, inner sep=1pt,
@@ -279,8 +279,8 @@ building. Large amounts of smooth power delivery means a lot to an
 industrial user.
 
 In residential settings, each home gets its power from one of the three
-wires. However two wires typically carry power into the home. Each
-one carries 120V RMS, but they are out of phase by 180 degree. Lights
+wires. However, two wires typically carry power into the home. Each
+one carries 120V RMS, but they are out of phase by 180 degrees. Lights
 and small appliances are connected to one of the wires and ground, so
 they get 120V RMS.  Large appliances, like air conditioners and
 washing machines, are connected across the two wires so they get 240V

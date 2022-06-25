@@ -1,24 +1,24 @@
 \chapter{Images in Python}
 
-An image is usually represented as three dimensional array of 8-bit
-integers. numpy arrays are the most commonly used library for this
+An image is usually represented as a three-dimensional array of 8-bit
+integers. NumPy arrays are the most commonly used library for this
 sort of data structure.
 
 If you have an RGB image that is 480 pixels tall and 640 pixels wide,
-you will need a $480 \times 640 \times 3$ numpy array.
+you will need a $480 \times 640 \times 3$ NumPy array.
 
 There is a separate library (imageio) that:
 \begin{itemize}
-\item Reads an image file (like JPEG files) and creates a numpy array.
-\item Writes a numpy array to a file in standard image formats
+\item Reads an image file (like JPEG files) and creates a NumPy array.
+\item Writes a NumPy array to a file in standard image formats
 \end{itemize}
 
-Let's create a simply python program that creates a file containing
+Let's create a simply python program that creates a file containing an
 all-black image that is 640 pixels wide and 480 pixels tall. Create a
 file called \filename{create\_image.py}:
 
 \begin{Verbatim}
-import numpy as np
+import NumPy as np
 import imageio
 import sys
 
@@ -55,7 +55,7 @@ red. We will gradually increase the red from 0 on the left to 255 on
 the right.
 
 \begin{Verbatim}[commandchars=\\\{\}]
-import numpy as np
+import NumPy as np
 import imageio
 import sys
 
@@ -115,10 +115,10 @@ side, the color fades from red to magenta.
 
 Notice that red and blue with no green looks magenta to your eye.
 
-Now lets add some stripes of green:
+Now let's add some stripes of green:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-import numpy as np
+import NumPy as np
 import imageio
 import sys
 
