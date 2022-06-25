@@ -23,6 +23,7 @@ falling_bodies
 solving_quadratics
 drag
 vector_functions
+fertilizer
 basic_spreadsheet
 compound_interest
 intro_dataviz
