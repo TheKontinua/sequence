@@ -25,6 +25,7 @@ drag
 vector_functions
 fertilizer
 concrete
+metals
 basic_spreadsheet
 compound_interest
 intro_dataviz
