@@ -749,10 +749,8 @@
 \vskip24pt
 \fboxsep=0pt
 \colorbox{white}{\vtop{
-{\fboxrule=2pt
-\fcolorbox{sblue}{white}{
 \includegraphics
-[width=1.75in]{../Support/desmos-graph-ColorNoBackground.pdf}}}
+[width=1.75in]{../Support/color_spiral.pdf}
 %\vskip20pt%36pt
 %% minus four seems about right
 %\vskip-4pt
@@ -781,11 +779,8 @@
 \vskip8pt
 \vskip24pt
 \vtop{
-{\fboxsep=0pt
-\fboxrule=1.5pt
-\fcolorbox{sdkblue}{white}{
 \includegraphics
-[width=1in]{../Support/graph-thicklines.pdf}}}
+[width=1in]{../Support/color_spiral.pdf}
 \vskip12pt
   {%\color{ForestGreen}
 \color{sdkblue}
