@@ -1,3 +1,12 @@
+===== 
+Current Outline 
+===== 
+
+This is the current outline. It is not written in stone. As we work,
+we keep finding things that should be included.  We also find things
+that need to be reordered.  However, it will give you an idea of where
+we think we are going.
+
 * `matter_energy_intro <../Chapters/matter_energy_intro/en_US/student.tex>`_: Introduction
 	- Atoms
 	- Mass and Acceleration
@@ -74,6 +83,16 @@
 	- Distance in 3 Dimensions
 * `congruence <../Chapters/congruence/en_US/student.tex>`_: Congruence
 	- Triangle Congruency
+* Parallel and Perpendicular Lines
+* Inscribed Angle and Shapes
+* Tangents to a Circle
+* Equation of a Circle
+* Ellipses
+* Hyperbolas
+* Rectangular Solids
+  - Surface area and volume
+* Cylinders, Pyramids, and Cones
+* Spheres
 * `vectors <../Chapters/vectors/en_US/student.tex>`_: Vectors
 	- Adding Vectors
 	- Multiplying a vector with a scalar
@@ -98,6 +117,7 @@
 	- Simulating a falling body in Python
 * `solving_quadratics <../Chapters/solving_quadratics/en_US/student.tex>`_: Solving Quadratics
 	- The Traditional Quadratic Formula
+* Complex Numbers
 * `drag <../Chapters/drag/en_US/student.tex>`_: Drag
 	- Wind resistance
 	- Initial velocity and acceleration due to gravity
@@ -183,6 +203,9 @@
 * `py_images <../Chapters/py_images/en_US/student.tex>`_: Images in Python
 	- Adding color
 	- Using an existing image
+* Reflections
+* Refraction
+* Lens
 * `polynomials_intro <../Chapters/polynomials_intro/en_US/student.tex>`_: Introduction to Polynomials
 * `pylists <../Chapters/pylists/en_US/student.tex>`_: Python Lists
 	- Evaluating Polynomials in Python
@@ -210,6 +233,17 @@
 	- Leading term in graphing
 * `interpolating_polynomials <../Chapters/interpolating_polynomials/en_US/student.tex>`_: Interpolating with Polynomials
 	- Interpolating polynomials in python
+* Rational function
+* Infinite Series
+  - Convergence tests
+* Infinite Sums
+  - Convergence tests
+* Vectors and Matrices
+* Linear combinations, spans, and independence
+* Solving Systems of Linear Equations with Matrices
+* Projections and Gram-Schmidt
+* Eigenvectors and Eigenvalues
+* Single Value Decomposition
 * `pandas <../Chapters/pandas/en_US/student.tex>`_: Data Tables and pandas
 	- Data types
 	- pandas
@@ -220,10 +254,30 @@
 	- Derived columns
 * `sql_1 <../Chapters/sql_1/en_US/student.tex>`_: Data tables in SQL
 	- Using SQL from Python
+* Graphs in Matplotlib
+  - Pie charts
+  - Scatterplots
+  - Bar and line graphs
+* Fetching with HTTP
+  - Using an API
+  - Decompression
+  - Parsing JSON and XML
+  - Parsing HTML
+* Working with Text
+  - Stop words, stemming, and lemmatization
+  - Accents, right-to-left, and other international text challenges
+* Basic Geographical Data
+  - Longitude, Latitude, and Distance
+  - Geocoding and reverse geocoding using Google Maps API
+  - Making a map
 * `limits <../Chapters/limits/en_US/student.tex>`_: Limits
+* Methods for finding limits
 * `differentiation <../Chapters/differentiation/en_US/student.tex>`_: Differentiation
 	- Differentiability
 	- Using the definition of derivative
+* Rules of differentiation
+* Scalar-Valued Multivariable Functions
+* Partial Derivatives and Gradients
 * `discrete_probability <../Chapters/discrete_probability/en_US/student.tex>`_: Introduction to Discrete Probability
 	- The Probability of All Possibilities is 1.0
 	- Independence
@@ -243,3 +297,51 @@
 	- Bayes Theorem
 	- Using Bayes' Theorem
 	- Confidence
+* Integration
+* Taylor expansions
+* Volumes and Second Integrals
+* Probility on Continuous Domains
+  - Cumulative Density Function
+  - Uniform Distribution
+  - Normal Distribution
+  - Poisson and Exponential Distribution
+* Multivariate Distributions
+  - The Multivariate Normal Distribution
+* Intro to Data Science
+  - Classification vs Regression
+  - Simple examples using linear and logistic models with 1-D inputs
+  - Standardization
+  - One-hot encoding of categorical features
+* Logistic regression with multivariate data
+* Measuring the Performace of Classifiers
+  - Training-Validation-Test split
+  - Confusion Matrix
+  - Precision vs Recall
+  - AUC and ROC
+* K-Nearest Neighbor for Classification
+* Naive Bayes for Classification
+* Linear Regression
+  - R2 Test and ANOVA
+* Linear Regression as a Gradient-Descent problem
+* Generalized Linear models
+  - A zoo of link functions
+* Decision Trees for Classification
+* Ensembles
+  - Bagging and Random Forest
+  - Boosting
+* Clustering and K-Means
+* A Simple Neural Net for Regression
+* A Simple Neural Net for Classification
+* An Introduction to Deep Learning
+* Magnetic Fields and Faraday's Law
+* Electromagnetic Waves Revisited
+* An Introduction to Data Structures
+  - Linked List in C++
+* Trees
+* Searching Trees
+* Hash tables
+* Sorting algorithms
+* Graphs
+* Graph algorithms
+* Bayesian Networks
+* Basic Differential Equations

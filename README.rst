@@ -187,4 +187,4 @@ can be shared with the students that care.
 More
 ----
 
-Check out the `Topic List <ProjectDocs/topic_list.rst>`_.
+Check out the `Outline <ProjectDocs/outline.rst>`_. 
