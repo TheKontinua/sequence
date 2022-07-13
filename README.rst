@@ -73,7 +73,6 @@ following tests:
 * AP Physics C: Mechanics
 * AP Physics C: Electricity and Magnetism
 * AP Statistics
-* The TensorFlow Developer Certificate
 
 Politically, it is hoped that this will also make the sequence easier to
 adopt in schools.
@@ -181,8 +180,17 @@ empowerment will motivate them, if we don't abuse it by spending a lot of time o
 and philosophy.  Instead, each chapter says "Here is an idea, and here is an example of 
 how to use it."
 
-We plan to have a mentor's guide that will include the history and philosophy behind the ideas, which 
-can be shared with the students that care.
+We plan to have a mentor's guide that will include the history and
+philosophy behind the ideas, which can be shared with the students
+that care.
+
+This is **not** a project-based approach. We teach an idea and give
+the student a chance to solve a problem with it.  We do not assume
+that the student has access to a lab.  We do not assume that there is
+a teacher available to help the student set up an experiment.
+
+Once again, this course is not for everybody. It assumes the student
+is curious and willing to struggle a little to satisfy that curiosity.
 
 More
 ----

@@ -7,6 +7,41 @@ we keep finding things that should be included.  We also find things
 that need to be reordered.  However, it will give you an idea of where
 we think we are going.
 
+The student should already know algebra well and be able to type.  At
+the end, the student should be ready to do an internship at a tech
+company.
+
+The course emphasizes breadth over depth. We believe that most people
+learn difficult ideas twice: The first time they are baffled and have
+no intuition in the area.  The second time, usually when they must
+leverage it in the real world or have to teach it to someone else, the
+student has the intuition and is able to fully grasp and appreciate
+the details.
+
+There are two questions that determine where any topic goes in the order:
+
+1. Has the student seen what they need to understand this topic?
+
+   This is the obvious one: Ideas should stack neatly. This is not
+   always easy to do. For example, the idea of light is important and
+   familiar to the student. Can we talk about light before we talk
+   about Maxwell's equations? Sure! We gesture in the direction of
+   electromagnetic waves and keep moving.  Later, when the student is
+   a little more sophisticated, we can double-back and talk about how
+   electromagnetic waves work.
+
+2. Is a professional engineer/scientist/actuary/programmer more likely
+   to remember this idea than the ideas that come later?
+
+   It is weird when you meet someone who can do differential
+   equations, but doesn't know how a submarine adjusts its buoyancy,
+   right? Stuff at the beginning of the series should be remembered by
+   99% of all technical people.  Stuff at the end of the of the series
+   might be remembered by only 40%.
+
+   Not every student will make it through the whole sequence. We
+   should make sure the more basic/important stuff is near the beginning.
+
 * `matter_energy_intro <../Chapters/matter_energy_intro/en_US/student.tex>`_: Introduction
 	- Atoms
 	- Mass and Acceleration
@@ -73,7 +108,7 @@ we think we are going.
 	- Resistors in Parallel
 * `charge <../Chapters/charge/en_US/student.tex>`_: Charge
 	- Lightning
-	- But...
+	- Why don't atoms collapse?
 * `angles <../Chapters/angles/en_US/student.tex>`_: Angles
 * `triangles_circles <../Chapters/triangles_circles/en_US/student.tex>`_: Introduction to Triangles
 	- Equilateral and Isosceles Triangles
