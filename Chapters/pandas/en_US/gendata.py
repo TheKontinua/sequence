@@ -32,6 +32,7 @@ brands = []
 prices = []
 purchase_dates = []
 statuses = []
+weights = []
 
 
 for i in range(row_count):
@@ -78,8 +79,11 @@ for i in range(row_count):
     price_str = f"{price:.2f}"
     prices.append(price_str)
 
+    # Weight 
+    weight = np.random.normal(loc=size/4.0, scale=8)
+    weights.append(weight)
 
-    # DOB
+    # Purchase dates
     days_after = random.randint(0, max_days_after_first)
     purchase_date = first_purchase + datetime.timedelta(days=days_after)
     purchase_dates.append(purchase_date)
@@ -97,7 +101,7 @@ for i in range(row_count):
     #last_rental = birth_timestamp + datetime.timedelta(days=age_in_days_at_last_rental, hours=hours, minutes=minutes)
     #last_rented_dates.append(last_rental)
 
-df = pd.DataFrame({'brand':brands, 'size':sizes,  'purchase_price':prices, 'purchase_date':purchase_dates, 'status': statuses}, 
+df = pd.DataFrame({'brand':brands, 'size':sizes,  'weight':weights, 'purchase_price':prices, 'purchase_date':purchase_dates, 'status': statuses}, 
 index=bike_ids)
 
 df.to_csv(output_filename, index_label = 'bike_id', line_terminator='\n', float_format='%.02f', date_format='%Y-%m-%dT%H:%MZ')
