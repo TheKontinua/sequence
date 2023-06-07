@@ -1,0 +1,92 @@
+\chapter{Differentiation}
+
+We have done some differentiation, but you haven't been given the real
+definition because it is based on limits.
+
+The idea is that we can find the slope between two points on the graph
+$a$ and $b$ like this:
+
+$$m = \frac{f(b) - f(a)}{b - a}$$
+
+\begin{tikzpicture} [scale=2]
+\draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
+\draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
+% curve
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw [sdkblue] (1, 0.25) -- (3, 2.251);
+\draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
+\draw [dashed] (3, 2.251) -- (3, 0) node[below]{$b$};
+\draw [dashed] (1,0.25) -- (3, 0.25) node[right] {$f(a)$};
+\draw (3,2.251) node[right] {$f(b)$};
+\draw (1,0.25) circle (0.05);
+\draw (3, 2.251) circle (0.05);
+\draw (2, 0.25) node[above]{$b - a$};
+\draw (3, 1.25) node[right] {$f(b) - f(a)$};
+\end{tikzpicture}
+
+If we want to find the slope at $a$ we take the limit of this as the $b$ goes to $a$:
+
+$$f'(a) = \lim_{b \rightarrow b}\frac{f(b) - f(a)}{b - a}$$
+
+This idea is usually expressed using $\Delta x$ as the difference between $b$ and $a$:
+
+\begin{tikzpicture} [scale=2]
+\draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
+\draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
+% curve
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw [sdkblue] (1, 0.25) -- (3, 2.251);
+\draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
+\draw [dashed] (3, 2.251) -- (3, 0) node[below]{$a + \Delta x$};
+\draw [dashed] (1,0.25) -- (3, 0.25) node[right] {$f(a)$};
+\draw (3,2.251) node[right] {$f(a + \Delta x)$};
+\draw (1,0.25) circle (0.05);
+\draw (3, 2.251) circle (0.05);
+\draw (2, 0.25) node[above]{$\Delta x$};
+\draw (3, 1.25) node[right] {$f(a + \Delta x) - f(a)$};
+\end{tikzpicture}
+
+Then the formula becomes:
+
+$$f'(a) = \lim_{\Delta x \rightarrow 0}\frac{f(a + \Delta x) - f(a)}{\Delta x}$$
+
+Now, at any point $a$ we can compute the slope of the line tangent to the function at $a$:
+
+\begin{tikzpicture} [scale=2]
+\draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
+\draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
+% curve
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw [sdkblue] (0, -0.25) -- (3, 1.25) node[midway, right]{slope = $f'(a)$};;
+\draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
+\draw (1,0.25) circle (0.05);
+\end{tikzpicture}
+
+\section{Differentiability}
+
+Warning: Not every function is differentiable everywhere.  For
+example, if $f(x) = |x|$, you get a corner at zero.
+
+\begin{tikzpicture} [scale=1]
+\draw[->,thick,sdkblue] (-4,0) -- (4,0) node[right] {$x$};
+\draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
+% curve
+\draw[->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,\x);
+\draw[<-,thick,draw=black, domain=-3.7:0,samples=300,variable=\x]  plot (\x,{-1 * \x});
+\end{tikzpicture}
+
+To the left of zero, the slope is -1. To the right of zero, the slope
+is 1.  At zero?  The derivative is not defined.
+
+If a function has a derivative everywhere, it is said to be
+\newterm{differentiable}. Generally, you can think of differentiable
+functions as smooth -- their graphs have no corners.
+
+\section{Using the definition of derivative}
+
+Let's say that you want to know the slope of $f(x) = -3x^2$ at $x = 2$.
+Using the definition of the derivative, that would be:
+
+$$f'(2) = \lim_{\Delta x \rightarrow 0}\frac{f(2 + \Delta x) - f(2)}{\Delta x} = \lim_{\Delta x \rightarrow 0}\frac{-3(2 + \Delta x)^2- \left(-3(2)^2\right)}{\Delta x} = \lim_{\Delta x \rightarrow 0}\frac{-12 - 12\Delta x + -3(\Delta x)^2 + 12}{\Delta x} = -12$$ 
+
+
