@@ -1,0 +1,4 @@
+differentiability
+derivative_definition
+derivative_rules
+optimization
