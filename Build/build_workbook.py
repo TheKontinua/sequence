@@ -5,7 +5,7 @@ import json
 
 # Paths are from Intermediate
 mod_dir = "../../Chapters"
-vol_count = 1
+vol_count = 36
 
 def usage():
     print("Usage: python3 build_workbook.py <i>")
