@@ -1,39 +1,7 @@
-import math
+\chapter{Dijkstra's Algorithm}
 
-class Node:
-    def __init__(self, label):
-        self.label = label
-        self.edges = []
-
-    def __repr__(self):
-        return f"(node:{self.label}, edges:{len(self.edges)})"
-
-
-class WeightedEdge:
-    def __init__(self, cost, node_a, node_b):
-        self.cost = cost
-        self.node_a = node_a
-        node_a.edges.append(self)
-        self.node_b = node_b
-        node_b.edges.append(self)
-
-    def other_end(self, node_from):
-        if self.node_a == node_from:
-            return self.node_b
-        else:
-            return self.node_a
-
-
-class Graph:
-    def __init__(self):
-        self.nodes = []
-
-    def add_node(self, new_node):
-        self.nodes.append(new_node)
-
-    def __repr__(self):
-        return f"(Graph:{self.nodes})"
-
+Add a method to the \pytype{Graph} class that implements Dijkstra's algorithm:
+\begin{verbatim}
     def cost_from_node(self, origin_node):
         # Cost of cheapest path from origin node discovered so far
         dist = {k: math.inf for k in self.nodes}
@@ -84,7 +52,28 @@ class Graph:
                     prev[v] = current_node
 
         return (dist, prev)
+\end{verbatim}
 
+Append some code to your \filename{cities.py} that test this method:
+
+\begin{verbatim}
+(cost_from_long_beach, prev) = network.cost_from_node(long_beach)
+print(f"\nMinimum costs from Long Beach = {cost_from_long_beach}")
+print(f"\nLast city before = {prev}")
+
+nyc_cost = cost_from_long_beach[nyc]
+
+if nyc_cost < math.inf:
+    print(f"\n*** Total cost from Long Beach to NYC: ${nyc_cost:.2f} ***")
+else:
+    print("You can't get to NYC from Long Beach")
+\end{verbatim}
+
+Your users will want to know the shortest path.  Add a function to
+\filename{graph.py} that turns the \pyvar{prev} table into a path of
+nodes that lead from the origin to the destination:
+
+\begin{verbatim}
 def shortest_path(prev, destination):
 
     # Include the destination in the path
@@ -102,3 +91,16 @@ def shortest_path(prev, destination):
         current_node = previous_node
 
     return path
+\end{verbatim}
+
+Test that out:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+if nyc_cost < math.inf:
+    print(f"\\n*** Total cost from Long Beach to NYC: ${nyc_cost:.2f} ***")
+
+    \textbf{path_to_nyc = graph.shortest_path(prev, nyc)}
+    \textbf{print(f"\\n*** Cheapest path from Long Beach to NYC: {path_to_nyc} ***")}
+else:
+    print("You can't get to NYC from Long Beach")
+\end{Verbatim}

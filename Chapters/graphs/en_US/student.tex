@@ -1,26 +1,44 @@
 \chapter{Introduction to Graphs}
 
-Some data is easiest to work with if we imagine it as a set of \newterm{nodes} connected by \newterm{edges}.  For example,  on some social networks each user can follow any number of other users.  We can think of each user as node and the edge points from the user who follows to the user they follow:
+Some data is easiest to work with if we imagine it as a set of
+\newterm{nodes} connected by \newterm{edges}.  For example, on some
+social networks each user can follow any number of other users.  We
+can think of each user as node and the edge points from the user who
+follows to the user they follow:
 
 \includegraphics[width=0.7\textwidth]{simpledirected.png}
 
-This diagram shows four users and three follows.   Following  is a directed relationship: Fred232 follows SSontag, but SSontag doesn't follow Fred232.   So we would way that this is a \newterm{directed graph} with four nodes and three edges.
+This diagram shows four users and three follows.  Following is a
+directed relationship: Fred232 follows SSontag, but SSontag doesn't
+follow Fred232.  So we would way that this is a \newterm{directed
+  graph} with four nodes and three edges.
 
-There are also undirected graphs.  for example,  you can imagine a graph that represents big data lines between cities.  All the big data lines allow communications in both directions:
+There are also undirected graphs.  for example, you can imagine a
+graph that represents big data lines between cities.  All the big data
+lines allow communications in both directions:
 
 \includegraphics[width=0.7\textwidth]{simpleundirected.png}
 
-The arrows are gone: if data can flow from Charlotte to Raleigh, then data can flow from Raleigh to Charlotte.
+The arrows are gone: if data can flow from Charlotte to Raleigh, then
+data can flow from Raleigh to Charlotte.
 
-There is a whole branch of mathematics called \newterm{Graph Theory} that studies the properties of graphs.  Here are two questions that we might ask about this graph:
+There is a whole branch of mathematics called \newterm{Graph Theory}
+that studies the properties of graphs.  Here are two questions that we
+might ask about this graph:
 \begin{itemize}
 \item What is the shortest number of edges that we would need to follow to get from Miami to Raleigh?
-\item Does the graph have any paths where you could end up where you started? This is called a \newterm{cycle}.  This graph has one cycle: Atlanta $\rightarrow$ Asheville $\rightarrow$ Charlotte $\rightarrow$ Atlanta.
+\item Does the graph have any paths where you could end up where you
+  started? This is called a \newterm{cycle}.  This graph has one
+  cycle: Atlanta $\rightarrow$ Asheville $\rightarrow$ Charlotte
+  $\rightarrow$ Atlanta.
 \end{itemize}
 
-There are even database systems that are specifically designed to hold and analyze graph data.  Not surprisingly,  these are called \newterm{Graph Databases}.
+There are even database systems that are specifically designed to hold
+and analyze graph data.  Not surprisingly, these are called
+\newterm{Graph Databases}.
 
-Some graphs are \newterm{connected}: you can get from one node to any other node by following edges.  Is this graph connected?
+Some graphs are \newterm{connected}: you can get from one node to any
+other node by following edges.  Is this graph connected?
 
 \includegraphics[width=0.7\textwidth]{notconnected.png}
 
@@ -72,6 +90,8 @@ its nodes.
 \item A \pytype{Edge} will have a cost and two nodes: \pyvar{node\_a} and \pyvar{node\_b}.
 \item A \pytype{Graph} will have a list of nodes.
 \end{itemize}
+
+Here what the object diagram would look like if you had only three cities:
 
 \includegraphics[width=0.8\textwidth]{objdiagram.png}
 
