@@ -45,7 +45,10 @@ def build_chapter(chapter_file, chap_dir, config):
 
 chap_file = "student.tex"
 chap_dir = os.getcwd()
-os.chdir("../../../Build/Intermediate")
+workdir = "../../../Build/Intermediate" 
+if not os.path.exists(workdir):
+    os.mkdir(workdir)
+os.chdir(workdir)
 
 with open("../user.cfg", "r") as config_fd:
     config = json.load(config_fd)
