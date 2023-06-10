@@ -1,4 +1,5 @@
 graphs
 dijkstra
+binary_search
 graph_algorithms
 bayesian_networks

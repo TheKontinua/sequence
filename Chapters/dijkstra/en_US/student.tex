@@ -1,10 +1,98 @@
 \chapter{Dijkstra's Algorithm}
 
+Edsger W. Dijkstra was a great Dutch computer scientist. He came up
+with an algorithm for finding the cheapest path through a graph with
+weighted edges. Today it is known as \newterm{Dijkstra's
+  Algorithm}. It is used in a wide variety of common problems.  It is
+also really pretty simple and elegant.\index{Dijkstra, Edsger} \index{Dijkstra's Algorithm}
+
+\section{Algorithm Description}
+
+You are going to mark each node with how much it would cost to get
+there from some origin node.  For example, if you are shipping a
+container from Long Beach, you will mark each city with the cost of
+getting the container to that city.
+
+You start by marking the price for Long Beach to zero.  (The container
+is already there.)  Then, you mark each adjacent city with the cost on
+the edge. Now you declare Long Beach to be ``visited''.
+
+\includegraphics[width=0.9\textwidth]{step1.png}
+
+Now, you find the cheapest of the unvisited nodes.  In this case, Los
+Angeles is cheaper than San Diego, so that is the node you will visit
+next.
+
+You mark all of the unvisited nodes adjacent to Los Angeles, with the
+price to ship it to Los Angeles plus the cost of shipping the
+container from Los Angeles to that city. Note that Bakersfield is
+marked with \$22.
+
+\includegraphics[width=0.9\textwidth]{step2.png}
+
+Now the cheapest unvisited node is San Diego.  So you mark its
+neighbors with the cost to ship to San Diego plus the price to ship
+from San Diego to the neighbor.
+
+Notice that Bakersfield is already labeled with \$22 from a route
+through Los Angeles.  But the price would be \$21 if you shipped it to
+Bakersfield via San Diego.  Because the new route is cheaper, you
+change the price to the lower value.
+
+(What does it mean that a node is ``visited''?  If a node is marked
+visited, it is marked with a price that won't get any smaller.)
+
+And you continue visiting the cheapest unvisited node until all the
+nodes have been visited.  Then you know every node has been marked
+with its lowest price.
+
+In a big graph, each node may be marked several times in this process
+-- each time with a lower price from a cheaper router.
+
+Of course, once you have the price, you will ask ``What is the route
+that gets me that price?''  So we will also mark each node with the
+neighbor from which it would receive the shipment -- the previous
+node.  This is easy to do as we execute the algorithm.
+
+\includegraphics[width=0.4\textwidth]{prev.png}
+
+Now, to figure out the cheapest route from San Diego to Bakersfield,
+we start at the destination and follow the \pyvar{prev} pointer back
+through San Diego and then to Long Beach.
+
+\section{Implementation}
+
+We don't actually want to sully our graph objects with the three additional pieces of information we need:
+\begin{itemize}
+\item The current minimal cost from the origin node. This is usually
+  called the \pyvar{dist}, from ``distance''.
+\item The neighbor who gives us the current minimal cost. This is
+  usually called \pyvar{prev}, from ``previous''.
+\item Whether the city is visited or now.
+\end{itemize}
+So we will keep them in collections external to the graph.
+
+For example, to keep track of the \pyvar{dist}, we will have a
+\pyvar{dist} dictionary: Each node will be a key, the current minimal
+cost will be the value.  If the node hasn't received even a first
+cost, we will put in infinity as the cost.
+
+(After the algorithm is run, if the cost of a node is still infinity,
+that means that it cannot be reached from the origin node.)
+
+We will also have a \pyvar{prev} dictionary. The final node will be
+the key, and its previous neighbor will be the value.
+
+Finally, the graph has a list of all the nodes, so we can just keep a
+set of the unvisited nodes.
+
 Add a method to the \pytype{Graph} class that implements Dijkstra's algorithm:
 \begin{verbatim}
     def cost_from_node(self, origin_node):
         # Cost of cheapest path from origin node discovered so far
+        # Initially the origin is zero and all the other are infinity
         dist = {k: math.inf for k in self.nodes}
+        dist[origin_node] = 0.0
 
         # The previous city on that cheapest path
         prev = {}
@@ -12,9 +100,6 @@ Add a method to the \pytype{Graph} class that implements Dijkstra's algorithm:
         # All the nodes start as unvisited
         unvisited = set(self.nodes)
     
-        # The distance from the origin node to itself is zero
-        dist[origin_node] = 0.0
-
         # While there are still unvisited nodes
         while unvisited:
 
@@ -134,3 +219,37 @@ This should look like this:
 (node:Los Angeles, edges:3), (node:Denver, edges:3), (node:Cleveland, edges:4),
 (node:New York City, edges:3)] ***
 \end{verbatim}
+
+\section{Making it faster}
+
+On really big networks, doing a full Dijkstra's algorithm would take
+too long. So there are a lot of methods for getting similar results
+quickly.  When you ask for directions from Google Maps, it doesn't do
+a full Dijkstra's Algorithm for every possible route -- it would just
+take too long.
+
+But there is a way to speed up this implementation. Look at this snippet:
+
+\begin{verbatim}
+            # Find unvisited node with lowest cost
+            min_cost = math.inf
+            for u in unvisited:
+                if dist[u] < min_cost:
+                    current_node = u
+                    min_cost = dist[u]
+\end{verbatim}
+
+We are scanning through the list of all unvisited nodes, one-by-one,
+looking for the one with the lowest cost.  If we kept this list sorted
+by cost, then the next one to visit would always be the first one in
+the list. This is done with a \newterm{priority queue} -- a list that
+keeps itself sorted by some priority number -- in this case the
+cost. In python, the standard priority queue is \pytype{heapq}.\index{priority queue}
+
+(So why didn't I implement this using \pytype{heapq}? For Dijkstra's
+Algorithm, the nodes' priority -- the current cost --  changes as we find
+cheaper routes. \pytype{heapq} doesn't handle the changing priority
+very gracefully.)
+
+In the next chapter, you will make a priority queue class that will
+work in this case.
