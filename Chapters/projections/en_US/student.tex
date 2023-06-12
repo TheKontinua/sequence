@@ -1,0 +1,15 @@
+\chapter{Projections}
+
+The projection of a vector $\mathbf{a}$ onto another vector $\mathbf{b}$ is a vector that lies along $\mathbf{b}$ and represents the component of $\mathbf{a}$ in the direction of $\mathbf{b}$. This projection can be computed using the dot product of the two vectors.
+
+Given vectors $\mathbf{a}$ and $\mathbf{b}$, the projection of $\mathbf{a}$ onto $\mathbf{b}$, denoted as $\mathbf{proj}_\mathbf{b}(\mathbf{a})$, can be calculated as follows:
+
+$$\mathbf{proj}_\mathbf{b}(\mathbf{a}) = \left(\frac{{\mathbf{a} \cdot \mathbf{b}}}{{\|\mathbf{b}\|^2}}\right) \mathbf{b}$$
+
+where $\cdot$ denotes the dot product and $|\mathbf{b}|$ represents the magnitude (or length) of vector $\mathbf{b}$.
+
+The numerator $\mathbf{a} \cdot \mathbf{b}$ measures the extent to which $\mathbf{a}$ and $\mathbf{b}$ are aligned with each other. Dividing this by $|\mathbf{b}|^2$ scales the projection to ensure it represents the correct length along $\mathbf{b}$.
+
+Finally, multiplying the scaled value with $\mathbf{b}$ gives us the projection vector itself.
+
+In summary, the dot product is used to determine the alignment between two vectors, and by appropriately scaling one vector and multiplying it with the other vector, we can obtain the projection of one vector onto the other.

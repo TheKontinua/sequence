@@ -1,0 +1,29 @@
+\chapter{Vectors and Matrices}
+
+In linear algebra, one of the fundamental operations is the multiplication of a matrix by a vector. Given a matrix $A$ of size $m \times n$ and a vector $x$ of size $n \times 1$, the product $Ax$ is a new vector of size $m \times 1$. 
+
+The $i$-th component of the product vector $Ax$ is computed by taking the dot product of the $i$-th row of $A$ and the vector $x$:
+
+\begin{equation}
+(Ax)_i = \sum_{j=1}^n a_{ij}x_j
+\end{equation}
+
+where $a_{ij}$ is the element in the $i$-th row and $j$-th column of $A$, and $x_j$ is the $j$-th element of $x$.
+
+\section{Applications of Matrix-Vector Multiplication}
+
+Matrix-vector multiplication is a crucial operation in many areas of science and engineering:
+
+\subsection{Linear Transformations}
+
+Matrices can represent linear transformations, such as rotations, scaling, and shearing. Multiplying a vector by a matrix applies the transformation represented by the matrix to the vector.
+
+\subsection{Systems of Linear Equations}
+
+A system of linear equations can be written in matrix form as $Ax = b$. Solving this system involves operations on $A$ and $b$, and the solution vector $x$ is found by various methods such as Gaussian elimination or LU decomposition.
+
+\subsection{Computer Graphics}
+
+In computer graphics, transformations of objects in the scene (like rotation, scaling, and translation) are done using matrix operations. The vertices of objects are represented as vectors, and transformations are applied by multiplying these vectors by transformation matrices.
+
+These are just a few examples of the uses of matrix-vector multiplication. The operation is also fundamental to many algorithms in machine learning, physics, economics, and other fields.

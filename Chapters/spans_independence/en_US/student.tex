@@ -1,0 +1,25 @@
+\chapter{Vector Spans and Independence}
+
+
+In linear algebra, the span of a set of vectors is the set of all possible linear combinations of those vectors. If the set $S = \{v_1, v_2, ..., v_n\}$ contains vectors from a vector space $V$, then the span of $S$ is given by:
+
+\begin{equation}
+\text{Span}(S) = \{a_1v_1 + a_2v_2 + ... + a_nv_n : a_1, a_2, ..., a_n \in \mathbb{R}\}
+\end{equation}
+
+This means that any vector in the Span$(S)$ can be written as a linear combination of the vectors in $S$.
+
+\section{Vector Independence}
+
+A set of vectors $S = \{v_1, v_2, ..., v_n\}$ is said to be linearly independent if the only solution to the equation 
+
+\begin{equation}
+a_1v_1 + a_2v_2 + ... + a_nv_n = 0
+\end{equation}
+
+is $a_1 = a_2 = ... = a_n = 0$. This means that no vector in the set can be written as a linear combination of the other vectors.
+
+If there exists a nontrivial solution (i.e., a solution where some $a_i \neq 0$), then the vectors are said to be linearly dependent. This means that at least one vector in the set can be written as a linear combination of the other vectors.
+
+The concept of vector independence is crucial in many areas of linear algebra, including the study of vector spaces, bases, and rank.
+

@@ -1,0 +1,38 @@
+\chapter{Simple Logistic Regression}
+
+While linear regression is used for predicting a continuous response variable, logistic regression is used for predicting a categorical response variable. It's particularly useful when the response variable is binary (i.e., it takes on only two possible outcomes, usually coded as 0 and 1).
+
+The primary idea behind logistic regression is to find the probability of the response variable being true (1) given the values of the predictor variables. 
+
+In simple logistic regression, we have only one predictor variable. The form of the logistic regression model is:
+
+\begin{equation}
+\ln\left(\frac{p}{1 - p}\right) = \beta_0 + \beta_1x
+\end{equation}
+
+where:
+\begin{itemize}
+\item $p$ is the probability of the positive class (i.e., the outcome $y = 1$).
+\item $\beta_0$ and $\beta_1$ are the parameters of the model.
+\item $x$ is the predictor variable.
+\end{itemize}
+
+On the left-hand side, we have the natural log of the odds ratio (also called the logit), rather than just $p$ itself. This is done to ensure that the predicted probabilities lie between 0 and 1. The function $\frac{p}{1 - p}$ is called the odds, and can take any value between $0$ and $\infty$. 
+
+In contrast to linear regression, where the parameters are estimated using least squares, the parameters in logistic regression are usually estimated using maximum likelihood estimation. 
+
+Maximum likelihood estimation finds the parameter values that make the observed data most likely under the model. 
+
+In a simple logistic regression model, the probability that $Y = 1$ given $x$ is:
+
+\begin{equation}
+p(x) = \frac{e^{\beta_0 + \beta_1x}}{1 + e^{\beta_0 + \beta_1x}}
+\end{equation}
+
+And the probability that $Y = 0$ given $x$ is:
+
+\begin{equation}
+1 - p(x) = \frac{1}{1 + e^{\beta_0 + \beta_1x}}
+\end{equation}
+
+\

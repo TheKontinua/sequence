@@ -52,9 +52,7 @@ def build_book(book_id, config, draft):
         trimmed_chapter = chapter.strip()
         if len(trimmed_chapter) > 0:
             # Look for the graphics in the module directory
-            gpath_string = "\\graphicspath{{{{../../Chapters/{}/en_US}}}}\n".format(
-                trimmed_chapter
-            )
+            gpath_string =f"\\graphicspath{{{{../../Chapters/{trimmed_chapter}/{locale_list[0]}}}}}\n"
             output_tex.write(gpath_string)
 
             chapter_path = path_for_chapter_locale_list(trimmed_chapter, locale_list)

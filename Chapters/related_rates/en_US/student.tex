@@ -1,0 +1,45 @@
+\chapter{Related Rates}
+
+In calculus, related rates problems involve finding a rate at which a quantity changes by relating that quantity to other quantities whose rates of change are known. The technique used to solve these problems is known as "related rates" because one rate is related to another rate.
+
+\section{Steps to solve related rates problems}
+
+\subsection{Step 1: Understand the problem}
+First, read the problem carefully. Understand what rates are given and what rate you need to find.
+
+\subsection{Step 2: Draw a diagram}
+For most problems, especially geometry problems, drawing a diagram can be very helpful.
+
+\subsection{Step 3: Write down what you know}
+Write down the rates that you know and the rate that you need to find.
+
+\subsection{Step 4: Write an equation}
+Write an equation that relates the quantities in the problem. This equation will be your main tool to solve the problem.
+
+\subsection{Step 5: Differentiate both sides of the equation}
+Now you can use calculus. Differentiate both sides of the equation with respect to time.
+
+\subsection{Step 6: Substitute the known rates and solve for the unknown}
+Now that you have an equation that relates the rates, substitute the known rates into the equation and solve for the unknown rate.
+
+\section{Example}
+
+Here is an example of a related rates problem:
+
+\textit{A balloon is rising at a constant rate of 5 m/s. A boy is cycling towards the balloon along a straight path at 15 m/s. If the balloon is 100 m above the ground, find the rate at which the distance from the boy to the balloon is changing when the boy is 40 m from the point on the ground directly beneath the balloon.}
+
+The problem can be modeled with a right triangle where the vertical side is the height of the balloon, the horizontal side is the distance of the boy from the point on the ground directly beneath the balloon, and the hypotenuse is the distance from the boy to the balloon.
+
+Let $x$ be the distance of the boy from the point on the ground directly beneath the balloon, $y$ the height of the balloon above the ground, and $z$ the distance from the boy to the balloon. From the Pythagorean theorem, we have 
+
+\begin{equation}
+z^2 = x^2 + y^2
+\end{equation}
+
+Differentiating both sides with respect to time $t$ gives
+
+\begin{equation}
+2z \frac{dz}{dt} = 2x \frac{dx}{dt} + 2y \frac{dy}{dt}
+\end{equation}
+
+Given that $\frac{dx}{dt} = -15$ m/s (the boy is moving towards the point beneath the balloon), $\frac{dy}{dt} = 5$ m/s (the balloon is rising), $x=40$ m, $y=100$ m, we can substitute these into the equation and solve for $\frac{dz}{dt}$.
