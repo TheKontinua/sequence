@@ -1,2 +1,24 @@
 \chapter{The Gram-Schmidt Process}
 
+The Gram-Schmidt process is a method for orthonormalizing a set of vectors in an inner product space, most commonly the Euclidean space $\mathbb{R}^n$. The process takes a finite, linearly independent set $S = \{v_1, v_2, \ldots, v_k\}$ for $k \leq n$, and generates an orthogonal set $S' = \{u_1, u_2, \ldots, u_k\}$ that spans the same k-dimensional subspace of $\mathbb{R}^n$ as $S$.
+
+\section{Process}
+
+Given a set of vectors $S = \{v_1, v_2, \ldots, v_k\}$, the Gram-Schmidt process is as follows:
+
+\begin{enumerate}
+    \item Let $u_1 = v_1$.
+    \item For $j = 2, 3, \ldots, k$:
+    \begin{enumerate}
+        \item Let $w_j = v_j - \sum_{i=1}^{j-1} \frac{\langle v_j, u_i \rangle}{\langle u_i, u_i \rangle} u_i$
+        \item Let $u_j = w_j$
+    \end{enumerate}
+\end{enumerate}
+
+Here, $\langle . , . \rangle$ denotes the inner product. 
+
+\section{Orthonormalization}
+
+The set of vectors $S' = \{u_1, u_2, \ldots, u_k\}$ obtained from the process above is orthogonal, but not necessarily orthonormal. To form an orthonormal set, we simply need to normalize each vector $u_i$ to unit length. That is, $u_i' = \frac{u_i}{\|u_i\|}$, where $\|.\|$ denotes the norm (or length) of a vector.
+
+

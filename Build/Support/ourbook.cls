@@ -870,6 +870,7 @@
 %% If wanted, makes more graceful math fonts:
 \usepackage{euler}
 \usepackage{fontspec}
+\usepackage{listings}
 
 %% For strikethrough
 \usepackage{cancel}
