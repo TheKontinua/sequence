@@ -1,1 +1,35 @@
 \chapter{Bayesian Networks}
+
+A Bayesian network, also known as a Bayes network, belief network, or decision network, is a probabilistic graphical model that represents a set of variables and their conditional dependencies via a directed acyclic graph (DAG).
+
+\section{Components}
+
+A Bayesian Network consists of two main components:
+
+\begin{enumerate}
+    \item A directed acyclic graph (DAG) where each node represents a variable, and the absence or presence of a directed edge between nodes denotes the conditional dependence or independence respectively between the variables.
+    \item A conditional probability table (CPT) associated with each node which contains the conditional probability distribution of that node given its parents in the DAG.
+\end{enumerate}
+
+\section{Inferences}
+
+Bayesian Networks are typically used for reasoning and making inferences under uncertainty. Given observations of a set of variables, we can compute the posterior probabilities of the other variables using Bayes' rule. 
+
+There are three main types of inferences that we can make:
+
+\begin{itemize}
+    \item \textbf{Causal reasoning (prediction)}: Given the causes, what are the effects?
+    \item \textbf{Evidential reasoning (diagnosis)}: Given the effects, what are the causes?
+    \item \textbf{Intercausal reasoning (explaining away)}: Given an effect and some of its causes, what can we say about the other causes?
+\end{itemize}
+
+\section{Learning}
+
+Learning a Bayesian Network from data involves two main tasks:
+
+\begin{itemize}
+    \item \textbf{Structure learning}: Determining the DAG structure that best fits the data.
+    \item \textbf{Parameter learning}: Estimating the parameters (conditional probabilities) of the CPTs given the DAG and data.
+\end{itemize}
+
+\

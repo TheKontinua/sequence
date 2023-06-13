@@ -186,20 +186,21 @@ with ``John Jeffers'' on it.
 
 That is binary search.
 
-If you know a list of $n$ items is sorted, look at the data at the midpoint $a$ of
-the list.
-\begin{itemize}
-\item If what you are looking for is at $a$, you are done.
- 
-\item If what you are looking for comes before what you see at
-$a$, look at the data at the midpoint $b$ between zero and $a$.
+Binary Search is a search algorithm that finds the position of a target value within a sorted array. The binary search algorithm works by repeatedly dividing the search interval in half. If the target value is equal to the middle element of the array, the position is returned. If the target value is less or greater than the middle element, the search continues in the lower or upper half of the array respectively.
 
-\item If what you are looking for comes \textit{after}  what you see at
-$a$, look at the data at the midpoint $b$ between $a$ and $n-1$.
-\end{itemize}
-Then just keep going until you find the item or that it isn't in there.
+\section{Algorithm}
 
-At each step, you check one spot and cut the possible range where the data could be in half.
+The binary search algorithm can be described as follows:
+
+\begin{enumerate}
+\item If the array is empty, the search is unsuccessful, so return "Not Found".
+\item Otherwise, compare the target value to the middle element of the array.
+\item If the target value matches the middle element, return the middle index.
+\item If the target value is less than the middle element, repeat the search with the lower half of the array.
+\item If the target value is greater than the middle element, repeat the search with the upper half of the array.
+\item Repeat steps 2-5 until the target value is found or the array is exhausted.
+\end{enumerate}
+
 
 \begin{verbatim}
 class PriorityQueue:

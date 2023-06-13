@@ -1,2 +1,37 @@
 \chapter{Eigenvectors and Eigenvalues}
 
+In linear algebra, eigenvalues and eigenvectors are a way of breaking down matrices that can simplify many calculations and enable us to understand various properties of the matrix. They are widely used in physics and engineering for stability analysis, vibration analysis, and many other applications.
+
+\section{Definition}
+
+Given a square matrix $A$, a non-zero vector $v$ is an eigenvector of $A$ if multiplying $A$ by $v$ results in a scalar multiple of $v$, i.e.,
+
+\begin{equation}
+Av = \lambda v
+\end{equation}
+
+where $\lambda$ is a scalar known as the eigenvalue corresponding to the eigenvector $v$.
+
+\section{Finding Eigenvalues and Eigenvectors}
+
+The eigenvalues of a matrix $A$ can be found by solving the characteristic equation given by:
+
+\begin{equation}
+\text{det}(A - \lambda I) = 0
+\end{equation}
+
+where $\text{det}(.)$ denotes the determinant, $I$ is the identity matrix of the same size as $A$, and $\lambda$ is a scalar.
+
+Once the eigenvalues are found, the corresponding eigenvectors can be found by plugging each eigenvalue back into the equation $Av = \lambda v$, and solving for $v$.
+
+\section{Example}
+
+For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the characteristic equation is given by:
+
+\begin{equation}
+(a - \lambda)(d - \lambda) - bc = 0
+\end{equation}
+
+Solving this equation will give the eigenvalues. Substituting each eigenvalue back into the equation $Av = \lambda v$ will give the corresponding eigenvectors.
+
+\

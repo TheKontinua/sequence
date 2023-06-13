@@ -1,2 +1,27 @@
 \chapter{Clustering using k-Means}
 
+K-means is a popular unsupervised learning algorithm used for data clustering. The goal of k-means is to group data points into distinct non-overlapping subgroups, or clusters, based on their features.
+
+\section{The K-Means Algorithm}
+
+Given a dataset $X = \{x_1, x_2, \ldots, x_N\}$, where each $x_i$ is a d-dimensional vector, and an integer $k$, the k-means clustering algorithm seeks to find $k$ cluster centroids $C = \{c_1, c_2, \ldots, c_k\}$ such that the distance from each data point to its nearest centroid is minimized.
+
+The k-means algorithm works as follows:
+
+\begin{enumerate}
+    \item Initialize $k$ centroids randomly.
+    \item Assign each data point to the nearest centroid. This forms $k$ clusters.
+    \item For each cluster, update its centroid by computing the mean of all points in the cluster.
+    \item Repeat steps 2 and 3 until the centroids do not change significantly or a maximum number of iterations is reached.
+\end{enumerate}
+
+The measure of distance typically used in k-means is the Euclidean distance. For two d-dimensional vectors $x = (x_1, \ldots, x_d)$ and $y = (y_1, \ldots, y_d)$, the Euclidean distance is defined as:
+
+\begin{equation}
+d(x, y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + \ldots + (x_d - y_d)^2}
+\end{equation}
+
+\section{Choosing K}
+
+Choosing an appropriate value for $k$ is a significant aspect of the k-means algorithm. One common method is the Elbow Method, which involves plotting the explained variation as a function of the number of clusters, and picking the elbow of the curve as the number of clusters to use.
+

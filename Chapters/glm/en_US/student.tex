@@ -1,2 +1,36 @@
 \chapter{Generalized Linear Models}
 
+In statistics, generalized linear models (GLMs) are a flexible generalization of ordinary linear regression models for response variables that are not normally distributed. If you're already familiar with multiple linear regression, you're well on your way to understanding GLMs.
+
+\section{Components of a Generalized Linear Model}
+
+A GLM consists of three components:
+
+\begin{enumerate}
+    \item A random component: This is a specification of the probability distribution of the response variable (e.g., normal, binomial, Poisson distributions, etc.). This differs from ordinary linear regression, which assumes that the response variable follows a normal distribution.
+    \item A systematic component: This is the linear predictor, a linear combination of the explanatory variables, just as in ordinary linear regression.
+    \item A link function: This is a function that connects the mean of the response variable to the linear predictor. The choice of link function depends on the nature of the response variable and the range of its possible values.
+\end{enumerate}
+
+\section{Formulation of a Generalized Linear Model}
+
+The GLM can be formulated as follows:
+
+\begin{equation}
+g(E(Y)) = \eta = X\beta
+\end{equation}
+
+Here, $Y$ is the response variable, $X$ represents the matrix of explanatory variables, $\beta$ is the vector of parameters to be estimated, $\eta$ is the linear predictor, $E(Y)$ represents the expected value of $Y$, and $g(.)$ is the link function.
+
+\section{Fitting a Generalized Linear Model}
+
+The parameters $\beta$ in a GLM are typically estimated using maximum likelihood estimation (MLE). The specifics of this process depend on the probability distribution of the response variable and the link function.
+
+\section{Examples of Generalized Linear Models}
+
+Examples of GLMs include:
+
+\begin{itemize}
+    \item Logistic regression: This is a GLM with a binomial response variable and a logit link function.
+    \item Poisson regression: This is a GLM with a Poisson response variable and a log link function.
+\end{itemize}

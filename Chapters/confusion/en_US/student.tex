@@ -1,1 +1,38 @@
 \chapter{Evaluating Classification Systems}
+
+The confusion matrix is a tabular method used in machine learning to evaluate the performance of a classification model. It allows for the visualization of the model's performance and to compute various performance metrics.
+
+\section{Definition of a Confusion Matrix}
+
+A confusion matrix is a specific table layout that presents the performance of a classification model. For a binary classification problem, it is a 2x2 matrix that compares the actual and the predicted classifications.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ & Actual Positive & Actual Negative \\
+\hline
+Predicted Positive & True Positive (TP) & False Positive (FP) \\
+\hline
+Predicted Negative & False Negative (FN) & True Negative (TN) \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Performance Metrics}
+
+Using the confusion matrix, we can compute several performance metrics:
+
+\begin{itemize}
+\item \textbf{Accuracy:} The proportion of correct predictions (both true positives and true negatives) among the total number of cases examined. It is calculated as $(TP + TN) / (TP + TN + FP + FN)$.
+
+\item \textbf{Precision:} The proportion of positive identifications that were actually correct. It is calculated as $TP / (TP + FP)$.
+
+\item \textbf{Recall (Sensitivity):} The proportion of actual positives that were identified correctly. It is calculated as $TP / (TP + FN)$.
+
+\item \textbf{Specificity:} The proportion of actual negatives that were identified correctly. It is calculated as $TN / (TN + FP)$.
+
+\item \textbf{F1 Score:} The harmonic mean of precision and recall. It tries to find the balance between precision and recall. $F1 = 2 * (Precision * Recall) / (Precision + Recall)$.
+\end{itemize}
+
+\
