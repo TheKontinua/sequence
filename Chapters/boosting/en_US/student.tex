@@ -1,11 +1,18 @@
 \chapter{Boosting}
 
 
-Boosting is a machine learning ensemble meta-algorithm primarily used to reduce bias, and to a lesser extent variance, in supervised learning. It works by iteratively learning weak classifiers and adding them to a final strong classifier in a way that the subsequent weak learners try to correct the mistakes of the previous ones.
+Boosting is a machine learning ensemble meta-algorithm primarily used
+to reduce bias, and to a lesser extent variance, in supervised
+learning. It works by iteratively learning weak classifiers and adding
+them to a final strong classifier in a way that the subsequent weak
+learners try to correct the mistakes of the previous ones.\index{Boosting}
 
 \section{AdaBoost}
 
-AdaBoost, short for Adaptive Boosting, is one of the first and simplest boosting algorithms. Given a set of $n$ training examples $(x_1, y_1), \ldots, (x_n, y_n)$ where $y_i$ are binary outputs, the algorithm works as follows:
+AdaBoost, short for Adaptive Boosting, is one of the first and
+simplest boosting algorithms. Given a set of $n$ training examples
+$(x_1, y_1), \ldots, (x_n, y_n)$ where $y_i$ are binary outputs, the
+algorithm works as follows:\index{AdaBoost}
 
 \begin{enumerate}
     \item Initialize weights $w_i = 1/n$ for $i = 1, \ldots, n$.
@@ -21,5 +28,8 @@ AdaBoost, short for Adaptive Boosting, is one of the first and simplest boosting
 
 \section{Gradient Boosted Trees}
 
-Gradient Boosted Trees is a generalization of boosting to arbitrary differentiable loss functions. It works by sequentially adding predictors to an ensemble, each one correcting its predecessor by fitting the new predictor to the residual errors.
+Gradient Boosted Trees is a generalization of boosting to arbitrary
+differentiable loss functions. It works by sequentially adding
+predictors to an ensemble, each one correcting its predecessor by
+fitting the new predictor to the residual errors.\index{Gradient Boosted Trees}
 

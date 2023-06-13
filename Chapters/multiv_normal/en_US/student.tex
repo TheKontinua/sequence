@@ -1,11 +1,19 @@
 \chapter{The Multivariate Normal Distribution}
 
-The multivariate normal distribution is a generalization of the one-dimensional (univariate) normal distribution to higher dimensions. It is used in statistics to describe any set of correlated real-valued random variables.
+The multivariate normal distribution is a generalization of the
+one-dimensional (univariate) normal distribution to higher
+dimensions. It is used in statistics to describe any set of correlated
+real-valued random variables.\index{multivariate normal} \index{Gaussian distribution}
 
 \section{Multivariate Normal Distribution}
-A random vector $X = [X_1, X_2, ..., X_n]^T$ follows a multivariate normal distribution if every linear combination of its components has a univariate normal distribution. The distribution is parameterized by a mean vector and a covariance matrix.
 
-The probability density function (pdf) of an $n$-dimensional multivariate normal distribution is given by:
+A random vector $X = [X_1, X_2, ..., X_n]^T$ follows a multivariate
+normal distribution if every linear combination of its components has
+a univariate normal distribution. The distribution is parameterized by
+a mean vector and a covariance matrix.
+
+The probability density function (pdf) of an $n$-dimensional
+multivariate normal distribution is given by:
 
 \begin{equation*}
 f(\mathbf{x}|\boldsymbol\mu, \mathbf{\Sigma}) = \frac{1}{\sqrt{(2\pi)^n|\mathbf{\Sigma}|}}\exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^T\mathbf{\Sigma}^{-1}(\mathbf{x}-\boldsymbol\mu)\right)
@@ -21,8 +29,17 @@ where:
 \end{itemize}
 
 \section{Covariance Matrix}
-The covariance matrix, $\mathbf{\Sigma}$, is a symmetric matrix that contains information about the variance of each variable and the covariance between every pair of variables in the distribution.
 
-The element $\Sigma_{ij}$ is the covariance between the $i$-th and the $j$-th random variable, and $\Sigma_{ii}$ is the variance of the $i$-th random variable.
+The covariance matrix, $\mathbf{\Sigma}$, is a symmetric matrix that
+contains information about the variance of each variable and the
+covariance between every pair of variables in the distribution.\index{covariance matrix}
 
-The covariance matrix provides a measure of how much each of the dimensions varies from the mean with respect to each other. A positive covariance between two variables indicates that the variables increase or decrease together, whereas a negative covariance indicates that one variable increases when the other decreases.
+The element $\Sigma_{ij}$ is the covariance between the $i$-th and the
+$j$-th random variable, and $\Sigma_{ii}$ is the variance of the
+$i$-th random variable.
+
+The covariance matrix provides a measure of how much each of the
+dimensions varies from the mean with respect to each other. A positive
+covariance between two variables indicates that the variables increase
+or decrease together, whereas a negative covariance indicates that one
+variable increases when the other decreases.

@@ -1,24 +1,45 @@
 \chapter{Neural Networks for Classification}
 
-
-Neural Networks can also be used for classification tasks, which involve predicting a discrete class label output for an instance. The process of using a Neural Network for classification is similar to using it for regression, but there are key differences in the output layer and loss function.
+Neural Networks can also be used for classification tasks, which
+involve predicting a discrete class label output for an instance. The
+process of using a Neural Network for classification is similar to
+using it for regression, but there are key differences in the output
+layer and loss function.\index{neural net classifiers}
 
 \section{Neural Networks for Classification}
-For a binary classification problem, where the output can be either of two classes, the output layer of the neural network typically consists of a single neuron with a sigmoid activation function, which squashes the output between 0 and 1. This output can be interpreted as the probability that the instance belongs to a particular class.
 
-For a multi-class classification problem, where the output can be one of more than two classes, the output layer typically has as many neurons as there are classes, and a softmax activation function is used, which gives the probability distribution over the classes.
+For a binary classification problem, where the output can be either of
+two classes, the output layer of the neural network typically consists
+of a single neuron with a sigmoid activation function, which squashes
+the output between 0 and 1. This output can be interpreted as the
+probability that the instance belongs to a particular class.
+
+For a multi-class classification problem, where the output can be one
+of more than two classes, the output layer typically has as many
+neurons as there are classes, and a softmax activation function is
+used, which gives the probability distribution over the classes.
 
 Here is the basic process:
 
 \begin{itemize}
-\item \textbf{Feedforward:} Compute the output of the network given the input features, just as in regression.
 
-\item \textbf{Loss Calculation:} Calculate the loss (difference between the network's prediction and the actual class). For classification tasks, common loss functions include Cross-Entropy Loss.
+\item \textbf{Feedforward:} Compute the output of the network given
+  the input features, just as in regression.
 
-\item \textbf{Backpropagation:} Update the network's weights to minimize the loss, the same way as in regression.
+\item \textbf{Loss Calculation:} Calculate the loss (difference
+  between the network's prediction and the actual class). For
+  classification tasks, common loss functions include Cross-Entropy
+  Loss.
 
-\item \textbf{Iteration:} Repeat the feedforward, loss calculation, and backpropagation steps for a number of epochs (complete passes through the dataset) or until the loss converges to a minimum.
+\item \textbf{Backpropagation:} Update the network's weights to
+  minimize the loss, the same way as in regression.
+
+\item \textbf{Iteration:} Repeat the feedforward, loss calculation,
+  and backpropagation steps for a number of epochs (complete passes
+  through the dataset) or until the loss converges to a minimum.
 
 \end{itemize}
 
-Once trained, the neural network can classify a new instance by performing a feedforward pass and predicting the class with the highest probability in the output layer.
+Once trained, the neural network can classify a new instance by
+performing a feedforward pass and predicting the class with the
+highest probability in the output layer.

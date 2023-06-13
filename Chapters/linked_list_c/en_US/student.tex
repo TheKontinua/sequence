@@ -1,7 +1,8 @@
 \chapter{Linked Lists}
 
-
-A linked list is a linear data structure where each element is a separate object, called a node. Each node holds its own data and the address of the next node, thus forming a chain-like structure.
+A linked list is a linear data structure where each element is a
+separate object, called a node. Each node holds its own data and the
+address of the next node, thus forming a chain-like structure.\index{linked list}
 
 A simple node in a linked list can be represented in C++ as follows:
 
@@ -12,9 +13,11 @@ struct Node {
 };
 \end{lstlisting}
 
-In this structure, 'data' is used to store the data and 'next' is a pointer that holds the address of the next Node in the list.
+In this structure, 'data' is used to store the data and 'next' is a
+pointer that holds the address of the next Node in the list.
 
-Here is a simple example of creating and linking nodes in a linked list:
+Here is a simple example of creating and linking nodes in a linked
+list:
 
 \begin{lstlisting}[language=C++]
 // Create nodes
@@ -33,4 +36,6 @@ second->next = third;
 third->next = nullptr;  // The last node points to null
 \end{lstlisting}
 
-In this example, we first create three nodes using the `new` keyword, which dynamically allocates memory. We then assign data to the nodes and link them using the 'next' pointer.
+In this example, we first create three nodes using the `new` keyword,
+which dynamically allocates memory. We then assign data to the nodes
+and link them using the 'next' pointer.

@@ -1,10 +1,17 @@
 \chapter{Other Graph Algorithms}
 
-Now that you are familiar with Dijkstra's algorithm for finding the shortest path in a graph, then you're well-equipped to understand more graph algorithms. This document will discuss two other important algorithms: Depth-First Search (DFS) and the Bellman-Ford algorithm.
+Now that you are familiar with Dijkstra's algorithm for finding the
+shortest path in a graph, then you're well-equipped to understand more
+graph algorithms. This document will discuss two other important
+algorithms: Depth-First Search (DFS) and the Bellman-Ford algorithm.\index{depth-first search} \index{DFS}
 
 \section{Depth-First Search}
 
-Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. DFS uses a stack (or sometimes recursion which uses the system stack implicitly) to explore the graph in a depthward motion until it hits a node with no unvisited adjacent nodes, then it backtracks.
+Depth-First Search (DFS) is an algorithm for traversing or searching
+tree or graph data structures. DFS uses a stack (or sometimes
+recursion which uses the system stack implicitly) to explore the graph
+in a depthward motion until it hits a node with no unvisited adjacent
+nodes, then it backtracks.
 
 The procedure is as follows:
 
@@ -15,19 +22,30 @@ The procedure is as follows:
     \item Repeat steps 2 and 3 until the stack is empty.
 \end{enumerate}
 
-DFS is particularly useful for solving problems such as connected-component detection in graphs and maze-solving.
+DFS is particularly useful for solving problems such as
+connected-component detection in graphs and maze-solving.
 
 \section{Bellman-Ford Algorithm}
 
-The Bellman-Ford algorithm is another shortest path algorithm like Dijkstra's. However, unlike Dijkstra's algorithm, Bellman-Ford can handle graphs with negative weight edges. 
+The Bellman-Ford algorithm is another shortest path algorithm like
+Dijkstra's. However, unlike Dijkstra's algorithm, Bellman-Ford can
+handle graphs with negative weight edges.\index{Bellman-Ford algorithm}
 
 The algorithm works as follows:
 
 \begin{enumerate}
-    \item Assign a tentative distance value for every node: set it to zero for our initial node and to infinity for all other nodes.
-    \item For each edge $(u, v)$ with weight $w$, if the current distance to $v$ is greater than the distance to $u$ plus $w$, update the distance to $v$ to be the distance to $u$ plus $w$.
-    \item Repeat the previous step $|V| - 1$ times, where $|V|$ is the number of vertices in the graph.
-    \item After the above steps, if you can still find a shorter path, there exists a negative cycle.
+    \item Assign a tentative distance value for every node: set it to
+      zero for our initial node and to infinity for all other nodes.
+    \item For each edge $(u, v)$ with weight $w$, if the current
+      distance to $v$ is greater than the distance to $u$ plus $w$,
+      update the distance to $v$ to be the distance to $u$ plus $w$.
+    \item Repeat the previous step $|V| - 1$ times, where $|V|$ is the
+      number of vertices in the graph.
+    \item After the above steps, if you can still find a shorter path,
+      there exists a negative cycle.
 \end{enumerate}
 
-If the graph does not contain a negative cycle reachable from the source, the shortest paths are well-defined, and Bellman-Ford will correctly calculate them. If a negative cycle is reachable, no solution exists, but Bellman-Ford will detect it.
+If the graph does not contain a negative cycle reachable from the
+source, the shortest paths are well-defined, and Bellman-Ford will
+correctly calculate them. If a negative cycle is reachable, no
+solution exists, but Bellman-Ford will detect it.

@@ -1,27 +1,21 @@
 \chapter{Definite Integrals}
 
-
-
-Integrals are a fundamental concept in calculus, which are used to calculate areas, volumes, and many other things. A definite integral calculates the net area between the function and the x-axis over a given interval.
+Integrals are a fundamental concept in calculus, which are used to
+calculate areas, volumes, and many other things. A definite integral
+calculates the net area between the function and the x-axis over a
+given interval.
 
 \section{Definition}
 
-The definite integral of a function $f(x)$ over an interval $[a, b]$ is defined as the limit of a Riemann sum:
+The definite integral of a function $f(x)$ over an interval $[a, b]$
+is defined as the limit of a Riemann sum:
 
 \begin{equation}
 \int_{a}^{b} f(x) \, dx = \lim_{{n \to \infty}} \sum_{i=1}^{n} f(x_i^*) \Delta x
 \end{equation}
 
-where $x_i^*$ is a sample point in the $i^{th}$ subinterval of a partition of $[a, b]$, $\Delta x = \frac{b-a}{n}$ is the width of each subinterval, and the limit is taken as the number of subintervals $n$ approaches infinity.
+where $x_i^*$ is a sample point in the $i^{th}$ subinterval of a
+partition of $[a, b]$, $\Delta x = \frac{b-a}{n}$ is the width of each
+subinterval, and the limit is taken as the number of subintervals $n$
+approaches infinity.
 
-\section{Fundamental Theorem of Calculus}
-
-The Fundamental Theorem of Calculus provides an important link between differentiation and integration. It states that if $F(x)$ is an antiderivative of $f(x)$ on the interval $[a, b]$, then
-
-\begin{equation}
-\int_{a}^{b} f(x) \, dx = F(b) - F(a)
-\end{equation}
-
-This theorem provides a way to compute definite integrals without needing to take limits of Riemann sums.
-
-\

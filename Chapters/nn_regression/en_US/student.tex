@@ -1,26 +1,59 @@
 \chapter{Neural Nets for Regression}
 
-Neural Networks are powerful computational models that are used for a variety of tasks in machine learning, including regression. Unlike linear regression, which is a linear approach to modelling the relationship between a dependent variable and one or more independent variables, a Neural Network can model complex non-linear relationships.
+Neural Networks are powerful computational models that are used for a
+variety of tasks in machine learning, including regression. Unlike
+linear regression, which is a linear approach to modelling the
+relationship between a dependent variable and one or more independent
+variables, a Neural Network can model complex non-linear
+relationships.\index{neural net regression}
 
 \section{Neural Networks}
-A neural network is composed of nodes (neurons) grouped into layers. The input layer takes in the features of the dataset, hidden layers perform computations on these inputs, and the output layer produces the final prediction. Each node in a layer is connected to each node in the next layer through "edges". These edges carry weights, which are the parameters of the model that are learned during training.
 
-A key part of each node is an activation function. It transforms the weighted sum of the node's inputs into an output value that is passed onto the next layer. Common activation functions include the ReLU (Rectified Linear Unit), sigmoid and hyperbolic tangent functions. For regression tasks, usually a linear activation function is used in the output layer, as the output can be any real number.
+A neural network is composed of nodes (neurons) grouped into
+layers. The input layer takes in the features of the dataset, hidden
+layers perform computations on these inputs, and the output layer
+produces the final prediction. Each node in a layer is connected to
+each node in the next layer through "edges". These edges carry
+weights, which are the parameters of the model that are learned during
+training.
+
+A key part of each node is an activation function. It transforms the
+weighted sum of the node's inputs into an output value that is passed
+onto the next layer. Common activation functions include the ReLU
+(Rectified Linear Unit), sigmoid and hyperbolic tangent functions. For
+regression tasks, usually a linear activation function is used in the
+output layer, as the output can be any real number.
 
 \section{Neural Networks for Regression}
-To perform regression using a neural network, you would train the network to map the input features to a continuous target variable.
+
+To perform regression using a neural network, you would train the
+network to map the input features to a continuous target variable.
 
 Here is the basic process:
 
 \begin{itemize}
-\item \textbf{Feedforward:} Compute the output of the network given the input features. This involves calculating the weighted sum of inputs for each node and applying the activation function.
+\item \textbf{Feedforward:} Compute the output of the network given
+  the input features. This involves calculating the weighted sum of
+  inputs for each node and applying the activation function.
 
-\item \textbf{Loss Calculation:} Calculate the loss (difference between the network's prediction and the actual value). For regression tasks, common loss functions include Mean Squared Error (MSE) or Mean Absolute Error (MAE).
+\item \textbf{Loss Calculation:} Calculate the loss (difference
+  between the network's prediction and the actual value). For
+  regression tasks, common loss functions include Mean Squared Error
+  (MSE) or Mean Absolute Error (MAE).
 
-\item \textbf{Backpropagation:} Update the network's weights to minimize the loss. This is done by computing the gradient of the loss function with respect to each weight in the network, and then adjusting the weights in the direction that decreases the loss.
+\item \textbf{Backpropagation:} Update the network's weights to
+  minimize the loss. This is done by computing the gradient of the
+  loss function with respect to each weight in the network, and then
+  adjusting the weights in the direction that decreases the loss.
 
-\item \textbf{Iteration:} Repeat the feedforward, loss calculation, and backpropagation steps for a number of epochs (complete passes through the dataset) or until the loss converges to a minimum.
+\item \textbf{Iteration:} Repeat the feedforward, loss calculation,
+  and backpropagation steps for a number of epochs (complete passes
+  through the dataset) or until the loss converges to a minimum.
 
 \end{itemize}
 
-This way, the neural network learns to approximate the function that best maps input features to the target variable, thus performing regression. The advantage of using neural networks over linear regression is that they can capture complex non-linear relationships between variables.
+This way, the neural network learns to approximate the function that
+best maps input features to the target variable, thus performing
+regression. The advantage of using neural networks over linear
+regression is that they can capture complex non-linear relationships
+between variables.

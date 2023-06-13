@@ -1,10 +1,16 @@
 \chapter{Naive Bayes Classifier}
 
-
-The Naive Bayes classifier is a simple yet effective algorithm for classification tasks. It is a probabilistic classifier based on Bayes' theorem and some additional simplifying assumptions, which make it particularly suitable for high-dimensional datasets.
+The Naive Bayes classifier is a simple yet effective algorithm for
+classification tasks. It is a probabilistic classifier based on Bayes'
+theorem and some additional simplifying assumptions, which make it
+particularly suitable for high-dimensional datasets.\index{naive Bayes
+  classifier}
 
 \section{Bayes' Theorem}
-Bayes' theorem describes the relationship of conditional probabilities of statistical quantities. In the context of classification, it can be written as:
+
+Bayes' theorem describes the relationship of conditional probabilities
+of statistical quantities. In the context of classification, it can be
+written as:
 
 \begin{equation*}
 P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
@@ -19,14 +25,27 @@ where:
 \end{itemize}
 
 \section{The Naivety of Naive Bayes}
-The "Naive" in Naive Bayes comes from the assumption that each feature in the dataset is independent of all other features, given the class. This is a strong (and often unrealistic) assumption, hence the name "naive". Despite this unrealistic assumption, the Naive Bayes classifier often performs well in practice.
 
-In the context of text classification, this naivety translates into assuming that every word in a document is independent of all other words, given the document's class.
+The "Naive" in Naive Bayes comes from the assumption that each feature
+in the dataset is independent of all other features, given the
+class. This is a strong (and often unrealistic) assumption, hence the
+name "naive". Despite this unrealistic assumption, the Naive Bayes
+classifier often performs well in practice.
+
+In the context of text classification, this naivety translates into
+assuming that every word in a document is independent of all other
+words, given the document's class.
 
 \section{Working of Naive Bayes Classifier}
-When given an instance to classify, the Naive Bayes classifier calculates the posterior probability of that instance belonging to each possible class. The classifier then outputs the class with the highest posterior probability.
 
-For computational reasons, and because the denominator $P(X)$ is constant given the input, we typically use the following simplification in practice:
+When given an instance to classify, the Naive Bayes classifier
+calculates the posterior probability of that instance belonging to
+each possible class. The classifier then outputs the class with the
+highest posterior probability.
+
+For computational reasons, and because the denominator $P(X)$ is
+constant given the input, we typically use the following
+simplification in practice:
 
 \begin{equation*}
 P(C|X) \propto P(X|C) \cdot P(C)
@@ -34,4 +53,5 @@ P(C|X) \propto P(X|C) \cdot P(C)
 
 which means that we can focus on maximizing $P(X|C) \cdot P(C)$.
 
-Naive Bayes classifiers are highly scalable and are known for their simplicity, speed, and suitability for high-dimensional datasets.
+Naive Bayes classifiers are highly scalable and are known for their
+simplicity, speed, and suitability for high-dimensional datasets.

@@ -1,7 +1,10 @@
 \chapter{Making a Map}
 
 
-Plotly is an open-source data visualization library for Python, R, and JavaScript. It allows for interactive plots, including geographical maps. In this brief example, we will learn how to create a simple annotated map using Plotly in Python.
+Plotly is an open-source data visualization library for Python, R, and
+JavaScript. It allows for interactive plots, including geographical
+maps. In this brief example, we will learn how to create a simple
+annotated map using Plotly in Python.\index{plotly}
 
 To start, you need to install Plotly. In Python, you can do this via pip:
 
@@ -36,6 +39,11 @@ fig.update_layout(
 fig.show()
 \end{lstlisting}
 
-This code creates a world map and places a text annotation at the geographic coordinates for Ottawa. The `go.Scattergeo` function is used to define the geographical scatter plot (i.e., the annotation), while the `update\_layout` function is used to define the appearance and the properties of the map itself.
+This code creates a world map and places a text annotation at the
+geographic coordinates for Ottawa. The `go.Scattergeo` function is
+used to define the geographical scatter plot (i.e., the annotation),
+while the `update\_layout` function is used to define the appearance
+and the properties of the map itself.
 
-In this example, you can replace the latitude, longitude, and text with the values corresponding to your desired location.
+In this example, you can replace the latitude, longitude, and text
+with the values corresponding to your desired location.

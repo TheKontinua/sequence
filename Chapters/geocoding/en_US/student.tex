@@ -1,12 +1,20 @@
 \chapter{Geocoding and Reverse Geocoding}
 
-Geocoding and reverse geocoding are essential processes in geographic information systems (GIS) that are used to convert between addresses and spatial data.
+Geocoding and reverse geocoding are essential processes in geographic
+information systems (GIS) that are used to convert between addresses
+and spatial data.
 
 \section{Geocoding}
 
-Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers on a map, or position the map. The resulting latitude and longitude are often used as a key index in merging datasets based on location.
+Geocoding is the process of converting addresses (like "1600
+Amphitheatre Parkway, Mountain View, CA") into geographic coordinates
+(like latitude 37.423021 and longitude -122.083739), which you can use
+to place markers on a map, or position the map. The resulting latitude
+and longitude are often used as a key index in merging datasets based
+on location.\index{geocoding}
 
-Here is an example of using Google's Geocoding service to get the longitude and latitude of the Dallas County Administration Building:
+Here is an example of using Google's Geocoding service to get the
+longitude and latitude of the Dallas County Administration Building:
 
 \begin{lstlisting}[language=Python]
 import requests
@@ -32,9 +40,14 @@ else:
 
 \section{Reverse Geocoding}
 
-Reverse geocoding, as the name implies, is the opposite process of geocoding. It involves converting geographic coordinates into a human-readable address. This can be useful in applications where you need to display an actual address to a user instead of latitude and longitude coordinates.
+Reverse geocoding, as the name implies, is the opposite process of
+geocoding. It involves converting geographic coordinates into a
+human-readable address. This can be useful in applications where you
+need to display an actual address to a user instead of latitude and
+longitude coordinates.\index{reverse geocoding}
 
-Here is an example of using Google's reverse geocoding API to find the address for 
+Here is an example of using Google's reverse geocoding API to find the
+address for
 
 \begin{lstlisting}[language=Python]
 import requests

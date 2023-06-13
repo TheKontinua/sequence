@@ -1,10 +1,19 @@
 \chapter{Continuous Probability Distributions and Cumulative Density Functions}
 
-In statistics, a probability distribution describes how the values of a random variable are distributed. For continuous random variables, the probability distribution can be described by a probability density function (pdf), while the cumulative distribution function (cdf) gives the probability that the random variable is less than or equal to a certain value.
+In statistics, a probability distribution describes how the values of
+a random variable are distributed. For continuous random variables,
+the probability distribution can be described by a probability density
+function (pdf), while the cumulative distribution function (cdf) gives
+the probability that the random variable is less than or equal to a
+certain value.\index{Probability Distribution} \index{pdf} \index{cdf} \index{Cumulative Density Function}
 
 \section{Continuous Probability Distributions}
 
-A continuous probability distribution is a probability distribution that has a pdf, which is a function that provides the probabilities of occurrence of different possible outcomes in an experiment. For a continuous distribution, the pdf $f(x)$ is such that for any two numbers $a$ and $b$ with $a \leq b$:
+A continuous probability distribution is a probability distribution
+that has a pdf, which is a function that provides the probabilities of
+occurrence of different possible outcomes in an experiment. For a
+continuous distribution, the pdf $f(x)$ is such that for any two
+numbers $a$ and $b$ with $a \leq b$:
 
 \begin{equation}
 P(a \leq X \leq b) = \int_{a}^{b} f(x) \, dx
@@ -24,7 +33,9 @@ and
 
 \section{Cumulative Density Functions}
 
-The cumulative distribution function of a random variable $X$, denoted by $F(x)$, is defined as the probability that $X$ will take a value less than or equal to $x$:
+The cumulative distribution function of a random variable $X$, denoted
+by $F(x)$, is defined as the probability that $X$ will take a value
+less than or equal to $x$:
 
 \begin{equation}
 F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) \, dt
@@ -38,13 +49,18 @@ Note that the cdf is always a non-decreasing function, and:
 
 \section{Example: Normal Distribution}
 
-One common example of a continuous probability distribution is the normal (or Gaussian) distribution, characterized by its bell-shaped curve. The pdf of a normal distribution with mean $\mu$ and standard deviation $\sigma$ is given by:
+One common example of a continuous probability distribution is the
+normal (or Gaussian) distribution, characterized by its bell-shaped
+curve. The pdf of a normal distribution with mean $\mu$ and standard
+deviation $\sigma$ is given by:
 
 \begin{equation}
 f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{ -\frac{1}{2} \left(\frac{x-\mu}{\sigma}\right)^2 }
 \end{equation}
 
-The cdf of the normal distribution cannot be expressed in terms of elementary functions and is often computed using numerical methods. However, it can be represented as:
+The cdf of the normal distribution cannot be expressed in terms of
+elementary functions and is often computed using numerical
+methods. However, it can be represented as:
 
 \begin{equation}
 F(x) = \frac{1}{2}[1 + \text{erf}(\frac{x - \mu}{\sigma\sqrt{2}})]
@@ -52,4 +68,3 @@ F(x) = \frac{1}{2}[1 + \text{erf}(\frac{x - \mu}{\sigma\sqrt{2}})]
 
 where $\text{erf}(x)$ is the error function.
 
-\

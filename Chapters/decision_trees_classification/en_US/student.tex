@@ -1,14 +1,25 @@
 \chapter{Decision Trees for Classification}
 
-A decision tree is a popular machine learning algorithm used for both regression and classification problems. In this discussion, we will focus on its application in classification tasks. 
+A decision tree is a popular machine learning algorithm used for both
+regression and classification problems. In this discussion, we will
+focus on its application in classification tasks.\index{decision trees}
 
 \section{Decision Trees for Classification}
 
-A decision tree for classification uses a tree structure to predict the class of an object based on its features. The tree is made up of nodes that split the data based on a feature value, and leaves that represent a class label. The idea is to create a tree that has minimum impurity, i.e., at the end of the tree, we would like each leaf to contain data points that belong to a single class.
+A decision tree for classification uses a tree structure to predict
+the class of an object based on its features. The tree is made up of
+nodes that split the data based on a feature value, and leaves that
+represent a class label. The idea is to create a tree that has minimum
+impurity, i.e., at the end of the tree, we would like each leaf to
+contain data points that belong to a single class.
 
 \section{Gini Impurity}
 
-Gini impurity is a measure of misclassification, which applies in a multiclass classifier context. It gives an idea of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.
+Gini impurity is a measure of misclassification, which applies in a
+multiclass classifier context. It gives an idea of how often a
+randomly chosen element from the set would be incorrectly labeled if
+it was randomly labeled according to the distribution of labels in the
+subset.\index{Gini impurity}
 
 The Gini impurity for a node of the tree is calculated as:
 
