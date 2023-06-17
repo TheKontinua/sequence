@@ -1,0 +1,19 @@
+{
+  "requires": [
+    "dc"
+  ],
+  "covers": [
+    {
+      "id": "ac",
+      "desc": "Definition of Alternating Current",
+      "video": "https://youtu.be/qaz3gL3-vvY",
+      "reference": "https://en.wikipedia.org/wiki/Alternating_current"
+    },
+    {
+      "id": "ac_transformer",
+      "desc": "Use of Transformer to Change Voltage of AC",
+      "video": "https://youtu.be/zf8vnCcETqM",
+      "reference": "https://en.wikipedia.org/wiki/Transformer"
+    }
+  ]
+}

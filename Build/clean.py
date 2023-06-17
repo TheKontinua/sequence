@@ -5,7 +5,7 @@ import glob
 build_dir = "."
 
 files_in_dir = os.listdir(build_dir)
-filtered_files = [file for file in files_in_dir if file.endswith(".pdf") or file.endswith(".tgz")]
+filtered_files = [file for file in files_in_dir if file.endswith(".pdf") or file.endswith(".tgz") or file.endswith("html")]
 
 for file in filtered_files:
     full_path = os.path.join(build_dir, file)

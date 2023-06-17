@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Workbook {{book_str}}</title>
+</head>
+
+<body>
+  <h1>Workbook {{book_str}}</h1>
+  
+  {% for md in chapters %}
+  <h3>Chapter {{md.chap_num}}: {{md.title}}</h3>
+	  {% for t in md.covers %}
+	  {% set key = t["id"] %}
+  <h4>{% if topics[key].desc %}{{topics[key].desc}}{% endif %}</h4>
+  <ul>
+		{% if topics[key].video %}<li><a href="{{topics[key].video}}">Video</a></li>{% endif %}
+		{% if topics[key].reference %}<li><a href="{{topics[key].reference}}">Reference</a></li>{% endif %}
+  </ul>
+	{% endfor %}
+
+{% endfor %}
+</body>
+</html>
