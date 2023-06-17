@@ -9,7 +9,7 @@
   <h1>Workbook {{book_str}}</h1>
   
   {% for md in chapters %}
-  <h3>Chapter {{md.chap_num}}: {{md.title}}</h3>
+  <h3 id="{{md.id}}">Chapter {{md.chap_num}}: {{md.title}}</h3>
 	  {% for t in md.covers %}
 	  {% set key = t["id"] %}
   <h4>{% if topics[key].desc %}{{topics[key].desc}}{% endif %}</h4>
@@ -17,7 +17,18 @@
 		{% if topics[key].video %}<li><a href="{{topics[key].video}}">Video</a></li>{% endif %}
 		{% if topics[key].reference %}<li><a href="{{topics[key].reference}}">Reference</a></li>{% endif %}
   </ul>
-	{% endfor %}
+  {% endfor %}
+  {% if "requires" in md %}
+  <h4>Prerequisites:</h4>
+  <ul>
+  {% for key in md.requires %}
+  {% if key in topics %}
+  <li><a href="resources-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b></li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+  {% endif %}
+
 
 {% endfor %}
 </body>
