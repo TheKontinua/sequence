@@ -1,0 +1,32 @@
+\chapter{u-Substitution}
+
+
+U-Substitution, also known as the method of substitution, is a technique used to simplify the process of finding antiderivatives and integrals of complicated functions. The method is similar to the chain rule for differentiation in reverse.
+
+Suppose we have an integral of the form:
+
+\begin{equation}
+\int f(g(x)) \cdot g'(x) \, dx
+\end{equation}
+
+The u-substitution method suggests letting a new variable $u$ equal to the inside function $g(x)$, i.e., 
+
+\begin{equation}
+u = g(x)
+\end{equation}
+
+Then, the differential of $u$, $du$, is given by:
+
+\begin{equation}
+du = g'(x) \, dx
+\end{equation}
+
+Substituting $u$ and $du$ back into the integral gives us a simpler integral:
+
+\begin{equation}
+\int f(u) \, du
+\end{equation}
+
+This new integral can often be simpler to evaluate. Once the antiderivative of $f(u)$ is found, we can substitute $u=g(x)$ back into the antiderivative to get the antiderivative of the original function in terms of $x$.
+
+The method of u-substitution is a powerful tool for evaluating integrals, especially when combined with other techniques like integration by parts, partial fractions, and trigonometric substitutions.

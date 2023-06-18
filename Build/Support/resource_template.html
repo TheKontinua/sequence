@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="kontinua.css">
+  <title>Workbook {{book_str}}</title>
+</head>
+
+<body>
+  <h1>Workbook {{book_str}}</h1>
+  
+  {% for md in chapters %}
+  <h2 id="{{md.id}}">Chapter {{md.chap_num}}: {{md.title}}</h3>
+  {% if md.files %}
+  <h3>Downloads</h3>
+  <ul>
+  {% for t in md.files %}
+  <li><a href="{{t.link}}">{{t.desc}}</a></li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  {% if md.covers %}
+  <h3>Objectives</h3>
+	  {% for t in md.covers %}
+	  {% set key = t["id"] %}
+  <h4>{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
+  <ul>
+		{% if topics[key].video %}<li><a href="{{topics[key].video}}">Video</a></li>{% endif %}
+		{% if topics[key].reference %}<li><a href="{{topics[key].reference}}">Reference</a></li>{% endif %}
+  </ul>
+  {% endfor %}
+  {% endif %}
+  {% if "requires" in md %}
+  <h3>Prerequisites</h3>
+  <ul>
+  {% for key in md.requires %}
+  {% if key in topics %}
+  <li><a href="Workbook-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].chap_num}}</b></li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+  {% endif %}
+  <hr />
+{% endfor %}
+</body>
+</html>

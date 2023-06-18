@@ -1,0 +1,74 @@
+\chapter{Singular Value Decomposition}
+
+Singular Value Decomposition (SVD) is a powerful mathematical
+technique widely used in numerical linear algebra, data analysis, and
+machine learning. It provides a way to break down a matrix into
+simpler, constituent parts, making it easier to calculate and
+understand.\index{singular value decomposition} \index{svd}
+
+\section{Definition}
+
+For any $m \times n$ matrix $A$, the singular value decomposition is
+given by
+
+\begin{equation}
+A = U \Sigma V^T
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $U$ is an $m \times m$ matrix, and its columns are the
+  eigenvectors of $AA^T$. These are the left singular vectors of $A$.
+
+\item $V$ is an $n \times n$ matrix, and its columns are the
+  eigenvectors of $A^TA$. These are the right singular vectors of $A$.
+
+\item $\Sigma$ is an $m \times n$ diagonal matrix, and its non-zero
+  elements are the square roots of the eigenvalues of both $A^TA$ and
+  $AA^T$. These are the singular values of $A$.
+\end{itemize}
+
+It's worth noting that the singular values along the diagonal of
+$\Sigma$ are arranged in descending order, and $U$ and $V$ are
+orthogonal matrices, meaning $U^TU = I$ and $V^TV = I$.
+
+\section{Applications of SVD}
+
+SVD has numerous applications:
+
+\begin{itemize}
+\item It's used in machine learning and data science to perform
+  dimensionality reduction, particularly through a technique known as
+  Principal Component Analysis (PCA).
+
+\item In numerical linear algebra, SVD is used to solve linear
+  equations and compute matrix inverses in a more numerically stable
+  way.
+
+\item It's used in image compression, where low-rank approximations of
+  an image matrix provide a compressed version of the original image.
+\end{itemize}
+
+\section{Doing SVD with numpy}
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+
+# Initialize a 3x3 matrix
+A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# Perform singular value decomposition
+U, S, VT = np.linalg.svd(A)
+
+print("U:\n", U)
+print("S:\n", S)
+print("VT:\n", VT)
+
+# To check if the decomposition is correct we can rebuild the original matrix:
+S = np.diag(S)
+
+A_rebuilt = U.dot(S.dot(VT))
+
+print("Rebuilt A:\n", A_rebuilt)
+\end{lstlisting}

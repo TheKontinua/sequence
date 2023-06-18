@@ -1,0 +1,32 @@
+\chapter{Simple Linear Regression}
+
+Simple linear regression is a statistical method that allows us to summarize and study relationships between two continuous (quantitative) variables:
+
+\begin{itemize}
+\item One variable, denoted $x$, is regarded as the predictor, explanatory, or independent variable.
+\item The other variable, denoted $y$, is regarded as the response, outcome, or dependent variable.
+\end{itemize}
+
+Because the other terms are used less frequently today, we'll use the "predictor" and "response" terms to refer to the variables encountered in this course. The other terms are mentioned only to make you aware of them should you encounter them in other contexts.
+
+Simple linear regression gets its adjective "simple," because it concerns the study of only one predictor variable. In contrast, multiple linear regression, a topic that will be covered later, gets its adjective "multiple," because it concerns the study of two or more predictor variables.
+
+\subsection{The model behind simple linear regression}
+
+Given a scatterplot of the response variable $y$ versus the predictor variable $x$, we fit the line 
+
+\begin{equation}
+y = \beta_0 + \beta_1x + \epsilon
+\end{equation}
+
+that minimizes the distances from the observed points to the line!
+
+\begin{itemize}
+\item $y$ = dependent variable (output/outcome/prediction/estimation)
+\item $\beta_0$ = y-intercept (constant term)
+\item $\beta_1$ = slope of the regression line (the effect that X has on Y)
+\item $x$ = independent variable (input variable used in the prediction of Y)
+\item $\epsilon$ = error (the difference between the actual and predicted/estimated value)
+\end{itemize}
+
+This line can be used to predict future values of $y$ given new data values of $x$.

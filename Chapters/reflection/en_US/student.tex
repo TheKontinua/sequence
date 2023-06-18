@@ -1,0 +1,24 @@
+\chapter{Reflection}
+
+Light reflection is the phenomenon where light waves bounce off a surface upon encountering it. It obeys the law of reflection, which states that the angle of incidence, denoted as $\theta_i$, is equal to the angle of reflection, denoted as $\theta_r$. This law can be mathematically expressed as:
+
+$$\theta_i = \theta_r$$
+ 
+where $\theta_i$ is the angle between the incident light ray and the normal to the surface, and $\theta_r$ is the angle between the reflected light ray and the normal.
+
+To understand the math behind light reflection, we can consider a plane mirror as an example. When a light ray hits a plane mirror, it is reflected back in a way that the incident angle is equal to the reflected angle with respect to the mirror's surface.
+
+Let's assume the incident light ray is represented by a vector $\mathbf{i}$ and the normal to the mirror's surface is represented by a vector $\mathbf{n}$. The angle of incidence, $\theta_i$, can be calculated using the dot product between the incident ray and the normal:
+
+$$\cos(\theta_i) = \frac{{\mathbf{i} \cdot \mathbf{n}}}{{\|\mathbf{i}\| \|\mathbf{n}\|}}$$
+​	
+ 
+where $\cdot$ denotes the dot product and $|\mathbf{i}|$ and $|\mathbf{n}|$ represent the magnitudes of the incident ray and the normal vector, respectively.
+
+Since the law of reflection states that $\theta_i = \theta_r$, we can calculate the angle of reflection, $\theta_r$, using the inverse cosine function:
+
+$$\theta_r = \cos^{-1}\left(\frac{{\mathbf{i} \cdot \mathbf{n}}}{{\|\mathbf{i}\| \|\mathbf{n}\|}}\right)$$
+
+Once we have the angle of reflection, we can obtain the reflected ray by rotating the incident ray by an angle of $2\theta_r$ with respect to the mirror's surface. This can be done using rotation matrices or trigonometric functions, depending on the coordinate system being used.
+
+In summary, light reflection follows the law of reflection, where the incident angle is equal to the reflected angle. By calculating the dot product between the incident ray and the surface's normal, we can determine the angles of incidence and reflection. Then, by rotating the incident ray, we can find the direction of the reflected ray.
