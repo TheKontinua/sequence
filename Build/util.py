@@ -68,7 +68,7 @@ def gather_data(mod_dir, book_str, config):
             filelist = md["files"]
             for j in range(len(filelist)):
                 filename = filelist[j]["path"]
-                filelist[j]["link"] = f"https://raw.githubusercontent.com/TheKontinua/sequence/master/Chapters/{ids[i]}/en_US/{filename}"
+                filelist[j]["link"] = f"https://github.com/TheKontinua/sequence/raw/master/Chapters/{ids[i]}/en_US/{filename}"
         # Add it to the array 
         metadatas.append(md)
 
