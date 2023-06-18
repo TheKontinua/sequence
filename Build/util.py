@@ -4,7 +4,9 @@ import json
 
 title_pattern = re.compile("chapter\{([^\}]+)\}")
 
-def dir_list_for_book(mod_dir, book_str, locale_str):
+def dir_list_for_book(mod_dir, book_str, langlist):
+    # FIXME: should search from fav to least fave
+    locale_str = langlist[0]
     modlist_filename = f"book_{book_str}.txt"
     modlist_path = os.path.join(mod_dir, modlist_filename)
     if not os.path.exists(modlist_path):
@@ -47,18 +49,30 @@ def metadata_for_dir(dir):
     return result
 
 def gather_data(mod_dir, book_str, config):
-    locale_str = config["Languages"][0]
-    (ids, dirs) = dir_list_for_book(mod_dir, book_str, locale_str)
+    (ids, dirs) = dir_list_for_book(mod_dir, book_str, config["Languages"])
     metadatas = []
     topics = {}
     for (i, dir) in enumerate(dirs):
         md = metadata_for_dir(dir)
+        # Get the title from the tex file
         title = title_for_dir(dir)
+
+        # Fill in some useful info
         md["book"] = book_str
         md["id"] = ids[i]
         md["title"] = title
         md["chap_num"] = i + 1
+
+        # Make URLs for the files
+        if "files" in md:
+            filelist = md["files"]
+            for j in range(len(filelist)):
+                filename = filelist[j]["path"]
+                filelist[j]["link"] = f"https://raw.githubusercontent.com/TheKontinua/sequence/master/Chapters/{ids[i]}/en_US/{filename}"
+        # Add it to the array 
         metadatas.append(md)
+
+        # Also put the data in the topics dictionary
         if "covers" in md:
             for c in md["covers"]:
                 cd = c.copy()

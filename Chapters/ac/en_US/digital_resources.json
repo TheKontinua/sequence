@@ -1,4 +1,10 @@
 {
+	"files": [
+		{
+			"desc":"A zip file containing a starting point for the coding exercise",
+			"path":"test.zip"
+		}
+	], 
   "requires": [
     "dc"
   ],

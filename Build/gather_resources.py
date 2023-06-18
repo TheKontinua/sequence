@@ -3,6 +3,7 @@ import os
 import sys
 import json
 import util
+import shutil
 from jinja2 import Environment, FileSystemLoader
 
 # Paths are from Intermediate
@@ -15,6 +16,10 @@ def usage():
     print("Usage: python3 gather_resources <i>")
     print("   or  python3 gather_resources all")
     sys.exit(1)
+
+if not os.path.exists("Resources"):
+    os.makedirs("Resources")
+    shutil.copyfile("Support/kontinua.css", "Resources/kontinua.css")
 
 if not os.path.exists("user.cfg"):
     shutil.copyfile("Support/default.cfg", "user.cfg")
@@ -46,7 +51,7 @@ for i in book_indices:
     metadatas = books_metadata[i]
     context = {"topics": all_topics, "chapters":metadatas}
     content = template.render( topics=all_topics, chapters=metadatas, book_str=book_str)
-    filename = f"resources-{book_str}.html"
+    filename = f"Resources/Workbook-{book_str}.html"
     with open(filename, mode="w", encoding="utf-8") as message:
         message.write(content)
         print(f"Wrote {filename}")
