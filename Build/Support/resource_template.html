@@ -35,7 +35,7 @@
   <ul>
   {% for key in md.requires %}
   {% if key in topics %}
-  <li><a href="resources-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].chap_num}}</b></li>
+  <li><a href="Workbook-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].chap_num}}</b></li>
   {% endif %}
   {% endfor %}
   </ul>
