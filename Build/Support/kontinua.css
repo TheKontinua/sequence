@@ -1,4 +1,4 @@
-/* MVP.css v1.12 - https://github.com/andybrewer/mvp */
+/* Based on MVP.css v1.12 - https://github.com/andybrewer/mvp */
 
 :root {
     --active-brightness: 0.85;
@@ -14,11 +14,12 @@
     --color-table: #118bee;
     --color-text: #000;
     --color-text-secondary: #999;
+	--sdkblue: #005FC6;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --hover-brightness: 1.2;
     --justify-important: center;
     --justify-normal: left;
-    --line-height: 1.5;
+    --line-height: 1.1;
     --width-card: 285px;
     --width-card-medium: 460px;
     --width-card-wide: 800px;
@@ -62,15 +63,13 @@ header,
 main {
     margin: 0 auto;
     max-width: var(--width-content);
-    padding: 3rem 1rem;
+    padding: 0.2rem 0.1rem;
 }
 
 hr {
-    background-color: var(--color-bg-secondary);
-    border: none;
-    height: 1px;
-    margin: 4rem 0;
-    width: 100%;
+    border: 1px solid var(--sdkblue);
+    margin: 0.2rem 0.2rem;
+    width: 50%;
 }
 
 section {
@@ -93,7 +92,7 @@ section aside {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow) var(--color-shadow);
     margin: 1rem;
-    padding: 1.25rem;
+    padding: 1rem;
     width: var(--width-card);
 }
 
@@ -125,7 +124,7 @@ header a strong {
 }
 
 header nav img {
-    margin: 1rem 0;
+    margin: 0.3rem 0;
 }
 
 section header {
@@ -139,7 +138,7 @@ nav {
     display: flex;
     font-weight: bold;
     justify-content: space-between;
-    margin-bottom: 7rem;
+    margin-bottom: 1rem;
 }
 
 nav ul {
@@ -149,7 +148,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 0 0.5rem;
+    margin: 0 0.2rem;
     position: relative;
     text-align: left;
 }
@@ -167,9 +166,9 @@ nav ul li ul {
     display: none;
     height: auto;
     left: -2px;
-    padding: .5rem 1rem;
+    padding: .2rem 0.2rem;
     position: absolute;
-    top: 1.7rem;
+    top: 0.5rem;
     white-space: nowrap;
     width: auto;
     z-index: 1;
@@ -182,7 +181,7 @@ nav ul li ul::before {
     left: 0;
     right: 0;
     top: -0.5rem;
-    height: 0.5rem;
+    height: 0.2rem;
 }
 
 nav ul li ul li,
@@ -198,11 +197,11 @@ samp {
     color: var(--color-text);
     display: inline-block;
     margin: 0 0.1rem;
-    padding: 0 0.5rem;
+    padding: 0 0.2rem;
 }
 
 details {
-    margin: 1.3rem 0;
+    margin: 1rem 0;
 }
 
 details summary {
@@ -212,24 +211,32 @@ details summary {
 
 h1,
 h2,
-h3,
+h3
+{
+    line-height: var(--line-height);
+}
+
+h2 {
+	color: var(--sdkblue);
+}
+
+h3
+{
+	text-indent:10px
+}
 h4,
 h5,
 h6 {
-    line-height: var(--line-height);
+	text-indent: 20px;
+	margin-bottom: 0px;
 }
 
 mark {
     padding: 0.1rem;
 }
 
-ol li,
-ul li {
-    padding: 0.2rem 0;
-}
-
 p {
-    margin: 0.75rem 0;
+    margin: 0.3rem 0;
     padding: 0;
     width: 100%;
 }
@@ -326,7 +333,7 @@ a i {
     border-radius: var(--border-radius);
     color: var(--color-link);
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0.2rem 0.2rem;
 }
 
 article aside a {

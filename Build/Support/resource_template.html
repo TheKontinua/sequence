@@ -20,7 +20,7 @@
   </ul>
   {% endif %}
   {% if md.covers %}
-  <h3>Topics</h3>
+  <h3>Objectives</h3>
 	  {% for t in md.covers %}
 	  {% set key = t["id"] %}
   <h4>{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
@@ -40,8 +40,7 @@
   {% endfor %}
   </ul>
   {% endif %}
-
-
+  <hr />
 {% endfor %}
 </body>
 </html>
