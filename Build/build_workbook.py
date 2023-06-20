@@ -24,11 +24,14 @@ def build_book(book_id, config, draft):
     paper_size = config["Paper"]
     tool = config["LatexExecutable"]
 
+    # Where are things going?
     output_tex_path = "workbook-{}-{}.tex".format(book_id, locale_list[0])
     output_pdf_path = "workbook-{}-{}.pdf".format(book_id, locale_list[0])
-    final_pdf_path = "../{}".format(output_pdf_path)
+    final_pdf_path = f"../Workbooks/{output_pdf_path}"
     if os.path.exists(final_pdf_path):
         os.remove(final_pdf_path)
+
+    # Open the tex file
     output_tex = open(output_tex_path, "w")
 
     # Write the header
@@ -78,27 +81,35 @@ def build_book(book_id, config, draft):
 
     return output_pdf_path
 
+# Make any directories we need
+needed_dirs = ["Intermediate", "Workbooks"]
+for dir in needed_dirs:
+    if not os.path.exists(dir):
+        os.mkdir(dir)
 
-if not os.path.exists("Intermediate"):
-    os.mkdir("Intermediate")
-
+# If this is the first time, copy the default config
 if not os.path.exists("user.cfg"):
     shutil.copyfile("Support/default.cfg", "user.cfg")
 
+# Read the config
 with open("user.cfg", "r") as config_fd:
     config = json.load(config_fd)
 
+# Check command line
 if len(sys.argv) < 2:
     usage()
 
+# Deal with first arg
 arg1 = sys.argv[1]
 if arg1 == "all":
     book_nums = [str(x).zfill(2) for x in range(1, vol_count + 1)]
 else:
     book_nums = [arg1.zfill(2)]
 
+# We build in the Intermediate file
 os.chdir("Intermediate")
 
+# Keep track of successes and failures
 newfilenames = []
 failednumbers = []
 for book in book_nums:

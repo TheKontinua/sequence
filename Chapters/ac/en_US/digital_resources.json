@@ -1,10 +1,10 @@
 {
-	"files": [
-		{
-			"desc":"A zip file containing a starting point for the coding exercise",
-			"path":"test.zip"
-		}
-	], 
+  "files": [
+    {
+      "desc": "A zip file containing a starting point for the coding exercise",
+      "path": "test.zip"
+    }
+  ],
   "requires": [
     "dc"
   ],
@@ -12,14 +12,24 @@
     {
       "id": "ac",
       "desc": "Definition of Alternating Current",
-      "video": "https://youtu.be/qaz3gL3-vvY",
-      "reference": "https://en.wikipedia.org/wiki/Alternating_current"
+      "videos": [
+        "https://youtu.be/qaz3gL3-vvY",
+        "https://youtu.be/qaz3gL3-vvY"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Alternating_current",
+        "https://en.wikipedia.org/wiki/Alternating_current"
+      ]
     },
     {
       "id": "ac_transformer",
       "desc": "Use of Transformer to Change Voltage of AC",
-      "video": "https://youtu.be/zf8vnCcETqM",
-      "reference": "https://en.wikipedia.org/wiki/Transformer"
+      "videos": [
+        "https://youtu.be/zf8vnCcETqM"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Transformer"
+      ]
     }
   ]
 }
