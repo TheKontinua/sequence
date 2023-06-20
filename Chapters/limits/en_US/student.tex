@@ -1,63 +1,256 @@
 \chapter{Limits}
 
-Here is a function:
+The asymptotic behavior we see in rational functions suggests that we need to expand our vocabulary of function characteristics. We examined vertical asymptotes and end behavior through graphs and tables and discussed them in English. The language of limits enables us to discuss these attributes with greater efficiency. 
 
-$$f(x) = \frac{x^2}{x} + 1$$
+Let us revisit an example from the previous chapter. This function has a hole at $ x = 1 $, a vertical asymptote at $ x = 3 $, and a horizontal asymptote of $ y = 1 $.
 
-This $f$ is defined for any real number \emph{except 0}. (You can't
-divide anything, including zero, by zero.)
+$$ f(x) = \frac{x^2 - 3x + 2}{x^2 - 4x + 3} = \frac{(x-1)(x-2)}{(x-1)(x-3)} $$
 
-Let's plot $f$:
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \(f(x)\),
+      restrict y to domain = -10:10,
+      samples = 100,
+    ]
+    \addplot [red, smooth] {(x - 2)/(x - 3)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of \( f(x) = \frac{x^2 - 3x + 2}{x^2 - 4x + 3} \)}
+\end{figure}
 
-\begin{tikzpicture}[
-tl/.style = {% tick labels
-    fill=white, inner sep=1pt, font=\scriptsize,
-            },                        ]
-% grid
-\draw[sdkblue, very thin] (-3,-3) grid (3,3);
+First, consider the vertical asymptote. We see that the graph goes down as it hugs the left side of the vertical asymptote, and goes up as it hugs the right side. We can describe these behaviors as the left- and right-hand limits, respectively. We say that the left-hand limit of $ f $ at $ x = 3 $ is negative infinity. Another way of communicating this is to say that as $ x $ approaches $ 3 $ from the left, the function approaches negative infinity. Symbolically, we summarize this as $ \lim_{x \rightarrow 3^-} f(x) = -\infty $.
+
+Similarly, the right-hand limit of $ f $ at $ x = 3 $ is positive infinity. In other words, as $ x $ approaches $ 3 $ from the right, the function approaches positive infinity. Symbolically, we write $ \lim_{x \rightarrow 3^+} f(x) = \infty $.
+
+The limit of a function at a particular $ x $-value is the $ y $-value that the function approaches as it approaches the given $ x $-value. In the previous example, we could only specify the left- and right-hand limits, because they were different. In cases where the left- and right-hand limits are equal, we can say that the function has a limit there. The hole in our function $ f $ is one such value. We see that as we approach the hole from both the left and right, the function takes on values near $\frac{1}{2}$. This is more apparent numerically:
 
 
-    \draw[<->,thick,dashed] (-3.2,0) -- (3.2,0) node[right] {$x$};
-    \draw[<->,thick,dashed] (0,-3.2) -- (0, 3.2) node[above] {$y$};
-% curve
-\draw[<-,draw=black,thick,domain=-3:-0.1,samples=300,variable=\x] plot (\x,{\x + 1});
-\draw[thick] (0,1) circle (0.1);
-\draw[->,draw=black,thick,domain=0.1:2,samples=300,variable=\x] plot (\x,{\x + 1});
-\end{tikzpicture}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+ \hline
+ x & 0.9 & 0.99 & 0.999 & 1 & 1.001 & 1.01 & 1.1 \\ 
+ \hline
+ f(x) & 0.5238 & 0.5025 & 0.5003 & undefined & 0.4998 & 0.4975 & 0.4737 \\ 
+ \hline
+\end{tabular}
+\end{center}
 
-You can see that the function is the same as $x + 1$ everywhere except
-$x = 0$.  You can see that as the function approaches $x=0$ from the
-left, the value of the function approaches 1.  You can see that as the
-function approaches $x=1$ from the right, the value of the function
-approaches 1.
+The left-hand and right-hand limits of $ f $ at $ 1 $ are both $\frac{1}{2}$. Since they are equal, we can also say that the limit of $ f $ at $ 1 $ is $\frac{1}{2}$. This allows us to efficiently discuss the behavior of $ f $ at $ 1 $, even though the function is not defined there since substituting $ 1 $ into the function gives division by zero.
 
-Mathematicians say ``The \newterm{limit} of $f$ as $x$ approaches 0, is 1.''  We have a notation for this:
+$$ \lim_{x \rightarrow 1^-} f(x) = \lim_{x \rightarrow 1^+} f(x) = \lim_{x \rightarrow 1} f(x) = \frac{1}{2} $$
 
-$$\lim_{x \rightarrow 0} f(x) = 1$$
+We can also talk about limits at $x$-values where nothing weird is happening, that is, no hole or vertical asymptote. For example, as $x$ approaches $4$ from the left and right, $y$ approaches $2$.
 
-We generally use limit whenever we mean ``We are getting arbitrarily
-close, but we can never really get there.''  For example, you might
-say ``The limit of $1/t$ as $t$ goes to infinity is 0.''
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+ \hline
+ x & 3.9 & 3.99 & 3.999 & 4 & 4.001 & 4.01 & 4.1 \\ 
+ \hline
+ f(x) & 2.1111 & 2.0101 & 2.0010 & 2 & 1.9990 & 1.9901 & 1.9091 \\ 
+ \hline
+\end{tabular}
+\end{center}
 
-\begin{tikzpicture}[
-tl/.style = {% tick labels
-    fill=white, inner sep=1pt, font=\scriptsize,
-            },                        ]
-% grid
-\draw[sdkblue, very thin] (-5,-5) grid (5,5);
-    \draw[<->,thick,dashed] (-5.2,0) -- (5.2,0) node[below] {$t$};
-    \draw[<->,thick,dashed] (0,-5.2) -- (0, 5.2);
-% curve
-\draw[<->,draw=black,thick,domain=0.2:5,samples=300,variable=\x] plot (\x,{1/\x});
-\draw[<->,draw=black,thick,domain=-5:-0.2,samples=300,variable=\x] plot (\x,{1/\x});
-\draw (5.0, 0.2) node[above] {$t \rightarrow \infty$, $1/t \rightarrow 0$};
-\draw (0.0, 5.2) node[above] {$t \rightarrow 0$ from the right, $1/t \rightarrow \infty$};
-\draw (0.0, -5.2) node[below] {$t \rightarrow 0$ from the left, $1/t \rightarrow -\infty$};
-\draw (-5.0, -0.2) node[below] {$t \rightarrow -\infty$, $1/t \rightarrow 0$};
+In this case, since nothing weird is happening, the limit is equal to the function value. This is an example of continuity, which we will discuss in more detail in the next chapter. By contrast, at the vertical asymptote $ x = 1 $, since the left- and right-hand limits are not equal, we say the function does not have a limit, or the limit does not exist.
 
-\end{tikzpicture}
+Finally, let us consider the horizontal asymptote of $f$. The graph hugs the line $y = 1$ as $x$ goes far to the left and far to the right. We say that as $x$ approaches negative infinity, $f$ approaches $1$, and likewise, that as $x$ approaches positive infinity, $f$ approaches $1$. We write these symbolically as $\lim_{x \rightarrow -\infty} f(x) = 1$ and $\lim_{x \rightarrow \infty} f(x) = 1$. 
 
-What is the limit of $1/t$ as $t$ approaches zero? The limit isn't
-defined because if you approach from the right, $1/t$ goes to
-infinity, but if you approach from the left, $1/t$ goes to negative
-infinity.
+\begin{Exercise}[title=Limits Practice 1, label=limits1]
+  Determine the left- and right-hand limits of the function as $x$ approaches the given values. At $x$-values where the limit exists, determine it.
+  \Question{$p(x) = \frac{x + 3}{x^2 + 9x + 18}, x = -6, -5, -3, \infty$}
+  \vspace{40mm}
+\end{Exercise}
+\begin{Answer}[ref=limits1] 
+	$$ \lim_{x \rightarrow -6^-} p(x) = -\infty, \lim_{x \rightarrow -6^+} p(x) = \infty $$
+	$$ \lim_{x \rightarrow -5^-} p(x) = \lim_{x \rightarrow -5^+} p(x) = \lim_{x \rightarrow -5} p(x) = 1 $$
+	$$ \lim_{x \rightarrow -3^-} p(x) = \lim_{x \rightarrow -3^+} p(x) = \lim_{x \rightarrow -3} p(x) = \frac{1}{3} $$
+	$$ \lim_{x \rightarrow \infty} p(x) = 0 \text{ called simply a limit, although it is a left-hand limit} $$
+\end{Answer}
+
+We have seen two weird behaviors of rational functions at certain $x$-values: holes and vertical asymptotes. Now we will examine another type of weird behavior: jumps. This is a characteristic of some piecewise defined functions. In piecewise defined functions, the domain is divided into two or more pieces, and a different expression is used to give the y-value depending on which piece contains the $x$-value. One common piecewise defined function is the floor function, sometimes denoted $[[x]]$. The standard floor function rounds any real number down to the nearest integer. So, for a price quoted in dollars and cents, the floor would be just the number of dollars.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = $ floor(x) $,
+      restrict y to domain = -5:5,
+      samples = 100,
+    ]
+    \addplot [brown, smooth] {floor(x)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of \( y = floor(x) \)}
+\end{figure}
+
+Each piece of the graph has a filled-in circle on the left and an empty circle on the right. The piece where $y = 1$, for example, starts with a filled-in circle at $x = 1$ and an empty circle at $x = 2$. When $x$ is exactly $1$, the function value is $1$: the number of dollars in a price of \$1.00. When $x$ is any number greater than $1$ but less than $2$, the function value is still $1$. Also, $h(1.01)$, $h(1.5)$, and $h(1.99999)$ are all $1$. As we continue to look to the right, once $x$ equals exactly $2$, $h$ jumps up to the value $2$. The filled and open circles are how we indicate this behavior graphically.
+
+[ Exercise: determine the left- and right-hand limits of the floor function as x approaches the values $3$, $4.4$, $5.999$, and $182$. Also, for each $x$-value, state the limit if it exists; if the limit does not exist, state that. ]
+
+Besides rational and piecewise defined functions, there are other functions with interesting limits. Consider the standard exponential function, $y = e^x$.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \( e^x \),
+      restrict y to domain = -5:5,
+      samples = 100,
+      xmin = -5, xmax = 5, ymin = 0, ymax = 11,
+    ]
+    \addplot [red, smooth] {exp(x)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of \( y = e^x \)}
+\end{figure}
+
+As $x$ increases, $y$ increases without bound; that is, $\lim_{x \rightarrow \infty} e^x = \infty$. However, looking far to the left, we see that $y$ hugs the $x$-axis. This is because raising $e$ to a large negative exponent is the same as $1$ divided by $e$ raised to a large positive exponent; that is, $1$ divided by a very large number, which yields a very small positive number. In limit notation, $\lim_{x \rightarrow -\infty} e^x = 0$. This example illustrates that horizontal asymptotes need not model end behavior in both directions. Note that this reasoning holds for $y = b^x$ for any $b > 1$, so all such functions have the same horizontal asymptote, $y = 0$.
+
+We know that the natural logarithm function, $y = \text{ln } x$, is the inverse of $y = e^x$. Since inverse functions swap the role of $x$ and $y$, it stands to reason that a horizontal asymptote in one function corresponds with a vertical asymptote in the other function, and that is indeed the case.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \( \text{ln }x \),
+      restrict y to domain = 0.1:10,
+      samples = 100,
+      xmin = -1, xmax = 10, ymin = -6, ymax = 4,
+    ]
+    \addplot [blue, smooth] {ln(x)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of \( y = \text{ln } x \)}
+\end{figure}
+
+An untransformed logarithm function is defined only for positive inputs. That is because it is not possible to find an exponent of a positive number which will yield a negative or zero result. What type of exponent on a positive number yields a number near zero? That would be a large-magnitude negative number. So, on the logarithm graph, large negative $y$-values correspond with $x$-values only slightly greater than zero. So, $\text{ln } x$ (and $\text{log}_2 x$, and indeed $\text{log}_b x$ for any $b > 1$) approaches negative infinity as $x$ approaches $0$ from the right. There is no left-hand limit at $0$, however. In limit notation, $\lim_{x \rightarrow 0^+} \text{ln } x = -\infty$.
+
+\begin{Exercise}[title=Limits Practice 2, label=limits2]
+  State the asymptotes of the following transformed exponential and logarithmic functions. Give the limit statement which describes the behavior of the function along the asymptote.
+  \Question{$y = 3^x + 1, y = \text{log}_2 (x-4), y = 2^{1-x}, y = \text{log}_{10} (-2x)$}
+  \vspace{40mm}
+\end{Exercise}
+\begin{Answer}[ref=limits2] 
+	$$ \lim_{x \rightarrow -\infty} 3^x + 1 = 1; \lim_{x \rightarrow 4^+} \text{log}_2 (x-4) = -\infty; \lim_{x \rightarrow \infty} 2^{1-x} = 0; \lim_{x \rightarrow 0^-} \text{log}_{10} (-2x) = -\infty $$
+\end{Answer}
+
+We conclude this chapter by considering two functions which each have two horizontal asymptotes. These two seemingly obscure functions are quite important in data science.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \( \text{tan}^{-1} x \),
+      restrict y to domain = -5:5,
+      samples = 100,
+    ]
+    \addplot [green, smooth] {atan(x)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of the inverse tangent function \( y = \text{tan}^{-1} x \)}
+\end{figure}
+
+We know that the arctangent, or inverse tangent, function is the inverse of the piece of the tangent function which passes through the origin. The vertical asymptotes bounding this piece become horizontal asymptotes when the function is inverted.
+
+Here are the equation and graph of the logistic function:
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \( \frac{1}{1 + e^{-x}} \),
+      restrict y to domain = -5:5,
+      samples = 100,
+      xmin = -5, xmax = 5, ymin = 0, ymax = 1.1,
+    ]
+    \addplot [brown, smooth] {1/(1+exp(-x))};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of the logistic function, $ y = \frac{1}{1 + e^{-x}} $ }
+\end{figure}
+
+For large magnitude negative values of $x$, the exponential term in the denominator becomes a very large positive value. The fraction thus becomes a positive number very close to zero. For large magnitude positive values of $x$, that exponential term becomes a very small positive number. Adding it to $1$ yields a denominator just barely greater than $1$. Dividing $1$ by this number thus yields a function value just barely less than $1$. So, the logistic function yields values between $0$ and $1$, though never equaling either of these values exactly. It is precisely this characteristic which makes the logistic function so useful.
+
+\begin{Exercise}[title=Limits Practice 3, label=limits3]
+Using limit notation, state the limits as x approaches negative and positive infinity for the inverse tangent and logistic functions.
+  \vspace{40mm}
+\end{Exercise}
+\begin{Answer}[ref=limits3] 
+	$ \lim_{x \rightarrow -\infty} \text{tan}^{-1}x = -\frac{\pi}{2}, \lim_{x \rightarrow \infty} \text{tan}^{-1}x = \frac{\pi}{2}; \lim_{x \rightarrow -\infty} \frac{1}{1 + e^{-x}} = 0, \lim_{x \rightarrow \infty} \frac{1}{1 + e^{-x}} = 1 $
+\end{Answer}
+
+%Here is a function:
+%
+%$$f(x) = \frac{x^2}{x} + 1$$
+%
+%This $f$ is defined for any real number \emph{except 0}. (You can't
+%divide anything, including zero, by zero.)
+%
+%Let's plot $f$:
+%
+%\begin{tikzpicture}[
+%tl/.style = {% tick labels
+%    fill=white, inner sep=1pt, font=\scriptsize,
+%            },                        ]
+%% grid
+%\draw[sdkblue, very thin] (-3,-3) grid (3,3);
+%
+%
+%    \draw[<->,thick,dashed] (-3.2,0) -- (3.2,0) node[right] {$x$};
+%    \draw[<->,thick,dashed] (0,-3.2) -- (0, 3.2) node[above] {$y$};
+%% curve
+%\draw[<-,draw=black,thick,domain=-3:-0.1,samples=300,variable=\x] plot (\x,{\x + 1});
+%\draw[thick] (0,1) circle (0.1);
+%\draw[->,draw=black,thick,domain=0.1:2,samples=300,variable=\x] plot (\x,{\x + 1});
+%\end{tikzpicture}
+%
+%You can see that the function is the same as $x + 1$ everywhere except
+%$x = 0$.  You can see that as the function approaches $x=0$ from the
+%left, the value of the function approaches 1.  You can see that as the
+%function approaches $x=1$ from the right, the value of the function
+%approaches 1.
+%
+%Mathematicians say ``The \newterm{limit} of $f$ as $x$ approaches 0, is 1.''  We have a notation for this:
+%
+%$$\lim_{x \rightarrow 0} f(x) = 1$$
+%
+%We generally use limit whenever we mean ``We are getting arbitrarily
+%close, but we can never really get there.''  For example, you might
+%say ``The limit of $1/t$ as $t$ goes to infinity is 0.''
+%
+%\begin{tikzpicture}[
+%tl/.style = {% tick labels
+%    fill=white, inner sep=1pt, font=\scriptsize,
+%            },                        ]
+%% grid
+%\draw[sdkblue, very thin] (-5,-5) grid (5,5);
+%    \draw[<->,thick,dashed] (-5.2,0) -- (5.2,0) node[below] {$t$};
+%    \draw[<->,thick,dashed] (0,-5.2) -- (0, 5.2);
+%% curve
+%\draw[<->,draw=black,thick,domain=0.2:5,samples=300,variable=\x] plot (\x,{1/\x});
+%\draw[<->,draw=black,thick,domain=-5:-0.2,samples=300,variable=\x] plot (\x,{1/\x});
+%\draw (5.0, 0.2) node[above] {$t \rightarrow \infty$, $1/t \rightarrow 0$};
+%\draw (0.0, 5.2) node[above] {$t \rightarrow 0$ from the right, $1/t \rightarrow \infty$};
+%\draw (0.0, -5.2) node[below] {$t \rightarrow 0$ from the left, $1/t \rightarrow -\infty$};
+%\draw (-5.0, -0.2) node[below] {$t \rightarrow -\infty$, $1/t \rightarrow 0$};
+%
+%\end{tikzpicture}
+%
+%What is the limit of $1/t$ as $t$ approaches zero? The limit isn't
+%defined because if you approach from the right, $1/t$ goes to
+%infinity, but if you approach from the left, $1/t$ goes to negative
+%infinity.
