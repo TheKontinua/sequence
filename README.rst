@@ -104,7 +104,7 @@ You will need to have installed git, Python 3, and LaTeX.
 
 Clone the github repository::
   
-  git clone https://github.com/hillegass/sequence.git
+  git clone https://github.com/TheKontinua/sequence.git
 
 You will also need some fonts from the `Google Font Collection <https://fonts.google.com/>`_ :
 
