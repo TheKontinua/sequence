@@ -105,3 +105,9 @@ code in C++.  The student should see pointers and understand the stack and heap,
 
 Include it in the directory for the chapter that uses it.
 
+======
+Style
+======
+
+You can refer to the style guide
+`The Style Guide <style.rst>`__ 
