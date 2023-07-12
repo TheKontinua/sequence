@@ -1,24 +1,503 @@
 \chapter{Reflection}
 
-Light reflection is the phenomenon where light waves bounce off a surface upon encountering it. It obeys the law of reflection, which states that the angle of incidence, denoted as $\theta_i$, is equal to the angle of reflection, denoted as $\theta_r$. This law can be mathematically expressed as:
+What happens when light hits a mass?
+
+In a previous chapter, we talked about light as a wave, and we
+mentioned that each color in the rainbow is a different
+wavelength. You can also think of light as particles of energy called
+\newterm{photons}. And every photon comes with an amount of energy
+that determines what color it is.
+
+When we are talking about light interacting with objects, your
+intuition will be right more often if you think of light as a beam of
+photons.
+
+When a photon comes from the sun and hits an object, one of several
+things can happen:
+
+\begin{itemize}
+  
+  \item The energy of the photon is absorbed by the object. It makes the
+    object a little warmer. If a large proportion of photons hitting the
+    mass are absorbed like this, we say the object is ``black''.\index{absorption!photon}
+
+ \item The photon bounces off the object.  If the surface is very
+   smooth, the photons bounce in a predictable manner, and we call
+   this \newterm{reflection} and we say the object is ``shiny''.\index{reflection}
+
+ \item If the surface is rough and the photons are not absorbed, the
+   photons are scattered in random directions.  We call this
+   \newterm{diffusion}.  If most of the photons hitting an object are
+   bounced in random directions, we say that the object is ``white''.\index{diffusion}
+
+ \item The photon passes through the mass.  If the mass has smooth
+   surfaces and a consistent composition, the photons will pass throught the
+   mass in a predictable manner.  We say that the mass is ``transparent''.\index{transparent}
+
+ \item If the photons pass through, but in an unpredictable,
+   scattering manner, we say the mass is ``translucent''. \index{translucent}
+
+\end{itemize}
+
+No object absorbs every photon, but chemists are always coming up with
+``blacker'' materials. Vantablack, for example, is a super-black paint
+that absorbs 99.965\% of all photons in the visible spectrum.\index{Vantablack}
+
+No object reflects every photon, but a mirror is pretty close. Let's
+talk about reflections in a mirror.\index{mirror}
+
+\section{Reflection}
+
+When a beam of light hits mirror, it bounces of the mirror at the same
+angle it approached from.  That is, if it approaches nearly
+perpendicular to the mirror, it departs nearly perpendicular to the
+mirror.  If it hits the mirror at a glancing angle, it departs at an
+angle close to the mirrors surface.
+
+\textit{Illustration here}
+
+\begin{mdframed}[style=important, frametitle={Law of Reflection}]
+
+The angle of incidence, denoted as $\theta_i$, is equal to
+the angle of reflection, denoted as $\theta_r$. This law can be
+mathematically expressed as:\index{reflection!law of}
 
 $$\theta_i = \theta_r$$
  
-where $\theta_i$ is the angle between the incident light ray and the normal to the surface, and $\theta_r$ is the angle between the reflected light ray and the normal.
+where $\theta_i$ is the angle between the incident light ray and the
+normal to the surface, and $\theta_r$ is the angle between the
+reflected light ray and the normal.
 
-To understand the math behind light reflection, we can consider a plane mirror as an example. When a light ray hits a plane mirror, it is reflected back in a way that the incident angle is equal to the reflected angle with respect to the mirror's surface.
+\begin{tikzpicture}[scale=5]
+  \draw [black,thick](-0.7,0)--(0.7,0) node [midway, anchor=north]{Mirror};
+  \draw [sdkblue,dashed,->] (0,0) -- (0,0.7) node [anchor=south]{Normal};
+  \draw [sdkblue] (0,0.08) -- (0.08, 0.08) -- (0.08, 0);
+  \draw [->](-0.5,0.8)--(-0.04,0.05);
+  \draw [->](0,0)--(0.5,0.8);
+  \draw [sdkblue,<->] (0, 0.3) arc (90:122:0.3)
+  node [midway, anchor=south] {$\theta_i$};  
+  \draw [sdkblue,<->] (0, 0.3) arc (90:58:0.3)
+  node [midway, anchor=south] {$\theta_r$};
+\end{tikzpicture}
 
-Let's assume the incident light ray is represented by a vector $\mathbf{i}$ and the normal to the mirror's surface is represented by a vector $\mathbf{n}$. The angle of incidence, $\theta_i$, can be calculated using the dot product between the incident ray and the normal:
+\end{mdframed}
 
-$$\cos(\theta_i) = \frac{{\mathbf{i} \cdot \mathbf{n}}}{{\|\mathbf{i}\| \|\mathbf{n}\|}}$$
-​	
- 
-where $\cdot$ denotes the dot product and $|\mathbf{i}|$ and $|\mathbf{n}|$ represent the magnitudes of the incident ray and the normal vector, respectively.
+\begin{Exercise}[title={Law of Reflection}, label=law_of_reflection]
 
-Since the law of reflection states that $\theta_i = \theta_r$, we can calculate the angle of reflection, $\theta_r$, using the inverse cosine function:
+  You are standing 4 meters from a mirror hung on a wall.  The bottom
+  of the mirror is the same height as your chin, so you can't see your
+  whole body.  You stick a piece of masking tape to your body.
 
-$$\theta_r = \cos^{-1}\left(\frac{{\mathbf{i} \cdot \mathbf{n}}}{{\|\mathbf{i}\| \|\mathbf{n}\|}}\right)$$
+  You walk forward until you are only 3 meters from the mirror, and
+  put a piece of masking tape on your body at the new cut-off point.  Is the new
+  masking tape higher or lower on your body?
+  
+\end{Exercise}
+\begin{Answer}[ref=area_of_circle]
 
-Once we have the angle of reflection, we can obtain the reflected ray by rotating the incident ray by an angle of $2\theta_r$ with respect to the mirror's surface. This can be done using rotation matrices or trigonometric functions, depending on the coordinate system being used.
+ Assuming the mirror is truly vertical and the floor is truly
+ horizontal, the new cut off should be exactly the same as the old
+ one: It should be below your chin the same amount that your eyes are
+ above your chin.
 
-In summary, light reflection follows the law of reflection, where the incident angle is equal to the reflected angle. By calculating the dot product between the incident ray and the surface's normal, we can determine the angles of incidence and reflection. Then, by rotating the incident ray, we can find the direction of the reflected ray.
+ \textit{Illustration Here}
+
+\end{Answer}
+
+\begin{Exercise}[title={Photons and Color}, label=photon_color]
+
+  There are red photons.
+
+  Are there black photons?
+
+  Are there white photons?
+
+  Are there yellow photons?
+  
+\end{Exercise}
+\begin{Answer}
+  
+\textit{Are there white photons?}  No. What we call ``white'' is a
+blend of photons that are several different colors.
+
+Some people like to say white light is the combination of all visible
+colors of photons in equal amounts. That seems oddly specific and unusual.
+
+Maybe it is better to imagine it from the human experience of white
+light. In our eyes, we have three different types of color-sensing
+cones, which generally correspond to the the red, the green, and the
+blue regions of the spectrum.  When all three are excited about equal
+amounts, humans experience that as white.  On your computer screen,
+for example, what you see as white is just a blend of three colors of
+photons: a red, a green, and a blue.
+
+\textit{Are there black photons?}  No. What we call ``black'' is an
+absence of photons in the visible range.
+
+\textit{Are there yellow photons?} Yes! There is a region of the color
+spectrum that is yellow. It has a wavelength of about 527 nm.  Photons
+at this energy level excite both our green-sensitive and red-sensitive
+cones.
+Your computer monitor does not actually create light with a 527 nm
+wavelength. Instead, it creates red light and green light, which our
+eyes interpret as yellow.
+
+\end{Answer}
+
+\section{Curved Mirrors}
+
+Flat mirrors are common and useful, but things get more interesting
+once you bend the mirrors. In this section, we are going to talk about
+a few different kinds of curved mirrors.\index{circle!reflections in}
+
+For example, if you were inside a circular room (a cylinder,
+actually), you could imagine standing in the center and pointing a
+flash light in any horizontal direction.  The beam of light would
+bounce right back to you.
+
+\begin{tikzpicture}[scale=1]
+  \coordinate (a) at (0,0);
+  \coordinate (b) at ({3 * cos(30)}, {3 * sin(30)});
+  \draw [black, thick] (a) circle (3);
+  \filldraw [sdkblue] (a) circle (2pt);
+  \filldraw [sdkblue] (b) circle (2pt);
+  \draw [sdkblue,<->] ({0.2 * cos(30)},{0.2 * sin(30)})--({2.8 * cos(30)},{2.8 * sin(30)});
+\end{tikzpicture}
+
+How do you know this?  Because the tangent line is always perpendicular to the radius to the point of tangency:
+
+\begin{tikzpicture}[scale=1.4]
+  \coordinate (a) at (0,0);
+  \coordinate (b) at ({3 * cos(30)}, {3 * sin(30)});
+  \draw [black, thick] (3,0) arc (0:80:3);
+  \filldraw [sdkblue] (a) circle (2pt);
+  \filldraw [sdkblue] (b) circle (2pt);
+  \draw [sdkblue,<->] ({0.2 * cos(30)},{0.2 * sin(30)})--({2.8 * cos(30)},{2.8 * sin(30)});
+  \clip (-.1, -.1) rectangle (4,3);
+  \draw [dashed] (0,{3 / sin(30)}) -- ({3 / cos(30)},0);
+\end{tikzpicture}
+
+You could create a spherical room with mirror walls. You'd
+create a platform in the center where you could stand, and if you
+pointed your flashlight in any direction, its beam of light would
+shine back at you.
+
+\subsection{Ellipses and Ellipsoids}
+
+Intuitively, you know what an ellipse is: it is an oval. But the
+ellipse is actually an oval with some special properties.  This is a
+good time to talk about those properties.\index{ellipse}
+
+Mathematicians talk about a \newterm{standard} ellipse. A standard ellipse is
+centered on the origin $(0,0)$ and its long axis is parallel with the
+$x$-axis or the $y$-axis.
+
+\begin{mdframed}[style=important, frametitle={Equation for a Standard Ellipse}]
+
+To be precise, a standard ellipse is the set of points $(x, y)$ that
+are solutions to the equation
+
+$$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$$
+
+
+Note that $(a,0), (-a, 0), (0, b), (0,-b)$ are all part of the
+set. The complete set looks like this:
+
+\begin{tikzpicture}[scale=2]
+  \draw [sdkblue, <->] (-2.5, 0)--(2.5, 0); \draw [sdkblue, <->] (0,
+  -1.5)--(0, 1.5); \draw (0,0) ellipse (2 and 1); \filldraw [sdkblue]
+  (-2, 0) circle (1pt) node [anchor=east] {$-a$}; \filldraw [sdkblue]
+  (2, 0) circle (1pt) node [anchor=west] {$a$}; \filldraw [sdkblue]
+  (0, -1) circle (1pt) node [anchor=north] {$-b$}; \filldraw [sdkblue]
+  (0, 1) circle (1pt) node [anchor=south] {$b$};
+\end{tikzpicture}
+
+The area contained inside this ellipse is given by
+
+$$V = \pi a b$$
+
+
+\end{mdframed}
+
+
+We can now talk about two special points: the \newterm{foci}.  Each
+focal point is on the long axis of the ellipse.  Let's assume for a
+second that $a > b$.  (Everything works the same if $b > a$, but it
+gets confusing if we try to deal with both cases simultaneously.)\index{ellipse!focus points}
+
+If $p$ is a point on the ellipse, the distance from $p$ to focal point 1
+plus the distance from $p$ to focal point 2 is always $2a$.
+
+\begin{tikzpicture}[scale=2]
+  \coordinate (p) at (0.7, 0.93674969975976);
+  \coordinate (f1) at (-1.732050807568877, 0);
+  \coordinate (f2) at (1.732050807568877, 0);
+  \draw [sdkblue, <->] (-2.5, 0)--(2.5, 0);
+  \draw [sdkblue, <->] (0, -1.5)--(0, 1.5);
+  \draw (0,0) ellipse (2 and 1);
+  \filldraw [sdkblue] (-2, 0) circle (1pt) node [anchor=east] {$-a$};
+  \filldraw [sdkblue] (2, 0) circle (1pt) node [anchor=west] {$a$};
+  \filldraw [sdkblue] (0, -1) circle (1pt) node [anchor=north] {$-b$};
+  \filldraw [sdkblue] (0, 1) circle (1pt) node [anchor=south] {$b$};
+  \filldraw (p) circle (1pt) node [anchor=south] {$p$};
+  \filldraw (f1) circle (1pt) node [anchor=north] {$f_1$};
+  \filldraw (f2) circle (1pt) node [anchor=north] {$f_2$};
+  \draw [dashed] (f1) -- (p) node [midway, anchor=south] {$d$};
+  \draw [dashed] (f2) -- (p) node [midway, anchor=north] {$2a - d$};
+\end{tikzpicture}
+
+How do we find the foci? We know they are on the long axis and that
+they are symmetrical across the short axis. All we need to know is how
+far are they from the short axis.
+
+\begin{mdframed}[style=important, frametitle={Distance from Center to the Foci}]
+
+If you have an ellipse with a long axis that extends $a$ from the center
+and a short axis that extends $b$ from the center.  The foci
+lie on the long axis and are $c$ from the center.  Where
+
+$$c = \sqrt{a^2 - b^2}$$
+
+\end{mdframed}
+
+\begin{Exercise}[title={Foci of an ellipse}, label=ellipse_foci]
+  
+You need to draw an ellipse that is 12 cm long and 7 cm wide.  You
+have a string, two pushpins, a ruler, and a pencil. Using the ruler,
+you draw two perpendicular axes.
+
+You will stick one pin at each focal point.  Each end of the string
+will be tied to a push pin. Using the pencil to keep the string taut, you will draw
+an ellipse.
+
+\begin{tikzpicture}[scale=.2]
+  \coordinate (p) at (-3, 6.77772085586298);
+  \coordinate (f1) at (-9.746794344808964, 0);
+  \coordinate (f2) at (9.746794344808964, 0);
+  \draw [sdkblue, <-] (-14, 0)--(12, 0);
+  \draw [sdkblue, <-] (0, -9)--(0, 7);
+  \draw (0,0) ellipse (12 and 7);
+  \filldraw [sdkblue] (-12, 0) circle (4pt);
+  \filldraw [sdkblue] (12, 0) circle (4pt) node [anchor=west] {12 cm};
+  \filldraw [sdkblue] (0, -7) circle (4pt);
+  \filldraw [sdkblue] (0, 7) circle (4pt) node [anchor=south] {7 cm};
+  \filldraw (p) circle (4pt) ;
+  \filldraw (f1) circle (4pt);
+  \filldraw (f2) circle (4pt);
+  \draw [dashed] (f1) -- (p);
+  \draw [dashed] (f2) -- (p);
+\end{tikzpicture}
+
+How far from the short axis are the pushpins placed?
+
+How long is the string between them?
+
+\end{Exercise}
+\begin{Answer}[ref=ellipse_foci]
+
+  The length of the string is easy: $2 \times 12 = 24$ cm.
+
+  The distance from the center to the focal point is $\sqrt{12^2 - 7^2} approx 6.78$ cm.
+
+  \begin{tikzpicture}[scale=.2]
+  \coordinate (p) at (-3, 6.77772085586298);
+  \coordinate (f1) at (-9.746794344808964, 0);
+  \coordinate (f2) at (9.746794344808964, 0);
+  \draw [sdkblue, <-] (-14, 0)--(12, 0);
+  \draw [sdkblue, <-] (0, -9)--(0, 7);
+  \draw (0,0) ellipse (12 and 7);
+  \filldraw [sdkblue] (-12, 0) circle (4pt);
+  \filldraw [sdkblue] (12, 0) circle (4pt) node [anchor=west] {12 cm};
+  \filldraw [sdkblue] (0, -7) circle (4pt);
+  \filldraw [sdkblue] (0, 7) circle (4pt) node [anchor=south] {7 cm};
+  \filldraw (p) circle (4pt) ;
+  \filldraw (f1) circle (4pt);
+  \filldraw (f2) circle (4pt);
+  \draw [dashed] (f1) -- (p) node [midway, anchor=south] {$d$};
+  \draw [dashed] (f2) -- (p) node [midway, anchor=south] {$24 - d$};
+  \draw (6,0) node [anchor=north] {6.78 cm};
+\end{tikzpicture}
+
+\end{Answer}
+
+\subsubsection{The Reflective Property of Ellipses}
+
+Here is something else that is wonderful about an ellipse: Pick any
+point $p$ on the ellipse. Draw a line from $p$ to each focal point.
+Draw the line tangent to the ellipse at $p$.  Fact: The angle between
+the tangent and the line to focal point 1 is equal to the angle between the
+tangent and the line to focal point 2.
+
+\begin{tikzpicture}[scale=2]
+  \coordinate (p) at (0.7, 0.93674969975976);
+  \coordinate (f1) at (-1.732050807568877, 0);
+  \coordinate (f2) at (1.732050807568877, 0);
+  \clip (-2.5, -.4) rectangle (5.5,2);
+  \draw [sdkblue] (-2.1, 0)--(2.1, 0);
+  \draw [sdkblue] (0, -1.1)--(0, 1.1);
+  \draw (0,0) ellipse (2 and 1);
+  \filldraw (p) circle (1pt) node [anchor=south] {$p$};
+  \filldraw (f1) circle (1pt) node [anchor=north] {$f_1$};
+  \filldraw (f2) circle (1pt) node [anchor=north] {$f_2$};
+  \draw [sdkblue] (f1) -- (p);
+  \draw [sdkblue] (f2) -- (p);
+  \coordinate (t1) at (-0.2829937278, 1.120388832);
+  \coordinate (t2) at (1.682993728, 0.7531105671); 
+  \draw [dashed, thick]  (t1)--(t2);
+  \draw [sdkblue, <->] (t1) arc (169.4181988:201.0651201:1)
+     node [midway, anchor=east] {$\theta$};
+  \draw [sdkblue, <->] (t2) arc (-10.5818012:-42.22872252:1)
+     node [midway, anchor=east] {$\theta$};
+\end{tikzpicture}
+
+This is known as ``The Reflective Property of Ellipses.''
+
+Imagine you and your friend Fred are at an ellipse-shaped skating rink and
+edge of the rink are mirrored.  You sit at one focal point and your friend
+sits at the other, if you point a flashlight at the mirror (in any
+direction!) the beam will bounce off the wall and head directly for
+Fred.
+
+If Fred ducks out of the way, the beam will bounce again and
+head back to you.
+
+\begin{tikzpicture}[scale=4]
+  \coordinate (p) at (0.7, 0.93674969975976);
+  \coordinate (p2) at (1.95763,-0.204758);
+  \coordinate (f1) at (-1.732050807568877, 0);
+  \coordinate (f2) at (1.732050807568877, 0);
+  \draw (0,0) ellipse (2 and 1);
+  \filldraw [sdkblue] (p) circle (0.5pt);
+  \filldraw [sdkblue] (p2) circle (0.5pt);
+  \filldraw (f1) circle (1pt) node [anchor=north] {You};
+  \filldraw (f2) circle (1pt) node [anchor=north] {Fred};
+  \draw [sdkblue, ->] (f1) -- (p);
+  \draw [sdkblue, ->] (p) -- (p2);
+  \draw [sdkblue, ->] (p2) -- (f1);
+  \coordinate (b1) at (0.6081804337,0.4452528358);
+  \coordinate (b2) at (1.219613217,0.1039995564);
+  \draw [dashed] (p)--(b1);
+  \draw [dashed] (p2)--(b2);
+  \coordinate (t1) at (0.1102037633, 1.046933179);
+  \coordinate (t2) at (1.289796237, 0.8265662202); 
+  \draw [dashed, thick]  (t1)--(t2);
+  \draw [dashed, thick] (1.764656527,-0.6660184891) -- (2.150603473,0.2565024891);
+  \draw [sdkblue, <->] (b1) arc (-100.5818012:-42.22872252:0.5)
+     node [midway, anchor=south] {$\theta_1$};
+  \draw [sdkblue, <->] (b1) arc (-100.5818012:-158.9348799:0.5)
+     node [midway, anchor=south] {$\theta_1$};
+  \draw [sdkblue, <->] (b2) arc (157.2974596:137.7712775:0.8)
+     node [midway, anchor=west] {$\theta_2$};
+  \draw [sdkblue, <->] (b2) arc (157.2974596:176.8236417:0.8)
+     node [midway, anchor=west] {$\theta_2$};
+\end{tikzpicture}
+
+This will work for sound too.  If you whisper on the focal point, Fred
+(at the other focal point) will hear you surprisingly well because all
+the soundwaves that hit the wall will bounce (just like the light)
+straight at Fred.
+
+\subsection{Elliptical Orbits}
+
+One more fun fact about ellipses: We often imagine the planets
+traveling in circular orbits with the sun at the center -- they
+actually travel in elliptical orbits, with the sun as one of the focal
+points.\index{orbit!elliptical}
+
+The earth is closest to the sun around January 3rd: 147 million km.
+
+The earth is farthest from the sun around July 3rd: 152 million km.
+
+(Note that these dates are not the same as the solstices: The southern
+hemisphere is tilted the most toward the sun around December 21 and
+tilted most away around June 21.)
+
+\subsection{Ellipsoids}
+
+Just as we can pull the ideas of a circle into three dimensions to
+make a sphere, we can extend the ideas of the ellipse into three
+dimensions to talk about ellipsoids.  Ellipsoids are like blimps.\index{ellipsoid}
+
+The standard ellipsoids are centered at the origin and aligned with the three axes.
+
+\begin{mdframed}[style=important, frametitle={Equation for a Standard Ellipsoid}]
+
+To be precise, a standard ellipse is the set of points $(x, y, z)$ that
+satify the equation
+
+$$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2}= 1$$
+
+
+Note that $(a,0,0), (0, b,0), (0,0,c)$ are all part of the
+set. The complete set looks like this:
+
+\begin{tikzpicture}[scale=2.0]
+  \begin{axis}[
+    view={35}{15},
+    unit vector ratio=1 1 1,
+    ticks = none,
+    axis lines=middle,
+    ymin=-4.0,
+    ymax=4.0,
+    xmin=-3.5,
+    xmax=3.5,
+    zmin=-1.5,
+    zmax=1.5,
+    x axis line style=<->,
+    y axis line style=<->,
+    z axis line style=<->,
+    clip=false
+  ]
+    \addplot3[samples y=0,domain=0:360,smooth,dashed,sdkblue]({3*cos(x)}, {2*sin(x)},0);
+    \addplot3[surf,shader=interp,domain=0:360,y domain=0:180, opacity=0.5,
+    colormap={blackwhite}{color=(black) color=(black!30)}] ({3 * sin(y) * cos(x)},
+    {2*sin(y)* sin(x)},{1*cos(y)});
+    \addplot3[samples y=0,domain=0:360,smooth,sdkblue](0, {2*sin(x)},{1*cos(x)});
+    \addplot3[samples y=0,domain=0:180,smooth]({3* cos(x)}, 0,{1*sin(x)});
+  \end{axis}
+  \end{tikzpicture}
+
+  The volume bounded by this ellipsoid is
+
+    $$V = \frac{4}{3} \pi a b c$$
+
+
+\end{mdframed}
+
+Of course, $a$, $b$, and $c$ can be any positive number, but in the
+real world we find ourselves working a lot with ellipsoids where two
+of the numbers are the same.
+
+\subsubsection{Oblate Spheroid}
+
+If two axes have the same length and one is shorter, you get something
+that looks like a sphere compressed in one direction -- like a
+pumpkin.  These are called \newterm{oblate spheroids}.\index{oblate spheroid}
+
+The earth is actually an oblate spheroid: the axis that goes through
+the north and south pole is shorter than the axes that pass through
+the equator.  How much shorter? Just a little: The equator is 6,378 km
+from the center of the earth. The north pole is 21 km closer.\index{earth!shape of}
+
+\subsubsection{Prolate Spheroid}
+
+If two axes have the same length and one is longer, you get something
+that looks like a sphere stretched in one direction -- like a rugby
+ball. It is called a \newterm{prolate spheroid}.\index{prolate spheroid}
+
+Like an ellipse, prolate spheroids have two focal points.
+
+\begin{mdframed}[style=important, frametitle={Focal Points of a Prolate Spheroid}]
+
+  If the long axis has a radial length of $a$ and the two shorter axes
+  have radial length $b$, then the focal points are on the long axis.  The distance from the center to the focal point is given by
+
+  $$c = \sqrt{a^2 - b^2}$$
+
+  For any point $p$ on the prolate spheroid, the sum of the distances
+  from $p$ to the focus points will always be $2a$.
+
+  It has the reflective property: A photon shot in any any direction
+  from one focal point will bounce off the wall and head directly at the other.
+  
+\end{mdframed}
