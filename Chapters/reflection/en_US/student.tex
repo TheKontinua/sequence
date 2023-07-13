@@ -214,7 +214,7 @@ set. The complete set looks like this:
 
 The area contained inside this ellipse is given by
 
-$$V = \pi a b$$
+$$A = \pi a b$$
 
 
 \end{mdframed}
@@ -501,3 +501,98 @@ Like an ellipse, prolate spheroids have two focal points.
   from one focal point will bounce off the wall and head directly at the other.
   
 \end{mdframed}
+
+\subsection{Parabolas and Parabolic Reflectors}
+
+You are familiar with quadratic functions:
+
+$$y = a x^2 + b x + c$$
+
+If $a$ is not zero, the graph of a quadratic is a curved line called a
+\newterm{parabola}.  The first parabola that most mathematicians think of is the graph of $y = x^2$:
+
+\begin{tikzpicture}
+    \draw[sdkblue,<->] (-2.0, 0) -- (2.0, 0) node[right] {$x$};
+    \draw[sdkblue,<->] (0, -1) -- (0, 5) node[above] {$y$};
+    \draw[domain=-1.9:1.9,samples=300,variable=\x,<->]  plot (\x,{\x*\x});
+    \draw (1.1, 1) node [anchor=west] {$y = x^2$};
+\end{tikzpicture}
+
+Every parabola has a \newterm{focus} and a \newterm{directix}.  The
+focus is a point on the parabola's axis of symmetry.  The directrix is
+a line perpendicular to the axis of symmetry.  Every point on the
+parabola is equal distance from the focus and the directrix.
+
+For the graph of $y = x^2$, the focus is the point $(0, \frac{1}{4})$.  The directrix is the line $y = -\frac{1}{4}$:
+
+\begin{tikzpicture}
+  \coordinate (f) at (0, 1/4);
+  \coordinate (p) at (1.25,1.5625);
+  \coordinate (pd) at (1.25,-1/4);
+  \draw[sdkblue,<->] (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+  \draw[sdkblue,<->] (0, -1) -- (0, 5) node[above] {$y$};
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->]  plot (\x,{\x*\x});
+  \draw (2, 4) node [anchor=west] {$y = x^2$};
+  \filldraw (f) circle (2pt);
+  \filldraw  (p) circle (1pt);
+  \filldraw  (pd) circle (1pt);
+  \draw [dashed, thin] (f) -- (p) -- (pd);
+  \draw [dashed, <->, thick] (-2.5, -1/4) -- (2.5, -1/4);
+  \draw (1.25, -0.05) -- (1.45,-0.05) -- (1.45, -1/4);
+\end{tikzpicture}
+
+For example, the point $(1,1)$ is on this parabola. It is 5/4 from the
+directorix. How far is it from the focus?  1 horizontally and 3/4 vertically.
+
+$$\sqrt{1^2 + \left( \frac{3}{4} \right)^2} = \frac{5}{4}$$
+
+Thus, we have confirmed that $(1,1)$ is equal distances from the focus
+and the directrix.
+
+When we think about a parabola and its properties, we usually rotate
+and translate it to be symmetric around the $y$-axis, flip it so that
+it is low in the middle and rising on both sides, and push it up or
+down until the low point is is on the $x$-axis.
+
+Then, they can all be written:
+
+$$y = \frac{a}{4} x^2$$
+
+where $a > 0$. If $a$ is small, the parabola opens wider.
+
+\begin{tikzpicture}
+  \coordinate (f) at (0, 1/4);
+  \draw[sdkblue,<->,thin] (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+  \draw[sdkblue,->,thin] (0, 0) -- (0, 2.5) node[above] {$y$};
+  \draw[sdkblue, domain=-1.5:1.5, samples=300, variable=\x, <->,thick]  plot (\x,{\x*\x})
+  node [anchor=south] {$a = 4$};
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->,thick]  plot (\x,{0.125*\x*\x})
+  node [anchor=west] {$a = 0.5$};
+\end{tikzpicture}
+
+Then the focus is at $(0, \frac{1}{a})$ and the directorix is the line $y = -\frac{1}{a}$.
+
+\begin{tikzpicture}
+  \coordinate (f1) at (0, 1/4);
+  \coordinate (p1) at (1, 1);
+  \coordinate (p1d) at (1, -0.25);
+  \coordinate (f2) at (0, 2);
+  \coordinate (p2) at (-1.5, 0.28125);
+  \coordinate (p2d) at (-1.5, -2);
+  \draw[sdkblue,<->,thin] (-2.5, 0) -- (2.5, 0);
+  \draw[sdkblue,<->,thin] (0, -2.5) -- (0, 2.5);
+  \draw[sdkblue, domain=-1.5:1.5, samples=300, variable=\x, <->, thick]  plot (\x,{\x*\x})
+  node [anchor=south] {$a = 4$};
+  \filldraw [sdkblue] (f1) circle (2pt);
+  \filldraw [sdkblue] (p1) circle (1pt);
+  \filldraw [sdkblue] (p1d) circle (1pt);
+  \draw [sdkblue,dashed, thick] (-2.5, -0.25)--(2.5, -0.25) node [anchor=west]{$y=-\frac{1}{4}$};
+  \draw [sdkblue,thin,dashed] (f1) -- (p1) -- (p1d);
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->, thick]  plot (\x,{0.125*\x*\x})
+  node [anchor=west] {$a = 0.5$};
+  \filldraw  (f2) circle (2pt) node [anchor=west] {$(0,2)$};
+  \filldraw  (p2) circle (1pt);
+  \filldraw  (p2d) circle (1pt);
+  \draw [dashed, thick] (-2.5, -2)--(2.5, -2) node [anchor=west]{$y=-2$};;
+  \draw [thin,dashed] (f2) -- (p2) -- (p2d);
+\end{tikzpicture}
