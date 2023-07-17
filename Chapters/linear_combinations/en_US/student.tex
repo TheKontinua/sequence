@@ -1,24 +1,69 @@
 \chapter{Linear Combinations}
 
-A linear combination of vectors involves combining vectors using
-scalar multiplication and addition. Given vectors $\mathbf{v}_1,
+A linear combination of vectors is the addition of two or more scaled vectors. For example, given two vectors, ${v}_1, {v}_2$ and two scalars $a_1,a_2$, you'd write their linear combination as:
+
+\[
+\mathbf{w} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2
+\]
+
+The scalars can be any real number. The vectors can be of any dimension. 
+
+Let's take a more generalized approach. Given vectors $\mathbf{v}_1,
 \mathbf{v}_2, ..., \mathbf{v}_n \in \mathbb{R}^m$ and scalars $a_1,
 a_2, ..., a_n \in \mathbb{R}$, a linear combination of these vectors
-is any vector of the form\index{linear combonations}
+is any vector of the form\index{linear combinations}
 
 \[
 \mathbf{w} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + ... + a_n\mathbf{v}_n
 \]
 
 Each scalar $a_i$ scales the corresponding vector $\mathbf{v}_i$, and
-the results are added together to produce a new vector $\mathbf{w}$.
+added together, the results are produce a new vector $\mathbf{w}$.
+
+Let's look at an example with 4 vectors their scalars. 
+\begin{itemize}
+\item $a_1 = 1, v_1 = [9, 1, 2]$
+\item $a_2 = -1, v_2 = [8, -3, 4]$
+\item $a_3 = 3, v_3 = [6, 0, 1]$
+\item $a_4 = -4, v_4 = [3, 7, 2]$
+\end{itemize}
+As a linear combination:
+\[
+\mathbf{w} = 1*[9,1,2] + (-1)*[8, -3, 4]+ 3*[6,0,1] + (-4)*[3,7,2]
+\]
+After multiplying each vector by its associated scalar.
+ \[
+\mathbf{w} = [9, 1, 2] + [-8, 3, -4] + [18, 0, 3] + [-12, -28, -8]
+\]
+When combined:
+\[
+\mathbf{w} = [7, -24, -7]
+\]
+
+\begin{Exercise}[title={Linear Combination}, label=linear_combination01]
+Calculate the linear combination for vectors $v_1, v_2, v_3$ and scalars $a_1, a_2, and a_3$ where:   
+	\begin{itemize}
+      \item $a_1 = 2, v_1 =[2, 4, 8]$
+      \item $a_2 = -2,v_2 =[8, -6, 3]$
+      \item $a_3 = 4,v_3 =[7, 9, 2]$
+	\end{itemize}
+\end{Exercise}
+\begin{Answer}[ref=linear_combination01]
+     \[
+	\mathbf{w} = 2*[2,4,8] + (-2)*[8,-6,3] + 4*[7,9,2] 
+	\]
+  	\[
+	\mathbf{w} = [4,8,16] + [-16,12,-6] + [28,36,8] 
+	\]  
+ 	\[
+	\mathbf{w} = [16, 56, 18]  
+	\]   
+\end{Answer}
 
 \section{Weighted Averages of Vectors}
-
 A weighted average of vectors is a specific type of linear combination
 where the coefficients (or weights) $a_i$ are non-negative and sum to
 1:\index{weighted averages}
-
 \[
 \sum_{i=1}^{n} a_i = 1, \quad a_i \geq 0
 \]
@@ -34,3 +79,64 @@ In this case, each $a_i$ not only scales the corresponding vector
 $\mathbf{v}_i$, but also represents the proportion of that vector in
 the final average vector $\mathbf{w}$.
 
+Weighted averages are useful when you want to attribute the contribution of one feature or item over another. For example, a teacher might figure a student's final grade using exam scores, class participation, and a final project. The exam scores might make up 65\% of the final grade, class participation 10\%, and a final project 25\%. Thus giving the formula for a grade as:
+
+\[
+\mathbf{Grade} = .65*ExamScores + .10*Participation + .25*FinalProject
+\]
+
+The teacher defines the weights, making sure they sum to 1.0. 
+
+Let's look at an example where the weights don't sum to 1.0. A store that sells umbrellas might have to get the umbrella stock from three different manufacturers. The store owner buys 100 umbrellas at a cost of \$2.10 each, 50 umbrellas cost \$1.85 each, and 200 umbrellas cost \$2.00. 
+
+\[
+\mathbf{TotalCost} = 2.10*100 + 1.85*50 + 2.00*200 = 702.5
+\]
+
+To calculate the weighted average, divide the total cost by the number of items.
+
+\[
+\mathbf{WeightedAverage} = 702.5/350 = 2.01 
+\]
+
+\begin{Exercise}[title={Weighted Average}, label=weighted_average]
+  A concert sells 300 tickets in the balcony at \$50 each, 100 tickets on the main floor at \$75 each, and 50 tickets in the section closest to the stage at \$150 each. What's the weighted average?
+\end{Exercise}
+\begin{Answer}[ref=weighted_average]
+ \begin{itemize}
+    \item\[\mathbf{TotalSales} = 50*300 + 75*100 + 150*50 = 30,000\]
+	\item\[\mathbf{NumberTickets} = 300 + 100 + 50 = 450\]
+	\item\[\mathbf{WeightedAverage} = 30,000/450 = 66.67\]
+ \end{itemize} 
+\end{Answer}
+
+\section{Weighted Averages of Vectors in Python}
+
+Create a file called \filename{linearCombos.py} and enter this code:
+
+\begin{Verbatim}
+// import the python module that supports matrices
+import numpy as np
+
+// an array for number of umbrellas by manufacturer
+items = np.array([100, 50, 200])
+
+// weights are the cost of item by manufacturer
+weights = np.array([2.10, 1.85, 2.00])
+
+// create an array for total cost for each manufacturer
+costPerManufacturer=items * weights
+
+// sum the individuals costs to get the total
+totalCost = np.sum(costPerManufacturer)
+
+// get number of items
+numItems = np.sum(items) 
+
+// you are ready to calculated the weighted average
+weightedAverage = totalCost/numItems
+print(weightedAverage)
+
+\end{Verbatim}
+
+When you run this code, you should get a weighted average of \$2.01 when rounded to the nearest cent.

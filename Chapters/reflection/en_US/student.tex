@@ -93,7 +93,7 @@ reflected light ray and the normal.
   masking tape higher or lower on your body?
   
 \end{Exercise}
-\begin{Answer}[ref=area_of_circle]
+\begin{Answer}[ref=law_of_reflection]
 
  Assuming the mirror is truly vertical and the floor is truly
  horizontal, the new cut off should be exactly the same as the old
@@ -149,6 +149,8 @@ eyes interpret as yellow.
 Flat mirrors are common and useful, but things get more interesting
 once you bend the mirrors. In this section, we are going to talk about
 a few different kinds of curved mirrors.\index{circle!reflections in}
+
+\subsection{The Reflective Properties of Circles and Spheres}
 
 For example, if you were inside a circular room (a cylinder,
 actually), you could imagine standing in the center and pointing a
@@ -214,7 +216,7 @@ set. The complete set looks like this:
 
 The area contained inside this ellipse is given by
 
-$$V = \pi a b$$
+$$A = \pi a b$$
 
 
 \end{mdframed}
@@ -501,3 +503,216 @@ Like an ellipse, prolate spheroids have two focal points.
   from one focal point will bounce off the wall and head directly at the other.
   
 \end{mdframed}
+
+\begin{Exercise}[title={Volume of Ruby Ball}, label=rugby_ball]
+
+  Some jokesters once thought it would be fun to make something that looked like a rugby ball, but made out of lead.
+
+  A rugby ball is about 30 cm long and has a circumference of 60 cm at
+  its midpoint. A cubic centimeter of lead has a mass of 11.34 grams.
+
+  How much would a solid (not hollow) lead ruby ball weigh?
+
+\end{Exercise}
+\begin{Answer}[ref=rugby_ball]
+
+  We need the distance from the center out to each of the three axes.  We know that $a = \left(\frac{1}{2} \right) 30 = 15$ cm.
+
+  We can calculate the $b$ and $c$ (which are equal) using the circumference given: $2b\pi = 60$, so $c = b \approx 9.55$ cm.
+
+  The volume, then is
+  
+  $$V = \frac{4}{3} \pi (15)(9.55)(9.55) \approx 5,730 \text{ cubic centimeters }$$ 
+
+  The mass would be $5,730 \times 11.34 = 64,973$ grams or about 65 kg.
+\end{Answer}
+  
+\subsection{Parabolas and Parabolic Reflectors}
+
+You are familiar with quadratic functions:
+
+$$y = a x^2 + b x + c$$
+
+If $a$ is not zero, the graph of a quadratic is a curved line called a
+\newterm{parabola}.  The first parabola that most mathematicians think of is the graph of $y = x^2$:
+
+\begin{tikzpicture}
+    \draw[sdkblue,<->] (-2.0, 0) -- (2.0, 0) node[right] {$x$};
+    \draw[sdkblue,<->] (0, -1) -- (0, 5) node[above] {$y$};
+    \draw[domain=-1.9:1.9,samples=300,variable=\x,<->]  plot (\x,{\x*\x});
+    \draw (1.1, 1) node [anchor=west] {$y = x^2$};
+\end{tikzpicture}
+
+Every parabola has a \newterm{focus} and a \newterm{directix}.  The
+focus is a point on the parabola's axis of symmetry.  The directrix is
+a line perpendicular to the axis of symmetry.  Every point on the
+parabola is equal distance from the focus and the directrix.
+
+For the graph of $y = x^2$, the focus is the point $(0, \frac{1}{4})$.  The directrix is the line $y = -\frac{1}{4}$:
+
+\begin{tikzpicture}
+  \coordinate (f) at (0, 1/4);
+  \coordinate (p) at (1.25,1.5625);
+  \coordinate (pd) at (1.25,-1/4);
+  \draw[sdkblue,<->] (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+  \draw[sdkblue,<->] (0, -1) -- (0, 5) node[above] {$y$};
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->]  plot (\x,{\x*\x});
+  \draw (2, 4) node [anchor=west] {$y = x^2$};
+  \filldraw (f) circle (2pt);
+  \filldraw  (p) circle (1pt);
+  \filldraw  (pd) circle (1pt);
+  \draw [dashed, thin] (f) -- (p) -- (pd);
+  \draw [dashed, <->, thick] (-2.5, -1/4) -- (2.5, -1/4);
+  \draw (1.25, -0.05) -- (1.45,-0.05) -- (1.45, -1/4);
+\end{tikzpicture}
+
+For example, the point $(1,1)$ is on this parabola. It is 5/4 from the
+directorix. How far is it from the focus?  1 horizontally and 3/4 vertically.
+
+$$\sqrt{1^2 + \left( \frac{3}{4} \right)^2} = \frac{5}{4}$$
+
+Thus, we have confirmed that $(1,1)$ is equal distances from the focus
+and the directrix.
+
+When we think about a parabola and its properties, we usually rotate
+and translate it to be symmetric around the $y$-axis, flip it so that
+it is low in the middle and rising on both sides, and push it up or
+down until the low point is is on the $x$-axis.
+
+Then, they can all be written:
+
+$$y = \frac{a}{4} x^2$$
+
+where $a > 0$. If $a$ is small, the parabola opens wider.
+
+\begin{tikzpicture}
+  \coordinate (f) at (0, 1/4);
+  \draw[sdkblue,<->,thin] (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+  \draw[sdkblue,->,thin] (0, 0) -- (0, 2.5) node[above] {$y$};
+  \draw[sdkblue, domain=-1.5:1.5, samples=300, variable=\x, <->,thick]  plot (\x,{\x*\x})
+  node [anchor=south] {$a = 4$};
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->,thick]  plot (\x,{0.125*\x*\x})
+  node [anchor=west] {$a = 0.5$};
+\end{tikzpicture}
+
+Then the focus is at $(0, \frac{1}{a})$ and the directorix is the line $y = -\frac{1}{a}$.
+
+\begin{tikzpicture}
+  \coordinate (f1) at (0, 1/4);
+  \coordinate (p1) at (1, 1);
+  \coordinate (p1d) at (1, -0.25);
+  \coordinate (f2) at (0, 2);
+  \coordinate (p2) at (-1.5, 0.28125);
+  \coordinate (p2d) at (-1.5, -2);
+  \draw[sdkblue,<->,thin] (-2.5, 0) -- (2.5, 0);
+  \draw[sdkblue,<->,thin] (0, -2.5) -- (0, 2.5);
+  \draw[sdkblue, domain=-1.5:1.5, samples=300, variable=\x, <->, thick]  plot (\x,{\x*\x})
+  node [anchor=south] {$a = 4$};
+  \filldraw [sdkblue] (f1) circle (2pt);
+  \filldraw [sdkblue] (p1) circle (1pt);
+  \filldraw [sdkblue] (p1d) circle (1pt);
+  \draw [sdkblue,dashed, thick] (-2.5, -0.25)--(2.5, -0.25) node [anchor=west]{$y=-\frac{1}{4}$};
+  \draw [sdkblue,thin,dashed] (f1) -- (p1) -- (p1d);
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->, thick]  plot (\x,{0.125*\x*\x})
+  node [anchor=west] {$a = 0.5$};
+  \filldraw  (f2) circle (2pt) node [anchor=west] {$(0,2)$};
+  \filldraw  (p2) circle (1pt);
+  \filldraw  (p2d) circle (1pt);
+  \draw [dashed, thick] (-2.5, -2)--(2.5, -2) node [anchor=west]{$y=-2$};;
+  \draw [thin,dashed] (f2) -- (p2) -- (p2d);
+\end{tikzpicture}
+
+\subsubsection{Reflective Property of a Parabola}
+
+Assume you have a parabola-shaped mirror, a beam of light shot from
+the focus, will bounce of the mirror in the direction of axis of
+symmetry:
+
+\begin{tikzpicture}
+  \coordinate (f2) at (0, 2);
+  \coordinate (p1) at (1, 0.125);
+  \coordinate (p1d) at (1, 3);
+  \coordinate (p2) at (-1.5, 0.28125);
+  \coordinate (p2d) at (-1.5, 3);
+  \coordinate (p3) at (2, 0.5);
+  \coordinate (p3d) at (2, 3);
+  \coordinate (p4) at (-0.5, 0.03125);
+  \coordinate (p4d) at (-0.5, 3);
+  \draw[sdkblue,thick] (0, 0) -- (0, 2.0);
+  \draw[domain=-2.2:2.2,samples=300,variable=\x,<->, thick]  plot (\x,{0.125*\x*\x});
+  \filldraw  (f2) circle (2pt);
+  \filldraw  (p1) circle (1pt);
+  \draw [thin,dashed,->] (f2) -- (p1) -- (p1d);
+  \filldraw  (p2) circle (1pt);
+  \draw [thin,dashed,->] (f2) -- (p2) -- (p2d);
+  \filldraw  (p3) circle (1pt);
+  \draw [thin,dashed,->] (f2) -- (p3) -- (p3d);
+  \filldraw  (p4) circle (1pt);
+  \draw [thin,dashed,->] (f2) -- (p4) -- (p4d);
+\end{tikzpicture}
+
+This is why your flashlight has a parabolic mirror: the lightbulb is
+at the focus so any photons that hit the mirror are redirected
+straight forward.
+
+(Note that in the real world, we use parabolic dishes: a rotated around its axis of
+symmetry.)
+
+The reflection works exactly the same in reverse: There are solar
+cookers that are big parabolic mirrors.  They let you put a pot on the
+focus point.  You move the dish until its axis of symmetry is pointed
+at the sun.
+
+You will also see a lot of antennas have parabolic dishes. Note that
+photons that come in parallel to the axis of symmetry are redirected
+to a single point -- where the receiver is.
+
+\includegraphics[width=0.7\linewidth]{dish.png}
+
+
+
+Sometimes in a science museum, you will see two parabolic dishes far
+apart and pointed at each other.  One person speaks with their mouth
+at the focus of one.  The other person listens with their ear at the
+focus of the other. Even though you are very far apart, it sounds like
+they are really, really close.
+
+\begin{tikzpicture}
+  \coordinate (f1) at (9, 0);
+  \coordinate (f2) at (2, 0);
+  \coordinate (p1) at (0.125, 1);
+  \coordinate (p1d) at (10.875,1);
+  \coordinate (p2) at (0.28125,-1.5);
+  \coordinate (p2d) at (10.71875, -1.5);
+  \coordinate (p3) at (0.5,2);
+  \coordinate (p3d) at (10.5, 2);
+  \coordinate (p4) at (0.03125, -0.5);
+  \coordinate (p4d) at (10.96875, -0.5);
+  \coordinate (p5) at (0.78125, -2.5);
+  \coordinate (p5d) at (10.21875, -2.5);
+  \draw[domain=-2.5:2.5,samples=300,variable=\x, thick]  plot ({0.125*\x*\x},\x);
+  \draw[domain=-2.5:2.5,samples=300,variable=\x, thick]  plot ({11 - 0.125*\x*\x},\x);
+  \filldraw  (f1) circle (2pt);
+  \filldraw  (f2) circle (2pt);
+  \filldraw  (p1) circle (1pt);
+  \filldraw  (p1d) circle (1pt);
+  \draw [thin,dashed] (f2) -- (p1) -- (p1d) -- (f1);
+  \filldraw  (p2) circle (1pt);
+  \filldraw  (p2d) circle (1pt);
+  \draw [thin,dashed] (f2) -- (p2) -- (p2d) -- (f1);
+  \filldraw  (p3) circle (1pt);
+  \filldraw  (p3d) circle (1pt);
+  \draw [thin,dashed] (f2) -- (p3) -- (p3d)--(f1);
+  \filldraw  (p4) circle (1pt);
+  \filldraw  (p4d) circle (1pt);
+  \draw [thin,dashed] (f2) -- (p4) -- (p4d) -- (f1);
+  \filldraw  (p5) circle (1pt);
+  \filldraw  (p5d) circle (1pt);
+  \draw [thin,dashed] (f2) -- (p5) -- (p5d) -- (f1);
+\end{tikzpicture}
+
+This is because the speaker's parabolic wall focuses the sound energy
+in a nice beam the size of the wall pointed straight at the listener's
+parabolic wall.  The listener's wall focuses the energy of that beam
+at the listener's ear.
+
