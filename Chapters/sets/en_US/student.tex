@@ -67,12 +67,12 @@ We have notation for a few sets that we use all the time:
 \begin{tabular}{c|c}
 Set & Symbol \\
 \hline
-The empty set & $\emptyset$ \\
-Natural numbers & $\mathbb{N}$ \\
-Integers & $\mathbb{Z}$ \\
-Rational numbers & $\mathbb{Q}$ \\
-Real numbers & $\mathbb{R}$ \\
-Complex numbers & $\mathbb{C}$ \\
+The empty set & $\emptyset$ \\ \index{$\emptyset$}
+Natural numbers & $\mathbb{N}$ \\ \index{$\mathbb{N}$}
+Integers & $\mathbb{Z}$ \\ \index{$\mathbb{Z}$}
+Rational numbers & $\mathbb{Q}$ \\ \index{$\mathbb{Q}$}
+Real numbers & $\mathbb{R}$ \\ \index{$\mathbb{R}$}
+Complex numbers & $\mathbb{C}$ \index{$\mathbb{C}$}
 \end{tabular}
 
 The empty set is the set that contains nothing.  It is also sometimes
@@ -149,7 +149,7 @@ We also have a symbol for "is not a subset of": $A \not\subset B$
 If you have two sets $A$ and $B$, you might want to say "Let $C$ be
 the set containing element that are in \textit{either} $A$ or $B$."
 We say that $C$ is the \newterm{union} of $A$ and $B$.  There is
-notation for this too:
+notation for this too:\index{union}
 
 $$C = A \cup B$$
 
@@ -158,7 +158,7 @@ For example,  if $A = \{1,3,4,9\}$ and $B = \{3,4,5,6,7,8\}$  then $A \cup B =  
 You also want to say "Let $C$ be the set containing elements that are
 in \textit{both} $A$ and $B$."  We say that $C$ is the
 \newterm{intersection} of $A$ and $B$.  There is notation for this
-too:
+too:\index{intersection}
 
 $$C = A \cap B$$
 
@@ -168,7 +168,7 @@ For example,  if $A = \{1,3,4,9\}$ and $B = \{3,4,5,6,7,8\}$  then $A \cap B =  
 
 When discussing sets, it is often helpful to have a Venn diagram to
 look at.  Venn diagrams represent sets as circles. For example, the
-sets $A$ and $B$ above could look like this:
+sets $A$ and $B$ above could look like this:\index{Venn diagrams}
 
 \begin{tikzpicture}[fill=gray]
 \draw (0,0) circle (3) (0,3)  node [text=black,above] {$A$};
@@ -225,7 +225,7 @@ true:
 
 In logic, we will often say ``$a$ implies $b$''.  That means ``If the
 statement $a$ is true, the statement $b$ is also true.''  For example:
-``$p$ is a square'' implies ``$p$ is a rectangle''
+``$p$ is a square'' implies ``$p$ is a rectangle.''\index{implies}
 
 There is notation for this: An arrow in the direction of the implication.
 
@@ -238,7 +238,7 @@ Notice that implication has a direction: ``$p$ is a rectangle'' does \textit{not
 
 If the implication goes both ways, we use ``if and only if''.  This
 means the two conditions are equivalent.  For example: ``$n$ is even
-if and only if there exists an integer $m$ such that $2m = n$''
+if and only if there exists an integer $m$ such that $2m = n$'' \index{if and only if}
 
 There is a notation for this too:
 
@@ -248,10 +248,9 @@ There is even notation for ``there exists''. It is a backwards capital E:
 
 $$p \text{ is even } \iff \exists m \in \mathbb{Z}  \text{ such that } 2m = n$$
 
-
 \section {Not}
 
-The not operation flips the truth of an expression:
+The not operation flips the truth of an expression:\index{not}
 \begin{itemize}
 \item If $a$ is true $\text{not}(a)$ is false.
 
