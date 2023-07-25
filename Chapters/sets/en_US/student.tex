@@ -234,6 +234,8 @@ $$p \text{ is a square } \implies p \text{ is a rectangle}$$
 Notice that implication has a direction: ``$p$ is a rectangle'' does \textit{not} imply 
 ``$p$ is a square.''
 
+Implications can be chained together: If $A \implies B$ and $B \implies C$,  then $A \implies C$.
+
 \section {If and Only If}
 
 If the implication goes both ways, we use ``if and only if''.  This
@@ -255,6 +257,191 @@ The not operation flips the truth of an expression:\index{not}
 \item If $a$ is true $\text{not}(a)$ is false.
 
 \item If $a$ is false $\text{not}(a)$ is true.
+\end{itemize}
+
+We sometimes talk about ``notting'' or ``negating'' a value.  We won't
+use it much, but there is a symbol for this: $\neg$.
+
+We might create a \newterm{logic table} for negation that shows all
+the possible values and their negation:
+
+\begin{tabular}{c | c}
+  $A$ & $\neg A$ \\
+  \hline
+  F & T \\
+  T & F
+\end{tabular}
+
+This table says ``If $A$ is false, $\neg A$ is true. If $A$ is true,
+$\neg A$ is false.''
+
+Most logic tables are for operations that take more than one input.
+For example, this logic table shows the values for and-ing and or-ing:
+
+\begin{tabular}{c | c | c | c}
+  $A$ & $B$ & $A \land B$ & $A \lor B$ \\
+  \hline
+  F & F & F & F \\
+  F & T & F & T \\
+  T & F & F & T \\
+  T & T & T & T \\
+\end{tabular}
+
+Notice that we have to enumerate all possible combinations of the
+inputs of $A$ and $B$.
+
+When a variable like $A$ can only take two possible values, we say it
+is a \newterm{boolean} variable. (George Bool did important work in
+this area.)
+
+\begin{Exercise}[title={Logic Table}, label=logic_table]
+
+  Make a logic table that enumerates all possible combinations of boolean variables $A$ and $B$ and shows the value of the two following expressions:
+  \begin{itemize}
+  \item $\neg \left(A \text{ or } B \right)$
+  \item $\left(\neg A \right) \text{ and } \left(\neg B \right)$ 
+  \end{itemize}
+
+\end{Exercise}
+
+\begin{Answer}[ref=logic_table]
+
+\begin{tabular}{c | c | c | c}
+  $A$ & $B$ & $\neg \left(A \text{ or } B \right)$
+  & $\left(\neg A \right) \text{ and } \left(\neg B \right)$ \\
+  \hline
+  F & F & T & T \\
+  F & T & F & F \\
+  T & F & F & F \\
+  T & T & F & F \\
+\end{tabular}
+
+Notice that the two expressions are equivalent!
+
+DeMorgan's Rule says $\neg \left(A \text{ or } B \right)$ is
+equivalent to $\left(\neg A \right) \text{ and } \left(\neg B
+\right)$.  It also says $\neg \left(A \text{ and } B \right)$ is
+equivalent to $\left(\neg A \right) \text{ or } \left(\neg B\right)$
+\end{Answer}
+
+\section{Cardinality}
+
+Informally, the \newterm{cardinality} of a set is the number of
+elements it contains. So, $\{1,3,5\}$ has a cardinality of 3.  The
+null set has a cardinality of zero.
+
+Things get a little trickier if a set is infinite.  We say two
+infinite sets $A$ and $B$ have the same cardinality if there is some
+mapping that pairs every member of $A$ with a member of $B$ and
+mapping that pairs every member of $B$ with a member of $A$.
+
+\section{Power Sets}
+
+It is not uncommon to have a set whose elements are also sets.  For
+example, you might have the set that contains the following two sets:
+$\{1,2,3\}$ and $\{2,3,4\}$. You might write it like this: $\{
+\{1,2,3\}, \{2,3,4\} \}$. (Note that this set has a cardinality of 2
+-- It has two members that are sets.)
+
+Given any set $A$, you can construct its \newterm{power set}, which is
+the set of all subsets of $A$.  For example, if you have a set
+$\{1,2,3\}$, its power set is $\{\{1,2,3\}, \{1,2\},\{1,3\}, \{2,3\},
+\{1\}, \{2\}, \{3\}, \emptyset\}$.
+
+If a set has $n$ elements, its power set has $2^n$ elements.
+
+\section{Booleans in Python}
+
+In python, we can have variables hold boolean values: \texttt{True}
+and \texttt{False}.  We also have operators: \texttt{not},
+\texttt{and}, and \texttt{or}.
+
+For example, you could compute one value of the truth table above  like this:
+\begin{verbatim}
+a = False
+b = False
+
+c = a or not b
+print(f"a={a}, b={b}, a or not b = {c}")
+\end{verbatim}
+
+This would print out:
+\begin{verbatim}
+a=False, b=False, a or not b = True
+\end{verbatim}
+
+What if you wanted to try all possible values for \texttt{a} and
+\texttt{b}? You could use \texttt{itertools}.
+
+\begin{verbatim}
+import itertools
+
+all_combos = itertools.product([False, True], repeat=2)
+for (a, b) in all_combos:
+    result = a or not b
+    print(f"a={a}, b={b}: a or not b = {result}")       
+\end{verbatim}
+
+Type it in and run it. You should get the whole logic table:
+
+\begin{verbatim}
+a=False, b=False: a or not b = True
+a=False, b=True: a or not b = False
+a=True, b=False: a or not b = True
+a=True, b=True: a or not b = True
+\end{verbatim}
+
+If you had three inputs into the expression, your truth table would
+have eight entries.  For example, if you wanted to know the truth
+table for $a and not(b and c)$, here is the code:
+
+\begin{verbatim}
+all_combos = itertools.product([False, True], repeat=3)
+for (a, b, c) in all_combos:
+    result = a and not(b and c)
+    print(f"a={a}, b={b}, c={c}: a and not (b and c) = {result}")
+\end{verbatim}
+
+Type it in and run it. You should get:
+
+\begin{verbatim}
+a=False, b=False, c=False: a and not (b and c) = False
+a=False, b=False, c=True: a and not (b and c) = False
+a=False, b=True, c=False: a and not (b and c) = False
+a=False, b=True, c=True: a and not (b and c) = False
+a=True, b=False, c=False: a and not (b and c) = True
+a=True, b=False, c=True: a and not (b and c) = True
+a=True, b=True, c=False: a and not (b and c) = True
+a=True, b=True, c=True: a and not (b and c) = False
+\end{verbatim}
+
+\section{The Contrapositive}
+
+Here is a statement with an implication: ``If it has rained in the last hour, the grass is wet.''
+
+This is \textit{not} equivalent to ``If the grass is wet, it has
+rained in the last hour.'' (After all, the sprinkler may be running.)
+
+However, it is exactly equivalent to its \newterm{contrapositive}:
+``If the grass is not wet, it has not rained in the last hour.''
+
+The rule can be written using symbols:
+
+$$\left( A \implies B \right) \iff \left( \neg B \implies \neg A \right)$$
+
+\section{The Distributive Property of Logic}
+
+These two expressions are equivalent:
+\begin{itemize}
+  \item $A \text{ and } \left(B \text{ or } C \right)$
+  \item $\left(A \text{ and } B \right) \text{ or } \left( A \text{ and } C \right)$
+\end{itemize}
+
+So are these:
+
+\begin{itemize}
+  \item $A \text{ or } \left(B \text{ and } C \right)$
+  \item $\left(A \text{ or } B \right) \text{ and } \left( A \text{ or } C \right)$
 \end{itemize}
 
 
