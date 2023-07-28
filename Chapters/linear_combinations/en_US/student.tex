@@ -22,10 +22,10 @@ added together, the results are produce a new vector $\mathbf{w}$.
 
 Let's look at an example with 4 vectors their scalars. 
 \begin{itemize}
-\item $a_1 = 1, v_1 = [9, 1, 2]$
-\item $a_2 = -1, v_2 = [8, -3, 4]$
-\item $a_3 = 3, v_3 = [6, 0, 1]$
-\item $a_4 = -4, v_4 = [3, 7, 2]$
+	\item $a_1 = 1, v_1 = [9, 1, 2]$
+	\item $a_2 = -1, v_2 = [8, -3, 4]$
+	\item $a_3 = 3, v_3 = [6, 0, 1]$
+	\item $a_4 = -4, v_4 = [3, 7, 2]$
 \end{itemize}
 As a linear combination:
 \[
@@ -51,7 +51,6 @@ scalars $a_1, a_2,a_3$ where:
 	\end{itemize}
 Make sure to show all your work. 
 \end{Exercise}
-
 \begin{Answer}[ref=linearCombo]
      \[
 	\mathbf{w} = 2*[2,4,8] + (-2)*[8,-6,3] + 4*[7,9,2] 
@@ -104,18 +103,17 @@ To calculate the weighted average, divide the total cost by the number of items.
 \]
 
 \begin{Exercise}[title={Weighted Average}, label=weightedAverage]
-  A concert sells 300 tickets in the balcony at \$50 each, 100 tickets on the main floor at \$75 each, and 50 tickets in the section closest to the stage at \$150 each. What's the weighted average?
+A concert sells 300 tickets in the balcony at \$50 each, 100 tickets on the main floor at \$75 each, and 50 tickets in the section closest to the stage at \$150 each. What's the weighted average?
 \end{Exercise}
 \begin{Answer}[ref=weightedAverage]
- \begin{itemize}
-    \item\[\mathbf{TotalSales} = 50*300 + 75*100 + 150*50 = 30,000\]
-	\item\[\mathbf{NumberTickets} = 300 + 100 + 50 = 450\]
-	\item\[\mathbf{WeightedAverage} = 30,000/450 = 66.67\]
- \end{itemize} 
+ 	\begin{itemize}
+    	\item\[\mathbf{TotalSales} = 50*300 + 75*100 + 150*50 = 30,000\]
+		\item\[\mathbf{NumberTickets} = 300 + 100 + 50 = 450\]
+		\item\[\mathbf{WeightedAverage} = 30,000/450 = 66.67\]
+ 	\end{itemize} 
 \end{Answer}
 
 \section{Weighted Averages of Vectors in Python}
-
 Create a file called \filename{linearCombos.py} and enter this code:
 
 \begin{Verbatim}
@@ -140,7 +138,6 @@ numItems = np.sum(items)
 // you are ready to calculated the weighted average
 weightedAverage = totalCost/numItems
 print(weightedAverage)
-
 \end{Verbatim}
 
 When you run this code, you should get a weighted average of \$2.01 when rounded to the nearest cent.
