@@ -1,5 +1,4 @@
 \chapter{Vector Spans and Independence}
-
 A vector span is the collection of vectors obtained by scaling and combining the original set of vectors in all possible proportions.  Formally, if the set $S = \{v_1, v_2, ..., v_n\}$ contains vectors from a vector space $V$, then the span of $S$ is given by:
 
 \begin{equation}
@@ -9,8 +8,6 @@ A vector span is the collection of vectors obtained by scaling and combining the
 This means that any vector in the Span$(S)$ can be written as a linear combination of the vectors in $S$.
 
 Vector spans have practical applications in a number of fields. Computer graphics and physics are only two of them. For example, in space travel, knowing the vector span is essential to calculating a slingshot maneuver that will give spacecraft a gravity boost from a planet. For this, you'd need to know the gravity vector of the planet relative to the sun and the velocity vectors that characterize the spacecraft. Engineers would use this information to figure out the trajectory angle that would allow the spacecraft to achieve a particular velocity in the desired direction. 
-
-For a discussion of linear combinations and vector span, view this Khan Academy video: https://rb.gy/g1snk
 
 \section{Vector Independence}
 A set of vectors $S = \{v_1, v_2, ..., v_n\}$ is  linearly independent if the only solution to the equation $a_1v_1 + a_2v_2 + ... + a_nv_n = 0$.
@@ -208,13 +205,13 @@ You should get many lines indicating an error. Among the spew, you should see:
 \begin{Verbatim}
 raise LinAlgError("Singular matrix")
 \end{Verbatim}
-So while the linalg.solve() function is quite useful for solving a system of independent linear equations, it is not the most elegant way to figure out if the equations are dependent. In the next module you will learn concepts and techniques that allow you to first check for independence prior to solving a set of equations. 
+So while the linalg.solve() function is quite useful for solving a system of independent linear equations, raising an error is not the most elegant way to figure out if the equations are dependent. In the next module you will learn concepts and techniques that allow you to first check for independence prior to solving a set of equations. 
 
 For now, let's use the  linalg.solve() function to find a solution for a set of equations known to be linearly independent.
 $$4x_1 + 3x_2 - 5x_3 = 2$$
 $$-2x_1- 4x_2 - 5x_3 = 5$$
 $$       8x_2 + 8x_3  = -3$$
-You will create a matrix that contains all the coeffients and an array that contains the values on the right-side of the equations. 
+You will create a matrix that contains all the coeffients and a vector that contains the values on the right-side of the equations. 
 
 Enter this code into your file. 
 \begin{Verbatim}
@@ -231,3 +228,5 @@ You should get this answer:
 [ 2.20833333 -2.58333333 -0.18333333]
 \end{Verbatim}
 
+\section{Where to Learn More}
+Watch this video from Khan Academy about linear combinations and vector spans://rb.gy/g1snk
