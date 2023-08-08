@@ -72,6 +72,10 @@ hr {
     width: 50%;
 }
 
+ol {
+	margin: 0 0;
+}
+
 section {
     display: flex;
     flex-wrap: wrap;
@@ -218,6 +222,7 @@ h3
 
 h2 {
 	color: var(--sdkblue);
+	margin-bottom: 0px;
 }
 
 h3
@@ -236,7 +241,7 @@ mark {
 }
 
 p {
-    margin: 0.3rem 0;
+    margin: 0.1rem 0;
     padding: 0;
     width: 100%;
 }

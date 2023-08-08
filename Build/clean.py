@@ -4,7 +4,10 @@ import glob
 import pathlib
 
 # Delete the generated directories
-dirs = ["Intermediate", "Resources", "Workbooks"]
+dirs = ["Intermediate"]
+dirs.extend(glob.glob("Resources-*"))
+dirs.extend(glob.glob("Workbooks-*"))
+print(f"Deleting {dirs}")
 for dir in dirs:
     if os.path.exists(dir):
         shutil.rmtree(dir)

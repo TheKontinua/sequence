@@ -16,23 +16,23 @@ def usage():
 def path_for_chapter_locale_list(chapter, locale_list):
     # Assumes mod has already been stripped of whitespace
     # FIXME: When we start localizing, this will need to be smarter
-    return os.path.join(mod_dir, chapter, "en_US", "student.tex")
+    return os.path.join(mod_dir, chapter, locale_list[0], "student.tex")
 
 
-def build_book(book_id, config, draft):
+def build_book(book_id, config, draft, final_dir):
     locale_list = config["Languages"]
     paper_size = config["Paper"]
     tool = config["LatexExecutable"]
 
     # Where are things going?
-    output_tex_path = "workbook-{}-{}.tex".format(book_id, locale_list[0])
-    output_pdf_path = "workbook-{}-{}.pdf".format(book_id, locale_list[0])
-    final_pdf_path = f"../Workbooks/{output_pdf_path}"
+    output_tex_file = f"workbook-{book_id}.tex"
+    output_pdf_file = f"workbook-{book_id}.pdf"
+    final_pdf_path = f"../{final_dir}/{output_pdf_file}"
     if os.path.exists(final_pdf_path):
         os.remove(final_pdf_path)
 
     # Open the tex file
-    output_tex = open(output_tex_path, "w")
+    output_tex = open(output_tex_file, "w")
 
     # Write the header
     header_file = open("../Support/bookheader.tex", "r")
@@ -46,19 +46,17 @@ def build_book(book_id, config, draft):
     if not os.path.exists(modlist_path):
         print(f"Chapter file {modlist_path} doesn't exist")
         return None
-
     modlist = open(modlist_path, "r")
-    chapters = modlist.readlines()
+    chapters = [x.strip() for x in modlist.readlines()]
     modlist.close()
 
     for chapter in chapters:
-        trimmed_chapter = chapter.strip()
-        if len(trimmed_chapter) > 0:
+        if len(chapter) > 0:
             # Look for the graphics in the module directory
-            gpath_string =f"\\graphicspath{{{{../../Chapters/{trimmed_chapter}/{locale_list[0]}}}}}\n"
+            gpath_string =f"\\graphicspath{{{{../../Chapters/{chapter}/{locale_list[0]}}}}}\n"
             output_tex.write(gpath_string)
 
-            chapter_path = path_for_chapter_locale_list(trimmed_chapter, locale_list)
+            chapter_path = path_for_chapter_locale_list(chapter, locale_list)
             include_string = "\\input{{{}}}\n".format(chapter_path)
             output_tex.write(include_string)
 
@@ -68,24 +66,20 @@ def build_book(book_id, config, draft):
     footer_file.close()
     output_tex.write(footer)
     output_tex.close()
-    os.system(f"{tool} {output_tex_path}")
+    os.system(f"{tool} {output_tex_file}")
 
     if not draft:
         # If a pdf was made, run it again to get cross-references right
-        if not draft and os.path.exists(output_pdf_path):
-            os.system(f"{tool} {output_tex_path}")
-            shutil.move(output_pdf_path, final_pdf_path)
+        if not draft and os.path.exists(output_pdf_file):
+            os.system(f"{tool} {output_tex_file}")
+            shutil.move(output_pdf_file, final_pdf_path)
         else:
             print(f"Build failed for {final_pdf_path}")
             return None
 
-    return output_pdf_path
+    return output_pdf_file
 
-# Make any directories we need
-needed_dirs = ["Intermediate", "Workbooks"]
-for dir in needed_dirs:
-    if not os.path.exists(dir):
-        os.mkdir(dir)
+
 
 # If this is the first time, copy the default config
 if not os.path.exists("user.cfg"):
@@ -98,6 +92,14 @@ with open("user.cfg", "r") as config_fd:
 # Check command line
 if len(sys.argv) < 2:
     usage()
+
+final_dir = f"Workbooks-{config['Languages'][0]}-{config['Paper']}"
+
+# Make any directories we need
+needed_dirs = ["Intermediate", final_dir]
+for dir in needed_dirs:
+    if not os.path.exists(dir):
+        os.mkdir(dir)
 
 # Deal with first arg
 arg1 = sys.argv[1]
@@ -114,14 +116,14 @@ newfilenames = []
 failednumbers = []
 for book in book_nums:
     print(f"Building book {book}")
-    newfile = build_book(book, config, False)
+    newfile = build_book(book, config, False, final_dir)
     if newfile is None:
         failednumbers.append(book)
     else:
         newfilenames.append(newfile)
 
 if len(newfilenames) > 0:
-    print("\n**** Created ****")
+    print(f"\n**** Created in {final_dir} ****")
     for filename in newfilenames:
         print(filename)
 

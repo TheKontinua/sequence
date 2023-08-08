@@ -23,21 +23,17 @@
   <h3>Objectives</h3>
 	  {% for t in md.covers %}
 	  {% set key = t["id"] %}
-  <h4>{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
+  <h4 id="{{key}}">{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
   <ul>
-  {% for vlink in topics[key].videos %}
-  <li><a href="{{vlink}}">Video</a></li> {% endfor %}
-  {% for rlink in topics[key].references %}
-  <li><a href="{{rlink}}">Reference</a></li> {% endfor %}
-  </ul>
-  {% endfor %}
-{% endif %}
+	{% for vlink in topics[key].videos %}<li><a href="{{vlink}}">Video</a></li>
+	{% endfor %}
+	{% for rlink in topics[key].references %}<li><a href="{{rlink}}">Reference</a></li>
+	{% endfor %}
+  </ul> {% endfor %} {% endif %}
 {% if "requires" in md and md.requires|length > 0 %}
   <h3>Prerequisites</h3>
-  <ul>{% for key in md.requires %}
-	{% if key in topics %}
-    <li><a href="Workbook-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].book}}</b></li>
-    {% else %}
+  <ul>{% for key in md.requires %} {% if key in topics %}{% set topic = topics[key] %}
+    <li><a href="Workbook-{{topic.book}}.html#{{key}}">{{topic.desc}}</a> from Chapter {{topic.chap_num}}: "{{topic.chap_title}}" in Workbook {{topic.book}}</li>{% else %}
     <li>{{key}} (Missing reference)</li>
     {% endif %}{% endfor %}
   </ul>
