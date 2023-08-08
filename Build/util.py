@@ -4,9 +4,13 @@ import json
 
 title_pattern = re.compile("chapter\{([^\}]+)\}")
 
-def dir_list_for_book(mod_dir, book_str, langlist):
+def dir_for_id(mod_dir, identifier, langlist):
     # FIXME: should search from fav to least fave
     locale_str = langlist[0]
+    return os.path.join(mod_dir,identifier,locale_str)
+
+def dir_list_for_book(mod_dir, book_str, langlist):
+    # FIXME: should search from fav to least fave
     modlist_filename = f"book_{book_str}.txt"
     modlist_path = os.path.join(mod_dir, modlist_filename)
     if not os.path.exists(modlist_path):
@@ -22,7 +26,7 @@ def dir_list_for_book(mod_dir, book_str, langlist):
         trimmed_chapter = chapter.strip()
         if len(trimmed_chapter) > 0:
             result_ids.append(trimmed_chapter)
-            fullpath = os.path.join(mod_dir,trimmed_chapter,locale_str)
+            fullpath = dir_for_id(mod_dir,trimmed_chapter,langlist)
             result_paths.append(fullpath)
     return (result_ids, result_paths)
 

@@ -30,6 +30,25 @@ for book in book_nums:
     books_metadata.append(book_metadatas)
     all_topics.update(topics)
 
+# Get meta data for prereqs
+# prereqdir = util.dir_for_id("../Chapters", "prerequisites", config["Languages"])
+# prereqmetadata = util.metadata_for_dir(prereqdir)
+# topics = {}
+# pseudochapters = []
+# for (i,t) in enumerate(prereqmetadata["covers"]):
+#     pseudochapter = {}
+#     pseudochapter["title"] = t["desc"]
+#    t["chap_title"] = t["desc"]
+#    pseudochapter["book"] = '00'
+#    t["book"] = '00'
+#    pseudochapter["chap_num"] = i + 1
+#    t["chap_num"] = i + 1
+#    pseudochapter["covers"] = [t]
+#    pseudochapters.append(pseudochapter)
+#    topics[t["id"]] = t
+# all_topics.update(topics)
+# books_metadata.insert(0, pseudochapters)
+
 # Actually generate the HTML pages
 book_indices = list(range(vol_count))
 for i in book_indices:

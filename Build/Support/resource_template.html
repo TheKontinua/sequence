@@ -19,7 +19,7 @@
   {% endfor %}
   </ul>
 {% endif %}
-{% if "covers" in md %}
+{% if "covers" in md and md.covers|length > 0%}
   <h3>Objectives</h3>
 	  {% for t in md.covers %}
 	  {% set key = t["id"] %}
@@ -32,11 +32,11 @@
   </ul>
   {% endfor %}
 {% endif %}
-{% if "requires" in md %}
+{% if "requires" in md and md.requires|length > 0 %}
   <h3>Prerequisites</h3>
   <ul>{% for key in md.requires %}
 	{% if key in topics %}
-    <li><a href="Workbook-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].chap_num}}</b></li>
+    <li><a href="Workbook-{{topics[key].book}}.html#{{key}}">{{topics[key].desc}}</a> from <b>{{topics[key].chap_title}}</b> in <b>Workbook {{topics[key].book}}</b></li>
     {% else %}
     <li>{{key}} (Missing reference)</li>
     {% endif %}{% endfor %}
