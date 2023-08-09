@@ -7,7 +7,6 @@ import pathlib
 dirs = ["Intermediate"]
 dirs.extend(glob.glob("Resources-*"))
 dirs.extend(glob.glob("Workbooks-*"))
-print(f"Deleting {dirs}")
 for dir in dirs:
     if os.path.exists(dir):
         shutil.rmtree(dir)

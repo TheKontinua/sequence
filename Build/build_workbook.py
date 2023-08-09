@@ -123,9 +123,9 @@ for book in book_nums:
         newfilenames.append(newfile)
 
 if len(newfilenames) > 0:
-    print(f"\n**** Created in {final_dir} ****")
+    print(f"\nCreated:")
     for filename in newfilenames:
-        print(filename)
+        print(f"{final_dir}/{filename}")
 
 if len(failednumbers) > 0:
     print(f"**** Failures: {failednumbers} *****")
