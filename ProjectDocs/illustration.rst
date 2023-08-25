@@ -193,8 +193,44 @@ orbits
 Workbook 12
 ============
 emwaves
+	ghgEffect.png
+		Goal: Show how the greenhouse effect works on a macro scale
+		I used a custom brush in Illustrator to create the smog. I used color changes to show the sun heating up molecules. I also only showed one ray of sunlight to better visually explain how it works. 
+
+		NOTE: The GHGs might need to be throughout the whole atmosphere instead of the top. Also it might be worth explaining how the greenhouse effect works without human caused GHG emissions and why it is helpful naturally, and why disrupting that balance is so dangerous. Also, should improve the export quality.
+
+	ghgClose.png
+		Goal: Show how the greenhouse effect works on a molecular scale
+		I illustrated molecules of the most common greenhouse gases, and drew sun beams hitting them. I added lines coming off of the molecules to show that they're absorbing heat.
+
 camera
+	pinholeCamera.png
+		Goal: Show how a pinhole camera works
+		Previously this example used a cow. I used a tree because it makes it easier to differentiate photon beams (Still visible in gray scale). 
+		I used a 3D hollow cube to get accurate light adjustments using Illustrator's 3D tools. 
+		This camera shows a cutaway on the side to show what happens on the inside.
+		I'm using colored lines to show how photons travel.
+
+	pinholePoints.png
+		Goal: Show how a pinhole camera lets in less light than a camera with a lens
+		I focused on two points coming off of the tree for simplicity. 
+		Note: Could use more emphasis on the photons being blocked
+
+
+	lensPoints.png	
+		Goal: Show how a lensed camera lets in less light than a pinhole camera
 eye
+	eyeDiagram.png
+		Goal: Show how eyes work
+		Used
+		NOTE: Make lines neater
+
+	nearfarSight.png 
+		Goal show the difference in near and far sightedness
+		I used a blur to show how the trees appear on the retina, and had a normal tree where it would have been focused. 
+
+		NOTE: I think we need to explain the focal point better throughout all camera/light units. 
+
 reflection
 refraction
 lens
