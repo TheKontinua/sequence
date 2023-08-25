@@ -17,14 +17,62 @@ filename.png
 
 Workbook 1
 ===========
-matter_energy_intro
-atomic_mass
-work_energy
-units_conversions
-simple_machines
-buoyancy
-heat
+	matter_energy_intro
+		atom1.png
+			Goal: Show components of an atom in a clear way
+			I used Red, Blue, and Yellow for Protons, Neutrons, and Electrons. It may be smart to switch red/blue depending on standard practices for protons and neutrons in other textbooks. I used dashed lines for labels to differentiate from the lines showing electron orbits.
 
+		massvweight.png
+			Goal: Show the difference in weight and mass
+			I recreated the existing graphic, replacing mars with the moon since the size difference is more apparent. I changed the position of the person on the moon so that they would appear to weigh less.
+
+
+
+
+	atomic_mass
+		element.png
+			Goal: Show the different components of an entry in the periodic table
+			Lines connect to labels. Tried to keep it consistent and balanced.
+
+
+	work_energy
+		workvsforce.png
+			Goal: Show the difference in work and force. 
+			I showed that with work, there is distance traveled and motion involved, and with force there is not necessarily motion or distance traveled. I used lines to show motion and lack of motion.
+
+	units_conversions
+		N/A
+
+	simple_machines
+		gearsNew.png
+			Goal: Show how gears interact with each other, impact direction, and what their names are. 
+			Used blue for the outer gears and gray for the inner gears to show the difference in direction. 
+
+		hydraulicsNew.png
+			Goal: Create an intuitive understanding of how hydraulics work
+			I put the before and after side by side to better show the change in water level. I also used a lighter blue for the water to reduce ink usage. 
+
+		rampcomparison.png
+			Goal: Show the ease of a less steep ramp
+			Showing a wheelchair ramp and a skateboard ramp. I used different speed lines to show that the ball goes faster up a skateboard ramp at that point than a wheelchair ramp.
+			Note: there could be a better way to do this. I adapted from a pre-existing graphic.
+
+		seesaw.png
+			Goal: Create an illustration for a seesaw problem
+			I used different sizes and set accurate distances to ensure the problem was accurately represented to help students understand it visually. 
+
+		simplemachines.png
+			Goal: show a wide range of simple machines
+			Since I was showing so many simple machines, I tried to keep them relatively simple.
+
+	buoyancy
+		buoyancy.png
+			Goal: Explain the physics of buoyant force
+			I used a lighter color for the water to avoid huge heavy ink areas. I used free body diagram style force arrows to show how forces interact.
+
+			Note: This does not intuitively explain buoyancy. We should consider another graphic for the core concept rather than the free body diagram.
+	heat
+		N/A
 
 Workbook 2
 ===========
@@ -36,12 +84,28 @@ Workbook 3
 ===========
 
 	dc1
-	----------
-	dc_circuits
-	----------
+		flashlight.png
+			Goal: Explain how electricity flows.
+			I used three levels to reveal how electricity works in a basic but well known circuit. The three levels mimic a zoom in. The final level simplifies the copper wire as a 1 atom thick strand of copper atoms. The graphic shows that electrons jump from one atom to another. This is different from the standard analogy of water flowing through pipes, but I believe it will give students a better understanding of the way electrons actually flow, while still letting them be able to apply those kinds of analogies.
+			I adapted the atom from the atom in workbook 1. I added the correct number of electron levels, but only illustrated the electrons that were actively jumping. I added more protons and neutrons and labeled the atom to make it clear it's copper. 
 
-	Charge
-	---------
+			NOTE: Should likely mention in the text that the 1 atom think strand is a simplification
+
+		plug.png
+			Goal: Show the difference between conductors and insulators
+			I showed copper and rubber, and the distribution of charge throughout. Similar to flashlight.png, I used different levels in a type of storytelling zoom format. 
+
+			NOTE: I honestly don't fully understand this. It would be worthwhile to learn this more and find a better way to illustrate this, as I was basing it off the previous version of the graphic.
+
+		Circuit_OnOff.png
+			NOTE: Previous illustration. We need to update this to the new style. Pretty good for its purpose though
+
+
+
+	dc_circuits
+		N/A
+
+	charge
 		balloon.png
 
 			Goal: show how charges can change inside of objects. 
@@ -63,16 +127,16 @@ Workbook 3
 			Note: I've read that lightning can move bottom to top as well. Should we go into depth, or show a simple view?
 
 	fertilizer
-	----------
+		N/A
 	concrete
-	----------
+		N/A
 	metals
-	----------
-
+		N/A
 
 
 Workbook 4
 ===========
+
 angles
 triangles_circles
 pythagorean_theorem
