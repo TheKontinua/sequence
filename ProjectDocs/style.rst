@@ -27,7 +27,7 @@ simple. Try for a 4th grade reading level.
 
 We do not generally use contractions. While they are natural to write,
 most readers (especially readers for whom English is not their first
-langauge) find them less easy read.
+langauge) find them less easy to read.
 
 We try to use inclusive language: “The passenger checked their bag at
 the door” is better than “The passenger checked his bag at the door.”

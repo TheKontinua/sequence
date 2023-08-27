@@ -1,6 +1,6 @@
 \chapter{Sets and Logic}
 
-The study of math can be basically broken into two purposes:
+The use of math usually falls into two categories:
 \begin{itemize}
 \item \textit{Developing mathematical tools that let us make better predictions.}  This is how engineers and scientists use math.  It is usually referred to as \newterm{applied math}.
 \item \textit{Creating interesting statements and proving them to be true or false.}  This is known as \newterm{pure math}.
@@ -13,16 +13,22 @@ number theory were certain that it could never be used for any
 practical purpose.  After a century or two, number theory was used as
 the basis most cryptography systems.
 
-Some ideas start out as a "rule of thumb" that engineers use and are
+Conversely, some ideas start out as a "rule of thumb" that engineers use and are
 eventually rigorously defined and proven.
 
 This course tends to emphasize applied math, but you should know
 something about the tools of pure math.
 
-All of mathematics is built on a very small and simple foundation:\index{axiom}
+You can think of the all the mathematical proofs as a tree. Each proof
+proves some statement true. To do this, the proof uses logic and
+statements that were proven true by other truths. So the tree is built
+from the bottom up.  However, the tree has to have a bottom: At the
+very bottom of the tree are some statements that we just accept as
+true without proof.  These are known as \newterm{axioms}.
+
+All of modern mathematics can be built from:
 \begin{itemize}
-\item The idea of a set.
-\item A short list of axioms defined in terms of sets. (An \newterm{axiom} is statement that we just accept as true.)
+\item A short list of axioms.
 \item A few rules of logic.
 \end{itemize}
 
@@ -37,10 +43,11 @@ useful ideas that we can't prove true.
 
 ZFC has 10 axioms.  We simply accept these 10 statements as true, and
 all the proofs of modern mathematics can be extrapolated from them.
+The 10 axioms are all stated in terms of sets.
 
 \section{Sets}
 
-A set is a collection.  For example, you might talk about the set of
+A \newterm{set} is a collection.  For example, you might talk about the set of
 odd numbers greater than 5.  Or the set of all protons in the
 universe.  \index{set}
 
@@ -78,10 +85,11 @@ Complex numbers & $\mathbb{C}$ \index{$\mathbb{C}$}
 The empty set is the set that contains nothing.  It is also sometimes
 called \newterm{the null set}.
 
-Often when we define a set, we start with a big set and say "The set
-I'm talking about is the members of the set for which this statement
-is true".  For example, if you wanted to talk about all the integers
-greater than or equal to -5, you could do it like this:
+Often when we define a set, we start with one of these big sets and
+say "The set I'm talking about is the members of the big set, but only
+the one for which this statement is true".  For example, if you wanted
+to talk about all the integers greater than or equal to -5, you could
+do it like this:
 
 $$A = \{ x \in \mathbb{Z} \mid x \geq -5 \}$$
 
@@ -89,7 +97,6 @@ When you read this aloud, you say "$A$ is the set of integers $x$
 where $x$ is greater than or equal to negative 5."
 
 \subsection{And and Or}
-
 
 Sometimes you need the members to satisfy two conditions; for this we
 use "and": \index{and}
@@ -140,7 +147,8 @@ Note that that subsets have the transitive property: $\mathbb{N}
 \mathbb{Q}$
 
 Note that if $A$ and $B$ have the same elements, $A \subseteq B$
-\textit{ and } $B \subseteq A$.  We say that the two sets are equal.
+\textit{ and } $B \subseteq A$. In this case, we say that the two sets
+are equal.
 
 We also have a symbol for "is not a subset of": $A \not\subset B$
 
@@ -196,7 +204,7 @@ indicate what part we are talking about.  For example, imagine we
 wanted all the rectangles with area greater than 5.0 that are not
 squares.  The diagram might look like this:
 
-\begin{tikzpicture}[fill=sdkblue]
+\begin{tikzpicture}[fill=lightgray]
   \draw (-3.5,-3.5) rectangle (7,4.0);
   \scope
   \clip (0,0) circle (3);
@@ -214,7 +222,7 @@ squares.  The diagram might look like this:
 
 We use a lot of logic in set theory.  For example, the shaded region
 above represents all the polygons for which all the following are
-true:
+true:\index{logic}
 \begin{itemize}
 \item It is a rectangle.
 \item It is \textit{not} a square.
@@ -254,9 +262,9 @@ $$p \text{ is even } \iff \exists m \in \mathbb{Z}  \text{ such that } 2m = n$$
 
 The not operation flips the truth of an expression:\index{not}
 \begin{itemize}
-\item If $a$ is true $\text{not}(a)$ is false.
+\item If $a$ is true, $\text{not}(a)$ is false.
 
-\item If $a$ is false $\text{not}(a)$ is true.
+\item If $a$ is false, $\text{not}(a)$ is true.
 \end{itemize}
 
 We sometimes talk about ``notting'' or ``negating'' a value.  We won't
@@ -279,7 +287,7 @@ Most logic tables are for operations that take more than one input.
 For example, this logic table shows the values for and-ing and or-ing:
 
 \begin{tabular}{c | c | c | c}
-  $A$ & $B$ & $A \land B$ & $A \lor B$ \\
+  $A$ & $B$ & $A \text{ and } B$ & $A \text{ or } B$ \\
   \hline
   F & F & F & F \\
   F & T & F & T \\
@@ -307,8 +315,8 @@ this area.)
 \begin{Answer}[ref=logic_table]
 
 \begin{tabular}{c | c | c | c}
-  $A$ & $B$ & $\neg \left(A \text{ or } B \right)$
-  & $\left(\neg A \right) \text{ and } \left(\neg B \right)$ \\
+  $A$ & $B$ & $\text{ not} \left(A \text{ or } B \right)$
+  & $\left(\text{ not } A \right) \text{ and } \left(\text{ not } B \right)$ \\
   \hline
   F & F & T & T \\
   F & T & F & F \\
@@ -318,22 +326,58 @@ this area.)
 
 Notice that the two expressions are equivalent!
 
-DeMorgan's Rule says $\neg \left(A \text{ or } B \right)$ is
-equivalent to $\left(\neg A \right) \text{ and } \left(\neg B
-\right)$.  It also says $\neg \left(A \text{ and } B \right)$ is
-equivalent to $\left(\neg A \right) \text{ or } \left(\neg B\right)$
+DeMorgan's Rule says ``$\text{not } \left(A \text{ or } B \right)$'' is
+equivalent to ``$\left(\text{not } A \right) \text{ and } \left(\text{not } B
+\right)$''.
+
+It also says ``$\text{not } \left(A \text{ and } B \right)$'' is
+equivalent to ``$\left(\text{not } A \right) \text{ or } \left(\text{not } B\right)$''
+
 \end{Answer}
 
 \section{Cardinality}
 
 Informally, the \newterm{cardinality} of a set is the number of
 elements it contains. So, $\{1,3,5\}$ has a cardinality of 3.  The
-null set has a cardinality of zero.
+null set has a cardinality of zero.\index{cardinality}
 
 Things get a little trickier if a set is infinite.  We say two
 infinite sets $A$ and $B$ have the same cardinality if there is some
 mapping that pairs every member of $A$ with a member of $B$ and
 mapping that pairs every member of $B$ with a member of $A$.
+
+\section{Complement of a Set}
+
+Most sets exist in a particular universe, for example you might talk
+about the even numbers as a set in the integers.  Then you can talk
+about the set's \newterm{complement}: the set of everthing else. For
+example, the complement of the even numbers (inside the integers) is
+the odd numbers.
+
+If you have a set $A$, its complement is usually denoted by $A'$.
+
+\begin{tikzpicture}[fill=lightgray]
+\filldraw (-3.5,-3.5) rectangle (7,4.0);
+\filldraw [white] (0,0) circle (3) (0,3)  node [text=black,below] {$A$};
+\draw (5,0) node {$A'$};
+\end{tikzpicture}
+
+\section{Subtracting Sets}
+
+If you have sets $A = \{1,2,3,4\}$ and $B = \{1, 4\}$, it makes sense
+to subtract $B$ from $A$ by removing 1 and 4 from $A$.
+
+If $A$ and $B$ are sets, we define $A - B$ to be $A \cap B'$.  Take a
+second to look at this diagram and convince yourself that the white
+region represents $A - B$ and that it is the same as $A \cap B'$.
+
+\begin{tikzpicture}[fill=lightgray]
+\filldraw (-3.5,-3.5) rectangle (7,4.0);
+\filldraw [white] (0,0) circle (3);
+\filldraw [lightgray] (3,0) circle (3);
+\draw [black] (0,0) circle (3) (0,3)  node [text=black,below] {$A$};
+\draw [black] (3,0) circle (3) (3,3)  node [text=black,below] {$B$};
+\end{tikzpicture}
 
 \section{Power Sets}
 
@@ -341,12 +385,12 @@ It is not uncommon to have a set whose elements are also sets.  For
 example, you might have the set that contains the following two sets:
 $\{1,2,3\}$ and $\{2,3,4\}$. You might write it like this: $\{
 \{1,2,3\}, \{2,3,4\} \}$. (Note that this set has a cardinality of 2
--- It has two members that are sets.)
+-- It has two members that are sets.)\index{sets of sets}
 
 Given any set $A$, you can construct its \newterm{power set}, which is
 the set of all subsets of $A$.  For example, if you have a set
 $\{1,2,3\}$, its power set is $\{\{1,2,3\}, \{1,2\},\{1,3\}, \{2,3\},
-\{1\}, \{2\}, \{3\}, \emptyset\}$.
+\{1\}, \{2\}, \{3\}, \emptyset\}$.\index{power set}
 
 If a set has $n$ elements, its power set has $2^n$ elements.
 
@@ -354,15 +398,15 @@ If a set has $n$ elements, its power set has $2^n$ elements.
 
 In python, we can have variables hold boolean values: \texttt{True}
 and \texttt{False}.  We also have operators: \texttt{not},
-\texttt{and}, and \texttt{or}.
+\texttt{and}, and \texttt{or}.\index{boolean variables}
 
-For example, you could compute one value of the truth table above  like this:
+For example, You could find out what the expression ``$a$ and not
+$b$'' is if both variables are false like this:
 \begin{verbatim}
 a = False
 b = False
-
-c = a or not b
-print(f"a={a}, b={b}, a or not b = {c}")
+result = a or not b
+print(f"a={a}, b={b}, a or not b = {result}")
 \end{verbatim}
 
 This would print out:
@@ -423,7 +467,7 @@ This is \textit{not} equivalent to ``If the grass is wet, it has
 rained in the last hour.'' (After all, the sprinkler may be running.)
 
 However, it is exactly equivalent to its \newterm{contrapositive}:
-``If the grass is not wet, it has not rained in the last hour.''
+``If the grass is not wet, it has not rained in the last hour.'' \index{contrapositive}
 
 The rule can be written using symbols:
 
@@ -431,7 +475,8 @@ $$\left( A \implies B \right) \iff \left( \neg B \implies \neg A \right)$$
 
 \section{The Distributive Property of Logic}
 
-These two expressions are equivalent:
+Many ideas from integer arithmetic have analogues in boolean
+arithmetic. For example, there is a distributive property for booleans.  These two expressions are equivalent:
 \begin{itemize}
   \item $A \text{ and } \left(B \text{ or } C \right)$
   \item $\left(A \text{ and } B \right) \text{ or } \left( A \text{ and } C \right)$
@@ -443,5 +488,38 @@ So are these:
   \item $A \text{ or } \left(B \text{ and } C \right)$
   \item $\left(A \text{ or } B \right) \text{ and } \left( A \text{ or } C \right)$
 \end{itemize}
+
+
+\section{Exclusive Or}
+
+The expression ``$a \text{ or } b$'' is true in any of the following conditions:
+\begin{itemize}
+\item $a$ is True and $b$ is False.
+\item $a$ is False and $b$ is True.
+\item Both $a$ and $b$ are True.
+\end{itemize}
+
+Sometimes engineers need a way to say ``Either $a$ or $b$ is true, but not
+both.''  For this we use \newterm{exclusive OR} (or XOR).\index{XOR}
+
+Here, then, is the logic table for XOR
+
+\begin{tabular}{c | c | c}
+  $A$ & $B$ & XOR($a$,$b$) \\
+  \hline
+  F & F & F \\
+  F & T & T \\
+  T & F & T \\
+  T & T & F \\
+\end{tabular}
+
+In python, Logical XOR is done using \texttt{!=}:
+
+\begin{verbatim}
+just_one = (a != b)
+\end{verbatim}
+
+(Take 10 seconds to confirm that this is the same as the logic table
+above.)
 
 

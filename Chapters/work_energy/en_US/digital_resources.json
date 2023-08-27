@@ -1,0 +1,18 @@
+{
+  "files": [],
+  "requires": [
+    "fma"
+  ],
+  "covers": [
+    {
+      "id": "energy-forms",
+      "desc": "An overview of different forms of energy",
+      "videos": [
+        "https://youtu.be/qzvatDIDXwo"
+      ],
+      "references": [
+        "https://simple.wikipedia.org/wiki/Energy"
+      ]
+    }
+  ]
+}

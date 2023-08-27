@@ -1,0 +1,38 @@
+{
+  "files": [],
+  "requires": [
+    "atom"
+  ],
+  "covers": [
+    {
+      "id": "mole",
+      "desc": "Define a mole",
+      "videos": [
+        "https://youtu.be/74-X94OP2XI"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Mole_(unit)"
+      ]
+    },
+    {
+      "id": "atomic-mass",
+      "desc": "Define atomic mass",
+      "videos": [
+        "https://youtu.be/I-Or4bUAIfo"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Atomic_mass"
+      ]
+    },
+    {
+      "id": "periodic-table",
+      "desc": "Be able to read the basic facts from a periodic table",
+      "videos": [
+        "https://youtu.be/0RRVV4Diomg"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Periodic_table"
+      ]
+    }
+  ]
+}
