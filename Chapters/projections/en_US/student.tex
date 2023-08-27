@@ -1,28 +1,88 @@
 \chapter{Projections}
 
-The projection of a vector $\mathbf{a}$ onto another vector
-$\mathbf{b}$ is a vector that lies along $\mathbf{b}$ and represents
-the component of $\mathbf{a}$ in the direction of $\mathbf{b}$. This
-projection can be computed using the dot product of the two vectors.\index{projection}
+A projection is shows the relationship between two vectors. Given two vectors, $\mathbf{a}$ and $\mathbf{b}$, the projection of $\mathbf{a}$ onto $\mathbf{b}$ separates $\mathbf{a}$ into two components. The first component signifies how much $\mathbf{a}$ lies in the direction of $\mathbf{b}$. The second signifies the component of $\mathbf{a}$ that is perpendicular (orthogonal) to $\mathbf{b}$. \index{projection}
 
-Given vectors $\mathbf{a}$ and $\mathbf{b}$, the projection of
+Projections are useful in many diverse fields. There are just a few examples, but there are numerous other applications in science, math, engineering, and finance.
+
+\begin{itemize}
+\item Investors evaluate risk and return of a portfolio by projecting an asset’s return onto a reference portfolio.
+\item Astronomers analyze the motion of stellar objects by projecting the object’s true motion onto the plane of the sky.
+\item Robotics engineers use projections to prevent robots from running into obstacles by projecting the robot’s position onto the optimal path.
+\end{itemize}
+
+As you work your way through this course, you'll have a chance to apply the calculations you learn in this chapter to a variety of problems.
+
+To calculate the projection of two vectors
 $\mathbf{a}$ onto $\mathbf{b}$, denoted as
-$\mathbf{proj}_\mathbf{b}(\mathbf{a})$, can be calculated as follows:
+$\mathbf{proj}_\mathbf{b}(\mathbf{a})$, use this formula:
 
 $$\mathbf{proj}_\mathbf{b}(\mathbf{a}) = \left(\frac{{\mathbf{a} \cdot \mathbf{b}}}{{\|\mathbf{b}\|^2}}\right) \mathbf{b}$$
 
-where $\cdot$ denotes the dot product and $|\mathbf{b}|$ represents
-the magnitude (or length) of vector $\mathbf{b}$.
+where $\mathbf{a} \cdot \mathbf{b}$ denotes the dot product and $||\mathbf{b}||$ represents the magnitude (or length) of vector $\mathbf{b}$.
 
-The numerator $\mathbf{a} \cdot \mathbf{b}$ measures the extent to
+The numerator measures the extent to
 which $\mathbf{a}$ and $\mathbf{b}$ are aligned with each
-other. Dividing this by $|\mathbf{b}|^2$ scales the projection to
+other. Dividing this by $||\mathbf{b}||^2$ scales the projection to
 ensure it represents the correct length along $\mathbf{b}$.
 
-Finally, multiplying the scaled value with $\mathbf{b}$ gives us the
+Finally, multiplying the scaled value with $\mathbf{b}$ gives the
 projection vector itself.
 
-In summary, the dot product is used to determine the alignment between
+In summary, you use the dot product to determine the alignment between
 two vectors, and by appropriately scaling one vector and multiplying
-it with the other vector, we can obtain the projection of one vector
+it with the other vector, you obtain the projection of one vector
 onto the other.
+
+Let's look at a specific example:
+
+$$a = (1,4,6)$$ 
+$$b = (-2,6,2)$$ 
+
+First, compute the dot product: 
+$$1*-2 + 4*6 + 6*2 = -2 +24 +12 = 34$$
+
+Then find the magnitude of vector $\mathbf{b}$:
+$$(b_1^{2}+b_2^{2}+b_3^{2}) = 44 $$
+
+Finally compute the projection vector.
+$$34/44 * b = (-1.545 , 4.64, 1.545)$$
+
+\begin{Exercise}[title={Projections}, label=projections]
+	Find the projection of $\mathbf{a}$ on $\mathbf{b}$ where:
+	$$a = (1,3)$$
+	$$b = (-4,6)$$
+\end{Exercise}
+\begin{Answer}[ref=project_vector]
+	Compute dot product
+	$$1*-4 + 3*6 = -4 +18 = 14$$
+	Find the magnitude of $\mathbf{b}$  
+	$$magnitude = (b_1^{2}+b_2^{2}) = 52 $$
+	$$14/52 * b = (-1.076 , 1.61)$$
+\end{Answer}
+ 
+\section{Projections in Python}
+
+Create a file called \filename{vectors\_projections.py} and enter this code:
+\begin{Verbatim}
+
+# import numpy to perform operations on vector
+import numpy as np
+  
+a = np.array([1, 4, 6])   # vector a
+b = np.array([-2, 6, 2])   # vector b:
+  
+# Find the magnitude (length) of vector b
+b_mag = sum(b**2)    
+  
+# Find the projection
+# Use np.dot() to calculate the dot product
+projection_a_on_b = (np.dot(a, b)/b_mag)*b
+  
+print("The projection of vector a on vector b is:", projection_a_on_b)
+\end{Verbatim}
+ 
+\section{Where to Learn More}
+
+Watch this Introduction to Projections from Khan Academy 
+https://www.khanacademy.org/math/linear-algebra/matrix-transformations/lin-trans-examples/v/introduction-to-projections
+
