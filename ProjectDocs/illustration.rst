@@ -147,9 +147,33 @@ circles
 Workbook 5
 ===========
 vectors
+	skydiver.png
+		Goal: Explain how vectors add. In this example I used a skydiver falling, and showed the wind force plus the force of gravity. 
+
+		NOTE: Should we use velocity vectors here instead? Especially if we're going for a "cross the river" type vector problem
 momentum
+	putty1.png
+		Goal: Create a graphic for a classic momentum problem. Emphasize that the putty sticks together and becomes one solid.
+
+	putty2.png
+		Goal: Continued from putty1.png
+		Uses a question mark for the new velocity to show what students need to find. I kept an outline in the center to show that it's the two balls of putty stuck together.
+		Note: Could use shading
+
+	icecar.png
+		Goal: Create an example for a problem about momentum that uses vectors
+		I made the cars different colors both to distinguish them and keep the problem interesting.
+		Note: This could possibly use an "After" with the cars attached together. Cars could use shading
+
+	poolball.png
+		Goal: Create another example for a vector-based momentum problem 
+
+		I used vectors and created an angle to demonstrate how the ball would travel when struck. Again, I used question marks to indicate what needs to be solved.
+		I used a red outline with a low opacity red fill to show where the red ball would collide.
 dot
+	N/A
 functions
+	N/A
 
 Workbook 6
 ===========
@@ -159,6 +183,21 @@ conic_sections
 Workbook 7
 ===========
 falling_bodies
+
+	hammerFall.png
+		Goal: Show how the hammer will be pulled towards the center of the Earth by gravity.
+
+		I put the hammer above the Earth and exaggerated the size to show that the tools fall towards the center of the Earth, not just down. 
+		NOTE: How necessary is this?
+
+
+	hammerTime.png
+		Goal: Show the different speeds of the hammer over time as a result of the acceleration of gravity.
+
+		I separated these into panels to make it clear that each was a "frame." I also added time at the top. I set up the numbers in the problem so that the numbers would work neatly with each second. That way at exactly 2 seconds, the hammer's velocity is 0 m/s as it reaches its peak.
+
+		NOTE: I was considering adding an acceleration vector to show why the hammer falls, but I thought that might make it too confusing since the other vector is currently velocity rather than force. 
+
 solving_quadratics
 complex_numbers
 
@@ -230,6 +269,8 @@ eye
 		I used a blur to show how the trees appear on the retina, and had a normal tree where it would have been focused. 
 
 		NOTE: I think we need to explain the focal point better throughout all camera/light units. 
+
+	FIXME: GLAUCOMA
 
 reflection
 refraction
