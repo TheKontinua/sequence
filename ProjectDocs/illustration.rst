@@ -223,11 +223,48 @@ transforms
 Workbook 11
 ============
 sound
+	firecracker.png
+		Goal: Show how sound waves can bounce off a wall.
+		I illustrated a firecracker explosion, a microphone, a wall, and soundwaves. 
+		For the initial sound waves I used a full opacity blue stroke and labeled it "1" in the same color and opacity. I used a dotted line with lower opacity for the reflected sound waves, and labeled it "2" with the same lower opacity.
+
+		I used a similar style to the atom in chapter one. I used rounded ends for the lines to match kontinua style. I kept the lines straight and symmetric.
+
+	guitarUpdate.png
+		Goal: replace existing guitar graphic
+
+		NOTE: this currently doesn't serve a real purpose. We should look at this chapter again and figure out what is really needed.
 ac
+	transformer.png
+		NOTE: Uses old graphic. Replace?
+
 drag
+	cannon.png
+		Goal: Provide a visual for the artillery example and show how air resistance affects projectiles. 
+
+		I made the cannon and shell Kontinua blue. I used low opacity gray lines on the front of the shell to show air resistance and provided a gray arc to show the path that the projectile follows, with a red and white target to show where it will go.
+		I used a standard vector arrow to further show air resistance. 
+
+	cannonvi.png
+		Goal: Show a cannon launching a shell
+
+		I used overlapping red and yellow polygons with blend modes to recreate the style from the front covers. The shell is launched at s m/s, as stated in the example.
+
 vector_functions
+	N/A
 circular
+	N/A
 orbits
+	satellite.png
+		Goal: Show a satellite orbiting the planet with associated vectors
+
+		This was the first graphic where I began using shading. 
+		I shaded half of the earth, which I depicted from a view over the North Pole, to show a realistic orbit. I used shading since half of the planet would be in the dark. 
+
+		The satellite's camera is the Kontinua logo in all white.
+
+
+		NOTE: This shading style should be implemented more often
 
 Workbook 12
 ============
