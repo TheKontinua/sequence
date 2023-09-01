@@ -147,9 +147,33 @@ circles
 Workbook 5
 ===========
 vectors
+	skydiver.png
+		Goal: Explain how vectors add. In this example I used a skydiver falling, and showed the wind force plus the force of gravity. 
+
+		NOTE: Should we use velocity vectors here instead? Especially if we're going for a "cross the river" type vector problem
 momentum
+	putty1.png
+		Goal: Create a graphic for a classic momentum problem. Emphasize that the putty sticks together and becomes one solid.
+
+	putty2.png
+		Goal: Continued from putty1.png
+		Uses a question mark for the new velocity to show what students need to find. I kept an outline in the center to show that it's the two balls of putty stuck together.
+		Note: Could use shading
+
+	icecar.png
+		Goal: Create an example for a problem about momentum that uses vectors
+		I made the cars different colors both to distinguish them and keep the problem interesting.
+		Note: This could possibly use an "After" with the cars attached together. Cars could use shading
+
+	poolball.png
+		Goal: Create another example for a vector-based momentum problem 
+
+		I used vectors and created an angle to demonstrate how the ball would travel when struck. Again, I used question marks to indicate what needs to be solved.
+		I used a red outline with a low opacity red fill to show where the red ball would collide.
 dot
+	N/A
 functions
+	N/A
 
 Workbook 6
 ===========
@@ -159,6 +183,21 @@ conic_sections
 Workbook 7
 ===========
 falling_bodies
+
+	hammerFall.png
+		Goal: Show how the hammer will be pulled towards the center of the Earth by gravity.
+
+		I put the hammer above the Earth and exaggerated the size to show that the tools fall towards the center of the Earth, not just down. 
+		NOTE: How necessary is this?
+
+
+	hammerTime.png
+		Goal: Show the different speeds of the hammer over time as a result of the acceleration of gravity.
+
+		I separated these into panels to make it clear that each was a "frame." I also added time at the top. I set up the numbers in the problem so that the numbers would work neatly with each second. That way at exactly 2 seconds, the hammer's velocity is 0 m/s as it reaches its peak.
+
+		NOTE: I was considering adding an acceleration vector to show why the hammer falls, but I thought that might make it too confusing since the other vector is currently velocity rather than force. 
+
 solving_quadratics
 complex_numbers
 
@@ -184,11 +223,48 @@ transforms
 Workbook 11
 ============
 sound
+	firecracker.png
+		Goal: Show how sound waves can bounce off a wall.
+		I illustrated a firecracker explosion, a microphone, a wall, and soundwaves. 
+		For the initial sound waves I used a full opacity blue stroke and labeled it "1" in the same color and opacity. I used a dotted line with lower opacity for the reflected sound waves, and labeled it "2" with the same lower opacity.
+
+		I used a similar style to the atom in chapter one. I used rounded ends for the lines to match kontinua style. I kept the lines straight and symmetric.
+
+	guitarUpdate.png
+		Goal: replace existing guitar graphic
+
+		NOTE: this currently doesn't serve a real purpose. We should look at this chapter again and figure out what is really needed.
 ac
+	transformer.png
+		NOTE: Uses old graphic. Replace?
+
 drag
+	cannon.png
+		Goal: Provide a visual for the artillery example and show how air resistance affects projectiles. 
+
+		I made the cannon and shell Kontinua blue. I used low opacity gray lines on the front of the shell to show air resistance and provided a gray arc to show the path that the projectile follows, with a red and white target to show where it will go.
+		I used a standard vector arrow to further show air resistance. 
+
+	cannonvi.png
+		Goal: Show a cannon launching a shell
+
+		I used overlapping red and yellow polygons with blend modes to recreate the style from the front covers. The shell is launched at s m/s, as stated in the example.
+
 vector_functions
+	N/A
 circular
+	N/A
 orbits
+	satellite.png
+		Goal: Show a satellite orbiting the planet with associated vectors
+
+		This was the first graphic where I began using shading. 
+		I shaded half of the earth, which I depicted from a view over the North Pole, to show a realistic orbit. I used shading since half of the planet would be in the dark. 
+
+		The satellite's camera is the Kontinua logo in all white.
+
+
+		NOTE: This shading style should be implemented more often
 
 Workbook 12
 ============
@@ -230,6 +306,8 @@ eye
 		I used a blur to show how the trees appear on the retina, and had a normal tree where it would have been focused. 
 
 		NOTE: I think we need to explain the focal point better throughout all camera/light units. 
+
+	FIXME: GLAUCOMA
 
 reflection
 refraction
