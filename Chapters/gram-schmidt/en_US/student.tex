@@ -1,16 +1,23 @@
 \chapter{The Gram-Schmidt Process}
 
-The Gram-Schmidt process is a method for orthonormalizing a set of
+Gram-Schmidt a method use to transform a set of linearly independent vectors to a set of orthogonal (perpendicular vectors). The original vectors and the transformed vectors span the same subspace. 
+
+This method has many practical applications in science and engineering. These are just two application of Gram-Schmidt:
+\begin{enumerate}
+\item In signal processing, it can represent an audio signal with fewer components making it easier to isolate and remove noise. 
+\item In statistics and data analysis, it can reduce the complexity of a dataset so that it is easier to see which aspects or features contribute to the analysis. 
+\end{enumerate}
+
+The Gram-Schmidt process orthonormalizes a set of
 vectors in an inner product space, most commonly the Euclidean space
 $\mathbb{R}^n$. The process takes a finite, linearly independent set
 $S = \{v_1, v_2, \ldots, v_k\}$ for $k \leq n$, and generates an
 orthogonal set $S' = \{u_1, u_2, \ldots, u_k\}$ that spans the same
 k-dimensional subspace of $\mathbb{R}^n$ as $S$.\index{Gram-Schmidt process}
 
-\section{Process}
+\section{The Process}
 
-Given a set of vectors $S = \{v_1, v_2, \ldots, v_k\}$, the
-Gram-Schmidt process is as follows:
+Let's look at how the process works. Given a set of vectors $S = \{v_1, v_2, \ldots, v_k\}$, the Gram-Schmidt process is as follows:
 
 \begin{enumerate}
     \item Let $u_1 = v_1$.
@@ -23,12 +30,91 @@ Gram-Schmidt process is as follows:
 
 Here, $\langle . , . \rangle$ denotes the inner product. 
 
-\section{Orthonormalization}
-
-The set of vectors $S' = \{u_1, u_2, \ldots, u_k\}$ obtained from the
-process above is orthogonal, but not necessarily orthonormal. To form
-an orthonormal set, we simply need to normalize each vector $u_i$ to
+The set of vectors $S' = \{u_1, u_2, \ldots, u_k\}$ obtained from this
+process is orthogonal, but not necessarily orthonormal. To create
+an orthonormal set, you simply need to normalize each vector $u_i$ to
 unit length. That is, $u_i' = \frac{u_i}{\|u_i\|}$, where $\|.\|$
 denotes the norm (or length) of a vector.
 
+Among other things, making vectors orthonormal simplifies calculations, makes it easier to define rotations and transformations, and provides a framework for calculations in quantum mechanics.
+
+\section{Example Calculation}
+
+Given a set of linearly independent vectors, we will use the Gram-Schmidt process to find an orthogonal basis.
+
+Let $$W = Span (x_1, x_2, x_3)$$ where
+$$x_1 =\left[ 1, 2, -2 \right]$$
+$$x_2 =\left[ 1,0,-4 \right]$$
+$$x_3 = [5,2,0]$$
+
+Our goal is to find and orthogonal basis for the span defined by $x_1, x_2, x_3$. So three vectors that define the same subspace as the original vectors, but that are orthogonal to one another. 
+
+The first vector of the orthogonal subspace is easy. 
+
+$$v_1 = x_1 = \left[ 1, 2, -2 \right]$$
+
+The second orthogonal vector is a project of $x_2$ onto $v_1$. You learned projections in the last chapter, so this should be fairly straightforward.
+
+$$v_2 = x_2 - \frac{x_2v_1}{v_1v_1} v_1$$
+
+Substitute the values:
+
+$$v_2 = \left[ 1, 0, -4 \right] - \frac{(1,0, -4)(1,2,-2)}{(1,2,-2)(1,2,-2)} \left[ 1, 2, -2 \right] \\$$
+
+Calculate the coefficient for $v_1$:
+$$v_2 = \left[ 1, 0, -4 \right] - \frac{9}{9} \left[ 1, 2, -2 \right] \\$$
+Perform the subtraction:
+$$v_2 = \left[ 0, -2, -2 \right]\\$$
+ 
+The third vector for the orthogonal subspace is a projection onto $v_1$ and $v_2$. 
+$$v_3 = x_3 - \frac{x_3v_1}{v_1v_1} v_1 - \frac{x_3v_2}{v_2v_2} v_2$$
+
+Substitute the values:
+$$v_3 = \left[ 5,2,0 \right] - \frac{(5,2,0)(1,2,-2)}{(1,2,-2)(1,2,-2)} (1,2,-2) - \frac{(5,2,0)(1,0,-4)}{(1,0,-4)(1,0,-4)} (1,0,-4)$$
+$$v_3 = \left[ 5,2,0 \right] - (9/9) (1,2,-2) -  (-4/8)(1,0,-4)$$
+$$v_3 = \left[ 5,2,0 \right] - (1,2,-2) + (1/2)(1,0,-4)$$
+$$v_3  = \left[ 5,2,0 \right] - (1,2,-2) + (0,-1,-1)$$
+$$v_3 = (4, -1, 1)$$
+
+This set of vectors is orthogonal, so we need to normalize them so that the vectors are orthonormal. Recall that an orthonormal vector has a length of 1 and is computed using this formula:
+$$normalizedVector = vector / np.sqrt(np.sum(vector**2))$$
+Thus the normalized set of vectors is:
+$$v_1 = (0.33,  0.67, -0.67)$$
+$$v_2 = (0.0,  -0.71, -0.71 )$$
+$$v_3 = (0.94, -0.24,  0.24 ) $$
+
+\section{The Gram-Schmidt Process in Python}
+Create a file called \filename{vectors\_gram-schmidt.py} and enter this code:
+\begin{Verbatim}
+# import numpy to perform operations on vector
+import numpy as np
+
+# Find an orthogonal basis for the span of these three vectors  
+x1 = np.array([1, 2, -2]) 
+x2 = np.array([1, 0, -4]) 
+x3 = np.array([5, 2, 0])    
+   
+# v1 = x1
+v1 = x1
+print("v1 = ",v1)
+
+# v2 = x2 - (the projection of x2 on v1)
+v2 = x2 - (np.dot(x2,v1)/np.dot(v1,v1))*v1
+print("v2 = ", v2)
+
+# v3 = x3 - (the projection of x3 on v1) - (the projection of x3 on v3)
+v3 = x3 - (np.dot(x3,v1)/np.dot(v1,v1))*v1 - (np.dot(x3,v2)/np.dot(v2,v2))*v2
+print("v3 =", v3)
+
+# Next, normalize each vector to get a set of vectors that is both orthogonal and orthonormal:
+v1_norm = v1 / np.sqrt(np.sum(v1**2))
+v2_norm = v2 / np.sqrt(np.sum(v2**2))
+v3_norm = v3 / np.sqrt(np.sum(v3**2))
+print("v1_norm = ", v1_norm)
+print("v2_norm = ", v2_norm)
+print("v3_norm = ", v3_norm)
+\end{Verbatim}
+
+\section{Where to Learn More}
+Watch this video from Khan Academy about the Gram-Schmidt process: https://www.khanacademy.org/math/linear-algebra/alternate-bases/orthonormal-basis/v/linear-algebra-the-gram-schmidt-process
 
