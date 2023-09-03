@@ -1,8 +1,20 @@
 \chapter{Projections}
 
-A projection is shows the relationship between two vectors. Given two vectors, $\mathbf{a}$ and $\mathbf{b}$, the projection of $\mathbf{a}$ onto $\mathbf{b}$ separates $\mathbf{a}$ into two components. The first component signifies how much $\mathbf{a}$ lies in the direction of $\mathbf{b}$. The second signifies the component of $\mathbf{a}$ that is perpendicular (orthogonal) to $\mathbf{b}$. \index{projection}
+A projection of describes the relationship of one vector to another in terms of direction and orthogonality. Given two vectors, $\mathbf{u}$ and $\mathbf{v}$, the projection of $\mathbf{u}$ onto $\mathbf{v}$ separates $\mathbf{u}$ into two components. The first component signifies how much $\mathbf{u}$ lies in the direction of $\mathbf{v}$. The second signifies the component of $\mathbf{u}$ that is orthogonal (perpendicular) to $\mathbf{v}$. \index{projection} The figure depicts a projection. The perpendicular line dropped from the end of $\mathbf{u}$ is the orthogonal component. The portion of $\mathbf{u}$ that lies in the direction of $\mathbf{v}$ is the segment labeled projection. 
 
-Projections are useful in many diverse fields. There are just a few examples, but there are numerous other applications in science, math, engineering, and finance.
+NOTE: These figures needs to be replaced with final art or drawn programmatically.
+
+\includegraphics[width=0.4\textwidth]{ProjectionFPO.png}
+
+You can also think of a projection as the shadow cast by one vector onto each other byan overhead light.
+
+\includegraphics[width=0.4\textwidth]{ProjectionBulbFPO.png}
+
+The projected vector can be in any direction. The length of the projected vector can extend beyond the vector on which it is projecting.
+
+\includegraphics[width=0.4\textwidth]{OtherExamplesFPO.png}
+
+Projections are useful in many fields. These are a few examples, but there are numerous other applications in science, math, engineering, and finance.
 
 \begin{itemize}
 \item Investors evaluate risk and return of a portfolio by projecting an asset’s return onto a reference portfolio.
@@ -10,42 +22,28 @@ Projections are useful in many diverse fields. There are just a few examples, bu
 \item Robotics engineers use projections to prevent robots from running into obstacles by projecting the robot’s position onto the optimal path.
 \end{itemize}
 
-As you work your way through this course, you'll have a chance to apply the calculations you learn in this chapter to a variety of problems.
+As you work your way through this course, you'll have a chance to apply the calculations you learn in this chapter to a variety of problems. Specifically, the next chapter shows how to transform a set of linearly independent vectors into a set of orthogonal ones. Projections are essential to that transformation. 
 
-To calculate the projection of two vectors
-$\mathbf{a}$ onto $\mathbf{b}$, denoted as
-$\mathbf{proj}_\mathbf{b}(\mathbf{a})$, use this formula:
+To calculate the projection of 
+$\mathbf{v}$ onto $\mathbf{u}$,use this formula:
 
-$$\mathbf{proj}_\mathbf{b}(\mathbf{a}) = \left(\frac{{\mathbf{a} \cdot \mathbf{b}}}{{\|\mathbf{b}\|^2}}\right) \mathbf{b}$$
+$$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{u\cdot v}{\parallel{v}\parallel ^2}v$$
 
-where $\mathbf{a} \cdot \mathbf{b}$ denotes the dot product and $||\mathbf{b}||$ represents the magnitude (or length) of vector $\mathbf{b}$.
-
-The numerator measures the extent to
-which $\mathbf{a}$ and $\mathbf{b}$ are aligned with each
-other. Dividing this by $||\mathbf{b}||^2$ scales the projection to
-ensure it represents the correct length along $\mathbf{b}$.
-
-Finally, multiplying the scaled value with $\mathbf{b}$ gives the
-projection vector itself.
-
-In summary, you use the dot product to determine the alignment between
-two vectors, and by appropriately scaling one vector and multiplying
-it with the other vector, you obtain the projection of one vector
-onto the other.
+Note that the denominator is is the magnitude squared of vector v.
+$$(\sqrt{a_1^2 + a_2^2 + ... + a_n^2} )^2$$
+You learned previously that this is the same as the dot product of a vector with itself.
+$${v\cdot v}$$
+In the examples that follow, we'll simplify to the dot product notation.
 
 Let's look at a specific example:
 
-$$a = (1,4,6)$$ 
-$$b = (-2,6,2)$$ 
+$$u = (1,4,6)$$ 
+$$v = (-2,6,2)$$ 
 
-First, compute the dot product: 
-$$1*-2 + 4*6 + 6*2 = -2 +24 +12 = 34$$
-
-Then find the magnitude of vector $\mathbf{b}$:
-$$(b_1^{2}+b_2^{2}+b_3^{2}) = 44 $$
-
-Finally compute the projection vector.
-$$34/44 * b = (-1.545 , 4.64, 1.545)$$
+$$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{u\cdot v}{\parallel {v}\parallel ^2}v$$
+$$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{(1,4,6)\cdot(-2,6,2)}{ (-2,6,2)\cdot (-2,6,2)}(-2,6,2)$$
+$$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = (\frac{34}{44}(-2,6,2)$$
+$$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = (-1.545, 4.64, 1.545)$$
 
 \begin{Exercise}[title={Projections}, label=projections]
 	Find the projection of $\mathbf{a}$ on $\mathbf{b}$ where:
@@ -53,30 +51,24 @@ $$34/44 * b = (-1.545 , 4.64, 1.545)$$
 	$$b = (-4,6)$$
 \end{Exercise}
 \begin{Answer}[ref=project_vector]
-	Compute dot product
+	Compute dot product of $\mathbf{a}$ and $\mathbf{b}$:
 	$$1*-4 + 3*6 = -4 +18 = 14$$
-	Find the magnitude of $\mathbf{b}$  
-	$$magnitude = (b_1^{2}+b_2^{2}) = 52 $$
-	$$14/52 * b = (-1.076 , 1.61)$$
+	Compute the dot product of $\mathbf{b}$ and $\mathbf{b}$
+	$$16 + 36 = 52 $$
+	$$14/52 * (-4,6) = (-1.076 , 1.61)$$
 \end{Answer}
  
 \section{Projections in Python}
 
 Create a file called \filename{vectors\_projections.py} and enter this code:
 \begin{Verbatim}
-
-# import numpy to perform operations on vector
 import numpy as np
   
 a = np.array([1, 4, 6])   # vector a
-b = np.array([-2, 6, 2])   # vector b:
+b = np.array([-2, 6, 2])   # vector b
   
-# Find the magnitude (length) of vector b
-b_mag = sum(b**2)    
-  
-# Find the projection
 # Use np.dot() to calculate the dot product
-projection_a_on_b = (np.dot(a, b)/b_mag)*b
+projection_a_on_b = (np.dot(a, b)/np.dot(b, b))*b
   
 print("The projection of vector a on vector b is:", projection_a_on_b)
 \end{Verbatim}
@@ -84,5 +76,5 @@ print("The projection of vector a on vector b is:", projection_a_on_b)
 \section{Where to Learn More}
 
 Watch this Introduction to Projections from Khan Academy 
-https://www.khanacademy.org/math/linear-algebra/matrix-transformations/lin-trans-examples/v/introduction-to-projections
+https://rb.gy/yf0i3
 
