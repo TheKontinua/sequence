@@ -98,7 +98,11 @@ Workbook 3
 			NOTE: I honestly don't fully understand this. It would be worthwhile to learn this more and find a better way to illustrate this, as I was basing it off the previous version of the graphic.
 
 		Circuit_OnOff.png
-			NOTE: Previous illustration. We need to update this to the new style. Pretty good for its purpose though
+			Goal: Adapt the existing illustration that shows a simple circuit with a switch to the new style
+
+			I used Kontinua colors and re-used the KontinuAA graphic. I used lines the same color as the lit bulb to show that the light bulb was on. When the bulb is off, I lowered the opacity and removed the lines.
+
+			Note: Font weights should be standardized
 
 
 
@@ -296,10 +300,14 @@ camera
 	lensPoints.png	
 		Goal: Show how a lensed camera lets in less light than a pinhole camera
 eye
+
 	eyeDiagram.png
 		Goal: Show how eyes work
-		Used
-		NOTE: Make lines neater
+		I used perspectives to show both the front and side of the eye, making it descriptive yet still clear. I lowered the value in HSV for the colors for any side perspectives. 
+
+		Since there were lines used in the diagram, I used dashed lines to distinguish labels. I matched the color of those dashed lines to the object they point to. Once again, I used the tree since the colors are easy to follow. I used a mesh warp effect for the tree to make it map to the eye wall. 
+
+		NOTE: Make lines neater?
 
 	nearfarSight.png 
 		Goal show the difference in near and far sightedness
@@ -307,7 +315,10 @@ eye
 
 		NOTE: I think we need to explain the focal point better throughout all camera/light units. 
 
-	FIXME: GLAUCOMA
+	cataractGlaucoma.png
+		Goal: show how cataracts and glaucoma work
+
+		For cataracts, I lowered the value (of HSV fame) to make the color darker. 
 
 reflection
 refraction
@@ -380,8 +391,26 @@ Workbook 23
 Workbook 24
 ============
 
+Discrete Probability 
+	dice_histogram.png
+		Goal: Display the results of a dice roll example
+
+		I grouped the two dice that add together on each row, and added more space behind them. I also used blue backgrounds to keep each column grouped while also making sure the dice don't blend into the white background. 
+
 Workbook 25
 ============
+
+conditional prob
+	bags.png
+		Goal: Show the bags in a way that students can understand to help visualize the problem
+
+
+bayes 
+	NOTE: BAYES SHOULD JUST BE LATEX
+
+	Removed Bayes face
+
+
 
 Workbook 26
 ============
