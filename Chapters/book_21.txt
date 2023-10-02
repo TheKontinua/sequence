@@ -1,2 +1,3 @@
 pandas
 sql_1
+hexbinary

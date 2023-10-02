@@ -1,0 +1,37 @@
+{
+  "files": [],
+  "requires": null,
+  "covers": [
+    {
+      "id": "decint-rep",
+      "desc": "Understand the base-10 hindu-arabic representation of numbers",
+      "references": [
+        "https://en.wikipedia.org/wiki/Hindu\u2013Arabic_numeral_system"
+      ]
+    },
+    {
+      "id": "octal-rep",
+      "desc": "Understand the base-8 representation of the natural numbers",
+      "references": [
+        "https://en.wikipedia.org/wiki/Octal"
+      ]
+    },
+    {
+      "id": "hex-rep",
+      "desc": "Understand the base-16 representation of the natural numbers",
+      "references": [
+        "https://en.wikipedia.org/wiki/Hexadecimal"
+      ]
+    },
+    {
+      "id": "binary-rep",
+      "desc": "Understand the base-2 representation of the natural numbers",
+      "videos": [
+        "https://youtu.be/LpuPe81bc2w"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Binary_number"
+      ]
+    }
+  ]
+}

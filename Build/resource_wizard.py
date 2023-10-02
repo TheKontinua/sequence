@@ -132,7 +132,7 @@ for tkey in top_level:
                 new_value = inputWithType(dtype, base_prompt, entry_index + 1, old_value)
 
                 # Was nothing entered?
-                if len(new_value) == 0:
+                if new_value is None or len(new_value) == 0:
                     # Was this the first dictionary key?
                     if j == 0:
                         # Move to the next top level key
