@@ -32,7 +32,7 @@ $$p = 101,332 \times \left(1 - \left( 2.25577 \times 10^{-5} \times h\right) \ri
 
 where $p$ is the atmospheric pressure in pascals.
 
-\begin{Exercise}[title={Atomospheric Pressure},  label=atmos_pressure]
+\begin{Exercise}[title={Atmospheric Pressure},  label=atmos_pressure]
   
 You are thinking about riding your bicycle to the top of Mount Everest.  You are worried when the atmospheric pressure outside the tire drops,  the tire will fail.  
 (This has happened to me; It is very, very loud.)  
@@ -80,7 +80,57 @@ The temperature,  remember,  is determined by the average kinetic energy of the 
 
 Where is that line?  That is the RMS of the speeds of the molecules.  That is, if we measured all the speeds of all the molecules  $s_1, s_2, s_3, \ldots, s_n$, that line would be given by the root of the mean of the squares:
 
-$$v_{rms} = \sqrt{\frac{1}{n} \left( s_1^2 + s_2^2 + s_3^2 + \ldots s_n^2 \right)}$$ 
+$$v_{rms} = \sqrt{\frac{1}{n} \left( s_1^2 + s_2^2 + s_3^2 + \ldots s_n^2 \right)}$$
+
+If you have the same gas at a lower temperature, the distribution shifts toward zero:
+
+Here is probability distribution of molecular speeds for argon gas at 25 degrees and -100 degrees Celsius.
+
+\includegraphics[width=\textwidth]{ar2_plot.png}
+
+If you keep lowering the temperature,  eventually the molecules stop moving.  This is known as \newterm{absolute zero} -- you
+ can't make anything colder than absolute zero.   Absolute zero is -273.15 degrees Celsius.
+ 
+Besides Celsius and Fahrenheit, there is a third temperature system: Kelvin.  The Kelvin has the same scale as Celsius, but it starts at absolute zero.   
+So,  0 degrees Celsius is 273.15 degrees Kelvin.    And 100 degrees Celsius is 373.15 degrees Kelvin.
+
+Any time you are working with the physics of temperature, you will use Kelvin.
+
+Let's say you have a half-full air mattress in a field with a person lying on it around dawn.   The weight of the person will keep the pressure of the air inside constant (or pretty close).  
+The molecules in the mattress are not entering or leaving that mattress.  However, as the sun rises,  the air inside will get warmer and expand.  The person will be gently lifted by the expanding air.  How much will the air expand?
+
+If you have constant pressure and number of molecules,  the volume of the gas is proportional to the temperature in Kelvin:
+
+$$V \propto T$$
+
+\begin{Exercise}[title={Temperature and Volume},  label=temp_vol]
+  
+At dawn, the air inside mattress at dawn has a volume of 1000 liters and a temperature of 12 degrees Celsius.
+
+At noon,  that same air has a temperature of 28 degrees Celsius.  The pressure on the gas has not changed at all.
+
+What is the volume of the gas at noon?
+
+\end{Exercise}
+\begin{Answer}[ref=temp_vol]
+
+First, we convert the temperatures into Kelvin:  
+\begin{enumerate}
+\item Dawn: $12 + 273.15 = 285.15$
+\item Noon: $28 + 273.15 = 301.15$
+\end{enumerate}
+
+So, the temperature $T$ has increased by a factor of $\frac{301.15}{285.15} \approx 1.056$
+
+Thus the volume of the air mattress has also increased by a factor of 1.056.  
+
+So the air mattress that had a volume of 1000 at dawn,  will have a volume 1056 at noon.
+
+\end{Answer}
+
+Note: Volume and temperature are only proportional as long as the substance is a gas.   We will talk about liquids and solids soon.
+
+
 
 
 
