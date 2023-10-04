@@ -88,6 +88,8 @@ Here is probability distribution of molecular speeds for argon gas at 25 degrees
 
 \includegraphics[width=\textwidth]{ar2_plot.png}
 
+\subsection{Absolute Zero and Degrees Kelvin}
+
 If you keep lowering the temperature,  eventually the molecules stop moving.  This is known as \newterm{absolute zero} -- you
  can't make anything colder than absolute zero.   Absolute zero is -273.15 degrees Celsius.
  
@@ -96,8 +98,10 @@ So,  0 degrees Celsius is 273.15 degrees Kelvin.    And 100 degrees Celsius is 3
 
 Any time you are working with the physics of temperature, you will use Kelvin.
 
+\section{Temperature and Volume}
+
 Let's say you have a half-full air mattress in a field with a person lying on it around dawn.   The weight of the person will keep the pressure of the air inside constant (or pretty close).  
-The molecules in the mattress are not entering or leaving that mattress.  However, as the sun rises,  the air inside will get warmer and expand.  The person will be gently lifted by the expanding air.  How much will the air expand?
+The molecules in the mattress are not entering or leaving that mattress.  However, as the sun rises,  the air inside will get warmer and expand.  The person will be gently lifted by the expanding air.  You might wonder: how much will the air expand?
 
 If you have constant pressure and number of molecules,  the volume of the gas is proportional to the temperature in Kelvin:
 
@@ -115,22 +119,59 @@ What is the volume of the gas at noon?
 \begin{Answer}[ref=temp_vol]
 
 First, we convert the temperatures into Kelvin:  
-\begin{enumerate}
+\begin{itemize}
 \item Dawn: $12 + 273.15 = 285.15$
 \item Noon: $28 + 273.15 = 301.15$
-\end{enumerate}
+\end{itemize}
 
 So, the temperature $T$ has increased by a factor of $\frac{301.15}{285.15} \approx 1.056$
 
 Thus the volume of the air mattress has also increased by a factor of 1.056.  
 
-So the air mattress that had a volume of 1000 at dawn,  will have a volume 1056 at noon.
+So the air mattress that had a volume of 1000 liters at dawn,  will have a volume 1056 liters at noon.
 
 \end{Answer}
 
 Note: Volume and temperature are only proportional as long as the substance is a gas.   We will talk about liquids and solids soon.
 
+\section{Pressure and Volume}
 
+As you increase the pressure on a gas,  the molecules will get pushed closer together,  and the volume will decrease.
+
+For example,  if you put the cap on an empty plastic bottle and squeeze it.   As you put the gas inside the bottle under pressure,  its volume will decrease. 
+
+If you keep the number of molecules and the temperature constant,  the pressure of the gas and its volume are inversely proportional:
+
+$$P \propto \frac{1}{V}$$
+
+"But," you say with disbelief, "if I increase the pressure on my empty water bottle from 5 kPa to 10 kPa,  the volume inside won't decrease by half!"
+
+Don't forget that the air inside the bottle is under 101 kPa of atmospheric pressure before you even start to squeeze it.
+
+\begin{Exercise}[title={Temperature and Volume},  label=temp_vol]
+  
+At an altitude where the atmospheric pressure is 100 kPa,  you seal air in a 1 liter water bottle.
+
+Squeezing the water bottle,  you raise the internal pressure by 20 kPa  What is the volume inside the bottle now?
+
+\end{Exercise}
+\begin{Answer}[ref=temp_vol]
+
+What is the pressure in kPA?  
+\begin{itemize}
+\item Before squeezing: 100 kPa
+\item While squeezing: 120 kPa
+\end{itemize}
+
+So, the pressure $P$ has increased by a factor of $\frac{120}{100} = 1.2$
+
+$1/1.2 \approx 0.833$
+
+The air in the bottle had a volume of 1 liter before squeezing, so it has a volume of 833 milliliters while being squeezed.
+
+\end{Answer}
+
+\section{The Ideal Gas Law}
 
 
 
