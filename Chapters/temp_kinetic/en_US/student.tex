@@ -16,97 +16,87 @@ With gases, are actually two different possible situations:
 
 All gases made up of one atom (Helium, for example, is a monoatomic gas.) have the same values for $C_{V,m}$ and $C_{P,m}$:
 
-$C_{V,m} = \frac{3}{2}R \approx 12.5 \text{ Joules per mole-degree}$
+$C_{V,m} = \frac{3}{2}R \approx 12.47 \text{ Joules per mole-degree}$
 
 $C_{P,m} = \frac{5}{2}R \approx 20.8  \text{ Joules per mole-degree}$
 
 (Remember from last chapter that $R$ is the ideal gas constant $\approx 8.31446$ Joules per mole-degree.)
 
 \begin{Exercise}[title={Warming Helium},  label=warming_helium]
+
+You have 3 moles of helium.  
   
-How many Joules would be required to warm 3 moles of helium gas by 20 degrees Celsius at constant volume?
+\begin{enumerate}
+
+\item How many Joules would be required to warm 3 moles of helium gas by 20 degrees Celsius at constant volume?  
+
+\item How many Joules would be required to warm 3 moles of helium gas by 20 degrees Celsius at constant pressure?  
+
+\end{enumerate}
+
 
 \end{Exercise}
 \begin{Answer}[ref=warming_helium]
 
-$X = C_{V,m} (3 \text{ moles }) (20 { degrees Celsius }) = (12.5)(3)(20) = 750 \text{ Joules }$
+$E = C_{V,m} (3 \text{ moles }) (20 { degrees Celsius }) = (12.47)(3)(20) = 748 \text{ Joules }$
 
+$E = C_{V,m} (3 \text{ moles }) (20 { degrees Celsius }) = (20.8)(3)(20) = 1247 \text{ Joules }$
 \end{Answer}
 
-\section{Degrees of Freedom}
+\section{Molecule Shape and Molar Heat Capacity}
 
-When you pump energy into a monoatomic gas,  it can only do one thing with it: Zoom!  That is,  it translates in three dimensions.  
-We say that a monoatomic gas molecule has 3 degrees of freedom.
+We told you that gases made up of one atom have the same values for $C_{V,m}$ and $C_{P,m}$:
 
-If you have a gas molecule made up of two atoms it has 5 degrees of freedom.   The first three come from its ability to translate in 3 dimensions.    
-It can also rotate around its center of mass, but if it rotates on its axis, nothing changes.  
-So, there are two degrees of freedom in rotation.  These are known as \newterm{diatomic} gases and include both $N_2$, which makes up most of 
-our atmosphere, and $O_2$, which you breathe.
+$C_{V,m} = \frac{3}{2}R \approx 12.47 \text{ Joules per mole-degree}$
 
-All diatonic gases have the same values for $C_{V,m}$ and $C_{P,m}$:
+$C_{P,m} = \frac{5}{2}R \approx 20.8  \text{ Joules per mole-degree}$
 
-$$C_{V,m} = \frac{5}{2}R \approx 20.8 \text{Joules per mole-degree}$$
-
-$$C_{P,m} = \frac{7}{2}R \approx 29.1 \text{Joules per mole-degree}$$
-
-Note that it takes more energy to raise a mole of a diatonic gas than a monoatomic gas.   Why?  The diatomic molecule hides some of its energy in its spinning.  The monoatomic molecule wears all its energy as translation, which is experienced as warmth.
-
-Here, then, is the general rule:  If you have a gas molecule that is moving with $d$ degrees of freedom:
-
-$$C_{V,m} \approx  \frac{d}{2}R$$
+For any molecule, it is generally true that 
 
 $$C_{P,m} \approx C_{V,m} + R$$
 
-Besides translation and rotation, there is one more form of freedom: vibrations. 
+It is also true that for any molecule,  there is some integer $d$ such that
 
-We are not going to go any further into computing degrees of freedom.  Experimentally,  scientists have measured the molar heat capacity of common gases:
+$$C_{V, m} \approx \frac{d}{2}R$$
 
-\begin{tabular}{r|c|c| c}
-Gas & type & $C_{V,m}$ & $C_{P,m}$ \\
+For example, for all monoatomic gases,  $d = 3$.  For diatomic gases (like $N_2$ and $O_2$,  $d$ is 5.
+
+$d$ is known as the \newterm{degree of freedom} of the molecule.  When you study chemistry, they will teach you to predict $d$ based on the shape of the molecule. 
+
+Here are the relevant numbers for some gases you are likely to work with:
+
+\begin{tabular}{r|c|c| c| c}
+Gas & type & $C_{V,m}$ & $C_{P,m}$ & $d$\\
 \hline
-$He$ &  monoatomic & 12.4717 & 20.7862 \\
-$Ar$ & monoatomic & 12.4717 & 20.7862 \\
-$O_2$ & diatomic & 21.0 & 29.38 \\
-$N_2$ & diatomic & 20.8 & 29.12 \\
-$HO_2$ (water vapor) & 3 atoms &  28.03 & 37.47 \\
-$CO_2$ & 3 atoms & 28.46 & 36.94\\
-\end{tabular}
-
-Using these numbers, we can guess how many degrees of freedom the molecules are enjoying at normal temperatures and pressure:
-
-\begin{tabular}{r|c|c}
-Gas & type & degrees of freedom \\
-\hline
-$He$ &  monoatomic & 3 \\
-$Ar$ & monoatomic & 3 \\
-$O_2$ & diatomic & 5 \\
-$N_2$ & diatomic & 5\\
-$HO_2$ (water vapor) & 3 atoms &  7 \\
-$CO_2$ & 3 atoms & 7 \\
+$He$ &  monoatomic & 12.4717 & 20.7862 & 3 \\
+$Ar$ & monoatomic & 12.4717 & 20.7862 & 3 \\
+$O_2$ & diatomic & 21.0 & 29.38 & 5\\
+$N_2$ & diatomic & 20.8 & 29.12 & 5\\
+$HO_2$ (water vapor) & 3 atoms &  28.03 & 37.47 & 7 \\
+$CO_2$ & 3 atoms & 28.46 & 36.94 & 7\\
 \end{tabular}
 
 \section{Kinetic Energy and Temperature}
 
-For a sample of a gas, we can calculate its kinetic energy based on its degrees of freedom,  the number of molecules, and the temperature:
+For a sample of a gas, we can calculate its kinetic energy based on its molar heat capacity,  the number of molecules, and the temperature:
 
-$$E_K = \frac{d}{2} n R T$$
+$$E_K = C_{V,m} n T$$
 
 where
 
 \begin{itemize}
 \item $E_K$ is the kinetic energy in Joules
-\item $d$ is the degrees of freedom the molecule is enjoying
-\item $n$ is the number of molecules
-\item $R$ is the ideal gas constant
+\item $C_{V,m}$ is the molar heat capacity of the gas at constant volume
+\item $n$ is the number of molecules in moles
 \item $T$ is the temperature in Kelvin
 \end{itemize}
 
 
 \begin{Exercise}[title={Warming Helium Revisited},  label=warming_helium2]
 
-How much kinetic energy does 3 moles of Helium have at 10 degrees Celsius?
+How much kinetic energy does 3 moles of helium have at 10 degrees Celsius?
 
-How much kinetic energy does 3 moles of Helium have at 30 degrees Celsius?
+How much kinetic energy does 3 moles of helium have at 30 degrees Celsius?
 
 What is the difference?
 
@@ -115,21 +105,23 @@ What is the difference?
 
 10 degrees Celsius is 283.15 degrees Kelvin.  30 degrees Celsius is 303.15.
 
-For a monoatomic gas:
+For any gas:
 
-$$E_K = \frac{3}{2} n R T$$
+$$E_K =C_{V,m} n T$$
+
+And $C_{V,m} = 12.47$ for all monoatomic gases.
 
 So the energy at 10 degrees Celsius:
 
-$$E_1 = \frac{3}{2} (3) (8.31446)(283.15) = 10,594 \text{Joules}$$
+$$E_1 = (12.47)(3)(283.15) = 10,594 \text{ Joules}$$
 
 The energy at 30 degrees Celsius:
 
-$$E_2 = \frac{3}{2} (3) (8.31446)(303.15) = 11,342 \text{Joules}$$
+$$E_2 = (12. 47)(3)(303.15) = 11,342 \text{ Joules}$$
 
 The difference?
 
-$$E_2 - E_1 = 11,342 - 10,594 \approx 750 \text{ Joules }$$
+$$E_2 - E_1 = 11,342 - 10,594   = 748 \text{ Joules }$$
 
 Which is consistent with your earlier exercise.
 
@@ -138,53 +130,115 @@ Which is consistent with your earlier exercise.
 \section{Why is $C_{V,m}$ different from $C_{P,m}$?}
 
 What if, instead of keeping the volume constant while we heat the molecules in the helium tank,  we keep the pressure constant and let the gas expand?  
-The change in kinetic energy is the same: 750 Joules.
+The change in kinetic energy is the same: 748 Joules.
 
-However,  we know that the molar heat capacity if we keep pressure constant is $\frac{7}{2}R$,  so  heating will require $\frac{7}{2}R(3)(20) = 1,746$ Joules.  
+However,  we know that the molar heat capacity if we keep pressure constant is $\frac{5}{2}R$,  so  heating will require $\frac{5}{2}R(3)(20) = 1247$ Joules.  
 
-What happened to the 996 missing Joules!?  Thermodynamics tells us energy is neither created nor destroyed.  So it must have gone somewhere.
+What happened to the 499 missing Joules!?  Thermodynamics tells us energy is neither created nor destroyed.  So it must have gone somewhere.
 
-That energy was spent pushing against the pressure as the gas expanded.  For example,  maybe the sample was in a balloon in space -- the extra energy stretched the surface of the balloon.  
+That energy was used pushing against the pressure as the gas expanded.  For example,  maybe the sample was in a balloon in space -- the extra energy stretched the surface of the balloon.  
 
-The 996 Joules were converted into potential energy.   With gases, the potential energy created is the change in volume times the pressure.   
+The 499 Joules were converted into potential energy.   
+
+\section{Work of Creating Volume Against Constant Pressure}
+
+Let's imagine that you had a total vacuum (zero pressure) with a piston.  As you pulled the piston out,  you would be pulling against  the atmospheric pressure.  How much energy would that require?
+
+If you increased the volume of the vacuum by $V$ against a pressure of $P$,   you would do $VP$ work.
+
+Let's check to make sure the 499 Joules mentioned above makes sense with this in mind.
+
+No initial pressure was given in the problem, so let's just make one up and see how things work out: 100 kPa.  Using the ideal gas law,  the initial volume would be:
+
+$$V_1 = \frac{n R T}{P} = \frac{(3)(8.31446)(283.15)}{100,000} = 0.07063\text{ cubic meters}$$
+
+The volume after we heated the gas and let it expand against 100 kPa would be:
+
+$$V_2 = \frac{n R T}{P} = \frac{(3)(8.31446)(303.15)}{100,000} = 0.07562\text{ cubic meters}$$
+
+So the volume increased by $0.07562 - 0.07063 = 0.00499$ cubic meters.   
+Multiplying that by 100,000 pa, we get 499 Joules as we expected!
 
 \section{Why does a gas get hotter when you compress it?}
+
+Sticking with this example, let's say that you heated the 3 moles of helium at constant pressure with 1,247 Joules.  Once it reached $30^\circ$ Celsius, you stopped heating it, and started to increase pressure on it until it was its original volume.   What is going to happen?
+
+The extra 499 Joules are going to be converted into kinetic energy.  If you don't let the heat escape, the gas is going to get even hotter!  How much hotter?
+
+The result will be exactly the same is if you never let the volume increase.  Thus the change in temperature (from the original $283.15^\circ$ Kelvin) will be given by:
+
+$$1,247 = C_{V,m} n \Delta T$$
+
+so 
+
+$$\Delta T = \frac{1,247}{(12.47)(3)} = 33.33^\circ \text{ Kelvin}$$
+
+Thus, the new temperature of the gas would be $283.15.15 + 33.33 = 316.48^\circ$ Kelvin.  Significantly warmer than before you compressed it.
+
+When you compress any gas it gets hotter.  You can experience this when you pump up a bike tire.  If you increase the pressure rapidly,  the air inside the tire will get noticeable hotter.
+
+And the reverse is true: If you decompress a gas,  it will get colder.  If you let the air out of your bike tire,  it will be noticeable colder as it comes out.
+
+If you compress or decompress a gas without letting any heat enter or depart,  we say the compression or decompression was \newterm{adiabatic} (pronounced "ay-die-uh-bat-ick").
+
+\section{How much hotter?}
+
+In the example above,   you could measure the work done when you compressed the gas back to its original volume.  And that would tell you how much kinetic energy had to be absorbed by the gas.   Here's is what makes that a little tricky:  As you compress the gas,  the pressure you are fighting goes up with the decrease in volume \emph{and} the increase in temperature.
+
+Fortunately,  there is two handy rules:
+
+\begin{mdframed}[style=important, frametitle={Adiabatic Compression and Decompression}]
+
+Let 
+
+$$\gamma = \frac{C_{P,m}}{C_{V,m}}$$
+
+In an adiabatic compression or decompression,  $P$ and $V$ change,  but
+
+$$P \left(V^\gamma \right)$$
+
+stays constant.
+
+Also 
+
+$$T \left(V^{\left( \gamma - 1 \right)} \right)$$
+
+stays constant
+
+\end{mdframed}
 
 Let's say you have a accordion-like container filled with helium at 100 kPa (about 1 atmosphere) and 300 degrees Kelvin.  It holds 2 cubic meters.  
 How many molecules are in the container?
 
 $$n = \frac{PV}{RT} = \frac{(100000)(2)}{(8.31446)(300)} = 80.2 \text{ moles}$$
 
-Now you tighten a vise around the accordion until the 80.2 moles of helium inside has been crushed into 0.5 cubic meters. 
+Now you tighten a vise around the accordion until the 80.2 moles of helium inside has been crushed into 0.5 cubic meters,  without letting any heat escape.
 
-Notice that you did work: 1.5 cubic meters of 100 kPa worth of work.   It will be converted into kinetic energy.  How much energy are we talking about?  
-The energy is the pressure times the volume it used to occupy,  so 1.5 cubic meters times 100kPa = 150, 000 Joules.
+How can we predict the new temperature of the gas inside?
 
-We have a formula for the change in temperature in a monoatomic gas:
+$$\gamma - 1 = \frac{C_{P,m}}{C_{V,m}} - 1= \frac{2}{3}$$
 
-$$ \Delta E_K = \frac{3}{2} n R \Delta T$$
+Before the compression
 
-Plugging in what we know:
+$$T \left(V^{\left( \gamma - 1 \right)} \right) = 300 \left( 2^{0.6667} \right) = 476.22$$
 
-$$150,000 = \frac{3}{2} (80.2) (8.31446) \Delta T$$
+After the compression
 
-So 
+$$T \left(V^{\left( \gamma - 1 \right)} \right) = T \left( 0.5^{0.6667} \right) = 476.22$$
 
-$$\Delta T = \frac{150,000}{1,000} = 150 \text{ degrees Kelvin }$$
+Thus 
 
-The original temperature was 300 degrees,  so the new temperature is 450 degrees Kelvin.
+$$T = 756^\circ \text{ Kelvin}$$
 
-What is the new pressure?
+That's hot!  As you let it cool back down to 300 degrees Kelvin,  how much heat would be released?  
 
-$$P = \frac{n R T}{V}  =  \frac{(80.2) (8.31446))(450)}{0.5} = 600 kPa$$
-
-Thus,  you can see that compressing a gas will make it warmer.  Similarly,   if you expand a gas, it gets colder.  You can experience both these effects when you inflate and deflate a bicycle tire.   If you pump the tire quickly,  it will get noticeably warm.   If you press the valve to let the air out,  the air will feel cold as it expands.
+$$E = C_{V,m} n \Delta T = (12.47)(80.2)(476.22 - 300) =  455,953 \text{ Joules}$$
 
 \section{How an Air Conditioner Works}
 
-Once again, imagine the accordion-like container filled with helium.  Let's say you walked it outside and compressed it from 2 cubic meters to 0.5 cubic meters in a vise.  150,000 Joules of kinetic energy would be created -- the container would get to 450 degrees Kelvin.  You keep it compressed, in the vise  but let it cool down outside.  When it gets back to 300 degrees Kelvin,  you walk it back inside.
+Once again, imagine the accordion-like container filled with helium.  Let's say you walked it outside and compressed it from 2 cubic meters to 0.5 cubic meters in a vise.  The container would get to 476 degrees Kelvin.  You keep it compressed, in the vise  but let it cool down outside.  When it gets back to 300 degrees Kelvin,  you walk it back inside.
 
-Now,  without letting any molecules in or out of the container,  you release the vise.  The gas is decompressed and gets very cold -- how cold?  Cold enough to accept 150,000 Joules of kinetic energy from your house.  That is,  it would absorb heat from your house.
+Now,  without letting any molecules in or out of the container,  you release the vise.  The gas is decompressed and gets very cold -- how cold?  Cold enough to accept 455,953 Joules of kinetic energy from your house.  That is,  it would absorb heat from your house.
 
 Now you walk outside with your accordion and your vise and repeat:
 \begin{enumerate}
