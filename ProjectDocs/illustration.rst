@@ -482,6 +482,39 @@ bayes
 Workbook 26
 ============
 
+gas
+	balloon.png
+		Goal: Show the air pressure forces inside and outside of a balloon
+		I used arrows to show the force of pressure simplified to 2D in a cutaway diagram. I created a stroke pattern in Illustrator using perpendicular arrows, and then created two inset balloon outlines with that stroke and it's inverse. 
+
+	aircolumn.png
+		Goal: Show air above a specific point of ground 
+
+		I created an isometric grid by skewing a rectangular grid and it rotating 30°. I used that grid to create an isometric cube for the ground, then another tall rectangular prism consisting of a low-opacity gradient to show the atmosphere thinning out. 
+
+
+	balloonColumn.png
+		Goal: Show how balloons react with increasing altitude. 
+
+		To show the bursting balloon I used the knife tool to cut separate pieces up, then I spread them out to show explosive motion.
+
+	airMattress1.png
+	airMattress2.png
+	airMattress3.png
+		Goal: Provide a good visual for the air mattress example
+
+		Added cows to make it more interesting for students and create a callback to an earlier chapter that uses the same cow
+
+		Used a cutaway of the air mattress and changing arrow colors to show temperature. Also changed tree shadows as sun rises.
+		Should have used the arrow stroke trick I used in the balloon example, but I just did the arrows mostly manually. 
+
+
+	waterBottle.png
+		Goal: show increasing air pressure as a water bottle is twisted and compressed
+
+		I wanted to make this familiar for highschool students, so I illustrated a twisted bottle with pressure building up behind the cap (classic classroom weapon). I used low opacity white shapes for shading. 
+
+
 Workbook 27
 ============
 
