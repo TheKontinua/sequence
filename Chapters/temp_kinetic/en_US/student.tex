@@ -16,9 +16,9 @@ With gases, are actually two different possible situations:
 
 All gases made up of one atom (Helium, for example, is a monoatomic gas.) have the same values for $C_{V,m}$ and $C_{P,m}$:
 
-$C_{V,m} = \frac{3}{2}R \approx 12.47 \text{ Joules per mole-degree}$
+$$C_{V,m} = \frac{3}{2}R \approx 12.47 \text{ Joules per mole-degree}$$
 
-$C_{P,m} = \frac{5}{2}R \approx 20.8  \text{ Joules per mole-degree}$
+$$C_{P,m} = \frac{5}{2}R \approx 20.8  \text{ Joules per mole-degree}$$
 
 (Remember from last chapter that $R$ is the ideal gas constant $\approx 8.31446$ Joules per mole-degree.)
 
@@ -161,31 +161,121 @@ Multiplying that by 100,000 pa, we get 499 Joules as we expected!
 
 \section{Why does a gas get hotter when you compress it?}
 
-Sticking with this example, let's say that you heated the 3 moles of helium at constant pressure with 1,247 Joules.  Once it reached $30^\circ$ Celsius, you stopped heating it, and started to increase pressure on it until it was its original volume.   What is going to happen?
+Now imagine that there is gas inside the piston and you push on the piston to compress that air.   The work that you do is converted into kinetic energy,  and that kinetic energy raises the temperature of the gas.
 
-The extra 499 Joules are going to be converted into kinetic energy.  If you don't let the heat escape, the gas is going to get even hotter!  How much hotter?
+So, for example,  if you had two moles of argon gas in the piston.  If you pushed the piston 0.1 meters with an average force of 50 newtons,  you will have done 5 Joules of work.
 
-The result will be exactly the same is if you never let the volume increase.  Thus the change in temperature (from the original $283.15^\circ$ Kelvin) will be given by:
+How much would 5 Joules raise the temperature of 2 mole of a monoatomic gas?  
 
-$$1,247 = C_{V,m} n \Delta T$$
+$$\Delta T = \frac{5}{(2)(C_{V,m})} = 0.2^\circ \text{ Kelvin}$$ 
 
-so 
+It works both ways:  compression makes a gas hotter  Decompression makes a gas colder.  You can sometimes experience the heat of compression when you pump up a bicycle tire -- as you pump the tire will get warmer.
 
-$$\Delta T = \frac{1,247}{(12.47)(3)} = 33.33^\circ \text{ Kelvin}$$
-
-Thus, the new temperature of the gas would be $283.15.15 + 33.33 = 316.48^\circ$ Kelvin.  Significantly warmer than before you compressed it.
-
-When you compress any gas it gets hotter.  You can experience this when you pump up a bike tire.  If you increase the pressure rapidly,  the air inside the tire will get noticeable hotter.
-
-And the reverse is true: If you decompress a gas,  it will get colder.  If you let the air out of your bike tire,  it will be noticeable colder as it comes out.
-
-If you compress or decompress a gas without letting any heat enter or depart,  we say the compression or decompression was \newterm{adiabatic} (pronounced "ay-die-uh-bat-ick").
+If you compress or decompress a gas without letting any heat enter or depart,  we say the compression or decompression was \newterm{adiabatic}.  In order to solve any interesting problems about heating/cooling due to compression/decompression,  you will need to assume the process was adiabatic.
 
 \section{How much hotter?}
 
-In the example above,   you could measure the work done when you compressed the gas back to its original volume.  And that would tell you how much kinetic energy had to be absorbed by the gas.   Here's is what makes that a little tricky:  As you compress the gas,  the pressure you are fighting goes up with the decrease in volume \emph{and} the increase in temperature.
+Let's say you have a accordion-like container filled with helium at 100 kPa (about 1 atmosphere) and 300 degrees Kelvin.  It holds 2 cubic meters.    And then you put it in a vice and quickly compress it down to 0.5 cubic meters.  Assuming it was adiabatic,  how hot would the gas inside be after the compression?
 
-Fortunately,  there is two handy rules:
+Here is the challenging part:  As you crush the container,  the temperature and the pressure in the container are both increasing.  So as you go,  it gets harder and hard to crush.  So each milliliter of volume that you eliminate requires a little more work than the milliliter before.
+
+Let's simulate the process in python,  and then I'll give you the formula.  
+
+In the simulation, you will start with an initial volume of 2 cubic meters and crush it down to 0.5 cubic meters in 40 steps.  At each step you will recalculate the temperature and pressure.
+
+Then you will plot the results.  Make a file called \filename{gas\_crunch.py}:
+
+\begin{Verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+V_initial = 2.0 # cubic meters
+V_final = 0.5 # cubic meters
+step_count = 40 # steps
+
+T_initial = 300.0 # kelvin
+P_initial = 100000 # pascals
+
+# Constants
+R = 8.314462618 # ideal gas constnt
+C_v =  3.0 * R / 2.0 # molar heat capacity (constant volume)
+
+# Compute the number of moles
+n = P_initial * V_initial/(R * T_initial) 
+print(f"The container holds {n:.2f} moles of helium")
+
+# How much volume do we need to eliminate in each step? 
+# (in cubic meters)
+step_size = (V_initial - V_final) / step_count
+
+# For recording the state for each step
+data_log = np.zeros((step_count, 3))
+
+# Variables to update in the loop
+V_current = V_initial
+T_current = T_initial
+P_current = P_initial
+
+for i in range(step_count):
+    # Record the current state
+    data_log[i,:] = [T_current, V_current, P_current/1000.0]
+
+    # Find how much energy to make the step at the current pressure
+    E_step = step_size * P_current
+
+    # Find how big the change in temperature will be from that energy
+    delta_T = E_step / (n * C_v)
+
+    # Update the current temperature, volume, and pressure
+    T_current += delta_T
+    V_current -= step_size
+    P_current = n * R * T_current / V_current
+
+print(f"Iterative:{T_current:0.3f} K, {V_current:0.3f} m3, {P_current/1000.0:0.3f} kPa")
+
+fig, axs = plt.subplots(3,1,figsize=(8, 6))
+axs[0].plot(data_log[:,0], 'k', lw=0.2)
+axs[0].plot(data_log[:,0], 'r.')
+axs[0].set_ylabel("Temperature (K)")
+
+axs[1].plot(data_log[:,1],'k', lw=0.2)
+axs[1].plot(data_log[:,1], 'r.')
+axs[1].set_ylabel("Volume (cubic m)")
+
+axs[2].plot(data_log[:,2], 'k', lw=0.2)
+axs[2].plot(data_log[:,2], 'r.')
+axs[2].set_ylabel("Pressure (kPa)")
+
+axs[2].set_xlabel("Step")
+
+fig.savefig('chunkplot.png')
+\end{Verbatim}
+
+When you run this,  you will see how many moles of gas there are and reasonable estimates of the temperature,  volume,  and pressure:
+
+\begin{Verbatim}
+> python3 gas_crunch.py            
+The container holds 80.18 moles of helium
+Iterative:733.499 K, 0.500 m3, 977.999 kPa
+\end{Verbatim}
+
+And a good plot of the intermediate values:
+
+\includegraphics[width=\textwidth]{chunkplot1.png}
+
+But, we will get better estimates if we break it up into 400 steps instead of 40.    Change the line that defines the number of steps:
+
+\begin{Verbatim}
+step_count = 400 # steps
+\end{Verbatim}
+
+Now the predicted temperature and pressure should be something like $753.603^\circ$  K and 1004.803 kPa.   (This is much closer to the correct result: :$755.953^\circ$ K and 1007.937 kPa.)
+
+What if you break it into 400,000 steps?  Now the result should be really, really close to correct.  And the plot is quite accurate:
+
+\includegraphics[width=\textwidth]{chunkplot2.png}
+
+It is inefficient to have to do long simulations to guess the final temperature and pressure. Fortunately,  there are two handy rules you can use to skip this:
 
 \begin{mdframed}[style=important, frametitle={Adiabatic Compression and Decompression}]
 
@@ -207,38 +297,37 @@ stays constant
 
 \end{mdframed}
 
-Let's say you have a accordion-like container filled with helium at 100 kPa (about 1 atmosphere) and 300 degrees Kelvin.  It holds 2 cubic meters.  
-How many molecules are in the container?
+For a monoatomic gas:
 
-$$n = \frac{PV}{RT} = \frac{(100000)(2)}{(8.31446)(300)} = 80.2 \text{ moles}$$
+$$\gamma = \frac{C_{P,m}}{C_{V,m}} = \frac{5}{3}$$
 
-Now you tighten a vise around the accordion until the 80.2 moles of helium inside has been crushed into 0.5 cubic meters,  without letting any heat escape.
+$$\gamma - 1 =  \frac{2}{3}$$
 
-How can we predict the new temperature of the gas inside?
-
-$$\gamma - 1 = \frac{C_{P,m}}{C_{V,m}} - 1= \frac{2}{3}$$
-
-Before the compression
+Before the compression: 
 
 $$T \left(V^{\left( \gamma - 1 \right)} \right) = 300 \left( 2^{0.6667} \right) = 476.22$$
 
-After the compression
+After the compression it has to be the same:
 
 $$T \left(V^{\left( \gamma - 1 \right)} \right) = T \left( 0.5^{0.6667} \right) = 476.22$$
 
 Thus 
 
-$$T = 756^\circ \text{ Kelvin}$$
+$$T = 755.95^\circ \text{ Kelvin}$$
+
+We can then use the ideal gas law to solve for the final pressure:
+
+$$P = \frac{n R T}{V}  =  \frac{(80.18)(8.31446)(755.95)}{0.5} = 1007937 \text{ pascals}$$
 
 That's hot!  As you let it cool back down to 300 degrees Kelvin,  how much heat would be released?  
 
-$$E = C_{V,m} n \Delta T = (12.47)(80.2)(476.22 - 300) =  455,953 \text{ Joules}$$
+$$E = C_{V,m} n \Delta T = (12.47)(80.2)(755.95 - 300) \approx  456 \text{ kJ}$$
 
 \section{How an Air Conditioner Works}
 
-Once again, imagine the accordion-like container filled with helium.  Let's say you walked it outside and compressed it from 2 cubic meters to 0.5 cubic meters in a vise.  The container would get to 476 degrees Kelvin.  You keep it compressed, in the vise  but let it cool down outside.  When it gets back to 300 degrees Kelvin,  you walk it back inside.
+Once again, imagine the accordion-like container filled with helium.  Let's say you walked it outside and compressed it from 2 cubic meters to 0.5 cubic meters in a vise.  The container would get to 755.95 degrees Kelvin.  You keep it compressed, in the vise  but let it cool down outside.  When it gets back to 300 degrees Kelvin,  you walk it back inside.
 
-Now,  without letting any molecules in or out of the container,  you release the vise.  The gas is decompressed and gets very cold -- how cold?  Cold enough to accept 455,953 Joules of kinetic energy from your house.  That is,  it would absorb heat from your house.
+Now,  without letting any molecules in or out of the container,  you release the vise.  The gas is decompressed and gets very cold -- how cold?  Cold enough to accept about 456 kJ of kinetic energy from your house.  That is,  it would absorb heat from your house until the gas inside was the same temperature as your house.
 
 Now you walk outside with your accordion and your vise and repeat:
 \begin{enumerate}
