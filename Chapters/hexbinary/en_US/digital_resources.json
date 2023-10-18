@@ -1,6 +1,6 @@
 {
   "files": [],
-  "requires": null,
+  "requires": [],
   "covers": [
     {
       "id": "decint-rep",

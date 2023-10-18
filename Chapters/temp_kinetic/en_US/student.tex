@@ -233,7 +233,8 @@ for i in range(step_count):
 
 print(f"Iterative:{T_current:0.3f} K, {V_current:0.3f} m3, {P_current/1000.0:0.3f} kPa")
 
-fig, axs = plt.subplots(3,1,figsize=(8, 6))
+fig, axs = plt.subplots(3,1,sharex=True, figsize=(8, 6))
+axs[0].set_xlim((0,step_count))
 axs[0].plot(data_log[:,0], 'k', lw=0.2)
 axs[0].plot(data_log[:,0], 'r.')
 axs[0].set_ylabel("Temperature (K)")
@@ -248,7 +249,7 @@ axs[2].set_ylabel("Pressure (kPa)")
 
 axs[2].set_xlabel("Step")
 
-fig.savefig('chunkplot.png')
+fig.savefig('tvpplot.png')
 \end{Verbatim}
 
 When you run this,  you will see how many moles of gas there are and reasonable estimates of the temperature,  volume,  and pressure:
@@ -274,6 +275,9 @@ Now the predicted temperature and pressure should be something like $753.603^\ci
 What if you break it into 400,000 steps?  Now the result should be really, really close to correct.  And the plot is quite accurate:
 
 \includegraphics[width=\textwidth]{chunkplot2.png}
+
+(You can comment out the lines that make the red dots on the graphs.  No
+one wants to see 400,000 red dots.)
 
 It is inefficient to have to do long simulations to guess the final temperature and pressure. Fortunately,  there are two handy rules you can use to skip this:
 
