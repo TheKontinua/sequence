@@ -41,6 +41,18 @@ love something better.
 I'd prefer it to be written in python.  I imagine it running in terminal.  But, a GUI is OK as long as it
 runs on Macs and Linux.
 
+======================
+Problems and Solutions
+======================
+
+Every chapter needs at least 6 practice problems and 6 test problems.
+
+The practice problems and solutions go into the appropriate ``student.tex``.  
+
+The test problems will be entered into the mentoris web application (which doesn't exist as I am writing this, so just put them in a
+text file and email them to me.).
+Besides a problem and a solution, the test problems will also need a grading rubric.
+
 ========
 Indexing
 ========
