@@ -31,7 +31,7 @@ creating a web page for each book. Here, for example, is the section for "The Ph
 .. image:: webresources.png
     :width: 700 px
     
-It is run as you would expect from inside the ``Build directory``::
+It is run as you would expect from inside the ``Build`` directory::
 
     python3 gather_resources.py
 
