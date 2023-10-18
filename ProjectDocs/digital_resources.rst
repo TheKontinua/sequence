@@ -13,7 +13,7 @@ Besides an ID, each objective gets:
 
 * A description: "Atmospheric pressure and altitude" (required)
 * Some online video links (optional)
-* Some online reference links.
+* Some online reference links (optional)
 
 Besides a list of objectives that a chapter supplies and the list of objectives that
 are prerequisites,  the chapter can have some files the student can use.  For example, maybe
@@ -29,7 +29,8 @@ This program walks the chapter directories, parsing each ``digital_resources.jso
 creating a web page for each book. Here, for example, is the section for "The Physics of Gases":
 
 .. image:: webresources.png
-
+    :width: 200 px
+    
 It is run as you would expect from inside the ``Build directory``::
 
     python3 gather_resources.py
