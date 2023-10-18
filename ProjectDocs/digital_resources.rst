@@ -10,6 +10,7 @@ Each of these objectives gets a short unique ID like "atmos" might represent
 the objective of having the student understand the idea of atmospheric pressure.
 
 Besides an ID, each objective gets:
+
 * A description: "Atmospheric pressure and altitude" (required)
 * Some online video links (optional)
 * Some online reference links.
