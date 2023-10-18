@@ -29,7 +29,7 @@ This program walks the chapter directories, parsing each ``digital_resources.jso
 creating a web page for each book. Here, for example, is the section for "The Physics of Gases":
 
 .. image:: webresources.png
-    :width: 200 px
+    :width: 700 px
     
 It is run as you would expect from inside the ``Build directory``::
 
