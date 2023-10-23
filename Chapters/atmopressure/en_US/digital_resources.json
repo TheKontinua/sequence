@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "ar_plot.py",
+      "desc": "Python program that generated PDF of molecular speeds"
+    }
+  ],
+  "requires": [
+    "atom",
+    "fma",
+    "mole",
+    "energy-forms"
+  ],
+  "covers": [
+    {
+      "id": "atmos",
+      "desc": "Atmospheric pressure and altitude",
+      "videos": [
+        "https://youtu.be/xJHJsA7bYGc?si=-GvNXz-qVjSrAIhd"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Atmospheric_pressure"
+      ]
+    },
+    {
+      "id": "gas-temp",
+      "desc": "How the temperature of a gas relates to the speed of the molecules",
+      "videos": [
+        "https://youtu.be/1S9cuYascPQ?si=-3l1h9QrUsXhvhZC"
+      ],
+      "references": [
+        "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Map%3A_Physical_Chemistry_for_the_Biosciences_(Chang)/02%3A_Properties_of_Gases/2.06%3A_Kinetic_Theory_of_Gases",
+        "https://en.wikipedia.org/wiki/Kinetic_theory_of_gases"
+      ]
+    },
+    {
+      "id": "abs-zero",
+      "desc": "Absolute zero",
+      "videos": [
+        "https://youtu.be/TNUDBdv3jWI?si=KCVL8xng5c-vvzbb"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Absolute_zero"
+      ]
+    },
+    {
+      "id": "ideal-gas-law",
+      "desc": "The Ideal Gas Law",
+      "videos": [
+        "https://youtu.be/qObcdZj8YTM?si=KqJZqU7QSIuc91ol"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Ideal_gas_law"
+      ]
+    }
+  ]
+}
