@@ -33,9 +33,9 @@ types = {("files","desc"):"string",
 def inputWithReplacement(prompt,i=0, default_value=None):
     fprompt = prompt
     if i > 0:
-        fprompt = f"{fprompt} {i}"
-
-    fprompt = f"    {fprompt}: "
+        fprompt = f"{fprompt} {i}:"
+    else:
+        fprompt = f"    {fprompt}: "
 
     if default_value is not None:
         def hook():
@@ -60,7 +60,7 @@ def inputListStringWithReplacement(prompt, i=0, default_value=None):
     if len(stringresult) > 1:
         return [s.strip() for s in stringresult.split(",")]
     else:
-        return None
+        return []
 
 # Call the right input method based on dtype
 def inputWithType(dtype, prompt, i=0, default_value=None):
@@ -94,6 +94,10 @@ if os.path.exists(filename):
 else: # Else create a new one
     original_data_dict = {}
 
+# Get the topic index
+with open("../../topic_index.json", "r") as f:
+    topics = json.load(f)
+
 # Make a dictionary that we can edit
 data_dict = {}
 
@@ -109,8 +113,25 @@ for tkey in top_level:
             old_value = original_data_dict[tkey]
         else:
             old_value = None
+        confirmed = False
+        while not confirmed:
+            new_value = inputWithType(dtype, base_prompt, 0, old_value)
 
-        new_value = inputWithType(dtype, base_prompt, 0, old_value)
+            if tkey=="requires" and len(new_value) > 0:
+                for k in new_value:
+                    if k in topics:
+                        d = topics[k]
+                        print(f'{k}: \"{d["desc"]}\"')
+                    else:
+                        print(f'{k} is unknown!')
+                confirm = inputWithReplacement("Confirmation", default_value="y")
+                if confirm.startswith("y"):
+                    confirmed = True
+                else:
+                    confirmed = False
+
+            else:
+                confirmed = True
         data_dict[tkey] = new_value
 
     # Childen? Gather answer as a list of dicts
