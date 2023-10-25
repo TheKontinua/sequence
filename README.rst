@@ -92,59 +92,6 @@ LaTeX instead of something like reStructuredText, we giving up nice
 web rendering in return for a lot of control over page layout. I am
 comfortable with this compromise.
 
-Building the books
-------------------
-
-You will need to have installed git, Python 3, and LaTeX.
-
-(On a Mac, you should install Xcode (from the app store and it includes git) and `brew <https://brew.sh>`_. Then::
-
-  brew install python
-  brew cask install mactex-no-gui
-
-Clone the github repository::
-  
-  git clone https://github.com/TheKontinua/sequence.git
-
-You will also need some fonts from the `Google Font Collection <https://fonts.google.com/>`_ :
-
-* Marcellus Regular
-* Marcellus SC Regular
-* OpenSans Bold
-* OpenSans Bold Italic
-* OpenSans Semi Bold
-  
-In the ``Build`` directory, there are three python scripts called
-``build_workbook.py``, ``gather_resources.py`` and ``clean.py``. The first
-time you run any of these, the file ``Build/user.cfg`` will be
-created.  In this file, you can specify where ``pdflatex`` is installed
-on your system.  You can also specify your default paper size (``A4``
-or ``Letter``).
-
-To build a PDF of Workbook 5 for your default paper size::
-
-  python3 build_workbook.py 5
-
-Intermediate files will be created in directory
-``Build/Intermediate``. You can ignore that directory entirely.  The final pdf will
-appear in as ``Build/workbook-05-en_US.pdf``
-
-To build all the books::
-
-  python3 build_workbook.py all
-
-To build a compressed tarball with all the digital resources the student will need (including an html page will all the video links) for Workbook 5::
-
-  python3 gather_resources.py 5
-
-A file called ``Build/resources-05-en_US.tgz`` will appear.
-
-To delete all the pdfs and tgz files in ``Build`` and the entire ``Intermediate`` directory::
-
-  python3 clean.py
-
-If you have unusual needs (strange paper size, strange location for lualatex), edit \
-your ``Build/user.cfg`` file.
 
 Programming Language and Software
 ---------------------------------
@@ -195,4 +142,8 @@ is curious and willing to struggle a little to satisfy that curiosity.
 More
 ----
 
-Check out the `Outline <ProjectDocs/outline.rst>`_. 
+Want to know more about what will be in the books? `Outline <ProjectDocs/outline.rst>`_.
+
+Want to know how to build the books? `Build <Build/README.rst>`_. 
+
+Want to help? `To-Do <ProjectDocs/todo.rst>`_. 
