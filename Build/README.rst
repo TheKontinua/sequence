@@ -13,7 +13,7 @@ You will need to have installed git, Python 3, and LaTeX.
 (On a Mac, you should install Xcode (from the app store and it includes git) and `brew <https://brew.sh>`_. Then::
 
   brew install python
-  brew cask install mactex-no-gui
+  brew install mactex-no-gui
 
 Clone the github repository::
   
