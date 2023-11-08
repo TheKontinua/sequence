@@ -1,3 +1,4 @@
 biases1
+friction
 basic_statistics
 stat_spreadsheets
