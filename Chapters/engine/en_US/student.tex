@@ -4,9 +4,7 @@ Most cars,  airplanes,  and chainsaws get their power from burning hydrocarbons 
 combustion chamber.   We say they have \newterm{internal combustion engines}.   There are many types of internal combustion engines: jet engines, rotary engines, diesel engines, etc.  In this chapter, we are 
 going to explain how one type,  piston engines, work.   Most cars have piston engines.
 
-Most piston engines burn gasoline,  which is a blend of liquid hydrocarbons.  Hydrocarbons are molecules made of hydrogen and carbon (and maybe a little oxygen).  In the presence of oxygen and heat,  hydrocarbons burn -- the carbon combines with oxygen to become $CO^2$ and the hydrogen combines with oxygen to become $H_2O$.  In the process,  a lot of energy is released.
-
-
+Most piston engines burn gasoline,  which is a blend of liquid hydrocarbons.  Hydrocarbons are molecules made of hydrogen and carbon (and maybe a little oxygen).  In the presence of oxygen and heat,  hydrocarbons burn -- the carbon combines with oxygen to become $CO_2$ and the hydrogen combines with oxygen to become $H_2O$.  In the process,   heat is released,  which causes the gases in the cylinder to create a lot of pressure on the piston.
 
 
 \section{Parts of the Engine}
@@ -110,7 +108,7 @@ On the Wikipedia page for the Model T,  we see the following facts:
 \item Compression ratio:: 3.98:1
 \end{itemize}
 
-You can assume that the air/fuel mixture is $80^\circ$ C before the pre-burn compression starts.
+You can assume that the air/fuel mixture is $80^\circ$ C before the pre-burn compression starts.  Thus the ethanol,  which boils at $78^\circ$ C, is its vapor phase.
 
 The questions, then, are:
 
@@ -126,32 +124,29 @@ The questions, then, are:
 
 \begin{Answer}[ref=fuelmix] 
 
-The temperature is $80 + 273.15 = 353.15^\circ$ K.
+The pre-compression temperature is $80 + 273.15 = 353.15^\circ$ K.
 
-The radius of the cylinder is 4.7625cm.
+The radius of the cylinder is $9.535/2 =4.7625$ cm.
 
 The area of a cross section of the cylinder is $\pi r^2 = \pi (4.7625)^2 \approx 71.26$ cm.
 
-So the change in volume between the minimum and maximum volume is $ (71.26)(10.16) \approx 724$ ml.
+So the change in volume between the minimum and maximum volume is $ (71.26)(10.16) = 724$ ml.
 
-(With four cylinders,  the displacement of a Model T is thus 2,896 cc. )
+(With four cylinders,  the displacement of a Model T is thus $ (4)(724) = 2,896$ cc. )
 
 Let's say the volume of the combustion chamber at its smallest is $v_{\text{min}}$ ml.   Then the volume at the maximum is $v_{\text{min}} +724$ ml.  Using the compression ratio,  we get that:
 
-$$3.98_v{\text{min}} = v + 724$$
+$$3.98v_{\text{min}} = v_{\text{max}} = v_{\text{min}} + 724$$
 
-Solving for $v_{\text{min}}$:  $v \approx 243$ ml.
+Solving for $v_{\text{min}} \approx 243$ ml.
 
 Thus the maximum volume would be $v_{\text{max}} = v_{\text{min}} + 724 = 967$ ml or 0.967 liters.
 
-We are looking for the moles of ethanol; let's call it $n_e$.
-
 By the ideal gas law,  $n$ moles any gas (air or vaporized ethanol) at  $353.15^\circ$ K and 100 kPa has a volume given by:
 
-$$V_e = \frac{n_e r T}{P} = \frac{n_e(8.314)(353.15)}{100} = 29.36 \text{liters}$$ 
+$$V = \frac{n r T}{P} = \frac{n (8.314)(353.15)}{100} = 29.36 n\text{ liters}$$ 
 
-
-So, if we have $n_a$ moles of air and $n_e$ moles of ethanol,  the total volume will fill the maximum volume of the cylinder:
+So, if we have $n_a$ moles of air and $n_e$ moles of vaporized ethanol,  the total volume will fill the maximum volume of the cylinder:
 
 $$29.36 (n_a + n_e) = 0.967$$
 
@@ -169,13 +164,13 @@ $$3 n_e  =   0.006916 - 0.21 n_e$$
 
 Solving for $n_e$:
 
-$$n_e = \frac{0.006916}{3.21}  = 0.002155 \text{ moles  of ethanol}$$
+$$n_e = \frac{0.006916}{3.21}  = 0.002154 \text{ moles  of ethanol}$$
 
 For every molecule of ethanol that burns we get 2 molecules of $CO_2$: 0.004309 moles.
 
 For every molecule of ethanl that burns we get 3 molecules of $H_2OI$: 0.006463 moles.
 
-How much heat?  $(0.002155)(1330) =  31.92$ kilojoules.
+How much heat?  $(0.002154)(1330) =  2.865$ kilojoules from each burn.
 
 \end{Answer}
 
