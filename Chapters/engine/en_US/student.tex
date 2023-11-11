@@ -81,11 +81,14 @@ If you look up the specs on an engine,  you will see the following:
 \item What fuel it runs on.
 \end{itemize}
 
-The difference between the minimum and maximum value of the cylinder is known as its \newterm{displacement}.   We often talk about the displacement of the entire engine, which the
- cylinder's displacement times the number of cylinder.  The displacement of an engine can give you a
+The difference between the minimum and maximum value of the cylinder is known as its \newterm{displacement}.   The displacement represents the volume of air/fuel sucked into the intake valve 
+before the compression begins.
+
+We often talk about the displacement of the entire engine, which the
+ cylinder's displacement times the number of cylinders.  The displacement of an engine can give you a
  good idea of how much power it can produce.
  
-For motorcycles,  the displacement is even part of the name.   For example,  the Kawasaki Ninja 650 has about 650 cubic centimeters of displacement.  
+For motorcycles,  the displacement is often part of the name.   For example,  the Kawasaki Ninja 650 has about 650 cubic centimeters of displacement.  
 
 \section{The Ford Model T and Ethanol}
 
@@ -105,15 +108,16 @@ On the Wikipedia page for the Model T,  we see the following facts:
 \begin{itemize}
 \item Cylinder bore: 9.525 cm
 \item Piston stroke: 10.16 cm
-\item Compression ratio:: 3.98:1
 \end{itemize}
 
-You can assume that the air/fuel mixture is $80^\circ$ C before the pre-burn compression starts.  Thus the ethanol,  which boils at $78^\circ$ C, is its vapor phase.
+You can assume that the air/fuel mixture is $80^\circ$ C before the pre-burn compression starts.  (Thus the ethanol,  which boils at $78^\circ$ C, is in its vapor phase.
 
 The questions, then, are:
 
 \begin{itemize}
-\item How many moles of ethanol should go into a cylinder for each burn?
+\item What is the displacement of a single cylinder?
+\item How many moles of gas ($80^\circ$ C and 100 kPa) will get sucked through the intake valve?
+\item How many moles of vaporized ethanol should be part of that?
 \item How many moles of $CO_2$  and  $H_2O$ are created in each burn?
 \item How much heat is created in each burn?
 \end{itemize}
@@ -124,54 +128,66 @@ The questions, then, are:
 
 \begin{Answer}[ref=fuelmix] 
 
-The pre-compression temperature is $80 + 273.15 = 353.15^\circ$ K.
+The pre-compression temperature is $80\^circ \text{ C } + 273.15 = 353.15^\circ$ K.
 
 The radius of the cylinder is $9.535/2 =4.7625$ cm.
 
-The area of a cross section of the cylinder is $\pi r^2 = \pi (4.7625)^2 \approx 71.26$ cm.
+The area of a cross section of the cylinder is $\pi r^2 = \pi (4.7625)^2 \approx 71.26$ ml.
 
-So the change in volume between the minimum and maximum volume is $ (71.26)(10.16) = 724$ ml.
+So the change in volume between the minimum and maximum volume is $ (71.26)(10.16) = 724$ ml, or 0.724 liters.
 
-(With four cylinders,  the displacement of a Model T is thus $ (4)(724) = 2,896$ cc. )
+(With four cylinders,  the total displacement of a Model T is thus $ (4)(724) = 2,896$ cc. )
 
-Let's say the volume of the combustion chamber at its smallest is $v_{\text{min}}$ ml.   Then the volume at the maximum is $v_{\text{min}} +724$ ml.  Using the compression ratio,  we get that:
+Now we use the ideal gas to figure out how many moles of gas will fit into 0.724 liters at 100 kPa and $353.15^\circ$ K.
 
-$$3.98v_{\text{min}} = v_{\text{max}} = v_{\text{min}} + 724$$
+$$n = \frac{PV}{rT} = \frac{(100)(0.724)}{(8.314)(353.15)} = 0.02466 \text{ moles of air+fuel }$$ 
 
-Solving for $v_{\text{min}} \approx 243$ ml.
+So,  if we suck $n_a$ moles of air and $n_e$ moles of vaporized ethanol in to the cylinder:
 
-Thus the maximum volume would be $v_{\text{max}} = v_{\text{min}} + 724 = 967$ ml or 0.967 liters.
-
-By the ideal gas law,  $n$ moles any gas (air or vaporized ethanol) at  $353.15^\circ$ K and 100 kPa has a volume given by:
-
-$$V = \frac{n r T}{P} = \frac{n (8.314)(353.15)}{100} = 29.36 n\text{ liters}$$ 
-
-So, if we have $n_a$ moles of air and $n_e$ moles of vaporized ethanol,  the total volume will fill the maximum volume of the cylinder:
-
-$$29.36 (n_a + n_e) = 0.967$$
+$$n_a + n_e = 0.02466$$
 
 So
 
-$$n_a = 0.03293 -  n_e$$
+$$n_a = 0.02466 -  n_e$$
 
 21\% of $n_a$ is $O_2$:
 
-$$n_{O_2} = 0.21 n_a = 0.21 (0.03293 -  n_e) = 0.006916 - 0.21 n_e$$
+$$n_{O_2} = 0.21 n_a = 0.21 (0.02466 -  n_e) = 0.005178 - 0.21 n_e$$
 
 For a clean burn,  we need 3 times as many $O_2$ molecules as ethanol molecules.  Thus:
 
-$$3 n_e  =   0.006916 - 0.21 n_e$$
+$$3 n_e  =   n_{O_2} = 0.005178 - 0.21 n_e$$
 
 Solving for $n_e$:
 
-$$n_e = \frac{0.006916}{3.21}  = 0.002154 \text{ moles  of ethanol}$$
+$$n_e = \frac{0.005178}{3.21}  = 0.001613 \text{ moles  of ethanol}$$
 
-For every molecule of ethanol that burns we get 2 molecules of $CO_2$: 0.004309 moles.
+For every molecule of ethanol that burns we get 2 molecules of $CO_2$: 0.003226 moles.
 
-For every molecule of ethanl that burns we get 3 molecules of $H_2OI$: 0.006463 moles.
+For every molecule of ethanl that burns we get 3 molecules of $H_2OI$: 0.004839 moles.
 
-How much heat?  $(0.002154)(1330) =  2.865$ kilojoules from each burn.
+How much heat?  $(0.001613)(1330) =  2.145$ kilojoules from each burn.
 
 \end{Answer}
+
+\section{Compression Ratio}
+
+Most of the inefficiency of a motor is heat that escapes through the exhaust valve.  If your piston stroke were long enough,  you could keep increasing the volume (which would cool the gases inside) until the gases inside were the same temperature as the outside world.  Then there would be no wasted heat in the exhaust.
+
+Generally engines with a higher compression ratios tend to waste less energy through the heat of the exhaust.  The Model T had a compression ratio close to 4:1.  Modern car engines typically have compression ratios between to 8:1 and 12:1.  
+
+Cars with really high compression ratios often require fuels with a lot of kilojoules per mole -- we say \newterm{high octane}.   If the fuel doesn't have enough energy,  the engine makes loud knocking noises as the pistons don't have enough energy to push through their entire stroke.
+
+It turned out that an easy way to boost the octane of the gasoline was to add tetraethyl lead.  Gasoline containing tetraethyl lead was known at "Leaded Gasoline" and was intended to prevent the knocking.   It is difficult to overstate the damages caused by putting large amounts of lead in the air.  Gradually, starting in with Japan in 1986, every country in the world has banned leaded gasoline.
+
+\section{The Choke and Direct Fuel Injection}
+
+Any older car (before 1990) will  have a carburetor,  which ensures that the ratio between fuel and oxygen is constant regardless of the amount of fuel released by the throttle.   
+
+If you go to start an old car on a cold morning,  the cold engine will not properly vaporize the fuel and the engine may not have enough power to start.   For this reason,  most carburetors have a \newterm{choke value} that makes the mix richer.  (If you pull the choke valve,  be sure to push it back after the engine starts.)
+
+The carburetor was a common source of engine problems and inefficiencies.   Starting in the 1990s,  car engines started using direct fuel injection:  Air still came in through the intake manifold,  but fuel was sprayed directly into the cylinder by a fuel injection system.
+
+In modern cars,  the fuel injection system is controlled by a computer (an  \newterm {Engine Control Module} or ECM) which delivers the fuel at the perfect time with the perfect amount based on environmental variables like the temperature of the engine and the barometric pressure (usually related to that altitude at which the engine is operating).
 
 
