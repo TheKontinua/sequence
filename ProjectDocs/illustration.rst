@@ -105,16 +105,64 @@ Workbook 1
 Workbook 2
 ===========
 
+	biases1
+		bandwagonEffect.png
+			Goal: Show a visual example of the bandwagon effect
 
-NOTE: I put off WB2 since the style was so different. 
+			I duplicated the standard Kontinua human, rotating arms and legs. For some overlapping limbs I used a white outline.
 
-Should graphics be foramtted similarly?
+		confirmationBias.png
+			Goal: Show a visual example of confirmation bias
+
+			I used the Kontinua human and added a tshirt. I didn't include a collar on the shirt because it ends up looking weird with no neck. I also used light gray for the night sky instead of black to save on ink.
+
+		confirmationBias2.png
+			Goal: create a venn diagram explaining this concept
+
+			Standard circles with text in the middle
+
+		curseOfKnowledge.png
+			Goal: Show how an in-depth understanding can negatively impact your ability to explain a topic
+
+			Drew a city, duplicated it, and made it less detailed. Used a bubble shape as a clipping mask to make it appear as a thought bubble. I added a cap and a camera to make the confused person look like a tourist.
 
 
-biases1
-basic_statistics
-stat_spreadsheets
+		dunningKruger.png
+			Goal: show a typical dunning-kruger graph
 
+			Standard bezier curves and text
+
+		falseConsensus.png
+			Goal: Show a visual example of false consensus
+
+			Used the rotate tool with an adjusted anchor point to quickly rotate the people around the planet. Then adjusted the colors. I used a more simplified version of the normal Kontinua human, partly since that figure doesn't look great standing still straight on.
+
+		fundamentalAttributionError.png
+			Goal: Show a visual example of FAR
+
+			Clipping masks for the two interior thought bubbles. Showing the example of an employee thinking their coworker is late due to laziness, while when they are late they attribute that to traffic.
+
+		inGroupFavoritism.png
+			Goal: Show a visual example of in group favoritism
+
+			A person with glasses and red coloring gives an award to someone with the same characteristics, ignoring the other person. Used white shapes rather than subtractions, so this only works on a white background.
+
+		spotlightEffect.png
+			Goal: Show a visual example of the spotlight effect
+
+			NOTE: Shirt collar looks weird
+
+			Used graphics from previous units to show intelligence, and a clown to show lack of intelligence (sorry, clowns)
+
+		survivorshipBias.png, survivorshipBias2.png
+			Goal: Show an example of survivorship bias
+
+			Used an example of poorly made houses next to a well-made house. Only the well made house survives. Used different shades of Kontinua blue to keep it simple since there wasn't a big need to show any other objects.
+
+	basic_statistics
+		N/A
+	stat_spreadsheets
+		N/A
 Workbook 3
 ===========
 
@@ -387,8 +435,38 @@ eye
 		NOTE 2: Should we clarify which tree the eye actually sees?
 
 reflection
+	reflection.png
+		Goal: show reflection as a concept
+
+		Added the angles referenced in the text to provide a clear visual example. I used a flashlight/laser combo that emits normal light in a thin parallel beam for simplicity. Added shading to show roundness and used diagonal alternating shades of gray to show reflectivity of the surface.
+
 refraction
+	refraction.png
+		Goal: Show how refraction works
+
+		Used a glass of water and another light beam. Included angles and continued the original direction of the beam to clearly show difference in angle.
+
+		NOTE: Originally considered fading out the underwater portion of the beam, but kept full opacity for clarity.
+
+		TODO: Bottom should be rounded. See atmospheric_pressure chapter for example.
+
 lens
+
+	concave.png
+		Goal: Show how light travels through a concave lens
+
+		Originally this graphic included glare lines. However, we decided to remove those as this should show a cutaway, and we decided it was important to define a distinct design language for cutaways versus side-views. 
+
+
+	convex.png
+		Goal: Show how light travels through a convex lens
+
+		Same as concave.png as far as glare. Used a CAD-like line to show focal length.
+
+
+		Note: This is likely not perfectly geometrically accurate
+
+
 py_images
 
 Workbook 13
@@ -453,6 +531,12 @@ Workbook 22
 
 Workbook 23
 ============
+	
+	Latitude and Longitude
+		lat.png
+			Circle the size of the final circle
+			Effects>3D and materials>classic rotate
+			Rotate 15° and duplicate, repeat until you have degrees for the full sphere.
 
 Workbook 24
 ============

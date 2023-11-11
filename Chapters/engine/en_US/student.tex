@@ -2,13 +2,10 @@
 
 Most cars,  airplanes,  and chainsaws get their power from burning hydrocarbons in a 
 combustion chamber.   We say they have \newterm{internal combustion engines}.   There are many types of internal combustion engines: jet engines, rotary engines, diesel engines, etc.  In this chapter, we are 
-going to explain how piston engines work. 
+going to explain how one type,  piston engines, work.   Most cars have piston engines.
 
-Most piston engines burn gasoline,  which is a blend of liquid hydrocarbons.  Hydrocarbons are molecules made of hydrogen and carbon (and maybe a little oxygen).  In the presence of oxygen and heat,  hydrocarbons burn -- the carbon combines with oxygen to become $CO^2$ and the hydrogen combines with oxygen to become $H_2O$.  In the process,  a lot of energy is released.
+Most piston engines burn gasoline,  which is a blend of liquid hydrocarbons.  Hydrocarbons are molecules made of hydrogen and carbon (and maybe a little oxygen).  In the presence of oxygen and heat,  hydrocarbons burn -- the carbon combines with oxygen to become $CO_2$ and the hydrogen combines with oxygen to become $H_2O$.  In the process,   heat is released,  which causes the gases in the cylinder to create a lot of pressure on the piston.
 
-For example,  ethanol (or alcohol) is one of the components usually present in gasoline.  The Ford Model T was the first popular car, and it ran on pure ethanol, (which could be produced by fermenting grains) not gasoline.  To simplify things, let's talk about a piston engine running on pure ethanol.
-
-A molecule of ethanol has 2 carbon atoms, 6 hydrogen atoms, and 1 oxygen atom.  The oxygen in the atmosphere is $O_2$.   When one molecule of ethanol combines with three molecules of $O_2$,  2 molecules of $CO_2$ and 3 molecules of $H_2O$ are created.  Also, a lot of heat is created: 1330 kilojoules for every mole burned.
 
 \section{Parts of the Engine}
 
@@ -47,8 +44,10 @@ Here is the cycle of a single cylinder:
 
 Burning fuel inside a block of metal generates a lot of heat.  If there is too much heat,  parts of the engine will start to melt.  So modern car engines are liquid cooled -- there are arteries in the engine block carrying a liquid (called "coolant").  The hot coolant is pumped through the radiator (where the air passing through takes away the heat) and then back into the engine.
 
-\section{Dealing with Friction}
+Note that the heat that is carried away by the coolant is wasted energy.    In fact,  of the total energy created in burning the fuel,  most car engines only transfer about 30\% to turning the crank shaft.  About 35\% of the heat goes out with the exhaust.  About 30\% is carried away by the coolant.  
+The remaining waste (usually about  5\%) is lost to friction.
 
+\section{Dealing with Friction}
 
 From the description,  it is clear that there is a lot of metal sliding against metal,  which would grind the engine up quickly if there were no lubrication.  In a modern car, the moving parts in the engine are constantly bathed in oil.  There is an oil pump that causes it to get sprayed on the crankshaft, the connecting rod, and in the cylinder under the piston. (That is, not on the combustion side.)  
 
@@ -56,7 +55,7 @@ The oil eventually falls through the oil into a pan at the bottom of the engine.
 
 \section{Challenges}
 
-With an engine, there are a lot of things that can go wrong.  Let's enumerate a few:
+With a piston engine, there are a lot of things that can go wrong.  Let's enumerate a few:
 
 \begin{itemize}
 
@@ -69,3 +68,110 @@ With an engine, there are a lot of things that can go wrong.  Let's enumerate a 
 \item \textit{The mix of fuel and oxygen is wrong.}  If there is too much fuel and not enough oxygen (so not all the fuel burns),  we say the mix is too rich.  If there is not enough fuel (so the pressure created by the burn is as high as possible),   we say the mix is too lean.
 
 \end{itemize}
+
+\section{How We Measure Engines}
+
+If you look up the specs on an engine,  you will see the following:
+
+\begin{itemize}
+\item The number of cylinders
+\item The cylinder bore, which is the diameter of the cylinder
+\item The piston stroke,  which is the distance the piston travels in the cylinder
+\item The compression ratio,  which is the ratio between the maximum volume of the combustion change and the minimum volume of the combustion chamber.
+\item What fuel it runs on.
+\end{itemize}
+
+The difference between the minimum and maximum value of the cylinder is known as its \newterm{displacement}.   We often talk about the displacement of the entire engine, which the
+ cylinder's displacement times the number of cylinder.  The displacement of an engine can give you a
+ good idea of how much power it can produce.
+ 
+For motorcycles,  the displacement is even part of the name.   For example,  the Kawasaki Ninja 650 has about 650 cubic centimeters of displacement.  
+
+\section{The Ford Model T and Ethanol}
+
+The Ford Model T was the first popular car.   It came out in 1908 and remained in production until 1927.  It had a four-cylinder engine that would run on ethanol, benzene, or kerosene.  For the purposes of this exercise, let's assume you are running yours on ethanol.
+
+A molecule of ethanol has 2 carbon atoms, 6 hydrogen atoms, and 1 oxygen atom.  The oxygen in the atmosphere is $O_2$.   When one molecule of ethanol combines with three molecules of $O_2$,  2 molecules of $CO_2$ and 3 molecules of $H_2O$ are created.  Also, a lot of heat is created: 1330 kilojoules for every mole of ethanol burned.
+
+The engine block is usually very hot once the engine has been running.  That is important because the ethanol will be completely vaporized at that temperature.
+
+In any sample of air,  21 percent of the molecules will be $O_2$.
+
+\begin{Exercise}[title={Fuel Mix for the Model T},  label=fuelmix]
+
+On the Model T, a carburetor mixed the fuel and air before it went into the cylinder.   The question to answer in this exercise is: How rich should the mix be at sea level (100 kPa)?
+
+On the Wikipedia page for the Model T,  we see the following facts:
+\begin{itemize}
+\item Cylinder bore: 9.525 cm
+\item Piston stroke: 10.16 cm
+\item Compression ratio:: 3.98:1
+\end{itemize}
+
+You can assume that the air/fuel mixture is $80^\circ$ C before the pre-burn compression starts.  Thus the ethanol,  which boils at $78^\circ$ C, is its vapor phase.
+
+The questions, then, are:
+
+\begin{itemize}
+\item How many moles of ethanol should go into a cylinder for each burn?
+\item How many moles of $CO_2$  and  $H_2O$ are created in each burn?
+\item How much heat is created in each burn?
+\end{itemize}
+
+(This exercise is a lot of steps, but nothing you don't know.  You will need the ideal gas law to figure out how much many moles of air gets dragged into the cylinder.)
+
+\end{Exercise}
+
+\begin{Answer}[ref=fuelmix] 
+
+The pre-compression temperature is $80 + 273.15 = 353.15^\circ$ K.
+
+The radius of the cylinder is $9.535/2 =4.7625$ cm.
+
+The area of a cross section of the cylinder is $\pi r^2 = \pi (4.7625)^2 \approx 71.26$ cm.
+
+So the change in volume between the minimum and maximum volume is $ (71.26)(10.16) = 724$ ml.
+
+(With four cylinders,  the displacement of a Model T is thus $ (4)(724) = 2,896$ cc. )
+
+Let's say the volume of the combustion chamber at its smallest is $v_{\text{min}}$ ml.   Then the volume at the maximum is $v_{\text{min}} +724$ ml.  Using the compression ratio,  we get that:
+
+$$3.98v_{\text{min}} = v_{\text{max}} = v_{\text{min}} + 724$$
+
+Solving for $v_{\text{min}} \approx 243$ ml.
+
+Thus the maximum volume would be $v_{\text{max}} = v_{\text{min}} + 724 = 967$ ml or 0.967 liters.
+
+By the ideal gas law,  $n$ moles any gas (air or vaporized ethanol) at  $353.15^\circ$ K and 100 kPa has a volume given by:
+
+$$V = \frac{n r T}{P} = \frac{n (8.314)(353.15)}{100} = 29.36 n\text{ liters}$$ 
+
+So, if we have $n_a$ moles of air and $n_e$ moles of vaporized ethanol,  the total volume will fill the maximum volume of the cylinder:
+
+$$29.36 (n_a + n_e) = 0.967$$
+
+So
+
+$$n_a = 0.03293 -  n_e$$
+
+21\% of $n_a$ is $O_2$:
+
+$$n_{O_2} = 0.21 n_a = 0.21 (0.03293 -  n_e) = 0.006916 - 0.21 n_e$$
+
+For a clean burn,  we need 3 times as many $O_2$ molecules as ethanol molecules.  Thus:
+
+$$3 n_e  =   0.006916 - 0.21 n_e$$
+
+Solving for $n_e$:
+
+$$n_e = \frac{0.006916}{3.21}  = 0.002154 \text{ moles  of ethanol}$$
+
+For every molecule of ethanol that burns we get 2 molecules of $CO_2$: 0.004309 moles.
+
+For every molecule of ethanl that burns we get 3 molecules of $H_2OI$: 0.006463 moles.
+
+How much heat?  $(0.002154)(1330) =  2.865$ kilojoules from each burn.
+
+\end{Answer}
+
+
