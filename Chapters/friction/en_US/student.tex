@@ -20,7 +20,9 @@ $$\mu = \frac{F}{N}$$
 \begin{Exercise}[title={Bicycle Stopping},  label=bike_stop]
   
 You are riding your bicycle at 11 meters per second when you slam on the brakes and lock up the wheels.  
+
 You weigh 55 kg.   
+
 When any piece of rubber is skidding across a dry road,  the coefficient of friction will be about 0.7.
 
 Answer the following questions: 
@@ -44,19 +46,93 @@ Distance?  $D = \frac{6,655}{377.3} = 17.6$ seconds.
 
 Notice that the force of friction is not determined by how much of the tire is touching the ground.  The coefficient of friction of the two materials and the normal force all all you need to compute the friction.
 
-Why, then, do drag racing cars have such big tires?  Remember that the energy of friction becomes heat and that rubber melts.  If a drag racer had skinny tires,  all the heat from the friction would be in a very small patch of tire, which would melt.
-
-\section{Static vs Dynamic Friction Coefficients}
+\section{Static vs Kinetic Friction Coefficients}
 
 Once again, imagine the box resting on the floor.  As you start to push it,  it will sit still until your force is greater than the force of friction.   However, once it starts moving,  the force of friction seems to be less.
 
 Between two materials,  there is actually 2 different friction coefficients:
 
 \begin{itemize}
-\item Dynamic friction coefficient:  The coefficient you use once the box is sliding against the floor.
+\item Kinetic friction coefficient:  The coefficient you use once the box is sliding against the floor.
 \item Static friction coefficient: The coefficient you use to figure out how much force you need to get the box to start to move.
 \end{itemize}
 
-The dynamic friction coefficient is always less than the static friction coefficient.  For a car on a dry road,  the dynamic friction coefficient is about 
+The kinetic friction coefficient is always less than the static friction coefficient:
+\begin{itemize}
+\item \textit{Kinetic}, $\mu_k$: For a car skidding on a dry road,  the friction coefficient is about 0.7.  
+\item \textit{Static}, $\mu_s$: When the car is parked with its brakes on,  it has a friction coefficient of about 1.0.
+\end{itemize}
+
+\begin{Exercise}[title={Rocket Sled},  label=rocketsled1]
+  
+You are built a rocket sled with steel runners on a flat, level wooden floor.   The sled weighs 50 kg and you weigh 55 kg.
+
+Before you get on the sled,   you push it around the floor some.  You find that you can get it to move from a
+standstill if you push it with a force of 270 N.   Once it is moving,  you can keep it moving at the same speed using a force of 220 N.
+
+\textbf{What are $\mu_s$ and $\mu_k$  of your sled's runners on your wooden floor?}
+
+Now you get on the sled and gradually increase the thrust of the rocket mounted on the sled until it starts to move.  Then you keep the thrust constant.
+
+\textbf{How much force was the rocket exerting on you and the sled when it started to move?}
+
+\textbf{How how fast do you accelerate now that the sled is moving?}
+
+\end{Exercise}
+\begin{Answer}[ref=rocketsled1]
+
+The empty sled is pushing directly down on the floor with a force of $(50)(9.8) = 490$ N.
+
+The force to overcome the static friction  is:
+
+$$270 = 490 \mu_s$$
+
+Thus $\mu_s = 0.551$
+
+The force to match kinetic friction is:
+
+$$220 = 490 \mu_k$$
+
+Thus $\mu_k = 0.449$
+
+Once you are on the sled,  it is pressing directly down on the floor with a force of $(50  + 55)(9.8) = 1,029$ N.
+
+The force to overcome the static friction is:
+
+$$F = (1,029)(0.551) = 567 \text{ N}$$
+
+Once the sled is moving,  friction is counteracting some of your force.  How much?
+
+$$F_f = (1,029)(0.449) = 462 \text{ N}$$
+
+So all of your acceleration is due to the remaining $567 - 492 = 75$ N.
+
+We know that $F = ma$.  In this case $F = 75$ N and $m = 105$ kg.  So
+
+$$a = \frac{75}{105} = 0.714 \text{ meters per second per second}$$
+
+\end{Answer}
+
+\section{Skidding and Anti-Lock Braking Systems}
+
+When a car goes through a curve,  the friction of the tire on the road is what changes the direction of the 
+car's travel.  Even though the wheel is turning,   this is the static friction coefficient because the surface of the tire is not sliding across the road.
+
+If you go into the curve too fast,  the tire may not have enough friction to turn the car.  In this case the car will start to slide sideways.  Now the friction between the tire and road uses the kinetic coefficient.  That is,   you have significantly less friction than you had before you started to skid.
+
+When you are driving a car,  the force of friction that your tires create is your friend.  It lets you steer, accelerate, and stop.
+
+In older cars,  if you would panicked  and slammed on the brakes,  you would probably lock up the wheels: they would stop turning suddenly.  And the surface of the tire would begin to slide across the pavement.  At that moment,  two problems occurred:
+\begin{itemize}
+\item You don't stop as quickly because now the friction between your tires and the road is based on the kinetic friction coefficient instead of the static friction coefficient.
+\item You can't steer the car.  Steering only happens because the wheels are turning in a particular direction.
+\end{itemize}
+
+To prevent this problem,  car companies developed the anti-lock brake system or ABS.
+
+FIXME: More here.
+
+
+
 
 
