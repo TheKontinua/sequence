@@ -4,3 +4,5 @@ drag
 vector_functions
 circular
 orbits
+long_lat_dist
+tides
