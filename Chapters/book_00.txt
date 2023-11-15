@@ -45,6 +45,8 @@ drag
 vector_functions
 circular
 orbits
+long_lat_dist
+tides
 emwaves
 camera
 eye
@@ -96,7 +98,6 @@ stemming_lemmatization
 accents_scripts
 matplotlib
 geographical_data
-long_lat_dist
 geocoding
 making_a_map
 discrete_probability
