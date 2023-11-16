@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Constants
 G = 6.67430e-11              # Gravitational constant (Nm^2/kg^2)
@@ -78,3 +79,22 @@ while current_time <= MAX_TIME:
     current_time += TIME_STEP
 
 print(f"Generated {len(position1_log)} data points.")
+
+# Convert lists to np.arrays
+positions1 = np.array(position1_log)
+positions2 = np.array(position2_log)
+
+# Create a figure with a set of axes
+fig, ax = plt.subplots(1, figsize=(7.2, 10))
+
+# Label the axes
+ax.set_xlabel("x (m)")
+ax.set_ylabel("y (m)")
+ax.set_aspect("equal", adjustable='box')
+
+# Draw the path of the two moons
+ax.plot(positions1[:, 0], positions1[:, 1], m1["color"], lw=0.7)
+ax.plot(positions2[:, 0], positions2[:, 1], m2["color"], lw=0.7)
+
+# Save out the figure
+fig.savefig("plotmoons.png")

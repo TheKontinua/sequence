@@ -1,10 +1,12 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Constants
 G = 6.67430e-11              # Gravitational constant (Nm^2/kg^2)
 SEC_PER_DAY = 24 * 60 * 60   # How many seconds in a day?
-MAX_TIME = 100 * SEC_PER_DAY # 100 days
+MAX_TIME = 400 * SEC_PER_DAY # 100 days
 TIME_STEP = 2 * 60 * 60      # Update every two hours
+PAIR_LINE_STEP = 300  # How time steps between pair lines
 
 # Create the inital state of Moon 1
 m1 = {
@@ -24,9 +26,15 @@ m2 = {
     "color": "blue" # For plotting
 }  
 
+# Calculate the initial position and velocity of the center of mass
+tm = m1["mass"] + m2["mass"]  # Total mass
+cm_position = (m1["mass"] * m1["position"] + m2["mass"] * m2["position"]) / tm
+cm_velocity = (m1["mass"] * m1["velocity"] + m2["mass"] * m2["velocity"]) / tm
+
 # Lists to hold positions and time
 position1_log = []
 position2_log = []
+cm_log = []
 time_log = []
 
 # Start at time zero seconds
@@ -37,6 +45,7 @@ while current_time <= MAX_TIME:
 
     # Add time and positions to log
     time_log.append(current_time)
+    cm_log.append(cm_position)
     position1_log.append(m1["position"])
     position2_log.append(m2["position"])
     print(f"Day {current_time/SEC_PER_DAY:.2f}:")
@@ -46,6 +55,9 @@ while current_time <= MAX_TIME:
     # Update the positions based on the current velocities
     m1["position"] = m1["position"] + m1["velocity"] * TIME_STEP
     m2["position"] = m2["position"] + m2["velocity"] * TIME_STEP
+
+    # Update the center of mass
+    cm_position = cm_position + cm_velocity * TIME_STEP
 
     # Find the vector from moon1 to moon2
     delta = m2["position"] - m1["position"]
@@ -78,3 +90,44 @@ while current_time <= MAX_TIME:
     current_time += TIME_STEP
 
 print(f"Generated {len(position1_log)} data points.")
+
+# Convert lists to np.arrays
+positions1 = np.array(position1_log)
+positions2 = np.array(position2_log)
+cms = np.array(cm_log)
+
+# Make positions relative to the center of mass
+positions1 = positions1 - cms
+positions2 = positions2 - cms
+
+# Create a figure with a set of axes
+fig, ax = plt.subplots(1, figsize=(7.2, 10))
+
+# Label the axes
+ax.set_xlabel("x (m)")
+ax.set_ylabel("y (m)")
+ax.set_aspect("equal", adjustable='box')
+
+# Draw the path of the two moons
+ax.plot(positions1[:, 0], positions1[:, 1], m1["color"], lw=0.7)
+ax.plot(positions2[:, 0], positions2[:, 1], m2["color"], lw=0.7)
+
+# Draw some pair lines that help the
+# viewer understand time in the graph
+i = 0
+while i < len(positions1):
+
+    # Where are the moons at the ith entry?
+    a = positions1[i, :]
+    b = positions2[i, :]
+    ax.plot([a[0], b[0]], [a[1], b[1]], "--", c="gray", lw=0.6, marker=".")
+
+    # What is the time at the ith entry?
+    t = time_log[i]
+
+    # Label the location of moon 1 with the day
+    ax.text(a[0], a[1], f"{t/SEC_PER_DAY:.0f} days")
+    i += PAIR_LINE_STEP
+
+# Save out the figure
+fig.savefig("plotmoons.png")

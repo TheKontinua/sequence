@@ -1,10 +1,12 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Constants
 G = 6.67430e-11              # Gravitational constant (Nm^2/kg^2)
 SEC_PER_DAY = 24 * 60 * 60   # How many seconds in a day?
-MAX_TIME = 100 * SEC_PER_DAY # 100 days
+MAX_TIME = 400 * SEC_PER_DAY # 100 days
 TIME_STEP = 2 * 60 * 60      # Update every two hours
+PAIR_LINE_STEP = 300  # How time steps between pair lines
 
 # Create the inital state of Moon 1
 m1 = {
@@ -78,3 +80,39 @@ while current_time <= MAX_TIME:
     current_time += TIME_STEP
 
 print(f"Generated {len(position1_log)} data points.")
+
+# Convert lists to np.arrays
+positions1 = np.array(position1_log)
+positions2 = np.array(position2_log)
+
+# Create a figure with a set of axes
+fig, ax = plt.subplots(1, figsize=(7.2, 10))
+
+# Label the axes
+ax.set_xlabel("x (m)")
+ax.set_ylabel("y (m)")
+ax.set_aspect("equal", adjustable='box')
+
+# Draw the path of the two moons
+ax.plot(positions1[:, 0], positions1[:, 1], m1["color"], lw=0.7)
+ax.plot(positions2[:, 0], positions2[:, 1], m2["color"], lw=0.7)
+
+# Draw some pair lines that help the
+# viewer understand time in the graph
+i = 0
+while i < len(positions1):
+
+    # Where are the moons at the ith entry?
+    a = positions1[i, :]
+    b = positions2[i, :]
+    ax.plot([a[0], b[0]], [a[1], b[1]], "--", c="gray", lw=0.6, marker=".")
+
+    # What is the time at the ith entry?
+    t = time_log[i]
+
+    # Label the location of moon 1 with the day
+    ax.text(a[0], a[1], f"{t/SEC_PER_DAY:.0f} days")
+    i += PAIR_LINE_STEP
+
+# Save out the figure
+fig.savefig("plotmoons.png")

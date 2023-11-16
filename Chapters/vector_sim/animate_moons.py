@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
+# Import animation support and artists
 from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Circle, FancyArrow
 from matplotlib.text import Text
@@ -7,9 +9,8 @@ from matplotlib.text import Text
 # Constants
 G = 6.67430e-11  # Gravitational constant (Nm^2/kg^2)
 SEC_PER_DAY = 24 * 60 * 60  # How many seconds in a day?
-# MAX_TIME = 100 * SEC_PER_DAY  # 100 days
 MAX_TIME = 400 * SEC_PER_DAY  # 100 days
-TIME_STEP = 12 * 60 * 60  #
+TIME_STEP = 12 * 60 * 60  # Update every 12 hours
 FRAMECOUNT = MAX_TIME / TIME_STEP  # How many frames in animation
 ANI_INTERVAL = 1000 / 50  # ms for each frame in animation
 
@@ -70,15 +71,16 @@ acc_arrow2 = ax.add_artist(
 )
 
 
+# This function will get called for every frame
 def animate(frame):
-    # Stuff I need in scope from the model
+
+    # Global variables needed in scope from the model
     global cm_position, cm_velocity, current_time, m1, m2
 
-    # Artists that will be edited
+    # Global variables needed in scope from the artists
     global time_text, varrow1, varrow2, acc_arrow1, acc_arrow2, circle1, circle2, circle_cm
 
     print(f"Updating artists for day {current_time/SEC_PER_DAY:.1f}.")
-
 
     # Update the positions based on the current velocities
     m1["position"] = m1["position"] + m1["velocity"] * TIME_STEP
@@ -104,9 +106,6 @@ def animate(frame):
         dx=VSCALE * m2["velocity"][0],
         dy=VSCALE * m2["velocity"][1],
     )
-
-    # print(f"\tMoon 1:({m1['position'][0]:,.1f},{m1['position'][1]:,.1f})")
-    # print(f"\tMoon 2:({m2['position'][0]:,.1f},{m2['position'][1]:,.1f})")
 
     # Update the center of mass
     cm_position = cm_position + cm_velocity * TIME_STEP
@@ -166,5 +165,13 @@ def animate(frame):
     )
 
 
-animation = FuncAnimation(fig, animate, np.arange(FRAMECOUNT), interval=ANI_INTERVAL)
-animation.save("moons.mp4")
+# Make the rendering happen
+animation = FuncAnimation(
+    fig, 
+    animate, 
+    np.arange(FRAMECOUNT), 
+    interval=ANI_INTERVAL
+)
+
+# Save the rendering to a video file
+animation.save("moonmovie.mp4")
