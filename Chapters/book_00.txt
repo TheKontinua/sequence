@@ -23,6 +23,7 @@ parallel_perpendicular
 circles
 vectors
 momentum
+vector_sim
 dot
 functions
 volume_solids
