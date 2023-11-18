@@ -508,8 +508,38 @@ center of mass:
 
 \includegraphics[width=0.5\textwidth]{movie.png}
 
+\section{Challenge: The Three-Body Problem}
 
+It is time to stretch a little as a physicist and programmer:  You are going to make a new version of \filename{moons.py} that handles three moons instead of just two.
 
+This is known as "The Three-Body Problem," and people have tried for centuries to come up with 
+a way to figure out (from the initial conditions) where the three moons would be at time $t$ without doing a simulation.  And no one has.
+
+For a lot of problems,  the outcome is not very sensitive to the initial conditions.   For example,  the flight of a
+cannonball:  If it leaves the muzzle of the cannon a little faster,  it will go a little farther.
+
+For the three-body problem,  the outcome can be radically different even if the initial conditions are very similar.  
+
+(There is a whole field of mathematics studying systems that are very sensitive to initial conditions.  It is known
+as \newterm{dynamical systems} or \newterm{chaos theory}.
+
+Copy \filename{moons.py}  to \filename{3moons.py}.  Here is a reasonable initial state for your third moon:
+
+\begin{verbatim}
+m3 = {
+    "mass": 4.0e22,  # kg
+    "position": np.array([50_000_000, 80_000_000]),  # m
+    "velocity": np.array([-30.0, -35.0]),  # m/s
+    "radius": 1_700_000.0,  # m
+    "color": "green" 
+}  
+\end{verbatim}
+
+If I run that simulation for 100 days,  I get a plot like this:
+
+\includegraphics[width=0.6\textwidth]{plot3moons_01.png}
+
+Visibly you can see this is very different from the two-body problem that just traced ellipses around the center of mass.
 
 
 
