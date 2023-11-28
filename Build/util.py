@@ -35,6 +35,7 @@ def title_for_dir(dir):
     for i, line in enumerate(open(fullpath)):
         for match in re.finditer(title_pattern, line):
             return match.group(1)
+    return "UNKNOWN"
         
 def metadata_for_dir(dir):
     rpath = os.path.join(dir, "digital_resources.json")
