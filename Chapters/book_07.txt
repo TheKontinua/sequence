@@ -1,4 +1,3 @@
 vectors
 momentum
-vector_sim
 dot
