@@ -107,6 +107,9 @@ ax.text(bound_min - 23, 0.002, f"{bound_min:.0f} kg")
 ax.vlines(bound_max, 0, bpdf_max, "k", linestyles="dashed")
 ax.text(bound_max + 2, 0.002, f"{bound_max:.0f} kg")
 
+small_x = np.linspace(bound_min, bound_max, 40)
+ax.fill_between(small_x, gamma.pdf(small_x, a, loc=loc, scale=scale), color="b", alpha=0.1)
+
 ax.set_xlabel("Mass in kg")
 ax.set_ylabel("Probability Density")
 ax.set_title("Cow Mass Probability Distribution Function")
