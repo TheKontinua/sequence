@@ -66,12 +66,12 @@ weigh less than 635 kg.  Thus 6\% of all cows must weigh more than 620 kg and le
 
 \includegraphics[width=0.7\textwidth]{cow_cdf_bounds.png}
 
-\section{Probability Distribution Function}
+\section{Probability Density Function}
 
 The cumulative density function is handy,  but some of its information can be hard to see.  For example,  how would you answer the question "What is the most common weight of a cow?"  You would
 squint at the CDF and try to determine where it was steepest.
 
-To make these sorts of questions easier to answer,  we take the derivative of the CDF to get the \newterm{Probability Distribution Function} (or PDF).  For the cows,  it would look like this:
+To make these sorts of questions easier to answer,  we take the derivative of the CDF to get the \newterm{probability density function} (or PDF).  For the cows,  it would look like this:
 
 \includegraphics[width=0.7\textwidth]{cow_pdf.png}
 
@@ -121,6 +121,111 @@ Here is the PDF for a uniform distribution between 0.6 and 0.9:
 
 The mean and median of a uniform distribution between $a$ and $b$ is its midpoint:  $\frac{a+b}{2}$.
 
-The variance is $\frac{(b -a)^2}{12}$.
+The variance ($\sigma^2$) is $\frac{(b -a)^2}{12}$.
 
+\section{Continuous Distributions In Python}
 
+The SciPy library has functions that let a programmer work with a large collection of different probability distributions.
+
+For example,  if you wanted to work with a continuous uniform distribution between 6 and 9,  you would import the relevant
+functions like this:
+
+\begin{verbatim}
+from scipy.stats import uniform
+\end{verbatim}
+
+Now if you wanted a numpy array containing a sample of 300 numbers generated randomly from that distribution:
+
+\begin{verbatim}
+samples = uniform.rvs(loc=6,  scale=3,  size=300)
+\end{verbatim}
+
+The \pyvar{loc} argument is $a$.  The \pyvar{scale} argument is $b - a$.
+
+If you wanted to know the value of the probability density function at 8 and 10, you could use the \pyfunction{pdf} function:
+
+\begin{verbatim}
+x_values = np.array([8, 10])
+p_values  = uniform.pdf(x_values,  loc=6,  scale=3)
+\end{verbatim}
+
+Now \pyvar{p\_values} contains 0.33333 and 0.0.
+
+To get the value of the cumulative distribution function at those points,  you would use the \pyfunction{cdf} function:
+
+\begin{verbatim}
+cdf_values = uniform.cdf(x_values,  loc=6,  scale=3)
+\end{verbatim}
+
+Now \pyvar{cdf\_values} contains 0.666667 and 1.0.
+
+The inverse of the CDF is very useful.   It answers questions like "How heavy does a cow have to be to be in top 1\%?"
+
+\begin{verbatim}
+bottom_top_percentiles = np.array([0.01,  0.99])
+boundaries = uniform.ppf(bottom_top_percentiles,  loc=6,  scale=3)
+\end{verbatim}
+
+Now \pyvar{boundaries} contains 6.03 and 8.97.
+
+The SciPy library supplies these functions (\pyfunction{rvs}, \pyfunction{pdf},  \pyfunction{cdf}, and \pyfunction{ppf}) for over a hundred 
+common continuous probability distributions.   
+
+The common "bell curve" shaped distribution is called a Gaussian  or Normal distribution.  It is described by its mean (the midpoint of the bell) and its standard deviation.   For the normal distribution,  the standard deviation is the distance you have to go from the mean to reach 68\% of the population. 
+We will talk a lot more about the normal distribution in other chapters,  but lets take this opportunity to plot the CDF and PDF of a normal distribution with a mean of 32 and a standard deviation of 8.
+
+Create a file called \filename{plot\_norm.py} and add the following lines:
+
+\begin{verbatim}
+import numpy as np
+from scipy.stats import norm
+import matplotlib.pyplot as plt
+
+# Constants
+MEAN = 32
+STD = 8
+
+# Plottin from the 0.5 percentile to the 99.5 percentile
+x_min = norm.ppf(0.005, loc=MEAN, scale=STD)
+x_max = norm.ppf(0.995, loc=MEAN, scale=STD)
+
+# Make 200 points between x_min and x_max
+x_values = np.linspace(x_min, x_max, 200)
+
+# Get CDF for each x value
+cdf_values = norm.cdf(x_values, loc=MEAN, scale=STD)
+
+# Get PDF for each x value
+pdf_values = norm.pdf(x_values, loc=MEAN, scale=STD)
+
+# What is the highest density?
+max_density = norm.pdf(MEAN, loc=MEAN, scale=STD)
+
+# Make a figure with two axes
+fig, axs = plt.subplots(nrows=2, sharex=True, figsize=(8, 8), dpi=200)
+axs[0].set_xlim(left=x_min, right=x_max)
+
+# Draw the CDF on the first axis
+axs[0].set_title("CDF of Normal Distribution (mean=32, std=8)")
+axs[0].set_ylim(bottom=0.0, top=1.0)
+axs[0].plot(x_values, cdf_values)
+
+# Draw the PDF on the second axix
+axs[1].set_title("PDF")
+axs[1].set_ylim(bottom=0.0, top=max_density * 1.1)
+axs[1].plot(x_values, pdf_values)
+
+# Add lines for mean,  mean-std, and mean+std
+axs[1].vlines(MEAN - STD, 0, max_density, "r", linestyle="dashed")
+axs[1].vlines(MEAN + STD, 0, max_density, "r", linestyle="dashed")
+
+# Save out the figure
+fig.savefig("norm_32_8.png")
+\end{verbatim}
+
+The resulting plot should look like this:
+
+\includegraphics[width=0.7\textwidth]{norm_32_8.png}
+
+What do those vertical lines mean?  An ornithologist might tell you "The wingspan of adult robins are normally distributed with a mean of 32 cm and a
+ standard deviation of 8 cm."  Then 68\% of the population of adult robins would have wingspans between the two red lines.
