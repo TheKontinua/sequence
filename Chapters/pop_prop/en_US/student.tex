@@ -73,13 +73,13 @@ However,  it still tells us something, right?  The maximum likelihood estimator 
 
 How can we make this likelihood into a probability density function?  We use Bayes' Law for continuous probability:
 
-$$p(r|k)  = \frac{p(k | r) p(r)}{\int_{r = 0}^{1} p(k | r) p(r) dk}$$
+$$p(r|k)  = \frac{p(k | r) p(r)}{\int_{r = 0}^{1} p(k | r) p(r) dr}$$
 
 That is,  given that we had $k$ positive responses,  what is the probability that the proportion of the population that will vote for your candidate is $r$?   The numerator of the fraction is the likelihood scaled up or down by our prior belief about the value of $r$.    What is the denominator of the fraction?  For this to be a probability distribution,  we need it to integrate to 1.  This is taken care of by the denominator.
 
 Let's say we have no prior belief about the value of $r$.   That is $p(r)$ is the continuous uniform distribution between 0 and 1, thus $p(r) = 1$ for all possible values of $r$.  Our formula becomes:
 
-$$p(r|k)  = \frac{p(k | r)}{\int_{r = 0}^{1} p(k | r) dk}$$
+$$p(r|k)  = \frac{p(k | r)}{\int_{r = 0}^{1} p(k | r) dr}$$
 
 That is the likelihood scaled up so that it integrates to 1.  If we plot this, we get:
 
