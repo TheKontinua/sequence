@@ -1,3 +1,2 @@
-cdf_uniform
 normal_t
 poisson_exponential
