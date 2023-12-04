@@ -29,7 +29,6 @@ solving_quadratics
 complex_numbers
 vectors
 momentum
-vector_sim
 dot
 basic_spreadsheet
 compound_interest
@@ -46,6 +45,7 @@ drag
 vector_functions
 circular
 orbits
+vector_sim
 long_lat_dist
 tides
 emwaves
@@ -109,13 +109,14 @@ bayes
 definite_integral
 antiderivatives
 ftc
+cdf_uniform
 gas
 temp_kinetic
 phase_change
 engine
 u-substitution
 diff_eqs
-cdf_uniform
+pop_prop
 normal_t
 poisson_exponential
 volume_double_integral
