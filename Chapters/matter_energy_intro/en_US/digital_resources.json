@@ -1,24 +1,18 @@
 {
+  "requires" : [
+
+  ],
   "covers" : [
     {
-      "id" : "chem reaction",
+      "desc" : "Intro to chemical reactions",
       "videos" : [
 
       ],
-      "desc" : "",
       "references" : [
-        "New"
-      ]
-    },
-    {
-      "videos" : [
-
-      ],
-      "desc" : "",
-      "references" : [
+        "https://simple.wikipedia.org/wiki/Chemical_reaction",
         "New"
       ],
-      "id" : "tran"
+      "id" : "chem_reaction"
     },
     {
       "desc" : "Able to define atom and a molecule",
@@ -31,30 +25,27 @@
       "id" : "atom"
     },
     {
-      "references" : [
-        "https://en.wikipedia.org/wiki/Force"
-      ],
+      "desc" : "The relationship between force, mass, and acceleration",
       "videos" : [
         "https://youtu.be/JGO_zDWmkvk"
       ],
-      "desc" : "The relationship between force, mass, and acceleration",
-      "id" : "fma"
+      "id" : "fma",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Force"
+      ]
     },
     {
-      "references" : [
-        "https://en.wikipedia.org/wiki/Gravity"
+      "videos" : [
+        "https://youtu.be/7gf6YpdvtE0"
       ],
       "id" : "grav",
       "desc" : "Basic rules of gravity",
-      "videos" : [
-        "https://youtu.be/7gf6YpdvtE0"
+      "references" : [
+        "https://en.wikipedia.org/wiki/Gravity"
       ]
     }
   ],
   "files" : [
-
-  ],
-  "requires" : [
 
   ]
 }

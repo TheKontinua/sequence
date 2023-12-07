@@ -1,0 +1,40 @@
+{
+  "files" : [
+
+  ],
+  "requires" : [
+
+  ],
+  "covers" : [
+    {
+      "desc" : "Nature Journal Article on Cog Biases and Research",
+      "id" : "Cog Bias Article",
+      "videos" : [
+
+      ],
+      "references" : [
+        "https://www.nature.com/articles/526182a"
+      ]
+    },
+    {
+      "id" : "Ted Talk",
+      "desc" : "Presentation about the Dunning-Kruger effect",
+      "videos" : [
+        "https://www.ted.com/talks/j_marshall_shepherd_3_kinds_of_bias_that_shape_your_worldview"
+      ],
+      "references" : [
+
+      ]
+    },
+    {
+      "videos" : [
+
+      ],
+      "desc" : "wikipedia list ",
+      "references" : [
+        "https://en.wikipedia.org/wiki/List_of_cognitive_biases"
+      ],
+      "id" : "Cog Bias list"
+    }
+  ]
+}
