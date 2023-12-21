@@ -1,6 +1,5 @@
-import enum
 import os
-import sys
+import datetime
 import json
 import util
 import shutil
@@ -48,10 +47,13 @@ book_indices = list(range(vol_count))
 # For gathering data for the index.html
 books = []
 chapters = {}
+today_str = datetime.datetime.now().isoformat(timespec='minutes')
+
 for i in book_indices:
     book_str = str(i + 1).zfill(2)
     metadatas = books_metadata[i]
-    content = template.render( topics=all_topics, chapters=metadatas, book_str=book_str)
+
+    content = template.render( topics=all_topics, chapters=metadatas, book_str=book_str, today_str=today_str)
     filename = f"Workbook-{book_str}.html"
     path = f"{resources_dir}/{filename}"
     with open(path, mode="w", encoding="utf-8") as message:

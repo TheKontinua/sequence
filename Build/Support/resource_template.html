@@ -10,7 +10,8 @@
   <h1>Workbook {{book_str}}</h1>
   
 {% for md in chapters %}
-<h2 id="{{md.id}}">Chapter {{md.chap_num}}: {{md.title}}</h2>
+<h2 id="{{md.id}}"><a href="{{md.id}}.pdf">Chapter {{md.chap_num}}: {{md.title}}</a></h2>
+
 {% if md.files %}
 <h3>Downloads</h3>
 <ul>
@@ -38,5 +39,6 @@
     {% endif %}{% endfor %}
   </ul>
 {% endif %}<hr />{% endfor %}
+<p>Generated {{today_str}}.</p>
 </body>
 </html>

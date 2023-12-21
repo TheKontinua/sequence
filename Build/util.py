@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import shutil
 
 title_pattern = re.compile("chapter\{([^\}]+)\}")
 
@@ -87,4 +88,45 @@ def gather_data(mod_dir, book_str, config):
                 cd["chap_id"] = ids[i] 
                 topics[cd["id"]] = cd
 
-    return (metadatas, topics)        
+    return (metadatas, topics)       
+
+def build_chapter(chapter_file, chap_dir, config, final_pdf_path):
+    locale_list = config["Languages"]
+    paper_size = config["Paper"]
+    tool = config["LatexExecutable"]
+
+    output_tex_path = "draft.tex"
+    output_pdf_path = "draft.pdf"
+    if os.path.exists(output_pdf_path):
+        os.remove(output_pdf_path)
+    output_tex = open(output_tex_path, "w")
+
+    # Write the header
+    header_file = open("../Support/minibookheader.tex", "r")
+    header = header_file.read()
+    header_file.close()
+    output_tex.write(header)
+
+    gpath_string = "\\graphicspath{{{{{}/}}}}\n".format(chap_dir)
+    output_tex.write(gpath_string)
+
+    # Include file
+    full_path = os.path.join(chap_dir, chapter_file)
+    include_string = "\\input{{{}}}\n".format(full_path)
+    output_tex.write(include_string)
+
+    # Write the footer
+    footer_file = open("../Support/bookfooter.tex", "r")
+    footer = footer_file.read()
+    footer_file.close()
+    output_tex.write(footer)
+    output_tex.close()
+    os.system(f"{tool} {output_tex_path}")
+    if os.path.exists(output_pdf_path):
+        shutil.move(output_pdf_path, final_pdf_path)
+        print(f"{final_pdf_path} built.")
+        return True
+    else:
+        print(f"Build of {final_pdf_path} Failed")
+        return False
+
