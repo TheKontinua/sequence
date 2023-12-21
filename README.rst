@@ -56,6 +56,8 @@ students work for two hours per day, they will consume 9 workbooks per
 year.  Working for four years, the average student should be able to complete all 36
 workbooks.
 
+Here is `The state of things. <https://thekontinua.github.io>`_
+
 The first version of the workbooks, videos, and tests will be in
 American English, as that is the language that I speak. I hope that in
 time I will have translations into every major language on the planet.
