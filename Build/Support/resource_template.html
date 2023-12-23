@@ -7,6 +7,8 @@
 </head>
 
 <body>
+  <p><a href="..">[Top]</a></p>
+
   <h1>Workbook {{book_str}}</h1>
   
 {% for md in chapters %}
@@ -26,9 +28,9 @@
 	  {% set key = t["id"] %}
   <h4 id="{{key}}">{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
   <ul>
-	{% for vlink in topics[key].videos %}<li><a href="{{vlink}}">Video</a></li>
+	{% for vlink in topics[key].videos %}<li>Video: <a href="{{vlink}}">{{links[vlink]['title']}}</a></li>
 	{% endfor %}
-	{% for rlink in topics[key].references %}<li><a href="{{rlink}}">Reference</a></li>
+	{% for rlink in topics[key].references %}<li>Reference: <a href="{{rlink}}">{{links[rlink]['title']}}</a></li>
 	{% endfor %}
   </ul> {% endfor %} {% endif %}
 {% if "requires" in md and md.requires|length > 0 %}

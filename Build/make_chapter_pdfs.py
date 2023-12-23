@@ -51,7 +51,7 @@ for book_str in book_nums:
     for chap in range(chap_count):
         outfile = os.path.join(resources_dir, f"{result_ids[chap]}.pdf")
         print(f"{book_str}:{chap}: Making {outfile}")
-        success = util.build_chapter(chap_file, result_paths[chap], config, outfile)
+        success = util.build_chapter(chap_file, result_paths[chap], config, outfile, draft=False)
         if not success:
             failures.append(outfile)
 if len(failures) > 0:
