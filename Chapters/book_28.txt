@@ -1,3 +1,4 @@
 pop_prop
 normal_t
+change_var
 poisson_exponential
