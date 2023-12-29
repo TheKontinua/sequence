@@ -1,0 +1,123 @@
+\chapter{Sailboats}
+
+Imagine that you have a canoe, and you are about to paddle from one island to another that is directly east of where you are standing.  Imagine, also, that there 
+is a steady wind coming from the west, and you have a big piece of plywood.  You might be inspired to use it as a sail.
+
+This situation is the most simple form of sailing: Wind comes from behind the boat and hits the sail which generates a force that pushes the 
+boat in the direction of the wind.
+
+The sail has two sides:  The \newterm{windward} side is the one that is getting hit with the wind.  The \newterm{leeward} side is the side away from the wind.
+
+\section{Magnitude of the Wind Force}
+
+The first natural question is: How much force will I have pushing my canoe through the water?
+
+\begin{mdframed}[style=important, frametitle={Wind Force}]
+
+When the sail is perpendicular to the wind,  the force of the wind on the sail in newtons ($F_w$) will be given by:
+
+$$F_w = A \frac{d v^2}{2}$$
+
+where $A$ is the area of the sail in square meters  $d$ is the density of the gas in kg per cubic meter, and $v$ is the wind speed in meters per second.
+
+For air at STP,  $d$ is about 1.225 kg per cubic meter.
+
+\end{mdframed}
+
+So,  let's say your plywood sail is 2 meters tall and 1.5 meters wide.  The wind is 0.5 m/s.  And you boat is standing still.   What will be the force of the wind:
+
+$$F_w  = A \frac{d v^2}{2} = 3 \frac{1.225 (0.5^2)}{2}  \approx 0.46 \text{ newtons}$$
+
+\section{Direction and Location of the Wind Force}
+
+In this case,  it is pretty obvious which direction the wind will push you: It comes from behind and hits a sail that is perpendicular to the wind -- the wind will
+push your canoe straight ahead. 
+
+Can we prove this using Newton's third law?  The sail is changing the velocity of the air particles:
+
+\begin{itemize}
+\item Before hitting the sail,  they were moving east.
+\item After hitting the sail,  they were moving north, south, up, and down to go around the sail.  
+\end{itemize}
+
+ As long as equal amounts of air are going around the sail to the north and to the south,   the net force on the sail will be directly in the easterly direction.
+ 
+Where is this force vector applied?  We can think of the force as being applied at the geometric center of the sail.  This is called \newterm{the center of effort}.   In this case,  the center of effort is the exact center of the rectangular plywood.
+
+The mast on a windsurfing board can be tilted from side to side.  When the center of effort is over the center of lateral resistance,  the board goes straight.
+To steer,   the sailor moves the mast to one side of the center of lateral resistance which rotates the board.
+
+\section{Beam Reach}
+
+When you are sailing in the same direction as the wind,  sailors say you are \newterm{running}.   What if you want to go east and the wind (still 0.5 m per second) is coming from the south?  Sailing perpendicular to the wind is known as a \newterm{beam reach}.
+
+To do a beam reach,  instead of mounting the plywood perpendicular to the boats direction of travel,  you would mount it at a 45 degree angle.
+
+Now the wind hitting the sail doesn't go around both sides of it.  Rather,  it slides across the plywood.   Assuming that your boat is stationary,  what is the
+direction of the air particles before and after hitting the sail?
+
+\begin{itemize}
+\item Before hitting the sail,  the air particle were moving north. (Velocity = $(0,0.5)$)
+\item After hitting the sail,  they were moving northwest at the same speed.  (Velocity = $(-\frac{0.5}{\sqrt{2}}, \frac{0.5}{\sqrt{2}}$)
+\end{itemize}
+
+We can think of this as two forces on the sail: 
+\begin{itemize}
+\item The force that is accelerating the air particles toward the west is pushing the boat forward.  (Yay!)
+\item The force that is decelerating the air particles in their northward journey is pushing the boat sideways (Boo!)
+\end{itemize}
+
+To minimize the effect of the sideways force,  sailboats typically have  a keel -- a long fin on its underside that slows its sideways sliding.
+
+\section{Close Reach}
+
+What if you want to go east,  and the wind is coming from the southeast?  This is sort of into the wind,  right?
+
+If you mount the plywood parallel to the direction you want you boat to go,  the wind hitting it will be redirected to the west:
+
+\begin{itemize}
+\item Before hitting the sail,  the air particle were moving northwest (Velocity = $(-\frac{0.5}{\sqrt{2}}, \frac{0.5}{\sqrt{2}}$)
+\item After hitting the sail,  they were moving west at the same speed.  (Velocity = $(-0.5,0)$)
+\end{itemize}
+
+Once again, you can think of this as two forces: 
+\begin{itemize}
+\item The force that is accelerating the air particles toward the west is pushing the boat forward.  (Yay!)
+\item The force that is stopping the air particles in their northward journey is pushing the boat sideways (Boo!)
+\end{itemize}
+
+\section{Apparent Wind}
+
+All the examples we have done so far assume that your boat is stationary.   What happens when your boat is moving?
+
+For example,  if you are running with a 0.5 m/s wind.  When you are going 0.3 m/s,  the wind is only pushing on your sails with the force of 0.2 m/s.  
+(As a side-effect, you can never go faster than the wind when you are running.)  We would say the \newterm{apparent wind} has a speed of only 0.2 m/s.  
+That is, the apparent wind is the wind you experience on the moving boat.
+
+The apparent wind can also have a different direction than the actual wind.
+
+Imagine that you start off on a broad reach: you are sailing east,  the wind is from the south.  As your boat travels faster and faster,   the wind will see to shift so
+that it seems to becoming more from the southeast.  
+
+\section{Shaping the Sail}
+
+Most of the power of the wind can be captured with a piece of flat plywood.  After all,  when mass of the wind hits the windward surface of the plywood,  it is redirected.  Using Newton's third law,  that redirection results in forces that move the boat.
+
+But, what if we could redirect some of the wind that did not hit the windward surface of the plywood?
+
+If you put a spoon into a stream of water coming from the sink,  the water will tend to follow the shape of the spoon.   This is known as the \newterm{Coanda effect}. 
+
+When you are sailing on a close reach,   a curve on the leeward side of the sail will induce the air to follow the sail.   This redirection will get you 
+a little more speed.
+
+If your sail is made of cloth,   this curve is known as \newterm{camber}.  Slow winds require just a little camber,  fast winds require more.
+
+Some newer sailboats have wing sails that have two pieces that can be arranged to redirect the most air possible.
+
+Note: when running with the wind,  the back side of the sail doesn't matter at all.    When traveling perpendicular to the wind or on a close reach,  the air move smoothly over the back the sail.   If you haven't aligned your sail properly,  there will be a lot of turbulence on the leeward side of the sail,  and you 
+will lose any benefits from the Coanda effect.  Many sailors have a piece of yarn taped to their sails so
+that they can see if the air is moving smoothly over the leeward surface of the sail. 
+
+Many sailboats also have multiple sails.  Besides the increase in the sail area,  each sail also redirects the wind to pass over the leeward surface of the sail
+behind it, which can increase the influence of the Coanda effect.
+
