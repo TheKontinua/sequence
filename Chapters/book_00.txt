@@ -7,6 +7,7 @@ buoyancy
 heat
 biases1
 friction
+greek
 basic_statistics
 stat_spreadsheets
 dc1
@@ -30,6 +31,8 @@ complex_numbers
 vectors
 momentum
 dot
+boats
+sailing
 basic_spreadsheet
 compound_interest
 intro_dataviz
