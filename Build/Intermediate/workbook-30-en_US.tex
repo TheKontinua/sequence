@@ -1,0 +1,49 @@
+%% Bookheader, Nov 8, 2020; July 18, 2022
+
+\documentclass[11pt]{../Support/ourbook}
+%% or for landscape, comment out line above and use this one:
+%%\documentclass[landscape,11pt]{ourbook}
+
+%% This will keep space from stretching around display math:
+
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xipt{13.6}%
+   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayshortskip \z@ 
+   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+\normalsize
+
+
+\begin{document}
+
+\tableofcontents
+\graphicspath{{../../Chapters/sets/en_US}}
+\input{../../Chapters/sets/en_US/student.tex}
+\graphicspath{{../../Chapters/linked_list_c/en_US}}
+\input{../../Chapters/linked_list_c/en_US/student.tex}
+\graphicspath{{../../Chapters/trees/en_US}}
+\input{../../Chapters/trees/en_US/student.tex}
+\graphicspath{{../../Chapters/searching_trees/en_US}}
+\input{../../Chapters/searching_trees/en_US/student.tex}
+\graphicspath{{../../Chapters/hash_tables/en_US}}
+\input{../../Chapters/hash_tables/en_US/student.tex}
+\graphicspath{{../../Chapters/sorting/en_US}}
+\input{../../Chapters/sorting/en_US/student.tex}
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bookfooter.tex by Aaron Hillegass
+%% Nov 8, 2020
+
+\appendix
+
+\chapter{Answers to Exercises}
+\shipoutAnswer
+
+\bibliography{references}
+
+\printindex
+
+\end{document}

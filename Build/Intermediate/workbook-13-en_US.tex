@@ -1,0 +1,47 @@
+%% Bookheader, Nov 8, 2020; July 18, 2022
+
+\documentclass[11pt]{../Support/ourbook}
+%% or for landscape, comment out line above and use this one:
+%%\documentclass[landscape,11pt]{ourbook}
+
+%% This will keep space from stretching around display math:
+
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xipt{13.6}%
+   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayshortskip \z@ 
+   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+\normalsize
+
+
+\begin{document}
+
+\tableofcontents
+\graphicspath{{../../Chapters/polynomials_intro/en_US}}
+\input{../../Chapters/polynomials_intro/en_US/student.tex}
+\graphicspath{{../../Chapters/pylists/en_US}}
+\input{../../Chapters/pylists/en_US/student.tex}
+\graphicspath{{../../Chapters/add_subtract_polynomials/en_US}}
+\input{../../Chapters/add_subtract_polynomials/en_US/student.tex}
+\graphicspath{{../../Chapters/multiplying_polynomials/en_US}}
+\input{../../Chapters/multiplying_polynomials/en_US/student.tex}
+\graphicspath{{../../Chapters/pymultpoly/en_US}}
+\input{../../Chapters/pymultpoly/en_US/student.tex}
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bookfooter.tex by Aaron Hillegass
+%% Nov 8, 2020
+
+\appendix
+
+\chapter{Answers to Exercises}
+\shipoutAnswer
+
+\bibliography{references}
+
+\printindex
+
+\end{document}
