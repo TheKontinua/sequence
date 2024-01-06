@@ -1,37 +1,50 @@
 {
-  "files": [],
-  "requires": [
+  "requires" : [
+
   ],
-  "covers": [
+  "covers" : [
     {
-      "id": "atom",
-      "desc": "Able to define atom and a molecule",
-      "videos": [
-        "https://youtu.be/DkAXO--BYEw"
+      "desc" : "Intro to chemical reactions",
+      "videos" : [
+
       ],
-      "references": [
-        "https://manoa.hawaii.edu/exploringourfluidearth/chemical/chemistry-and-seawater/atoms-molecules-and-compounds"
-      ]
+      "references" : [
+        "https://simple.wikipedia.org/wiki/Chemical_reaction"
+      ],
+      "id" : "chem_reaction"
     },
     {
-      "id": "fma",
-      "desc": "The relationship between force, mass, and acceleration",
-      "videos": [
+      "desc" : "Able to define atom and a molecule",
+      "references" : [
+        "https://manoa.hawaii.edu/exploringourfluidearth/chemical/chemistry-and-seawater/atoms-molecules-and-compounds"
+      ],
+      "videos" : [
+        "https://youtu.be/DkAXO--BYEw"
+      ],
+      "id" : "atom"
+    },
+    {
+      "desc" : "The relationship between force, mass, and acceleration",
+      "videos" : [
         "https://youtu.be/JGO_zDWmkvk"
       ],
-      "references": [
+      "id" : "fma",
+      "references" : [
         "https://en.wikipedia.org/wiki/Force"
       ]
     },
     {
-      "id": "grav",
-      "desc": "Basic rules of gravity",
-      "videos": [
+      "videos" : [
         "https://youtu.be/7gf6YpdvtE0"
       ],
-      "references": [
+      "id" : "grav",
+      "desc" : "Basic rules of gravity",
+      "references" : [
         "https://en.wikipedia.org/wiki/Gravity"
       ]
     }
+  ],
+  "files" : [
+
   ]
 }

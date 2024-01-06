@@ -1,3 +1,8 @@
 definite_integral
 antiderivatives
 ftc
+cdf_uniform
+gas
+temp_kinetic
+phase_change
+engine

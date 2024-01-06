@@ -1,0 +1,58 @@
+{
+  "atom": {
+    "desc": "Able to define atom and a molecule",
+    "chap_id": "matter_energy_intro"
+  },
+  "fma": {
+    "desc": "The relationship between force, mass, and acceleration",
+    "chap_id": "matter_energy_intro"
+  },
+  "grav": {
+    "desc": "Basic rules of gravity",
+    "chap_id": "matter_energy_intro"
+  },
+  "mole": {
+    "desc": "Define a mole",
+    "chap_id": "atomic_mass"
+  },
+  "atomic-mass": {
+    "desc": "Define atomic mass",
+    "chap_id": "atomic_mass"
+  },
+  "periodic-table": {
+    "desc": "Be able to read the basic facts from a periodic table",
+    "chap_id": "atomic_mass"
+  },
+  "energy-forms": {
+    "desc": "An overview of different forms of energy",
+    "chap_id": "work_energy"
+  },
+  "dc": {
+    "desc": "Definition of Electric Current",
+    "chap_id": "dc1"
+  },
+  "ac": {
+    "desc": "Definition of Alternating Current",
+    "chap_id": "ac"
+  },
+  "ac_transformer": {
+    "desc": "Use of Transformer to Change Voltage of AC",
+    "chap_id": "ac"
+  },
+  "decint-rep": {
+    "desc": "Understand the base-10 hindu-arabic representation of numbers",
+    "chap_id": "hexbinary"
+  },
+  "octal-rep": {
+    "desc": "Understand the base-8 representation of the natural numbers",
+    "chap_id": "hexbinary"
+  },
+  "hex-rep": {
+    "desc": "Understand the base-16 representation of the natural numbers",
+    "chap_id": "hexbinary"
+  },
+  "binary-rep": {
+    "desc": "Understand the base-2 representation of the natural numbers",
+    "chap_id": "hexbinary"
+  }
+}

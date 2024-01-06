@@ -1,3 +1,5 @@
 biases1
+friction
+greek
 basic_statistics
 stat_spreadsheets

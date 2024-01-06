@@ -1,0 +1,51 @@
+%% Bookheader, Nov 8, 2020; July 18, 2022
+
+\documentclass[11pt]{../Support/ourbook}
+%% or for landscape, comment out line above and use this one:
+%%\documentclass[landscape,11pt]{ourbook}
+
+%% This will keep space from stretching around display math:
+
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xipt{13.6}%
+   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayshortskip \z@ 
+   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+\normalsize
+
+
+\begin{document}
+
+\tableofcontents
+\graphicspath{{../../Chapters/matter_energy_intro/en_US}}
+\input{../../Chapters/matter_energy_intro/en_US/student.tex}
+\graphicspath{{../../Chapters/atomic_mass/en_US}}
+\input{../../Chapters/atomic_mass/en_US/student.tex}
+\graphicspath{{../../Chapters/work_energy/en_US}}
+\input{../../Chapters/work_energy/en_US/student.tex}
+\graphicspath{{../../Chapters/units_conversions/en_US}}
+\input{../../Chapters/units_conversions/en_US/student.tex}
+\graphicspath{{../../Chapters/simple_machines/en_US}}
+\input{../../Chapters/simple_machines/en_US/student.tex}
+\graphicspath{{../../Chapters/buoyancy/en_US}}
+\input{../../Chapters/buoyancy/en_US/student.tex}
+\graphicspath{{../../Chapters/heat/en_US}}
+\input{../../Chapters/heat/en_US/student.tex}
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bookfooter.tex by Aaron Hillegass
+%% Nov 8, 2020
+
+\appendix
+
+\chapter{Answers to Exercises}
+\shipoutAnswer
+
+\bibliography{references}
+
+\printindex
+
+\end{document}

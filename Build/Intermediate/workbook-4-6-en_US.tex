@@ -1,0 +1,23 @@
+%% Bookheader, Nov 8, 2020; July 18, 2022
+
+\documentclass[11pt]{../Support/ourbook}
+%% or for landscape, comment out line above and use this one:
+%%\documentclass[landscape,11pt]{ourbook}
+
+%% This will keep space from stretching around display math:
+
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xipt{13.6}%
+   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayshortskip \z@ 
+   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+\normalsize
+
+
+\begin{document}
+
+\tableofcontents

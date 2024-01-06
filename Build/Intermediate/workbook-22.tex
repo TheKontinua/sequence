@@ -1,0 +1,55 @@
+%% Bookheader, Nov 8, 2020; July 18, 2022
+
+\documentclass[11pt]{../Support/ourbook}
+%% or for landscape, comment out line above and use this one:
+%%\documentclass[landscape,11pt]{ourbook}
+
+%% This will keep space from stretching around display math:
+
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xipt{13.6}%
+   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayshortskip \z@ 
+   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+\normalsize
+
+
+\begin{document}
+
+\tableofcontents
+\graphicspath{{../../Chapters/http/en_US}}
+\input{../../Chapters/http/en_US/student.tex}
+\graphicspath{{../../Chapters/api/en_US}}
+\input{../../Chapters/api/en_US/student.tex}
+\graphicspath{{../../Chapters/decompression/en_US}}
+\input{../../Chapters/decompression/en_US/student.tex}
+\graphicspath{{../../Chapters/json_xml/en_US}}
+\input{../../Chapters/json_xml/en_US/student.tex}
+\graphicspath{{../../Chapters/html/en_US}}
+\input{../../Chapters/html/en_US/student.tex}
+\graphicspath{{../../Chapters/intro_text/en_US}}
+\input{../../Chapters/intro_text/en_US/student.tex}
+\graphicspath{{../../Chapters/stop_words/en_US}}
+\input{../../Chapters/stop_words/en_US/student.tex}
+\graphicspath{{../../Chapters/stemming_lemmatization/en_US}}
+\input{../../Chapters/stemming_lemmatization/en_US/student.tex}
+\graphicspath{{../../Chapters/accents_scripts/en_US}}
+\input{../../Chapters/accents_scripts/en_US/student.tex}
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bookfooter.tex by Aaron Hillegass
+%% Nov 8, 2020
+
+\appendix
+
+\chapter{Answers to Exercises}
+\shipoutAnswer
+
+\bibliography{references}
+
+\printindex
+
+\end{document}

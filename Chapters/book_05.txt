@@ -1,4 +1,3 @@
-vectors
-momentum
-dot
 functions
+volume_solids
+conic_sections

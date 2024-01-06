@@ -5,6 +5,33 @@ This folder contains the scripts and supporting resources for those
 scripts. After you run the scripts, the products will appear in this
 directory too.
 
+Before You Build
+================
+
+You will need to have installed git, Python 3, and LaTeX.
+
+(On a Mac, you should install Xcode (from the app store and it includes git) and `brew <https://brew.sh>`_. Then::
+
+  brew install python
+  brew install mactex-no-gui
+
+Clone the github repository::
+
+  git clone https://github.com/TheKontinua/sequence.git
+
+You will also need some fonts from the `Google Font Collection <https://fonts.google.com/>`_ :
+
+* Marcellus Regular
+* Marcellus SC Regular
+* OpenSans Bold
+* OpenSans Bold Italic
+* OpenSans Semi Bold
+
+To build the web resources, you will need some python libraries:
+
+  pip3 install jinja2
+  pip3 install bs4
+
 Configuration
 -------------
 
@@ -28,8 +55,17 @@ Scripts
      ``student.tex`` file. Results in a ``draft.pdf`` file.
    | Example: ``python3 ../../../Build/build_chapter.py``
 
+-  | ``check_urls.py``: Used to check all the URLs in the
+      ``digital_resources.json`` files. Also looks up the title of each.
+    | Example: ``python3 check_urls.py 1``
+
+-  | ``make_chapter_pdfs.py``: Used to build pdfs of each chapter.
+    Takes a while to run.
+    | Example: ``python3 make_chapter_pdfs.py en_US``
+
 -  | ``gather_resources.py``: Builds an HTML document for each workbook.
-     The files will be created in the ``Resources`` directory.
+     The files will be created in the ``Resources-en_US`` directory.
+    Run ``check_urls.py`` first -- it uses the titles.
    | Example: ``python3 gather_resources.py``
 
 -  | ``clean.py``: Deletes a intermediate files and all PDF/HTML files
@@ -53,7 +89,7 @@ Status
 ------
 
 All these scripts work, but the support for localization is incomplete.
-Once we start localizating the materials, we will correct this
+Once we start localizing the materials, we will correct this
 situation.
 
 Committing

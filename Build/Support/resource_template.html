@@ -7,10 +7,15 @@
 </head>
 
 <body>
+  <p><a href="index.html">[Top]</a></p>
+
   <h1>Workbook {{book_str}}</h1>
   
 {% for md in chapters %}
 <h2 id="{{md.id}}">Chapter {{md.chap_num}}: {{md.title}}</h2>
+
+<h3><a href="{{md.id}}.pdf">PDF</a></h3>
+
 {% if md.files %}
 <h3>Downloads</h3>
 <ul>
@@ -25,9 +30,9 @@
 	  {% set key = t["id"] %}
   <h4 id="{{key}}">{% if topics[key].desc %}{{topics[key].desc}}{% else %}{{key}}{% endif %}</h4>
   <ul>
-	{% for vlink in topics[key].videos %}<li><a href="{{vlink}}">Video</a></li>
+	{% for vlink in topics[key].videos %}<li>Video: <a href="{{vlink}}">{{links[vlink]['title']}}</a></li>
 	{% endfor %}
-	{% for rlink in topics[key].references %}<li><a href="{{rlink}}">Reference</a></li>
+	{% for rlink in topics[key].references %}<li>Reference: <a href="{{rlink}}">{{links[rlink]['title']}}</a></li>
 	{% endfor %}
   </ul> {% endfor %} {% endif %}
 {% if "requires" in md and md.requires|length > 0 %}
@@ -38,5 +43,6 @@
     {% endif %}{% endfor %}
   </ul>
 {% endif %}<hr />{% endfor %}
+<p>Generated {{today_str}}.</p>
 </body>
 </html>
