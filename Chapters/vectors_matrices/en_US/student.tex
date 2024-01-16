@@ -23,7 +23,8 @@ Take a look at financial section of any news organization and you'll see headlin
 Engineering couldn't do without vector-matrix multiplication. For example, the orbital dynamics of space travel relies on it. Engineers must predict and calculate the the motion of planetary bodies, satellites, and spacecraft. By solving systems of linear equations engineers can make sure that a spacecraft travels to its destination without running into a satellite or space rock.
 \subsection{Image Processing}
 An image is a matrix of pixel values. When you take a selfie and apply a filter, the image app applies a transformation to the image matrix. A simple operation would be to change the tint of the image. A more complex operation would be to skew the image to make it distorted, like a funhouse mirror.
-\subsection{Let's Observe the Sun!}
+
+\section{Let's Observe the Sun!}
 India recently sent the Aditya spacecraft on a mission to study the Sun. Without a thorough understanding of vectors, the engineers would not have accomplished the amazing feat of getting Aditya in a stable orbit around a Lagrange point. In previous chapters you learned about gravity and its effects. 
 
 A Lagrange point is a point in space between two bodies (e.g. Earth and Sun) where there is gravitational equilibrium. With the right trajectory, a spacecraft will orbit around a Lagrange point in a stable position that doesn’t require much energy to maintain. That’s called a Halo orbit. Because that there are no fueling stations in space, a Halo orbit will allow Aditya to maintain position for about 5 years. Pretty good mileage!
@@ -40,19 +41,19 @@ Let's take a look at the general form of vector-matrix multiplication. Given a m
 You compute the $i$-th component of the product vector $Av$ by taking the dot product of the $i$-th row of $A$ and the vector $v$:
 
 \begin{equation*}
-(Av)_i = \sum_{j=1}^n a_{ij}x_j
+(Av)_i = \sum_{j=1}^n a_{i,j}x_j
 \end{equation*}
 
-where $a_{ij}$ is the element in the $i$-th row and $j$-th column of $A$, and $v_j$ is the $j$-th element of $v$.
+where $a_{i,j}$ is the element in the $i$-th row and $j$-th column of $A$, and $v_j$ is the $j$-th element of $v$.
 
 This is the general form of a matrix and a vector, written to show the specific components of each:
 
 
  $$A = \begin{bmatrix}
- a_{11} &a_{12}  &a_{13} &... &a_{1n}  \\
- a_{21} &a_{22}  &a_{23} &... &a_{2n}  \\
+ a_{1,1} & a_{1,2}  & a_{1,3} & ... & a_{1,n}  \\
+ a_{2,1} & a_{2,2}  & a_{2,3} & ... & a_{2,n}  \\
  ... \\
- a_{m1} &a_{m2}  &a_{m3} &... &a_{mn}  
+ a_{m,1} & a_{m,2}  & a_{m,3} & ... & a_{m,n}  
 \end{bmatrix}$$
 
 $$v = \begin{bmatrix}
@@ -64,19 +65,19 @@ $$v = \begin{bmatrix}
 \end{bmatrix}$$
 
  $$Av =\begin{bmatrix}
- v_{1}*a_{11} +v_{2}*a_{12}  +v_{3}*a_{13} +... +v_{m}*a_{1n}  \\
- v_{1}*a_{21} +v_{2}*a_{22}  +v_{3}*a_{23} +... +v_{m}*a_{2n}  \\
+ v_{1}*a_{1,1} +v_{2}*a_{1,2}  +v_{3}*a_{1,3} +... +v_{m}*a_{1,n}  \\
+ v_{1}*a_{2,1} +v_{2}*a_{2,2}  +v_{3}*a_{2,3} +... +v_{m}*a_{2,n}  \\
  ... \\
- v_{1}*a_{m1} +v_{2}*a_{m2}  +v_{3}*a_{m3} +... +v_{m}*a_{mn}  
+ v_{1}*a_{m,1} +v_{2}*a_{m,2}  +v_{3}*a_{m,3} +... +v_{m}*a_{m,n}  
 \end{bmatrix}$$
 
 Let's look at a specific example.
 
 $$A = \begin{bmatrix}
- 2  &4 &6  \\
- 3  &5 &7  \\
- 1  &2 &3  \\
- 8  &6 &2 
+ 2  & 4 & 6  \\
+ 3  & 5 & 7  \\
+ 1  & 2 & 3  \\
+ 8  & 6 & 2 
 \end{bmatrix}$$
 
 $$v = \begin{bmatrix}
@@ -104,9 +105,9 @@ $$= (18,20,9,-4)$$
 \begin{Exercise}[title={Vector Matrix Multiplication}, label=vector-matrix-multiply01]
 Multiply the array $A$ with the vector $v$. Compute this by hand, and make sure to show your computations. 
 $$A = \begin{bmatrix}
-1 &-2  &3 &5  \\
--4  &2  &7 &1 \\
-3  &3  &-9 &1
+1 & -2  & 3 & 5  \\
+-4  & 2  & 7 & 1 \\
+3  & 3  & -9 & 1
 \end{bmatrix}$$
 	$$v = 
 	\begin{bmatrix}
@@ -117,7 +118,7 @@ $$A = \begin{bmatrix}
 	\end{bmatrix}$$
 \end{Exercise}
 \begin{Answer}[ref=vector-matrix-multiply01]
-$$Av = (11, 37, -43)$$
+$$Av = (11 37 -43)$$
 \end{Answer}
 
 \subsection{Vector-Matrix Multiplication in Python}
@@ -130,12 +131,12 @@ Create a file called \filename{vectors\_matrices.py} and enter this code:
 import numpy as np
 
 // create an array
-a = np.array([[ 5, 1 ,3, -2], 
-              [ 1, -1 ,8, 4], 
-              [ 6, 2 ,1, 3]])
+a = np.array([[5, 1, 3, -2], 
+              [1, -1, 8, 4], 
+              [6, 2, 1, 3]])
 
 // create a vector 
-b = np.array([1, 2, 3,-8])
+b = np.array([1, 2, 3, -8])
 
 //calculate the dot product
 print(a.dot(b))
@@ -143,7 +144,7 @@ print(a.dot(b))
 
 When you run it, you should see:
 \begin{Verbatim}
-[16  6  8]
+[16, 6, 8]
 \end{Verbatim}
 
 \section{Where to Learn More}

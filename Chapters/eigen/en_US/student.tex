@@ -3,6 +3,10 @@
 
 Like many specialized disciplines, Linear Algebra uses many unfamiliar terms whose origin you might wonder about. Eigenvectors and eigenvalues are two of them. If you know German, you’ll recognize that eigen means inherent or a characteristic attribute. Named by the German mathematician David Hilbert, an eigenvector mathematically describes a characteristic feature of an object, that remains unchanged after transformation. You can think of an eigenvector as the direction that doesn’t change direction. 
 
+***REVISE TO INCORPORATE THIS CONCEPT: An eigenvector is scaled when it goes through a linear transformation. Its eigenvalue tells how much it is scaled.
+
+***REVISE TO INCORPORATE THIS CONCEPT: Eigenvalues with negative components
+
 Eigenvalues and eigenvectors are a way to break down matrices that can simplify many calculations and enable us to understand various properties of the matrix. They are widely used in physics and engineering for stability analysis, vibration analysis, and many other applications. \index{eigenvector} \index{eigenvalue}
 
 Let’s look at a visual example.
@@ -57,15 +61,15 @@ corresponding eigenvectors.
 
 Let matrix $A$ =
 $$\begin{bmatrix}
-5,4 &\\
- 1,2& 
+5 & 4\\
+ 1 & 2 
 \end{bmatrix} $$
 
 The characteristic equation is: 
 $$|A - \lambda I| = 0$$ 
 $$\begin{bmatrix}
-5 - \lambda,4 &\\
- 1,2- \lambda& 
+5 - \lambda & 4\\
+ 1 & 2- \lambda
 \end{bmatrix} = 0$$
 $$(5 - \lambda) (2 - \lambda) - (4)(1) = 0$$
 $$10 - 5\lambda - 2\lambda + \lambda2 - 4 = 0$$
@@ -77,134 +81,134 @@ $$|A - \lambda I| = 0$$
 For $λ = 1$:
 $$(A - \lambda I) v = O$$
 $$\begin{bmatrix}
-5-1, 4 &  \\
- 1, 2-1& 
+5-1 & 4 \\
+1 & 2-1 
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x \\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0 \\
+0 
 \end{bmatrix}$$
 $$\begin{bmatrix}
-4, 4 &  \\
- 1, 1& 
+4 & 4\\
+1 & 1 
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x  \\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0  \\
+0 
 \end{bmatrix}$$
 Next,use elementary row transformation by multiplying row 2 by 4 and then subtracting row 1.
 $$\begin{bmatrix}
-4, 4 &  \\
- 0, 0& 
+4 & 4\\
+0 & 0 
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x \\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0\\
+0
 \end{bmatrix}$$
 Now you can expand as an equation:
 $$4x + 4y = 0$$
-Assume y = w
+$$ \{Assume}  y = w$$
 $$4x = -4w$$
 $$x = -w$$
 The solution is:
 $$\begin{bmatrix}
-x&  \\
-y& 
+x\\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
--w&  \\
-w& 
+-w \\
+w 
 \end{bmatrix} = 
 w\begin{bmatrix}
--1&  \\
-1&
+-1\\
+1
 \end{bmatrix}$$
 So the eigenvector is:
 $$\begin{bmatrix}
--1&  \\
-1&
+-1\\
+1
 \end{bmatrix}$$
 Now we need to substitue the other eigenvalue, 6, into the equation and follow the same procedure for finding the eigenvector. 
 $$\begin{bmatrix}
-5-6, 4 &  \\
- 1, 2-6& 
+5-6 & 4\\
+ 1 & 2-6 
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x  \\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0  \\
+0 
 \end{bmatrix}$$
 $$\begin{bmatrix}
--1, 4 &  \\
- 1, -4& 
+-1 & 4\\
+ 1 & -4
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x  \\
+y 
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0  \\
+0 
 \end{bmatrix}$$
 Next, use elementary row transformation by adding row 1 to row 2.
 $$\begin{bmatrix}
--1, 4 &  \\
- 0, 0& 
+-1 & 4 \\
+ 0 & 0 
 \end{bmatrix}
 \begin{bmatrix}
-x&  \\
- y& 
+x\\
+y
 \end{bmatrix} = 
 \begin{bmatrix}
-0&  \\
-0& 
+0\\
+0 
 \end{bmatrix}$$
 Expand as an equation:
 $$-x + 4y = 0$$
-Assume y = w
+$$\{Assume} y = w$$
 $$-x + 4w = 0$$
 $$x = 4w$$
 The solution is:
 $$\begin{bmatrix}
-x&  \\
-y& 
+x\\
+y 
 \end{bmatrix}=
 \begin{bmatrix}
-4w&  \\
-w& 
+4w\\
+w 
 \end{bmatrix} =
 w\begin{bmatrix}
-4&  \\
-1& 
+4\\
+1 
 \end{bmatrix}$$
 So the eigenvector is:
 $$\begin{bmatrix}
-4&  \\
-1&
+4\\
+1
 \end{bmatrix}$$
 In conclusion, the eigenvectors of the given 2 x 2 matrix are:
 $$\begin{bmatrix}
--1&  \\
-1&
+-1\\
+1
 \end{bmatrix}
 and \begin{bmatrix}
-4&  \\
-1&
+4\\
+1
 \end{bmatrix}$$
 
 \section{Eigenvalues and Eigenvectors in Python}
