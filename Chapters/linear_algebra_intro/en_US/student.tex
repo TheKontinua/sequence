@@ -1,4 +1,4 @@
-\chapter{Linear Algebra}
+\chapter{Introduction to Linear Algebra}
 
 Welcome to the world of linear algebra, a branch of mathematics that relies on vectors, matrices, and linear transformations. You are familiar with most of these concepts, so in this workbook you’ll see how you can use them together to solve problems.  
 
@@ -20,7 +20,7 @@ We’ll first take a look at linear combinations
 
 \section{Linear Combinations}
 
-You won’t see any sin, cos, or tan operations in this section. Linear operations do NOT use trigonometric functions. Those are all nonlinear. A linear combination  preserves addition and scalar multiplication. You will see that linear combinations allow you to solve many types of problems in science and engineering. Before we get deep into the numbers, let’s take a look at a few linear operations you can perform on images. This will give you an intuition for the underlying math. Then we’ll take a look at some numbers.
+You won’t see any \textbf{sin}, \textbf{cos}, or \textbf{tan} operations in this section. Linear operations do NOT use trigonometric functions. Those are all nonlinear. A linear combination  preserves addition and scalar multiplication. You will see that linear combinations allow you to solve many types of problems in science and engineering. Before we get deep into the numbers, let’s take a look at a few linear operations you can perform on images. This will give you an intuition for the underlying math. Then we’ll take a look at some numbers.
 
 \section{Image Operations}
 The simplest image, a bitmap, can be represented by a two-dimensional matrix of values, either 0, for black, or 1, for white. Grayscale images are also represented by a two-dimensional matrix of values, but the values typically range from 0 to 255. Zero is black, 255 is white, the values in between represent shades of gray. 
@@ -35,7 +35,7 @@ Flipping is a linear operation.
 
 \includegraphics[width=0.25\textwidth]{rocket-flipped.png}
 
-Here it is rotated 90 degrees. This rotation is linear, but if you want to rotate it at an angle that wasn't a multiple of 90, you would need trigonometry. You'd be treading into nonlinear territory. But that happens in the field of linear algebra. You'll learn about nonlinear extensions later that use trigonometric functions and imaginary numbers.
+Next, the image is rotated 90 degrees. This rotation is linear, but if you want to rotate it at an angle that isn't a multiple of 90, you would need trigonometry. You'd be treading into nonlinear territory. But that happens in the field of linear algebra. You'll learn about nonlinear extensions later that use trigonometric functions and imaginary numbers.
 
 \includegraphics[width=0.25\textwidth]{rocket-rotated-90.png}
 
@@ -67,7 +67,7 @@ $$\begin{bmatrix}
  
 A matrix that represents an image contains only pixel values, whereas the barrel making shop matrix represents seven kinds of variables: barrels produced, materials cost, sales price, rent, pretax earnings, taxes, and take home pay. 
 
-The simplest image to create is a bitmap because that requires a matrix of zeros and ones. This is a matrix for a 10 pixel by 10 pixel image.
+The simplest image to create is a bitmap because that requires a matrix of zeros and ones. This is a matrix for a 10 pixel by 10 pixel image. Why the decimal points when this is obviously a matrix of integers? It turns out that when you use tools like python to process matrices, you must be conscious of data types. I already know that most of the python methods I use for image operations expect floating points. A few expect integer types, but you'll see how to handle type conversion later, in the section on python. 
 
 $$\begin{bmatrix}
 0. & 0. & 0. & 0. & 1. & 0. & 0. & 0. & 1. & 0\\
@@ -86,7 +86,7 @@ When converted to an image, it is very tiny. This is an enlarged version so you 
 
 \includegraphics[width=0.25\textwidth]{normal.png}
 
-We can create an inverse of this image by changing all the values in the matrix so that 0 and 1 and 1 becomes 0. 
+We can create an inverse of this image by changing all the values in the matrix so that 0 becomes 1 and 1 becomes 0. (Technically this is not the way you'd invert a matrix, as you'll see in the python section. For this example, you will get the same visual result, but when you start inverting matrices programmatically, you will learn the formal definition.)
 
 $$\begin{bmatrix}
 1. & 1. & 1. & 1. & 0. & 1. & 1. & 1. & 0. & 1\\
@@ -189,146 +189,115 @@ When multiplied by 255 and converted to grayscale, we get:
 
 \includegraphics[width=0.25\textwidth]{fgBitmapAdded.png}
 
+Let's go back to the first small grayscale image:
+
+\includegraphics[width=0.25\textwidth]{fBitmap.png}
+
+If you want to keep the pattern in the first column, you could multiply the matrix by a vector, [1.0, 0.0, 0.0]. The 1.0 will keep the values in the first column, but the 0.0 will knock out the other values because 0.0 times anything equals 0.0.
+
+\includegraphics[width=0.25\textwidth]{onechannel.png}
+
+What do you think will happen if you use the vector [0.0, 1.0, 0.0] or [0.0, 0.0, 1.0]? You'll get a chance later to use python to perform image operations.
+
 All the operations we performed on these images satisfy the requirement for linear combinations: preserving addition and scalar multiplication. 
 
-\section{A More Formal Approach}
-A linear combination of vectors is the addition of two or more scaled vectors. For example, given two vectors, ${v}_1, {v}_2$ and two scalars $a_1,a_2$, you'd write their linear combination as:
 
-\[x
-\mathbf{w} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2
-\]
+\section{Applications of Linear Algebra}
 
-The scalars can be any real number. The vectors can be of any dimension. 
+So far you've seen how linear operations on matrices can process images by:
+\begin{itemize}
+\item multipling a matrix using a scalar (e.g., normalize, change the range)
+\item adding one matrix to another to get a composite image 
+\item multipling two matrices to perform a transform (e.g., flipping)
+\item mulitpliing a matrix with a vector (isolating a channel)
+\end{itemize}
 
-Let's take a more generalized approach. Given vectors $\mathbf{v}_1,
-\mathbf{v}_2, ..., \mathbf{v}_n \in \mathbb{R}^m$ and scalars $a_1,
-a_2, ..., a_n \in \mathbb{R}$, a linear combination of these vectors
-is any vector of the form\index{linear combinations}
+Many areas in engineering and science rely on the matrix operations defines by linear algebra. Besides image processing, linear algebra is used for: 
+\begin{itemize}
+\item Computer Graphics. When you play a video game or watch the latest CG animation, matrix operations transform objects in the scene to make them appear as if moving, getting closer, and so on. You can represent the vertices of objects as vectors, and then apply a transformation matrix.
+\item Data Analysis. We live in an era in which it's easy to collect so much data that it's difficult to make sense of the data by just looking at it. You can represent the data in matrix form and then find a solution vector. For example, scientists use this technique to figure out the effectiveness of drug treatments on disease.
+\item Economics. Take a look at financial section of any news organization and you'll see headlines such as "Economic Data Points to Faster Growth" or "Is the Inflation Battle Won?" Economists can use systems of linear equations to represent economic indicators, such as consumer consumption, government spending, investment rate, and gross national product. By using various methods that you'll learn about later, they can get a good idea of the state of the economy.
+\item Engineering. Engineers couldn't do without linear algebra. For example, the orbital dynamics of space travel relies on it. Engineers must predict and calculate the the motion of planetary bodies, satellites, and spacecraft. By solving systems of linear equations engineers can make sure that a spacecraft travels to its destination without running into a satellite or space rock.
+\end{itemize}
 
-\[
-\mathbf{w} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + ... + a_n\mathbf{v}_n
-\]
+\section{Let's Observe the Sun!}
+India recently sent the Aditya spacecraft on a mission to study the Sun. Without a thorough understanding of linear algebra (among other things), the engineers would not have accomplished the amazing feat of getting Aditya in a stable orbit around a Lagrange point. In previous chapters you learned about gravity and its effects. 
 
-Each scalar $a_i$ scales the corresponding vector $\mathbf{v}_i$, and
-added together, the results are produce a new vector $\mathbf{w}$.
+A Lagrange point is a point in space between two bodies (e.g. Earth and Sun) where there is gravitational equilibrium. With the right trajectory, a spacecraft will orbit around a Lagrange point in a stable position that doesn’t require much energy to maintain. That’s called a Halo orbit. Because that there are no fueling stations in space, a Halo orbit will allow Aditya to maintain position for about 5 years. Pretty good mileage!
 
-Let's look at an example that has 4 vectors and their scalars. 
+\includegraphics[width=0.5\textwidth]{orbit.png}
 
-$$a_1 = 1, v_1 = [9 1 2]$$
-$$a_2 = -1, v_2 = [8 -3 4]$$
-$$a_3 = 3, v_3 = [6 0 1]$$
-$$a_4 = -4, v_4 = [3 7 2]$$
+Aditya’s engineers had to calculate a looping maneuver that would precisely inject the Aditya spacecraft into the Halo orbit. They determined the angles and burn times for the thrust engine. If they were wrong in one direction, the spacecraft would fly off to the sun. The other direction would send the spacecraft back in the direction of Earth. Their success is due to a solid understanding of vectors and linear algebra.
 
-As a linear combination:
+\includegraphics[width=0.5\textwidth]{thrust.png}
 
-$$\mathbf{w} = 1*[9 1 2] + (-1)*[8 -3 4]+ 3*[6 0 1] + (-4)*[3 7 2]$$
+\section{Images in Python}
+One of the wonderful things about python is the availability of libraries for specialized computation. The Python Imaging Library, PIL, is what you'll use to create images, read existing images from disk, and perform operation on images. To create and manipulate arrays, you will use NumPy. 
 
-After multiplying each vector by its associated scalar.
-
-$$\mathbf{w} = [9 1 2] + [-8 3 -4] + [18 0 3] + [-12 -28 -8]$$
-
-When combined:
-
-$$\mathbf{w} = [7 -24 -7]$$
-
-\begin{Exercise}[title={Linear Combination}, label=linearCombo]
-Calculate the linear combination 
-for vectors $v_1, v_2, v_3$ and
-scalars $a_1, a_2,a_3$ where:   
-
-$$a1 = 2, v1 = [2 4 8]$$
-$$a2 = -2,v2 = [8 -6 3]$$
-$$a3 = 4,v3 = [7 9 2]$$
-
-Make sure to show all your work. 
-\end{Exercise}
-\begin{Answer}[ref=linearCombo]
-     \[
-	\mathbf{w} = 2*[2 4 8] + (-2)*[8 -6 3] + 4*[7 9 2] 
-	\]
-  	\[
-	\mathbf{w} = [4 8 16] + [-16 12 -6] + [28 36 8] 
-	\]  
- 	\[
-	\mathbf{w} = [16 56 18]  
-	\]   
-\end{Answer}
-
-\section{Weighted Averages of Vectors}
-A weighted average of vectors is a specific type of linear combination
-where the coefficients (or weights) $a_i$ are non-negative and sum to
-1:\index{weighted averages}
-\[
-\sum_{i=1}^{n} a_i = 1, \quad a_i \geq 0
-\]
-
-A weighted average of vectors $\mathbf{v}_1, \mathbf{v}_2, ...,
-\mathbf{v}_n$ is then defined as
-
-\[
-\mathbf{w} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + ... + a_n\mathbf{v}_n
-\]
-
-In this case, each $a_i$ not only scales the corresponding vector
-$\mathbf{v}_i$, but also represents the proportion of that vector in
-the final average vector $\mathbf{w}$.
-
-Weighted averages are useful when you want to attribute the contribution of one feature or item over another. For example, a teacher might figure a student's final grade using exam scores, class participation, and a final project. The exam scores might make up 65\% of the final grade, class participation 10\%, and a final project 25\%. Thus giving the formula for a grade as:
-
-\[
-\mathbf{Grade} = .65*ExamScores + .10*Participation + .25*FinalProject
-\]
-
-The teacher defines the weights, making sure they sum to 1.0. 
-
-Let's look at an example where the weights don't sum to 1.0. A store that sells umbrellas might have to get the umbrella stock from three different manufacturers. The store owner buys 100 umbrellas at a cost of \$2.10 each, 50 umbrellas cost \$1.85 each, and 200 umbrellas cost \$2.00. 
-
-\[
-\mathbf{TotalCost} = 2.10*100 + 1.85*50 + 2.00*200 = 702.5
-\]
-
-To calculate the weighted average, divide the total cost by the number of items.
-
-\[
-\mathbf{WeightedAverage} = 702.5/350 = 2.01 
-\]
-
-\begin{Exercise}[title={Weighted Average}, label=weightedAverage]
-A concert sells 300 tickets in the balcony at \$50 each, 100 tickets on the main floor at \$75 each, and 50 tickets in the section closest to the stage at \$150 each. What's the weighted average?
-\end{Exercise}
-\begin{Answer}[ref=weightedAverage]
-\[\mathbf{TotalSales} = 50*300 + 75*100 + 150*50 = 30,000\]
-\[\mathbf{NumberTickets} = 300 + 100 + 50 = 450\]
-\[\mathbf{WeightedAverage} = 30,000/450 = 66.67\]
-\end{Answer}
-
-\section{Weighted Averages of Vectors in Python}
-Create a file called \filename{linearCombos.py} and enter this code:
+Create a file called \filename{image\_creation.py} and enter this code:
 
 \begin{Verbatim}
-// import the python module that supports matrices
+# Import necessary modules
 import numpy as np
+import PIL
+from PIL import Image
+from PIL import ImageOps
 
-// an array for number of umbrellas by manufacturer
-items = np.array([100, 50, 200])
+# Create a 10 by 10 pixel bitmap Image. 
+# Using a decimal point ensure python see the values as floating point numbers
+# Some image operations assume floats
 
-// weights are the cost of item by manufacturer
-weights = np.array([2.10, 1.85, 2.00])
+bitmapArray = np.array([
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 1., 1., 1., 1., 1.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 1., 1., 1., 1., 1.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.],
+[0., 0., 0., 0., 1., 0., 0., 0., 1., 0.]])
 
-// create an array for total cost for each manufacturer
-costPerManufacturer=items * weights
+# Image.fromarray assumes a range of 0 to 255, so scale by 255
 
-// sum the individuals costs to get the total
-totalCost = np.sum(costPerManufacturer)
+myImage = Image.fromarray(bitmapArray*255)
+myImage.show()
 
-// get number of items
-numItems = np.sum(items) 
+# A window opens with an image so tiny you might think nothing is there
+# Zoom in to see the pattern  
 
-// you are ready to calculated the weighted average
-weightedAverage = totalCost/numItems
-print(weightedAverage)
+# Transpose the array, create an image, and then show it. 
+# Note that you operate on the original array (not the image)
+# Remember to zoom in to see the pattern 
+
+myImageTransposed = bitmapArray.transpose()
+myImageTransposed.show()
+
+# Invert the array. You'll use the NumPy invert method.
+# The invert method assumes integer values. You need to convert the data type
+# Numpy has a method for that
+
+intBitmapArray = np.asarray(bitmapArray,dtype="int")
+invertedArray = np.invert(intBitmapArray)
+
+# Take a look at the array
+
+invertedArray
+
+# The values range from -2 to -1. Image values are positive.
+# You need to change the range so the values are from 0 to 255
+# Further you need to change back to floating point values because
+# the PIL method requires them
+
+invertedArray = (invertedArray + 2)*1.0
+invertedImage = Image.fromarray(255*invertedArray)
+invertedImage.show()
+
+# Zoom in on the image and compare the pattern with the original
+
 \end{Verbatim}
 
-When you run this code, you should get a weighted average of \$2.01 when rounded to the nearest cent.
+\section{Exercise}
 
-
+Create a python program that creates matrix $f$ and matrix $g$ from the previous section, and then performs all the operations shown in that section. If you are not sure how to accomplish something, consult the online documentation for the PIL and NumPy python libraries. 

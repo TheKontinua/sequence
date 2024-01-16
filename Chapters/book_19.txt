@@ -1,4 +1,4 @@
-linear_combinations
+linear_algebra_intro
 vectors_matrices
 spans_independence
 systems_matrices
