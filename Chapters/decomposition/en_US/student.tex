@@ -2,6 +2,12 @@
 
 In the previous chapter you learned how to calculate eigenvalues and eigenvectors. But not every matrix has them. For those matrices, singular values and singular vectors are analogous features. 
 
+***REVISE TO INCORPORATE THIS CONCEPT: SVD tells us that a linear transformation can be thought of as a rotation, scaling, and another rotation. 
+
+***REVISE TO INCORPORATE THIS CONCEPT: If A is a matrix in the transform Ax, the columns of A tell us where the standard basis vectors end up after the transform,.
+
+
+
 Singular Value Decomposition (SVD) is a matrix factorization technique that breaks down a matrix into three matrices that represent the structure and properties of the original matrix.The decomposed matrices make calculations easier and provide insight into the original matrix. Basically, SVD can transform a high dimension, highly variable set of data into a set of uncorrelated data points that reveal subgroupings that you might not have noticed in the original data.
 \index{singular value decomposition} \index{svd}
 
@@ -53,30 +59,30 @@ A = U \Sigma V^T
 \end{equation}
 
 $$ A = \begin{bmatrix}
-3,1,1 &  \\
- -1, 3,1& 
+3 & 1 & 1  \\
+ -1 & 3 & 1 
 \end{bmatrix}$$
 
 $$U = AA^T$$ 
 
 Start with $A^T$:
 $$ A^T = \begin{bmatrix}
-3,-1 &  \\
-1,3 &  \\
-1,1& 
+3 & -1\\
+1 & 3 \\
+1 & 1 
 \end{bmatrix}$$
 $$AA^T = \begin{bmatrix}
-3,1,1 &  \\
- -1, 3,1& 
+3 & 1 & 1\\
+ -1 & 3 & 1
 \end{bmatrix}
 \begin{bmatrix}
-3,-1 &  \\
-1,3 &  \\
-1,1& 
+3 & -1\\
+1 & 3\\
+1 & 1
 \end{bmatrix}
 = \begin{bmatrix}
-11,1 &  \\
- 1, 11& 
+11 & 1\\
+ 1 & 11 
 \end{bmatrix}
 $$
 Next we will find the eigenvalues and eigenvectors of $A^T$. This is a chance to apply what you learned in the previous chapter. We know that:
@@ -86,18 +92,18 @@ Av = \lambda v
 So:
 $$
 \begin{bmatrix}
-11,1 &  \\
- 1, 11& 
+11 & 1 \\
+ 1 & 11  
 \end{bmatrix}
 \begin{bmatrix}
-x_1 &  \\
-x_2& 
+x_1  \\
+x_2 
 \end{bmatrix}
 =
 \lambda 
 \begin{bmatrix}
-x_1 &  \\
-x_2& 
+x_1   \\
+x_2 
 \end{bmatrix}
 $$
 Rewrite as a set of equations:
@@ -130,41 +136,41 @@ $$\left[ 1,1 \right]$$
 The matrix is:
 $$
 \begin{bmatrix}
-1,1 \\
-1,-1 
+1 & 1 \\
+1 & -1 
 \end{bmatrix}
 $$
 Next you need to apply the Gram-Schmidt process to the column vectors. Then you'll have $U$, the $m \times m$ matrix whose columns are eigenvectors of $AA^T$. These are the left singular vectors of $A$. After you apply Gram-Schmidt, you should end up with:
 $$
 U = \begin{bmatrix}
-1/\sqrt{2},1/\sqrt{2} \\
-1/\sqrt{2},-1/\sqrt{2} 
+1/\sqrt{2} & 1/\sqrt{2} \\
+1/\sqrt{2} & -1/\sqrt{2} 
 \end{bmatrix}
 $$
 The process for calculating $V$ is the same as the calculation for $U$, except:
 $$V = A^TA$$ 
 $$A^TA = 
 \begin{bmatrix}
-3,-1 &  \\
-1,3 &  \\
-1,1& 
+3 & -1\\
+1 & 3\\
+1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-3,1,1 &  \\
- -1, 3,1& 
+3 & 1 & 1\\
+-1 & 3 & 1&
 \end{bmatrix}
 =
 \begin{bmatrix}
-10,0,2 \\
-0,10,4 \\
- 2,4,2
+10 & 0 & 2 \\
+0 & 10 & 4 \\
+2 & 4 & 2
 \end{bmatrix}
 $$
 After applying the process we applied to solve for U, you get:
 $$
 V = \begin{bmatrix}
-1/\sqrt{6},2/\sqrt{5},1/\sqrt{30} \\
-2/\sqrt{6},-1/\sqrt{5},2/\sqrt{30}\\
+1/\sqrt{6} & 2/\sqrt{5} & 1/\sqrt{30} \\
+2/\sqrt{6} & -1/\sqrt{5} & 2/\sqrt{30}\\
 1/\sqrt{6},0,-5/\sqrt{30}
 \end{bmatrix}
 $$
@@ -172,9 +178,9 @@ However, you want $V_T$:
 $$
 V_T =
 \begin{bmatrix}
-1/\sqrt{6},2/\sqrt{6},1/\sqrt{6} \\
-2/\sqrt{5},-1/\sqrt{5},0\\
-1/\sqrt{30},2/\sqrt{30},-5/\sqrt{30}
+1/\sqrt{6} & 2/\sqrt{6} & 1/\sqrt{6} \\
+2/\sqrt{5} & -1/\sqrt{5} & 0\\
+1/\sqrt{30} & 2/\sqrt{30} & -5/\sqrt{30}
 \end{bmatrix}
 $$
 You have only to calculate $\Sigma$, a diagonal matrix that is the same size as $A$. The diagonal contains the singular values of $A$, arranged in descending order. They are the square roots of the eigenvalues of both $A^TA$ and  $AA^T$.
@@ -183,43 +189,43 @@ Because the non-zero eigenvalues of U are the same as V, let's use the eigenvalu
 $$
 \Sigma = 
 \begin{bmatrix}
-\sqrt{12}, &0,&0\\
- 0,&\sqrt{12}  &0 
+\sqrt{12} & 0 & 0\\
+ 0 & \sqrt{12} & 0 
 \end{bmatrix}
 $$
 You can check your work by multiplying the decomposed matrices. This should return the orginal matrix.
 $$A = U\Sigma V^T $$
 $$ = 
 U = \begin{bmatrix}
-1/\sqrt{2},1/\sqrt{2} \\
-1/\sqrt{2},-1/\sqrt{2} 
+1/\sqrt{2} & 1/\sqrt{2} \\
+1/\sqrt{2} & -1/\sqrt{2} 
 \end{bmatrix}
 \begin{bmatrix}
-\sqrt{12}, &0,&0\\
- 0,&\sqrt{12}  &0 
+\sqrt{12} & 0 & 0\\
+ 0 & \sqrt{12}  & 0 
 \end{bmatrix}
 \begin{bmatrix}
-1/\sqrt{6},2/\sqrt{6},1/\sqrt{6} \\
-2/\sqrt{5},-1/\sqrt{5},0\\
-1/\sqrt{30},2/\sqrt{30},-5/\sqrt{30}
+1/\sqrt{6} & 2/\sqrt{6} & 1/\sqrt{6} \\
+2/\sqrt{5} & -1/\sqrt{5} & 0\\
+1/\sqrt{30} & 2/\sqrt{30} & -5/\sqrt{30}
 \end{bmatrix}
 $$
 $$=
 \begin{bmatrix}
-\sqrt{12}/\sqrt{2}, &\sqrt{10}/\sqrt{2},&0\\
-\sqrt{12}/\sqrt{2},&-\sqrt{10}/\sqrt{2} &0 
+\sqrt{12}/\sqrt{2} & \sqrt{10}/\sqrt{2} & 0\\
+\sqrt{12}/\sqrt{2} & -\sqrt{10}/\sqrt{2} & 0 
 \end{bmatrix}
 \begin{bmatrix}
-1/\sqrt{6}, &2/\sqrt{6},&1/\sqrt{6}\\
-2/\sqrt{5},&-1/\sqrt{5} &0 \\
-1/\sqrt{30},&2/\sqrt{30},&-5/\sqrt{30}
+1/\sqrt{6} & 2/\sqrt{6} & 1/\sqrt{6}\\
+2/\sqrt{5} & -1/\sqrt{5} & 0 \\
+1/\sqrt{30} & 2/\sqrt{30} & -5/\sqrt{30}
 \end{bmatrix}
 $$
 $$
 =
 \begin{bmatrix}
-3,1,1 &  \\
- -1, 3,1& 
+3 & 1 & 1 \\
+-1 & 3 & 1 
 \end{bmatrix}
 $$ 
 
@@ -275,17 +281,17 @@ Modify your Python code to calculate SVD for the matrix in the worked out exampl
 \begin{Answer}[ref=svd]
 $$U = 
 \begin{bmatrix}
--0.70710678 &-0.70710678  \\
- -0.70710678 &0.70710678 
+-0.70710678 & -0.70710678  \\
+ -0.70710678 & 0.70710678 
 \end{bmatrix}
 $$
 $$Singular values = [3.46410162 3.16227766]
 $$
 $$V^T =
 \begin{bmatrix}
- -0.408 &-0.816  &-0.408  \\
- -0.894 &0.447 &0.0  \\
- -0.183 &-0.365  &0.9129 
+ -0.408 & -0.816 & -0.408  \\
+ -0.894 & 0.447 & 0.0  \\
+ -0.183 & -0.365  & 0.9129 
 \end{bmatrix}
 $$
 \end{Answer}
