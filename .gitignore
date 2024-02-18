@@ -48,6 +48,7 @@ Intermediate/
 Workbooks-*/
 Resources-*/
 Build/user.cfg
+__pycache__/
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
