@@ -1,4 +1,5 @@
-%% Bookheader, Nov 8, 2020; July 18, 2022
+﻿%% Bookheader, Nov 8, 2020; July 18, 2022
+%% Changed on Feb 9, Feb 14, 2024
 
 \documentclass[11pt]{../Support/ourbook}
 %% or for landscape, comment out line above and use this one:
@@ -9,15 +10,19 @@
 \makeatletter
 \renewcommand\normalsize{%
    \@setfontsize\normalsize\@xipt{13.6}%
-   \abovedisplayskip 11\p@  \@minus6\p@
+   \abovedisplayskip 11\p@
    \abovedisplayshortskip \z@ 
-   \belowdisplayshortskip 6.5\p@ \@minus3\p@
+   \belowdisplayshortskip 6.5\p@ 
    \belowdisplayskip \abovedisplayskip
    \let\@listi\@listI}
 \makeatother
 \normalsize
 
+%% for letting text wrap around a figure,
+%% see https://www.overleaf.com/learn/latex
+%% /Wrapping_text_around_figures#Using%20Wrapfig
+
+\usepackage{wrapfig}
 
 \begin{document}
-
-\tableofcontents
+%\tableofcontents
