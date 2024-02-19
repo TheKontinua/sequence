@@ -5,17 +5,17 @@ A vector span is similar, but in a mathematical sense. If I give you the coordin
 
 \section{Overview: Independence and Dependence}
 A set of linearly independent vectors means that no vector is a combination of any other vector. Let's look at these three:
-$[1 0 0]$
-$[0 1 0]$
-$[0 0 1]$
+$$[1 0 0]$$
+$$[0 1 0]$$
+$$[0 0 1]$$
 
 If you scale each vector as much as possible, the span encompasses the entire 3D real space. 
 
 A set of linearly dependent vectors means one or more of the vectors can be written as a combination of one of the vectors.
 
-Let's look at these two:
-$v_1 = [7 -2 2]$
-$v_2 = [14 -4 4]$
+For example:
+$$v_1 = [7 -2 2]$$
+$$v_2 = [14 -4 4]$$
 
 You can see that $v_2$ is $2*v_1$. They are linearly dependent. This is a simple example, but when you encounter very large matrices, it won't be as obvious. You will learn computational techniques for figuring out independence.
 
@@ -31,9 +31,12 @@ Now that you have a sense of what a span is, it's time for the formal mathematic
 This means that any vector in the Span$(S)$ can be written as a linear combination of the vectors in $S$.
 
 \section{Independent Vectors}
-A set of vectors $S = \{v_1 v_2 ... v_n\}$ is  linearly independent if the only solution to the equation $a_1v_1 + a_2v_2 + ... + a_nv_n = 0$.
+A set of vectors $S = \{v_1 v_2 ... v_n\}$ is  linearly independent if the only solution to the equation:
+$$a_1v_1 + a_2v_2 + ... + a_nv_n = 0$$
+is 
+$$a_1 = a_2 = ... = a_n = 0$$ 
 
-is $a_1 = a_2 = ... = a_n = 0$. This means that no vector in the set can be written as a linear combination of the other vectors.
+This means that no vector in the set can be written as a linear combination of the other vectors.
 
 If there exists a nontrivial solution (i.e., a solution where some $a_i \neq 0$), then the vectors are said to be linearly dependent. This means that at least one vector in the set can be written as a linear combination of the other vectors.
 
@@ -90,7 +93,7 @@ $$\begin{bmatrix}
 \end{bmatrix}$$
 
 So:
-$a_1 = a_2 = 0$
+$$a_1 = a_2 = 0$$
 These vectors are not only independent, but they are orthogonal (perpendicular) to one another. You'll learn more about orthogonality later.
 
 Here is an example whose solution isn't as obvious. You can solve using Gaussian elmination.
@@ -115,15 +118,16 @@ $$0 + a_2 = 0$$
 Back substitute $a_2$ solution into the first equation:
 $$a_1  = 0$$
 $$a_2 = 0$$ 
-Therefore $$a_1 = a_2 = 0$$ and the two vectors are linearly independent.
+Therefore $a_1 = a_2 = 0$ and the two vectors are linearly independent.
 
 \begin{Exercise}[title={Vector Independence}, label=vector_independence]
     Are these vectors independent? 
-$$[2 1 4]$$
-$$[2 -1 2]$$ 
-$$[0 1 -2]$$
+$$\begin{matrix}[2 & 1  & 4]\end{matrix}$$
+$$\begin{matrix}[2  & -1  & 2]\end{matrix}$$ 
+$$\begin{matrix}[0  & 1  & -2]\end{matrix}$$
 Show your work.
 \end{Exercise}
+
 \begin{Answer}[ref=vector_independence]
     Rewrite as a system of equations:
         $$\begin{matrix}
@@ -187,7 +191,7 @@ One way to use python to check for linear independence is to use the linalg.solv
 
 Let's first see how to use python to solve the equations in the previous exercise. If the equations are linearly independent, then $a_1 = a_2 = a_3 = 0$
 
-Create a file called linear\_independence.Python and enter this code:
+Create a file called span\_independence.Python and enter this code:
 \begin{Verbatim}
 import numpy as np
 
@@ -198,9 +202,9 @@ b = np.array([0, 0, 0])
 c = np.linalg.solve(A,b)
 print(c)
 \end{Verbatim}
-Your should get this result, which shows the equations are linearly independent.
+You should get this result, which shows the equations are linearly independent.
 \begin{Verbatim}
-[ 0., -0.,  0.]
+[0., -0.,  0.]
 \end{Verbatim}
 But what happens if the equations are not independent? Let's make the first two equations dependent by making equation 1 two times equation 2. Enter this code into your file:
 \begin{Verbatim}
@@ -239,13 +243,15 @@ You should get this answer:
 \end{Verbatim}
 
 \section{Determinants}
-The determinant of a matrix is a scalar value that indicated whether the columns of a matrix are linearly independent. For a 2D matrix, the determinant is the area of the parallelogram defined by the column vectors. For a 3D matrix, the determinant is the volume of the parallelepiped (A six-dimensional figure formed by six paralleograms. A cube is an example). 
+The determinant of a matrix is a scalar value that indicates whether the columns of a matrix are linearly independent. For a 2D matrix, the determinant is the area of the parallelogram defined by the column vectors. For a 3D matrix, the determinant is the volume of the parallelepiped. (A six-dimensional figure formed by six paralleograms. A cube is an example.) 
 
 Let's plot the parallelogram for this matrix:
+$$
 \begin{bmatrix}
 2 & 0  \\
 0 & 2 
 \end{bmatrix}
+$$
 
 \begin{tikzpicture}
 \draw[gray,->] (0,0)-- (4.0,0) node[anchor=north west] {x axis};
@@ -274,12 +280,12 @@ $$
 For the matrix plotted above, the determinant is $(2*2)+(0*0)$. You can also see that 4.0 is the area, base (2) times height (2).
 
 You can use the determinant to see what happens to a shape when it goes through a linear transformation. Let's scale the 2 by 2 matrix by 4:
-
+$$
 \begin{bmatrix}
 8 & 0  \\
 0 & 8 
 \end{bmatrix}
-
+$$
 Plot it:
 
 \begin{tikzpicture}
@@ -300,7 +306,7 @@ Plot it:
 
 Find the determinant. 
 
-$(8*8)+(0*0) = 64$
+$$(8*8)+(0*0) = 64$$
 
 You can see that scaling the matrix cubed the area.
 
@@ -324,10 +330,12 @@ You can see that scaling the matrix cubed the area.
 \end{tikzpicture}
  
 Let's plot this matrix
+$$
 \begin{bmatrix}
 2 & 1  \\
 4 & 2 
 \end{bmatrix}
+$$
 
 \begin{tikzpicture}
 \draw[gray,->] (0,0)-- (4.5,0) node[anchor=north west] {x axis};
@@ -345,7 +353,7 @@ Let's plot this matrix
 
 One line overwrites the other. As you can see, the area is 0. The columns are linearly dependent.
 
-Calculating the determinant for a 2 by 2 is easy. For a larger matrix, finding the determinant is more complex and requires breaking down the matrix into smaller matrices until you reach the 2x2 form. The process is called expansion by minors. For our purposes, we simply want to first check to see if a matrix contains linearly independent rows and columns before using our Python code to solve. 
+Calculating the determinant for a 2 by 2 matrix is easy. For a larger matrix, finding the determinant is more complex and requires breaking down the matrix into smaller matrices until you reach the 2x2 form. The process is called expansion by minors. For our purposes, we simply want to first check to see if a matrix contains linearly independent rows and columns before using our Python code to solve. 
 
 Modify your code so that is uses the $np.linalg.det()$ function. If the determinant is not zero, then you can call the $np.linalg.solve()$ function. Your code should look like this:
 \begin{Verbatim}
@@ -362,5 +370,5 @@ Watch this video on \emph {Linear Combinations and Vector Spans from Khan Academ
 The Wolfram Demonstrations website has a fun, interactive demo where you can enter values for 2D and 3D matrices and see how the area or volume changes. 
 \url{https://demonstrations.wolfram.com/DeterminantsSeenGeometrically/#more}
 
-If you curious about the \emph {Expansion of Minors}, see:
+If you are curious about the \emph {Expansion of Minors}, see:
 \url {https://mathworld.wolfram.com/DeterminantExpansionbyMinors.html}
