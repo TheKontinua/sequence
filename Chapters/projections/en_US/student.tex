@@ -2,15 +2,44 @@
 
 A projection describes the relationship of one vector to another in terms of direction and orthogonality. Given two vectors, $\mathbf{u}$ and $\mathbf{v}$, the projection of $\mathbf{u}$ onto $\mathbf{v}$ separates $\mathbf{u}$ into two components. The first component signifies how much $\mathbf{u}$ lies in the direction of $\mathbf{v}$. The second signifies the component of $\mathbf{u}$ that is orthogonal (perpendicular) to $\mathbf{v}$. \index{projection} The figure depicts a projection. The perpendicular line dropped from the end of $\mathbf{u}$ is the orthogonal component. The portion of $\mathbf{u}$ that lies in the direction of $\mathbf{v}$ is the blue segment. 
 
-\includegraphics[width=0.4\textwidth]{projection.png}
 
-You can also think of a projection as the shadow cast by one vector onto each other byan overhead light.
+\begin{tikzpicture}
+%\draw[gray,->] (0,0)-- (9.0,0) node[anchor=north west] {x axis};
+%\draw[gray,->] (0,0)-- (0, 9.0) node[anchor=south east] {y axis};
 
-\includegraphics[width=0.4\textwidth]{projectionsun.png}
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+\draw[black, ultra thick, ->] (-1,0) -- (3,4.5) node[midway,above left] {u};
+\draw[black, ultra thick, ->] (-1,0) -- (5,0) node[midway,above left] {v};
+\draw[black, thick, dashed] (3,4.5) -- (3,0);
+\draw[red, ultra thick, ->] (-1,0) -- (3,0);
+
+\end{tikzpicture}
+
+
+You can also think of a projection as the shadow cast by one vector onto each other by an overhead light.
+
+\begin{tikzpicture}[fatnode/.style={circle, fill=blue!20, minimum size=15mm}]
+
+\node[fatnode] (A) at (1, 5) {Light};
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+
+\draw[black, ultra thick, ->] (-1,0) -- (3,4.5) node[midway,above left] {u};
+\draw[black, ultra thick, ->] (-1,0) -- (5,0) node[midway,above left] {v};
+\draw[black, thick, dashed] (3,4.5) -- (3,0);
+\draw[red, ultra thick, ->] (-1,0) -- (3,0);
+
+\end{tikzpicture}
+
 
 The projected vector can be in any direction. The length of the projected vector can extend beyond the vector on which it is projecting.
 
-\includegraphics[width=0.4\textwidth]{projectionextend.png}
+\begin{tikzpicture}  
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+\draw[black, ultra thick, ->] (-1,0) -- (4,2.5)node[midway,above left] {u};
+\draw[red, ultra thick, ->] (-1,0) -- (4,0);
+\draw[black, ultra thick, ->] (-1,0) -- (2,0)node[midway,above left] {v};
+\draw[black, thick, dashed] (4,2.5) -- (4,0);
+\end{tikzpicture}
 
 Projections are useful in many fields. These are a few examples, but there are numerous other applications in science, math, engineering, and finance.
 
