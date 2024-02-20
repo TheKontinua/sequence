@@ -27,6 +27,9 @@ def read_chapter_names(tex_path):
 # Read the list of chapter names from workbook_00.tex
 chapter_names = read_chapter_names(workbook_tex_path)
 
+excludeList = ["02-atomic_mass-03 - KA_Mass_Spectroscopy_Zr.png", "06-buoyancy-03 - bouy_word_cloud.png","12-stat_spreadsheets-01 - BlankSheet.png",
+"01-matter_energy_intro-04 - KA_Endo.png", "02-atomic_mass-01 - periodic.png"]
+
 # Iterate through the chapter names in the order they appear in workbook_00.tex
 for chapter_number, chapter_name in enumerate(chapter_names, start=1):
     chapter_path = os.path.join(base_dir, chapter_name, 'en_US')
@@ -39,10 +42,11 @@ for chapter_number, chapter_name in enumerate(chapter_names, start=1):
                     matches = re.findall(include_graphics_regex, tex_content)
                     for img_index, match in enumerate(matches, start=1):
                         img_filename = os.path.basename(match)
-                        new_filename = f"{chapter_number:02d}-{chapter_name}-{img_index:02d} - {img_filename}"
-                        img_file_path = os.path.join(chapter_path, match)
-                        if os.path.exists(img_file_path):
-                            dest_file_path = os.path.join(dest_dir, new_filename)
-                            shutil.copy(img_file_path, dest_file_path)
+                        if img_filename not in excludeList:
+                            new_filename = f"{chapter_number:02d}-{chapter_name}-{img_index:02d} - {img_filename}"
+                            img_file_path = os.path.join(chapter_path, match)
+                            if os.path.exists(img_file_path):
+                                dest_file_path = os.path.join(dest_dir, new_filename)
+                                shutil.copy(img_file_path, dest_file_path)
 
 print(f"All referenced images have been collected in: {dest_dir}")
