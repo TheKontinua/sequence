@@ -2,49 +2,33 @@
 
 In the previous chapter you learned how to calculate eigenvalues and eigenvectors. But not every matrix has them. For those matrices, singular values and singular vectors are analogous features. 
 
-***REVISE TO INCORPORATE THIS CONCEPT: SVD tells us that a linear transformation can be thought of as a rotation, scaling, and another rotation. 
-
-***REVISE TO INCORPORATE THIS CONCEPT: If A is a matrix in the transform Ax, the columns of A tell us where the standard basis vectors end up after the transform,.
-
-
-
-Singular Value Decomposition (SVD) is a matrix factorization technique that breaks down a matrix into three matrices that represent the structure and properties of the original matrix.The decomposed matrices make calculations easier and provide insight into the original matrix. Basically, SVD can transform a high dimension, highly variable set of data into a set of uncorrelated data points that reveal subgroupings that you might not have noticed in the original data.
+Singular Value Decomposition (SVD) is a matrix factorization technique that breaks down a matrix into three matrices that represent the structure and properties of the original matrix.The decomposed matrices make calculations easier and provide insight into the original matrix. Basically, SVD can transform a high dimension, highly variable set of data into a set of uncorrelated data points that reveal subgroupings that you might not have noticed in the original data. SVD tells us that a linear transformation can be thought of as a rotation, scaling, and another rotation.
 \index{singular value decomposition} \index{svd}
 
-
 \section{Definition}
-
-For any $m \times n$ matrix $A$, decomposes the matrix into three matrices.
+For any $m \times n$ matrix $A$, SVD decomposes the matrix into three matrices.
 
 \begin{equation}
 A = U \Sigma V^T
 \end{equation}
 
-$U$ and $V$ are orthogonal matrices. \Sigma is a diagonal matrix that is the same size as $A$. Its diagonal contain the singular values of $A$. 
-
 \begin{itemize}
-\item $U$ is an orthogonal matrix whose size is $m \times m$. Its columns are the
-  eigenvectors of $AA^T$. These are the left singular vectors of $A$. Because $U$ is orthogonal,$U^TU = I$
-\item $V$ is an orthogonal matrix whose size is $n \times n$ matrix. Its columns are the
-  eigenvectors of $A^TA$. These are the right singular vectors of $A$. Because $V$ is orthogonal, $V^TV = I$.
-\item  \Sigma is a diagonal matrix that is the same size as $A$. Its diagonal contains the singular values of $A$, arranged in descending order. These values are the square roots of the eigenvalues of both $A^TA$ and  $AA^T$. 
+\item $U$ is an orthogonal matrix whose size is $m \times m$. Its columns are the eigenvectors of $AA^T$. These are the left singular vectors of $A$. Because $U$ is orthogonal,$U^TU = I$
+\item $V$ is an orthogonal matrix whose size is $n \times n$ matrix. Its columns are the eigenvectors of $A^TA$. These are the right singular vectors of $A$. Because $V$ is orthogonal, $V^TV = I$.
+\item  $\Sigma$ is a diagonal matrix that is the same size as $A$. Its diagonal contains the singular values of $A$, arranged in descending order. These values are the square roots of the eigenvalues of both $A^TA$ and $AA^T$. 
 \end{itemize}
 
 \section{Applications of SVD}
 
 SVD has numerous applications:
-
 \begin{itemize}
 \item It's used in machine learning and data science to perform
   dimensionality reduction, particularly through a technique known as
   Principal Component Analysis (PCA).
-
 \item In numerical linear algebra, SVD is used to solve linear
   equations and compute matrix inverses in a more numerically stable
   way.
-
-\item It's used in image compression, where low-rank approximations of
-  an image matrix provide a compressed version of the original image.
+\item It's used in image compression, where low-rank approximations of an image matrix provide a compressed version of the original image. 
 \end{itemize}
 
 \section{Calculating SVD Manually}
@@ -65,7 +49,7 @@ $$ A = \begin{bmatrix}
 
 $$U = AA^T$$ 
 
-Start with $A^T$:
+Calculating $$AA^T$$ will give us a square matrix:
 $$ A^T = \begin{bmatrix}
 3 & -1\\
 1 & 3 \\
@@ -171,7 +155,7 @@ $$
 V = \begin{bmatrix}
 1/\sqrt{6} & 2/\sqrt{5} & 1/\sqrt{30} \\
 2/\sqrt{6} & -1/\sqrt{5} & 2/\sqrt{30}\\
-1/\sqrt{6},0,-5/\sqrt{30}
+1/\sqrt{6} & 0 & -5/\sqrt{30}
 \end{bmatrix}
 $$
 However, you want $V_T$:
@@ -183,7 +167,7 @@ V_T =
 1/\sqrt{30} & 2/\sqrt{30} & -5/\sqrt{30}
 \end{bmatrix}
 $$
-You have only to calculate $\Sigma$, a diagonal matrix that is the same size as $A$. The diagonal contains the singular values of $A$, arranged in descending order. They are the square roots of the eigenvalues of both $A^TA$ and  $AA^T$.
+You have only to calculate $\Sigma$, a diagonal matrix that is the same size as $A$. The diagonal contains the singular values of $A$, arranged in descending order. They are the square roots of the eigenvalues of both $A^TA$ and $AA^T$.
 
 Because the non-zero eigenvalues of U are the same as V, let's use the eigenvalues we calculate for U, 10 and 12. Note that $\Sigma$ will not be of the correct dimension to reconstruct the orignal matrix unless we add a column. By adding a zero column you'll be able to multiply between $U$ and $V$:
 $$
@@ -269,14 +253,14 @@ print(A_Rebuilt)
 \end{Verbatim}
 
 \section{Sign Ambiguity}
-You might notice that at times the absolute values in the $U$ and $V^T$ matrices are correct but that the signs vary from what you see as the answer. For example, when you compare a manually calculated SVD with one done in Python the signs might not agree. Both decompositions a $A$ are valid. Both decompositions will satisfy:
+You might notice that at times the absolute values in the $U$ and $V^T$ matrices are correct but that the signs vary from what you see as the answer. For example, when you compare a manually calculated SVD with one done in Python the signs might not agree. Both decompositions of $A$ are valid. Both decompositions will satisfy:
 $$A = U \Sigma V^T$$
 Note that the $S$ diagonal values will always be positive. 
 
 The sign ambiguity has implications. For example, when using SVD to compress data, if some of the signs are flipped, the data can have artifacts. At this point in your education, you don't need to concern yourself with it except when you are comparing SVD results for the same matrix.
 
 \begin{Exercise}[title={Single Value Decomposition}, label=svd]
-Modify your Python code to calculate SVD for the matrix in the worked out example. Did yo arrive at the same answer? Keep in mind that Python will compute square roots and present fractions as decimal. Take a look at the signs for the values in the $U$ and $V^T$ matrices. Are they the same or is this an example of sign ambiguity? 
+Modify your Python code to calculate SVD for the matrix in the worked out example. Did you arrive at the same answer? Keep in mind that Python will compute square roots and present fractions as decimal. Take a look at the signs for the values in the $U$ and $V^T$ matrices. Are they the same or is this an example of sign ambiguity? 
 \end{Exercise}
 \begin{Answer}[ref=svd]
 $$U = 
