@@ -4,6 +4,7 @@ drag
 vector_functions
 circular
 orbits
+rocketry
 vector_sim
 long_lat_dist
 tides
