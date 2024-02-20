@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Version: Nov 8, 2020
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version Feb 17, 2024
+%% Previous Version: Nov 8, 2020
 
 %% Ourbook.cls, modification of book.cls, by 
 %% Amy Hendrickson, TeXnology Inc, 
@@ -114,6 +115,8 @@
 \ExecuteOptions{letterpaper,10pt,twoside,onecolumn,final,openright}
 \ProcessOptions
 \input{bk1\@ptsize.clo}
+
+
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
 \renewcommand\baselinestretch{}
@@ -742,19 +745,7 @@
                     \secdef\@chapter\@schapter}
 
 \def\@makechapterhead#1{%
-\iflandscape\vglue-84pt\else\vspace*{36pt}\fi
-\noindent
-\vskip-\parskip
-\vskip8pt
-\vskip24pt
-\fboxsep=0pt
-\colorbox{white}{\vtop{
-\includegraphics
-[width=1.75in]{../Support/color_spiral.pdf}
-%\vskip20pt%36pt
-%% minus four seems about right
-%\vskip-4pt
-\vskip12pt
+\iflandscape\vglue-84pt\else\vglue-18pt\vglue-54pt\fi
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
 \color{sdkblue}
@@ -768,9 +759,8 @@
 \hrule height 1.5pt
     \interlinepenalty\@M
     \Huge \chapternamefont #1\par\nobreak
-\vskip-4pt}}}
-    \vskip 40\p@
-  }
+\vskip-4pt}\vskip 40\p@}
+
 
 \def\@makeschapterhead#1{%
 \iflandscape\vglue-1in\else\vspace*{36pt}\fi
@@ -779,8 +769,11 @@
 \vskip8pt
 \vskip24pt
 \vtop{
+{\fboxsep=0pt
+\fboxrule=1.5pt
+\fcolorbox{sdkblue}{white}{
 \includegraphics
-[width=1in]{../Support/color_spiral.pdf}
+[width=1in]{../Support/color_spiral.pdf}}}
 \vskip12pt
   {%\color{ForestGreen}
 \color{sdkblue}
@@ -806,14 +799,17 @@
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usepackage[american]{circuitikz}
 \usepackage{tikz-3dplot}
+\usepackage{cancel}
 
-%%%%%%%%%%%%%%%%%%
-%% Important Box
+\usepackage{listings}
+
 \usepackage{mdframed}
 \mdfsetup{skipabove=\topskip,skipbelow=\topskip}
 \global\mdfdefinestyle{important}{%
   linecolor=sdkblue,linewidth=1pt % leftmargin=1cm,rightmargin=1cm
 }
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Colors
@@ -863,18 +859,13 @@
 \definecolor{ltCyan}{cmyk}{.64,0,0,0}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fonts
 
 %% If wanted, makes more graceful math fonts:
 \usepackage{euler}
+
 \usepackage{fontspec}
-\usepackage{listings}
-
-%% For strikethrough
-\usepackage{cancel}
-
 
 %%% Set Main Text Font
 \setmainfont{TeX Gyre Pagella}[Ligatures=TeX, WordSpace=1.2]
@@ -1176,13 +1167,16 @@ to\@pnumwidth{\hss\bfseries\itshape #2}\par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% for exercises with working space for students:
+\newdimen\ExtraWorkingSpace
+
 \long\def\addworkingspace{\nobreak
 \hsize=.5\textwidth\vtop\bgroup\hbox to
 \textwidth\bgroup\vrule height 24pt width0pt\hskip-36pt\vtop\bgroup\hsize=.45\textwidth
-\parskip=0pt
+\parskip=12pt
 \linewidth=.45\textwidth\noindent{\color{white}.}\hskip-2pt\ignorespaces}
 
-\def\endworkingspace{
+\def\endworkingspace{\vskip\ExtraWorkingSpace
+\global\ExtraWorkingSpace=0pt
 \vskip24pt 
 \rlap{\hbox
 to\textwidth{\hskip.5\textwidth\hskip16pt\vrule height 18pt depth0pt
@@ -1218,7 +1212,7 @@ Space}\ \ \ \hrulefill
 \let\Question\xQuestion\addworkingspace}
 
 \let\saveendExercise\endExercise
-\def\endExercise{\endworkingspace\egroup\unvbox0
+\def\endExercise{\vskip1sp\endworkingspace\egroup\unvbox0
 \vskip12pt\saveendExercise}
 
 \renewcommand{\ExerciseHeader}{
@@ -1256,12 +1250,11 @@ width 0pt
 \long\def\boxed#1{{\fboxsep=6pt\fbox {\m@th $\displaystyle #1$}}}
 
 
-\newcommand{\pyfunction}[1] {{\tt #1}} 
+\newcommand{\pyfunction}[1] {{\tt #1}}
 \newcommand{\pyvar}[1] {{\tt #1}}
-\newcommand{\pytype}[1] {{\tt #1}} 
-\newcommand{\filename}[1] {{\tt #1}} 
+\newcommand{\pytype}[1] {{\tt #1}}
+\newcommand{\filename}[1] {{\tt #1}}
 \newcommand{\newterm}[1] {{\it #1}} 
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% [original] allows us to use version of theindex defined below
@@ -1290,6 +1283,36 @@ width 0pt
     urlcolor=sdkblue,    % color of external links
 final=true]
 {hyperref}
+
+%% To make less, and non-stretching, space around itemize
+
+% this is possible but doesn't leave enough space between items:
+%\usepackage{enumitem}
+%\setlist{noitemsep}
+
+\topsep=8pt
+\itemsep=8pt
+\parsep=8pt
+
+\def\@listi{\leftmargin\leftmargini
+            \parsep 4\p@ 
+            \topsep 4\p@ 
+            \itemsep4\p@ }
+\let\@listI\@listi
+\@listi
+
+
+
+
+%% space above and below equations
+\abovedisplayskip=11pt
+\belowdisplayskip=11pt
+
+
+%% So that extra space on the page is put
+%% at the bottom, not around lists or equations
+%% etc.
+\raggedbottom
 
 \endinput
 %%

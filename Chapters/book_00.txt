@@ -82,8 +82,8 @@ implicit_diff
 related_rates
 multiv_func
 partial_deriv_grad
+linear_algebra_intro
 vectors_matrices
-linear_combinations
 spans_independence
 systems_matrices
 projections

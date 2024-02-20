@@ -1,40 +1,59 @@
 \chapter{Projections}
 
-A projection describes the relationship of one vector to another in terms of direction and orthogonality. Given two vectors, $\mathbf{u}$ and $\mathbf{v}$, the projection of $\mathbf{u}$ onto $\mathbf{v}$ separates $\mathbf{u}$ into two components. The first component signifies how much $\mathbf{u}$ lies in the direction of $\mathbf{v}$. The second signifies the component of $\mathbf{u}$ that is orthogonal (perpendicular) to $\mathbf{v}$. \index{projection} The figure depicts a projection. The perpendicular line dropped from the end of $\mathbf{u}$ is the orthogonal component. The portion of $\mathbf{u}$ that lies in the direction of $\mathbf{v}$ is the blue segment. 
+The word projection has two main meanings in everyday life. One is a projection as a forecast or estimate of something in the future based on the current situation. Another is the result of shining a light to cast a shadow or show a movie. Both these definitions apply to mathematical projection.
 
-\includegraphics[width=0.4\textwidth]{projection.png}
-
-You can also think of a projection as the shadow cast by one vector onto each other byan overhead light.
-
-\includegraphics[width=0.4\textwidth]{projectionsun.png}
-
-The projected vector can be in any direction. The length of the projected vector can extend beyond the vector on which it is projecting.
-
-\includegraphics[width=0.4\textwidth]{projectionextend.png}
-
-Projections are useful in many fields. These are a few examples, but there are numerous other applications in science, math, engineering, and finance.
-
+Projections are used in many fields such as science, math, engineering, and finance. Here are a few examples: 
 \begin{itemize}
 \item Investors evaluate risk and return of a portfolio by projecting an asset’s return onto a reference portfolio.
 \item Astronomers analyze the motion of stellar objects by projecting the object’s true motion onto the plane of the sky.
 \item Robotics engineers use projections to prevent robots from running into obstacles by projecting the robot’s position onto the optimal path.
 \end{itemize}
 
-As you work your way through this course, you'll have a chance to apply the calculations you learn in this chapter to a variety of problems. Specifically, the next chapter shows how to transform a set of linearly independent vectors into a set of orthogonal ones. Projections are essential to that transformation. 
+Mathematically, a projection describes the relationship of one vector to another in terms of direction and orthogonality. Given two vectors, $\mathbf{u}$ and $\mathbf{v}$, the projection of $\mathbf{u}$ onto $\mathbf{v}$ separates $\mathbf{u}$ into two components. The first component signifies how much $\mathbf{u}$ lies in the direction of $\mathbf{v}$. The second signifies the component of $\mathbf{u}$ that is orthogonal (perpendicular) to $\mathbf{v}$. \index{projection} 
+
+The figure depicts a projection. The perpendicular line dropped from the end of $\mathbf{u}$ is the orthogonal component. The portion of $\mathbf{u}$ that lies in the direction of $\mathbf{v}$ is the blue segment. 
+
+\begin{tikzpicture}
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+\draw[black, ultra thick, ->] (-1,0) -- (3,4.5) node[midway,above left] {u};
+\draw[black, ultra thick, ->] (-1,0) -- (5,0) node[midway,above left] {v};
+\draw[black, thick, dashed] (3,4.5) -- (3,0);
+\draw[red, ultra thick, ->] (-1,0) -- (3,0);
+\end{tikzpicture}
+
+You can also think of a projection as the shadow cast by one vector onto each other by an overhead light.
+
+\begin{tikzpicture}[fatnode/.style={circle, fill=blue!20, minimum size=15mm}]
+\node[fatnode] (A) at (1, 5) {Light};
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+\draw[black, ultra thick, ->] (-1,0) -- (3,4.5) node[midway,above left] {u};
+\draw[black, ultra thick, ->] (-1,0) -- (5,0) node[midway,above left] {v};
+\draw[black, thick, dashed] (3,4.5) -- (3,0);
+\draw[red, ultra thick, ->] (-1,0) -- (3,0);
+\end{tikzpicture}
+
+The projected vector can be in any direction and its length can extend beyond the vector onto which it is projecting.
+
+\begin{tikzpicture}  
+\draw[step=1cm, gray, very thin](-1.9, -1.9) grid (5.9,5.9);
+\draw[black, ultra thick, ->] (-1,0) -- (4,2.5)node[midway,above left] {u};
+\draw[red, ultra thick, ->] (-1,0) -- (4,0);
+\draw[black, ultra thick, ->] (-1,0) -- (2,0)node[midway,above left] {v};
+\draw[black, thick, dashed] (4,2.5) -- (4,0);
+\end{tikzpicture}
 
 To calculate the projection of 
 $\mathbf{v}$ onto $\mathbf{u}$,use this formula:
 
 $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{u\cdot v}{\parallel{v}\parallel ^2}v$$
 
-Note that the denominator is is the magnitude squared of vector v.
+Note that the denominator is is the magnitude squared of vector $\mathbf{v}$.
 $$(\sqrt{a_1^2 + a_2^2 + ... + a_n^2} )^2$$
 You learned previously that this is the same as the dot product of a vector with itself.
 $${v\cdot v}$$
 In the examples that follow, we'll simplify to the dot product notation.
 
 Let's look at a specific example:
-
 $$u = (1,4,6)$$ 
 $$v = (-2,6,2)$$ 
 
@@ -42,6 +61,8 @@ $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{u\cdot v}{\parallel {v}\parallel 
 $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = \frac{(1,4,6)\cdot(-2,6,2)}{ (-2,6,2)\cdot (-2,6,2)}(-2,6,2)$$
 $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = (\frac{34}{44}(-2,6,2)$$
 $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = (-1.545, 4.64, 1.545)$$
+
+As you work your way through this course, you'll have a chance to apply the calculations you learn in this chapter to a variety of problems. Specifically, the next chapter shows how to transform a set of linearly independent vectors into a set of orthogonal ones. Projections are essential to that transformation. 
 
 \begin{Exercise}[title={Projections}, label=projections]
 	Find the projection of $\mathbf{a}$ on $\mathbf{b}$ where:
@@ -61,11 +82,12 @@ $$\mathbf{proj}_\mathbf{v}(\mathbf{u}) = (-1.545, 4.64, 1.545)$$
 Create a file called \filename{vectors\_projections.py} and enter this code:
 \begin{Verbatim}
 import numpy as np
+
+# define two vectors  
+a = np.array([1, 4, 6])   
+b = np.array([-2, 6, 2])  
   
-a = np.array([1, 4, 6])   # vector a
-b = np.array([-2, 6, 2])   # vector b
-  
-# Use np.dot() to calculate the dot product
+# use np.dot() to calculate the dot product
 projection_a_on_b = (np.dot(a, b)/np.dot(b, b))*b
   
 print("The projection of vector a on vector b is:", projection_a_on_b)

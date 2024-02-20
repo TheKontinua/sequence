@@ -1,5 +1,5 @@
 \chapter{Matrices}
-You've already had experience with matrices earlier in this module and also when you'''ve used spreadsheets. In this chapter you'll learn the types of matrices and get an introduction to some of the special matrices used for various calculations. 
+You've already had experience with matrices earlier in this module and also when you've used spreadsheets. In this chapter you'll learn the types of matrices and get an introduction to some of the special matrices used for various calculations. 
 
 As you know, a matrix is a rectangular array of numbers arranged in rows and columns. The individual numbers in the matrix are called elements or entries. Matrices can be described by their dimensions. For example, a matrix with 2 rows and 3 columns is a 2 by 3 matrix.
 
@@ -32,7 +32,7 @@ They can also be described by their unique numerical properties. Special matrice
 \begin{itemize}
 	\item \textbf{Zero Matrix:} contains only entries that are zero.
 	\item \textbf{Identity Matrix:} sometimes called the unit matrix, is a square matrix whose diagonal entries are 1 and all other entries are 0.
-	\item \textbf{Symmetric Matrix:} a square matrix that equals its transpose.
+	\item \textbf{Symmetric Matrix:} a square matrix that equals its transpose. The next section shows how to create the transpose of a matrix,
 	\item \textbf{Diagonal Matrix:} has nonzero elements on the main diagonal, but all other elements are zero
 	\item \textbf{Triangular Matrix:} This is a special square matrix that can be upper triangular or lower triangular. If upper, the main diagonal and all entries above it are nonzero while the lower entries are all zero. If lower, the main diagonal and all the entries below it are nonzero while the upper entries are all zero. 
 \end{itemize}
@@ -113,19 +113,16 @@ $$A =  A^t =
 \end{Answer}
 
 \subsection{Creating Matrices in Python}
-
-****REVISE TO INCLUDE: np.diag() function for working with diagonal matrices.
-
 Create a file called \filename{matrices\_creation.py} and enter this code:
 \begin{Verbatim}
-// import the python module that supports matrices
+# import the python module that supports matrices
 import numpy as np
-// Use the function np.array to define a matrix that 
-// contains specific values that you supply.
+# Use the function np.array to define a matrix that 
+# contains specific values that you supply.
 A = np.array([[ 5, 1, 3], 
               [ 1, -1, 8], 
               [ 6, 2, 1]])
-// The transpose function returns 
+# The transpose function returns 
 A.transpose()
 \end{Verbatim}
 When you run it, you should see:
@@ -137,7 +134,7 @@ array([[ 5, 1, 6],
 As you can see, $A\neq A^T$ so A is not symmetric.
 Try another: 
 \begin{Verbatim}
-// create a matrix, B
+# create a matrix, B
 B = np.array([[ 5, 1, 6], 
               [ 1, -1, 2], 
               [ 6, 2, 1]])
@@ -153,7 +150,7 @@ B is symmetric. You can actually transpose any matrix using this function. But a
 
 Try this code to see what happens when you transpose a rectangular matrix. 
 \begin{Verbatim}
-// create a matrix, B
+# create a matrix, J
 J = np.array([[ 5, 1, 3, 0], 
               [ 1, -1, 8, 11], 
               [ 6, 2, 1,-7]])
@@ -170,7 +167,7 @@ array([[ 5,  1,  6],
 \subsection{Creating Special Matrices in Python}
  Use the same file to add this code for creating a zero matrix.
 \begin{Verbatim}
- // create an 8 by 10 Zero matrix.
+# create an 8 by 10 Zero matrix.
  C = np.zeros((8, 10))
  C
 \end{Verbatim}
@@ -187,7 +184,7 @@ array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
 \end{Verbatim}
 Add the following code to create an 8 by 8 Identity matrix.
 \begin{Verbatim}
- // create an 8 by 8 Identity matrix 
+# create an 8 by 8 Identity matrix 
  D = np.eye(8)
  D
 \end{Verbatim}
@@ -202,4 +199,52 @@ array([[1., 0., 0., 0., 0., 0., 0., 0.],
        [0., 0., 0., 0., 0., 0., 1., 0.],
        [0., 0., 0., 0., 0., 0., 0., 1.]])
 \end{Verbatim}
+As you progress in your studies you'll learn the importance of diagonal matrices and of extracting the diagonal of a matrix. Let's see how to extract a diagonal and then to create a diagonal matrix.
+\begin{Verbatim}
+# create a  matrix 
+W = np.array([[1, 2, 3, 4], 
+              [5, 6, 7, 8], 
+              [-8, -7, -6, -5],
+              [-4, -3, -2, -1]])
+\end{Verbatim}
+Extract the main diagonal using np.diag(<array>,<diagonal to extract>). 
+Passing 0 as the second parameter specifies the main diagonal. A positive value extracts a diagonal from the upper part. A negative value extracts a diagonal from the lower part. Run this code then experiment passing other values to see what you get.
+\begin{Verbatim}
+print(np.diag(W,0))
+\end{Verbatim}
+When you run it you should see;
+\begin{Verbatim}
+array([ 1,  6, -6, -1])
+\end{Verbatim}
+You can also use np.diag() to create a diagonal matrix from a 1D array. In this case, do not pass a second paramenter.
+\begin{Verbatim}
+Q = np.array([1, 2, 3])
+DiagArray = np.diag(Q))
+print(DiagArray)
+\end{Verbatim}
+When you run it you should see;
+\begin{Verbatim}
+[[1 0 0]
+ [0 2 0]
+ [0 0 3]]
+\end{Verbatim}
+Python has functions for extracting upper and lower triangular matrices. Try these:
+\begin{Verbatim}
+print(np.triu(W))
+print(np.tril(W))
+\end{Verbatim}
+You should see:
+\begin{Verbatim}
+[[ 1  2  3  4]
+ [ 0  6  7  8]
+ [ 0  0 -6 -5]
+ [ 0  0  0 -1]]
+ 
+[[ 1  0  0  0]
+ [ 5  6  0  0]
+ [-8 -7 -6  0]
+ [-4 -3 -2 -1]]
+\end{Verbatim}
+
+
 

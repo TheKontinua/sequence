@@ -193,11 +193,11 @@ Let's go back to the first small grayscale image:
 
 \includegraphics[width=0.25\textwidth]{fBitmap.png}
 
-If you want to keep the pattern in the first column, you could multiply the matrix by a vector, [1.0, 0.0, 0.0]. The 1.0 will keep the values in the first column, but the 0.0 will knock out the other values because 0.0 times anything equals 0.0.
+If you want to keep the pattern in the first column, you could multiply the matrix by a vector, [1.0 0.0 0.0]. The 1.0 will keep the values in the first column, but the 0.0 will knock out the other values because 0.0 times anything equals 0.0.
 
 \includegraphics[width=0.25\textwidth]{onechannel.png}
 
-What do you think will happen if you use the vector [0.0, 1.0, 0.0] or [0.0, 0.0, 1.0]? You'll get a chance later to use python to perform image operations.
+What do you think will happen if you use the vector [0.0 1.0 0.0] or [0.0 0.0 1.0]? You'll get a chance later to use python to perform image operations.
 
 All the operations we performed on these images satisfy the requirement for linear combinations: preserving addition and scalar multiplication. 
 
@@ -225,11 +225,11 @@ India recently sent the Aditya spacecraft on a mission to study the Sun. Without
 
 A Lagrange point is a point in space between two bodies (e.g. Earth and Sun) where there is gravitational equilibrium. With the right trajectory, a spacecraft will orbit around a Lagrange point in a stable position that doesn’t require much energy to maintain. That’s called a Halo orbit. Because that there are no fueling stations in space, a Halo orbit will allow Aditya to maintain position for about 5 years. Pretty good mileage!
 
-\includegraphics[width=0.5\textwidth]{orbit.png}
+\includegraphics[width=0.5\textwidth]{adityaOrbit.png}
 
 Aditya’s engineers had to calculate a looping maneuver that would precisely inject the Aditya spacecraft into the Halo orbit. They determined the angles and burn times for the thrust engine. If they were wrong in one direction, the spacecraft would fly off to the sun. The other direction would send the spacecraft back in the direction of Earth. Their success is due to a solid understanding of vectors and linear algebra.
 
-\includegraphics[width=0.5\textwidth]{thrust.png}
+\includegraphics[width=0.5\textwidth]{gimbalEngine.png}
 
 \section{Images in Python}
 One of the wonderful things about python is the availability of libraries for specialized computation. The Python Imaging Library, PIL, is what you'll use to create images, read existing images from disk, and perform operation on images. To create and manipulate arrays, you will use NumPy. 

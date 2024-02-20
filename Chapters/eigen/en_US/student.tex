@@ -1,11 +1,7 @@
 \chapter{Eigenvectors and Eigenvalues}
 
 
-Like many specialized disciplines, Linear Algebra uses many unfamiliar terms whose origin you might wonder about. Eigenvectors and eigenvalues are two of them. If you know German, you’ll recognize that eigen means inherent or a characteristic attribute. Named by the German mathematician David Hilbert, an eigenvector mathematically describes a characteristic feature of an object, that remains unchanged after transformation. You can think of an eigenvector as the direction that doesn’t change direction. 
-
-***REVISE TO INCORPORATE THIS CONCEPT: An eigenvector is scaled when it goes through a linear transformation. Its eigenvalue tells how much it is scaled.
-
-***REVISE TO INCORPORATE THIS CONCEPT: Eigenvalues with negative components
+Like many specialized disciplines, Linear Algebra uses many unfamiliar terms whose origin you might wonder about. Eigenvectors and eigenvalues are two of them. If you know German, you’ll recognize that eigen means inherent or a characteristic attribute. Named by the German mathematician David Hilbert, an eigenvector mathematically describes a characteristic feature of an object, that remains unchanged after transformation. You can think of an eigenvector as the direction that doesn’t change direction. An eigenvector characterizes a linear transformation whereas its eigenvalue tells how much the vector is scaled. Eigenvalues can be negative or positive. A negative value indicates the direction of the eigenvector is reversed.
 
 Eigenvalues and eigenvectors are a way to break down matrices that can simplify many calculations and enable us to understand various properties of the matrix. They are widely used in physics and engineering for stability analysis, vibration analysis, and many other applications. \index{eigenvector} \index{eigenvalue}
 
@@ -122,13 +118,11 @@ Now you can expand as an equation:
 
 $$4x + 4y = 0$$
 
-$$ \text{Assume}  y = w$$
-
+Assume $y = w$
   $$4x = -4w$$
-
   $$x = -w$$
 
-  The solution is:
+The solution is:
 
 $$\begin{bmatrix}
 x\\
@@ -150,7 +144,7 @@ $$\begin{bmatrix}
 1
 \end{bmatrix}$$
 
-Now we need to substitue the other eigenvalue, 6, into the equation and follow the same procedure for finding the eigenvector. 
+Now we need to substitute the other eigenvalue, 6, into the equation and follow the same procedure for finding the eigenvector. 
 
 $$\begin{bmatrix}
 5-6 & 4\\
@@ -229,6 +223,19 @@ and \begin{bmatrix}
 4\\
 1
 \end{bmatrix}$$
+
+\section{Positive Semidefinite and Definite Matrices}
+Two matrices that have been getting a lot of buzz these days are Positive Semidefinite (PS) Matrices and Positive Definite (PD) Matrices. They are very similar. Postive Semidefinite refers to a symmetric matrix where all eigenvalues are non-negative ( \geq 0). Positive Definite refers to a symmetric matrix where all eigenvalues are positive ( > 0).
+
+These matrices are good at finding the minimum in optimization problems. For some optimizaton techniques, the set of solutions as a surface with hills and valleys, where the low points represent the optimal solution. It's possible to get "stuck" in a valley that is not the lowest (or most optimal) solution. But when you use PS and PD matrices, the set of all $n$ by $n$ PS/PD matrices form a cone. So when the searching for the optimal solution, you are guaranteed to descend towards the low point, the most optimal solution. 
+
+These are some fields where PS and PD matrices are used.
+\begin{itemize}
+\item AI researchers who are training a neural network on a recognition tasks need to reduce error to a minimum. 
+\item Mechanical engineers are often faced with designing structures that have minimal weight yet satisfy safety regulations and strength requirements. 
+\item Audio restoration engineers need to remove noise from a signal while minimizing any degradation of the original signal. 
+\end{itemize}
+
 
 \section{Eigenvalues and Eigenvectors in Python}
 Create a file called \filename{vectors\_eigen.py} and enter this code:
