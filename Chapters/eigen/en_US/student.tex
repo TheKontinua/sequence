@@ -224,19 +224,6 @@ and \begin{bmatrix}
 1
 \end{bmatrix}$$
 
-\section{Positive Semidefinite and Definite Matrices}
-Two matrices that have been getting a lot of buzz these days are Positive Semidefinite (PS) Matrices and Positive Definite (PD) Matrices. They are very similar. Postive Semidefinite refers to a symmetric matrix where all eigenvalues are non-negative ( \geq 0). Positive Definite refers to a symmetric matrix where all eigenvalues are positive ( > 0).
-
-These matrices are good at finding the minimum in optimization problems. For some optimizaton techniques, the set of solutions as a surface with hills and valleys, where the low points represent the optimal solution. It's possible to get "stuck" in a valley that is not the lowest (or most optimal) solution. But when you use PS and PD matrices, the set of all $n$ by $n$ PS/PD matrices form a cone. So when the searching for the optimal solution, you are guaranteed to descend towards the low point, the most optimal solution. 
-
-These are some fields where PS and PD matrices are used.
-\begin{itemize}
-\item AI researchers who are training a neural network on a recognition tasks need to reduce error to a minimum. 
-\item Mechanical engineers are often faced with designing structures that have minimal weight yet satisfy safety regulations and strength requirements. 
-\item Audio restoration engineers need to remove noise from a signal while minimizing any degradation of the original signal. 
-\end{itemize}
-
-
 \section{Eigenvalues and Eigenvectors in Python}
 Create a file called \filename{vectors\_eigen.py} and enter this code:
 
