@@ -82,6 +82,9 @@ implicit_diff
 related_rates
 multiv_func
 partial_deriv_grad
+fabricating
+electric_motors_generators
+power_generation
 linear_algebra_intro
 vectors_matrices
 spans_independence
