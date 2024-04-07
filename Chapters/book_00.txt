@@ -45,6 +45,7 @@ trig_functions
 transforms
 sound
 ac
+electric_motors_generators
 drag
 vector_functions
 circular
@@ -72,6 +73,7 @@ factoring_polynomials
 practice_polynomials
 graphs_polynomials
 interpolating_polynomials
+fabricating
 limits
 rational_functions
 differentiability
@@ -90,7 +92,8 @@ projections
 gram-schmidt
 eigen
 decomposition
-positive-semidefinitepandas
+positive-semidefinite
+pandas
 sql_1
 hexbinary
 http
