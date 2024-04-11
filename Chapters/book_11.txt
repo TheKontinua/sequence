@@ -1,5 +1,6 @@
 sound
 ac
+electric_motors_generators
 drag
 vector_functions
 circular
