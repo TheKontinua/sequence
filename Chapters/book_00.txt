@@ -34,6 +34,8 @@ dot
 boats
 sailing
 airplanes
+quadcopters
+helicopters
 basic_spreadsheet
 compound_interest
 intro_dataviz
