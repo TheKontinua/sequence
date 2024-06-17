@@ -2,4 +2,4 @@ train_val_test
 confusion
 precision_recall_auc_roc
 knn_classifier
-naive_bayes_classifier
+bayes_classifier
