@@ -120,6 +120,9 @@ definite_integral
 antiderivatives
 ftc
 cdf_uniform
+semiconductors
+power_generation
+radio
 gas
 temp_kinetic
 phase_change
