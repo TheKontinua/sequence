@@ -13,5 +13,5 @@ with open("../user.cfg", "r") as config_fd:
     config = json.load(config_fd)
 
 print(f"Building {chap_file} (in {chap_dir})")
-final_pdf_path = os.path.join(chap_dir, "draft.pdf")
+final_pdf_path = os.path.join(chap_dir, "student.pdf")
 util.build_chapter(chap_file, chap_dir, config, final_pdf_path)

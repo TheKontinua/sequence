@@ -12,7 +12,7 @@ for dir in dirs:
         shutil.rmtree(dir)
 
 # Delete any old chapter drafts
-files = glob.glob("../Chapters/*/*/draft.pdf")
+files = glob.glob("../Chapters/*/*/student.pdf")
 for draft_file in files:
     os.remove(draft_file)
 

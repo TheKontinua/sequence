@@ -66,12 +66,12 @@ def build_book(book_id, config, draft, final_dir):
     footer_file.close()
     output_tex.write(footer)
     output_tex.close()
-    os.system(f"{tool} {output_tex_file}")
+    os.system(f"{tool} -halt-on-error -synctex=1 {output_tex_file}")
 
     if not draft:
         # If a pdf was made, run it again to get cross-references right
         if not draft and os.path.exists(output_pdf_file):
-            os.system(f"{tool} {output_tex_file}")
+            os.system(f"{tool} -halt-on-error -synctex=1 {output_tex_file}")
             shutil.move(output_pdf_file, final_pdf_path)
         else:
             print(f"Build failed for {final_pdf_path}")
