@@ -154,7 +154,7 @@ train_val_test
 confusion
 precision_recall_auc_roc
 knn_classifier
-naive_bayes_classifier
+bayes_classifier
 lin_reg_r2_anova
 lin_reg_gradient_descent
 glm
