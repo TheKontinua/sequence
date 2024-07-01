@@ -1,4 +1,4 @@
-\chapter{Limits}
+	\chapter{Limits}
 
 The asymptotic behavior we see in rational functions suggests that we need to expand our vocabulary of function characteristics. We examined vertical asymptotes and end behavior through graphs and tables and discussed them in English. The language of limits enables us to discuss these attributes with greater efficiency. 
 
@@ -216,6 +216,165 @@ Using limit notation, state the limits as x approaches negative and positive inf
 \begin{Answer}[ref=limits3] 
 	$ \lim_{x \rightarrow -\infty} \text{tan}^{-1}x = -\frac{\pi}{2}, \lim_{x \rightarrow \infty} \text{tan}^{-1}x = \frac{\pi}{2}; \lim_{x \rightarrow -\infty} \frac{1}{1 + e^{-x}} = 0, \lim_{x \rightarrow \infty} \frac{1}{1 + e^{-x}} = 1 $
 \end{Answer}
+
+There are some mathematical properties of limits which allow us to determine the limit of complex functions without seeing a graph or using a calculator to generate a table. 
+
+The following laws are true given that \textit{c} is a constant, $\lim_{x\to\infty} f(x) $ exists, and $\lim_{x\to\infty} g(x) $ exists.
+
+\begin{enumerate}
+    \item Sum Law $\lim_{x\to\infty} \left[f(x) + g(x) \right] = lim_{x\to\infty} f(x) + lim_{x\to\infty} g(x)$
+    \item Difference Law $\lim_{x\to\infty} \left[f(x) - g(x) \right] = lim_{x\to\infty} f(x) - lim_{x\to\infty} g(x)$
+    \item Constant Multiple Law $lim_{x\to\infty} \left[\textit{c}f(x) \right] = \textit{c} \cdot lim_{x\to\infty}    f(x) $
+    \item Product Law $lim_{x\to\infty} \left[f(x)g(x) \right] = lim_{x\to\infty}f(x) \cdot lim_{x\to\infty} g(x)$
+    \item Quotient Law $lim_{x\to\infty} \frac{f(x)}{g(x)} = \frac{lim_{x\to\infty} f(x)}{lim_{x\to\infty} g(x)}$ given that $lim_{x\to\infty} g(x) \neq 0$
+\end{enumerate}
+
+These laws are fairly obvious - the limit of the sum of two functions is equal to the sum of the limits of each function individually. The only tricky on is the last: the limit of the quotient of two functions is equal to the quotient of the limits if and only if the limit of the function in the denominator does not equal zero. This makes sense, since we know dividing by zero yields an undefined result. 
+
+Let's practice applying these laws to evaluate the limits of the functions f(x), shown in blue below, and g(x), shown in red below:
+
+$f(x) = \begin{cases}
+    -x^2+3, \text{ if } x \leq 0\\
+    -x, \text{ if } x > 0
+\end{cases}$
+
+$g(x) = \begin{cases}
+   x^2+1, \text{ if } x < 1 \\
+    (x-2)^2, \text{ if } x \geq 1
+\end{cases}$
+
+\begin{tikzpicture}
+    \begin{axis}[
+        grid,
+        axis lines = center,
+        xlabel = \(x\),
+        ylabel = {\(y\)},
+        ]
+    \addplot [
+    domain=-3:1,
+    samples=50,
+    color=red,
+    ]
+    {x^2+1};
+    \addlegendentry{g(x)};
+    \addplot[
+    domain=-3:0,
+    samples=50,
+    color=blue,
+    ]
+    {-x^2+3};
+    \addlegendentry{f(x)};
+    \addplot[
+    domain=1:3,
+    samples=50,
+    color=red,
+    ]
+    {(x-2)^2};
+    \addplot[mark=*,fill=red,draw=red] coordinates{(1,1)};
+    \addplot[mark=*,fill=white,draw=red] coordinates{(1,2)};
+    
+    \addplot[mark=*,fill=blue,draw=blue] coordinates{(0,3)};
+    \addplot[mark=*, fill=white,draw=blue] coordinates{(0,0)};
+    \addplot[
+    domain=0:3,
+    samples=50,
+    color=blue,
+    ]
+    {-x};
+    \end{axis}
+\end{tikzpicture}
+
+Limit Laws Practice, Part I:
+Use the graphs of f(x) and g(x) given above to evaluate each limit, if it exists. If the limit does not exist, explain why. Two examples are given first:
+
+Example 1: evaluate $\lim_{x\to0} f(x) \cdot g(x)$
+From the Product Law, we know that:
+$$\lim_{x\to0} f(x) \cdot g(x) = \lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x)$$
+Looking at the graph, we can see that $$\lim_{x\to0}g(x) = 1$$ and there is a discontinuity in $f(x)$ at $x=0$. Therefore, $$\lim_{x\to0}f(x) = \text{undef}$$ Substituting this, we get: $$\lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x) = \text{undef} \cdot 1 = \text{undef}$$ Therefore, \textbf{the limit does not exist}. 
+
+Example 2: evaluate $\lim_{x\to2}f(x) - g(x)$
+
+Applying the Difference Law, we see that:
+
+$$\lim_{x\to2}f(x) - g(x) = \lim_{x\to2}f(x) - \lim_{x\to2}g(x)$$
+
+Examining the graph, we see that $$\lim_{x\to2}f(x) = -2$$ and $$\lim_{x\to2}g(x) = 0$$ Substituting these values, we get:
+
+$$\lim_{x\to2}f(x) - g(x) = -2 - 0 = -2$$
+
+Practice problems:
+\begin{enumerate}
+    \item $\lim_{x\to-3} \frac{f(x)}{g(x)}$
+    \item $\lim_{x\to2}\left[f(x) + 5g(x)\right]$
+    \item $\lim_{x\to-1} \frac{3g(x)}{f(x)}$
+    \item $\lim_{x\to0}f(x) \cdot 5g(x)$
+    \item $\lim_{x\to-1} f(x) - 3g(x) $
+\end{enumerate}
+
+Recall that exponents represent repeated multiplication. Therefore, if we apply the Product Law multiple times, we obtain the Power Law for limits:
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item Power Law $\lim_{x\to\infty} \left[f(x)\right]^n = \left[\lim_{x\to\infty}f(x)\right]^n$ where n is a positive integer
+\end{enumerate}
+There are two special limits that will be useful to us which are intuitively obvious, but we won't formally prove here.  
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item $\lim_{x\to a} \textit{c} = \textit{c}$
+    \item $\lim_{x\to a} x = a$
+\end{enumerate}
+Combining Law 8 with the Power Law, we find that:
+\begin{enumerate}
+\setcounter{enumi}{8}
+    \item $\lim_{x\to a} x^n = a^n$
+\end{enumerate}
+And similarly, for square roots:
+\begin{enumerate}
+    \setcounter{enumi}{9}
+    \item $\lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}$ (if n is even, we assume $a > 0$)
+\end{enumerate}
+
+Solutions to practice problems:
+
+1. From the quotient law, we know that:$$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{\lim_{x\to3}f(x)}{\lim_{x\to3}g(x)}$$
+From the graph, we see that: $$\lim_{x\to3}f(x) = -3$$
+and that:$$\lim_{x\to3}g(x) = 1$$
+Substituting these values, we get:
+$$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{-3}{1} = -3$$
+
+
+2. From the Sum Law, we know that: $$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + \lim_{x\to2}5g(x)$$
+and applying the Constant Multiple Law, we see that:
+$$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + 5\lim_{x\to2}g(x)$$
+Examining the graph of f(x) and g(x), we can determine that $$\lim_{x\to2}f(x) = -2$$
+and
+$$\lim_{x/to2}g(x) = 0$$
+Substituting these values, we get:
+$$\lim_{x\to2}\left[f(x) + 5g(x)\right]=-2 + 5 \cdot 0 = -2$$
+
+
+3.From the quotient law, we see that: $$\lim_{x\to-1} \frac{3g(x)}{f(x)}=\frac{\lim_{x\to-1}3g(x)}{\lim_{x\to-1}f(x)}$$
+
+Applying the Constant Multiple Law, we get:
+$$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3\lim_{x\to-1}g(x)}{\lim_{x\to-1}f(x)}$$
+From the graph, we see that:
+$$\lim_{x\to-1}f(x) = 2$$
+and
+$$\lim_{x\to-1}g(x) = 2$$
+Substituting, we get:
+$$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3 \cdot 2}{2}=3$$
+
+4. Applying the Product and Constant Multiple Laws, we get:
+$$\lim_{x\to0}\left[f(x) \cdot 5g(x)\right] = \lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$$
+Examining the graphs, we see that $\lim_{x\to0}f(x)$ does not exist and $\lim_{x\to0}g(x) = 1$. Because $\lim_{x\to0}f(x)$ does not exist, $\lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$ also does not exist. 
+
+5. Applying the Difference and Constant Multiple Laws, we see that:
+$$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =\lim_{x\to-1}f(x) - 3 \cdot \lim_{x\to-1}g(x)$$
+Examining the graphs, we see that:
+$$\lim_{x\to-1}f(x) = 2$$
+and
+$$\lim_{x\to-1}g(x) = 2$$
+Substituting, we get that:
+$$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =2 - 3 \cdot 2 = 2-6 = -4$$
 
 %Here is a function:
 %
