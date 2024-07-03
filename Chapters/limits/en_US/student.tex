@@ -217,6 +217,116 @@ Using limit notation, state the limits as x approaches negative and positive inf
 	$ \lim_{x \rightarrow -\infty} \text{tan}^{-1}x = -\frac{\pi}{2}, \lim_{x \rightarrow \infty} \text{tan}^{-1}x = \frac{\pi}{2}; \lim_{x \rightarrow -\infty} \frac{1}{1 + e^{-x}} = 0, \lim_{x \rightarrow \infty} \frac{1}{1 + e^{-x}} = 1 $
 \end{Answer}
 
+As seen above, the limit of a function from the left may be different from the limit of the function from the right. Additionally, the actual \textit{value} of the function may be different from the limit. Consider the piecewise function h(x):
+
+$h(x) = \begin{cases}
+    -x^2+3, \text{ if } x < 0\\
+    2, x=0\\
+    -x+3, \text{ if } x > 0
+\end{cases}$
+
+\begin{tikzpicture}
+    \begin{axis}
+        [grid, axis lines = center, xlabel = \(x\), ylabel=\(h(x)\)]
+    \addplot[
+    domain=-3:0,
+    samples=50,
+    color=blue,
+    ]
+    {-x^2+3};
+    \addplot[mark=*,fill=white,draw=blue] coordinates{(0,3)};
+    \addplot[mark=*,fill=blue,draw=blue] coordinates{(0,2)};
+    \addplot[
+    domain=0:3,
+    samples=50,
+    color=blue,
+    ]
+    {-x+3};
+    \end{axis}
+\end{tikzpicture}
+
+From examining the graph, we see that $$\lim_{x\to0_-}h(x) = \lim_{x\to0_+}h(x) = 3$$
+However, $h(0) = 2 \neq 3$. So, does this limit exist? It does! The limit of a function describes the \textit{behavior} of the function around a particular value, not the value of the function itself. In order for a limit to exist, the limits from the left and right must be equal to each other, but not necessarily the actual value of the function. 
+
+Left and right limits practice: determine the limit from the left and the right for each function at the given value(s). State the limit at that value, if it exists. 
+\begin{enumerate}
+    \item $h(x), x=-1, 0, 1$
+    \item $f(x), x=-1, 0, 2$
+    \item $g(x), x=-2, 0, 1, 2$
+\end{enumerate}
+
+Solutions:
+\begin{enumerate}
+    \item $\lim_{x\to-1_-}h(x) = 2$ and $\lim_{x\to-1_+}h(x)=2$, therefore the limit exists and $\lim_{x\to-1}h(x)=2$
+
+    $\lim_{x\to0_-}h(x) = 3$ and $\lim_{x\to0_+}h(x)=3$, therefore the limit exists and $\lim_{x\to0}h(x)=3$
+
+    $\lim_{x\to1_-}h(x) = 2$ and $\lim_{x\to1_+}h(x)=2$, therefore the limit exists and $\lim_{x\to1}h(x)=2$
+    \item $\lim_{x\to-1_-}f(x)=2$ and $\lim_{x\to-1_+}f(x)=2$, therefore the limit exists and $\lim_{x\to-1}f(x) = 2$.
+
+    $\lim_{x\to0_-}f(x) = 3$ and $\lim_{x\to0_+}f(x) = 0$, and because $\lim_{x\to0_-}f(x) \neq \lim_{x\to0_+}f(x)$, the limit does not exist.
+
+    $\lim_{x\to2_-}f(x) = -2$ and $\lim_{x\to2_+}f(x) = -2$, therefore the limit exists and $\lim_{x\to2}f(x) = -2$.
+
+    \item $\lim_{x\to-2_-}g(x) = -1$ and $\lim_{x\to-2_+}g(x) = -1$, therefore the limit exists and $\lim_{x\to-2}g(x) = -1$.
+
+    $\lim_{x\to0_-}g(x)=1$ and $\lim_{x\to0_+}g(x) = 1$, therefore the limit exists and $\lim_{x\to0}g(x) = 1$
+
+    $\lim_{x\to1_-}g(x) = 2$ and $\lim_{x\to0_+}g(x) = 1$, and because $\lim_{x\to1_-}g(x) = 2 \neq \lim_{x\to0_+}g(x)$, the limit does not exist.
+
+    $\lim_{x\to2_-}g(x) = 0$ and $\lim_{x\to2_+}g(x) = 0$, therefore the limit exists and $\lim_{x\to2}g(x) = 0$
+\end{enumerate}
+
+A quick note about continuity:
+
+In order to be able to talk more about limits and know when we can apply certain rules and theorems, we first must discuss continuity. A function is continuous if there are no "jumps" or "gaps" in the graph of the function. For example, the function $f(x) = x^2$ is continuous for all real values of x. On the other hand, the function $g(x) = tan(x)$ has many discontinuities, including at $x=\frac{\pi}{2}$. Let's examine the graph of each of these functions:
+
+\begin{tikzpicture}
+    \begin{axis}[
+        grid,
+        axis lines = center,
+        xlabel = \(x\),
+        ylabel = {\(f(x)\)},
+        ]
+    \addplot [
+    domain=-3:3,
+    samples=100,
+    color=blue,
+    ]
+    {x^2};
+    \end{axis}
+\end{tikzpicture}
+
+If you wanted, you could trace your finger along the graph of f(x) from $x=-3$ to $x=3$ without ever picking up your finger. This means the function is continuous in the domain from $-3 \leq x \leq 3$. In this case, the domain of continuity \textit{includes} the end points ($x=3$ and $x=-3$). This is called a closed interval. In other cases, the function will be continuous right up to, but not including, the endpoints, as with the domains of continuity for our other example, $g(x) = tanx$. This is called an open interval. Let's learn more about intervals of continuity by examining $g(x) = tanx$.
+
+\begin{tikzpicture} %%FIXME make this graph prettier
+    \begin{axis}[
+        grid,
+        axis lines = center,
+        xlabel = \(x\),
+        ylabel = {\(g(x)\)},
+        ymin=-10,
+        ymax=10
+        ]
+    \addplot[
+    domain=-1:3,
+    samples=50,
+    smooth,
+    red] 
+    {tan(deg(pi*x))};
+    \end{axis}
+\end{tikzpicture}
+
+As you can see, if you trace your finger along the graph of the function starting at $x=0$, you can continue without lifting your finger to $x=\frac{\pi}{2}$. As you approach $x=\frac{\pi}{2}$ from the left, the value of $g(x)$ approaches $\infty$. In order to continue tracing the function PAST $x=\frac{\pi}{2}$, you have to lift your finger and bring it down to $-\infty$. The function then continues continuously again until $x=\frac{3\pi}{2}$. 
+
+In the case of $g(x) = tan(x)$, the function is continuous on \textit{open intervals}, including the open interval $\frac{\pi}{2} < x < \frac{3\pi}{2}$.
+
+There is a shorter way to represent open and closed domain intervals. We can represent that $f(x) = x^2$ is continuous on the closed interval $-3 \leq x \leq 3$ in the following way: $$x \in \left[3, -3 \right]$$
+
+Which reads as "x contained in the domain -3 to 3, inclusive". That is, all the values from -3 to 3, including the endpoints. The inclusion of the endpoints is implied by the use of \textit{brackets}. For open intervals, we use parentheses to communicate that the interval goes up to, but does not include, the endpoints. 
+
+Formally, a function $f(x)$ is continuous at $x=a$ if $\lim_{x\to a}f(x)$ exists \textit{and} $\lim_{x\to a}f(x) = f(a)$. That is, the limit is equal to the actual value of the function. Re-examine the graph of $h(x)$. We have already seen that $\lim_{x\to 0}h(x)$ exists and is equal to 3. However, $h(0) = 2 \neq \lim_{x\to0}h(x)$. So h(x) is not continuous at x = 0. Because $-x^2+3$ is evaluable all the way to $-\infty$ and $-x+3$ is evaluable all the way to $\infty$, the fucntion h(x) is continuous everywhere \textit{except} $x=0$. We can represent this mathematically by saying $h(x)$ is continuous on the domain $x \in \left(-\infty, 0\right)\cup \left(0, \infty\right)$. We use parentheses for $\pm\infty$ because we can never actually reach $\infty$. Additionally, the function is continuous up to, but not including $0$, and the use of parentheses excludes $x=0$ from the domain of continuity.
+
 There are some mathematical properties of limits which allow us to determine the limit of complex functions without seeing a graph or using a calculator to generate a table. 
 
 The following laws are true given that \textit{c} is a constant, $\lim_{x\to\infty} f(x) $ exists, and $\lim_{x\to\infty} g(x) $ exists.
