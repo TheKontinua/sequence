@@ -248,15 +248,16 @@ $h(x) = \begin{cases}
 From examining the graph, we see that $$\lim_{x\to0_-}h(x) = \lim_{x\to0_+}h(x) = 3$$
 However, $h(0) = 2 \neq 3$. So, does this limit exist? It does! The limit of a function describes the \textit{behavior} of the function around a particular value, not the value of the function itself. In order for a limit to exist, the limits from the left and right must be equal to each other, but not necessarily the actual value of the function. 
 
-Left and right limits practice: determine the limit from the left and the right for each function at the given value(s). State the limit at that value, if it exists. 
-\begin{enumerate}
+\begin{Exercise}[title = Limits Practice 4, label=limits4]
+Determine the limit from the left and the right for each function at the given value(s). State the limit at that value, if it exists.
+    \begin{enumerate}
     \item $h(x), x=-1, 0, 1$
     \item $f(x), x=-1, 0, 2$
     \item $g(x), x=-2, 0, 1, 2$
 \end{enumerate}
-
-Solutions:
-\begin{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=limits4]
+    \begin{enumerate}
     \item $\lim_{x\to-1_-}h(x) = 2$ and $\lim_{x\to-1_+}h(x)=2$, therefore the limit exists and $\lim_{x\to-1}h(x)=2$
 
     $\lim_{x\to0_-}h(x) = 3$ and $\lim_{x\to0_+}h(x)=3$, therefore the limit exists and $\lim_{x\to0}h(x)=3$
@@ -276,10 +277,11 @@ Solutions:
 
     $\lim_{x\to2_-}g(x) = 0$ and $\lim_{x\to2_+}g(x) = 0$, therefore the limit exists and $\lim_{x\to2}g(x) = 0$
 \end{enumerate}
+\end{Answer}
 
-A quick note about continuity:
+A note about continuity:
 
-In order to be able to talk more about limits and know when we can apply certain rules and theorems, we first must discuss continuity. A function is continuous if there are no ``jumps'' or ``gaps'' in the graph of the function. For example, the function $f(x) = x^2$ is continuous for all real values of x. On the other hand, the function $g(x) = tan(x)$ has many discontinuities, including at $x=\frac{\pi}{2}$. Let's examine the graph of each of these functions:
+In order to be able to talk more about limits and know when we can apply certain rules and theorems, we first must discuss continuity. A function is continuous if there are no "jumps" or "gaps" in the graph of the function. For example, the function $f(x) = x^2$ is continuous for all real values of x. On the other hand, the function $g(x) = tan(x)$ has many discontinuities, including at $x=\frac{\pi}{2}$. Let's examine the graph of each of these functions:
 
 \begin{tikzpicture}
     \begin{axis}[
@@ -299,22 +301,44 @@ In order to be able to talk more about limits and know when we can apply certain
 
 If you wanted, you could trace your finger along the graph of f(x) from $x=-3$ to $x=3$ without ever picking up your finger. This means the function is continuous in the domain from $-3 \leq x \leq 3$. In this case, the domain of continuity \textit{includes} the end points ($x=3$ and $x=-3$). This is called a closed interval. In other cases, the function will be continuous right up to, but not including, the endpoints, as with the domains of continuity for our other example, $g(x) = tanx$. This is called an open interval. Let's learn more about intervals of continuity by examining $g(x) = tanx$.
 
-\begin{tikzpicture} %%FIXME make this graph prettier
-    \begin{axis}[
-        grid,
-        axis lines = center,
-        xlabel = \(x\),
-        ylabel = {\(g(x)\)},
-        ymin=-10,
-        ymax=10
-        ]
-    \addplot[
-    domain=-1:3,
-    samples=50,
-    smooth,
-    red] 
-    {tan(deg(pi*x))};
-    \end{axis}
+\begin{tikzpicture}
+	\begin{axis}[
+			axis lines=middle,
+			axis line style={thick,<->},
+			xmin=-2*pi-0.5,xmax=2*pi+0.5,ymin=-4.5,ymax=4.5,
+			ytick={-4,-3,-2,-1,1,2,3,4},
+			xtick={-2*pi,-1.5*pi,-pi,-0.5*pi,0,0.5*pi,pi,1.5*pi,2*pi},
+			xticklabels={$-2\pi$,$-\frac{3}{2}\pi$,$-\pi$,$-\frac{1}{2}\pi$,$0$,$+\frac{1}{2}\pi$,$+\pi$,$+\frac{3}{2}\pi$,$+2\pi$},
+			tick label style={font=\tiny},
+			grid=major,
+			major grid style={very thin,black},
+			every axis plot post/.append style={thick},
+			label style={font=\tiny},
+			xlabel=$x$,
+			ylabel=$g(x)$,
+			smooth,
+			%clip=false,restrict y to domain=-4:4,
+			%legend style={
+				%	font=\tiny,
+					%legend cell align=left,
+					%legend pos=outer north east,
+					%draw=none,
+					%empty legend},
+			%legend entries={[blue]$y=\sin x$,[green]$y=\cos x$,[brown]$y=\tan x$}
+			]
+	%\addplot[domain=-2*pi:2*pi,samples=200,blue]{sin(deg(x))};
+	%\addplot[domain=-2*pi:2*pi,samples=200,green]{cos(deg(x))};
+	%\addplot[domain=-2*pi:2*pi,samples=200,brown]{tan(deg(x))};
+	\addplot[domain=-2  *pi:-1.5*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain=-1.5*pi:-0.5*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain=-0.5*pi: 0.5*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain= 0.5*pi: 1.5*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain= 1.5*pi: 2  *pi,samples=200,blue]{tan(deg(x))};
+        \draw[dashed, very thick, blue]  (axis cs: -3*pi/2,-5) -- (axis cs: -3*pi/2,5);
+        \draw[dashed, very thick, blue]  (axis cs: -pi/2,-5) -- (axis cs: -pi/2,5);
+        \draw[dashed, very thick, blue]  (axis cs: pi/2,-5) -- (axis cs: pi/2,5);
+        \draw[dashed, very thick, blue]  (axis cs: 3*pi/2,-5) -- (axis cs: 3*pi/2,5);
+	\end{axis}
 \end{tikzpicture}
 
 As you can see, if you trace your finger along the graph of the function starting at $x=0$, you can continue without lifting your finger to $x=\frac{\pi}{2}$. As you approach $x=\frac{\pi}{2}$ from the left, the value of $g(x)$ approaches $\infty$. In order to continue tracing the function PAST $x=\frac{\pi}{2}$, you have to lift your finger and bring it down to $-\infty$. The function then continues continuously again until $x=\frac{3\pi}{2}$. 
@@ -323,22 +347,47 @@ In the case of $g(x) = tan(x)$, the function is continuous on \textit{open inter
 
 There is a shorter way to represent open and closed domain intervals. We can represent that $f(x) = x^2$ is continuous on the closed interval $-3 \leq x \leq 3$ in the following way: $$x \in \left[3, -3 \right]$$
 
-Which reads as ``x contained in the domain -3 to 3, inclusive''. That is, all the values from -3 to 3, including the endpoints. The inclusion of the endpoints is implied by the use of \textit{brackets}. For open intervals, we use parentheses to communicate that the interval goes up to, but does not include, the endpoints. 
+Which reads as "x contained in the domain -3 to 3, inclusive". That is, all the values from -3 to 3, including the endpoints. The inclusion of the endpoints is implied by the use of \textit{brackets}. For open intervals, we use parentheses to communicate that the interval goes up to, but does not include, the endpoints. For $g(x) = tanx$, we can use parentheses: $$x \in \left(\frac{-3\pi}{2}, \frac{-\pi}{2}\right)$$
 
-Formally, a function $f(x)$ is continuous at $x=a$ if $\lim_{x\to a}f(x)$ exists \textit{and} $\lim_{x\to a}f(x) = f(a)$. That is, the limit is equal to the actual value of the function. Re-examine the graph of $h(x)$. We have already seen that $\lim_{x\to 0}h(x)$ exists and is equal to 3. However, $h(0) = 2 \neq \lim_{x\to0}h(x)$. So h(x) is not continuous at x = 0. Because $-x^2+3$ is evaluable all the way to $-\infty$ and $-x+3$ is evaluable all the way to $\infty$, the fucntion h(x) is continuous everywhere \textit{except} $x=0$. We can represent this mathematically by saying $h(x)$ is continuous on the domain $x \in \left(-\infty, 0\right)\cup \left(0, \infty\right)$. We use parentheses for $\pm\infty$ because we can never actually reach $\infty$. Additionally, the function is continuous up to, but not including $0$, and the use of parentheses excludes $x=0$ from the domain of continuity.
+because the $g(x) = tanx)$ is not continuous at $x=\frac{-3\pi}{2}$ or at $x=\frac{-\pi}{2}$.
+
+
+
+Formally, a function $f(x)$ is continuous at $x=a$ if $\lim_{x\to a}f(x)$ exists \textit{and} $\lim_{x\to a}f(x) = f(a)$. That is, the limit is equal to the actual value of the function. Re-examine the graph of $h(x)$. We have already seen that $\lim_{x\to 0}h(x)$ exists and is equal to 3. However, $h(0) = 2 \neq \lim_{x\to0}h(x)$. So h(x) is not continuous at x = 0. Because $-x^2+3$ is evaluable all the way to $-\infty$ and $-x+3$ is evaluable all the way to $\infty$, the function h(x) is continuous everywhere \textit{except} $x=0$. We can represent this mathematically by saying $h(x)$ is continuous on the domain $x \in \left(-\infty, 0\right)\cup \left(0, \infty\right)$. We use parentheses for $\pm\infty$ because we can never actually reach $\infty$. Additionally, the function is continuous up to, but not including $0$, and the use of parentheses excludes $x=0$ from the domain of continuity.
+
+\begin{Exercise}[title=Limits Practice 5, label=limits5]
+State the location of discontinuities (if any) and explain why the fucntion is discontinuous at that location:
+    \begin{enumerate}
+    \item $f(x) = \frac{3x^2-8x-3}{x-3}$
+    \item $f(x) = \begin{cases}
+    \frac{2}{x^4}, \text{ if } x <\neq 0\\
+    2, \text{ if } x=0
+    \end{cases}$
+    \item $f(x) = \begin{cases}
+        \frac{3x^2-8x-3}{x-3}, \text{ if } x \neq 3\\
+        1, \text{ if }, x=3
+    \end{cases}$
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=limits5]
+    \begin{enumerate}
+    \item $f(x)$ is not defined at $x = 3$, therefore it is also discontinuous at $x = 3$. As we learn about the continuity of polynomials, we'll see why $f(x)$ is continuous everywhere else. 
+    \item Here, $f(0)$ is defined, so we need to check if $\lim_{x \to 0}f(x) = f(0)$. The left and right limits as $x$ approaches $0$ are the same ($\infty$), so the limit exists. However, $f(0) = 1 \neq \lim_{x\to 0}f(x)$. Therefore, the function is discontinuous at $x=0$.
+    \item In this function, $f(3)$ is defined, so we need to check if the limit equals the function value. The limit of $f(x)$ as $x$ approaches $3$ is: $$\lim_{x \to 3}\frac{3x^2-8x-3}{x-3} = \lim_{x \to 3}\frac{(3x+1)(x-3)}{x-3} = \lim_{x \to 3}3x+1 = 10$$ So the limit exists, but $$\lim{x \to 3}f(x) \neq f(3)$$ and we see that the function is discontinuous at $x=3$.
+\end{enumerate}
+\end{Answer}
 
 There are some mathematical properties of limits which allow us to determine the limit of complex functions without seeing a graph or using a calculator to generate a table. 
 
-The following laws are true given that \textit{c} is a constant, $\lim_{x\to\infty} f(x) $ exists, and $\lim_{x\to\infty} g(x) $ exists.
+The following laws are true given that \textit{c} is a constant, $\lim_{x\to a} f(x) $ exists, and $\lim_{x\to a} g(x) $ exists.
 
 \begin{enumerate}
-    \item Sum Law $\lim_{x\to\infty} \left[f(x) + g(x) \right] = lim_{x\to\infty} f(x) + lim_{x\to\infty} g(x)$
-    \item Difference Law $\lim_{x\to\infty} \left[f(x) - g(x) \right] = lim_{x\to\infty} f(x) - lim_{x\to\infty} g(x)$
-    \item Constant Multiple Law $lim_{x\to\infty} \left[\textit{c}f(x) \right] = \textit{c} \cdot lim_{x\to\infty}    f(x) $
-    \item Product Law $lim_{x\to\infty} \left[f(x)g(x) \right] = lim_{x\to\infty}f(x) \cdot lim_{x\to\infty} g(x)$
-    \item Quotient Law $lim_{x\to\infty} \frac{f(x)}{g(x)} = \frac{lim_{x\to\infty} f(x)}{lim_{x\to\infty} g(x)}$ given that $lim_{x\to\infty} g(x) \neq 0$
+    \item Sum Law $\lim_{x\to a} \left[f(x) + g(x) \right] = lim_{x\to a} f(x) + lim_{x\to a} g(x)$
+    \item Difference Law $\lim_{x\to a} \left[f(x) - g(x) \right] = lim_{x\to a} f(x) - \lim_{x\to a} g(x)$
+    \item Constant Multiple Law $\lim_{x\to a} \left[\textit{c}f(x) \right] = \textit{c} \cdot \lim_{x\to a}    f(x) $
+    \item Product Law $\lim_{x\to a} \left[f(x)g(x) \right] = lim_{x\to a}f(x) \cdot \lim_{x\to a} g(x)$
+    \item Quotient Law $\lim_{x\to a} \frac{f(x)}{g(x)} = \frac{\lim_{x\to a} f(x)}{\lim_{x\to a} g(x)}$ given that $\lim_{x\to a} g(x) \neq 0$
 \end{enumerate}
-
 These laws are fairly obvious - the limit of the sum of two functions is equal to the sum of the limits of each function individually. The only tricky on is the last: the limit of the quotient of two functions is equal to the quotient of the limits if and only if the limit of the function in the denominator does not equal zero. This makes sense, since we know dividing by zero yields an undefined result. 
 
 Let's practice applying these laws to evaluate the limits of the functions f(x), shown in blue below, and g(x), shown in red below:
@@ -394,13 +443,13 @@ $g(x) = \begin{cases}
     \end{axis}
 \end{tikzpicture}
 
-Limit Laws Practice, Part I:
+We can use these laws to evaluate limits involving $f(x)$ and $g(x)$ (shown on the graph above). Here are some examples:
 Use the graphs of f(x) and g(x) given above to evaluate each limit, if it exists. If the limit does not exist, explain why. Two examples are given first:
 
 Example 1: evaluate $\lim_{x\to0} f(x) \cdot g(x)$
 From the Product Law, we know that:
 $$\lim_{x\to0} f(x) \cdot g(x) = \lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x)$$
-Looking at the graph, we can see that $$\lim_{x\to0}g(x) = 1$$ and there is a discontinuity in $f(x)$ at $x=0$. Therefore, $$\lim_{x\to0}f(x) = \text{undef}$$ Substituting this, we get: $$\lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x) = \text{undef} \cdot 1 = \text{undef}$$ Therefore, \textbf{the limit does not exist}. 
+Looking at the graph, we can see that $$\lim_{x\to0}g(x) = 1$$ and there is a discontinuity in $f(x)$ at $x=0$. Therefore, $$\lim_{x\to0}f(x) = \text{undef}$$. Substituting this, we get: $$\lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x) = \text{undef} \cdot 1 = \text{undef}$$. Therefore, \textbf{the limit does not exist}. 
 
 Example 2: evaluate $\lim_{x\to2}f(x) - g(x)$
 
@@ -408,11 +457,12 @@ Applying the Difference Law, we see that:
 
 $$\lim_{x\to2}f(x) - g(x) = \lim_{x\to2}f(x) - \lim_{x\to2}g(x)$$
 
-Examining the graph, we see that $$\lim_{x\to2}f(x) = -2$$ and $$\lim_{x\to2}g(x) = 0$$ Substituting these values, we get:
+Examining the graph, we see that $$\lim_{x\to2}f(x) = -2$$ and $$\lim_{x\to2}g(x) = 0$$. Substituting these values, we get:
 
 $$\lim_{x\to2}f(x) - g(x) = -2 - 0 = -2$$
 
-Practice problems:
+\begin{Exercise}
+    [title = Limits Practice 6, label=limits6]
 \begin{enumerate}
     \item $\lim_{x\to-3} \frac{f(x)}{g(x)}$
     \item $\lim_{x\to2}\left[f(x) + 5g(x)\right]$
@@ -420,6 +470,18 @@ Practice problems:
     \item $\lim_{x\to0}f(x) \cdot 5g(x)$
     \item $\lim_{x\to-1} f(x) - 3g(x) $
 \end{enumerate}
+\end{Exercise}
+\begin{Answer}
+    [ref=limits6]
+    \begin{enumerate}
+        \item From the quotient law, we know that:$$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{\lim_{x\to3}f(x)}{\lim_{x\to3}g(x)}$$ From the graph, we see that: $$\lim_{x\to3}f(x) = -3$$ and that:$$\lim_{x\to3}g(x) = 1$$ Substituting these values, we get: $$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{-3}{1} = -3$$
+        \item From the Sum Law, we know that: $$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + \lim_{x\to2}5g(x)$$ and applying the Constant Multiple Law, we see that: $$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + 5\lim_{x\to2}g(x)$$ Examining the graph of f(x) and g(x), we can determine that $$\lim_{x\to2}f(x) = -2$$ and $$\lim_{x/to2}g(x) = 0$$ Substituting these values, we get: $$\lim_{x\to2}\left[f(x) + 5g(x)\right]=-2 + 5 \cdot 0 = -2$$
+        \item From the quotient law, we see that: $$\lim_{x\to-1} \frac{3g(x)}{f(x)}=\frac{\lim_{x\to-1}3g(x)}{\lim_{x\to-1}f(x)}$$ Applying the Constant Multiple Law, we get: $$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3\lim_{x\to-1}g(x)}{\lim_{x\to-1}f(x)}$$ From the graph, we see that: $$\lim_{x\to-1}f(x) = 2$$ and $$\lim_{x\to-1}g(x) = 2$$ Substituting, we get: $$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3 \cdot 2}{2}=3$$
+        \item Applying the Product and Constant Multiple Laws, we get: $$\lim_{x\to0}\left[f(x) \cdot 5g(x)\right] = \lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$$ Examining the graphs, we see that $\lim_{x\to0}f(x)$ does not exist and $\lim_{x\to0}g(x) = 1$. Because $\lim_{x\to0}f(x)$ does not exist, $\lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$ also does not exist. 
+        \item Applying the Difference and Constant Multiple Laws, we see that: $$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =\lim_{x\to-1}f(x) - 3 \cdot \lim_{x\to-1}g(x)$$ Examining the graphs, we see that: $$\lim_{x\to-1}f(x) = 2$$ and $$\lim_{x\to-1}g(x) = 2$$ Substituting, we get that: $$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =2 - 3 \cdot 2 = 2-6 = -4$$
+    \end{enumerate}
+\end{Answer}
+
 
 Recall that exponents represent repeated multiplication. Therefore, if we apply the Product Law multiple times, we obtain the Power Law for limits:
 \begin{enumerate}
@@ -443,48 +505,9 @@ And similarly, for square roots:
     \item $\lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}$ (if n is even, we assume $a > 0$)
 \end{enumerate}
 
-Solutions to practice problems:
+Direct substitution property: If $f$ is a polynomial or rational function and $a$ is in the domain for $f$, then $$\lim_{x \to a}f(x) = f(a)$$
 
-1. From the quotient law, we know that:$$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{\lim_{x\to3}f(x)}{\lim_{x\to3}g(x)}$$
-From the graph, we see that: $$\lim_{x\to3}f(x) = -3$$
-and that:$$\lim_{x\to3}g(x) = 1$$
-Substituting these values, we get:
-$$\lim_{x\to3}\frac{f(x)}{g(x)}=\frac{-3}{1} = -3$$
-
-
-2. From the Sum Law, we know that: $$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + \lim_{x\to2}5g(x)$$
-and applying the Constant Multiple Law, we see that:
-$$\lim_{x\to2}\left[f(x) + 5g(x)\right]=\lim_{x\to2}f(x) + 5\lim_{x\to2}g(x)$$
-Examining the graph of f(x) and g(x), we can determine that $$\lim_{x\to2}f(x) = -2$$
-and
-$$\lim_{x/to2}g(x) = 0$$
-Substituting these values, we get:
-$$\lim_{x\to2}\left[f(x) + 5g(x)\right]=-2 + 5 \cdot 0 = -2$$
-
-
-3.From the quotient law, we see that: $$\lim_{x\to-1} \frac{3g(x)}{f(x)}=\frac{\lim_{x\to-1}3g(x)}{\lim_{x\to-1}f(x)}$$
-
-Applying the Constant Multiple Law, we get:
-$$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3\lim_{x\to-1}g(x)}{\lim_{x\to-1}f(x)}$$
-From the graph, we see that:
-$$\lim_{x\to-1}f(x) = 2$$
-and
-$$\lim_{x\to-1}g(x) = 2$$
-Substituting, we get:
-$$\lim_{x\to-1} \left[\frac{3g(x)}{f(x)}\right]=\frac{3 \cdot 2}{2}=3$$
-
-4. Applying the Product and Constant Multiple Laws, we get:
-$$\lim_{x\to0}\left[f(x) \cdot 5g(x)\right] = \lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$$
-Examining the graphs, we see that $\lim_{x\to0}f(x)$ does not exist and $\lim_{x\to0}g(x) = 1$. Because $\lim_{x\to0}f(x)$ does not exist, $\lim_{x\to0}f(x) \cdot 5 \cdot \lim_{x\to0}g(x)$ also does not exist. 
-
-5. Applying the Difference and Constant Multiple Laws, we see that:
-$$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =\lim_{x\to-1}f(x) - 3 \cdot \lim_{x\to-1}g(x)$$
-Examining the graphs, we see that:
-$$\lim_{x\to-1}f(x) = 2$$
-and
-$$\lim_{x\to-1}g(x) = 2$$
-Substituting, we get that:
-$$\lim_{x\to-1} \left[f(x) - 3g(x)\right] =2 - 3 \cdot 2 = 2-6 = -4$$
+Often, rational functions can be simplified. In example BLANK FIXME, we computed the limit by simplifying $f(x) = \frac{3x^2-8x-3}{x-3}$ to the simpler $g(x) = 3x+1$. This is a valid strategy because $\frac{3x^2-8x-3}{x-3} = 3x+1$ when $x \neq 3$. Remember: a limit describes how a function behaves \textit{as it approaches} $a$, not its value/behavior when $x$ \textit{actually equals} $a$. This reveals the following useful rule: $$\text{If } f(x)=g(x) \text{ when } x \neq a \text{, then } \lim_{x \to a}f(x) = \lim_{x \to a}g(x) \text{, provided the limit exists.}$$
 
 %Here is a function:
 %
