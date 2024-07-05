@@ -509,6 +509,62 @@ Direct substitution property: If $f$ is a polynomial or rational function and $a
 
 Often, rational functions can be simplified. In example BLANK FIXME, we computed the limit by simplifying $f(x) = \frac{3x^2-8x-3}{x-3}$ to the simpler $g(x) = 3x+1$. This is a valid strategy because $\frac{3x^2-8x-3}{x-3} = 3x+1$ when $x \neq 3$. Remember: a limit describes how a function behaves \textit{as it approaches} $a$, not its value/behavior when $x$ \textit{actually equals} $a$. This reveals the following useful rule: $$\text{If } f(x)=g(x) \text{ when } x \neq a \text{, then } \lim_{x \to a}f(x) = \lim_{x \to a}g(x) \text{, provided the limit exists.}$$
 
+When considering functions that are continuous on a closed interval, the Intermediate Value Theorem can help us: Given a function, $f(x)$, that is continuous on the closed interval $\left[a, b\right]$ and $f(a) \neq f(b)$, there is at least one number $c$ such that $f(c) = N$, where $N$ is any number between $f(a)$ and $f(b)$. The theorem is illustrated below:
+
+For an $N$ such that there is exactly one $c$ where $f(c) = N$
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+    axis lines = left, 
+    xlabel = \(x\), 
+    ylabel=\(f(x)\), 
+    ymin=0, 
+    xtick=\empty,
+    ytick=\empty,
+    extra y ticks={2.5,6.5, 4.3},
+    extra y tick labels={$f(a)$, $f(b)$, $N$},
+    extra x ticks = {0.265, 3.75, 3.465},
+    extra x tick labels = {$f(a)$, $f(b)$, $c$}
+    ]
+        \addplot[domain = 0:4, samples =50, color=blue]{(x-1.8)^3-2*(x-1.8)+3};
+        \addplot[domain=0:3.75, color=green]{6.5};
+        \addplot[samples=50,domain=0:6,green] coordinates {(3.75,0)(3.75,6.5)};
+        \addplot[domain = 0:0.265, samples = 50, color=green]{2.5};
+        \addplot[samples=50,domain=0:6,green] coordinates {(0.265,0)(0.265, 2.5)};
+        \addplot[domain=0:3.465, color=red]{4.3};
+        \addplot[domain=0:6, red] coordinates{(3.465,0)(3.465,4.3)};
+    \end{axis}
+\end{tikzpicture}
+
+For an $N$ such that there is more than one $c$ where $f(c) = N$
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+    axis lines = left, 
+    xlabel = \(x\), 
+    ylabel=\(f(x)\), 
+    ymin=0,
+    xtick=\empty,
+    ytick=\empty,
+    extra y ticks={2.5,6.5, 3.2},
+    extra y tick labels={$f(a)$, $f(b)$, $N$},
+    extra x ticks = {0.265, 3.75, 0.445, 1.7, 3.25},
+    extra x tick labels = {$f(a)$, $f(b)$, $c_1$, $c_2$, $c_3$}
+    ]
+        \addplot[domain = 0:4, samples =50, color=blue]{(x-1.8)^3-2*(x-1.8)+3};
+        \addplot[domain=0:3.75, color=green]{6.5};
+        \addplot[samples=50,domain=0:6,green] coordinates {(3.75,0)(3.75,6.5)};
+        \addplot[domain = 0:0.265, samples = 50, color=green]{2.5};
+        \addplot[samples=50,domain=0:6,green] coordinates {(0.265,0)(0.265, 2.5)};
+        \addplot[samples=50, red, domain=0:3.25]{3.2};
+        \addplot[samples=50,domain=0:6,red] coordinates {(0.445,0)(0.445, 3.2)};
+        \addplot[samples=50,domain=0:6,red] coordinates {(1.7,0)(1.7, 3.2)};
+        \addplot[samples=50,domain=0:6,red] coordinates {(3.25,0)(3.25, 3.2)};
+    \end{axis}
+\end{tikzpicture}
+
 %Here is a function:
 %
 %$$f(x) = \frac{x^2}{x} + 1$$
