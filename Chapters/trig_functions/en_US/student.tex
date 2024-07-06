@@ -194,6 +194,155 @@ We say ``The derivative of the sine function is the cosine function.''
 
 Can you guess the derivative of the cosine function? For any $\theta$, the slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
 
+Recall the definition of a derivative: $$\frac{d}{dx}f(x)=\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}$$
+
+We've seen that the derivative of $sin(x)$ is $cos(x)$. Using the definition of a derivative, we can show why this is true:
+
+$$\frac{d}{dx}sin(x)=\lim_{h \to 0}\frac{sin(x+h)-sin(x)}{h}$$
+
+The sum formula allows us to simplify $sin(x+h)$:
+
+$$sin(a+b)=sin(a)cos(b)+cos(a)sin(b)$$
+
+Applying this to the above formula, we get:
+
+$$\frac{d}{dx}sinx=\lim_{h \to 0}\frac{[sin(x)cos(h)+cos(x)sin(h)]-sin(x)}{h}$$
+
+Applying the Sum Rule for limits we get:
+
+$$\frac{d}{dx}sin(x)=\lim_{h \to 0}\frac{sin(x)cos(h)-sin(x)}{h}+\lim_{h \to 0}\frac{cos(x)sin(h)}{h}$$
+
+Pulling out common factors, we see:
+
+$$\frac{d}{dx}sin(x)=\lim_{h \to 0}sin(x)(\frac{cos(h)-1}{h}) + \lim_{h \to 0}cos(x)(\frac{sin(h)}{h})$$
+
+Because the limit is for h, the functions $sin(x)$ and $cos(x)$ can be treated as constants and pulled out of the limit, per the Constant Multiple Rule:
+
+$$\frac{d}{dx}sin(x)=sin(x)\lim_{h \to 0}\frac{cos(h)-1}{h}+cos(x)\lim_{h \to 0}\frac{sin(h)}{h}$$
+
+We now have two limits to evaluate. The trickier one is $\lim_{h \to 0}\frac{sin(h)}{h}$. We need to introduce a new theorem, the Squeeze Theorem, to use. FIXME ADD SQUEEZE THEOREM. For $\theta$ less than $\frac{\pi}{2}$, we know that $sin(\theta)<\theta$. This can be easily verified with a calculator (remember that $\theta$ is measured in radians, not degrees). We can derive something that looks like our limit by dividing both sides of the inequality by $\theta$:
+
+$$sin(\theta)<\theta$$
+$$\frac{sin(\theta)}{\theta}<\frac{\theta}{\theta}$$
+$$\frac{sin(\theta)}{\theta}<1$$
+
+This will serve as the ceiling for the Squeeze Theorem. To get a floor, we can use another inequality:
+
+$$\text{for }\theta < \frac{\pi}{2} \text{, } \theta < tan(\theta)$$
+
+which you can also check using a calculator. Rearranging this inequality and using the fact that $tan(\theta)=\frac{sin(\theta}{cos(\theta}$:
+$$\theta<\frac{sin(\theta}{cos(\theta)}$$
+$$\theta \cdot cos(\theta)<\frac{sin(\theta)}{cos(\theta)}\cdot cos(\theta)$$
+$$\theta \cdot cos(\theta) < sin(\theta)$$
+$$\frac{\theta \cdot cos(\theta)}{\theta} < \frac{sin(\theta)}{\theta}$$
+
+Which finally yields:
+$$cos(\theta)<\frac{sin(\theta)}{\theta}$$
+
+We can combine this with out earlier inequality, $\frac{sin(\theta)}{\theta}<1$:
+$$cos(\theta)<\frac{sin(\theta)}{\theta}<1$$
+
+Because $\lim_{\theta \to 0}1 = 1$ and $\lim_{\theta \to 0}cos(\theta)=cos(0)=1$, the Squeeze Theorem shows that:
+
+$$\lim_{\theta \to 0_+}\frac{sin(\theta)}{\theta}=1$$
+And because $\frac{sin(\theta)}{\theta}$ is an even function, the limits from the left and right are the same, so we can state:
+$$\lim_{\theta \to 0}\frac{sin(\theta}{\theta} = 1$$
+
+Substituting this back into our limit definition of a derivative, we get:
+$$\frac{d}{dx}sin(x)=sin(x)\lim_{h \to 0}\frac{cos(h)-1}{h}+cos(x)(1)=sin(x)\lim_{h \to 0}\frac{cos(h)-1}{h}+cos(x)$$
+
+Now let's tackle $\lim_{h \to 0}\frac{cos(h)-1}{h}$:
+
+$$\lim_{h \to 0}\frac{cos(h)-1}{h} = \lim_{h \to 0}\frac{cos(h)-1}{h} \cdot \frac{cos(h) +1}{cos(h)+1}$$
+$$=\lim_{h \to 0}\frac{cos^2(h)-1}{h(cos(h)+1)}$$
+
+Recall that in a unit circle, we can draw right triangles where the legs are $cos\theta$ and $sin\theta$ and the hypoteneuse has a length of 1. Applying the Pythgorean Theorem, we can state that $sin^2\theta+cos^2\theta=1$. Rearranging, we see that $cos^2\theta - 1 = -sin^2\theta$. We can substitute this identity into our limit:
+
+$$=\lim_{h \to 0}\frac{-sin^2(h)}{h(cos(h)+1)}$$
+
+Applying the Constant Multiple and Product rules, we get:
+
+$$=-\lim_{h \to 0}\frac{sin(h)}{h}\cdot \lim_{h \to 0}\frac{sin(h)}{cos(h)+1}$$
+
+From out work above, we know that $\lim_{h \to 0}\frac{sin(h)}{h}=1$:
+$$=-1\cdot \lim_{h \to 0}\frac{sin(h)}{cos(h)+1}$$
+
+Which finally becomes:
+$$=-1\cdot\frac{sin(0)}{cos(0)+1}=-1 \cdot (\frac{0}{1+1})=0$$
+
+And we can state that:
+$$\lim_{h \to 0}\frac{cos(h)-1}{h}=0$$
+
+Putting this all together, we get that:
+$$\frac{d}{dx}sinx=\lim_{h \to 0}sinx \cdot \lim_{h \to 0}\frac{cosh-1}{h}+\lim_{h \to 0}cosx \cdot \lim_{h \to 0}\frac{sinh}{h}$$
+$$=(sinx)\cdot 0 + (cosx)\cdot1=cosx$$
+
+\begin{Exercise}
+    [title=Derivatives of Trig Functions Practice 1, label=trigderiv1]
+    Use the limit definition of a derivative to show that $\frac{d}{dx}cosx=-sinx$
+\end{Exercise}
+\begin{Answer}
+    [ref=trigderiv1]
+    We start by writing out the limit: $$\frac{d}{dx}cosx=\lim_{h \to 0}\frac{cos(x+h)-cosx}{h}$$
+
+    Applying the sum formula for $cos(x+h)$, we get:
+    $$=\lim_{h \to 0}\frac{cos(x)cos(h)-sin(x)sin(h)-cosx}{h}$$
+
+    Rearranging to group the $cosx$ and applying the Difference Rule:
+    $$=\lim_{h \to 0}\frac{cos(x)cos(h)-cos(x)}{h} - \lim_{h \to 0}\frac{sin(x)sin(h)}{h}$$
+
+    Applying the Constant Multiple Rule:
+    $$=cos(x)\lim_{h \to 0}\frac{cos(h)-1}{h} - sin(x)\lim_{h \to 0}\frac{sin(h)}{h}$$
+
+    Recalling that $\lim_{h \to 0}\frac{sin(h)}{h} = 1$,
+    $$=cos(x)\lim_{h \to a}\frac{cos(h)-1}{h}-sin(x) \cdot 1$$
+
+    Recalling that $\lim_{h \to 0}\frac{cos(h)-1}{h}=0$:
+    $$=cos(x) \cdot0 -sin(x) = -sinx$$
+
+    Therefore, $\frac{d}{dx}cosx=-sinx$
+\end{Answer}
+
+The derivatives of all the trigonometric functions are presented below:
+\begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+ $\frac{d}{dx}(sinx)=cosx$ & $\frac{d}{dx}(cscx)=-(cscx)(cotx)$ \\ 
+ $\frac{d}{dx}(cosx)=-sinx$ & $\frac{d}{dx}(secx)-=(secx)(tanx)$  \\ 
+ $\frac{d}{dx}(tanx)=sec^2x$ & $\frac{d}{dx}(cotx)=-csc^2x$  \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+Example: Find the derivative of $f(x)$ if $f(x) = x^2sin(x)$
+Solution: Using the product rule, we find that: $$\frac{d}{dx}f(x)=(x^2)\frac{d}{dx}(sin(x))+(sin(x))\frac{d}{dx}(x^2)$$
+
+Taking the derivatives:
+$$=x^2(cos(x))+2x(sin(x))$$
+
+\begin{Exercise}[title = Derivatives of Trig Functions 2, label=trigderiv2]
+    Find the derivative of the following functions:
+    \begin{enumerate}
+        \item $f(x) = \frac{sec(x)}{1+tan(x)}$
+        \item $y=sec(t)tan(t)$
+        \item $f(\theta) = \frac{\theta}{4-tan\theta}$
+        \item $f(t) = 2sec(t) - csc(t)$
+        \item $f(\theta) = \frac{sin(\theta)}{1+cos(\theta)}$
+        \item $f(x) = sin(x)cos(x)$
+    \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+    [ref=trigderiv2]
+    \begin{enumerate}
+        \item $\frac{sec(x)(tanx-1)}{(1+tan(x))^2}$
+        \item $sec(t)[sec^2(t)+tan^2(t)]$
+        \item $\frac{4-tan(\theta)+\theta sec^2(\theta)}{(4-tan(\theta))^2}$
+        \item $2sec(t)tan(t)+csc(t)cot(t)$
+        \item $\frac{2}{(1+cos\theta)^2}$
+        \item $cos^2(x) - sin^2(x)$
+    \end{enumerate}
+\end{Answer}
 
 
 \section{A weight on a spring}
