@@ -194,6 +194,72 @@ We say ``The derivative of the sine function is the cosine function.''
 
 Can you guess the derivative of the cosine function? For any $\theta$, the slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
 
+\begin{Exercise}
+    [title=Derivatives of Trig Functions Practice 1, label=trigderiv1]
+    Use the limit definition of a derivative to show that $\frac{d}{dx}\cos{x}=-\sin{x}$
+\end{Exercise}
+\begin{Answer}
+    [ref=trigderiv1]
+    We start by writing out the limit: $$\frac{d}{dx}\cos{x}=\lim_{h \to 0}\frac{\cos{x+h}-\cos{x}}{h}$$
+
+    Applying the sum formula for $cos(x+h)$, we get:
+    $$=\lim_{h \to 0}\frac{\cos{x}\cos{h}-\sin{x}\sin{h}-\cos{x}}{h}$$
+
+    Rearranging to group the $\cos{x}$ and applying the Difference Rule:
+    $$=\lim_{h \to 0}\frac{\cos{x}\cos{h}-\cos{x}}{h} - \lim_{h \to 0}\frac{\sin{x}\sin{h}}{h}$$
+
+    Applying the Constant Multiple Rule:
+    $$=\cos{x}\lim_{h \to 0}\frac{\cos{h}-1}{h} - \sin{x}\lim_{h \to 0}\frac{\sin{h}}{h}$$
+
+    Recalling that $\lim_{h \to 0}\frac{\sin{h}}{h} = 1$,
+    $$=\cos{x}\lim_{h \to a}\frac{\cos{h}-1}{h}-\sin{x} \cdot 1$$
+
+    Recalling that $\lim_{h \to 0}\frac{\cos{h}-1}{h}=0$:
+    $$=\cos{x} \cdot0 -\sin{x} = -\sin{x}$$
+
+    Therefore, $\frac{d}{dx}\cos{x}=-\sin{x}$
+\end{Answer}
+
+The derivatives of all the trigonometric functions are presented below:
+\begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+ $\frac{d}{dx}\sin{x}=\cos{x}$ & $\frac{d}{dx}\csc{x}=-\csc{x} \cdot \cot{x}$ \\ 
+ $\frac{d}{dx}\cos{x}=-\sin{x}$ & $\frac{d}{dx}\sec{x}\=-\sec{x} \cdot \tan{x}$  \\ 
+ $\frac{d}{dx}\tan{x}=\sec^2{x}$ & $\frac{d}{dx}\cot{x}=-\csc^2{x}$  \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+Example: Find the derivative of $f(x)$ if $f(x) = x^2\sin{x}$
+Solution: Using the product rule, we find that: $$\frac{d}{dx}f(x)=(x^2)\frac{d}{dx}(\sin{x})+(\sin{x})\frac{d}{dx}(x^2)$$
+
+Taking the derivatives:
+$$=x^2(\cos{x})+2x(\sin{x})$$
+
+\begin{Exercise}[title = Derivatives of Trig Functions 2, label=trigderiv2]
+    Find the derivative of the following functions:
+    \begin{enumerate}
+        \item $f(x) = \frac{\sec{x}}{1+\tan{x}}$
+        \item $y=\sec{t}\tan{t}$
+        \item $f(\theta) = \frac{\theta}{4-\tan{\theta}}$
+        \item $f(t) = 2\sec{t} - \csc{t}$
+        \item $f(\theta) = \frac{\sin{\theta}}{1+\cos{\theta}}$
+        \item $f(x) = \sin{x}\cos{x}$
+    \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+    [ref=trigderiv2]
+    \begin{enumerate}
+        \item $\frac{\sec{x}(\tan{x}-1)}{(1+\tan{x})^2}$
+        \item $\sec{t}[\sec^2{t}+\tan^2{t}]$
+        \item $\frac{4-\tan{\theta}+\theta \sec^2{\theta}}{(4-\tan{\theta})^2}$
+        \item $2\sec{t}\tan{t}+\csc{t}\cot{t}$
+        \item $\frac{2}{(1+\cos{\theta})^2}$
+        \item $\cos^2{x} - \sin^2{x}$
+    \end{enumerate}
+\end{Answer}
 
 
 \section{A weight on a spring}
