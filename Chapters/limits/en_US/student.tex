@@ -217,6 +217,7 @@ Using limit notation, state the limits as x approaches negative and positive inf
 	$ \lim_{x \rightarrow -\infty} \text{tan}^{-1}x = -\frac{\pi}{2}, \lim_{x \rightarrow \infty} \text{tan}^{-1}x = \frac{\pi}{2}; \lim_{x \rightarrow -\infty} \frac{1}{1 + e^{-x}} = 0, \lim_{x \rightarrow \infty} \frac{1}{1 + e^{-x}} = 1 $
 \end{Answer}
 
+
 As seen above, the limit of a function from the left may be different from the limit of the function from the right. Additionally, the actual \textit{value} of the function may be different from the limit. Consider the piecewise function h(x):
 
 $h(x) = \begin{cases}
@@ -279,6 +280,7 @@ Determine the limit from the left and the right for each function at the given v
 \end{enumerate}
 \end{Answer}
 
+\section{Continuity}
 A note about continuity:
 
 In order to be able to talk more about limits and know when we can apply certain rules and theorems, we first must discuss continuity. A function is continuous if there are no "jumps" or "gaps" in the graph of the function. For example, the function $f(x) = x^2$ is continuous for all real values of x. On the other hand, the function $g(x) = tan(x)$ has many discontinuities, including at $x=\frac{\pi}{2}$. Let's examine the graph of each of these functions:
@@ -355,8 +357,9 @@ because the $g(x) = tanx)$ is not continuous at $x=\frac{-3\pi}{2}$ or at $x=\fr
 
 Formally, a function $f(x)$ is continuous at $x=a$ if $\lim_{x\to a}f(x)$ exists \textit{and} $\lim_{x\to a}f(x) = f(a)$. That is, the limit is equal to the actual value of the function. Re-examine the graph of $h(x)$. We have already seen that $\lim_{x\to 0}h(x)$ exists and is equal to 3. However, $h(0) = 2 \neq \lim_{x\to0}h(x)$. So h(x) is not continuous at x = 0. Because $-x^2+3$ is evaluable all the way to $-\infty$ and $-x+3$ is evaluable all the way to $\infty$, the function h(x) is continuous everywhere \textit{except} $x=0$. We can represent this mathematically by saying $h(x)$ is continuous on the domain $x \in \left(-\infty, 0\right)\cup \left(0, \infty\right)$. We use parentheses for $\pm\infty$ because we can never actually reach $\infty$. Additionally, the function is continuous up to, but not including $0$, and the use of parentheses excludes $x=0$ from the domain of continuity.
 
+\subsection{Continuity Practice}
 \begin{Exercise}[title=Limits Practice 5, label=limits5]
-State the location of discontinuities (if any) and explain why the fucntion is discontinuous at that location:
+State the location of discontinuities (if any) and explain why the function is discontinuous at that location:
     \begin{enumerate}
     \item $f(x) = \frac{3x^2-8x-3}{x-3}$
     \item $f(x) = \begin{cases}
@@ -377,6 +380,8 @@ State the location of discontinuities (if any) and explain why the fucntion is d
 \end{enumerate}
 \end{Answer}
 
+
+\section{Limits Rules}
 There are some mathematical properties of limits which allow us to determine the limit of complex functions without seeing a graph or using a calculator to generate a table. 
 
 The following laws are true given that \textit{c} is a constant, $\lim_{x\to a} f(x) $ exists, and $\lim_{x\to a} g(x) $ exists.
@@ -509,6 +514,106 @@ Direct substitution property: If $f$ is a polynomial or rational function and $a
 
 Often, rational functions can be simplified. In example BLANK FIXME, we computed the limit by simplifying $f(x) = \frac{3x^2-8x-3}{x-3}$ to the simpler $g(x) = 3x+1$. This is a valid strategy because $\frac{3x^2-8x-3}{x-3} = 3x+1$ when $x \neq 3$. Remember: a limit describes how a function behaves \textit{as it approaches} $a$, not its value/behavior when $x$ \textit{actually equals} $a$. This reveals the following useful rule: $$\text{If } f(x)=g(x) \text{ when } x \neq a \text{, then } \lim_{x \to a}f(x) = \lim_{x \to a}g(x) \text{, provided the limit exists.}$$
 
+\section{Squeeze Theorem}
+
+The Squeeze Theorem states that if $f(x) \leq g(x) \leq h(x)$ when $x$ is near $a$ (except at $a$) and $$\lim_{x \to a}f(x)=\lim_{x \to a}h(x) = L$$ then $$\lim_{x \to a}g(x) = L$$
+
+In words, if $g(x)$ is between $f(x)$ and $h(x)$ near $a$ and $f$ and $h$ have the same limit, $L$, then the limit of $g$ must also be $L$. 
+
+Let's examine the graph of $g(x) = x^2\sin{\frac{1}{x}}$ and determine $\lim_{x \to 0}g(x)$:
+
+\begin{tikzpicture}
+    \begin{axis}[clip=false,
+    xmin=-.1, xmax=.1,
+    ymin=-.01, ymax=0.01,
+    axis lines=middle,
+    xtick=\empty,
+    ytick=\empty,
+    ]
+     \addplot[domain=-.09:0.09, red, samples=100]{(x^2)*sin(deg(1/x))}
+     node[right, pos=0.92]{$g(x)=x^2\sin{\frac{1}{x}}$}; 
+     %\addplot[domain=-.09:0.09, blue, samples=50]{x^2}
+     %node[right, pos=0.95]{$g(x)=x^2$};
+     %\addplot[domain=-.09:0.09, black, samples=50]{-x^2}
+     %node[right, pos=1]{$h(x)=-x^2$};
+    \end{axis}
+\end{tikzpicture}
+
+Because $\sin{\frac{1}{x}}$ is undefined at $x=0$, we cannot compute the limit directly. However, from examining the graph, we can guess that $\lim_{x \to 0}g(x)=0$. Feel free to confirm this with your calculator. We need to choose two functions: one that is larger than $g(x)$ near $x=0$ and one that is smaller. Since $|\sin{\frac{1}{x}}|\leq 1$ (when $x \neq 0$), then $$|x^2\sin{\frac{1}{x}}|\leq x^2$$ and $$-x^2\leq x^2\sin{\frac{1}{x}} \leq x^2$$
+
+Let's confirm this by plotting $f(x)=-x^2$, $g(x)$, and $h(x)=x^2$ on the same graph:
+
+\begin{tikzpicture}
+    \begin{axis}[clip=false,
+    xmin=-.1, xmax=.1,
+    ymin=-.01, ymax=0.01,
+    axis lines=middle,
+    xtick=\empty,
+    ytick=\empty,
+    ]
+     \addplot[domain=-.09:0.09, red, samples=100]{(x^2)*sin(deg(1/x))}
+     node[right, pos=0.92]{$g(x)=x^2\sin{\frac{1}{x}}$}; 
+     \addplot[domain=-.09:0.09, blue, samples=50]{x^2}
+     node[right, pos=0.95]{$g(x)=x^2$};
+     \addplot[domain=-.09:0.09, black, samples=50]{-x^2}
+     node[right, pos=1]{$h(x)=-x^2$};
+    \end{axis}
+\end{tikzpicture}
+
+As you can see, when $x$ is near $0$, $f(x) \leq g(x) \leq h(x)$. Because $f(x)$ and $h(x)$ are both polynomials, their limits are straightforward: $$\lim_{x \to 0}-x^2 = 0 \text{ and } \lim_{x \to 0}x^2 = 0$$
+
+Then, by the Squeeze Theorem, we can say that: $$\lim_{x \to 0}x^2\sin{\frac{1}{x}}=0$$
+
+\subsection{Squeeze Theorem Practice}
+
+\begin{Exercise}
+[title=Squeeze Theorem 1, label=squeeze1]
+    Use the Squeeze Theorem to show that $\lim_{x \to 0}\sqrt{x^3 + x^2}\cos{\frac{1}{x}} = 0$. Illustrate by graphing the functions you define as $f$, $g$, and $h$ on the same plot.
+\end{Exercise}
+\begin{Answer}
+    [ref=squeeze1]
+    Let $f(x) = -\sqrt{x^3+x^2} and h(x) = \sqrt{x^3+x^2}$. Near $0$, $f(x) \leq \sqrt{x^3 + x^2}\cos{\frac{1}{x}} \leq h(x)$. Additionally, $\lim_{x \to 0}f(x) = \lim_{x \to 0}h(x) = 0$. Therefore, by the Squeeze Theorem, we can state that $\lim_{x \to 0}\sqrt{x^3 + x^2}\cos{\frac{1}{x}} = 0$. Plotting all three functions, we can confirm our answer:
+
+  \begin{tikzpicture}
+    \begin{axis}[clip=false,
+    xmin=-.6, xmax=.6,
+    ymin=-.6, ymax=0.6,
+    axis lines=middle,
+    xtick=\empty,
+    ytick=\empty,
+    ]
+    \addplot[domain=-0.5:0.5, red, samples=100]{sqrt(x^3+x^2)*cos(deg(1/x))}
+    node[right, pos=0.83]{$g(x)=\sqrt{x^3+x^2}\cos{\frac{1}{x}}$};
+    \addplot[domain=-0.5:0.5, blue, samples=50]{sqrt(x^3+x^2)}
+    node[right, pos=0.85]{$f(x)=\sqrt{x^3+x^2}$};
+    \addplot[domain=-0.5:0.5, black, samples=50]{-sqrt(x^3+x^2)}
+    node[right, pos=0.9]{$h(x) = -\sqrt{x^3+x^2}$};
+    \end{axis}
+\end{tikzpicture}  
+\end{Answer}
+
+\begin{Exercise}
+    [title=Squeeze Theorem 2, label=squeeze2]
+    If $2x+3 \leq f(x) \leq x^2-2x+7$ for $x \geq 0$, find $\lim_{x \to 2}f(x)$
+\end{Exercise}
+\begin{Answer}
+    [ref=squeeze2]
+    The question tells us that the function in question, $f(x)$, is between two other functions. $\lim_{x \to 2}2x+3 = 2(2)+3 = 7$ and $\lim_{x \to 2}x^2-2x+7 = 2^2-2(2)+7=7$. Since the limits are equal, by Squeeze Theorem we can also know that $\lim_{x \to 2}f(x) = 7$.
+\end{Answer}
+
+\begin{Exercise}
+    [title= Squeeze Theorem 3, label=squeeze3]
+    Prove that $\lim_{x \to 0^+}\sqrt{x}e^{\sin{\frac{\pi}{x}}} = 0$
+\end{Exercise}
+
+\begin{Answer}
+    [ref=squeeze3]
+    Note that we can only evaluate the limit from the right as the domain for this function is $x \geq 0$. Since the range of the sine function is $[-1,1]$, we can state that $$-1 \leq \sin{\frac{\pi}{x}} \leq 1$$ 
+    and therefore $$\frac{1}{e} \leq e^{\sin{\frac{\pi}{x}}} \leq e$$ and because we assume the positive root, it is also true that $$\frac{\sqrt{x}}{e} \leq \sqrt{x}e^{\sin{\frac{\pi}{x}}} \leq \sqrt{x}e$$ Taking the limits of the border functions, we see that $$\lim_{x \to 0^+}\frac{\sqrt{x}}{e} = \lim_{x \to 0^+}\sqrt{x}e = 0$$ Therefore, $$\lim_{x \to 0^+}\sqrt{x}e^{\sin{\frac{\pi}{x}}}=0$$
+\end{Answer}
+
+
+\section{Intermediate Value Theorem}
 When considering functions that are continuous on a closed interval, the Intermediate Value Theorem can help us: Given a function, $f(x)$, that is continuous on the closed interval $\left[a, b\right]$ and $f(a) \neq f(b)$, there is at least one number $c$ such that $f(c) = N$, where $N$ is any number between $f(a)$ and $f(b)$. The theorem is illustrated below:
 
 For an $N$ such that there is exactly one $c$ where $f(c) = N$
