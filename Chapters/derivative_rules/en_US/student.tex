@@ -49,6 +49,105 @@ The derivative of a composition of functions is:\index{chain rule}
 \frac{d}{dx}(f(g(x))) = f'(g(x)) \cdot g'(x)
 \end{equation}
 
+\section{Practice}
+\begin{Exercise}[label=deriv_rules1]
+    If $y=x\sin{x}$, find $\frac{dy}{dx}$
+\end{Exercise}
+\begin{Answer}[ref=deriv_rules1]
+    $\frac{dy}{dx}=\frac{d}{dx}[x\sin{x}] = x\frac{d}{dx}\sin{x}+\sin{x}\frac{d}{dx}x = x(-\cos{x})+\sin{x}(1) \\
+    = \sin{x}-x\cos{x}$
+\end{Answer}
+
+\begin{Exercise}[label=deriv_rules2]
+    Let $f(x)=7x-3+\ln{x}$. Find $f'(x)$ and $f'(1)$
+\end{Exercise}
+\begin{Answer}[ref=deriv_rules2]
+    $f'(x) = \frac{d}{dx}(7x) - \frac{d}{dx}(3)+\frac{d}{dx}(\ln{x})=7-0+\frac{1}{x}=7-\frac{1}{x}$
+    and
+    $f'(1) = 7-\frac{1}{1} = 6$
+\end{Answer}
+
+\begin{Exercise}[label=deriv_rules3]
+    If $y=(x^3-\cos{x})^5$, then what is $y'$?
+\end{Exercise}
+\begin{Answer}[ref=deriv_rules3]
+    By the chain rule, $y'=5(x^3-\cos{x})^4 \cdot \frac{d}{dx}(x^3-\cos{x}) = 5(x^3-\cos{x})^4 \cdot (3x^2+\sin{x})$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules4]
+    Let $f(x) = \sqrt{x^2-4}$ and $g(x) = 3x-2$. Find the derivative of $f(g(x))$ at $x=3$.
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules4]
+    $f(g(x)) = \sqrt{(3x-2)^2-4} = \sqrt{9x^2-12x}$ and $\frac{d}{dx}f(g(x))=\frac{18x-12}{2\sqrt{9x^2-12x}}$. Substituting $x=3$, we find $=\frac{18(3)-12}{2\sqrt{9(3)^2-12(3)}} = \frac{42}{2\sqrt{45}} = \frac{21}{3\sqrt{5}} = \frac{7}{\sqrt{5}}$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules5]
+    The a particle's position on the x-axis is given by $x(t)=(t-a)(t-b)$, where $a$ and $b$ are constants and $a \neq b$. At what time(s) is the particle at rest?
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules5]
+    First, recall that the velocity of a particle is the derivative of it's position function. Therefore, $v(t) = x'(t) = \frac{d}{dt}[(t-a)(t-b)]$. Applying the Product Rule for derivatives, we see that $v(t) = (t-a)(1) + (t-b)(1) = 2t-a-b$. To find the time(s) when the particle is at rest, we set $v(t) = 0$ and solve for $t$. $$0 = 2t-a-b$$ $$2t=a+b$$ $$t=\frac{a+b}{2}$$
+\end{Answer}
+
+\begin{Exercise}
+    [label = deriv_rules6]
+    Let $f(x) = \frac{x}{x+2}$. At what values of $x$ does $f$ have the property that the line tangent to $f$ has a slope of $\frac{1}{2}$?
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules6]
+    The question is asking when the derivative of $f$ is $\frac{1}{2}$. We will take the derivative and set it equal to $\frac{1}{2}$. $$f'(x) = \frac{(x+2)(1)-x(1)}{(x+2)^2}=\frac{2}{(x+2)^2}$$
+    $$\frac{2}{(x+2)^2}=\frac{1}{2}$$
+    $$4=(x+2)^2$$
+    $$\pm 2 = x+2$$
+    $$x=2-2=0 \text{ and } x=-2-2=-4$$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules7]
+    For $t \geq 0$, the position of a particle moving along the x-axis is given by $x(t) = \sin{t} - \cos{t}$. (a) When does the velocity first equal $0$? (b) What is the acceleration at the time when the velocity first equals $0$?
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules7]
+    (a) Let $t_0$ be the time at which the particle is first at rest. The velocity of the particle is given by $v(t) = x'(t) = \cos{t} +\sin{t}$. Setting $v(t) = 0$, we find:
+    $$\cos{t} = -\sin{t}$$ which is true for $t=\frac{3\pi+4n}{4}\text{, where $n$ is an integer.}$ Therefore, the first time the velocity is $0$ is $t_0 = \frac{3\pi}{4}$. (b) To find the acceleration at $t=\frac{3\pi}{4}$, we take the derivative of the velocity function to yield the acceleration fucntion. $$a(t) = v'(t) = -\sin{t} + \cos{t}$$. Substituting $t=\frac{3\pi}{4}$, we find the acceleration is $-\sin{\frac{3\pi}{4}} + \cos{\frac{3\pi}{4}} = \frac{-\sqrt{2}}{2} - \frac{\sqrt{2}}{2} = -\sqrt{2}$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules8]
+    The graph of $y=e^(\tan{x})-2$ crosses the x-axis at one point on the interval $[0, 1]$. What is the slope of the graph at this point?
+\end{Exercise}
+
+\begin{Answer}
+    [ref=deriv_rules8]
+    First, we find the $x$ such that $y=0$ $$0 = e^{\tan{x}} - 2$$ $$2 = e^{\tan{x}}$$ $$\ln{2} = \tan{x}$$ $$x=\arctan{(\ln{2})} = \arctan{0.693} = 0.606$$
+    Then, we find the slope of the function at $x=0.606$ by finding $y'(0.606)$ $$y'=e^{\tan{x}}(\sec{x})^2  = \frac{e^{\tan{x}}}{(\cos{x})^2}$$
+    $$y'(0.606) = \frac{e^{\tan{0.606}}}{(\cos{0.606})^2} = 2.961$$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules9]
+    The function $f$ is define by $f(x) = \sqrt{25-x^2}$ for $-5 \leq x \leq 5$. (a) Find $f'(x)$. (b) Write an equation for the line tangent to the graph at $x=-3$. 
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules9]
+    (a) Apply the chain rule to find $f'(x)$ $$f'(x) = \frac{1}{2\sqrt{25-x^2}} \cdot(-2x)=\frac{-x}{\sqrt{25-x^2}}$$. 
+    (b) First, substitute $x=-3$ into $f'(x)$ $$f'(-3) = \frac{-(-3)}{\sqrt{25-(-3)^2}}=\frac{3}{\sqrt{16}}=\frac{3}{4}$$
+    This is the slope of the line. To complete an equation for the tangent line, we need a point. We know the tangent line touches $f(x)$ at $x=-3$, so the tangent line must pass through the point $(-3, f(-3))$. $$f(-3) = \sqrt{25-(-3)^2}=4$$ We use $m = \frac{3}{4}$ and the coordinate point $(x_1, y_1) = (-3, 16)$ to complete the equation $y-y_1 = m(x-x_1)$ $$y-16 = \frac{3}{4}(x+3)$$
+\end{Answer}
+
+\begin{Exercise}
+    [label=deriv_rules10]
+    For $0 \leq t \leq 12$, a particle moves along the x-axis. The velocity of the particle at a time $t$ is given by $v(t) = \cos{\frac{\pi}{6}t}$. What is the acceleration of the particle at time $t=4$?
+\end{Exercise}
+\begin{Answer}
+    [ref=deriv_rules10]
+    $$a(t) = v'(t) = -\frac{\pi}{6}\sin{\frac{\pi}{6}t}$$
+    $$a(4) = -\frac{\pi}{6}\sin{\frac{2\pi}{3}} = -\frac{\pi}{6}\cdot\frac{\sqrt{3}}{2}=-\frac{\pi \sqrt{3}}{12}$$
+\end{Answer}
+
 \section{Conclusion}
 
 These rules form the basis for calculating derivatives in
