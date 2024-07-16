@@ -17,6 +17,68 @@ provided this limit exists. In words, the derivative of $f$ at $x$ is
 the limit of the rate of change of $f$ at $x$ as the change in $x$
 approaches zero.
 
+\section{Applications in Mathematics}
+\subsection{l'Hospital's Rule}
+Consider the function $h(x) = \frac{\ln{x}}{x-1}$ and suppose we are interested in the behavior of $h(x)$ around $x=1$. If we apply the Quotient Rule, we get an indeterminate result: $$\lim_{x \to 1}\frac{\ln{x}}{x-1} = \frac{0}{0}$$ Looking at the graph of $h(x)$, we can guess that $\lim_{x \to 1}\frac{\ln{x}}{x-1} = 1$. 
+
+\begin{tikzpicture}
+\begin{axis}
+    [clip=true,
+    xmin=0, xmax=4,
+    ymin=0, ymax=4,
+    axis lines=left
+    ]
+    \addplot[blue, domain=0.01:4, samples=100]{ln(x)/(x-1)};
+    \addplot[samples=50, black, dashed] coordinates{(1, 0)(1,1)};
+    \addplot[samples=50, black, dashed] coordinates{(0, 1)(1,1)};
+    \addplot[mark=*, fill=white, draw=blue] coordinates{(1, 1)};
+\end{axis}
+\end{tikzpicture}
+
+Let's examine the numerator and denominator separately: we'll define $f(x)=\ln{x}$ and $g(x) = x-1$. 
+
+\begin{tikzpicture}
+    \begin{axis}
+    [clip=false,
+    xmin=0, xmax=3,
+    ymin=-1, ymax=2,
+    axis lines = center]
+    \addplot[blue, samples=100, domain=1/e:3]{ln(x)}
+    node[right, pos=1]{$f(x)$};
+    \addplot[red, samples=100, domain=0:3]{x-1}
+    node[right, pos=1]{$g(x)$};
+    \end{axis}
+\end{tikzpicture}
+
+If we zoom in very far around $x=1$, the graphs begin to look linear:
+
+\begin{tikzpicture}
+    \begin{axis}
+    [clip=false,
+    xmin=0.9, xmax=1.1,
+    ymin=-0.1, ymax=0.1,
+    axis lines = center]
+    \addplot[blue, samples=100, domain=0.9:1.1]{ln(x)}
+    node[right, pos=0.9]{$f(x)$};
+    \addplot[red, samples=100, domain=0.9:1.1]{x-1}
+    node[right, pos=1]{$g(x)$};
+    \end{axis}
+\end{tikzpicture}
+
+We can approximate these graphs as linear functions with slopes $m_1$ and $m_2$, so that the blue curve is approximated as $y=m_1(x-1)$ and the red curve is approximated as $y=m_2(x-1)$. The ratio of the functions would then be $$\frac{m_1(x-1)}{m_2(x-1)}=\frac{m_1}{m_2}$$ which is the same as the ratio of the derivatives of our linear approximations. This suggests l'Hospital's rule, that the limit of a ratio is the same as the limit of the ratio of the derivatives for certain indeterminate forms: $$\lim_{x\to a}\frac{f(x)}{g(x}=\lim_{x\to a}\frac{f'(x)}{g'(x)}$$.
+
+Let's apply l'Hospital's rule to our limit of $h(x)$:
+$$\lim_{x\to 1}\frac{\ln{x}}{x-1}=\lim_{x \to 1}\frac{\frac{d}{dx}\ln{x}}{\frac{d}{dx}(x-1)}=\lim_{x \to 1}\frac{\frac{1}{x}}{1}=1$$
+
+Notice our result with l'Hospital's rule matches our guess based on the graph of $h(x) = \frac{\ln{x}}{x-1}$. 
+
+L'Hospital's rule also applies to the indeterminate result $\frac{\pm \infty}{\pm \infty}$. For a limit of the form $\lim_{x\to a}\frac{f(x)}{g(x)}$, l'Hospital's rule applies if:
+\begin{enumerate}
+    \item the original limit is of the indeterminate form $\frac{0}{0}$ or $\frac{\pm \infty}{\pm \infty}$
+    \item $f$ and $g$ are differentiable on an interval containing $a$ (but possibly not differentiable at $a$)
+    \item $g'(x) \neq 0$ on said interval
+\end{enumerate}
+
 \section{Applications in Physics}
 
 In physics, derivatives play a vital role in describing how quantities
