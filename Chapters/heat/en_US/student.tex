@@ -47,13 +47,10 @@ need to be the same temperature at the end.  Let $T$ be the final
 temperature of both.
 
 
-Watch Khan Academy's discussion of heat capacity at \url{https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:thermodynamics/x2eef969c74e0d802:heat-capacity-and-calorimetry/v/heat-capacity}
-
-
 Three liters of water weighs 3,000 grams, so the
 change in energy in the water will be:
 
-$$E_W = m c \Delta_T = (3000)(4.2)(T - 20) = 12600T - 252000 \text{ joules}$$ 
+$$E_W = m c \Delta_T = (3000)(4.2)(T - 20) = 12600T - 252000 \text{ joules}$$
 
 The pan weighs 1000 grams, so the change in energy in the pan will be::
 
@@ -109,7 +106,7 @@ quickly, but they may never actually reach equilibrium.
         xlabel={minutes},
         ylabel={degrees celsius},
         ]
-        \addplot[no marks,sdkblue] expression[domain=0:4,samples=100]{24 + 56 * pow(2,-1.5 * x)} node[above, xshift=-1cm, yshift=0.1cm]{Pan}; 
+        \addplot[no marks,sdkblue] expression[domain=0:4,samples=100]{24 + 56 * pow(2,-1.5 * x)} node[above, xshift=-1cm, yshift=0.1cm]{Pan};
         \addplot[no marks,sdkblue] expression[domain=0:4,samples=100]{24 - 4 * pow(2,-0.8 * x)} node[below, xshift=-2.5cm]{Water};
         \addplot[no marks,dashed,gray] coordinates {(0,24)(6,24)} node[above, xshift=-8cm]{equilibrium};
     \end{axis}
@@ -139,12 +136,9 @@ For any given substance, the specific heat capacity often changes a
 lot when the substance changes state. For example, ice is 2.1 J/g
 $^\circ$C, whereas liquid water is 4.2 J/g$^\circ$C.
 
-Watch Khan Academy's discussion of the specific heat of water: \url{https://www.khanacademy.org/science/biology/water-acids-and-bases/water-as-a-solid-liquid-and-gas/v/specific-heat-of-water}
-
 Even within a given state, the specific heat capacity varies a bit
 based on the temperature and pressure. If you are trying to do these
 sorts of calculations with great accuracy, you will want to find the
 specific heat capacity that matches your situation. For example, I
 might look for the specific heat capacity for water at $22^\circ$C at
 1 atmosphere of pressure( atm).
-
