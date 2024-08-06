@@ -79,6 +79,119 @@ L'Hospital's rule also applies to the indeterminate result $\frac{\pm \infty}{\p
     \item $g'(x) \neq 0$ on said interval
 \end{enumerate}
 
+\subsection{Intervals of Increasing and Decreasing Value}
+\subsubsection{Practice}
+\begin{Exercise}
+    [label=incdec1]
+    Let $f$ be the function given by $f(x) = 300x-x^3$. On which of the following intervals is $f$ increasing?
+\end{Exercise}
+\begin{Answer}
+    [ref=incdec1]
+    First, we will find $f'$ and set it equal to zero: $$f'(x)=300-3x^2=0$$ $$300=3x^2 \rightarrow x=\pm \sqrt{100} = \pm10$$ Now we will evaluate the value of $f'(x)$ for $x<-10$, $-10<x<10$, and $x>10$. 
+    \begin{center}
+        \begin{tabular}{c|c|c}
+        Value of $x$ & Computation & $f(x)$ increasing or decreasing?\\
+         $x<-10$    &  $300-3(-11)^2<0$ & decreasing\\
+         $-10<x<10$    & $300-3(0)^2>0 $ & increasing\\
+         $x>10$&$300-3(11)^2<0$& decreasing
+        \end{tabular}
+    \end{center}
+    Therefore, the fucntion is increasing on the interval $x \in [-10, 10]$ because $f'(x) >0$ for $x \in [-10, 10]$.
+\end{Answer}
+
+\subsection{Mean Value Theorem}
+
+The Mean Value Theorem (MVT) states that on an interval $[a, b]$ where a continuous function $f$ is differentiable on an open interval $(a, b)$, there is at least one point where the tangent line to $f$ has the same slope as a line connecting the points $(a, f(a))$ and $(b, f(b))$. Consider the graph of $f(x) = x^2$ below. The line connecting the points $(-1, 1)$ and $(2, 4)$ has a slope of $\frac{1}{2}$. MVT tells us there must be \textit{at least one} point, $c$, on the interval $x \in (-1, 2)$ where $f'(c) = \frac{1}{2}$. We can find this point by setting $f'(x)$ equal to $\frac{1}{2}$: $$2x=\frac{1}{2} \rightarrow x=\frac{1}{4}$$
+
+Examining the graph, you can see that the tangent at $f(\frac{1}{4})$ (the black line) is parallel to the line connecting $(-1, f(-1))$ and $(2, f(2))$. 
+
+\begin{tikzpicture}
+    \begin{axis}
+        [ymin=-2, xmin=-2, xmax=2, axis lines = left]
+        \addplot[blue, samples=50]{x^2};
+        \addplot[red, mark=*]coordinates {(-1, 1)};
+        \addplot[red, mark=*] coordinates {(2, 4)};
+        \addplot[domain=-2:2, red] coordinates{(-1, 1)(2, 4)};
+        \addplot[black, mark=*] coordinates{(0.5, 0.25)};
+        \addplot[black, domain=-2:2, samples=50
+        ]{x-0.25};
+    \end{axis}
+\end{tikzpicture}
+
+Note that MVT doesn't tell us \textit{where} $f'(x)$ is parallel to the line connecting $(a, f(a))$ and $(b, f(b))$, just that some value $c$ exists that satisfies the condition. 
+
+Consider a hammer thrown upwards at 5 $\frac{m}{s^2}$ on Earth (where the acceleration due to gravity is approximately $-9.8 \frac{m}{s^2}$). We can use MVT to show that there must be some point in the hammer's path upwards where the velocity of the hammer is exactly equal to its average velocity as it flies through the air. 
+The hammer's rise can be described with the function $y(t) = 5t-4.9t^2$. The hammer reaches its peak at approximately $t=0.51$. So, we are looking for some value, $c$, such that $$y'(c) = \frac{y(0.51)-y(0)}{0.51-0}=\frac{5(0.51)-4.9(0.51^2)}{0.51}=\frac{1.2755}{0.51}=2.5$$
+
+Solving $y'(t) = 5-9.8t = 2.5$, we find that the $c$ that satisfies MVT is approximately $0.255$. This result is illustrated on the graph below:
+
+\begin{tikzpicture}
+    \begin{axis}[ymin=0,ymax=1.4, xmin=0, xmax=1.2, axis lines=left]
+    \addplot[blue, samples=50, domain=0:1.2]{5*x-4.9*x^2};
+    \addplot[mark=*, red] coordinates{(0,0)};
+    \addplot[mark=*, red] coordinates{(0.51, 1.275)};
+    \addplot[red, samples=50]coordinates{(0,0) (0.51, 1.275)};
+    \addplot[black, samples=50]{2.5*(x-0.255)+0.9564};
+    \addplot[mark=*, black]coordinates{(0.255, 0.9564)};
+    \end{axis}
+\end{tikzpicture}
+
+\subsubsection{MVT Practice}
+\begin{Exercise}
+[label=MVT1]
+AT 3:30 PM, a car's speedometer reads $30 \frac{mi}{hr}$. At 3:40 PM, it reads $50\frac{mi}{hr}$. Show that at some time between 3:30 and 3:340 PM, the car's acceleration is exactly $120 \frac{mi}{hr^2}$. 
+\end{Exercise}
+\begin{Answer}
+[ref=MVT1]
+The speed of a car must a continuous, differentiable function, since your car can't "jump" from one speed to another: it must smoothly accelerate from one speed to another. Therefore, the Mean Value Theorem applies. The average acceleration from 3:30 PM to 3:40 PM is given by:
+$$\frac{\text{change in speed}}{\text{change in time}} = \frac{50 \frac{mi}{hr}-30\frac{mi}{hr}}{3:40PM-3:30PM}$$ 
+Simplifying and converting minutes to hours, we see the average acceleration is:
+$$\frac{20\frac{mi}{hr}}{\frac{1}{6}hr} = 120\frac{mi}{hr^2}$$
+
+Therefore, by MVT, there must be some time between 3:30 and 3:40 PM where the car's acceleration is exactly $120 \frac{mi}{hr^2}$. 
+\end{Answer}
+
+\begin{Exercise}
+[label=MVT2]
+Find the number $c$ that satisfies the MVT on the given interval. 
+
+(a) $f(x) = \sqrt{x}$, $[0, 4]$
+
+(b)$f(x) = e^{-x}$, $[0,2]$
+
+(c)$f(x) = \ln{x}$, $[1,4]$	
+\end{Exercise}
+
+\begin{Answer}
+[ref=MVT2]
+(a) For the domain given, $f(x)$ is defined and differentiable. Finding the slope of the secant line connecting the endpoints:
+$$\frac{f(b)-f(a)}{b-a}=\frac{\sqrt{4}-\sqrt{0}}{4-0}=\frac{2}{4}=\frac{1}{2}$$
+So we are looking for some number $c$ such that $f'(c) = \frac{1}{2}$. Let's find $f'(x)$:
+$$f'(x) = \frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$$
+Setting this equal to $\frac{1}{2}$ to find $c$:
+$$f'(c) = \frac{1}{2\sqrt{c}}=\frac{1}{2}$$
+$$\sqrt{c}=1$$
+$$c=1$$
+
+(b)For the domain given, $f(x)$ is defined and differentiable. Finding the slope of the secant line connecting the endpoints:
+$$\frac{f(2)-f(0)}{2-0}=\frac{e^{-2}-e^{0}}{2}=\frac{1-e^{2}}{2e^{2}}\approx -0.432$$
+And find $f'(x)$:
+$$f'(x) = -e^{-x}$$
+According to MVT, there must be some $c$ such that $f'(c) \approx-0.432$:
+$$-e^{-c} \approx -0.432$$
+$$e^{-c}\approx 0.432$$
+$$-c \approx \ln{0.432}$$
+$$c \approx -\ln{0.432} \approx 0.839$$
+
+(c) For the domain given, $f(x)$ is defined and differentiable. Finding the secant line connecting the endpoints:
+$$\frac{f(b)-f(a)}{b-a}=\frac{\ln{4}-\ln{1}}{4-1}=\frac{\ln{4}}{3}\approx 0.462$$
+And find $f'(x)$:
+$$f'(x) = \frac{1}{x}$$
+According to MVT, there must be some $c$ such that $f'(c) \approx 0.462$
+$$f'(c) = \frac{1}{c} \approx 0.462$$
+$$c \approx \frac{1}{0.462} = 2.164$$
+\end{Answer}
+
 \section{Applications in Physics}
 
 In physics, derivatives play a vital role in describing how quantities
