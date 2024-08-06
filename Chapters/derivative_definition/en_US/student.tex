@@ -79,25 +79,7 @@ L'Hospital's rule also applies to the indeterminate result $\frac{\pm \infty}{\p
     \item $g'(x) \neq 0$ on said interval
 \end{enumerate}
 
-\subsection{Intervals of Increasing and Decreasing Value}
-\subsubsection{Practice}
-\begin{Exercise}
-    [label=incdec1]
-    Let $f$ be the function given by $f(x) = 300x-x^3$. On which of the following intervals is $f$ increasing?
-\end{Exercise}
-\begin{Answer}
-    [ref=incdec1]
-    First, we will find $f'$ and set it equal to zero: $$f'(x)=300-3x^2=0$$ $$300=3x^2 \rightarrow x=\pm \sqrt{100} = \pm10$$ Now we will evaluate the value of $f'(x)$ for $x<-10$, $-10<x<10$, and $x>10$. 
-    \begin{center}
-        \begin{tabular}{c|c|c}
-        Value of $x$ & Computation & $f(x)$ increasing or decreasing?\\
-         $x<-10$    &  $300-3(-11)^2<0$ & decreasing\\
-         $-10<x<10$    & $300-3(0)^2>0 $ & increasing\\
-         $x>10$&$300-3(11)^2<0$& decreasing
-        \end{tabular}
-    \end{center}
-    Therefore, the fucntion is increasing on the interval $x \in [-10, 10]$ because $f'(x) >0$ for $x \in [-10, 10]$.
-\end{Answer}
+
 
 \subsection{Mean Value Theorem}
 
@@ -192,6 +174,160 @@ $$f'(c) = \frac{1}{c} \approx 0.462$$
 $$c \approx \frac{1}{0.462} = 2.164$$
 \end{Answer}
 
+\subsection{Using first and second derivatives to describe a function}
+\subsubsection{Increasing and Decreasing Intervals}
+
+Let's re-examine our graph showing the height of a hammer tossed in the air:
+
+
+\begin{tikzpicture}
+    \begin{axis}[ymin=0,ymax=1.4, xmin=0, xmax=1.2, axis lines=left]
+    \addplot[blue, samples=50, domain=0:1.2]{5*x-4.9*x^2};
+    \end{axis}
+\end{tikzpicture}
+
+As you can see, the hammer reaches its peak around $t \approx 0.5s$. Let's add tangent lines just before and after the peak of the hammer's path so we can more easily examine how the slope of the graph changes:
+
+\begin{tikzpicture}
+    \begin{axis}[ymin=0,ymax=1.4, xmin=0, xmax=1.2, axis lines=left]
+    \addplot[blue, samples=50, domain=0:1.2]{5*x-4.9*x^2};
+    \addplot[red, samples=50, domain=0.31:0.49]{1.08*x-0.4*1.08+1.216};
+    \addplot[red, samples=50, domain=0.11:0.29]{3.04*x-0.2*3.04+0.804};
+    \addplot[red, samples=50, domain=0.61:0.79]{-1.86*x+1.86*0.7+1.099};
+    \addplot[red, samples=50, domain=0.81:0.99]{-3.82*x+0.9*3.82+0.531};
+    \end{axis}
+\end{tikzpicture}
+
+As you can see, the slope changes from positive to negative as $t$ increases. That implies that $f'(t)$ also changes from positive to negative. In fact, at the highest point of the hammer's flight, the slope (and therefore $f'(t)$) is exactly zero! In general, 
+\begin{enumerate}
+\item If $f'(x)>0$ on an interval, then $f(x)$ is increasing on that interval.
+\item If $f'(x)<0$ on an interval, then $f(x)$ is decreasing on that interval. 
+\end{enumerate}
+
+Example 1: Find where the function $f(x) = 3x^4-4x^3-12x^2+5$ is increasing. 
+
+Solution: We want to find the intervals where $f'(x)>0$. First, we take the derivative to find $f'(x)$:
+$$f'(x) = 12x^3-12x^2-24x$$
+
+It will be easier to analyze the value of $f'(x)$ if we factor it so:
+$$f'(x) = 12x(x-2)(x+1)$$
+
+To determine where $f'(x)>0$, we start by finding where $f'(x)=0$ (in this case, this is true when $x=-1, 0, 2$). These values of $x$ are called \textit{critical values}, and we will use them to divide $f'(x)$ into intervals. On each of these intervals, $f'(x)$ must be always positive or always negative. This is shown graphically below:
+
+\begin{tikzpicture}
+	\begin{axis}[xmin=-2, xmax=3, axis lines=center]
+	\addplot[blue, samples=100, domain=-2:3]{12*x*(x-2)*(x+1)};
+	\addplot[red, dashed, samples=50]coordinates {(-1, -75) (-1, 125)};
+	\addplot[red, dashed, samples=50]coordinates {(0, -75) (0, 125)};
+	\addplot[red, dashed, samples=50]coordinates {(2, -75) (2, 125)};
+	\end{axis}
+\end{tikzpicture}
+
+As you can see above, $f'(x)>0$ on two intervals: $x \in (-1, 0) $ and $x \in (2, \infty)$. These are open intervals because $f'(x)=0$ at $x=-1$, $x=0$, and $x=2$. But what if we had a more complex function, or didn't have the resources to graph it? We can use a table to help us analyze the value of $f'(x)$ (and therefore the behavior of $f(x)$). For each interval around the critical values, we can determine if $f'(x)$ is positive or negative by noting the value of the factors of $f'(x)$, which are $12x$, $x-2$, and $x+1$ in this case. For example, for $x<-1$, $12x<0$, $(x-2)<0$, and $(x+1)<0$. Three negatives multiplied together is also negative. Therefore, for $x<-1$, $f'(x)$ is negative and $f(x)$ is decreasing. We can analyze all of the intervals similarly and log the results in a table:
+
+\begin{tabular}{c | c | c |c|c|c}
+\hline
+$x$ & $12x$ & $x-2$ & $x+1$ & $f'(x)$ & $f(x)$ \\
+$x<-1$ & negative & negative & negative & negative &decreasing\\
+$-1<x<0$ & negative & negative & positive & positive & increasing \\
+$0<x<2$ & positive & negative & positive & negative & decreasing \\
+$2<x$ & positive & positive & positive & positive & increasing\\
+\end{tabular}
+
+Notice the table method yields the same result as examining the graph: $f(x)$ is increasing for $x\in (0, -1)$ and $x \in (2, \infty)$, which can also be written as $x \in (-1, 0) \cup (2, \infty)$. 
+
+\subsubsection{Local Extrema}
+Examine the graphs of $x^2$, $\sin{x}$, and $y=\sqrt{4-x^2}$ below. Each has a dot at a local extreme (either a local minimum or local maximum). Sketch what you think the tangent line to the graph would be at each local extreme. Use this to estimate the value of the derivative at that point. 
+
+%FIXME format graphs side-by-side horizontally
+\begin{tikzpicture}
+\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
+\addplot[blue, samples=50, domain=0:6.28]{sin(deg(x))};
+\addplot[red, mark=*]coordinates {(1.57, 1)};
+\addplot[red, mark=*]coordinates{(4.71, -1)};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
+\addplot[blue, samples=50, domain=-2:2]{x^2};
+\addplot[red, mark=*]coordinates{(0, 0)};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
+\addplot[blue, samples=50, domain=-2:2]{sqrt(4-x^2)};
+\addplot[red, mark=*]coordinates{(0, 2)};
+\end{axis}
+\end{tikzpicture}
+
+You should notice that all of the tangent lines are horizontal. Since the tangent lines at these local extrema have a slope of $0$, that tells us $f'(x)=0$ at these points too. In fact, for \textit{all} local minima and maxima, the value of the derivative is zero at that point. However, the converse statement is not necessarily true: just because the derivative is zero at some $x=c$ it does not mean there is a local extrema at $f(c)$. Consider $f(x) = x^3+3$:
+
+\begin{tikzpicture}
+\begin{axis}[axis lines=center]
+\addplot[blue, samples=50, domain=-1:1]{x^3+3};
+\addplot[red, mark=*]coordinates{(0, 3)};
+\addplot[red, samples=50]coordinates{(-0.25, 3) (0.25,3)};
+\end{axis}
+\end{tikzpicture}
+
+At $x=0$, $f'(x)=0$, but there is not a local extreme. For a local extreme to exist, the graph of $f(x)$ must change from increasing to decreasing, or vice versa. Look at the graph of $x^3+3$ above: the function is increasing for $x<0$ and $x>0$. Another way of saying this is to note that the graph of $f'(x)$ touches but does not cross the x-axis in this case:
+
+\begin{tikzpicture}
+\begin{axis}[axis lines = left]
+\addplot[blue, samples=50, domain=-2:2]{3*x^2};
+\end{axis}
+\end{tikzpicture}
+
+If $f(x)$ changes from increasing to decreasing, then $f'(x)$ is changing from positive to negative (i.e. crossing the x-axis). Look at the derivative of $f(x)=\sin{x}$, $f'(x)=\cos{x}$, on the graph below. The x-values where local extrema exist on $f(x)$ are marked in red:
+
+\begin{tikzpicture}
+\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
+\addplot[blue, samples=50, domain=0:6.28]{cos(deg(x))};
+\addplot[red, mark=*]coordinates {(1.57, 0)};
+\addplot[red, mark=*]coordinates{(4.71, 0)};
+\end{axis}
+\end{tikzpicture}
+
+As you can see, local extrema are indicated when $f'(x)$ crosses the x-axis. If $f'(x)$ is negative to the left of $x=c$ and positive to the right, then $f(x)$ has a local minimum at $x=c$. On the other hand, if $f'(x)$ is positive to the left of $x=c$ and negative to the right, then $f(x)$ has a local maximum at $x=c$. 
+
+\subsubsection{Practice}
+\begin{Exercise}
+    [label=incdec1]
+    Let $f$ be the function given by $f(x) = 300x-x^3$. On which of the following intervals is $f$ increasing?
+\end{Exercise}
+\begin{Answer}
+    [ref=incdec1]
+    First, we will find $f'$ and set it equal to zero: $$f'(x)=300-3x^2=0$$ $$300=3x^2 \rightarrow x=\pm \sqrt{100} = \pm10$$ (Note: $f'(x) = 3(10-x)(10+x)$, which implies roots at $x=\pm10$. Now we will evaluate the value of $f'(x)$ for $x<-10$, $-10<x<10$, and $x>10$. 
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c}
+        Value of $x$ & (10-x) & (10+x) & $f'(x)$ & $f(x)$ behavior\\
+         $x<-10$    &  positive & negative& negative & decreasing\\
+         $-10<x<10$    & positive & positive& positive& increasing\\
+         $x>10$ & negative & positive & negative & decreasing
+        \end{tabular}
+    \end{center}
+    Therefore, the fucntion is increasing on the interval $x \in [-10, 10]$ because $f'(x) >0$ for $x \in [-10, 10]$.
+\end{Answer}
+
+\begin{Exercise}[label=locext1]
+Find the intervals on which $f(x)=x^3-3x^2-9x+4$ is increasing or decreasing. Then, find all local minimum and/or maximum values of $f(x)$. 
+\end{Exercise}
+
+\begin{Answer}[ref=locext1]
+Given $f(x)=x^3-3x^2-9x+4$, it follows that $f'(x)=3x^2-6x-9$. Factoring, we find that $f'(x) = 9(x-3)(x+1)$ and $f'(x) = 0$ when $x=3$ and $x=-1$. We construct our table to help us analyze the value of $f'(x)$ and behavior of $f(x)$ on the whole domain of the function:
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+	Value of $x$ & $(x-3)$ & $(x+1)$ & $f'(x)$ & $f(x)$ behavior\\
+	$x<-1$ & negative & negative & positive & increasing\\
+	$-1<x<3$ & negative & positive & negative & decreasing\\
+	$x>3$ & positive & positive & positive & increasing
+\end{tabular}
+\end{center}
+So, $f(x)$ is increasing for $x \in (-\infty, -1) \cup (3, \infty)$ and decreasing for $x \in (-1, 3)$. Since $f'(-1)=0$ and changes from positive to negative, $f(x)$ has a local maximum at $x=-1$. And since $f'(3)=0$ and changes from negative to positive, $f(x)$ has a local minimum at $x=3$.
+\end{Answer}
+
 \section{Applications in Physics}
 
 In physics, derivatives play a vital role in describing how quantities
@@ -208,6 +344,40 @@ velocity $v(t)$ and acceleration $a(t)$ are given by:
 \begin{equation}
 v(t) = \frac{ds}{dt} \quad \text{and} \quad a(t) = \frac{dv}{dt} = \frac{d^2s}{dt^2}
 \end{equation}
+
+\subsubsection{Practice}
+
+A particle's motion is described by $s(t) = t^3-6t^2+6t$, where $t$ is measured in seconds and $s$ is measured in meters. Answer the following questions about the particle's motion:
+\begin{Exercise}[label=velacc1]
+Find the velocity at time $t$.
+\end{Exercise}
+
+\begin{Answer}[ref=velacc1]
+Velocity is the derivative of position. Therefore, $v(t) = s'(t) = 3t^2-12t+6$.
+\end{Answer}
+
+\begin{Exercise}[label=velacc2]
+What is the velocity after 2s? After 4s?
+\end{Exercise}
+
+\begin{Answer}[ref=velacc2]
+$$v(2) = 3(2)^2-12(2)+6=-6 \frac{m}{s}$$
+$$v(4) = 3(4)^2-12(4)+6=6\frac{m}{s}$$
+\end{Answer}
+
+\begin{Exercise}[label=velacc3]
+When is the particle at rest?
+\end{Exercise}
+
+\begin{Answer}[ref=velacc3]
+When the particle is at rest, $v(t) = 0$. 
+$$3t^2-12t+6=0$$
+$$3(t^2-4t+2)=0$$
+$$t^2-4t+2=0$$
+This is not easily factorable, so we will use the quadratic formula: $$t=\frac{-(-4)\pm\sqrt{(-4)^2-4(1)(2)}}{2(1)}$$
+$$x=\frac{4\pm\sqrt{16-8}}{2}=2\pm\sqrt{2}\approx0.586, 3.414$$
+Therefore, the particle is at rest at 0.586s and 3.414s.
+\end{Answer}
 
 \subsection{Force and Momentum}
 
