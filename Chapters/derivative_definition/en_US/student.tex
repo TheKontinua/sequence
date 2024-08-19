@@ -174,7 +174,7 @@ $$f'(c) = \frac{1}{c} \approx 0.462$$
 $$c \approx \frac{1}{0.462} = 2.164$$
 \end{Answer}
 
-\subsection{Using first and second derivatives to describe a function}
+\subsection{Using first derivatives to describe a function}
 \subsubsection{Increasing and Decreasing Intervals}
 
 Let's re-examine our graph showing the height of a hammer tossed in the air:
@@ -290,9 +290,9 @@ If $f(x)$ changes from increasing to decreasing, then $f'(x)$ is changing from p
 \end{axis}
 \end{tikzpicture}
 
-As you can see, local extrema are indicated when $f'(x)$ crosses the x-axis. If $f'(x)$ is negative to the left of $x=c$ and positive to the right, then $f(x)$ has a local minimum at $x=c$. On the other hand, if $f'(x)$ is positive to the left of $x=c$ and negative to the right, then $f(x)$ has a local maximum at $x=c$. 
+As you can see, local extrema are indicated when $f'(x)$ crosses the x-axis. If $f'(x)$ is negative to the left of $x=c$ and positive to the right, then $f(x)$ has a local minimum at $x=c$. On the other hand, if $f'(x)$ is positive to the left of $x=c$ and negative to the right, then $f(x)$ has a local maximum at $x=c$. Any value of $x=c$ where $f'(c) = 0$ is called a \textbf{critical number}. Values where $f(c)$ does not exist is also a critical number. 
 
-\subsubsection{Practice}
+\subsubsection{Practice: Interval of Increasing and Decreasing, Local Extrema}
 \begin{Exercise}
     [label=incdec1]
     Let $f$ be the function given by $f(x) = 300x-x^3$. On which of the following intervals is $f$ increasing?
@@ -327,6 +327,175 @@ Given $f(x)=x^3-3x^2-9x+4$, it follows that $f'(x)=3x^2-6x-9$. Factoring, we fin
 \end{center}
 So, $f(x)$ is increasing for $x \in (-\infty, -1) \cup (3, \infty)$ and decreasing for $x \in (-1, 3)$. Since $f'(-1)=0$ and changes from positive to negative, $f(x)$ has a local maximum at $x=-1$. And since $f'(3)=0$ and changes from negative to positive, $f(x)$ has a local minimum at $x=3$.
 \end{Answer}
+
+\subsubsection{Global Extrema}
+Now that we've learned how to identify local minima and maxima, let's expand the discussion to include global extrema. A global extreme is an absolute minimum or maximum value of a function over a particular interval or the entire domain of the function. Let's examine the graph of $f(x) = x^4-5x^3+6x^2$ over the domain $x \in [-1,4]$.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[clip=false,
+	  xmin=-1, xmax=4,
+      axis lines = middle,
+      xlabel = \(x\),
+      ylabel = \(f(x)\),
+      samples = 100,
+    ]
+    \addplot [blue, smooth, domain=-1:4] {x^4-5*x^3+6*x^2}
+    node[color=black, left, pos=0.0]{$(-1, 12)$}
+    node[color=black, left, pos=0.95]{$(4, 32)$};
+    %fixme label local minima and maximum%
+    \addplot[red, mark=*]coordinates{(-1,12)};
+    \addplot[red, mark=*]coordinates{(0,0)};
+    \addplot[red, mark=*]coordinates{(1.157,2.08)};
+    \addplot[red, mark=*]coordinates{(2.593,-1.623)};
+    \addplot[red, mark=*]coordinates{(4,32)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph of \( f(x) = x^4-5x^3+6x^2 \) }
+\end{figure}
+
+As you can see, $f(x)$ has two local minima and one local maximum. Additionally, the endpoints are labeled. To determine the \textit{global} extrema, we need to examine the any local extrema (identified here graphically, but you can also identify them mathematically using that you learned in the "Local Extrema" subsection) AND the endpoints of the domain (or the function's behavior at $\pm \infty$). 
+
+In the case of $f(x) = x^4-5x^3+6x^2,\text{ }for x\in [-1,4]$, the global maximum value is 32 at $x=4$ and the global minimum is -1.623 at $x=2.593$. 
+
+If a function is continuous on an interval, then there must exist a global maximum and global minimum on that interval. These global extrema may also be local extrema (as is the case for $f(2.593)$ in the example above) or not (as is the case for $f(4)$). Applying the Closed Interval Method is a straightforward way to identify global (absolute) extrema. To find the global extrema of a continuous function, $f$, on a closed interval $[a, b]$:
+\begin{enumerate}
+\item Find the values of $f$ at the critical numbers of $f$ in $(a, b)$.
+\item Find the values of $f$ at the endpoints of the interval.
+\item The largest of the values from steps 1 and 2 is the absolute maximum; the smallest of the values is the absolute minimum.
+\end{enumerate}
+
+Let's use the Closed Interval Method to determine the global extrema for the function $g(x) = x-3\sin{x}$ on the interval $x \in [0, 2\pi]$.
+
+To find the value of $g$ at any critical numbers, we must first identify the critical numbers. Recall that critical numbers are values where the first derivative of the function is $0$ or does not exist. To find critical numbers, we set $g'$ equal to $0$:
+$$g'(x) = 1-3\cos{x}=0$$
+$$3\cos{x} = 1$$
+$$\cos{x} = \frac{1}{3}$$
+$$x=1.23, 5.052$$
+Now, we substitute these critical numbers back into $g(x)$:
+$$g(1.23) \approx -1.60$$
+$$g(5.052) = 7.881$$
+
+Now we need to check the endpoints:
+$$g(0) = 0-3*0 = 0$$
+$$g(2\pi) = 2\pi - 3*0 = 2\pi \approx 6.28$$
+
+The results are presented in the table below:
+
+\begin{tabular}{c | c}
+$x$ & $g(x)$\\
+0 & 0\\
+1.23 & -1.60\\
+5.052 & 7.881\\
+6.28 & 6.28\\
+\end{tabular}
+
+Therefore, for $g(x) = x-3\sin{x}$ on the interval $x \in [0, 2\pi]$, the global maximum is $g(5.052) = 7.881$ and the global minimum is $g(1.23) = -1.60$. 
+
+\subsubsection{Practice: Global Extrema}
+\begin{Exercise}[label=gloext1]
+Let $f$ be the function defined by $f(x) = \frac{\ln{x}}{x}$. What is the absolute maximum value of $f$?
+\end{Exercise}
+\begin{Answer}[ref=gloext1]
+First, we identify any critical numbers:
+$$f'(x) = \frac{x*(\frac{1}{x})-\ln{x}*1}{x^2} = \frac{1-\ln{x}}{x^2}$$
+Recall that critical numbers are values where $f'(x)=0$ or does not exist. We might identify $x=0$ as a critical number, but the presence of $\ln{x}$ limits the domain of the function to $x \in (0, \infty)$, excluding $x=0$. For all $x \in (0, \infty)$, $f'(x)$ exists. So, we look for values where $f'(x) = 0$.
+$$\frac{1-\ln{x}}{x^2}=0$$
+$$1-\ln{x}=0$$
+$$1=\ln{x}$$
+$$x=e$$
+
+Finding the value of $f(x)$ at $x=e$: 
+$$f(e) = \frac{\ln{e}}{e}=\frac{1}{e}$$
+Because the domain of $f(x)$ is on an \textit{open interval}, instead of checking the endpoints directly, we'll take the limits as $x$ approaches $0$ and $\infty$.
+$$\lim_{x\to 0}\frac{\ln{x}}{x}=-\infty<\frac{1}{e}$$
+$$\lim_{x \to \infty}\frac{\ln{x}}{x}=0<\frac{1}{e}$$
+
+Therefore, the absolute maximum values of $f(x) = \frac{\ln{x}}{x}$ is $\frac{1}{e}$ at $x=e$. 
+\end{Answer}
+
+\begin{Exercise}[label=gloext2]
+Find the global minimum and maximum values on the stated interval.
+\begin{enumerate}
+\item $f(x) = 12+4x-x^2$, $[0,5]$
+\item $f(t) = \frac{\sqrt{t}}{1+t^2}$, $[0, 2]$
+\item $f(t) = 2\cos{t} + \sin{2t}$, $[0, \frac{\pi}{2}]$
+\item $f(x) = \ln{x^2+x+1}$, $[-1, 1]$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=gloext2]
+\begin{enumerate}
+\item $f'(x) = 4-2x$ and to find the critical numbers, we set $f'(x)=0$:
+$$4-2x=0$$
+$$x=2$$
+We evaluate $f(x)$ at $x=0, 2, 5$:
+$$f(0) = 12+4(0)-0^2=12$$
+$$f(2) = 12+4(2)-2^2=12+8-4=16$$
+$$f(5) = 12+4(5)-5^2=12+20-25=7$$
+Therefore, the global maximum is $f(2) = 16$ and the global minimum is $f(5) = 7$.
+\item %fixme complete answer key for gloext2
+\end{enumerate}
+\end{Answer}
+
+\subsection{Using second derivatives to describe a function}
+\subsubsection{Concavity}
+Let's examine two increasing functions, $f(x) = \frac{x^2}{2}$ and $g(x) = \sqrt{x}$:
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=0, xmax=4, ymin=0, ymax=4, axis lines=center]
+\addplot[blue, samples=100, domain=0:4]{x^2/2};
+\addlegendentry{$f(x)=\frac{x^2}{2}$}
+\addplot[red, samples=100, domain=0:4]{sqrt(x)};
+\addlegendentry{$g(x)=\sqrt{x}$}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+Even though both of these functions are increasing, they have different shapes. $f(x)$ looks like bowl. On the other hand, $g(x)$ looks like an upside-down bowl. These shapes are called \textit{concave up} (in the case of $f(x)$) and \textit{concave down} (in the case of $g(x)$). Both functions are increasing on the interval $x \in [0, 4]$, and therefore both $f'(x)$ and $g'(x)$ are positive on the stated interval. Let's look at their second derivatives, $f''(x)$ and $g''(x)$:
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=0, xmax=4, ymin=-3, ymax=1.5, axis lines=center, legend pos = south east]
+\addplot[blue, samples=100, domain=0:4]{1};
+\addlegendentry{$f''(x)=1$}
+\addplot[red, samples=100, domain=0:4]{(-0.25)*(x^(-3/2)};
+\addlegendentry{$g''(x)=\frac{-1}{4x^{3/2}}$}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+As you can see, $f''(x) >0$ and $g''(x)<0$. The second derivative tells us if a function is concave up or concave down. In general:
+\begin{enumerate}
+\item If $f''(x)>0$ for all $x$ in a given interval, then the graph of $f$ is concave up on the interval.
+\item If $f''(x)<0$ for all $x$ in a given interval, then the graph of $f$ is concave down on the interval.
+\end{enumerate}
+
+Additionally, the second derivative can help us determine if there is a local minimum or maximum at critical numbers. Look at the graphs of $f(x) = 2-x^2$ and $g(x) = x^2$, which both have first derivatives equal to $0$ at $x=0$:
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=-2, xmax=2, axis lines=center, legend pos = north west]
+\addplot[blue, samples=100, domain=-2:2]{2-x^2};
+\addlegendentry{$f(x)=2-x^2$}
+\addplot[red, samples=100, domain=-2:2]{x^2};
+\addlegendentry{$g(x)=x^2$}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+When the graph is concave up, there is a local minimum where the first derivative equals $0$. When the graph is concave down, there is a local maximum where the first derivative equals $0$. This is summarized with the Second Derivative Test:
+
+Suppose $f''$ is continuous near $c$. Then,
+\begin{enumerate}
+\item If $f'(c) = 0 \text{ and } f''(c)>0$, then $f$ has a local minimum at $c$.
+\item If $f'(c) =0 \text{ and } f''(c)<0$, then $f$ has a local maximum at $c$. 
+\end{enumerate}
+
+\subsubsection{Inflection Points}
 
 \section{Applications in Physics}
 
