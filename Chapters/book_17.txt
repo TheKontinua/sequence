@@ -1,4 +1,5 @@
 differentiability
 derivative_definition
 derivative_rules
+deriv_graphshape
 optimization
