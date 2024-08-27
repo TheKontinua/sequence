@@ -5,14 +5,22 @@
 Let's re-examine our graph showing the height of a hammer tossed in the air:
 
 
+\begin{figure}
+\centering
 \begin{tikzpicture}
     \begin{axis}[ymin=0,ymax=1.4, xmin=0, xmax=1.2, axis lines=left]
     \addplot[blue, samples=50, domain=0:1.2]{5*x-4.9*x^2};
     \end{axis}
 \end{tikzpicture}
+\caption{Height of a hammer over time}
+\label{ref:hammerh}
+\end{figure}
 
-As you can see, the hammer reaches its peak around $t \approx 0.5s$. Let's add tangent lines just before and after the peak of the hammer's path so we can more easily examine how the slope of the graph changes:
 
+As you can see, the hammer reaches its peak around $t \approx 0.5s$ (see figure \ref{ref:hammerh}). Let's add tangent lines just before and after the peak of the hammer's path so we can more easily examine how the slope of the graph changes:
+
+\begin{figure}
+\centering
 \begin{tikzpicture}
     \begin{axis}[ymin=0,ymax=1.4, xmin=0, xmax=1.2, axis lines=left]
     \addplot[blue, samples=50, domain=0:1.2]{5*x-4.9*x^2};
@@ -22,11 +30,15 @@ As you can see, the hammer reaches its peak around $t \approx 0.5s$. Let's add t
     \addplot[red, samples=50, domain=0.81:0.99]{-3.82*x+0.9*3.82+0.531};
     \end{axis}
 \end{tikzpicture}
+\caption{height of a hammer over time}
+\label{ref:hammerh2}
+\end{figure}
 
-As you can see, the slope changes from positive to negative as $t$ increases. That implies that $f'(t)$ also changes from positive to negative. In fact, at the highest point of the hammer's flight, the slope (and therefore $f'(t)$) is exactly zero! In general, 
+
+In figure \ref{ref:hammerh2}, we see that the slope changes from positive to negative as $t$ increases. That implies that $f'(t)$ also changes from positive to negative. In fact, at the highest point of the hammer's flight, the slope (and therefore $f'(t)$) is exactly zero! In general, 
 \begin{enumerate}
-\item If $f'(x)>0$ on an interval, then $f(x)$ is increasing on that interval.
-\item If $f'(x)<0$ on an interval, then $f(x)$ is decreasing on that interval. 
+	\item If $f'(x)>0$ on an interval, then $f(x)$ is increasing on that interval.
+	\item If $f'(x)<0$ on an interval, then $f(x)$ is decreasing on that interval. 
 \end{enumerate}
 
 Example 1: Find where the function $f(x) = 3x^4-4x^3-12x^2+5$ is increasing. 
@@ -37,18 +49,23 @@ $$f'(x) = 12x^3-12x^2-24x$$
 It will be easier to analyze the value of $f'(x)$ if we factor it so:
 $$f'(x) = 12x(x-2)(x+1)$$
 
-To determine where $f'(x)>0$, we start by finding where $f'(x)=0$ (in this case, this is true when $x=-1, 0, 2$). These values of $x$ are called \textit{critical values}, and we will use them to divide $f'(x)$ into intervals. On each of these intervals, $f'(x)$ must be always positive or always negative. This is shown graphically below:
+To determine where $f'(x)>0$, we start by finding where $f'(x)=0$ (in this case, this is true when $x=-1, 0, 2$). These values of $x$ are called \textit{critical values}, and we will use them to divide $f'(x)$ into intervals. (Critical values are also called critical numbers, and we will use both in this text.) On each of these intervals, $f'(x)$ must be always positive or always negative. This is shown graphically below:
 
-\begin{tikzpicture}
-	\begin{axis}[xmin=-2, xmax=3, axis lines=center]
-	\addplot[blue, samples=100, domain=-2:3]{12*x*(x-2)*(x+1)};
-	\addplot[red, dashed, samples=50]coordinates {(-1, -75) (-1, 125)};
-	\addplot[red, dashed, samples=50]coordinates {(0, -75) (0, 125)};
-	\addplot[red, dashed, samples=50]coordinates {(2, -75) (2, 125)};
-	\end{axis}
-\end{tikzpicture}
+\begin{figure}
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-2, xmax=3, axis lines=center]
+		\addplot[blue, samples=100, domain=-2:3]{12*x*(x-2)*(x+1)};
+		\addplot[red, dashed, samples=50]coordinates {(-1, -75) (-1, 125)};
+		\addplot[red, dashed, samples=50]coordinates {(0, -75) (0, 125)};
+		\addplot[red, dashed, samples=50]coordinates {(2, -75) (2, 125)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$f'(x)$ with critical values}
+	\label{fig:critval1}
+\end{figure}
 
-As you can see above, $f'(x)>0$ on two intervals: $x \in (-1, 0) $ and $x \in (2, \infty)$. These are open intervals because $f'(x)=0$ at $x=-1$, $x=0$, and $x=2$. But what if we had a more complex function, or didn't have the resources to graph it? We can use a table to help us analyze the value of $f'(x)$ (and therefore the behavior of $f(x)$). For each interval around the critical values, we can determine if $f'(x)$ is positive or negative by noting the value of the factors of $f'(x)$, which are $12x$, $x-2$, and $x+1$ in this case. For example, for $x<-1$, $12x<0$, $(x-2)<0$, and $(x+1)<0$. Three negatives multiplied together is also negative. Therefore, for $x<-1$, $f'(x)$ is negative and $f(x)$ is decreasing. We can analyze all of the intervals similarly and log the results in a table:
+
+As you can see in figure \ref{fig:critval1}, $f'(x)>0$ on two intervals: $x \in (-1, 0) $ and $x \in (2, \infty)$. These are open intervals because $f'(x)=0$ at $x=-1$, $x=0$, and $x=2$. But what if we had a more complex function, or didn't have the resources to graph it? We can use a table to help us analyze the value of $f'(x)$ (and therefore the behavior of $f(x)$). For each interval around the critical values, we can determine if $f'(x)$ is positive or negative by noting the value of the factors of $f'(x)$, which are $12x$, $x-2$, and $x+1$ in this case. For example, for $x<-1$, $12x<0$, $(x-2)<0$, and $(x+1)<0$. Three negatives multiplied together is also negative. Therefore, for $x<-1$, $f'(x)$ is negative and $f(x)$ is decreasing. We can analyze all of the intervals similarly and log the results in a table:
 
 \begin{tabular}{c | c | c |c|c|c}
 \hline
@@ -66,62 +83,81 @@ Examine the graphs of $x^2$, $\sin{x}$, and $y=\sqrt{4-x^2}$ below. Each has a d
 
 %FIXME format graphs side-by-side horizontally
 \begin{tikzpicture}
-\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
-\addplot[blue, samples=50, domain=0:6.28]{sin(deg(x))};
-\addplot[red, mark=*]coordinates {(1.57, 1)};
-\addplot[red, mark=*]coordinates{(4.71, -1)};
-\end{axis}
+	\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
+	\addplot[blue, samples=50, domain=0:6.28]{sin(deg(x))};
+	\addplot[red, mark=*]coordinates {(1.57, 1)};
+	\addplot[red, mark=*]coordinates{(4.71, -1)};
+	\end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
-\addplot[blue, samples=50, domain=-2:2]{x^2};
-\addplot[red, mark=*]coordinates{(0, 0)};
-\end{axis}
+	\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
+	\addplot[blue, samples=50, domain=-2:2]{x^2};
+	\addplot[red, mark=*]coordinates{(0, 0)};
+	\end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
-\addplot[blue, samples=50, domain=-2:2]{sqrt(4-x^2)};
-\addplot[red, mark=*]coordinates{(0, 2)};
-\end{axis}
+	\begin{axis}[width=4cm, xmin=-2, xmax=2, axis lines=center]
+	\addplot[blue, samples=50, domain=-2:2]{sqrt(4-x^2)};
+	\addplot[red, mark=*]coordinates{(0, 2)};
+	\end{axis}
 \end{tikzpicture}
 
-You should notice that all of the tangent lines are horizontal. Since the tangent lines at these local extrema have a slope of $0$, that tells us $f'(x)=0$ at these points too. In fact, for \textit{all} local minima and maxima, the value of the derivative is zero at that point. However, the converse statement is not necessarily true: just because the derivative is zero at some $x=c$ it does not mean there is a local extrema at $f(c)$. Consider $f(x) = x^3+3$:
+You should notice that all of the tangent lines are horizontal. Since the tangent lines at these local extrema have a slope of $0$, that tells us $f'(x)=0$ at these points too. In fact, for \textit{all} local minima and maxima, the value of the derivative is zero at that point. However, the converse statement is not necessarily true: just because the derivative is zero at some $x=c$ it does not mean there is a local extrema at $f(c)$. Consider $f(x) = x^3+3$, shown in figure  \ref{fig:nonextrema}:
 
-\begin{tikzpicture}
-\begin{axis}[axis lines=center]
-\addplot[blue, samples=50, domain=-1:1]{x^3+3};
-\addplot[red, mark=*]coordinates{(0, 3)};
-\addplot[red, samples=50]coordinates{(-0.25, 3) (0.25,3)};
-\end{axis}
-\end{tikzpicture}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines=center]
+		\addplot[blue, samples=50, domain=-1:1]{x^3+3};
+		\addplot[red, mark=*]coordinates{(0, 3)};
+		\addplot[red, samples=50]coordinates{(-0.25, 3) (0.25,3)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$f(x) = x^3+3$}
+	\label{fig:nonextrema}
+\end{figure}
 
-At $x=0$, $f'(x)=0$, but there is not a local extreme. For a local extreme to exist, the graph of $f(x)$ must change from increasing to decreasing, or vice versa. Look at the graph of $x^3+3$ above: the function is increasing for $x<0$ and $x>0$. Another way of saying this is to note that the graph of $f'(x)$ touches but does not cross the x-axis in this case:
 
-\begin{tikzpicture}
-\begin{axis}[axis lines = left]
-\addplot[blue, samples=50, domain=-2:2]{3*x^2};
-\end{axis}
-\end{tikzpicture}
+At $x=0$, $f'(x)=0$, but there is not a local extreme. For a local extreme to exist, the graph of $f(x)$ must change from increasing to decreasing, or vice versa. Look closely at figure \ref{fig:nonextrema}: the function is increasing for $x<0$ and $x>0$. Another way of saying this is to note that the graph of $f'(x)$ touches but does not cross the x-axis in this case:
 
-If $f(x)$ changes from increasing to decreasing, then $f'(x)$ is changing from positive to negative (i.e. crossing the x-axis). Look at the derivative of $f(x)=\sin{x}$, $f'(x)=\cos{x}$, on the graph below. The x-values where local extrema exist on $f(x)$ are marked in red:
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = left]
+		\addplot[blue, samples=50, domain=-2:2]{3*x^2};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$f'(x) = 3x^2$}
+	\label{fig:touch}
+\end{figure}
 
-\begin{tikzpicture}
-\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
-\addplot[blue, samples=50, domain=0:6.28]{cos(deg(x))};
-\addplot[red, mark=*]coordinates {(1.57, 0)};
-\addplot[red, mark=*]coordinates{(4.71, 0)};
-\end{axis}
-\end{tikzpicture}
 
-As you can see, local extrema are indicated when $f'(x)$ crosses the x-axis. If $f'(x)$ is negative to the left of $x=c$ and positive to the right, then $f(x)$ has a local minimum at $x=c$. On the other hand, if $f'(x)$ is positive to the left of $x=c$ and negative to the right, then $f(x)$ has a local maximum at $x=c$. Any value of $x=c$ where $f'(c) = 0$ is called a \textbf{critical number}. Values where $f(c)$ does not exist is also a critical number. 
+If $f(x)$ changes from increasing to decreasing, then $f'(x)$ is changing from positive to negative (i.e. crossing the x-axis). Look at the derivative of $f(x)=\sin{x}$, $f'(x)=\cos{x}$, presented in figure \ref{fig:fprimecos}. The x-values where local extrema exist on $f(x)$ are marked in red (recall $\sin{x} = \pm 1$ when $x=\frac{n\pi}{2}$):
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[width=4cm, xmin=0, xmax=6.28, axis lines=center]
+		\addplot[blue, samples=50, domain=0:6.28]{cos(deg(x))};
+		\addplot[red, mark=*]coordinates {(1.57, 0)};
+		\addplot[red, mark=*]coordinates{(4.71, 0)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$f'(x) = \cos{x}$}
+	\label{fig:fprimecos}
+\end{figure}
+
+
+As you can see, local extrema are indicated when $f'(x)$ crosses the x-axis. If $f'(x)$ is negative to the left of $x=c$ and positive to the right, then $f(x)$ has a local minimum at $x=c$. On the other hand, if $f'(x)$ is positive to the left of $x=c$ and negative to the right, then $f(x)$ has a local maximum at $x=c$. Any value of $x=c$ where $f'(c) = 0$ is called a \textbf{critical number} or a \textbf{critical value}. Values where $f(c)$ does not exist is also a critical number. 
 
 \subsection{Practice: Interval of Increasing and Decreasing, Local Extrema}
 \begin{Exercise}
     [label=incdec1]
     Let $f$ be the function given by $f(x) = 300x-x^3$. On which of the following intervals is $f$ increasing?
 \end{Exercise}
+
 \begin{Answer}
     [ref=incdec1]
     First, we will find $f'$ and set it equal to zero: $$f'(x)=300-3x^2=0$$ $$300=3x^2 \rightarrow x=\pm \sqrt{100} = \pm10$$ (Note: $f'(x) = 3(10-x)(10+x)$, which implies roots at $x=\pm10$. Now we will evaluate the value of $f'(x)$ for $x<-10$, $-10<x<10$, and $x>10$. 
@@ -143,15 +179,17 @@ Find the intervals on which $f(x)=x^3-3x^2-9x+4$ is increasing or decreasing. Th
 \begin{Answer}[ref=locext1]
 Given $f(x)=x^3-3x^2-9x+4$, it follows that $f'(x)=3x^2-6x-9$. Factoring, we find that $f'(x) = 9(x-3)(x+1)$ and $f'(x) = 0$ when $x=3$ and $x=-1$. We construct our table to help us analyze the value of $f'(x)$ and behavior of $f(x)$ on the whole domain of the function:
 \begin{center}
-\begin{tabular}{c|c|c|c|c}
-	Value of $x$ & $(x-3)$ & $(x+1)$ & $f'(x)$ & $f(x)$ behavior\\
-	$x<-1$ & negative & negative & positive & increasing\\
-	$-1<x<3$ & negative & positive & negative & decreasing\\
-	$x>3$ & positive & positive & positive & increasing
-\end{tabular}
+	\begin{tabular}{c|c|c|c|c}
+		Value of $x$ & $(x-3)$ & $(x+1)$ & $f'(x)$ & $f(x)$ behavior\\
+		$x<-1$ & negative & negative & positive & increasing\\
+		$-1<x<3$ & negative & positive & negative & decreasing\\
+		$x>3$ & positive & positive & positive & increasing
+	\end{tabular}
 \end{center}
 So, $f(x)$ is increasing for $x \in (-\infty, -1) \cup (3, \infty)$ and decreasing for $x \in (-1, 3)$. Since $f'(-1)=0$ and changes from positive to negative, $f(x)$ has a local maximum at $x=-1$. And since $f'(3)=0$ and changes from negative to positive, $f(x)$ has a local minimum at $x=3$.
 \end{Answer}
+
+
 
 \subsection{Global Extrema}
 Now that we've learned how to identify local minima and maxima, let's expand the discussion to include global extrema. A global extreme is an absolute minimum or maximum value of a function over a particular interval or the entire domain of the function. Let's examine the graph of $f(x) = x^4-5x^3+6x^2$ over the domain $x \in [-1,4]$.
@@ -178,17 +216,18 @@ Now that we've learned how to identify local minima and maxima, let's expand the
     \end{axis}
   \end{tikzpicture}
   \caption{Graph of \( f(x) = x^4-5x^3+6x^2 \) }
+  \label{fig:globalext}
 \end{figure}
 
-As you can see, $f(x)$ has two local minima and one local maximum. Additionally, the endpoints are labeled. To determine the \textit{global} extrema, we need to examine the any local extrema (identified here graphically, but you can also identify them mathematically using that you learned in the "Local Extrema" subsection) AND the endpoints of the domain (or the function's behavior at $\pm \infty$). 
+As you can see in figure \ref{fig:globalext}, $f(x)$ has two local minima and one local maximum. Additionally, the endpoints are labeled. To determine the \textit{global} extrema, we need to examine the any local extrema (identified here graphically, but you can also identify them mathematically using that you learned in the "Local Extrema" subsection) AND the endpoints of the domain (or the function's behavior at $\pm \infty$ if you aren't restricted to a specific domain). 
 
 In the case of $f(x) = x^4-5x^3+6x^2,\text{ }for x\in [-1,4]$, the global maximum value is 32 at $x=4$ and the global minimum is -1.623 at $x=2.593$. 
 
 If a function is continuous on an interval, then there must exist a global maximum and global minimum on that interval. These global extrema may also be local extrema (as is the case for $f(2.593)$ in the example above) or not (as is the case for $f(4)$). Applying the Closed Interval Method is a straightforward way to identify global (absolute) extrema. To find the global extrema of a continuous function, $f$, on a closed interval $[a, b]$:
 \begin{enumerate}
-\item Find the values of $f$ at the critical numbers of $f$ in $(a, b)$.
-\item Find the values of $f$ at the endpoints of the interval.
-\item The largest of the values from steps 1 and 2 is the absolute maximum; the smallest of the values is the absolute minimum.
+	\item Find the values of $f$ at the critical numbers of $f$ in $(a, b)$.
+	\item Find the values of $f$ at the endpoints of the interval.
+	\item The largest of the values from steps 1 and 2 is the absolute maximum; the smallest of the values is the absolute minimum.
 \end{enumerate}
 
 Let's use the Closed Interval Method to determine the global extrema for the function $g(x) = x-3\sin{x}$ on the interval $x \in [0, 2\pi]$.
@@ -222,6 +261,7 @@ Therefore, for $g(x) = x-3\sin{x}$ on the interval $x \in [0, 2\pi]$, the global
 \begin{Exercise}[label=gloext1]
 Let $f$ be the function defined by $f(x) = \frac{\ln{x}}{x}$. What is the absolute maximum value of $f$?
 \end{Exercise}
+
 \begin{Answer}[ref=gloext1]
 First, we identify any critical numbers:
 $$f'(x) = \frac{x*(\frac{1}{x})-\ln{x}*1}{x^2} = \frac{1-\ln{x}}{x^2}$$
@@ -243,16 +283,16 @@ Therefore, the absolute maximum values of $f(x) = \frac{\ln{x}}{x}$ is $\frac{1}
 \begin{Exercise}[label=gloext2]
 Find the global minimum and maximum values on the stated interval.
 \begin{enumerate}
-\item $f(x) = 12+4x-x^2$, $[0,5]$
-\item $f(t) = \frac{\sqrt{t}}{1+t^2}$, $[0, 2]$
-\item $f(t) = 2\cos{t} + \sin{2t}$, $[0, \frac{\pi}{2}]$
-\item $f(x) = \ln{x^2+x+1}$, $[-1, 1]$
+	\item $f(x) = 12+4x-x^2$, $[0,5]$
+	\item $f(t) = \frac{\sqrt{t}}{1+t^2}$, $[0, 2]$
+	\item $f(t) = 2\cos{t} + \sin{2t}$, $[0, \frac{\pi}{2}]$
+	\item $f(x) = \ln{x^2+x+1}$, $[-1, 1]$
 \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}[ref=gloext2]
 \begin{enumerate}
-\item $f'(x) = 4-2x$ and to find the critical numbers, we set $f'(x)=0$:
+	\item $f'(x) = 4-2x$ and to find the critical numbers, we set $f'(x)=0$:
 $$4-2x=0$$
 $$x=2$$
 We evaluate $f(x)$ at $x=0, 2, 5$:
@@ -261,6 +301,133 @@ $$f(2) = 12+4(2)-2^2=12+8-4=16$$
 $$f(5) = 12+4(5)-5^2=12+20-25=7$$
 Therefore, the global maximum is $f(2) = 16$ and the global minimum is $f(5) = 7$.
 \item %fixme complete answer key for gloext2
+\end{enumerate}
+\end{Answer}
+
+\section{Sketching f from f'}
+Now that we know how the shape of $f$ is related to the value of $f'$, we can predict the shape of $f$ if we are given $f'$. Take the example $f'(x) = -(x-1)(x-5)$, shown in figure \ref{fig:sketchf1}:
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines= center, xmin=-0.5, xmax=6.5]
+		\addplot[blue, samples=50, domain=0:6]{-(x-1)*(x-5)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Graph of $f'=-(x-1)(x-5)$}
+	\label{fig:sketchf1}
+\end{figure}
+
+Using the graph of $f'$, we can construct an approximate sketch of $f$. First, let's identify the critical numbers. Where does $f'=0$? Take a second to examine the graph of $f'$ above and jot down what you think the critical numbers are.
+
+You should recall that critical numbers are x-values where $f'=0$. Examining the graph of $f'$, we see that $f'=0$ at $x=1$ and $x=5$. We can now use a table to describe the behavior of $f$:
+
+\begin{tabular}{c|c|c|c|c}
+$x$ & $x-1$ & $x-5$ & $f'$ & behavior of $f$\\
+$x<1$ & negative & negative & negative & decreasing\\
+$x=1$ & zero & negative & zero & local minimum\\
+$1<x<5$ & positive & negative & positive & increasing\\
+$x=5$ & positive & zero & zero & local maximum\\
+$x>5$ & positive & positive & negative & decreasing\\
+\end{tabular}
+
+We can use this information to sketch a possible graph of $f$. We start by noting the location of local extrema:
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-0.5, xmax=7, axis lines = center]
+		\addplot[red, dashed, samples=50]coordinates{(1,-4) (1, 4)};
+		\addplot[red, dashed, samples=50]coordinates{(5, -4) (5, 4)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Possible graph of $f$}
+	\label{fig:sketchf2}
+\end{figure}
+
+We know there is a local minimum at $x=1$ and a local maximum at $x=5$. We can add sketches around these values to indicate what we know about $f$:
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-0.5, xmax=7, axis lines = center]
+		\addplot[red, dashed, samples=50]coordinates{(1,-4) (1, 8.25)};
+		\addplot[red, dashed, samples=50]coordinates{(5, -4) (5, 8.25)};
+		\addplot[blue, samples=25, domain=0.75:1.25]{-(1/3)*x^3+3*x^2-5*x};
+		\addplot[blue, samples=25, domain=4.75:5.25]{-(1/3)*x^3+3*x^2-5*x};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Possible graph of $f$}
+	\label{fig:sketchf3}
+\end{figure}
+
+Last, we know $f$ is increasing on $1<x<5$ and decreasing everywhere else, so we fill in the space between our local extrema:
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-0.5, xmax=7, axis lines = center]
+		\addplot[red, dashed, samples=50]coordinates{(1,-4) (1, 8.25)};
+		\addplot[red, dashed, samples=50]coordinates{(5, -4) (5, 8.25)};
+		\addplot[blue, samples=100, domain=0:6.5]{-(1/3)*x^3+3*x^2-5*x};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Possible graph of $f$}
+	\label{fig:sketchf4}
+\end{figure}
+
+However, figure \ref{fig:sketchf4} is only a \textit{possible} graph of $f$. Analyzing $f'$ reveals the shape of $f$, but not how high or low it is on the y-axis. Recall that the derivative of a constant is zero. Therefore, any $+c$ (where $c$ is a constant) is lost when taking the derivative. So, there are many sketches of $f$ that fulfill the behavior of $f$ indicated by $f'$. You can see several of the possible sketches for $f$ in figure \ref{fig:sketchf5}. 
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-0.5, xmax=7, axis lines = center]
+		\addplot[red, dashed, samples=50]coordinates{(1,-5) (1, 10.25)};
+		\addplot[red, dashed, samples=50]coordinates{(5, -5) (5, 10.25)};
+		\addplot[blue, samples=100, domain=0:6.5]{-(1/3)*x^3+3*x^2-5*x};
+		\addplot[black, samples=100, domain=0:6.5]{-(1/3)*x^3+3*x^2-5*x+3};
+		\addplot[green, samples=100, domain=0:6.5]{-(1/3)*x^3+3*x^2-5*x-3};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Possible graphs of $f$}
+	\label{fig:sketchf5}
+\end{figure}
+
+\subsection{Practice Sketching f from f'}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=-1.2, xmax=8.5, xtick={-1,0,1,2,3,4,5,6,7,8}, xlabel=$x$, ylabel=$f'(x)$, axis lines = center]
+		\addplot[blue, samples=100, domain=-0.9:7.9]{(-4/35)*(x-1)*(x-5)*(x-7)*x+4};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Graph of $f'(x)$}
+	\label{fig:sketchex}
+\end{figure}
+
+
+\begin{Exercise}[label=sketch1]
+Use figure \ref{fig:sketchex} to answer the following questions:
+\begin{enumerate}
+\item On what approximate intervals is $f$ increasing or decreasing?
+\item At what approximate values of $x$ does $f$ have a local maximum or minimum?
+\item Sketch a possible graph of $f$ in the space below:
+\end{enumerate}
+\end{Exercise}
+
+\begin{tikzpicture}
+\begin{axis}[axis lines = left, ylabel=$f(x)$, xlabel=$x$, ticks=none]
+\end{axis}
+\end{tikzpicture}
+
+\begin{Answer}[ref=sketch1]
+[Your answers are meant to be estimates, anything within $\pm 0.1$ of the given answers are reasonable estimates.]
+\begin{enumerate}
+	\item $f(x)$ is increasing on the intervals $x\in (-0.5, 2.2)\cup(4, 7.3)$. $f(x)$ is decreasing on the intervals $x\in (-\infty, -0.5)\cup(2.2, 4)\cup(7.3, \infty)$. 
+	\item $f(x)$ has local maxima at $x = 2.2, 7.3$ and local minima at $x=-0.5, 4$. 
+	\item Your sketch should show the maxima and minima identified in part 2. One possible solution is shown below.
+	\begin{tikzpicture}
+	\begin{axis}[xtick={-1,0,1,2,3,4,5,6,7,8}, ytick={}, xmin=-1.2, xmax=8.5]
+	\addplot[blue, samples=100, domain=-0.9:7.9]{-4*(x^5)/175+13*(x^4)/35-188*(x^3)/105+2*x^2+3.5*x};
+	\end{axis}
+	\end{tikzpicture}
 \end{enumerate}
 \end{Answer}
 
@@ -349,3 +516,4 @@ Noting that $f''(2)=0$, we examine the value of $f''$ around $x=2$. For $0<x<2$,
 $$f(2) = 2^4-4*2^3=16-4*8=16-32=-16$$
 Therefore, $f(x)$ has an inflection point at $(2, -16)$.
 \end{Answer}
+
