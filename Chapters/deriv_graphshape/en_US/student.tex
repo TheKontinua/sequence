@@ -1,6 +1,6 @@
 \chapter{First and Second Derivatives and the Shape of a Function}
 \section{Using first derivatives to describe a function}
-\subsection{Increasing and Decreasing Intervals}
+\subsection{Critical Values}
 
 Let's re-examine our graph showing the height of a hammer tossed in the air:
 
@@ -77,6 +77,24 @@ $2<x$ & positive & positive & positive & positive & increasing\\
 \end{tabular}
 
 Notice the table method yields the same result as examining the graph: $f(x)$ is increasing for $x\in (0, -1)$ and $x \in (2, \infty)$, which can also be written as $x \in (-1, 0) \cup (2, \infty)$. 
+
+\begin{Exercise}[label=critval1]
+	Let $g$ be the function given by $g(x) = x^2e^{kx}$, where $k$ is a constant. For what value(s) of $k$ does $g$ have a critical value at $x=\frac{2}{3}$?
+\end{Exercise}
+
+\begin{Answer}[ref=critval1]
+	Recall that critical values are values of $x$ where $g'(x) =0$ or is undefined. We need to find an expression for $g'(x)$, set it equal to zero when $x=\frac{2}{3}$, and solve for $k$. 
+	$$g'(x) = x^(2)[k*\exp{kx}]+\exp{kx}[2x]$$
+	$$g'(\frac{2}{3})=(\frac{2}{3})^2[k*\exp{\frac{2k}{3}}]+\frac{4}{3}\exp{\frac{2k}{3}}=0$$
+	$$\frac{4k}{9}e^{\frac{2k}{3}}+\frac{4}{3}e^{\frac{2k}{3}}=0$$
+	$$(\frac{4k}{9}+\frac{4}{3})e^{\frac{2k}{3}}=0$$
+	There are no real values of $k$ such that $e^{\frac{2k}{3}}=0$, therefore, we will examine the other factor:
+	$$\frac{4k}{9}+\frac{4}{3}=0$$
+	$$\frac{4k}{9}=\frac{-4}{3}$$
+	$$\frac{k}{3}=-1$$
+	$$k=-3$$
+	Therefore, $g(x)$ has a critical value at $x=\frac{2}{3}$ when $k=-3$.
+\end{Answer}
 
 \subsection{Local Extrema}
 Examine the graphs of $x^2$, $\sin{x}$, and $y=\sqrt{4-x^2}$ below. Each has a dot at a local extreme (either a local minimum or local maximum). Sketch what you think the tangent line to the graph would be at each local extreme. Use this to estimate the value of the derivative at that point. 
@@ -487,6 +505,7 @@ Suppose $f''$ is continuous near $c$. Then,
 \item If $f'(c) =0 \text{ and } f''(c)<0$, then $f$ has a local maximum at $c$. 
 \end{enumerate}
 
+
 \subsection{Inflection Points}
 If $f$ is concave up when $f''>0$ and concave down when $f''<0$, what about when $f''=0$? This is the value at which $f$ changes from concave up to concave down (or vice versa), which is called an \textit{inflection point}. Similar to local extrema with $f'$, if there is an inflection point at $x=c$, then $f''(c)=0$, but the converse is not necessarily true. To check if $x=c$ is an inflection point, then $f''$ should change signs on either side of $x=c$ (either from positive to negative to from negative to positive). 
 
@@ -517,3 +536,15 @@ $$f(2) = 2^4-4*2^3=16-4*8=16-32=-16$$
 Therefore, $f(x)$ has an inflection point at $(2, -16)$.
 \end{Answer}
 
+\begin{Exercise}[label=concavity2]
+	The graph below shows $g'(x)$. Describe the behavior of $g(x)$ from $x=0$ to $x=2$. 
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xmin=0, xmax=2, xlabel=$x$, ylabel=$g'(x)$]
+		\addplot[blue, samples=100, domain=0:2]{sqrt(x)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=concavity2]
+	According to the graph, $g'$ is positive and increasing. Therefore, $g$ is increasing (because $g'$ is positive) and concave up (because $g'$ is increasing, and therefore $g''$ is positive).
+\end{Answer}
