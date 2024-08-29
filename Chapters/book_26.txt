@@ -1,3 +1,4 @@
+riemann_sums
 definite_integral
 antiderivatives
 ftc
