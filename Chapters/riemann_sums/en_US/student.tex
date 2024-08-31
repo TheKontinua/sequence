@@ -1,5 +1,62 @@
 \chapter{Riemann Sums}
 
+When taking a left Riemann sum, the height of the rectangle is determined by the value of the function at the lower (left-most) $x$-value. See figure \ref{fig:leftriemann}. Based on the graph, do you think a left Riemann sum overestimates or underestimates the area under the curve?
+
+%fixme rectangles show in overleaf but not build%
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
+            \draw (1,0) rectangle (1.5,1);
+            \draw (1.5,0) rectangle (2, 0.667);
+            \draw (2,0) rectangle (2.5, 0.5);
+            \draw (2.5,0) rectangle (3, 0.4);
+            \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
+            \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Left Riemann sum of $f(x)=\frac{1}{x}$}
+    \label{fig:leftriemann}
+\end{figure}
+
+A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle. As you can see in figure \ref{fig:rightriemann}, right Riemann sums underestimate the area under concave up curves. 
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
+            \filldraw[fill=gray] (1,0) rectangle (1.5,0.667);
+            \filldraw[fill=gray] (1.5,0) rectangle (2, 0.5);
+            \filldraw[fill=gray] (2,0) rectangle (2.5, 0.4);
+            \filldraw[fill=gray] (2.5,0) rectangle (3, 0.333);
+            \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
+            \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Right Riemann sum of $f(x)=\frac{1}{x}$}
+    \label{fig:rightriemann}
+\end{figure}
+
+A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. 
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
+            \filldraw[fill=gray] (1,0) rectangle (1.5,0.8);
+            \filldraw[fill=gray] (1.5,0) rectangle (2, 0.571);
+            \filldraw[fill=gray] (2,0) rectangle (2.5, 0.444);
+            \filldraw[fill=gray] (2.5,0) rectangle (3, 0.364);
+            \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
+            \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
+            \addplot[mark=*, black, only marks]coordinates{(1.25,0.8) (1.75,0.571) (2.25, 0.444) (2.75,.364)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Midpoint Riemann sum of $f(x)=\frac{1}{x}$}
+    \label{fig:midriemann}
+\end{figure}
+
 \begin{Exercise}[label=rsum1]
 	\begin{center}
 		\begin{tabular}{c|c|c|c|c}
