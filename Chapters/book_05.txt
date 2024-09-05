@@ -1,3 +1,4 @@
 functions
 volume_solids
 conic_sections
+manufacturing

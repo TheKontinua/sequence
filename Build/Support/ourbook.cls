@@ -796,6 +796,7 @@
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usepackage[american]{circuitikz}
 \usepackage{tikz-3dplot}
