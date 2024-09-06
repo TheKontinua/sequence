@@ -34,7 +34,7 @@ $$Area=1.25m$$
 		\begin{axis}[axis lines = center, xmin=0, xmax=1.02, xlabel=$t$ (sec), ymin=-5, ymax=5, ylabel=$v$ (m/s)]
 		\addplot[blue, smooth, thick, samples=50]{5-9.8*x};
 		\coordinate (c0) at (0,0);
-		\coordinate (c1) at (0.502, 0);
+		\coordinate (c1) at (0.5102, 0);
 		\coordinate (c2) at (0, 5);
 		\fill[red] (c0) -- (c1) -- (c2) -- cycle;
 		\end{axis}
@@ -43,7 +43,7 @@ $$Area=1.25m$$
 	\label{fig:hammerarea}
 \end{figure}
 
-Notice that when multiplying the change in time ($0.5$ $s$) by the change in velocity ($1.25$ $\frac{m}{s}$), the seconds units cancel, yielding a result with units of meters. Therefore, the hammer reaches a peak height of $\approx1.25$ $m$, which you can confirm by examining the graph originally presented for the hammer toss in the chapter %blank FIXME reference First and Second derivatives and the shape of functions chapter
+Notice that when multiplying the change in time ($0.5$ $s$) by the change in velocity ($1.25$ $\frac{m}{s}$), the seconds units cancel, yielding a result with units of meters. Therefore, the hammer reaches a peak height of $\approx1.25$ $m$, which you can confirm by examining the graph originally presented for the hammer toss in the chapter on graph shape.
 
 
 
@@ -84,7 +84,7 @@ How can we determine the area under $f(x) = \sin{x}+x$ from $x=0$ to $x=\pi$? We
 	\label{fig:sinesections}
 \end{figure}
 
-As you can see in \ref{fig:sinesections}, each rectangle will have a width of $\frac{\pi}{4}$. But what about the height? One way is to use the value of the function at the rightmost value of each rectangle, as shown in figure \ref{fig:sineright}. 
+As you can see in figure \ref{fig:sinesections}, each rectangle will have a width of $\frac{\pi}{4}$. But what about the height? One way is to use the value of the function at the rightmost value of each rectangle, as shown in figure \ref{fig:sineright}. 
 
 \begin{figure}[htbp]
 	\centering
@@ -130,7 +130,62 @@ Notice that because $f(0)=0$, the height of the first rectangle is zero, so we d
 $$\frac{\pi}{4} \times f(0) + \frac{\pi}{4} \times f(\frac{\pi}{4}) + \frac{\pi}{4} \times f(\frac{\pi}{2}) + \frac{\pi}{4} \times f(\frac{3\pi}{4})$$
 $$\approx \frac{\pi}{4} \times (0 + 1.4925 + 2.5708 + 3.0633)=5.5972$$
 
-This is an underestimate. Therefore, the true value of the area under $f(x) = \sin{x} +x$ is between $5.5972$ and $8.0646$. 
+This is an underestimate. Therefore, the true value of the area under $f(x) = \sin{x} +x$ is between $5.5972$ and $8.0646$. This is an awfully wide window! We can narrow our estimate by increasing the number of intervals. Graphs of left and right Riemann sums of $f(x)$ with 10 intervals are shown in figure \ref{fig:tenintervals}.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+		[axis lines = center, 
+		xmin=0, xmax=3.15, xlabel=$x$,
+		xtick={0, 0.31416, 0.62832, 0.94248, 1.25664, 1.57080, 1.88496, 2.19911, 2.51327, 2.82743, 3.14159}, 
+		xticklabels={$0$, $\frac{\pi}{10}$, $\frac{\pi}{5}$, $\frac{3\pi}{10}$, $\frac{2\pi}{5}$, $\frac{\pi}{2}$, $\frac{3\pi}{5}$, $\frac{7\pi}{10}$, $\frac{4\pi}{5}$, $\frac{9\pi}{10}$, $\pi$}, 
+		ymin=0, ymax=3.25, ylabel=$y$,
+		ytick={1, 2, 3},
+		yticklabels={$1$, $2$, $3$}]
+			\filldraw[fill=gray!30, draw=black](0,0) rectangle (0.31416, 0);
+			\filldraw[fill=gray!30, draw=black](0.31416, 0) rectangle (0.62832, 0.62318);
+			\filldraw[fill=gray!30, draw=black](0.62832, 0) rectangle (0.94248, 1.2161);
+			\filldraw[fill=gray!30, draw=black](0.94248, 0) rectangle (1.25664, 1.75149);
+			\filldraw[fill=gray!30, draw=black](1.25664, 0) rectangle (1.57080, 2.20769);
+			\filldraw[fill=gray!30, draw=black](1.57080, 0) rectangle (1.88496, 2.5708);
+			\filldraw[fill=gray!30, draw=black](1.88496, 0) rectangle (2.19911, 2.83601);
+			\filldraw[fill=gray!30, draw=black](2.19911, 0) rectangle (2.51327, 3.00813);
+			\filldraw[fill=gray!30, draw=black](2.51327, 0) rectangle (2.82743, 3.10106);
+			\filldraw[fill=gray!30, draw=black](2.82743, 0) rectangle (3.14159, 3.13645);
+			\addplot[blue, thick, samples=100, domain=0:3.141592]{sin(deg(x))+x};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\begin{axis}
+		[axis lines = center, 
+		xmin=0, xmax=3.15, xlabel=$x$,
+		xtick={0, 0.31416, 0.62832, 0.94248, 1.25664, 1.57080, 1.88496, 2.19911, 2.51327, 2.82743, 3.14159}, 
+		xticklabels={$0$, $\frac{\pi}{10}$, $\frac{\pi}{5}$, $\frac{3\pi}{10}$, $\frac{2\pi}{5}$, $\frac{\pi}{2}$, $\frac{3\pi}{5}$, $\frac{7\pi}{10}$, $\frac{4\pi}{5}$, $\frac{9\pi}{10}$, $\pi$}, 
+		ymin=0, ymax=3.25, ylabel=$y$,
+		ytick={1, 2, 3},
+		yticklabels={$1$, $2$, $3$}]
+			\filldraw[fill=gray!30, draw=black](0,0) rectangle (0.31416, 0.62318);
+			\filldraw[fill=gray!30, draw=black](0.31416, 0) rectangle (0.62832, 1.2161);
+			\filldraw[fill=gray!30, draw=black](0.62832, 0) rectangle (0.94248, 1.75149);
+			\filldraw[fill=gray!30, draw=black](0.94248, 0) rectangle (1.25664, 2.20769);
+			\filldraw[fill=gray!30, draw=black](1.25664, 0) rectangle (1.57080, 2.5708);
+			\filldraw[fill=gray!30, draw=black](1.57080, 0) rectangle (1.88496, 2.83601);
+			\filldraw[fill=gray!30, draw=black](1.88496, 0) rectangle (2.19911, 3.00813);
+			\filldraw[fill=gray!30, draw=black](2.19911, 0) rectangle (2.51327, 3.10106);
+			\filldraw[fill=gray!30, draw=black](2.51327, 0) rectangle (2.82743, 3.13645);
+			\filldraw[fill=gray!30, draw=black](2.82743, 0) rectangle (3.14159, 3.14159);
+			\addplot[blue, thick, samples=100, domain=0:3.141592]{sin(deg(x))+x};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Left and right Riemann sums of $\sin{x}+x$ with 10 intervals}
+	\label{fig:tenintervals}
+\end{figure}
+
+The total area for the left Riemann sum is $\approx 6.4248$ and for the right Riemann sum is $\approx7.4118$. Therefore, we have narrowed the range for the true area under the curve to $6.4248<A<7.4118$. In general, as you increase the number of intervals, you get closer to the true area. 
+
+For a strictly increasing function, the right Riemann sum will be an overestimate and the left Riemann sum will be an underestimate of the true area under the curve. In the exercise below, you will examine a strictly decreasing function:
 
 \begin{Exercise}[label=rsum1]
 	Estimate the area under the graph of $f(x) = \frac{1}{x}$ from $x=1$ to $x=2$ using four rectangles and right endpoints. Sketch the graph and the rectangles. Is your estimate an overestimate or an underestimate? Repeat using left endpoints. 
@@ -138,69 +193,164 @@ This is an underestimate. Therefore, the true value of the area under $f(x) = \s
 \end{Exercise}
 
 \begin{Answer}[ref=rsum1]
-
+	Right Riemann sum graph:\\
+		\begin{tikzpicture}
+			\begin{axis}
+            [axis lines = center, 
+            xmin=.5, xmax=2.5, xlabel=$x$, xtick={1, 2}, xticklabels={$1$, $2$},
+            ylabel=$y$, ymin =0, ymax=1.25, ytick={0.5, 1}, yticklabels={$0.5$, $1$}]
+                \filldraw[fill=gray!30, draw=black](1,0) rectangle (1.25, 0.8);
+                \filldraw[fill=gray!30, draw=black](1.25, 0) rectangle (1.5, 0.6667);
+                \filldraw[fill=gray!30, draw=black](1.5, 0) rectangle (1.75, 0.5714);
+                \filldraw[fill=gray!30, draw=black](1.75, 0) rectangle (2, 0.5);
+				\addplot[blue, samples=100]{1/x};
+			\end{axis}
+		\end{tikzpicture}\\
+		The area of the right Riemann sum is $0.25\times(0.8+0.6667+0.5714+0.5) = 0.4202$. This is an underestimate of the actual area. \\
+	Left Riemann sum graph:\\
+	\begin{tikzpicture}
+			\begin{axis}
+            [axis lines = center, 
+            xmin=.5, xmax=2.5, xlabel=$x$, xtick={1, 2}, xticklabels={$1$, $2$},
+            ylabel=$y$, ymin =0, ymax=1.25, ytick={0.5, 1}, yticklabels={$0.5$, $1$}]
+                \filldraw[fill=gray!30, draw=black](1,0) rectangle (1.25, 1);
+                \filldraw[fill=gray!30, draw=black](1.25, 0) rectangle (1.5, 0.8);
+                \filldraw[fill=gray!30, draw=black](1.5, 0) rectangle (1.75, 0.6667);
+                \filldraw[fill=gray!30, draw=black](1.75, 0) rectangle (2, 0.5714);
+				\addplot[blue, samples=100]{1/x};
+			\end{axis}
+		\end{tikzpicture}	\\
+		The area of the left Riemann sum is $0.25\times(1+0.8+0.6667+0.5714)=0.7595$. This is an overestimate of the actual area. 
 \end{Answer}
 
+You should have found that for the strictly decreasing function $f(x) = \frac{1}{x}$, the right Riemann sum is an \textit{underestimate} while the left Riemann sum is an \textit{overestimate}. \\
+
+
 \section{The Riemann Sum}
-%formal definition, LRM riemann sums with collapsed equations as appropriate
-\section{Riemann Sum Examples}
-
-When taking a left Riemann sum, the height of the rectangle is determined by the value of the function at the lower (left-most) $x$-value. See figure \ref{fig:leftriemann}. Based on the graph, do you think a left Riemann sum overestimates or underestimates the area under the curve?
-
-%fixme rectangles show in overleaf but not build%
+\subsection{Left Riemann Sums}
+When taking a left Riemann sum, the height of the rectangle is determined by the value of the function at the lower (left-most) $x$-value. See figure \ref{fig:leftriemann}. We will refer to left Riemann sums as $L_n$, where $n$ is the number of intervals. 
 
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \draw (1,0) rectangle (1.5,1);
-            \draw (1.5,0) rectangle (2, 0.667);
-            \draw (2,0) rectangle (2.5, 0.5);
-            \draw (2.5,0) rectangle (3, 0.4);
+            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,1);
+            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.667);
+            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.5);
+            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.4);
             \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
             \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
         \end{axis}
     \end{tikzpicture}
-    \caption{Left Riemann sum of $f(x)=\frac{1}{x}$}
+    \caption{$L_4$ for $f(x)=\frac{1}{x}$}
     \label{fig:leftriemann}
 \end{figure}
 
-A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle. As you can see in figure \ref{fig:rightriemann}, right Riemann sums underestimate the area under concave up curves. 
+\subsection{Right Riemann Sums}
+A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle (an example is shown in figure \ref{fig:rightriemann}). We will refer to the right Riemann sum as $R_n$, where $n$ is the number of intervals. 
 
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \filldraw[fill=gray] (1,0) rectangle (1.5,0.667);
-            \filldraw[fill=gray] (1.5,0) rectangle (2, 0.5);
-            \filldraw[fill=gray] (2,0) rectangle (2.5, 0.4);
-            \filldraw[fill=gray] (2.5,0) rectangle (3, 0.333);
+            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,0.667);
+            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.5);
+            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.4);
+            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.333);
             \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
             \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
         \end{axis}
     \end{tikzpicture}
-    \caption{Right Riemann sum of $f(x)=\frac{1}{x}$}
+    \caption{$R_4$ for $f(x)=\frac{1}{x}$}
     \label{fig:rightriemann}
 \end{figure}
 
-A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. 
+\subsection{Midpoint Riemann Sums}
+A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. We will refer to the midpoint Riemann sum as $M_n$, where $n$ is the number of intervals. 
 
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \filldraw[fill=gray] (1,0) rectangle (1.5,0.8);
-            \filldraw[fill=gray] (1.5,0) rectangle (2, 0.571);
-            \filldraw[fill=gray] (2,0) rectangle (2.5, 0.444);
-            \filldraw[fill=gray] (2.5,0) rectangle (3, 0.364);
+            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,0.8);
+            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.571);
+            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.444);
+            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.364);
             \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
             \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
             \addplot[mark=*, black, only marks]coordinates{(1.25,0.8) (1.75,0.571) (2.25, 0.444) (2.75,.364)};
         \end{axis}
     \end{tikzpicture}
-    \caption{Midpoint Riemann sum of $f(x)=\frac{1}{x}$}
+    \caption{$M_4$ of $f(x)=\frac{1}{x}$}
     \label{fig:midriemann}
 \end{figure}
+
+\subsection{Additional Examples}
+Sometimes we are working from real data and the intervals aren't evenly spaced. That's ok! We can still use Riemann sums to make an estimate. Consider the velocity data from the 1992 launch of the space shuttle \textit{Endeavour}, shown in tabular form in figure \ref{fig:endeavourdata}:
+
+\begin{figure}
+	\centering
+	\begin{tabular}{c|c|c}
+	Event & Time (s) & Velocity (ft/s) \\
+	Launch & 0 & 0 \\
+	Begin roll maneuver & 10 & 185 \\
+	End roll maneuver & 15 & 319 \\
+	Throttle to $89\%$ & 20 & 447 \\
+	Throttle to $67\%$ & 32 & 742 \\
+	Throttle to $104\%$ & 59 & 1325 \\
+	Maximum dynamic pressure & 62 & 1445 \\
+	Solid rocket booster separation & 125 & 4151 \\
+	\end{tabular}
+	\caption{Speed of \textit{Endeavour} from launch to booster separation}
+	\label{fig:endeavourdata}
+\end{figure}
+
+We can use a Riemann sum to estimate how far the space shuttle traveled in the first 62 seconds of flight. First, let's visualize our data (see figure \ref{fig:endeavourscatter}). There are 7 time intervals from the data, but we only need the first 6. We can find a reasonable range for the distance the space shuttle travels by finding the left and right Riemann sums. Remember: because these data are strictly increasing, the left sum will be our lower bound and the right sum will be our upper bound. 
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+		[axis lines = center,
+		xlabel=$t$(s), 
+		xmin=0,
+		xmax=130,
+		ylabel=$v$(ft/s),
+		ymin=0,
+		ymax=4200]
+		\addplot[color=blue, mark=*]coordinates{(0,0) (10,185) (15, 319) (20, 447) (32, 742) (59, 1325) (62, 1445) (125, 4151)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Plot of time, velocity data for the \textit{Endeavour}}
+	\label{fig:endeavourscatter}
+\end{figure}
+
+First, we'll find $L_6$. The width of the first interval is $10$ seconds ($10-0=10$) and the height of the rectangle will be $v(0) = 0$. Calculations for the additional intervals are shown in the table:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+	Interval & Width(s) & Height(ft/s) & Area(ft) \\
+	1 & 10 & 0 & 0 \\
+	2 & 5 & 185 & 925 \\
+	3 & 5 & 319 & 1595 \\
+	4 & 12 & 447 & 5364 \\
+	5 & 27 & 742 & 20034 \\
+	6 & 3 & 1325 & 3975 \\
+\end{tabular}
+\end{center}
+
+Adding the areas, we find the lower limit for the distance traveled is 31,893 feet. We can determine the upper bound, $R_6$, in a similar manner:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+	Interval & Width(s) & Height(ft/s) & Area(ft) \\
+	1 & 10 & 185 & 1850 \\
+	2 & 5 & 319 & 1595 \\
+	3 & 5 & 447 & 2235 \\
+	4 & 12 & 742 & 8904 \\
+	5 & 27 & 1325 & 35775 \\
+	6 & 3 & 1445 & 4335 \\
+\end{tabular}
+\end{center}
+Adding the areas, we find the upper limit for the distance traveled is 54,694 feet. Therefore, the \textit{Endeavour} traveled between 31,893 and 54,694 feet during the first 62 seconds of this flight. 
 
 \section{Code for a Riemann Sum}
 %python magic
@@ -219,4 +369,68 @@ A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division 
 
 \begin{Answer}[ref=rsum2]
 	The volume of water will be the amount of water at 4 hours (50 liters) plus the area under the graph of $R(t)$ from $t=4$ to $t=15$. We will estimate this area with a right Riemann sum. The approximate volume added from $t=4$ to $t=7$ is $(7-4)*(6.2) = 18.6$ liters. The approximate volume added from $t=7$ to $t=12$ is $(12-7)*(5.9)=29.5$ liters. The approximate volume added from $t=12$ to $t=15$ is $(15-12)*(5.6) = 16.8$ liters. Therefore, the approximate total volume of water in the tank at $t=15$ is $50 + 18.6 + 29.5 + 16.8 = 114.9$ liters. 
+\end{Answer}
+
+\begin{Exercise}[label=rsum3]
+	Let $f(x) = x-2\ln{x}$. Estimate the area under $f$ from $x=1$ to $x=5$ using four rectangles and the value of $f$ at the midpoint of each interval. Sketch the curve and your approximating rectangles.
+\end{Exercise}
+
+\begin{Answer}[ref=rsum3]
+	We will divide the area from $x=1$ to $x=5$ into four intervals at $x=2$, $x=3$, and $x=4$. Then we will find the value of $f(x)$ at the midpoint of each interval:
+	\begin{center}
+	\begin{tabular}{c|c|c}
+	Interval & Midpoint & Value of $f(x)$ at midpoint\\
+	1 & 1.5 & $\approx0.68907$\\
+	2 & 2.5 & $\approx0.66742$\\
+	3 & 3.5 & $\approx0.99447$\\
+	4 & 4.5 & $\approx1.49185$\\
+	\end{tabular}
+\end{center}
+
+Using the values in the table, we can make a possible sketch of $f(x)$:\\
+	\begin{tikzpicture}
+		\begin{axis}
+		[axis lines = center, xmin=1, xmax=5, xlabel=$x$, ylabel=$f(x)$]
+		\filldraw[fill=gray!30, draw=black](1,0) rectangle (2, 0.68907);
+		\filldraw[fill=gray!30, draw=black](2, 0) rectangle (3, 0.66742);
+		\filldraw[fill=gray!30, draw=black](3, 0) rectangle (4, 0.99447);
+		\filldraw[fill=gray!30, draw=black](4, 0) rectangle (5, 1.49185);	
+		\addplot[blue, thick, samples=100]{x-2*ln(x)};
+		\end{axis}
+	\end{tikzpicture}\\
+	And we calculate the total area in the rectangles:
+	$$1\times(0.68907+0.66742+0.99447+1.49185=3.84281$$
+\end{Answer}
+
+\begin{Exercise}[label=rsum4]
+A graph of a car's velocity over a period of 60 seconds is shown. Estimate the distance traveled during this period. 
+\begin{tikzpicture}
+	\begin{axis}
+	[axis lines = center, 
+        xmin = 0, xmax = 60, xlabel=$t$ (seconds), 
+        ymin=0, ymax=245, ylabel=$v$ (km/hr), ytick={40, 80, 120, 160, 200, 240}, xmajorgrids=true, ymajorgrids=true]
+        \addplot[blue, thick, samples=100, domain=0:60]{4*sqrt(3600-(x-60)^2)};
+	\end{axis}
+\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=rsum4]
+The question allows the student to choose the type of sum (left, right, or midpoint) and the number of intervals. A possible solution is given, but there are many ways to answer the question.\\
+The tricky part here is noticing the units! In order to have a solution in kilometers, we'll need to convert km/hr to m/s when we calculate the areas. A possible solution is to divide the graph into 6 intervals (one every 10 seconds) and use a right Riemann sum.
+
+\begin{tikzpicture}
+	\begin{axis}
+	[axis lines = center, 
+        xmin = 0, xmax = 60, xlabel=$t$ (seconds), 
+        ymin=0, ymax=245, ylabel=$v$ (km/hr), ytick={40, 80, 120, 160, 200, 240}, xmajorgrids=true, ymajorgrids=true]
+        \filldraw[fill=gray!30, draw=black](0,0) rectangle (10,132);
+        \filldraw[fill=gray!30, draw=black](10, 0) rectangle (20, 180);
+        \filldraw[fill=gray!30, draw=black](20, 0) rectangle (30, 208);
+        \filldraw[fill=gray!30, draw=black](30, 0) rectangle (40, 227);
+        \filldraw[fill=gray!30, draw=black](40, 0) rectangle (50, 237);
+        \filldraw[fill=gray!30, draw=black](50, 0) rectangle (60, 240);
+        \addplot[blue, thick, samples=100, domain=0:60]{4*sqrt(3600-(x-60)^2)};
+	\end{axis}
+\end{tikzpicture}\\
+We can use the graph to \textit{estimate} the height of each rectangle. Some reasonable estimates are $f(10) = 130\frac{km}{hr}\approx36.1\frac{ms}{s}$, $f(20) = 180\frac{km}{hr}=50\frac{m}{s}$, $f(30) = 210\frac{km}{hr}\approx58.3\frac{m}{s}$, $f(40) = 230\frac{km}{hr}\approx63.9\frac{m}{s}$, $f(50) = 235\frac{km}{hr}\approx65.3\frac{m}{s}$, and $f(60) = 240\frac{km}{hr}\approx66.7\frac{m}{s}$. [Any values within $\pm5$ of the listed values are reasonable.] Noting that each interval is $10$ sec wide and using the estimates of $f(x)$ listed, we can estimate that the distance traveled is $10\text{ }sec\times(36.1\frac{m}{s}+50\frac{m}{s}+58.3\frac{m}{s}+63.9\frac{m}{s}+65.3\frac{m}{s}+66.7\frac{m}{s})=3403$ meters.
 \end{Answer}
