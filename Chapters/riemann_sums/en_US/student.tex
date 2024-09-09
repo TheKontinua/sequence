@@ -1,4 +1,4 @@
-\chapter{Riemann Sums}
+	\chapter{Riemann Sums}
 
 \section{The Meaning of the Area Under a Function}
 %recall hammer toss example, make velocity graph, show area for simple shape, discuss units and meaning
@@ -130,7 +130,7 @@ Notice that because $f(0)=0$, the height of the first rectangle is zero, so we d
 $$\frac{\pi}{4} \times f(0) + \frac{\pi}{4} \times f(\frac{\pi}{4}) + \frac{\pi}{4} \times f(\frac{\pi}{2}) + \frac{\pi}{4} \times f(\frac{3\pi}{4})$$
 $$\approx \frac{\pi}{4} \times (0 + 1.4925 + 2.5708 + 3.0633)=5.5972$$
 
-This is an underestimate. Therefore, the true value of the area under $f(x) = \sin{x} +x$ is between $5.5972$ and $8.0646$. This is an awfully wide window! We can narrow our estimate by increasing the number of intervals. Graphs of left and right Riemann sums of $f(x)$ with 10 intervals are shown in figure \ref{fig:tenintervals}.
+This is an underestimate. Therefore, the true value of the area under $f(x) = \sin{x} +x$ is between $5.5972$ and $8.0646$. This is an awfully wide window! We can narrow our estimate by increasing the number of intervals. Graphs of $f(x)$ with 10 intervals are shown in figure \ref{fig:tenintervals}.
 
 \begin{figure}
 	\centering
@@ -179,13 +179,13 @@ This is an underestimate. Therefore, the true value of the area under $f(x) = \s
 			\addplot[blue, thick, samples=100, domain=0:3.141592]{sin(deg(x))+x};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Left and right Riemann sums of $\sin{x}+x$ with 10 intervals}
+	\caption{$\sin{x}+x$ broken into 10 intervals using either the left or right value to determine the height.}
 	\label{fig:tenintervals}
 \end{figure}
 
-The total area for the left Riemann sum is $\approx 6.4248$ and for the right Riemann sum is $\approx7.4118$. Therefore, we have narrowed the range for the true area under the curve to $6.4248<A<7.4118$. In general, as you increase the number of intervals, you get closer to the true area. 
+The total area for the left-determined rectangles is $\approx 6.4248$ and for the right-determined is $\approx7.4118$. Therefore, we have narrowed the range for the true area under the curve to $6.4248<A<7.4118$. In general, as you increase the number of intervals, you get closer to the true area. 
 
-For a strictly increasing function, the right Riemann sum will be an overestimate and the left Riemann sum will be an underestimate of the true area under the curve. In the exercise below, you will examine a strictly decreasing function:
+For a strictly increasing function, the right sum will be an overestimate and the left sum will be an underestimate of the true area under the curve. In the exercise below, you will examine a strictly decreasing function:
 
 \begin{Exercise}[label=rsum1]
 	Estimate the area under the graph of $f(x) = \frac{1}{x}$ from $x=1$ to $x=2$ using four rectangles and right endpoints. Sketch the graph and the rectangles. Is your estimate an overestimate or an underestimate? Repeat using left endpoints. 
@@ -193,7 +193,7 @@ For a strictly increasing function, the right Riemann sum will be an overestimat
 \end{Exercise}
 
 \begin{Answer}[ref=rsum1]
-	Right Riemann sum graph:\\
+	Right-determined sum graph:\\
 		\begin{tikzpicture}
 			\begin{axis}
             [axis lines = center, 
@@ -206,8 +206,8 @@ For a strictly increasing function, the right Riemann sum will be an overestimat
 				\addplot[blue, samples=100]{1/x};
 			\end{axis}
 		\end{tikzpicture}\\
-		The area of the right Riemann sum is $0.25\times(0.8+0.6667+0.5714+0.5) = 0.4202$. This is an underestimate of the actual area. \\
-	Left Riemann sum graph:\\
+		The area of the right-determined sum is $0.25\times(0.8+0.6667+0.5714+0.5) = 0.4202$. This is an underestimate of the actual area. \\
+	Left-determined sum graph:\\
 	\begin{tikzpicture}
 			\begin{axis}
             [axis lines = center, 
@@ -220,15 +220,70 @@ For a strictly increasing function, the right Riemann sum will be an overestimat
 				\addplot[blue, samples=100]{1/x};
 			\end{axis}
 		\end{tikzpicture}	\\
-		The area of the left Riemann sum is $0.25\times(1+0.8+0.6667+0.5714)=0.7595$. This is an overestimate of the actual area. 
+		The area of the left-determined sum is $0.25\times(1+0.8+0.6667+0.5714)=0.7595$. This is an overestimate of the actual area. 
 \end{Answer}
 
-You should have found that for the strictly decreasing function $f(x) = \frac{1}{x}$, the right Riemann sum is an \textit{underestimate} while the left Riemann sum is an \textit{overestimate}. \\
+You should have found that for the strictly decreasing function $f(x) = \frac{1}{x}$, the right-determined sum is an \textit{underestimate} while the left-determined sum is an \textit{overestimate}. \\
 
 
 \section{The Riemann Sum}
+In the previous section, we estimated the area under functions by dividing the area into approximating rectangles. This method is called a \textit{Riemann Sum}. We will use a general example to formally define the Riemann sum. Consider a generic function divided into strips of equal width (shown in figure \ref{fig:strips}). The width of each strip is $$\Delta x=\frac{b-a}{n}$$ where $a$ is the left endpoint of the interval, $b$ is the right endpoint of the interval, and $n$ is the number of strips. Then the right endpoints of the sections are $$x_1=a+\Delta x$$
+$$x_2 = a +2\Delta x$$
+$$\ldots \text{ }x_n=a+n\Delta x$$
+
+As above, we can use the value of the function to determine the height of a rectangle whose area approximates the area of the section. (E.g. for the $i^{th}$ strip, the width is $\Delta x$ and the height is $f(x_i)$, see figure \ref{fig:rectangles}). Then the total area approximated by the rectangles is $$R_n = f(x_1)\Delta x + f(x_2)\Delta x + \ldots + f(x_n)\Delta x$$ \\This is the formal definition of the Right Riemann Sum. You can also take a Left Riemann Sum or a Midpoint Riemann Sum, as discussed below. 
+
+\begin{figure}
+\begin{tikzpicture}[scale=1.5]
+	\begin{axis}
+	[axis lines=center, 
+        xmin = 0.25, xmax = 4, xlabel=$x$, ylabel=$y$, ymin=0, ymax=5, xtick={0.6, 0.975, 1.35, 1.725, 2.1, 2.475, 2.85, 3.225, 3.6}, xticklabels={$a$, $x_1$, $x_2$, $\ldots$, $x_{i-1}$, $x_i$, $\ldots$, $x_{n-1}$, $b$}, ytick=\empty]
+        \draw[black] (0.6, 0) -- (0.6, 4.344); %shows a, beginning of interval
+        \draw[black] (3.6, 0) -- (3.6, 0.504); %shows b, end of interval
+        \draw[black] (0.975, 0) -- (0.975, 3.05189); %end of 1st interval
+        \draw[black] (1.35, 0) -- (1.35, 2.62462); %end of 2nd interval
+        \draw[black] (1.725, 0) -- (1.725, 2.7458); %end of 3rd interval
+        \draw[black] (2.1, 0) -- (2.1, 3.099); %end of 4th interval
+        \draw[black] (2.475, 0) -- (2.475, 3.36783); %end of 5th interval
+        \draw[black] (2.85, 0) -- (2.85, 3.23588); %end of 6th interval
+        \draw[black] (3.225, 0) -- (3.225, 2.38673); %end of 7th interval
+        \addplot[blue, thick, samples=50, domain=0.6:3.6]{(1-x)*(x-2)*(x-3)+3}; %function
+       	\node[] at (0.79, 1) {$S_1$}; %labeling sections
+        \node[] at (1.16, 1) {$S_2$};
+        \node[] at (2.3, 1) {$S_i$};
+        \node[] at (3.4, 1) {$S_n$};
+        \node[] at (1.55,1) {\ldots};
+        \node[] at (1.92,1) {\ldots};
+        \node[] at (2.67,1) {\ldots};
+        \node[] at (3.05,1) {\ldots};
+	\end{axis}
+\end{tikzpicture}
+\caption{A representative function divided into $n$ strips of equal width}
+\label{fig:strips}
+\end{figure}
+
+\begin{figure}
+\begin{tikzpicture}
+	\begin{axis}
+	[axis lines=center, 
+        xmin = 0.25, xmax = 4, xlabel=$x$, ylabel=$y$, ymin=0, ymax=5, xtick={0.6, 0.975, 1.35, 1.725, 2.1, 2.475, 2.85, 3.225, 3.6}, xticklabels={$a$, $x_1$, $x_2$, $\ldots$, $x_{i-1}$, $x_i$, $\ldots$, $x_{n-1}$, $b$}, ytick=\empty]
+        \filldraw[draw=black, fill=gray!30] (0.6, 0) rectangle (0.975, 3.05189); %1st subinterval
+        \filldraw[draw=black, fill=gray!30] (0.975, 0) rectangle (1.35, 2.62462); %2nd subinterval
+        \filldraw[draw=black, fill=gray!30] (1.35, 0) rectangle (1.725, 2.7458); %3rd subinterval
+        \filldraw[draw=black, fill=gray!30] (1.725, 0) rectangle (2.1, 3.099); %4th subinterval
+        \filldraw[draw=black, fill=gray!30] (2.1, 0) rectangle (2.475, 3.36783); %5th subinterval
+        \filldraw[draw=black, fill=gray!30] (2.475, 0) rectangle (2.85, 3.23588); %6th subinterval
+        \filldraw[draw=black, fill=gray!30] (2.85, 0) rectangle (3.225, 2.38673); %7th subinterval
+        \filldraw[draw=black, fill=gray!30] (3.225, 0) rectangle (3.6, 0.504); %8th subinterval
+        \addplot[blue, thick, samples=50, domain=0.6:3.6]{(1-x)*(x-2)*(x-3)+3};
+	\end{axis}
+\end{tikzpicture}
+\caption{A representative function divided into $n$ rectangles of equal width, with rectangle height determined by the right endpoint of the subinterval}
+\label{fig:rectangles}
+\end{figure}
+
 \subsection{Left Riemann Sums}
-When taking a left Riemann sum, the height of the rectangle is determined by the value of the function at the lower (left-most) $x$-value. See figure \ref{fig:leftriemann}. We will refer to left Riemann sums as $L_n$, where $n$ is the number of intervals. 
+When taking a left Riemann sum, the height of the rectangle is determined by the value of the function at the lower (left-most) $x$-value. See figure \ref{fig:leftriemann}. We will refer to left Riemann sums as $L_n$, where $n$ is the number of intervals. Then the total area approximated by a Left Riemann sum is is $$L_n = f(x_0)\Delta x + f(x_1)\Delta x + \ldots + f(x_{n-1})\Delta x$$.
 
 \begin{figure}
     \centering
@@ -247,7 +302,7 @@ When taking a left Riemann sum, the height of the rectangle is determined by the
 \end{figure}
 
 \subsection{Right Riemann Sums}
-A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle (an example is shown in figure \ref{fig:rightriemann}). We will refer to the right Riemann sum as $R_n$, where $n$ is the number of intervals. 
+A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle (an example is shown in figure \ref{fig:rightriemann}). We will refer to the right Riemann sum as $R_n$, where $n$ is the number of intervals.
 
 \begin{figure}
     \centering
@@ -266,7 +321,7 @@ A right Riemann sum uses the right-most value of $f(x)$ to determine the height 
 \end{figure}
 
 \subsection{Midpoint Riemann Sums}
-A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. We will refer to the midpoint Riemann sum as $M_n$, where $n$ is the number of intervals. 
+A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. We will refer to the midpoint Riemann sum as $M_n$, where $n$ is the number of intervals. Then the total area approximated by the rectangles is $$M_n = f(\frac{x_0+x_1}{2})\Delta x + f(\frac{x_1+x_2}{x})\Delta x + \ldots + f(\frac{x_{n-1}+x_n}{2})\Delta x$$.
 
 \begin{figure}
     \centering
@@ -353,7 +408,134 @@ Adding the areas, we find the lower limit for the distance traveled is 31,893 fe
 Adding the areas, we find the upper limit for the distance traveled is 54,694 feet. Therefore, the \textit{Endeavour} traveled between 31,893 and 54,694 feet during the first 62 seconds of this flight. 
 
 \section{Code for a Riemann Sum}
-%python magic
+You can create a program that automatically calculates a Riemann sum. Create a file called riemann.py %\filname{riemann.py} FIXME \filname control sequence error
+and type the following into it:
+
+\begin{Verbatim}
+import matplotlib.pyplot as plt
+import sys
+import math
+
+from matplotlib.table import Rectangle
+
+# Did the user supply two arguments?
+if len(sys.argv) != 3:
+    print(f"Usage: {sys.argv[0]} <stop> <divisions>")
+    print(f"Numerically integrates 1/x from 1 to <stop>.")
+    print(f"Calculates the value of 1/x at <divisions> spots in the range.")
+    exit(1)
+
+# Check to make sure the number of divisions is greater than zero?
+divisions = int(sys.argv[2])
+if divisions <= 0:
+    print("ERROR: Divisions must be at least 1.")
+    exit(1)
+
+# Is the stopping point after 1.0?
+stop = float(sys.argv[1])
+if stop <= 1.0:
+    print("ERROR: Stopping point must be greater than 1.0")
+    exit(1)
+
+start = 1.0
+step_size = (stop - start)/divisions
+
+print(f"Step size is {step_size:.5f}.")
+x_values = []
+y_values = []
+sum = 0.0
+for i in range(divisions):
+    current_x = start + i * step_size
+    current_y = 1.0/current_x
+    area = current_y * step_size
+    print(f"{i}: 1 / {current_x:.3f} = {current_y:4f}, area of rect = {area:8f} ")
+
+    x_values.append(current_x)
+    y_values.append(current_y)
+    sum += area
+    print(f"\tCumulative={sum:.3f}, ln({current_x:.3f})={math.log(current_x):.3f}")
+
+print(f"Numerical integration of 1/x from 1.0 to {stop:.4f} is {sum:.4f}")
+print(f"The natural log of {stop:.4f} is {math.log(stop):.4f}")
+
+# Create data for the smooth 1/x line
+SMOOTH_DIVISIONS = 200
+smooth_start = start - 0.15
+smooth_stop = stop + 1.0
+smooth_step = (smooth_stop - smooth_start)/SMOOTH_DIVISIONS
+smooth_x_values = []
+smooth_y_values = []
+for i in range(SMOOTH_DIVISIONS):
+    current_x = smooth_start + i * smooth_step
+    current_y = 1.0/current_x
+    smooth_x_values.append(current_x)
+    smooth_y_values.append(current_y)
+
+# Put it on a plot
+fig, ax = plt.subplots()
+ax.set_xlim((smooth_x_values[0], smooth_x_values[-1]))
+ax.set_ylim((0, smooth_y_values[0]))
+ax.set_title("Riemann Sums for 1/x")
+
+# Make the Riemann rects
+for i in range(divisions):
+    current_x = x_values[i]
+    next_x = current_x + step_size
+    current_y = y_values[i]
+    rect = Rectangle((current_x, 0), step_size, current_y, edgecolor="green", facecolor="lightgreen")
+    ax.add_patch(rect)
+
+# Make the true 1/x curve
+ax.plot(smooth_x_values, smooth_y_values, c="k", label="1/x")
+
+# Show the user
+plt.show()
+
+\end{Verbatim}
+
+This program will calculate and display a graph of the left Riemann sum of $\frac{1}{x}$ from 1 to the provided stop value with the indicated number of subintervals. When you run it, you'll see a graph in a new window and something like this in the terminal:
+\begin{Verbatim}
+Step size is 0.40000.
+0: 1 / 1.000 = 1.000000, area of rect = 0.400000 
+	Cumulative=0.400, ln(1.000)=0.000
+1: 1 / 1.400 = 0.714286, area of rect = 0.285714 
+	Cumulative=0.686, ln(1.400)=0.336
+2: 1 / 1.800 = 0.555556, area of rect = 0.222222 
+	Cumulative=0.908, ln(1.800)=0.588
+3: 1 / 2.200 = 0.454545, area of rect = 0.181818 
+	Cumulative=1.090, ln(2.200)=0.788
+4: 1 / 2.600 = 0.384615, area of rect = 0.153846 
+	Cumulative=1.244, ln(2.600)=0.956
+5: 1 / 3.000 = 0.333333, area of rect = 0.133333 
+	Cumulative=1.377, ln(3.000)=1.099
+6: 1 / 3.400 = 0.294118, area of rect = 0.117647 
+	Cumulative=1.495, ln(3.400)=1.224
+7: 1 / 3.800 = 0.263158, area of rect = 0.105263 
+	Cumulative=1.600, ln(3.800)=1.335
+8: 1 / 4.200 = 0.238095, area of rect = 0.095238 
+	Cumulative=1.695, ln(4.200)=1.435
+9: 1 / 4.600 = 0.217391, area of rect = 0.086957 
+	Cumulative=1.782, ln(4.600)=1.526
+Numerical integration of 1/x from 1.0 to 5.0000 is 1.7820
+The natural log of 5.0000 is 1.6094
+\end{Verbatim}
+
+\begin{Exercise}[label=rsumpython]
+Use the python program you created to find $L_{10}$, $L_{50}$, $L_{100}$, $L_{500}$, $L_{1000}$, and $L_{5000}$ for the function $\frac{1}{x}$ from $x=1$ to $x=5$. What do you notice about the results?
+\end{Exercise}
+
+\begin{Answer}[ref=rsumpython]
+	\begin{tabular}{c|c}
+	Number of Intervals & Calculated Area\\
+	10 & 1.7820 \\
+	50 & 1.6419 \\
+	100 & 1.6256 \\
+	500 & 1.6126 \\
+	1000 & 1.6110 \\
+	5000 & 1.6098 \\
+	\end{tabular}
+	\\The area approaches the natural log of the endpoint, $\ln{5} \approx 1.6094$. 
+\end{Answer}
 
 \section{Riemann Sum Practice}
 
