@@ -5,10 +5,12 @@ calculate areas, volumes, and many other things. A definite integral
 calculates the net area between the function and the x-axis over a
 given interval.
 
+Recall that you can use a Riemann sum to estimate the area under a function, and that as we increase the number of subintervals, the estimated area approaches the actual area. In sigma notation we can express a Riemann sum as $$\sum_{i=1}^{n} f(x_i)\Delta x$$
+
 \section{Definition}
 
 The definite integral of a function $f(x)$ over an interval $[a, b]$
-is defined as the limit of a Riemann sum:
+is defined as the limit of a Riemann sum as $n$ approaches $\infty$:
 
 \begin{equation}
 \int_{a}^{b} f(x) \, dx = \lim_{{n \to \infty}} \sum_{i=1}^{n} f(x_i^*) \Delta x
@@ -18,6 +20,33 @@ where $x_i^*$ is a sample point in the $i^{th}$ subinterval of a
 partition of $[a, b]$, $\Delta x = \frac{b-a}{n}$ is the width of each
 subinterval, and the limit is taken as the number of subintervals $n$
 approaches infinity.
+
+\begin{Exercise}[label=defint1]
+Express $$\lim_{n \to \infty} \sum_{i=1}^{n} (x_i^3+x_i\sin{x_i})\Delta x$$ as an integral on the interval $[0, \pi]$. 
+\end{Exercise}
+
+\begin{Answer}[ref=defint1]
+Following the structure shown in the formal definition of a definite integral, we can set $f(x) = x^3+x\sin{x}$ and re-write the limit of the sum as $\lim_{n \to \infty} \Sigma_{i=1}^{n} f(x)\Delta x=\int_{0}^{\pi} f(x) \, dx$. Therefore, the full definite integral would be written as $\int_{0}^{\pi} (x^3 + x\sin{x})\, dx$. 
+\end{Answer}
+
+\section{Positive and Negative Areas}
+%explain when function is below graph, area is negative and so sum represents NET area
+
+\section{Properties of Integrals}
+The following properties of integrals apply when $f(x)$ is continuous or has a finite number of jump discontinuities on the interval $a \leq x \leq b$:
+\begin{enumerate}
+\item $$\int_{a}^{b}f(x)\, dx = -\int_{b}^{a}f(x)\, dx$$ %Property 1
+\item If $a=b$, then $\Delta x = 0$ and therefore $$\int_{a}^{a}f(x)\, dx = 0$$%Property 2
+\item $$\int_{a}^{b}c\,dx = c(b-a)\text{, where }c\text{ is any constant}$$%Property 3
+\item $$\int_{a}^{b}[f(x) + g(x)]\,dx = \int_{a}^{b}f(x)\,dx + \int_{a}^{b}g(x)\,dx$$%Property 4
+\item $$\int_{a}^{b}cf(x)\,dx = c\int_{a}^{b}f(x)\text{, where }c\text{ is any constant}$$%Property 5
+\item $$\int_{a}^{b}[f(x) - g(x)]\,dx = \int_{a}^{b}f(x)\,dx - \int_{a}^{b}g(x)\,dx$$%Property 6
+\item $$\int_{a}^{c} f(x)\,dx + \int_{c}^{b}f(x)\,dx = \int_{a}^{b}f(x)\,dx\text{, where }a<c<b$$%Property 7
+\item $$\text{If }f(x) \geq 0\text{ for }a\leq x\leq b\text{, then }\int_{a}^{b}f(x)\,dx \geq0$$%Property 8
+\item $$\text{If }f(x)\geq g(x)\text{ for }a\leq x \leq b\text{, then}\int_{a}^{b}f(x)\,dx \geq \int_{a}^{b}g(x)\,dx$$%Property 9
+\item $$\text{If } m \leq f(x) \leq M\text{ for }a\leq x \leq b\text{, then }m(b-a)\leq \int_{a}^{b}f(x)\,dx \leq M(b-a)$$%Property 10
+\end{enumerate}
+
 
 \section{Applications in Physics}
 You should recall that velocity is the derivative of displacement, and acceleration is the derivative of velocity. Therefore, velocity is the integral of acceleration, and displacement is the integral of velocity. Say we know the velocity function for some object and we want to know how far the object moved from time $a$ to time $b$. We take the definite integral from $t=a$ to $t=b$ of the velocity function. 
@@ -30,3 +59,14 @@ The antidervative of $6t$ is $3t^2$, and the antiderivative of $t^2$ is $\frac{1
 $$[3(3)^2-3(0)^2]-[\frac{1}{3}(3)^3-\frac{1}{3}(0)^3]=[27-0]-[9-0]=18$$
 Therefore, the object has a displacement of 18 units (in the real world, you'll know if you're discussing meters, miles, etc.) from $t=0$ to $t=3$. 
 
+\section{Practice Exercises}
+\begin{Exercise}[label=defint2]
+Given that $\int_{0}^{1}x^2\,dx=\frac{1}{3}$, use the properties of integrals to evaluate $\int_{0}^{1}(5-6x^2)\,dx$. 
+\end{Exercise}
+
+\begin{Answer}[ref=defint2]
+By property 6, we know that $$\int_{0}^{1}(5-6x^2)\,dx=\int_{0}^{1}5\,dx-\int_{0}^{1}6x^2\,dx$$\\
+By property 5, we know that $$\int_{0}^{1}5\,dx-\int_{0}^{1}6x^2\,dx=\int_{0}^{1}5\,dx-6\int_{0}^{1}x^2\,dx$$\\
+By property 3, we know that $$\int_{0}^{1}5\,dx = 5(1-0) = 5$$\\
+Putting it all together, we see that $$\int_{0}^{1}(5-6x^2)\,dx=5-6(\frac{1}{3})=5-2=3$$
+\end{Answer}
