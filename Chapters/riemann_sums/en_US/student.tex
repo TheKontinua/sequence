@@ -1,7 +1,6 @@
 \chapter{Riemann Sums}
 
 \section{The Meaning of the Area Under a Function}
-%recall hammer toss example, make velocity graph, show area for simple shape, discuss units and meaning
 
 Let's look at the example of a hammer tossed in the air from a previous chapter. As you may recall, if a hammer is tossed up from the ground at 5 m/s, its velocity can be described as $v(t) = 5-9.8t$ (on Earth, where the acceleration due to gravity is approximately $-9.8$ $\frac{m}{s^2}$). The velocity function of our hammer from when it is tossed ($t=0$) to when it hits the ground $t\approx1.02$) is shown in figure \ref{fig:hammer}.
 
@@ -27,7 +26,6 @@ $$Area=\frac{1}{2}(0.5s)(5\frac{m}{s})$$
 $$Area=1.25m$$
 
 
-%fixme fill not showing in built pdf
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
@@ -45,7 +43,57 @@ $$Area=1.25m$$
 
 Notice that when multiplying the change in time ($0.5$ $s$) by the change in velocity ($1.25$ $\frac{m}{s}$), the seconds units cancel, yielding a result with units of meters. Therefore, the hammer reaches a peak height of $\approx1.25$ $m$, which you can confirm by examining the graph originally presented for the hammer toss in the chapter on graph shape.
 
+\subsection{Determining the Meaning of the Area with Units}
+%brief explanation, justification, real-world etc., with one more example
 
+\begin{Exercise}[label=units1]
+What units will the area shown in the graph have? Based on your answer, does the area represent a displacement, a net change in velocity, or a net change in acceleration?\\
+\begin{tikzpicture}
+		\begin{axis}
+		[axis lines = center, xmin=0, xmax=10, ymin=-3, ymax=7, xlabel=$t(sec)$, ylabel=$acceleration(\frac{m}{s^2})$]
+		\fill[gray!30](0,-3)--(3,0)--(0,0)--cycle;
+            \fill[gray!30](3,0) -- (6,0) -- (6, 3)--cycle;
+            \addplot[black,very thin]coordinates{(6,0) (6, 3)};
+		\addplot[blue, thick, samples=50, domain=0:10]{x-3};
+		\end{axis}
+	\end{tikzpicture}  
+\end{Exercise}
+
+\begin{Answer}[ref=units1]
+The units on the $x$-axis are $s$ and the units on the $y$-axis are $\frac{m}{s^2}$. The area then would have units of $s \times \frac{m}{s^2}=\frac{m}{s}$. Based on the units, the area represents a net change in velocity. 
+\end{Answer}
+
+\begin{Exercise}[label=units2]
+	The graph below shows historical data of the number of deaths due to SARS in Singapore over several months in 2003. What would the area under the curve represent?\\
+	
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xmin=0, xmax=98, ymin=0, ymax=0.6, xlabel=days since Feb. 28, ylabel=deaths per day]
+		\addplot[blue, smooth]coordinates{(1, 0.0079) (15, 0.0638) (29, 0.1944) (43, 0.4435) (57, 0.5620) (71, 0.4630) (85, 0.2897)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=units2]
+	The units of the area will be $days \times \frac{deaths}{day}=deaths$. The area under the curve represents the total number of people who died of SARS in Singapore during the time period represented [from March 1 to May 24 (if you took the time to do the math for the dates)]. 
+\end{Answer}
+
+\begin{Exercise}[label=units3]
+	Oil leaked from a tank at a rate of $r(t)$ liters per hour. A site engineer recorded the leak rate over a period of 10 hours, shown in the table. Plot the data. How could you estimate the total volume of oil lost?\\
+	\begin{tabular}{c|c|c|c|c|c|c}
+	$t(\text{h})$ & 0 & 2 & 4 & 6 & 8 & 10 \\
+	$r(t)(\text{L/h})$ & 8.7 & 7.6 & 6.8 & 6.2 & 5.7 & 5.3 \\
+	\end{tabular}
+\end{Exercise}
+
+\begin{Answer}[ref=units3]
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xmin=0, xmax=10, ymin=0, ymax=10, xlabel=$t$(h), ylabel=$r(t)$(L/h)]
+		\addplot[blue, mark=*, dashed]coordinates{(0, 8.7) (2, 7.6) (4, 6.8) (6, 6.2) (8, 5.7) (10, 5.3)};
+		\end{axis}
+	\end{tikzpicture}
+	\\
+	Based on the units, the area under the data would represent the total oil lost. One way to estimate this area would be to create rectangles, but there are other valid methods. 
+\end{Answer}
 
 \section{Estimating the area under functions}
 
