@@ -7,7 +7,7 @@ Let's look at the example of a hammer tossed in the air from a previous chapter.
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
-		\begin{axis}[axis lines = center, xmin=0, xmax=1.02, xlabel=$t$(sec), ymin=-5, ymax=5, ylabel=$v$(m/s)]
+		\begin{axis}[axis lines = center, xmin=0, xmax=1.02, xlabel=$t$(sec), ymin=-5, ymax=5, ylabel=$v$(m/s), ylabel style={yshift=-0.5ex,anchor=east}]
 		\addplot[blue, smooth, samples=50]{5-9.8*x};
 		\end{axis}
 	\end{tikzpicture}
@@ -29,12 +29,12 @@ $$Area=1.25m$$
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
-		\begin{axis}[axis lines = center, xmin=0, xmax=1.02, xlabel=$t$ (sec), ymin=-5, ymax=5, ylabel=$v$ (m/s)]
+		\begin{axis}[axis lines = center, xmin=0, xmax=1.02, xlabel=$t$ (sec), ymin=-5, ymax=5, ylabel=$v$ (m/s), ylabel style={yshift=-0.5ex,anchor=east}]
 		\addplot[blue, smooth, thick, samples=50]{5-9.8*x};
 		\coordinate (c0) at (0,0);
 		\coordinate (c1) at (0.5102, 0);
 		\coordinate (c2) at (0, 5);
-		\fill[red] (c0) -- (c1) -- (c2) -- cycle;
+		\fill[gray!30, opacity=0.4] (c0) -- (c1) -- (c2) -- cycle;
 		\end{axis}
 	\end{tikzpicture}
 	\caption{The area under $v(t)$ from $x=0$ to $x=0.5$ is equal to the displacement of the hammer}
@@ -47,12 +47,12 @@ Notice that when multiplying the change in time ($0.5$ $s$) by the change in vel
 %brief explanation, justification, real-world etc., with one more example
 
 \begin{Exercise}[label=units1]
-What units will the area shown in the graph have? Based on your answer, does the area represent a displacement, a net change in velocity, or a net change in acceleration?\\
+What units will the area shown in the graph have? Based on your answer, does the area represent a displacement, a net change in velocity, or a net change in acceleration? Calculate the shaded area [hint: areas below the $x$-axis are negative]. Write a sentence in plain English explaining what the are you calculated means.\\
 \begin{tikzpicture}
 		\begin{axis}
 		[axis lines = center, xmin=0, xmax=10, ymin=-3, ymax=7, xlabel=$t(sec)$, ylabel=$acceleration(\frac{m}{s^2})$]
-		\fill[gray!30](0,-3)--(3,0)--(0,0)--cycle;
-            \fill[gray!30](3,0) -- (6,0) -- (6, 3)--cycle;
+		\fill[gray!30, opacity=0.4](0,-3)--(3,0)--(0,0)--cycle;
+            \fill[gray!30, opacity=0.4](3,0) -- (6,0) -- (6, 3)--cycle;
             \addplot[black,very thin]coordinates{(6,0) (6, 3)};
 		\addplot[blue, thick, samples=50, domain=0:10]{x-3};
 		\end{axis}
@@ -60,7 +60,7 @@ What units will the area shown in the graph have? Based on your answer, does the
 \end{Exercise}
 
 \begin{Answer}[ref=units1]
-The units on the $x$-axis are $s$ and the units on the $y$-axis are $\frac{m}{s^2}$. The area then would have units of $s \times \frac{m}{s^2}=\frac{m}{s}$. Based on the units, the area represents a net change in velocity. 
+The units on the $x$-axis are $s$ and the units on the $y$-axis are $\frac{m}{s^2}$. The area then would have units of $s \times \frac{m}{s^2}=\frac{m}{s}$. Based on the units, the area represents a net change in velocity. The area above and below the axis are equal ($4.5 \frac{m}{s}$), therefore the total area is $0$. This means the object's starting and ending velocity are the same. 
 \end{Answer}
 
 \begin{Exercise}[label=units2]
@@ -106,12 +106,14 @@ In the hammer example above, it was easy to determine the area under the functio
             [axis lines = center, 
             xmin=0, xmax=3.141592, xlabel=$x$, xtick={0, 0.785398, 1.570796, 2.356194, 3.141593}, xticklabels={$0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$},
             ylabel=$y$, ymin =0, ymax=3.25, ytick={1, 2, 3}, yticklabels={$1$, $2$, $3$}]
-			\addplot[blue, samples=50, domain=0:3.141592]{sin(deg(x))+x};
+            \fill[gray!30, opacity=0.4, variable=\x](0,0)--plot ({\x}, {sin(deg(\x))+\x})--(3.141592, 0);
+			\addplot[blue, samples=50, domain=0:3.141592, thick]{sin(deg(x))+x};
+            \node[font=\LARGE] at (2.094395, 1.5) {$A$};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{$f(x) = \sin{x}+x$}
 	\label{fig:riemannsine}
-\end{figure}
+\end{figure} 
 
 How can we determine the area under $f(x) = \sin{x}+x$ from $x=0$ to $x=\pi$? We can \textit{estimate} the area of that region by dividing the region into rectangles, finding the areas of the rectangles, and adding the areas. As an example, we will divide the region under $f(x) = \sin{x}+x$ into 4 intervals, shown in figure \ref{fig:sinesections}.
 
@@ -121,11 +123,16 @@ How can we determine the area under $f(x) = \sin{x}+x$ from $x=0$ to $x=\pi$? We
 		\begin{axis}[axis lines = center, 
             xmin=0, xmax=3.15, xlabel=$x$, xtick={0, 0.785398, 1.570796, 2.356194, 3.141593}, xticklabels={$0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$},
             ylabel=$y$, ymin =0, ymax=3.25, ytick={1, 2, 3}, yticklabels={$1$, $2$, $3$}]
+            \fill[gray!30, opacity=0.4, variable=\x](0,0)--plot ({\x}, {sin(deg(\x))+\x})--(3.141592, 0);
 			\addplot[blue, thick, samples=50, domain=0:6.283185]{sin(deg(x))+x};
                 \addplot[black, samples=50]coordinates{(0.785, 0) (0.785, 1.4925)};
                 \addplot[black, samples=50]coordinates{(1.570796, 0) (1.570796, 2.5708)};
                 \addplot[black, samples=50]coordinates{(2.356194, 0) (2.356194, 3.0633)};
                 \addplot[black, samples=50]coordinates{(3.141592, 0) (3.141592, 3.141592)};
+                \node[font=\large] at (0.3925, 0.5) {$A_1$};
+                \node[font=\large] at (1.1775, 0.5) {$A_2$};
+                \node[font=\large] at (1.9625, 0.5) {$A_3$};
+                \node[font=\large] at (2.7475, 0.5) {$A_4$};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{$f(x) = \sin{x}+x$ divided into 4 regions}
@@ -140,11 +147,15 @@ As you can see in figure \ref{fig:sinesections}, each rectangle will have a widt
 		\begin{axis}[axis lines = center, 
             xmin=0, xmax=3.15, xlabel=$x$, xtick={0, 0.785398, 1.570796, 2.356194, 3.141593}, xticklabels={$0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$},
             ylabel=$y$, ymin =0, ymax=3.25, ytick={1, 2, 3}, yticklabels={$1$, $2$, $3$}]
-                \filldraw[fill=gray!30] (0,0) rectangle (0.785, 1.4925);
-                \filldraw[fill=gray!30] (0.785398, 0) rectangle (1.570796, 2.5708);
-                \filldraw[fill=gray!30] (1.570796, 0) rectangle (2.356194, 3.0633);
-                \filldraw[fill=gray!30] (2.356194, 0) rectangle (3.141592, 3.141592);
+                \filldraw[fill=gray!30, opacity=0.4] (0,0) rectangle (0.785, 1.4925);
+                \filldraw[fill=gray!30, opacity=0.4] (0.785398, 0) rectangle (1.570796, 2.5708);
+                \filldraw[fill=gray!30, opacity=0.4] (1.570796, 0) rectangle (2.356194, 3.0633);
+                \filldraw[fill=gray!30, opacity=0.4] (2.356194, 0) rectangle (3.141592, 3.141592);
 			\addplot[blue, thick, samples=50, domain=0:3.141592]{sin(deg(x))+x};
+                \node[font=\large] at (0.3925, 0.5) {$R_1$};
+                \node[font=\large] at (1.1775, 0.5) {$R_2$};
+                \node[font=\large] at (1.9625, 0.5) {$R_3$};
+                \node[font=\large] at (2.7475, 0.5) {$R_4$};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Four rectangle sections with heights determined by rightmost value of $f(x)$ on each interval}
@@ -163,10 +174,14 @@ Based on figure \ref{fig:sineright}, will the calculated area be an overestimate
 		\begin{axis}[axis lines = center, 
             xmin=0, xmax=3.15, xlabel=$x$, xtick={0, 0.785398, 1.570796, 2.356194, 3.141593}, xticklabels={$0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$},
             ylabel=$y$, ymin =0, ymax=3.25, ytick={1, 2, 3}, yticklabels={$1$, $2$, $3$}]
-                \filldraw[fill=gray!30] (0,0) rectangle (0.785, 0);
-                \filldraw[fill=gray!30] (0.785398, 0) rectangle (1.570796, 1.4925);
-                \filldraw[fill=gray!30] (1.570796, 0) rectangle (2.356194, 2.5708);
-                \filldraw[fill=gray!30] (2.356194, 0) rectangle (3.141592, 3.0633);
+                \filldraw[fill=gray!30, opacity=0.4] (0,0) rectangle (0.785, 0);
+                \filldraw[fill=gray!30, opacity=0.4] (0.785398, 0) rectangle (1.570796, 1.4925);
+                \filldraw[fill=gray!30, opacity=0.4] (1.570796, 0) rectangle (2.356194, 2.5708);
+                \filldraw[fill=gray!30, opacity=0.4] (2.356194, 0) rectangle (3.141592, 3.0633);
+                \node[font=\large] at (0.3925, 0.5) {$R_1$};
+                \node[font=\large] at (1.1775, 0.5) {$R_2$};
+                \node[font=\large] at (1.9625, 0.5) {$R_3$};
+                \node[font=\large] at (2.7475, 0.5) {$R_4$};
 			\addplot[blue, thick, samples=50, domain=0:3.141592]{sin(deg(x))+x};
 		\end{axis}
 	\end{tikzpicture}
@@ -191,16 +206,16 @@ This is an underestimate. Therefore, the true value of the area under $f(x) = \s
 		ymin=0, ymax=3.25, ylabel=$y$,
 		ytick={1, 2, 3},
 		yticklabels={$1$, $2$, $3$}]
-			\filldraw[fill=gray!30, draw=black](0,0) rectangle (0.31416, 0);
-			\filldraw[fill=gray!30, draw=black](0.31416, 0) rectangle (0.62832, 0.62318);
-			\filldraw[fill=gray!30, draw=black](0.62832, 0) rectangle (0.94248, 1.2161);
-			\filldraw[fill=gray!30, draw=black](0.94248, 0) rectangle (1.25664, 1.75149);
-			\filldraw[fill=gray!30, draw=black](1.25664, 0) rectangle (1.57080, 2.20769);
-			\filldraw[fill=gray!30, draw=black](1.57080, 0) rectangle (1.88496, 2.5708);
-			\filldraw[fill=gray!30, draw=black](1.88496, 0) rectangle (2.19911, 2.83601);
-			\filldraw[fill=gray!30, draw=black](2.19911, 0) rectangle (2.51327, 3.00813);
-			\filldraw[fill=gray!30, draw=black](2.51327, 0) rectangle (2.82743, 3.10106);
-			\filldraw[fill=gray!30, draw=black](2.82743, 0) rectangle (3.14159, 3.13645);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0,0) rectangle (0.31416, 0);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.31416, 0) rectangle (0.62832, 0.62318);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.62832, 0) rectangle (0.94248, 1.2161);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.94248, 0) rectangle (1.25664, 1.75149);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.25664, 0) rectangle (1.57080, 2.20769);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.57080, 0) rectangle (1.88496, 2.5708);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.88496, 0) rectangle (2.19911, 2.83601);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.19911, 0) rectangle (2.51327, 3.00813);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.51327, 0) rectangle (2.82743, 3.10106);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.82743, 0) rectangle (3.14159, 3.13645);
 			\addplot[blue, thick, samples=100, domain=0:3.141592]{sin(deg(x))+x};
 		\end{axis}
 	\end{tikzpicture}
@@ -214,16 +229,16 @@ This is an underestimate. Therefore, the true value of the area under $f(x) = \s
 		ymin=0, ymax=3.25, ylabel=$y$,
 		ytick={1, 2, 3},
 		yticklabels={$1$, $2$, $3$}]
-			\filldraw[fill=gray!30, draw=black](0,0) rectangle (0.31416, 0.62318);
-			\filldraw[fill=gray!30, draw=black](0.31416, 0) rectangle (0.62832, 1.2161);
-			\filldraw[fill=gray!30, draw=black](0.62832, 0) rectangle (0.94248, 1.75149);
-			\filldraw[fill=gray!30, draw=black](0.94248, 0) rectangle (1.25664, 2.20769);
-			\filldraw[fill=gray!30, draw=black](1.25664, 0) rectangle (1.57080, 2.5708);
-			\filldraw[fill=gray!30, draw=black](1.57080, 0) rectangle (1.88496, 2.83601);
-			\filldraw[fill=gray!30, draw=black](1.88496, 0) rectangle (2.19911, 3.00813);
-			\filldraw[fill=gray!30, draw=black](2.19911, 0) rectangle (2.51327, 3.10106);
-			\filldraw[fill=gray!30, draw=black](2.51327, 0) rectangle (2.82743, 3.13645);
-			\filldraw[fill=gray!30, draw=black](2.82743, 0) rectangle (3.14159, 3.14159);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0,0) rectangle (0.31416, 0.62318);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.31416, 0) rectangle (0.62832, 1.2161);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.62832, 0) rectangle (0.94248, 1.75149);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](0.94248, 0) rectangle (1.25664, 2.20769);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.25664, 0) rectangle (1.57080, 2.5708);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.57080, 0) rectangle (1.88496, 2.83601);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](1.88496, 0) rectangle (2.19911, 3.00813);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.19911, 0) rectangle (2.51327, 3.10106);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.51327, 0) rectangle (2.82743, 3.13645);
+			\filldraw[fill=gray!30, opacity=0.4, draw=black](2.82743, 0) rectangle (3.14159, 3.14159);
 			\addplot[blue, thick, samples=100, domain=0:3.141592]{sin(deg(x))+x};
 		\end{axis}
 	\end{tikzpicture}
@@ -247,10 +262,10 @@ For a strictly increasing function, the right sum will be an overestimate and th
             [axis lines = center, 
             xmin=.5, xmax=2.5, xlabel=$x$, xtick={1, 2}, xticklabels={$1$, $2$},
             ylabel=$y$, ymin =0, ymax=1.25, ytick={0.5, 1}, yticklabels={$0.5$, $1$}]
-                \filldraw[fill=gray!30, draw=black](1,0) rectangle (1.25, 0.8);
-                \filldraw[fill=gray!30, draw=black](1.25, 0) rectangle (1.5, 0.6667);
-                \filldraw[fill=gray!30, draw=black](1.5, 0) rectangle (1.75, 0.5714);
-                \filldraw[fill=gray!30, draw=black](1.75, 0) rectangle (2, 0.5);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1,0) rectangle (1.25, 0.8);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.25, 0) rectangle (1.5, 0.6667);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.5, 0) rectangle (1.75, 0.5714);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.75, 0) rectangle (2, 0.5);
 				\addplot[blue, samples=100]{1/x};
 			\end{axis}
 		\end{tikzpicture}\\
@@ -261,10 +276,10 @@ For a strictly increasing function, the right sum will be an overestimate and th
             [axis lines = center, 
             xmin=.5, xmax=2.5, xlabel=$x$, xtick={1, 2}, xticklabels={$1$, $2$},
             ylabel=$y$, ymin =0, ymax=1.25, ytick={0.5, 1}, yticklabels={$0.5$, $1$}]
-                \filldraw[fill=gray!30, draw=black](1,0) rectangle (1.25, 1);
-                \filldraw[fill=gray!30, draw=black](1.25, 0) rectangle (1.5, 0.8);
-                \filldraw[fill=gray!30, draw=black](1.5, 0) rectangle (1.75, 0.6667);
-                \filldraw[fill=gray!30, draw=black](1.75, 0) rectangle (2, 0.5714);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1,0) rectangle (1.25, 1);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.25, 0) rectangle (1.5, 0.8);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.5, 0) rectangle (1.75, 0.6667);
+                \filldraw[fill=gray!30, opacity=0.4, draw=black](1.75, 0) rectangle (2, 0.5714);
 				\addplot[blue, samples=100]{1/x};
 			\end{axis}
 		\end{tikzpicture}	\\
@@ -286,6 +301,8 @@ As above, we can use the value of the function to determine the height of a rect
 	\begin{axis}
 	[axis lines=center, 
         xmin = 0.25, xmax = 4, xlabel=$x$, ylabel=$y$, ymin=0, ymax=5, xtick={0.6, 0.975, 1.35, 1.725, 2.1, 2.475, 2.85, 3.225, 3.6}, xticklabels={$a$, $x_1$, $x_2$, $\ldots$, $x_{i-1}$, $x_i$, $\ldots$, $x_{n-1}$, $b$}, ytick=\empty]
+        \fill[gray!30, opacity=0.4, variable=\x, domain=0.6:3.6]
+        (0.6,0) -- plot({\x}, {(1-\x)*(\x-2)*(\x-3)+3}) -- (3.6, 0) -- cycle;
         \draw[black] (0.6, 0) -- (0.6, 4.344); %shows a, beginning of interval
         \draw[black] (3.6, 0) -- (3.6, 0.504); %shows b, end of interval
         \draw[black] (0.975, 0) -- (0.975, 3.05189); %end of 1st interval
@@ -296,10 +313,10 @@ As above, we can use the value of the function to determine the height of a rect
         \draw[black] (2.85, 0) -- (2.85, 3.23588); %end of 6th interval
         \draw[black] (3.225, 0) -- (3.225, 2.38673); %end of 7th interval
         \addplot[blue, thick, samples=50, domain=0.6:3.6]{(1-x)*(x-2)*(x-3)+3}; %function
-       	\node[] at (0.79, 1) {$S_1$}; %labeling sections
-        \node[] at (1.16, 1) {$S_2$};
-        \node[] at (2.3, 1) {$S_i$};
-        \node[] at (3.4, 1) {$S_n$};
+       	\node[] at (0.79, 1) {$A_1$}; %labeling sections
+        \node[] at (1.16, 1) {$A_2$};
+        \node[] at (2.3, 1) {$A_i$};
+        \node[] at (3.4, 1) {$A_n$};
         \node[] at (1.55,1) {\ldots};
         \node[] at (1.92,1) {\ldots};
         \node[] at (2.67,1) {\ldots};
@@ -315,19 +332,38 @@ As above, we can use the value of the function to determine the height of a rect
 	\begin{axis}
 	[axis lines=center, 
         xmin = 0.25, xmax = 4, xlabel=$x$, ylabel=$y$, ymin=0, ymax=5, xtick={0.6, 0.975, 1.35, 1.725, 2.1, 2.475, 2.85, 3.225, 3.6}, xticklabels={$a$, $x_1$, $x_2$, $\ldots$, $x_{i-1}$, $x_i$, $\ldots$, $x_{n-1}$, $b$}, ytick=\empty]
-        \filldraw[draw=black, fill=gray!30] (0.6, 0) rectangle (0.975, 3.05189); %1st subinterval
-        \filldraw[draw=black, fill=gray!30] (0.975, 0) rectangle (1.35, 2.62462); %2nd subinterval
-        \filldraw[draw=black, fill=gray!30] (1.35, 0) rectangle (1.725, 2.7458); %3rd subinterval
-        \filldraw[draw=black, fill=gray!30] (1.725, 0) rectangle (2.1, 3.099); %4th subinterval
-        \filldraw[draw=black, fill=gray!30] (2.1, 0) rectangle (2.475, 3.36783); %5th subinterval
-        \filldraw[draw=black, fill=gray!30] (2.475, 0) rectangle (2.85, 3.23588); %6th subinterval
-        \filldraw[draw=black, fill=gray!30] (2.85, 0) rectangle (3.225, 2.38673); %7th subinterval
-        \filldraw[draw=black, fill=gray!30] (3.225, 0) rectangle (3.6, 0.504); %8th subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (0.6, 0) rectangle (0.975, 3.05189); %1st subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (0.975, 0) rectangle (1.35, 2.62462); %2nd subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (1.35, 0) rectangle (1.725, 2.7458); %3rd subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (1.725, 0) rectangle (2.1, 3.099); %4th subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (2.1, 0) rectangle (2.475, 3.36783); %5th subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (2.475, 0) rectangle (2.85, 3.23588); %6th subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (2.85, 0) rectangle (3.225, 2.38673); %7th subinterval
+        \filldraw[draw=black, fill=gray!30, opacity=0.4] (3.225, 0) rectangle (3.6, 0.504); %8th subinterval
         \addplot[blue, thick, samples=50, domain=0.6:3.6]{(1-x)*(x-2)*(x-3)+3};
 	\end{axis}
 \end{tikzpicture}
 \caption{A representative function divided into $n$ rectangles of equal width, with rectangle height determined by the right endpoint of the subinterval}
 \label{fig:rectangles}
+\end{figure}
+
+\subsection{Right Riemann Sums}
+As seen above, a right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle (an example is shown in figure \ref{fig:rightriemann}). We will refer to the right Riemann sum as $R_n$, where $n$ is the number of intervals.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1,0) rectangle (1.5,0.667);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1.5,0) rectangle (2, 0.5);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2,0) rectangle (2.5, 0.4);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2.5,0) rectangle (3, 0.333);
+            \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
+            \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$R_4$ for $f(x)=\frac{1}{x}$}
+    \label{fig:rightriemann}
 \end{figure}
 
 \subsection{Left Riemann Sums}
@@ -337,10 +373,10 @@ When taking a left Riemann sum, the height of the rectangle is determined by the
     \centering
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,1);
-            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.667);
-            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.5);
-            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.4);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1,0) rectangle (1.5,1);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1.5,0) rectangle (2, 0.667);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2,0) rectangle (2.5, 0.5);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2.5,0) rectangle (3, 0.4);
             \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
             \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
         \end{axis}
@@ -349,24 +385,6 @@ When taking a left Riemann sum, the height of the rectangle is determined by the
     \label{fig:leftriemann}
 \end{figure}
 
-\subsection{Right Riemann Sums}
-A right Riemann sum uses the right-most value of $f(x)$ to determine the height of the rectangle (an example is shown in figure \ref{fig:rightriemann}). We will refer to the right Riemann sum as $R_n$, where $n$ is the number of intervals.
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,0.667);
-            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.5);
-            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.4);
-            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.333);
-            \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
-            \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{$R_4$ for $f(x)=\frac{1}{x}$}
-    \label{fig:rightriemann}
-\end{figure}
 
 \subsection{Midpoint Riemann Sums}
 A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division to determine the height of the rectangle, as shown in figure \ref{fig:midriemann}. We will refer to the midpoint Riemann sum as $M_n$, where $n$ is the number of intervals. Then the total area approximated by the rectangles is $$M_n = f(\frac{x_0+x_1}{2})\Delta x + f(\frac{x_1+x_2}{x})\Delta x + \ldots + f(\frac{x_{n-1}+x_n}{2})\Delta x$$.
@@ -375,10 +393,10 @@ A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division 
     \centering
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin=0.75, xmax=3, ymin=0, xlabel=$x$, ylabel=$f(x)$]
-            \filldraw[fill=gray!30, draw=black] (1,0) rectangle (1.5,0.8);
-            \filldraw[fill=gray!30, draw=black] (1.5,0) rectangle (2, 0.571);
-            \filldraw[fill=gray!30, draw=black] (2,0) rectangle (2.5, 0.444);
-            \filldraw[fill=gray!30, draw=black] (2.5,0) rectangle (3, 0.364);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1,0) rectangle (1.5,0.8);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (1.5,0) rectangle (2, 0.571);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2,0) rectangle (2.5, 0.444);
+            \filldraw[fill=gray!30, draw=black, opacity=0.4] (2.5,0) rectangle (3, 0.364);
             \addplot[blue, thick, samples=100, domain=0.75:3]{1/x};
             \addplot[mark=*, blue, only marks]coordinates{(1,1) (1.5,0.667) (2, 0.5) (2.5,.4) (3,0.333)};
             \addplot[mark=*, black, only marks]coordinates{(1.25,0.8) (1.75,0.571) (2.25, 0.444) (2.75,.364)};
@@ -388,7 +406,58 @@ A midpoint Riemann sum uses the value of $f(x)$ at the midpoint of the division 
     \label{fig:midriemann}
 \end{figure}
 
-\subsection{Additional Examples}
+\subsection{Riemann sum sigma notation}
+As you may recall, mathematicians use sigma notation to concisely express sums, such as Riemann sums. We can re-write the definition of a right Riemann sum in sigma notation:\\
+$$\sum_{i=1}^{n}f(x_{i})\Delta x$$ where $n$ is the number of subintervals. Then, the actual area under the curve is the limit as $n$ approaches $\infty$ of the above sum. Let's apply this by writing a sum that represents the area, A, of the region that lies between the $x$-axis and the function $f(x) = e^{-x}$ from $x=0$ to $x=2$. \\
+
+First, we find an expression for $\Delta x$:\\
+$$\Delta x = \frac{2-0}{n}=\frac{2}{n}$$
+
+Recall that $x_i = a+i\Delta x$. Since $a$ (the beginning of the interval) $=0$, then the general expression for $x_i$ in this case is $0+i\times\frac{2}{n}=\frac{2i}{n}$. Substituting our expressions for $\Delta x$ and $x_i$ into the sum formula, we see that:\\
+$$A=\lim_{n\to\infty}\sum_{i=1}^{n}e^{\frac{-2i}{n}}\frac{2}{n}$$
+
+We can also interpret a sum as the area under a specific function. Take the expression:\\
+$$\lim_{n\to \infty} \sum_{i=1}^{n}\frac{\pi}{n}\sin{\frac{i\pi}{n}}$$
+
+There are two expressions in the sum: $\frac{\pi}{n}$ and $\sin{\frac{i\pi}{n}}$. It makes sense that $\Delta x = \frac{\pi}{n}$ and $f(x_i)=\sin{\frac{i\pi}{n}}$. Because $\Delta x = \frac{b-a}{n}=\frac{\pi}{n}$, it follows that the interval of the area has a width of $\pi$. We will need to examine the other expression, $\sin{\frac{i\pi}{n}}$ to determine an exact window. \\
+
+Since $f(x_i) = \sin{\frac{i\pi}{n}}$, it follows that the function we are looking for is a sine function. Further, the expression for $x_i = \frac{i\pi}{n}$. Recall that $x_i = a + i\Delta x$, where $a$ is the left-most boundary of the interval. Substituting what we have found already, we see that:\\
+$$x_i=a+i\frac{\pi}{n} = \frac{i\pi}{n}$$\\
+which implies that $a=0$. Since we have established the interval is $\pi$ wide, we can infer that $b=\pi$. Therefore, the limit $\lim_{n\to \infty}\sum_{i=1}^{n}\frac{\pi}{n}\sin{\frac{i\pi}{n}}$ is equal to the area under $f(x) = \sin{x}$ from $x=0$ to $x=\pi$. 
+
+\begin{Exercise}[label=limsum1]
+Use the formal definition of a Right Riemann sum to write a limit of a sum that is equal to the total area under the graph of $f$ on the specified interval. Do not evaluate the limit. 
+\begin{enumerate}
+\item $f(x) = \frac{2x}{x^2+1}\text{, } 1 \leq x \leq 3$
+\item $f(x) = x^2+\sqrt{1+2x}\text{, } 4 \leq x \leq 7$
+\item $f(x) = \sqrt{\sin{x}}\text{, } 0 \leq x \leq \pi$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=limsum1]
+\begin{enumerate}
+\item $\Delta x = \frac{3-1}{n}=\frac{2}{n}$ and $x_i = 1+i\frac{2}{n}=1+\frac{2i}{n}$. Substituting, we get $\lim_{n\to\infty}\sum_{i=1}^{n}\frac{2(1+\frac{2i}{n})}{(1+\frac{2i}{n})^2+1} \cdot \frac{2}{n}$
+\item $\Delta x = \frac{7-4}{n}=\frac{3}{n}$ and $x_i = 4+\frac{3i}{n}$. Substituting, we get $\lim_{n\to \infty}\sum_{i=1}^{n}[(4+\frac{3i}{n})^2+\sqrt{1+2(4+\frac{3i}{n})}]\frac{3i}{n}$
+\item $\Delta x = \frac{\pi-0}{n}=\frac{\pi}{n}$ and $x_i = \frac{i\pi}{n}$. Substituting, we get $\lim_{n \to \infty}\sum_{i=1}^{n}\sqrt{\sin{\frac{i\pi}{n}}}\frac{\pi}{n}$
+\end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[label=limsum2]
+Use the formal definition of a Right Riemann sum to find a region on a graph whose are is equal to the given limit. Do not evaluate the limit. 
+\begin{enumerate}
+\item $\lim_{n\to \infty} \sum_{i=1}^{n}\frac{3}{n}\sqrt{1+\frac{3i}{n}}$
+\item $\lim_{n\to\infty} \sum_{i=1}^{n}\frac{\pi}{4n}\tan{\frac{i\pi}{4n}}$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=limsum2]
+\begin{enumerate}
+\item $\Delta x = \frac{3}{n}$, which implies $b-a=3$. We could interpret $\sqrt{1+\frac{3i}{n}}$ two ways: either $f(x) = \sqrt{1+x}$ and $x_i = \frac{3i}{n}$ or $f(x) = \sqrt{x}$ and $x_i=1+\frac{3i}{n}$. In the first case, we can find that $a=0$ and $b=3$, so the limit of the sum represents the area under $f(x) = \sqrt{1+x}$ from $x=0$ to $x=3$. For the second case, we can find that $a=1$ and $b=4$, so the limit of the sum represents the area under $f(x) = \sqrt{x}$ from $x=1$ to $x=4$. 
+\item $\Delta x = \frac{\pi}{4n}$ which implies $b-a=\frac{\pi}{4}$. We can see that $x_i = \frac{i\pi}{4n}$, which implies $a=0$ and therefore also that $b=\frac{\pi}{4}$. Therefore, the limit of the sum represents the total area under $f(x) = \tan{x}$ from $x=0$ to $x=\frac{\pi}{4}$. 
+\end{enumerate}
+\end{Answer}
+
+\subsection{Real-world Riemann Sums}
 Sometimes we are working from real data and the intervals aren't evenly spaced. That's ok! We can still use Riemann sums to make an estimate. Consider the velocity data from the 1992 launch of the space shuttle \textit{Endeavour}, shown in tabular form in figure \ref{fig:endeavourdata}:
 
 \begin{figure}
@@ -456,7 +525,10 @@ Adding the areas, we find the lower limit for the distance traveled is 31,893 fe
 Adding the areas, we find the upper limit for the distance traveled is 54,694 feet. Therefore, the \textit{Endeavour} traveled between 31,893 and 54,694 feet during the first 62 seconds of this flight. 
 
 \section{Code for a Riemann Sum}
-You can create a program that automatically calculates a Riemann sum. Create a file called riemann.py 
+You can create a program that automatically calculates a Riemann sum. Create a file called 
+\begin{Verbatim}
+riemann.py
+\end{Verbatim} 
 %\filname{riemann.py} FIXME \filname control sequence error
 and type the following into it:
 
@@ -622,10 +694,10 @@ Using the values in the table, we can make a possible sketch of $f(x)$:\\
 	\begin{tikzpicture}
 		\begin{axis}
 		[axis lines = center, xmin=1, xmax=5, xlabel=$x$, ylabel=$f(x)$]
-		\filldraw[fill=gray!30, draw=black](1,0) rectangle (2, 0.68907);
-		\filldraw[fill=gray!30, draw=black](2, 0) rectangle (3, 0.66742);
-		\filldraw[fill=gray!30, draw=black](3, 0) rectangle (4, 0.99447);
-		\filldraw[fill=gray!30, draw=black](4, 0) rectangle (5, 1.49185);	
+		\filldraw[fill=gray!30, draw=black, opacity=0.4](1,0) rectangle (2, 0.68907);
+		\filldraw[fill=gray!30, draw=black, opacity=0.4](2, 0) rectangle (3, 0.66742);
+		\filldraw[fill=gray!30, draw=black, opacity=0.4](3, 0) rectangle (4, 0.99447);
+		\filldraw[fill=gray!30, draw=black, opacity=0.4](4, 0) rectangle (5, 1.49185);	
 		\addplot[blue, thick, samples=100]{x-2*ln(x)};
 		\end{axis}
 	\end{tikzpicture}\\
@@ -654,14 +726,14 @@ The tricky part here is noticing the units! In order to have a solution in kilom
 	[axis lines = center, 
         xmin = 0, xmax = 60, xlabel=$t$ (seconds), 
         ymin=0, ymax=245, ylabel=$v$ (km/hr), ytick={40, 80, 120, 160, 200, 240}, xmajorgrids=true, ymajorgrids=true]
-        \filldraw[fill=gray!30, draw=black](0,0) rectangle (10,132);
-        \filldraw[fill=gray!30, draw=black](10, 0) rectangle (20, 180);
-        \filldraw[fill=gray!30, draw=black](20, 0) rectangle (30, 208);
-        \filldraw[fill=gray!30, draw=black](30, 0) rectangle (40, 227);
-        \filldraw[fill=gray!30, draw=black](40, 0) rectangle (50, 237);
-        \filldraw[fill=gray!30, draw=black](50, 0) rectangle (60, 240);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](0,0) rectangle (10,132);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](10, 0) rectangle (20, 180);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](20, 0) rectangle (30, 208);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](30, 0) rectangle (40, 227);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](40, 0) rectangle (50, 237);
+        \filldraw[fill=gray!30, draw=black, opacity=0.4](50, 0) rectangle (60, 240);
         \addplot[blue, thick, samples=100, domain=0:60]{4*sqrt(3600-(x-60)^2)};
 	\end{axis}
 \end{tikzpicture}\\
-We can use the graph to \textit{estimate} the height of each rectangle. Some reasonable estimates are $f(10) = 130\frac{km}{hr}\approx36.1\frac{ms}{s}$, $f(20) = 180\frac{km}{hr}=50\frac{m}{s}$, $f(30) = 210\frac{km}{hr}\approx58.3\frac{m}{s}$, $f(40) = 230\frac{km}{hr}\approx63.9\frac{m}{s}$, $f(50) = 235\frac{km}{hr}\approx65.3\frac{m}{s}$, and $f(60) = 240\frac{km}{hr}\approx66.7\frac{m}{s}$. [Any values within $\pm5$ of the listed values are reasonable.] Noting that each interval is $10$ sec wide and using the estimates of $f(x)$ listed, we can estimate that the distance traveled is $10\text{ }sec\times(36.1\frac{m}{s}+50\frac{m}{s}+58.3\frac{m}{s}+63.9\frac{m}{s}+65.3\frac{m}{s}+66.7\frac{m}{s})=3403$ meters.
+We can use the graph to \textit{estimate} the height of each rectangle. Some reasonable estimates are $f(10) = 130\frac{km}{hr}\approx36.1\frac{ms}{s}$, $f(20) = 180\frac{km}{hr}=50\frac{m}{s}$, $f(30) = 210\frac{km}{hr}\approx58.3\frac{m}{s}$, $f(40) = 230\frac{km}{hr}\approx63.9\frac{m}{s}$, $f(50) = 235\frac{km}{hr}\approx65.3\frac{m}{s}$, and $f(60) = 240\frac{km}{hr}\approx66.7\frac{m}{s}$. [Any values within $\pm5$ of the listed values are reasonable.] Noting that each interval is $10$ sec wide and usingß the estimates of $f(x)$ listed, we can estimate that the distance traveled is $10\text{ }sec\times(36.1\frac{m}{s}+50\frac{m}{s}+58.3\frac{m}{s}+63.9\frac{m}{s}+65.3\frac{m}{s}+66.7\frac{m}{s})=3403$ meters.
 \end{Answer}
