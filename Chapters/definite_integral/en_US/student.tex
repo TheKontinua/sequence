@@ -49,15 +49,26 @@ The following properties of integrals apply when $f(x)$ is continuous or has a f
 
 
 \section{Applications in Physics}
-You should recall that velocity is the derivative of displacement, and acceleration is the derivative of velocity. Therefore, velocity is the integral of acceleration, and displacement is the integral of velocity. Say we know the velocity function for some object and we want to know how far the object moved from time $a$ to time $b$. We take the definite integral from $t=a$ to $t=b$ of the velocity function. 
+We've already seen that the area under a velocity function is displacement and the area under an acceleration function is change in velocity (Riemann Sums). We can use integrals to determine the change in position of an object over a given time frame. If we \textit{also} know the object's starting position, then we can state the object's ending position. Consider the graph of an object's velocity in figure \ref{fig:velocity}:
 
-Suppose an object is moving in a straight line and its velocity can be described by the function $v(t) = 6t-t^2$. What is the particle's displacement from $t=0$ to $t=3$? First, we note that to find displacement we should take the integral of velocity. The definite integral we need is:
-$$\int_{0}^{3} [6t-t^2]\,dt$$
-We can separate this into two integrals:
-$$\int_{0}^{3} 6t\,dt -\int_{0}^{3}t^2\,dt$$
-The antidervative of $6t$ is $3t^2$, and the antiderivative of $t^2$ is $\frac{1}{3}t^3$. 
-$$[3(3)^2-3(0)^2]-[\frac{1}{3}(3)^3-\frac{1}{3}(0)^3]=[27-0]-[9-0]=18$$
-Therefore, the object has a displacement of 18 units (in the real world, you'll know if you're discussing meters, miles, etc.) from $t=0$ to $t=3$. 
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xmin=-1, xmax=10, ymin=-4, ymax=4, xlabel=$t$(sec), ylabel=$v(t)$(m/s), xtick={}, ytick={}, grid=both, minor tick num = 1]
+		\addplot[blue, thick] coordinates {(0, 1) (2, 3)};
+		\addplot[blue, thick] coordinates {(2, 3) (3, 3)};
+		\addplot[blue, thick] coordinates {(3, 3) (7, -3)};
+		\addplot[blue, thick] coordinates {(7, -3) (9, -2)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Velocity of an object from $t=0$ to $t=9$}
+	\label{fig:velocity}
+\end{figure}
+
+We can determine the net displacement of the object from $t=0$ to $t=9$ by evaluating $\int_{0}^{9}v(t)\,dt$. Since the definite integral is equal to the area under the curve, we need to find the total area. As the function consists of straight lines, we will leave the explicit calculation of the area as an exercise for the student. You should find that the total positive area (above the $x$-axis) is 10 meters and the total negative area (below the $x$-axis) is 8 meters. Therefore, the object's displacement over the specified time interval is $10-8=2$ meters. 
+
+When you push on something to move it, you are applying a force over a distance (assuming you are strong enough to move it!). The integral of force as a function of distance is the \textit{work} done on that object.  Work is the change in kinetic energy of an object. 
+
+If you integrate the force as a function of time, that is \textit{impusle}. Impulse is the change in momentum of the object. 
 
 \section{Practice Exercises}
 \begin{Exercise}[label=defint2]
