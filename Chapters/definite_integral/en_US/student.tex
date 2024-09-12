@@ -30,7 +30,40 @@ Following the structure shown in the formal definition of a definite integral, w
 \end{Answer}
 
 \section{Positive and Negative Areas}
-%explain when function is below graph, area is negative and so sum represents NET area
+What if the function dips below the $x$-axis? We consider that area negative: that is, it represents a \textit{decrease} as opposed to an increase. Consider an oscillating object where $v(t) = \sin{\pi x}$ (figure \ref{fig:oscillate}). From $t=0$ to $t=1$, the velocity is positive, which means the object is moving \textit{away from} the starting position. The is a positive displacement. From $t=1$ to $t=2$, the velocity is negative. What does this tell you about the direction the object is moving and its displacement during this time period? A negative velocity means the object is moving \textit{back towards} the starting position, which implies a \textit{negative displacement}.
+
+In general, areas above the $x$-axis are positive while areas below the $x$-axis are negative.
+
+\begin{figure}
+	\begin{tikzpicture}
+		\begin{axis}
+		[xmin=0, xmax=4, ymin=-1, ymax=1, xlabel=$t$(sec), ylabel=$v(t)$(m/s), axis lines = center, ylabel style={yshift=-2.5ex,anchor=east}]
+		\addplot[blue, samples=100, domain=0:4]{sin(pi*deg(x))};
+        \fill [gray!30, opacity=0.4, domain=0:1, variable=\x]
+      		(0, 0)
+     		 -- plot ({\x}, {sin(pi*deg(\x))})
+      		-- cycle;
+      	\node[font=\large] at (0.5, 0.333) {+};
+     	\fill [gray!30, opacity=0.4, domain=1:2, variable=\x]
+      		(1, 0)
+      		-- plot ({\x}, {sin(pi*deg(\x))})
+      		-- cycle;
+      	\node[font=\Large] at (1.5, -0.333) {-};
+      	\fill [gray!30, opacity=0.4, domain=2:3, variable=\x]
+      		(2, 0)
+      		-- plot ({\x}, {sin(pi*deg(\x))})
+      		-- cycle;
+      	\node[font=\large] at (2.5, 0.333) {+};
+      	\fill [gray!30, opacity=0.4, domain=3:4, variable=\x]
+      		(3, 0)
+      		-- plot ({\x}, {sin(pi*deg(\x))})
+      		-- cycle;
+      	\node[font=\Large] at (3.5, -0.333) {-};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{velocity of an oscillating object}
+	\label{fig:oscillate}
+\end{figure}
 
 \section{Properties of Integrals}
 The following properties of integrals apply when $f(x)$ is continuous or has a finite number of jump discontinuities on the interval $a \leq x \leq b$:
@@ -66,9 +99,35 @@ We've already seen that the area under a velocity function is displacement and t
 
 We can determine the net displacement of the object from $t=0$ to $t=9$ by evaluating $\int_{0}^{9}v(t)\,dt$. Since the definite integral is equal to the area under the curve, we need to find the total area. As the function consists of straight lines, we will leave the explicit calculation of the area as an exercise for the student. You should find that the total positive area (above the $x$-axis) is 10 meters and the total negative area (below the $x$-axis) is 8 meters. Therefore, the object's displacement over the specified time interval is $10-8=2$ meters. 
 
-When you push on something to move it, you are applying a force over a distance (assuming you are strong enough to move it!). The integral of force as a function of distance is the \textit{work} done on that object.  Work is the change in kinetic energy of an object. 
+When you push on something to move it, you are applying a force over a distance (assuming you are strong enough to move it!). The integral of force as a function of distance is the \textit{work} done on that object.  Work is the change in kinetic energy (KE) of an object. Mathematically, this is $$\int_{a}^{b}F(d)\,dd=\Delta KE=\frac{1}{2}m(v_f^2-v_i^2)$$
 
-If you integrate the force as a function of time, that is \textit{impusle}. Impulse is the change in momentum of the object. 
+If you integrate the force as a function of time, that is \textit{impulse}. Impulse is the change in momentum (p) of the object. Mathematically, this is $$\int_{a}^{b}F(t)\,dt=\Delta p=m(v_f-v_i)$$
+
+Example problem: You push a 3 kg box with force $F(d) = 0.5d$, where $d$ is measured in meters and $F$ is measured in Newtons. If the box was initially at rest, what is its speed when it reaches the 2 meter mark? (Hint: $KE=\frac{1}{2}mv^2$.) 
+
+Solution: Change in kinetic energy is the area under a force-distance curve. We can plot the force applied to the box from d=0 to d=2 (see figure \ref{fig:KEbox}):
+
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{axis}
+		[xmin=0, xmax=2, ymin=0, ymax=1, xlabel=$d$(m), ylabel=$F(d)$(N), axis lines = center]
+            \fill[gray!30, opacity=0.4](0,0) --(2, 0) -- (2,1) -- cycle;
+            \node[font=\large] at (1.25, 0.4) {$\Delta KE$};
+		\addplot[blue, thick]{0.5*x};
+		\end{axis}
+	\end{tikzpicture}
+ \caption{Force applied to a box over a distance; the shaded area represents the change in kinetic energy.}
+ \label{fig:KEbox}
+\end{figure}
+
+Given that the box's initial velocity is $0\frac{m}{s}$, we know that the initial kinetic energy (KE) is $0J$. This implies that $KE_f=\Delta KE$. We can find $\Delta KE$ from the shaded area:\\
+$$\Delta KE = \frac{1}{2}(2m)(1N)=1 J=KE_f$$\\
+Solving for the final velocity:\\
+$$KE_f = 1 J = \frac{1}{2}(3kg)(v^2)$$
+$$2 J = (3 kg)(v^2)$$
+$$\frac{2}{3}\frac{m^2}{s^2}=v^2$$
+$$v=\sqrt{\frac{2}{3}\frac{m^2}{s^2}}\approx0.816 \frac{m}{s}$$
+
 
 \section{Practice Exercises}
 \begin{Exercise}[label=defint2]
@@ -80,4 +139,51 @@ By property 6, we know that $$\int_{0}^{1}(5-6x^2)\,dx=\int_{0}^{1}5\,dx-\int_{0
 By property 5, we know that $$\int_{0}^{1}5\,dx-\int_{0}^{1}6x^2\,dx=\int_{0}^{1}5\,dx-6\int_{0}^{1}x^2\,dx$$\\
 By property 3, we know that $$\int_{0}^{1}5\,dx = 5(1-0) = 5$$\\
 Putting it all together, we see that $$\int_{0}^{1}(5-6x^2)\,dx=5-6(\frac{1}{3})=5-2=3$$
+\end{Answer}
+
+\begin{Exercise}[label=defint3]
+	This question was originally presented as a multiple-choice problem on the 2012 AP Calculus BC exam. The graph of $f$ is shown. What is the value of $\int_{0}^{4}f(x)\,dx$?\\
+	\begin{tikzpicture}
+		\begin{axis}[xmin=0, xmax=4, xlabel=$x$, ylabel=$f(x)$, ymin = -4, ymax=6, axis lines = center, minor tick = 1, grid = major, ytick={-3, -2, -1, 1, 2, 3, 4, 5}]
+		      \addplot[blue, thick]coordinates{(0, 1) (2, 5)};
+		      \addplot[mark=*, blue]coordinates{(2, 5)};
+		      \addplot[mark=o, blue]coordinates{(2, -3)};
+		      \addplot[blue, thick]coordinates{(2, -3) (4, -3)};
+    		\addplot[mark=*, blue]coordinates{(4, -3)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=defint3]
+We can break the integral into two parts: from $x=0$ to $x=2$ (shaded in blue), and from $x=2$ to $x=4$ (shaded in red). The blue portion is a trapezoid and so has a total area of $\frac{1}{2}(b_1+b_2)(h) = \frac{1}{2}(1+5)(2) = 6$. Because it is above the $x$-axis, the area is positive. The red portion is a rectangle and has a total area of $2\time 3 = 6$ and is \textit{negative} because it lies below the $x$-axis. Therefore, the total area is $6+-6=0$. \\
+
+\begin{tikzpicture}
+		\begin{axis}[xmin=0, xmax=4, xlabel=$x$, ylabel=$f(x)$, ymin = -4, ymax=6, axis lines = center, minor tick = 1, grid = major, ytick={-3, -2, -1, 1, 2, 3, 4, 5}]
+		      \addplot[blue, thick]coordinates{(0, 1) (2, 5)};
+		      \fill[blue!30, opacity=0.4](0, 0)--(2, 0)--(2, 5)--(0,1)--cycle;
+		      \fill[red!30, opacity=0.4](2, 0) rectangle (4, -3);
+		      \addplot[mark=*, blue]coordinates{(2, 5)};
+		      \addplot[mark=o, blue]coordinates{(2, -3)};
+		      \addplot[blue, thick]coordinates{(2, -3) (4, -3)};
+    		\addplot[mark=*, blue]coordinates{(4, -3)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Answer}
+
+\begin{Exercise}[label=defint4]
+	This question was originally presented as a multiple-choice problem on the 2012 AP Calculus BC exam. The graph of the piecewise function $g(x)$ is shown. What is the value of $\int_{-1}^{9}3f(x)+2\,dx$?
+	
+	\begin{tikzpicture}
+		\begin{axis}
+		[xmin=-2, xmax=10, ymin=-3, ymax=4, axis lines = center, xlabel=$x$, ylabel=$y$, grid=major, ytick={-2, -1, 1, 2, 3, 4}, xtick={-1, 1, 2, 3, 4, 5, 6, 7, 8, 9}]
+		\addplot[blue, thick]coordinates{(-1, -1) (2, -1)};
+		\addplot[blue, thick]coordinates{(2, -1) (5, 2)};
+		\addplot[blue, thick]coordinates{(5, 2) (9, 0)};
+            \addplot[blue, mark=*, only marks]coordinates{(-1, -1) (9, 0)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=defint4]
+Using the properties of integrals, we can rewrite $\int_{-1}^{9}3f(x)+2\,dx$ as $3\int_{-1}^{9}f(x)\,dx+2(9--1)$. From the graph, we can determine $\int_{-1}^{9}=2.5$. Therefore, $\int_{-1}^{9}3f(x)+2\,dx=3(2.5)+2(10) = 27.5$. 
 \end{Answer}
