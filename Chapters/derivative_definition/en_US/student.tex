@@ -15,7 +15,42 @@ f'(x) = \lim_{{h \to 0}} \frac{f(x+h) - f(x)}{h}
 
 provided this limit exists. In words, the derivative of $f$ at $x$ is
 the limit of the rate of change of $f$ at $x$ as the change in $x$
-approaches zero.
+approaches zero. The derivative of a function is equal to the slope 
+of the function. 
+
+\begin{Exercise}[label=slope1]
+	[This question was originally presented as a free-response, 
+	calculator-allowed question on the 2012 AP Calculus BC Exam.]
+	The temperature of water in a tub at time $t$ is modeled by a 
+	function, $W$, where $W(t)$ is measured in degrees Fahrenheit and $t$ 
+	is measured in minutes. Values of $W(t)$ at selected times for the 
+	first 20 minutes are given in the table. Use the data in the table 
+	to estimate $W'(12)$. Show the computations that lead to your answer. 
+	Using correct units, interpret the meaning of your answer in the 
+	context of the problem. 
+	\begin{tabular}{c|c}
+	$t$ (minutes) & $W(t)$ (degrees Fahrenheit)\\
+	0 & 55.0\\
+	4 & 57.1\\
+	9 & 61.8\\
+	15 & 67.9\\
+	20 & 71.0\\
+	\end{tabular}	 
+\end{Exercise}
+
+\begin{Answer}[ref=slope1]
+	To estimate the slope at $t = 12$, we can use the data at $t = 9$ 
+	and $t = 15$. The slope of the line connecting those points is 
+	approximate of the slope at $t = 12$. 
+	$$\frac{y_2 - y_1}{x_2 - x_1} = \frac{67.9 - 61.8}{15 - 9} = 
+	\frac{6.1}{6} = 1.017$$ \\
+	The units for the numerator are degrees Fahrenheit and for the 
+	denominator are minutes. Therefore, the estimated slope has units of 
+	degrees Fahrenheit per minute. This represents the change in 
+	temperature of the water in the tub. When $t = 12$, the water in the 
+	tub is increasing in temperature at about 1 degree Fahrenheit per 
+	minute. 
+\end{Answer}
 
 \section{Applications in Mathematics}
 \subsection{l'Hospital's Rule}
@@ -238,4 +273,3 @@ F = \frac{dp}{dt}
 \end{equation}
 
 where $F$ is the force, $p$ is the momentum, and $t$ is the time.
-

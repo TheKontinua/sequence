@@ -1,2 +1,3 @@
 trig_functions
+inv_trig_functions
 transforms
