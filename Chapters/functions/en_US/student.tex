@@ -196,7 +196,8 @@ Not every function has an inverse.  For example, $f(x) = x^2$.  Note
 that $f(2) = f(-2) = 4$.  What would $f^{-1}(4)$ be? 2 or -2?  This
 implies the ``horizontal line test'': If any horizontal line contains
 more than one point of a function's graph, that function has no
-inverse.
+inverse. If a function passes the horizontal line test, it is called 
+"one-to-one", meaning there is exactly one $x$ that gives each $y$. \\
 % index horizontal line test
 \begin{tikzpicture}
     \begin{axis}[
@@ -306,6 +307,67 @@ You can take the square root of nonnegative numbers. So the function
 $f^{-1}(x) = \sqrt{x - 2} + 3$ is defined whenever $x$ is greater than
 or equal to 2.
 
+\end{Answer}
+
+\begin{Exercise}[label=invfunc1]
+A function is given by a table of values, a graph, or a written description. 
+Determine whether it is one-to-one. 
+	\begin{enumerate}
+	\item
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+	$x$ & 1 & 2 & 3 & 4 & 5 & 6\\
+	\hline
+	$f(x)$ & 1.5 & 2.0 & 3.6 & 5.3 & 2.8 & 2.0\\
+	\hline	
+	\end{tabular}
+	\item
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+	$x$ & 1 & 2 & 3 & 4 & 5 & 6\\
+	\hline
+	$f(x)$ & 1.0 & 1.9 & 2.8 & 3.5 & 3.1 & 2.9\\
+	\hline	
+	\end{tabular}
+	\item
+	\begin{tikzpicture}[scale=0.5]
+		\begin{axis}
+		[xmin=-2, xmax=2, xlabel=$x$,
+		ymin=-0.5, ymax=4, ylabel=$y$,
+		axis lines = center, ticks=none]
+		\addplot[blue, thick, samples=100]{e^(-1*x^2)+1};
+		\end{axis}
+	\end{tikzpicture}
+	\item
+	\begin{tikzpicture}[scale=0.5]
+		\begin{axis}
+		[xmin=-1, xmax=3, xlabel=$x$,
+		ymin=-2, ymax=2, ylabel=$y$,
+		axis lines = center, ticks=none]
+		\addplot[blue, thick, samples=100]{-ln(x+1)};
+		\end{axis}
+	\end{tikzpicture}
+	\item $f(t)$ is the height of a football $t$ seconds after kickoff
+	\item $v(t)$ is the velocity of a dropped object
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=invfunc1]
+	\begin{enumerate}
+	\item This function is not one-to-one. From $x=3$ to $x=4$, the 
+	function increases from 3.6 to 5.3, which means it must pass through 
+	$f(x_1)=4.0$. From $x=4$ to $x=5$, the function decreases from 5.3 to 
+	2.8, which means it must pass through $f(x_2) = 4.0$ again. 
+	\item This function is not one-to-one by a similar argument in the 
+	above solution
+	\item This function is not one-to-one because it fails the horizontal 
+	line test
+	\item This function is one-to-one because it passes the horizontal 
+	line test
+	\item $f(t)$ would not be one-to-one because the football must pass 
+	through each height (except the peak height) both on the way up and 
+	on the way back down
+	\item $v(t)$ would be one-to-one because a falling object only speeds 
+	up. Therefore, every time has a unique speed. 
+	\end{enumerate}
 \end{Answer}
 
 \section{Graphing Calculators}
