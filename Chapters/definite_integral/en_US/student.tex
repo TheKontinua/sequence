@@ -117,6 +117,7 @@ f(x)\,dx = 0$$%Property 2
 \end{enumerate}
 
 
+
 \section{Applications in Physics}
 We've already seen that the area under a velocity function is 
 displacement and the area under an acceleration function is change in 
@@ -335,4 +336,25 @@ the coordinate point where $s(x) = 3$, we first note that the
 antiderivative of $\sqrt{3t + 5}$ is $\frac{2}{9}(3t + 5)^{3 / 2} + C$. 
 Therefore, $s(x) = \frac{2}{9}(3x + 5)^{3 / 2} - \frac{2}{9}(5)^{3 / 2}$. 
 Setting $s(x) = 3$ and solving for $x$, we find that $x = 1.159$
+\end{Answer}
+
+\begin{Exercise}[label=defint6]
+	The graph of $f'$ is shown in the graph and consists of a semi-circle 
+	and two line segments. If $f(2) = 1$, then what is $f(-5)$?\\
+	\begin{tikzpicture}[scale = 0.5]
+		\begin{axis}
+		[axis lines = center, xmin = -6, xmax = 6, xlabel = $x$,
+		xtick = {-5, -4, -3, -2, -1, 1, 2, 3, 4, 5},
+		ymin = -3, ymax = 3, ylabel = $f'$, ytick = {-2, -1, 2, 1}]
+		\addplot[blue, thick]coordinates{(-5, 2) (-2, 0)};
+		\node[] at (5, 2) {$(5, 2)$};
+		\node[] at (-5, 2) {$(-5, 2)$};
+		\addplot[blue, thick]coordinates{(5, 2) (2, 0)};
+		\addplot[blue, thick, domain = -2:2]{- sqrt(4 - x^2)};
+		\end{axis}
+	\end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref=defint6]
+	We know that $f(2) = \int_{-5}^2 f'(x)\,dx + f(-5)$. Examining the graph, we know that $\int_{-5}^2 f'(x)\,dx = frac{1}{2}(3)(2) - \frac{1}{2}\pi(2^2)$ (the area of the triangle above the $x$-axis less the area of the semi-circle below the axis). Therefore, $f(-5) = f(2) - \int_{-5}^2 f'(x)\,dx = 1-(3-2\pi) = 2\pi-2$
 \end{Answer}
