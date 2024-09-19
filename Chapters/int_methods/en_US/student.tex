@@ -1,8 +1,34 @@
 \chapter{Methods of Integration}
 
-\section{Partial Fractions}
-
 \section{u-substitution}
+Sometimes a function's antiderivative isn't obvious. Take this 
+integral for example: $$\int 4x \sqrt{1 + 2x^2}\, dx$$\\ We can solve 
+this integral using \textit{u-substitution}. Recall from implicit 
+differentiation that if $u = f(x)$, then we can also say $du = 
+f'(x) dx$. Let's set $u$ so that it is equal to the statement under 
+the square root sign: $$u = 1 + 2x^2$$\\ Taking the derivative of both 
+sides, we see that $$du = (4x) dx$$ How does this help us evaluate 
+the integral? First, let's rearrange the integrand a bit: $$\int 4x 
+\sqrt{1 + 2x^2}\,dx = \int \sqrt{1 + 2x^2} 4x\,dx$$\\ We can substitute 
+$u = 1 + 2x^2$ and $du = 4x dx$ to get: $$= \int \sqrt{u}\,du$$\\ That 
+is a much nicer integral! We can evaluate this integral using the 
+Power Rule: $$\int \sqrt{u}\,du = \frac{2}{3}u^{3/2}$$\\ We can now 
+substitute $u = 1 + 2x^2$ back into our solution to yield: $$= 
+\frac{2}{3}(1 + 2x^2)^{3/2}$$\\ Feel free to double-check this answer 
+by taking the derivative using the Chain Rule. You should get the 
+original integrand, $4x \sqrt{1 + 2x^2}$, back. 
+
+As you may have guessed, u-substitution is a method to help us "undo" 
+the Chain Rule. Recall that the Chain Rule states: $$\frac{d}{dx}
+f(g(x)) = f'(g(x))g'(x)$$\\ If we integrate both sides we see that: 
+$$f(g(x)) = \int f'(g(x))g'(x)\,dx$$ Which leads us to the formal 
+definition of the u-substitution method:\\
+
+If u = g(x) is a differentiable function whose range is an interval 
+$I$ and $f$ is continuous on $I$, then $\int f(g(x))g'(x)\,dx = \int 
+f(u)\,du$
+
+\section{Partial Fractions}
 
 \section{Integration by Parts}
 

@@ -11,12 +11,103 @@ reverse process of differentiation. It involves finding a function
 whose derivative is equal to a given function. In simple terms, if you
 have a function and you want to find another function that, when
 differentiated, gives you the original function back, you are looking
-for its antiderivative.
+for its antiderivative. Consider the graph of $f(x)$ below. We can 
+sketch a possible antiderivative of $f$ by noting the slope of the 
+antiderivative is equal to the value of $f$. We will refer to the 
+antiderivative of $f$ as $F(x)$ (that is, $F'(x) = f(x)$).
+
+\begin{figure}[htpb]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}
+		[axis lines = center, xlabel = $x$, ylabel = $f(x)$,
+        xmin = -1, xmax = 2.5, xtick = {0.5, 1, 1.5, 2},
+        ymin = -2, ymax = 2, grid = major]
+        	\addplot[blue, thick, domain = 0:5, samples=200]
+        	{4*x^3-12*x^2+10*x-2};
+        	\addplot[mark=*, blue, only marks]
+        	coordinates{(0,-2) (0.293, 0) (0.592, 0.544) (1, 0) 
+        	(1.408, -0.544) (1.707, 0) (2, 2)};
+		\end{axis}
+    \end{tikzpicture}
+    \caption{Plot of $f$ with select points}
+    \label{fig:fplot}
+\end{figure}
+
+If we are given a coordinate for $F(x)$, then we can use the 
+graph of $f(x)$ to sketch $F(x)$. Suppose we know that $F(0) = 1$. 
+From the graph of $f$, we also know that\\
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+    $x$ & $f(x)=$  slope of $F(x)$ \\
+    \hline
+    0 & -2\\
+    \hline
+    $\approx0.3$ & 0\\
+    \hline
+    $\approx0.6$ & $\approx0.5$\\
+    \hline
+    1 & 0\\
+    \hline
+    $\approx1.4$ & $\approx-0.4$\\
+    \hline
+    $\approx1.7$ & 0\\
+    \hline
+    2 & 2\\
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}
+		[axis lines = center, xlabel = $x$, ylabel = $f(x)$,
+        xmin = -1, xmax = 2.5, xtick = {0.5, 1, 1.5, 2},
+        ymin = 0, ymax = 1.5, grid = major]
+        	\addplot[mark=*, red, only marks]coordinates{(0,1)};
+        	\addplot[red, dashed, thick, domain = -0.1:0.1]{-2*x+1};
+        	\addplot[red, dashed, thick, domain = 0.2:0.4]{0.75};
+        	\addplot[red, dashed, thick, domain = 0.5:0.7]{0.5*x+0.55};
+        	\addplot[red, dashed, thick, domain = 0.9:1.1]{1};
+        	\addplot[red, dashed, thick, domain = 1.3:1.5]{-0.4*x+1.42};
+        	\addplot[red, dashed, thick, domain = 1.6:1.8]{0.75};
+        	\addplot[red, dashed, thick, domain = 1.9:2.1]{2*x-3};
+		\end{axis}
+    \end{tikzpicture}
+    \caption{Beginning sketch of $F(x)$}
+    \label{fig:intfsketch}
+\end{figure}
+
+Then we can connect these slopes to have an approximate sketch of 
+$F(x)$:
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}
+		[axis lines = center, xlabel = $x$, ylabel = $f(x)$,
+        xmin = -1, xmax = 2.5, xtick = {0.5, 1, 1.5, 2},
+        ymin = 0, ymax = 1.5, grid = major]
+        	\addplot[blue, thick, domain = -0.1:2.1]{1+x*(x-2)*(x-1)^2};
+        	\addplot[mark=*, red, only marks]coordinates{(0,1)};
+        	\addplot[red, dashed, thick, domain = -0.1:0.1]{-2*x+1};
+        	\addplot[red, dashed, thick, domain = 0.2:0.4]{0.75};
+        	\addplot[red, dashed, thick, domain = 0.5:0.7]{0.5*x+0.55};
+        	\addplot[red, dashed, thick, domain = 0.9:1.1]{1};
+        	\addplot[red, dashed, thick, domain = 1.3:1.5]{-0.4*x+1.42};
+        	\addplot[red, dashed, thick, domain = 1.6:1.8]{0.75};
+        	\addplot[red, dashed, thick, domain = 1.9:2.1]{2*x-3};
+		\end{axis}
+    \end{tikzpicture}
+    \caption{Sketch of $F(x)$}
+    \label{fig:intf}
+\end{figure}
 
 The symbol used to represent an antiderivative is $\int$. It is called
 the integral sign. For example, if $f(x)$ is a function, then the
-antiderivative of $f(x)$ with respect to $x$ is denoted as $\int f(x)
-, dx$. The $dx$ at the end indicates that we are integrating with
+antiderivative of $f(x)$ with respect to $x$ is denoted as $\int f(x)\,dx$. 
+The $dx$ at the end indicates that we are integrating with
 respect to $x$.
 
 Another way to state this is that $F$ is the antiderivative of $f$ on 
@@ -30,7 +121,7 @@ rules. Some common antiderivative rules include:
 \begin{itemize}
 \item The power rule: If $f(x) = x^n$, where $n$ is any real number
   except $-1$, then the antiderivative of $f(x)$ is given by $\int
-  f(x) , dx = \frac{1}{n+1}x^{n+1} + C$, where $C$ is the constant of
+  f(x)\,dx = \frac{1}{n+1}x^{n+1} + C$, where $C$ is the constant of
   integration.
 
 \item The constant rule: The antiderivative of a constant function is
@@ -39,7 +130,7 @@ rules. Some common antiderivative rules include:
 
 \item The sum and difference rule: If $f(x)$ and $g(x)$ are functions,
   then $\int (f(x) + g(x)) \, dx = \int f(x) \, dx + \int g(x) \,
-  dx$. Similarly, $\int (f(x) - g(x)) , dx = \int f(x) \, dx - \int
+  dx$. Similarly, $\int (f(x) - g(x))\,dx = \int f(x) \, dx - \int
   g(x) \, dx$.
 \end{itemize}
 
@@ -70,22 +161,28 @@ us define $G(x) = \frac{1}{3} x^3 + 2$. Well, $G'(x) = f(x)$ also!
 Same for $H(x) = \frac{1}{3} x^3 - 7$. Several possible antiderivatives 
 of $f(x) = x^2$ are shown in figure \ref{fig:antideriv}. 
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}
-			[axis lines = center, 
+			[axis lines = center, legend pos = north west,
 			xmin=-3, xmax=3, xlabel=$x$, 
-			ylabel=$y$, ymin=-10, ymax=10]
-		\addplot[red, samples=50, domain=-3:3]{(1/3)*x^3 - 5};
-		\addplot[orange, samples=50, domain=-3:3]{(1/3)*x^3 - 3};
-		\addplot[yellow, samples=50, domain=-3:3]{(1/3)*x^3 - 1};
-		\addplot[green, samples=50, domain=-3:3]{(1/3)*x^3 + 1};
-		\addplot[blue, samples=50, domain=-3:3]{(1/3)*x^3 +3};
-		\addplot[purple, samples=50, domain=-3:3]{(1/3)*x^3 + 5};
+			ylabel=$y$, ymin=-10, ymax=15]
+			\addplot[red, samples=50, domain=-3:3]{(1/3)*x^3 - 5};
+			\addlegendentry{$C = -5$}
+			\addplot[orange, samples=50, domain=-3:3]{(1/3)*x^3 - 3};
+			\addlegendentry{$C = -3$}
+			\addplot[yellow, samples=50, domain=-3:3]{(1/3)*x^3 - 1};
+			\addlegendentry{$C = -1$}
+			\addplot[green, samples=50, domain=-3:3]{(1/3)*x^3 + 1};
+        	\addlegendentry{$C = 1$}
+			\addplot[blue, samples=50, domain=-3:3]{(1/3)*x^3 +3};
+        	\addlegendentry{$C = 3$}
+			\addplot[purple, samples=50, domain=-3:3]{(1/3)*x^3 + 5};
+        	\addlegendentry{$C = 5$}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Several possible solutions to $F'(x) = x^2$}
+	\caption{If $F'(x) = x^2$, then the general solution is $F(x) = \frac{1}{3}x^3+C$}
 	\label{fig:antideriv}
 \end{figure} 
 
@@ -128,15 +225,25 @@ You should have found that the antiderivative of $\sin{x}$ is
 $-\cos{x}$. Other general antiderivatives of trigonometric functions 
 are presented in the table below. 
 
-\begin{tabular}{c|c}
-Function & Antiderivative\\
-$\cos{x}$ & $\sin{x} + C$\\
-$\sin{x}$ & $-\cos{x} + C$\\
-$\sec^2{x}$ & $\tan{x} + C$\\
-$\sec{x} \tan{x}$ & $\sec{x} + C$\\
-$-\csc^2{x}$ & $\cot{x} + C$\\
-$-\csc{x} \cot{x}$ & $\csc{x} + C$\\
-\end{tabular}
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		Function & Antiderivative\\
+		\hline
+		$\cos{x}$ & $\sin{x} + C$\\
+		\hline
+		$\sin{x}$ & $-\cos{x} + C$\\
+		\hline
+		$\sec^2{x}$ & $\tan{x} + C$\\
+		\hline
+		$\sec{x} \tan{x}$ & $\sec{x} + C$\\
+		\hline
+		$-\csc^2{x}$ & $\cot{x} + C$\\
+		\hline
+		$-\csc{x} \cot{x}$ & $\csc{x} + C$\\
+		\hline
+	\end{tabular}
+\end{center}
+
 
 Notice this is the flipped version of the derivatives of trigonometric 
 functions presented in the Trigonometric Functions chapter. This hints 
@@ -147,16 +254,57 @@ opposite processes.
 
 The Power Rule only applies when $n\neq-1$. Then what is the 
 antiderivative of $f(x) = \frac{1}{x}$? Recall from the chapters on 
-derivatives that $\frac{d}{dx} \ln{x} = \frac{1}{x}$. Therefore, the 
-general antiderivative of $\frac{1}{x}$ is $\ln{|x|} + C$. We have to 
-take the absolute value because of the domain restrictions of $\ln{x}$. 
+derivatives that $\frac{d}{dx} \ln{x} = \frac{1}{x}$ (see figure 
+\ref{fig:naturallog}). Therefore, the general antiderivative of 
+$\frac{1}{x}$ is $\ln{|x|} + C$. We have to take the absolute value 
+because of the domain restrictions of $\ln{x}$. Notice that for $x<0$, 
+the slope of $\ln{|x|}$ is negative and decreasing (becoming more 
+negative) and the value of $\frac{1}{x}$ is also negative and 
+decreasing. Similarly, for $x>0$, the slope of $\ln{|x|}$ is positive 
+and decreasing (becoming less positive) and the value of $\frac{1}{x}$ 
+is also positive and decreasing. 
+
+\begin{figure}[htpb]
+\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, legend pos = north west,
+			xmin = -5, xmax = 5, xlabel = $x$,
+			ymin = -5, ymax = 5, ylabel = $y$]
+            \addplot[red, thick, samples=50, domain= 0.1:5]{1/x};
+			\addlegendentry{$f(x) = \frac{1}{x}$}
+			\addplot[blue, thick, samples=100, domain = 0.00001:5]{ln(x)};
+			\addlegendentry{$\int \frac{1}{x}\,dx = \ln{|x|}$}
+            \addplot[red, thick, samples=50, domain=-5:-0.001]{1/x};
+            \addplot[blue, thick, samples=50, domain = -5:-0.001]{ln(-1*x)};
+		\end{axis}
+	\end{tikzpicture}
+ \caption{$\frac{1}{x}$ and its antiderivative, $\ln{|x|}$}
+ \label{fig:naturallog}
+\end{figure}
 
 Since the derivative of $e^{x}$ is $e^{x}$, it follows that the general 
 antiderivative of $e^{x}$ is $e^{x} + C$. What if there is a 
 multiplying factor in the exponent, such as $e^{kx}$? Recall that 
 $\frac{d}{dx} e^{kx} = k e^{kx}$. It follows that $\frac{d}{dx} 
 \frac{1}{k} e^{kx} = e^{kx}$. Therefore, the general antiderivative of 
-$e^{kx}$ is $\frac{1}{k} e^{kx} + C$. 
+$e^{kx}$ is $\frac{1}{k} e^{kx} + C$. (See figure \ref{fig:antiexp} 
+for an example where $k = 2$.)
+
+\begin{figure}[htbp]
+\centering
+	\begin{tikzpicture}
+		\begin{axis}
+			[xmin = -2, xmax = 2, xlabel = $x$, ylabel = $y$, ymax = 25,
+			axis lines = center, legend pos = north west]
+			\addplot[blue, thick, samples = 100, domain = -2:2]{e^(2*x)};
+			\addlegendentry{$e^{2x}$}
+			\addplot[red, thick, samples = 100, domain = -2:2]{0.5*e^(2*x)};
+			\addlegendentry{$\frac{1}{2} e^{2x}$}
+		\end{axis}	
+	\end{tikzpicture}
+	\caption{$e^{2x}$ and its antiderivative $\frac{1}{2}e^{2x}$}
+	\label{fig:antiexp}
+\end{figure}
 
 Often, the base of an exponential function isn't $e$. We can also find 
 the general antiderivative of $b^{x}$, where $b \neq e$. Recall that 
