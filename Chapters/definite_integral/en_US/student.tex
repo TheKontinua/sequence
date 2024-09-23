@@ -48,13 +48,12 @@ the velocity is positive, which means the object is moving
 displacement. From $t = 1$ to $t = 2$, the velocity is negative. What 
 does this tell you about the direction the object is moving and its 
 displacement during this time period? A negative velocity means the 
-object is moving \textit{back towards} the starting position, which 
-implies a \textit{negative displacement}.
+object is moving \textit{back towards} the starting position.
 
 In general, areas above the $x$-axis are positive while areas below 
 the $x$-axis are negative.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\begin{tikzpicture}
 		\begin{axis}
 		[xmin=0, xmax=4, ymin=-1, ymax=1, 
@@ -116,6 +115,205 @@ f(x)\,dx = 0$$%Property 2
 %Property 10
 \end{enumerate}
 
+\subsection{What happens when $a=b$?}
+
+What if the endpoints of the integral are the same? Let's consider 
+$\int_a^b x^2\,dx$ and take the limit as $b \to a$ (shown in figure 
+\ref{fig:aequalb}). As you can see, as $b$ approaches $a$, the 
+calculated area decreases. Intuitively, we can guess that when $b=a$, 
+then the width of the area ($\Delta x$) is zero, and therefore the 
+area is also zero. Let's prove this formally. 
+
+Recall that $\int_a^b f(x)\,dx = \lim_{n\to \infty} \sum_{i = 1}^{n}
+f(x_i)\Delta x$, where $\Delta x = \frac{b - a}{n}$ and $x_i = a + i
+\Delta x$. To evaluate the integral when $b = a$, we will take the 
+limit of the limit: $$\lim_{b \to a} \lim_{n \to \infty}f(x_i)
+\frac{b - a}{n}$$ This can be rewritten as $$\lim_{b \to a} (b - a) 
+\lim_{n \to \infty}\frac{f(x_i)}{n}$$ We know that $\lim_{b \to a}
+(b - a) = (a - a) = 0$, and therefore $$\int_a^a f(x)\,dx = 0 \cdot 
+\lim_{n \to \infty}\frac{f(x_i)}{n} = 0$$ This is true for any 
+function. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = 0, xmax = 4, 
+        xlabel = $x$, ymin = 0, ymax = 16, ylabel=$y$, 
+        xtick={1, 1.5, 2, 2.5, 3}, 
+        xticklabels = {$a$, $b_n$, $b_3$, $b_2$, $b_1$}]
+            \addplot[blue, thick, samples = 100]{x^2};
+            \filldraw[fill=gray!30, opacity=0.4, domain = 1:3, 
+            variable=\x]
+            (1,0) -- plot ({\x}, {\x*\x}) --(3, 0) -- cycle;
+            \filldraw[fill=gray!70, opacity=0.4, domain = 1:1.5, 
+            variable=\x]
+            (1,0) -- plot ({\x}, {\x*\x}) --(1.5, 0) -- cycle;
+            \draw[->, thick](2.75, 1) --(1.75, 1);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{As $b$ gets closer to $a$, the area represented by the 
+    integral decreases}
+    \label{fig:aequalb}
+\end{figure}
+
+\subsection{The integral of a constant}
+When the function we are integrating is a constant (that is, it takes 
+the form $f(x) = C$), the area is simply $(b - a) \cdot C$. This is 
+shown graphically in figure \ref{fig:constant}. 
+
+\begin{figure}[htbp]
+	\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin=0, xmax=5,
+        ymin = 0, ymax = 5, xtick={1, 4}, xticklabels={$a$, $b$},
+        xlabel=$x$, ylabel=$y$, ytick={4}, yticklabels={$C$}]
+            \addplot[blue, thick]{4};
+            \fill[gray!30, opacity=0.4](1, 0) rectangle (4, 4);
+            \draw[<->, thick](1, 0.25)--(4, 0.25);
+            \draw[<->, thick](0.75, 0)--(0.75,4);
+            \node[] at (2.5, .5) {Width = $b - a$};
+            \node[rotate=90] at (0.5, 2) {Height = $C$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$\int_a^b f(x)\,dx = (b - a)\cdot C$}
+    \label{fig:constant}
+\end{figure}
+
+Since $f(x) = C$ is a horizontal line, the area under $f(x)$ is simply 
+a rectangle. As you can see in figure \ref{fig:constant}, the width of 
+the rectangle is $b - a$ and the height is $C$. To find the area of a 
+rectangle, we multiply the width by the height, and therefore $\int_a^b 
+C\,dx = (b - a)\cdot C$.
+
+\subsection{Integrals of sums and differences of functions}
+If a function can be described as a sum of two other functions, then 
+the integral of the original function is the same as the sum of the 
+integrals of the two other functions. Concretely, we say $\int_a^b 
+f(x) + g(x)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx$. Figure 
+\ref{fig:intsum} shows $f(x) = x + 2$, $g(x) = 4x^3-12x^2+10x$, and 
+$f(x) + g(x)$. As you can see, the area under $f(x) + g(x)$ is equal 
+to the area under $f(x)$ (the red area) plus the area under $g(x)$ 
+(the diagonal lined area). 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = 0, xmax = 2, 
+        xlabel = $x$, ymin = 0, ymax = 8, ylabel = $y$, 
+        legend pos = north west]
+            \addplot[red, thick, samples=50, domain = 0:2]{x+2};
+            \fill[red!30, opacity = 0.4, variable = \x]
+            (0,0) -- 
+            plot ({\x}, {\x + 2}) --
+            (2, 0) -- 
+            cycle;
+            \addlegendentry{$f(x)$}
+            \addplot[blue, thick, samples=50, domain = 0:2]
+            {4*x^3-12*x^2+10*x};
+            \fill[pattern = north west lines, pattern color = black, 
+            variable = \x, domain = 0:2]
+            (0,0) -- 
+            plot({\x}, {4*\x^3-12*\x^2+10*\x}) -- 
+            (2, 0) --
+            cycle;
+            \addlegendentry{$g(x)$}
+            \addplot[violet, thick, samples=50, domain = 0:2]
+            {4*x^3-12*x^2+11*x+2};
+            \fill[pattern color = black, pattern = north west lines, 
+            domain = 0:2, variable = \x] 
+            (0,2) -- 
+            plot ({\x}, {4*\x^3 - 12*\x^2 + 11*\x + 2}) -- 
+            (2, 4) -- 
+            plot ({\x}, {\x+2}) -- cycle;
+            \addlegendentry{$f(x) + g(x)$}
+        \end{axis} 
+    \end{tikzpicture}
+    \caption{The intergral of $f(x) + g(x)$ is equal to the integral 
+    of $f(x)$ plus the integral of $g(x)$}
+    \label{fig:intsum}
+\end{figure}
+
+Mathematically, we can prove this by recalling that the limit of a 
+sum is the sum of the limits: $$\int_a^b f(x) + g(x)\,dx = 
+\lim_{n \to \infty} \sum_{i=1}^n [f(x_i)+g(x_i)]\Delta x$$ 
+$$=\lim_{n \to \infty} [\sum_{i=1}^n f(x_i)\Delta x + \sum_{i = 1}^n 
+g(x_i) \Delta x]$$ $$= \lim_{n \to \infty}\sum_{i=1}^n f(x_i)\Delta 
+x + \lim_{n \to \infty} \sum_{i = 1}^n g(x_i) \Delta x$$ $$ = 
+\int_a^b f(x)\,dx + \int_a^b g(x)\,dx$$
+
+\subsection{Integrals of adjacent areas}
+If $c$ is some $x$-value between $a$ and $b$, then $\int_a^c f(x)\,dx 
++ \int_c^b f(x)\,dx = \int_a^b f(x)\,dx$. This is shown graphically in 
+figure \ref{fig:adjacent}. The total area from $x=a$ to $x=b$ is equal 
+to the red area (the integral from $a$ to $c$) plus the blue area (the 
+integral from $c$ to $b$). 
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+		[axis lines = center, xmin = 0, xmax = 2, xlabel = $x$, 
+		ymin = 0, ymax = 8, ylabel = $y$,
+		xtick = {0.5, 1, 1.5, 2}, xticklabels = {$a$, $c$, $b$ , }]
+		\addplot[blue, thick, domain = 0:2]{4*x^3-12*x^2+11*x+2};
+		\fill[blue!30, opacity = 0.4, variable = \x, domain = 0.5:1]
+		(0.5,0) -- 
+		plot({\x},{4*\x^3 - 12*\x^2 + 11*\x + 2}) -- 
+		(1,0) -- 
+		cycle;
+		\fill[red!30, opacity = 0.4, variable = \x, domain = 1:1.5]
+		(1, 0) --
+		plot ({\x}, {4*\x^3 - 12*\x^2 + 11*\x + 2})--
+		(1.5, 0)--
+		cycle;
+		\fill[pattern = north west lines, variable = \x, domain = 0.5:1.5]
+		(0.5, 0) --
+		plot ({\x}, {4*\x^3 - 12*\x^2 + 11*\x + 2})--
+		(1.5, 0)--
+		cycle;
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$\int_a^c f(x)\,dx + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx$}
+	\label{fig:adjacent}
+\end{figure}
+
+\subsection{Estimating the value of an integral}
+Suppose we need to know the area under a complex function. We can 
+estimate a range for the value of the integral if we can bookend the 
+function over the interval we are interested. Suppose there is some 
+value $m$ such that $f(x) \geq m$ and some other value $M$ such that 
+$f(x) \leq M$ on the interval we are interested in (see figure 
+\ref{fig:bookend}). The total area under $f(x)$ is the light blue 
+plus the darker blue. The total area under $y=M$ is the darker blue, 
+plus the light blue, plus the white area. The darker blue area under 
+the curve has total area $m \cdot (b - a)$ and the rectangle under 
+$y=M$ has total area $M \cdot (b - a)$. The actual area under our 
+function is more than just the dark blue area, but less than the total 
+area under $y=M$. Therefore, $m(b - a) \leq \int_a^b f(x)\,dx \leq 
+M(b -a)$ if $m \leq f(x)$ and $M \geq f(x)$ on the interval $x \in 
+[a, b]$. 
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xmin = 0, xmax = 2, xlabel = $x$,
+		xtick={0.25, 1.75}, xticklabels = {a, b},
+		ymin = 0, ymax = 2, ylabel = $y$, ytick = {0.5, 1.5}, 
+		yticklabels={m, M}]
+			\addplot[blue, thick, domain = 0.25:1.75, samples = 100]
+			{(x)*(x-1)*(x-2)+1};
+			\addplot[red, thick, domain = 0:2]{0.5};
+			\addplot[red, thick, domain = 0:2]{1.5};
+			\addplot[black]coordinates{(0.25, 0) (0.25, 1.5)};	
+			\addplot[black]coordinates{(1.75, 0) (1.75, 1.5)};	
+			\fill[blue!70, opacity = 0.4] (0.25, 0) rectangle (1.75, 0.5);
+			\fill[blue!30, opacity = 0.4, domain =0.25:1.75] (0.25, 0.5) -- 
+			plot ({\x}, {(\x)*(\x-1)*(\x-2)+1}) -- (1.75, 0.5) --cycle;
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$m \leq f(x) \leq	M$}
+	\label{fig:bookend}
+\end{figure}
 
 
 \section{Applications in Physics}
@@ -144,7 +342,7 @@ ending position. Consider the graph of an object's velocity in figure
 \end{figure}
 
 We can determine the net displacement of the object from $t = 0$ to 
-$t = 9$ by evaluating $\int_{0}^{9} v(t) \ , dt$. Since the definite 
+$t = 9$ by evaluating $\int_{0}^{9} v(t)\, dt$. Since the definite 
 integral is equal to the area under the curve, we need to find the 
 total area. As the function consists of straight lines, we will leave 
 the explicit calculation of the area as an exercise for the student. 
@@ -157,7 +355,7 @@ When you push on something to move it, you are applying a force over
 a distance (assuming you are strong enough to move it!). The integral 
 of force as a function of distance is the \textit{work} done on that 
 object.  Work is the change in kinetic energy (KE) of an object. 
-Mathematically, this is $$\int_{a}^{b} F(d)\,dd = \Delta KE = 
+Mathematically, this is $$\int_{a}^{b} F(x)\,dx = \Delta KE = 
 \frac{1}{2} m (v_f^2 - v_i^2)$$
 
 If you integrate the force as a function of time, that is 
@@ -165,8 +363,8 @@ If you integrate the force as a function of time, that is
 object. Mathematically, this is $$\int_{a}^{b} F(t)\,dt = \Delta p 
 = m (v_f - v_i)$$
 
-Example problem: You push a 3 kg box with force $F(d) = 0.5d$, where 
-$d$ is measured in meters and $F$ is measured in Newtons. If the box 
+Example problem: You push a 3 kg box with force $F(x) = 0.5x$, where 
+$x$ is measured in meters and $F$ is measured in Newtons. If the box 
 was initially at rest, what is its speed when it reaches the 2 meter 
 mark? (Hint: $KE = \frac{1}{2} m v^2$.) 
 
@@ -178,7 +376,7 @@ figure \ref{fig:KEbox}):
 	\begin{tikzpicture}
 		\begin{axis}
 		[xmin=0, xmax=2, ymin=0, ymax=1, 
-		xlabel=$d$(m), ylabel=$F(d)$(N), axis lines = center]
+		xlabel=$x$(m), ylabel=$F(x)$(N), axis lines = center]
             \fill[gray!30, opacity=0.4](0,0) --(2, 0) -- (2,1) -- cycle;
             \node[font=\large] at (1.25, 0.4) {$\Delta KE$};
 		\addplot[blue, thick]{0.5*x};
