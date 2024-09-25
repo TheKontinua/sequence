@@ -17,23 +17,19 @@ To find the derivative of $y$ with respect to $x$, we differentiate
 both sides of this equation with respect to $x$, treating $y$ as an
 implicit function of $x$:
 
-\[
-\frac{d}{dx} F(x, y) = \frac{d}{dx} 0
-\]
+$$\frac{d}{dx} F(x, y) = \frac{d}{dx} 0$$
 
 Applying the chain rule during the differentiation on the left side of
 the equation gives:
 
-\[
-\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y} \frac{dy}{dx} = 0
-\]
+$$\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y} 
+\frac{dy}{dx} = 0$$
 
 Finally, we solve for $\frac{dy}{dx}$ to find the derivative of $y$
 with respect to $x$:
 
-\[
-\frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}
-\]
+$$\frac{dy}{dx} = 
+-\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}$$
 
 This result is obtained using the implicit differentiation method.
 
@@ -41,35 +37,53 @@ This result is obtained using the implicit differentiation method.
 
 Consider the equation of a circle with radius $r$:
 
-\[
-x^2 + y^2 = r^2
-\]
-First, we'll find $\frac{dy}{dx}$ the without implicit differentiation. Then, we'll apply implicit differentiation to get the same result. 
+$$x^2 + y^2 = r^2$$
+
+First, we'll find $\frac{dy}{dx}$ the without implicit 
+differentiation. Then, we'll apply implicit differentiation to get 
+the same result. 
 
 \subsection{Without Implicit Differentiation}
-First, we need to re-arrange the equation to solve for y: $$y^2 = r^2-x^2$$
-$$y=\pm \sqrt{r^2-x^2}$$
+First, we need to re-arrange the equation to solve for y: $$y^2 = r^2 
+- x^2$$
+$$y = \pm \sqrt{r^2 - x^2}$$
 
 We take the derivative of $y$ by applying the Chain Rule:
-$$\frac{dy}{dx}=\frac{1}{2\pm \sqrt{r^2-x^2}}\cdot -2x = \frac{-x}{\pm \sqrt{r^2-x^2}}$$ 
+$$\frac{dy}{dx}=\frac{1}{2 \pm \sqrt{r^2 - x^2}} \cdot (- 2x) = 
+\frac{-x}{\pm \sqrt{r^2 - x^2}}$$ 
 
-Notice the denominator of this fraction is the same as the solution we found for $y$, $y=\pm \sqrt{r^2-x^2}$. So we can also represent this as: $$\frac{dy}{dx}=\frac{-x}{y}$$
+Notice the denominator of this fraction is the same as the solution 
+we found for $y$, $y=\pm \sqrt{r^2-x^2}$. So we can also represent 
+this as: $$\frac{dy}{dx}=\frac{-x}{y}$$
 
 \subsection{With Implicit Differentiation}
-With implicit differentiation, we assume $y$ is a function of $x$ and apply the Chain Rule. $$\frac{d}{dx}[x^2+y^2]=\frac{d}{dx}[r^2]$$ For $x^2$ and $r^2$, we take the derivative as we normally would. For $y^2$, we apply the Chain Rule as outlined above. $$2x+2y\frac{dy}{dx}=0$$ Solving for $\frac{dy}{dx}$, we find $$\frac{dy}{dx}=\frac{-x}{y}$$ which is the same result as we found without implicit differentiation. 
+With implicit differentiation, we assume $y$ is a function of $x$ and 
+apply the Chain Rule. $$\frac{d}{dx}[x^2+y^2]=\frac{d}{dx}[r^2]$$ For 
+$x^2$ and $r^2$, we take the derivative as we normally would. For 
+$y^2$, we apply the Chain Rule as outlined above. 
+$$2x+2y\frac{dy}{dx}=0$$\\ Solving for $\frac{dy}{dx}$, we find 
+$$\frac{dy}{dx}=\frac{-x}{y}$$ \\which is the same result as we found 
+without implicit differentiation. 
 
 \section{Folium of Descartes}
-It was relatively easy to rearrange the equation for a circle to solve for y, but that is not always the case. Consider the equation for the folium of Descartes (yes, that Descartes!): $$x^3+y^3=3xy$$ It is much more difficult to isolate $y$ in this equation. In fact, were we to do so, we would need 3 separate equations to completely describe the original equation. 
+It was relatively easy to rearrange the equation for a circle to 
+solve for y, but that is not always the case. Consider the equation 
+for the folium of Descartes (yes, that Descartes!): $$x^3+y^3=3xy$$ 
+It is much more difficult to isolate $y$ in this equation. In fact, 
+were we to do so, we would need 3 separate equations to completely 
+describe the original equation. 
 
 \subsection{Example: Tangent to Folium of Descartes}
 
-In this example, we will use implicit differentiation to easily find the tangent line at a point on the folium. 
+In this example, we will use implicit differentiation to easily find 
+the tangent line at a point on the folium. 
 
 (a) Find $\frac{dy}{dx} \text{ if } x^3+y^3 = 6xy$
 
 (b) Find the tangent to the folium $x^3+y^3=3xy$ at the point $(2, 2)$
 
-(c) Is there any place in the first quadrant where the tangent line is horizontal? If so, state the point(s). 
+(c) Is there any place in the first quadrant where the tangent line 
+is horizontal? If so, state the point(s). 
 
 Solution:
 
@@ -80,12 +94,57 @@ Rearranging to solve for $\frac{dy}{dx}$:
 $$\frac{dy}{dx}(y^2-x)=y-x^2$$
 $$\frac{dy}{dx}=\frac{y-x^2}{y^2-x}$$
 
-(b) We already have the coordinate point, $(2, 2)$, so to write an equation for the tangent line all we need is the slope. Substituting $x=2 \text{ and }y=2$ into our result from part (a):
+(b) We already have the coordinate point, $(2, 2)$, so to write an 
+equation for the tangent line all we need is the slope. Substituting 
+$x=2 \text{ and }y=2$ into our result from part (a):
 $$\frac{dy}{dx}=\frac{2-2^2}{2^2-2}=\frac{-2}{2}=-1$$
-This is the slope, $m$. Using the point-slope form of a line, our tangent line is $y-2=-(x-2)$. 
+This is the slope, $m$. Using the point-slope form of a line, our 
+tangent line is $y-2=-(x-2)$. 
 
-(c) Recall that in the first quadrant, $x > 0$ and $y > 0$. We will set our solution for $\frac{dy}{dx}$  equal to 0:
-$$\frac{y-x^2}{y+2-x}=0$$ which implies that $$y-x^2=0$$ Substituting $y=x^2$ into the original equation: $$x^3 + (x^2)^3 = 3(x)(x^2)$$ $$x^3+x^6=3x^3$$ Which simplifies to $$x^6=2x^3$$Since we have excluded $x=0$ by restricting our search to the first quadrant, we can divide both sides by $x^3$: $$x^3=2$$ $$x=\sqrt[3]{2} \approx 1.26$$
-Substituting $x \approx 1.26$ into our equation for $y$: $$y \approx 1.26^2 = 1.59$$ Therefore, the folium has a horizontal tangent line at the point $(1.26, 1.59)$.
+(c) Recall that in the first quadrant, $x > 0$ and $y > 0$. We will 
+set our solution for $\frac{dy}{dx}$  equal to 0:
+$$\frac{y-x^2}{y+2-x} = 0$$ \\
+which implies that $$y - x^2 = 0$$ \\
+Substituting $y = x^2$ into the original equation: 
+$$x^3 + (x^2)^3 = 3(x)(x^2)$$ 
+$$x^3 + x^6 = 3x^3$$ \\
+Which simplifies to 
+$$x^6 = 2x^3$$\\
+Since we have excluded $x = 0$ by restricting our search to the first 
+quadrant, we can divide both sides by $x^3$: 
+$$x^3 = 2$$ 
+$$x = \sqrt[3]{2} \approx 1.26$$\\
+Substituting $x \approx 1.26$ into our equation for $y$: 
+$$y \approx 1.26^2 = 1.59$$\\ 
+Therefore, the folium has a horizontal tangent line at the point 
+$(1.26, 1.59)$.
 
 \section{Practice}
+\begin{Exercise}[label=implicit1]
+	[This problem was originally presented as a no-calculator, 
+	multiple-choice question on the 2012 AP Calculus BC Exam.] If 
+	$\arcsin{x} = \ln{y}$, what is $\frac{dy}{dx}$?
+\end{Exercise}
+
+\begin{Answer}[ref=implicit1]
+	Using implicit differentiation, we see that:
+	$$\frac{d}{dx}\arcsin{x} = \frac{d}{dx}\ln{y}$$
+	$$\frac{1}{\sqrt{1-x^2}} = \frac{1}{y}\frac{dy}{dx}$$
+	Multiplying both sides by $y$ to isolate $\frac{dy}{dx}$, we find that:
+	$$\frac{dy}{dx} = \frac{y}{\sqrt{1-x^2}}$$
+\end{Answer}
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

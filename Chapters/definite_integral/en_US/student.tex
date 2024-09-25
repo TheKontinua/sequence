@@ -87,33 +87,10 @@ the $x$-axis are negative.
 \end{figure}
 
 \section{Properties of Integrals}
-The following properties of integrals apply when $f(x)$ is continuous 
-or has a finite number of jump discontinuities on the interval $a 
-\leq x \leq b$:
-\begin{enumerate}
-\item $$\int_{a}^{b} f(x)\,dx = - \int_{b}^{a} f(x)\,dx$$ 
-%Property 1
-\item If $a = b$, then $\Delta x = 0$ and therefore $$\int_{a}^{a} 
-f(x)\,dx = 0$$%Property 2
-\item $$\int_{a}^{b} c\,dx = c (b - a) \text{, where } c 
-\text{ is any constant}$$%Property 3
-\item $$\int_{a}^{b}[f(x) + g(x)]\,dx = \int_{a}^{b} f(x)\,dx + 
-\int_{a}^{b} g(x)\,dx$$%Property 4
-\item $$\int_{a}^{b} c f(x)\,dx = c \int_{a}^{b} f(x)\,dx
-\text{, where } c \text{ is any constant}$$%Property 5
-\item $$\int_{a}^{b}[f(x) - g(x)]\,dx = \int_{a}^{b} f(x)\,dx - 
-\int_{a}^{b} g(x)\,dx$$%Property 6
-\item $$\int_{a}^{c} f(x)\,dx + \int_{c}^{b} f(x)\,dx = 
-\int_{a}^{b} f(x)\,dx \text{, where } a < c < b$$%Property 7
-\item $$\text{If } f(x) \geq 0 \text{ for } a \leq x \leq b 
-\text{, then } \int_{a}^{b} f(x)\,dx \geq 0$$%Property 8
-\item $$\text{If } f(x) \geq g(x) \text{ for } a \leq x \leq b 
-\text{, then} \int_{a}^{b} f(x)\,dx \geq \int_{a}^{b} g(x)\,dx$$
-%Property 9
-\item $$\text{If } m \leq f(x) \leq M \text{ for }a \leq x \leq b 
-\text{, then } m (b - a) \leq \int_{a}^{b} f(x)\,dx \leq M (b - a)$$
-%Property 10
-\end{enumerate}
+There are several important properties of integrals that will help us 
+evaluate more complex integrals in the future. The following examples 
+apply when $f(x)$ is continuous or has a finite number of jump 
+discontinuities on the interval $a \leq x \leq b$:
 
 \subsection{What happens when $a=b$?}
 
@@ -185,6 +162,18 @@ the rectangle is $b - a$ and the height is $C$. To find the area of a
 rectangle, we multiply the width by the height, and therefore $\int_a^b 
 C\,dx = (b - a)\cdot C$.
 
+\subsection{The integral of a function multiplied by a constant}
+How is $\int_a^b f(x)\,dx$ related to $\int_a^b C \cdot f(x)\,dx$? 
+Intuitively, we know that multiplying a function by a constant, $C$, 
+vertically stretches the graph by a factor of $C$. In turn, the area 
+under the curve increases by a factor of $C$. Imagine a simple shape, 
+like a triangle. If we keep the base of the triangle the same 
+(analogous to the integral being over the same interval) and make the 
+triangle three times taller (analogous to multiplying the function 
+we're integrating by a factor of $C = 3$), then we would expect the 
+total area of the triangle to be 3 times greater. Therefore, 
+$\int_a^b C \cdot f(x)\,dx = C \int_a^b f(x)\,dx$. 
+
 \subsection{Integrals of sums and differences of functions}
 If a function can be described as a sum of two other functions, then 
 the integral of the original function is the same as the sum of the 
@@ -241,6 +230,18 @@ g(x_i) \Delta x]$$ $$= \lim_{n \to \infty}\sum_{i=1}^n f(x_i)\Delta
 x + \lim_{n \to \infty} \sum_{i = 1}^n g(x_i) \Delta x$$ $$ = 
 \int_a^b f(x)\,dx + \int_a^b g(x)\,dx$$
 
+Similar to the addition property, the integral of the difference 
+between two function is equal to the difference of the integrals of 
+two functions. $$\int_a^b [f(x) - g(x)]\,dx = \int_a^b f(x)\,dx - 
+\int_a^b g(x)\,dx$$ This is more difficult to visualize than addition, 
+but we can easily prove it by applying the constant multiple and 
+addition properties. Let's define $f(x) - g(x) = f(x) + (-g(x))$: 
+$$\int_a^b f(x) - g(x)\,dx = \int_a^b f(x) + (-g(x))\,dx$$\\
+By the addition property, $$=\int_a^b f(x)\,dx + \int_a^b -g(x)\,dx = 
+\int_a^b f(x)\,dx + \int_a^b (-1)\cdot g(x)\,dx$$\\
+And by the constant multiple property: $$=\int_a^b f(x)\,dx - \int_a^b 
+g(x)\,dx$$
+
 \subsection{Integrals of adjacent areas}
 If $c$ is some $x$-value between $a$ and $b$, then $\int_a^c f(x)\,dx 
 + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx$. This is shown graphically in 
@@ -287,7 +288,8 @@ $f(x) \leq M$ on the interval we are interested in (see figure
 plus the darker blue. The total area under $y=M$ is the darker blue, 
 plus the light blue, plus the white area. The darker blue area under 
 the curve has total area $m \cdot (b - a)$ and the rectangle under 
-$y=M$ has total area $M \cdot (b - a)$. The actual area under our 
+$y=M$ has total area $M \cdot (b - a)$ (since these are both integrals 
+of a constant, which we learned about above). The actual area under our 
 function is more than just the dark blue area, but less than the total 
 area under $y=M$. Therefore, $m(b - a) \leq \int_a^b f(x)\,dx \leq 
 M(b -a)$ if $m \leq f(x)$ and $M \geq f(x)$ on the interval $x \in 
@@ -315,6 +317,59 @@ M(b -a)$ if $m \leq f(x)$ and $M \geq f(x)$ on the interval $x \in
 	\label{fig:bookend}
 \end{figure}
 
+\subsection{Other Properties of Integrals}
+If $f(x) \geq 0$ over the for $a \leq x \leq b$, then $\int_a^b 
+f(x)\,dx >0$. We can make an intuitive, geometric argument to support 
+this claim. Recall that areas above the $x$-axis are considered 
+positive. If $f(x) \geq 0$, then all the area of the integral lies 
+above the $x$-axis, and therefore the total area must be positive. 
+
+Similarly, if $f(x) \geq g(x)$ on the interval $a \leq x \leq b$, 
+then $\int_a^b f(x)\,dx \geq \int_a^b g(x)\,dx$ (see figure 
+\ref{fig:compare}). The entire area under $g(x)$ is contained in the 
+area under $f(x)$. Therefore, $\int_a^b f(x)\,dx \geq \int_a^b 
+g(x)\,dx$
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xmin=0, xmax = 3.5, xlabel=$x$, xtick={0.25, 3.392}, 
+		xticklabels={$a$, $b$}, ymin = 0, ymax = 3.5, ylabel=$y$, 
+		axis lines = center, legend pos = north west]
+			\addplot[red, thick, samples = 50, domain = 0.25:3.392]{x - 0.25};
+			\addlegendentry{$f(x)$}
+			\fill[pattern = north west lines, pattern color = red!30, 
+			domain = 0.25:3.392, variable = \x]
+			(0.25, 0) -- 
+			plot({\x},{\x - 0.25}) -- 
+			(3.392, 0) -- 
+			plot({\x},{sin(deg(\x - 0.25))}) -- 
+			cycle;
+			\addplot[blue, thick, samples = 100, domain = -.25:3.392]
+			{sin(deg(x - 0.25))};
+			\addlegendentry{$g(x)$}
+			\fill[blue!30, opacity = 0.4, domain = 0.25:3.392, variable = \x]
+			(0.25, 0) -- 
+			plot({\x},{sin(deg(\x - 0.25))}) -- 
+			(3.392, 0) -- 
+			cycle;
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$\int_a^b f(x)\,dx \geq \int_a^b g(x)\,dx$}
+	\label{fig:compare}
+\end{figure}
+
+Lastly, we see what happens when we switch $a$ and $b$. While it is 
+unusual to integrate from right to left (that is, in a case where 
+$a > b$), this property will be useful. Recall that $$\int_a^b f(x)\,dx 
+= \lim_{n \to \infty} \sum_{i = 1}^{n} f(x_i)\frac{(b - a)}{n}$$\\ 
+What is $\int_b^a f(x)\,dx$? Substituting, we see that $$\int_b^a f(x)
+\,dx =\lim_{n \to \infty} \sum_{i=1}^{n} f(x_i) \frac{(a - b)}{n}$$\\ 
+Noting that $(a - b) = -(b - a)$ we see: $$\int_b^a f(x)\,dx = \lim_{n \to 
+\infty} \sum_{i = 1}^{n} f(x_i) \frac{-(b - a)}{n}$$ $$=(-1)\lim_{n 
+\to \infty} \sum_{i = 1}^{n} f(x_i) \frac{(b - a)}{n}$$ $$=(-1)
+\int_a^b f(x)\,dx$$ \\
+Therefore, it is true that $\int_b^a f(x)\,dx = -\int_a^b f(x)\,dx$. 
 
 \section{Applications in Physics}
 We've already seen that the area under a velocity function is 

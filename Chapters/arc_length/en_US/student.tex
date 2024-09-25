@@ -1,0 +1,56 @@
+\chapter{Arc Lengths}
+\begin{Exercise}[label=length1]
+Write an integral that gives the length of the requested curve.
+	\begin{enumerate}
+	\item $y = \ln{x}$ from $x = 1$ to $x = 3$
+	\item $y = \sin{x}$ from $x = 0$ to $x = \pi$
+	\item $y = \frac{x^3}{3} + \frac{1}{4x}$ from $x = 1$ to $x = 4$
+	\item $y = \ln{\cos{x}}$ from $x = 0$ to $x = \frac{\pi}{3}$
+	\end{enumerate}	 
+\end{Exercise}
+
+\begin{Answer}[ref=length1]
+	\begin{enumerate}
+	\item $L = \int_{1}^{3} \sqrt{1 + \frac{1}{x^2}}\,dx$
+	\item $L = \int_{0}^{\pi} \sqrt{1 + \cos^2{x}}\,dx$
+	\item $L = \int_{1}^{4} \sqrt{1 + (x^2-\frac{1}{4x^2})^2}\,dx$
+	\item $L = \int_{0}^{\frac{\pi}{3}} \sqrt{1 + (\frac{1}{\cos{x}} 
+	\times - \sin{x})^2}\,dx = \int_{0}^{\frac{\pi}{3}} \sqrt{1 + 
+	\tan^2{x}}\,dx$
+	\end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[label=length2]
+The arc length function for a curve $f(x)$, where $f$ is an increasing 
+function, is given by $s(x) = \int_{0}^{x} \sqrt{3t + 5}\,dt$. If $f$ 
+has $y$-intercept 2, find an equation for $f$. What point on $f$ is 
+three units from the $y$-intercept? Give your answer to the thousandths 
+place. 
+\end{Exercise}
+
+\begin{Answer}[ref=length2]
+From looking at the structure of the given arc length integral, we can 
+see that $f'(x) = \sqrt{3x + 4}$. Taking the antiderivative, we find 
+that $f(x) = \frac{2}{9}(3x + 4)^{3 / 2} + C$. Substituting $f(0) = 2$
+, we can solve for $C$. $$2 = \frac{2}{9}(3(0) + 4)^{3 / 2} + C$$ 
+$$2 = \frac{2}{9}(4)^{3 / 2} + C$$ 
+$$2 = \frac{2}{9}(2)^3 + C$$ 
+$$2 = \frac{16}{9} + C$$ 
+$$\frac{18}{9} = \frac{16 + 9C}{9}$$ 
+$$18 = 16 + 9C$$ 
+$$2 = 9C$$ 
+$$C = \frac{2}{9}$$\\ 
+Therefore, $f(x) = \frac{2}{3}(3x + 4)^{3 / 2} + \frac{2}{9}$. To find 
+the coordinate point where $s(x) = 3$, we first note that the 
+antiderivative of $\sqrt{3t + 5}$ is $\frac{2}{9}(3t + 5)^{3 / 2} + C$. 
+Therefore, $s(x) = \frac{2}{9}(3x + 5)^{3 / 2} - \frac{2}{9}(5)^{3 / 2}$. 
+Setting $s(x) = 3$ and solving for $x$, we find that $x = 1.159$
+\end{Answer}
+
+\begin{Exercise}[label=length3]
+	[This problem was originally presented as a no-calculator, multiple-choice question on the 2012 AP Calculus BC exam.] Write an integral that gives the length of the curve $ y = \ln{x}$ from $x = 1$ to $x = 2$. 
+\end{Exercise}
+
+\begin{Answer}[ref=length3]
+Recall that arc length is given by $\int_a^b \sqrt{1 + [f'(x)]^2}\,dx$. Since $f(x) = \ln{x}$, then $f'(x) = \frac{1}{x}$. Taking $a = 1$, $b = 2$, and $f'(x) = \frac{1}{x}$, the integral that gives the length of the curve $y = \ln{x}$ on the specified interval is $\int_1^2 \sqrt{1+\frac{1}{x^2}}\,dx$. 
+\end{Answer}

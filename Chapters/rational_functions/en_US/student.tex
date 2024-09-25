@@ -128,7 +128,32 @@ So, what is happening at \( x = 1 \)? The value is not in the domain of the func
   \Question{$\frac{2x + 5}{x + 4}$}
   \vspace{40mm}
 \end{Exercise}
-\begin{Answer}[ref=ratfunc1]x-intercept: $(-5/2, 0)$; y-intercept: $(0, 5/4)$; horizontal asymptote: $y = 2$; vertical asymptote: $x = -4$\end{Answer}
+\begin{Answer}[ref=ratfunc1]
+x-intercept: $(-5/2, 0)$; y-intercept: $(0, 5/4)$; horizontal asymptote: $y = 2$; vertical asymptote: $x = -4$
+\end{Answer}
+
+\begin{Exercise}[label=ratfunc2]
+	[This question was originally presented in the no-calculator section 
+	of the 2012 AP Calculus BC exam.] The line $y = 5$ is a horizontal 
+	asymptote of which of the following functions? Explain. \\
+	A. $y = \frac{\sin{5x}}{x}$\\
+	B. $y = 5x$\\
+	C. $y = \frac{1}{x-5}$\\
+	D. $y = \frac{5x}{1-x}$\\
+	E. $y = \frac{20x^2 - x}{1 + 4x^2}$
+\end{Exercise}
+
+\begin{Answer}[ref=ratfunc2]
+	The correct answer is E. To explain, we examine the behavior of each 
+	function as $x \to \infty$. \\
+	A. $\lim_{x \to \infty} \frac{\sin{5x}}{x} = \pm \infty \neq 5$\\
+	B. $\lim_{x \to \infty} 5x = \infty \neq 5$\\
+	C. $\lim_{x \to \infty} \frac{1}{x-5} = 0 \neq 5$ (this function 
+	does have a \textit{vertical} asymptote at $x = 5$). \\
+	D. $\lim_{x \to \infty} \frac{5x}{1-x} = \frac{5}{-1} = -5 \neq 5$ 
+	(this function has a horizontal asymptote at $x = -5$).\\
+	E. $\lim_{x \to \infty} \frac{20x^2 - x}{1 + 4x^2} = \frac{20}{4} = 5$. 
+\end{Answer}
 
 In those examples, common factors cancel, leaving one polynomial. Of course, there is no guarantee that any two polynomials will have common factors, or even be factorable at all. Now, we consider an example which cannot be simplified. We will focus on just the asymptotes here.
 \[ h(x) = \frac{x^2}{x - 1} \]

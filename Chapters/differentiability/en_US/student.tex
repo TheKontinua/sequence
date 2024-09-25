@@ -12,7 +12,8 @@ $$m = \frac{f(b) - f(a)}{b - a}$$
 \draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
 \draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
 % curve
-\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  
+plot (\x,{\x * \x * 0.25});
 \draw [sdkblue] (1, 0.25) -- (3, 2.251);
 \draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
 \draw [dashed] (3, 2.251) -- (3, 0) node[below]{$b$};
@@ -24,17 +25,20 @@ $$m = \frac{f(b) - f(a)}{b - a}$$
 \draw (3, 1.25) node[right] {$f(b) - f(a)$};
 \end{tikzpicture}
 
-If we want to find the slope at $a$ we take the limit of this as the $b$ goes to $a$:
+If we want to find the slope at $a$ we take the limit of this as the 
+$b$ goes to $a$:
 
 $$f'(a) = \lim_{b \rightarrow b}\frac{f(b) - f(a)}{b - a}$$
 
-This idea is usually expressed using $\Delta x$ as the difference between $b$ and $a$:
+This idea is usually expressed using $\Delta x$ as the difference 
+between $b$ and $a$:
 
 \begin{tikzpicture} [scale=2]
 \draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
 \draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
 % curve
-\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  
+plot (\x,{\x * \x * 0.25});
 \draw [sdkblue] (1, 0.25) -- (3, 2.251);
 \draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
 \draw [dashed] (3, 2.251) -- (3, 0) node[below]{$a + \Delta x$};
@@ -50,13 +54,15 @@ Then the formula becomes:
 
 $$f'(a) = \lim_{\Delta x \rightarrow 0}\frac{f(a + \Delta x) - f(a)}{\Delta x}$$
 
-Now, at any point $a$ we can compute the slope of the line tangent to the function at $a$:
+Now, at any point $a$ we can compute the slope of the line tangent to 
+the function at $a$:
 
 \begin{tikzpicture} [scale=2]
 \draw[->,thick,sdkblue] (0,0) -- (4,0) node[right] {$x$};
 \draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
 % curve
-\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,{\x * \x * 0.25});
+\draw[<->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  
+plot (\x,{\x * \x * 0.25});
 \draw [sdkblue] (0, -0.25) -- (3, 1.25) node[midway, right]{slope = $f'(a)$};;
 \draw [dashed] (1,0.25) -- (1, 0) node[below]{$a$};
 \draw (1,0.25) circle (0.05);
@@ -71,8 +77,10 @@ example, if $f(x) = |x|$, you get a corner at zero.
 \draw[->,thick,sdkblue] (-4,0) -- (4,0) node[right] {$x$};
 \draw[->,thick,sdkblue] (0,0) -- (0, 3.45) node[above] {$y$};
 % curve
-\draw[->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  plot (\x,\x);
-\draw[<-,thick,draw=black, domain=-3.7:0,samples=300,variable=\x]  plot (\x,{-1 * \x});
+\draw[->,thick,draw=black, domain=0:3.7,samples=300,variable=\x]  
+plot (\x,\x);
+\draw[<-,thick,draw=black, domain=-3.7:0,samples=300,variable=\x]  
+plot (\x,{-1 * \x});
 \end{tikzpicture}
 
 To the left of zero, the slope is -1. To the right of zero, the slope
@@ -82,11 +90,40 @@ If a function has a derivative everywhere, it is said to be
 \newterm{differentiable}. Generally, you can think of differentiable
 functions as smooth -- their graphs have no corners.
 
+\begin{Exercise}[label=diff1]
+	[This problem was originally presented as a no-calculator, 
+	multiple-choice question on the 2012 AP Calculus BC exam.] Let $f$ 
+	be the function defined by $f(x) = \sqrt{|x - 2|}$ for all $x$. 
+	Classify each of the following statements as true or false. 
+	\begin{enumerate}
+		\item $f$ is continuous at $x = 2$. 
+		\item $f$ is differentiable at $x = 2$.
+		\item $\lim_{x \to 2} f(x) = 0$.
+		\item $x = 2$ is a vertical asymptote of the graph of $f(x)$. 
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=diff1]
+	\begin{enumerate}
+		\item True. $f(2)$ exists and $lim_{x \to 2^+}f(x) = 
+		\lim_{x \to 2^-}f(x) = f(2) = 0$. 
+		\item False. Because of the absolute value, there is a corner in 
+		the graph of $f$ at $x=2$. $\lim_{x \to 2^+}f'(x) < 0$ and 
+		$\lim_{x \to 2^-}f'(x) < 0$. Therefore there is a discontinuity in 
+		$f'(x)$ at $x = 2$ and $f(x)$ is not differentiable at $x = 2$. 
+		\item True. $\sqrt{|2-2|} = \sqrt{0} = 0$.
+		\item False. $f(2)$ is defined at $x = 2$. 
+	\end{enumerate}
+\end{Answer}
+
 \section{Using the definition of derivative}
 
 Let's say that you want to know the slope of $f(x) = -3x^2$ at $x = 2$.
 Using the definition of the derivative, that would be:
 
-$$f'(2) = \lim_{\Delta x \rightarrow 0}\frac{f(2 + \Delta x) - f(2)}{\Delta x} = \lim_{\Delta x \rightarrow 0}\frac{-3(2 + \Delta x)^2- \left(-3(2)^2\right)}{\Delta x} = \lim_{\Delta x \rightarrow 0}\frac{-12 - 12\Delta x + -3(\Delta x)^2 + 12}{\Delta x} = -12$$ 
+$$f'(2) = \lim_{\Delta x \to 0}\frac{f(2 + \Delta x) - f(2)}{\Delta x} 
+= \lim_{\Delta x \to 0}\frac{-3(2 + \Delta x)^2- \left(-3(2)^2\right)}
+{\Delta x} = \lim_{\Delta x \to 0}\frac{-12 - 12\Delta x + 
+-3(\Delta x)^2 + 12}{\Delta x} = -12$$ 
 
 

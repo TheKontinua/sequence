@@ -2,6 +2,7 @@ antiderivatives
 riemann_sums
 definite_integral
 ftc
+arc_length
 cdf_uniform
 gas
 temp_kinetic
