@@ -134,6 +134,29 @@ $(1.26, 1.59)$.
 	$$\frac{dy}{dx} = \frac{y}{\sqrt{1-x^2}}$$
 \end{Answer}
 
+\begin{Exercise}[label = implicit2]
+	[This problem was originally presented as a no-calculator, 
+	multiple-choice question on the 2012 AP Calculus BC Exam.] The points 
+	$(-1, -1)$ and $(1, -5)$ are on the graph of a function $y = f(x)$ 
+	that satisfies the differential equation $\frac{dy}{dx} = x^2 + y$. 
+	Use implicit differentiation to find $\frac{d^2y}{dx^2}$. Determine 
+	if each point is a local minimum, local maximum, or inflection point 
+	by substituting the $x$ and $y$ values of the coordinates into 
+	$\frac{dy}{dx}$ and $\frac{d^2y}{dx^2}$. 
+\end{Exercise}
+
+\begin{Answer}[ref=implicit2]
+	First, we need to find $\frac{d^y}{dx^2}$:
+	$$\frac{d}{dx}\frac{dy}{dx} = \frac{d}{dx}x^2 + \frac{d}{dx}y$$
+	$$= 2x + \frac{dy}{dx} = 2x + x^2 + y$$
+	At $(-1,-1)$, $\frac{dy}{dx} = (-1)^2 + (-1) = 0$ and 
+	$\frac{d^2y}{dx^2} = 2(-1) + (-1)^2 + (-1) = -2 < 0$. Since the 
+	slope of y is zero and the graph of y is concave down, $(-1,-1)$ is a 
+	local maximum. At $(1, -5)$, $\frac{dy}{dx} = 1^2 + -5 = -4 \neq 0$ 
+	and $\frac{d^2y}{dx^2} = 2(1) + 1^2 + (-5) = -2 \neq 0$. Since 
+	neither the first nor second derivative of $y$ are zero, $(1, -5)$ 
+	is neither a local extrema nor an inflection point. 
+\end{Answer}
 
 
 

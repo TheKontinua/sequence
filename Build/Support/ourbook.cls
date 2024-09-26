@@ -1,4 +1,4 @@
-﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Version Feb 17, 2024
 %% Previous Version: Nov 8, 2020
 
@@ -1246,6 +1246,7 @@ width 0pt
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{fancyvrb}
+\usepgflibrary{shapes}
 %\usepackage{bera}
 
 \long\def\boxed#1{{\fboxsep=6pt\fbox {\m@th $\displaystyle #1$}}}
