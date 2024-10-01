@@ -1,3 +1,4 @@
 falling_bodies
 solving_quadratics
 complex_numbers
+sequences
