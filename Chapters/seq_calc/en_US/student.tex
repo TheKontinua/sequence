@@ -1,10 +1,25 @@
 \chapter{Sequences in Calculus}
 
-We have introduced sequences in a previous chapter. Now, we will examine them in more detail in a calculus context. You already know about arithmetic and geometric sequences, but not all sequences can be classified as arithmetic or geometric. Take the famous Fibonacci sequence, \{1, 1, 2, 3, 5, 8, ...\}, which can be explicitly defined as $a_n = a_{n-1} + a_{n-2}$, with $a_1 = a_2 = 1$. There is no common difference or common ratio, so the Fibonacci sequence is not arithmetic or geometric. Another example is $a_n = \sin{\frac{n\pi}{6}}$, which will cycle through a set of values. In later chapters, you will learn that the sum of all the values in a sequence is a series and how to use series to describe functions. In order to be able to do all that, first we need to talk in-depth about sequences. 
+We have introduced sequences in a previous chapter. Now, we will 
+examine them in more detail in a calculus context. You already know 
+about arithmetic and geometric sequences, but not all sequences can 
+be classified as arithmetic or geometric. Take the famous Fibonacci 
+sequence, \{1, 1, 2, 3, 5, 8, ...\}, which can be explicitly defined 
+as $a_n = a_{n-1} + a_{n-2}$, with $a_1 = a_2 = 1$. There is no 
+common difference or common ratio, so the Fibonacci sequence is not 
+arithmetic or geometric. Another example is $a_n = 
+\sin{\frac{n\pi}{6}}$, which will cycle through a set of values. In 
+later chapters, you will learn that the sum of all the values in a 
+sequence is a series and how to use series to describe functions. In 
+order to be able to do all that, first we need to talk in-depth about 
+sequences. 
 
-Some sequences are defined explicitly, like $a_n = \sin{\frac{n\pi}{6}}$, while others are defined recursively, like $a_n = a_{n-1} + a_{n-2}$. 
+Some sequences are defined explicitly, like $a_n = 
+\sin{\frac{n\pi}{6}}$, while others are defined recursively, like $a_n 
+= a_{n-1} + a_{n-2}$. 
 
-Example: Write the first 5 terms for the explicitly defined sequence $a_n = \frac{n}{n+1}$.
+Example: Write the first 5 terms for the explicitly defined sequence 
+$a_n = \frac{n}{n+1}$.
 
 Solution: We can construct a table to keep track of our work:
 \begin{center}
@@ -23,6 +38,9 @@ $n$ & work & $a_n$\\
 \hline
 \end{tabular}
 \end{center}
+
+So the first five terms are \{$\frac{1}{2}$, $\frac{2}{3}$, 
+$\frac{3}{4}$, $\frac{4}{5}$, $\frac{5}{6}$\}. 
 
 \begin{Exercise}[label = seqcalc1]
 Write the first 5 terms for each sequence. 
@@ -44,12 +62,9 @@ $\frac{32}{11}$
 \end{enumerate}
 \end{Answer}
 
-%fibanocci and [(-1)^(n-1)]/n as examples of sequences that are not strictly arithmetic or geometric
 
-%exercise - list fist 5 terms of more complex sequences
-%exercise - find explicit formulas seqcalc2
+\section{Convergence and Divergence}
 
-%define convergent and divergent sequence
 You can visualize a sequence on an $xy$-plane or a number line. 
 Figures \ref{fig:linefrac} and \ref{fig:planefrac} show visualizations 
 of the sequence $a_n = \frac{n}{n+1}$. To visualize this on the 
@@ -167,7 +182,6 @@ divergent.
     \label{fig:sineseq}
 \end{figure}
 
-%exercise - classify sequences as convergent or divergent
 \begin{Exercise}[label=seqcalc3]
 Classify each sequence as convergent or divergent. If the sequence is 
 convergent, find the limit as $n \to \infty$.
@@ -190,4 +204,125 @@ convergent, find the limit as $n \to \infty$.
 \end{enumerate}
 \end{Answer}
 
-%define increasing, decreasing, monotonic, and bounded sequences
+\section{Evaluating limits of sequences}
+Recall that a sequence can be considered a function where the domain 
+is restricted to positive integers. If there is some $f(x)$ such that 
+$a_n = f(n)$ when $n$ is an integer, then $\lim_{n \to \infty} a_n = 
+\lim_{x \to \infty} f(x)$ (see figure \ref{fig:limit}). This means 
+that all the rules that apply to the limits of functions also apply 
+to the limits of sequences, including the Squeeze Theorem and 
+l'Hospital's rule. 
+
+What is $\lim_{n \to \infty} \frac{\ln{n}}{n}$? First, we will try to 
+compute the limit directly:
+$$\lim_{n \to \infty} \frac{\ln{n}}{n} = $$
+$$\frac{\lim_{n \to \infty} \ln{n}}{\lim_{n \to \infty}n} = 
+\frac{\infty}{\infty}$$
+
+This is undefined, but fits the criteria for Ll'Hospital's rule:
+$$\lim_{n \to \infty} \frac{\ln{n}}{n} = \lim_{n \to \infty} 
+\frac{\frac{d}{dn}\ln{n}}{\frac{d}{dn}n}$$
+$$= \lim_{n \to \infty} \frac{\frac{1}{n}}{1} = 0$$
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = -0.5, xmax = 8.5, 
+        ymin = 0, ymax = 2, xlabel=$n$, ylabel = $a_n$]
+        \addplot[mark=*, red] (1, 2);
+        \addplot[mark=*, red] (2, 1.5);
+        \addplot[mark=*, red] (3, 1.333);
+        \addplot[mark=*, red] (4, 1.25);
+        \addplot[mark=*, red] (5, 1.2);
+        \addplot[mark=*, red] (6, 1.167);
+        \addplot[mark=*, red] (7, 1.143);
+        \addplot[mark=*, red] (8, 1.125);
+        \draw[blue, dashed, thin] (0, 1) -- (8, 1);
+        \addplot[red, domain = 0.01:8] {1+1/x};
+        \end{axis}
+\end{tikzpicture}
+    \caption{The limit of the function is the same as the limit of the sequence}
+    \label{fig:limit}
+\end{figure}
+
+Here's an example that requires the Squeeze Theorem: is the sequence 
+$a_n = \frac{n!}{n^n}$ convergent or divergent? First trying to take 
+the limit directly, we see that:
+$$\lim_{n \to \infty} \frac{n!}{n^n} = \frac{\infty}{\infty}$$
+
+which is undefined. Because the factorial cannot be described as a 
+continuous function, we can't use l'Hospital's rule. We can examine 
+this sequence graphically (see figure \ref{fig:factorial}) and 
+mathematically. We examine it mathematically by writing out a few 
+terms to get an idea of what happens to $a_n$ as $n$ gets large:
+$$a_1 = \frac{1!}{1^1} = 1$$
+$$a_2 = \frac{2!}{2^2} = \frac{1 \cdot 2}{2 \cdot 2}$$
+$$a_3 = \frac{3!}{3^3} = \frac{1 \cdot 2 \cdot 3}{3 \cdot 3 \cdot 3}$$
+$$\cdots$$
+$$a_n = \frac{n!}{n^n} = \frac{1 \cdot 2 \cdot 3 \cdots \cdot n}{n 
+\cdot n \cdot n \cdots n}$$
+
+From examining the graph in figure \ref{fig:factorial}, we can guess 
+that $\lim_{n \to \infty} a_n = 0$. Let's prove that mathematically. 
+We can rewrite our expression for $a_n$ as $n$ gets large:
+$$a_n = \frac{n!}{n^n} = \frac{1 \cdot 2 \cdot 3 \cdots \cdot n}{n 
+\cdot n \cdot n \cdots n} = \frac{1}{n}(\frac{2 \cdot 3 \cdots n}{n 
+\cdot n \cdots n})$$
+
+The expression inside the parentheses is less than 1, therefore $0 < 
+a_n < \frac{1}{n}$. Since $lim_{n \to \infty} 0 = 0$ and $\lim_{n \to 
+\infty} \frac{1}{n} = 0$, by Squeeze Theorem we know that $\lim_{n 
+\to \infty} \frac{n!}{n^n} = 0$. Therefore, the sequence $a_n = 
+\frac{n!}{n^n}$ is convergent. 
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = -0.5, xmax = 8.5, 
+        ymin = 0, ymax = 1, xlabel=$n$, ylabel = $a_n$]
+        \addplot[mark=*, red] (1, 1);
+        \addplot[mark=*, red] (2, 0.5);
+        \addplot[mark=*, red] (3, 0.222);
+        \addplot[mark=*, red] (4, 0.09375);
+        \addplot[mark=*, red] (5, 0.0384);
+        \addplot[mark=*, red] (6, 0.01543);
+        \addplot[mark=*, red] (7, 0.00612);
+        \addplot[mark=*, red] (8, 0.0024);
+        \end{axis}
+\end{tikzpicture}
+    \caption{$a_n = \frac{n!}{n^n}$}
+    \label{fig:factorial}
+\end{figure}
+
+[[FIX ME intro]]
+If $\lim_{n \to \infty} a_n = L$ and the function $f$ is continuous 
+at $L$, then $\lim_{n \to \infty} f(a_n) = f(L)$. For example, what 
+is $\lim_{n \to \infty} \sin{\frac{\pi}{n}}$? Well, we know that 
+$\lim_{n \to \infty} \frac{\pi}{n} = 0$ and that the sine function is 
+continuous at 0. Therefore, $\lim_{n \to \infty} \sin{\frac{\pi}{n}} 
+= \sin{\lim_{n \to \infty} \frac{\pi}{n}} = \sin{0} = 0$. 
+
+\section{Monotonic and Bounded sequences}
+Just like functions, sequences can be increasing or decreasing. A sequence is increasing if $a_n < a_{n+1}$ for $n \geq 1$. Similarly, a sequence is decreasing if $a_n > a_{n+1}$ for $n \geq 1$. If a sequence is strictly increasing or decreasing, it is called \textit{monotonic}. 
+
+The sequence $a_n = \frac{1}{n + 6}$ is decreasing. We prove this formally by comparing $a_n$ to $a_{n+1}$:
+$$\frac{1}{n + 6} > \frac{1}{(n + 1) + 6} = \frac{1}{n + 7}$$
+
+Is the sequence $a_n = \frac{n}{n^2 + 1}$ increasing or decreasing? First, we find an expression for $a_{n+1}$:
+$$a_{n + 1} = \frac{n + 1}{(n + 1)^2 + 1} = \frac{n + 1}{n^2 + 2n + 2}$$
+
+Since the degreen of $n$ is greater in the denominator, we have a guess that the sequence is decreasing. To prove this, we check if $a_n > a_{n+1}$ is true:
+$$\frac{n}{n^2 + 1} > \frac{n + 1}{n^2 + 2n + 2}$$
+
+We can cross-multiply, because $n > 0$ and the denominators are positive:
+$$(n)(n^2 + 2n + 2) > (n+1)(n^2 + 1)$$
+$$n^3 + 2n^2 + 2n > n^3 + n^2 + n + 1$$
+
+Subtracting $(n^3 + n^2 + n)$ from both sides we see that:
+$$n^2 + n > 1$$
+
+Which is true for all $n \geq1$. Therefore, $a_n > a_{n+1}$ for all $n \geq 1$ and the sequence is decreasing. 
+
+A sequence is \textit{bounded above} if there is some number $M$ such that $a_n \leq M$ for all $n \geq 1$. And a sequence is \textit{bounded below} if there is some other number $m$ such that $a_n \geq m$ for all $n \geq 1$. If a sequence is bounded above and below, then it is a \textit{bounded sequence}. 
+
+If a sequence is both \textit{monotonic} and \textit{bounded}, then it must be convergent. 
