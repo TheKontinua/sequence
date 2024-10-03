@@ -481,23 +481,23 @@ of continuity by examining $g(x) = \tan{x}$.
 			xlabel=$x$,
 			ylabel=$g(x)$,
 			smooth,
-			%clip=false,restrict y to domain=-4:4,
-			%legend style={
-				%	font=\tiny,
+					%clip=false,restrict y to domain=-4:4,
+					%legend style={
+					%font=\tiny,
 					%legend cell align=left,
 					%legend pos=outer north east,
 					%draw=none,
 					%empty legend},
-			%legend entries={[blue]$y=\sin x$,[green]$y=\cos x$,[brown]$y=\tan x$}
+					%legend entries={[blue]$y=\sin x$,[green]$y=\cos x$,[brown]$y=\tan x$}
 			]
-	%\addplot[domain=-2*pi:2*pi,samples=200,blue]{sin(deg(x))};
-	%\addplot[domain=-2*pi:2*pi,samples=200,green]{cos(deg(x))};
-	%\addplot[domain=-2*pi:2*pi,samples=200,brown]{tan(deg(x))};
-	\addplot[domain=-2  *pi:-1.5*pi,samples=200,blue]{tan(deg(x))};
-	\addplot[domain=-1.5*pi:-0.5*pi,samples=200,blue]{tan(deg(x))};
-	\addplot[domain=-0.5*pi: 0.5*pi,samples=200,blue]{tan(deg(x))};
-	\addplot[domain= 0.5*pi: 1.5*pi,samples=200,blue]{tan(deg(x))};
-	\addplot[domain= 1.5*pi: 2  *pi,samples=200,blue]{tan(deg(x))};
+					%\addplot[domain=-2*pi:2*pi,samples=200,blue]{sin(deg(x))};
+					%\addplot[domain=-2*pi:2*pi,samples=200,green]{cos(deg(x))};
+					%\addplot[domain=-2*pi:2*pi,samples=200,brown]{tan(deg(x))};
+	\addplot[domain=-2  *pi:-1.499*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain=-1.501*pi:-0.499*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain=-0.501*pi: 0.499*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain= 0.501*pi: 1.499*pi,samples=200,blue]{tan(deg(x))};
+	\addplot[domain= 1.501*pi: 2  *pi,samples=200,blue]{tan(deg(x))};
         \draw[dashed, very thick, blue]  (axis cs: -3*pi/2,-5) -- (axis cs: -3*pi/2,5);
         \draw[dashed, very thick, blue]  (axis cs: -pi/2,-5) -- (axis cs: -pi/2,5);
         \draw[dashed, very thick, blue]  (axis cs: pi/2,-5) -- (axis cs: pi/2,5);
