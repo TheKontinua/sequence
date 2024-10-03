@@ -388,6 +388,33 @@ is convergent and, therefore, that the limit of $a_n$ as $n \to
 
 \section{Applications of Sequences}
 \subsection{Compound Interest}
+You previously learned about compound interest and modeled the accumulation of compound interest by $P_n = P_0(1 + r)^n$, where $P_0$ is the principal investment, $r$ is the yearly interest rate, and $n$ is the number of elapsed years. This sequence describes the value of an investment accumulating interest, but most people add to their savings on a regular schedule. We can write a sequence to model the value of a savings account that the owner makes regular deposits into. 
+
+Suppose you open a savings account with an initial deposit of \$3,000 and you plan to deposit an additional \$1,200 at the end of every year. If your savings account has an annual interest rate of 3.25\%, how long will it take you to save \$10,000?
+
+We can write a recursive definition for the sequence. At the end of each year, the account will gain the interest on the entirety of the previous year's balance plus \$1200:
+$$P_n = P_{n-1}(1+0.0325) + \$1200$$\\
+With an initial investment $P_0 = \$3000$. We can write out the first few terms to find how many years it will take to save \$10,000:
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Year & Savings\\
+\hline
+0 & \$3,000\\
+\hline
+1 & \$4,297.50\\
+\hline
+2 & \$5,637.17\\
+\hline
+3 & \$7,020.38\\
+\hline
+4 & \$8,448.54\\
+\hline
+5 & \$9.923.12\\
+\hline
+6 & \$11,445.62
+\end{tabular}
+\end{center}
+
 When you put money in a bank account or invest it, your money may 
 accumulate \textit{compound interest}. Compound interest is interest 
 paid on the principal (the amount you originally invested) and 
@@ -416,7 +443,8 @@ account at the end of the $n^{th}$ year is given by:
 $$a_n = 100(1.0325)^{n}$$\\
 The general form of this formula with an initial investment of $P$ 
 and annual interest rate $r$ is:
-$$a_n = P(1+r)^{n}$$
+$$a_n = P(1+r)^{n}$$\\
+which you may recall from the chapter on compound interest. 
 
 \begin{Exercise}[label=seqcalc5]
 You invest \$1500 at 5\%, compounded annually. Write an explicit 
@@ -436,3 +464,8 @@ $$\lim_{n \to \infty} 1500(1.06)^n = 1500\cdot \lim_{n \to \infty}
 (1.06)^n = 1500 \cdot \infty = \infty$$\\
 The sequence is divergent. 
 \end{Answer}
+
+\begin{Exercise}[label=seqcalc6]
+
+\end{Exercise}
+
