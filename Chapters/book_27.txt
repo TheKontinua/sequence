@@ -1,2 +1,4 @@
 u-substitution
 diff_eqs
+seq_calc
+series

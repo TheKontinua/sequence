@@ -1,1 +1,234 @@
 \chapter{Series}
+When writing a number with an infinite decimal, such as the Golden 
+Ratio (also known as the Golden Number):
+$$\phi = 1.618033988 \cdots$$
+
+The decimal system means we can re-write the Golden Ratio (or any 
+irrational number) as an infinite sum:
+$$\phi = 1 + \frac{6}{10} + \frac{1}{10^2} + \frac{8}{10^3} + 
+\frac{0}{10^4} + \frac{3}{10^5} + \cdots$$
+
+You might recall from the chapter on Riemann Sums that we can 
+represent the addition of many (or infinite) with big sigma notation:
+$$\Sigma_{i = 1}^n a_i$$
+Where i is the index as discussed in Sequences and n is the number of 
+terms. For infinite sums, $n = \infty$.
+
+\section{Partial Sums}
+Let us quickly define a \textit{partial sum}. A partial sum is where 
+we only look at the first $n$ terms of a series. For the general 
+series, $\Sigma_{i=1}^{n} a_i$, the partial sums are:
+$$s_1 = a_1$$
+$$s_2 = a_1 + a_2$$
+$$s_3 = a_1 + a_2 + a_3$$
+$$\cdots$$
+$$s_n = a_1 + a_2 + \cdots + a_n = \Sigma_{i=1}^{n} a_i$$
+
+\textbf{Example}: A series is given by $\Sigma_{i=1}^\infty 
+(\frac{-3}{4})^i$. What is the value of the partial sum $s_4$?
+
+\textbf{Solution}: $s_4$ is the sum of the first 4 terms: 
+$$(\frac{-3}{4})^1 + (\frac{-3}{4})^2 + (\frac{-3}{4})^3 + (\frac{-3}{4})^4$$
+$$= \frac{-3}{4} + \frac{9}{16} + \frac{-27}{64} + \frac{81}{256} = \frac{-75}{256}$$
+
+
+\section{Convergent and Divergent Series}
+Just like sequences, series can also be convergent or divergent. 
+Consider the series $\Sigma_{i=1}^\infty i$. Given what you already 
+know about the meaning of "convergent" and "divergent", guess whether 
+$\Sigma_{i=1}^\infty i$ is convergent or divergent. 
+
+Let's determine the first few partial sums of the series (shown 
+graphically in figure \ref{fig:divsum}):
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+n & Terms & Partial Sum\\
+\hline
+1 & 1 & 1\\
+\hline
+2 & 1+2 & 3\\
+\hline
+3 & 1+2+3 & 6\\
+\hline
+4 & 1+2+3+4 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = -0.5, xmax = 10, 
+        ymin = 0, ymax = 55, xlabel=n, ylabel = $s_n$]
+        \addplot[blue, mark=*](1,1);
+        \addplot[blue, mark=*](2, 3);
+        \addplot[blue, mark=*](3, 6);
+        \addplot[blue, mark=*](4, 10);
+        \addplot[blue, mark=*](5, 15);
+        \addplot[blue, mark=*](6, 21);
+        \addplot[blue, mark=*](7, 28);
+        \addplot[blue, mark=*](8, 36);
+        \addplot[blue, mark=*](9, 45);
+        \addplot[blue, mark=*](10,55);
+        \end{axis}
+\end{tikzpicture}
+    \caption{For divergent series $\Sigma_{i=1}^n i$, the value of the 
+    partial sum increases to infinity as $n$ increases}
+    \label{fig:divsum}
+\end{figure}
+
+As you can see, as $n$ increases, the value of the partial sum 
+increases without approaching a particular value. We can also see 
+that the value of the first $n$ terms summed together is 
+$\frac{n(n+1)}{2}$. This means that as $n$ approaches $\infty$, the 
+sum also approaches $\infty$ and the series is divergent. 
+
+Obviously, for a series to not become huge, the values of the terms 
+should decrease as $i$ increases (that is, each subsequent term is 
+smaller than the one before it). Take the series $\Sigma_{i=1}^\infty 
+\frac{1}{2^i}$. As $i$ increases, $\frac{1}{2^i}$ decreases. Let's 
+look at the first few partial sums of this series (shown graphically 
+in figure \ref{fig:convsum}):
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+n & Terms & Partial Sum\\
+\hline
+1 & $\frac{1}{2}$ & $\frac{1}{2}$\\
+\hline
+2 & $\frac{1}{2} + \frac{1}{4}$ & $\frac{3}{4}$\\
+\hline
+3 & $\frac{1}{2} + \frac{1}{4} + \frac{1}{8}$ & $\frac{7}{8}$\\
+\hline
+4 & $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16}$ & 
+$\frac{15}{16}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = -0.5, xmax = 8, 
+        ymin = 0, ymax = 1.5, ytick = {1}, xlabel=n, ylabel = $s_n$]
+        \addplot[blue, mark=*](1,0.5);
+        \addplot[blue, mark=*](2, 3/4);
+        \addplot[blue, mark=*](3, 7/8);
+        \addplot[blue, mark=*](4, 15/16);
+        \addplot[blue, mark=*](5, 31/32);
+        \addplot[blue, mark=*](6, 63/64);
+        \addplot[blue, mark=*](7, 127/128);
+        \addplot[blue, mark=*](8, 255/256);
+        \addplot[red, thin, dashed, domain = 0:8]{1};
+        \end{axis}
+\end{tikzpicture}
+    \caption{For convergent series $\Sigma_{i=1}^n \frac{1}{2^i}$, 
+    the value of the partial sum approaches 1 as $n$ increases}
+    \label{fig:convsum}
+\end{figure}
+
+Do you see the pattern? The $n^{th}$ partial sum is equal to 
+$\frac{2^n - 1}{2^n} = 1 - \frac{1}{2^n}$. And as $n$ approaches 
+$\infty$, the partial sum approaches 1. The series $\Sigma_{i=1}^\infty 
+\frac{1}{2^i}$ is convergent. 
+
+Let us define the sequence \{$s_n$\} where $s_n$ is the $n^{th}$ 
+partial sum of a series:
+$$s_n = \Sigma_{i=1}^n a_i$$. 
+
+If the sequence \{$s_n$\} is convergent and $\lim_{n \to \infty} s_n$ 
+exists, then the series $\Sigma_{i=1}^\infty a_i$ is also convergent. 
+And if the sequence \{$s_n$\} is divergent, then the series 
+$\Sigma_{i=1}^\infty a_i$ is also divergent.
+
+Let's apply this definition of convergent and divergent to geometric 
+series. You should recall from the chapter on sequences that a 
+geometric sequence can be defined by $a_i = a(r)^{i-1}$, where $r$ 
+is the common ratio and $a \neq 0$. We can express the 
+\textit{geometric series} thusly:
+$$a + ar + ar^2 + ar^3 = \Sigma_{i=1}^\infty ar^{i-1}$$
+
+When are geometric series convergent? First, let's consider the case 
+where $r=1$. If this is true, then $s_n = a + a + a + \cdots + a = 
+na$. As $n$ approaches $\infty$, the sum will approach $\pm \infty$ 
+(depending on whether $a$ is positive or negative), and the series is 
+divergent. 
+
+When $r \neq 1$, we can write $s_n$ and $rs_n$:
+$$s_n = a + ar + ar^2 + \cdots + ar^{n-1}$$
+$$rs_n = ar + ar^2 + ar^3 + \cdots + ar^n$$
+
+Subtracting $rs_n$ from $s_n$, we get:
+$$s_n - rs_n = (a + ar + ar^2 + \cdots + ar^{n-1}) - (ar + ar^2 + 
+ar^3 + \cdots + ar^{n-1} + ar^n)$$
+$$= a - ar^n$$
+
+
+
+Solving for $s_n$, we find:
+$$s_n = \frac{a(1-r^n)}{1-r}$$
+
+We take the limit as $n \to \infty$ to determine for what values of 
+$r$ the series converges:
+$$\lim_{n \to \infty} s_n = \lim_{n \to \infty} \frac{a(1-r^n)}{1-r}$$
+$$= \lim_{n\to \infty} \frac{a}{1-r} - \frac{ar^n}{1-r} = \frac{1}{1-r} 
+- \frac{a}{1-r}\lim_{n \to \infty} r^n$$
+
+This begs the question: when is $\lim_{n \to \infty} r^n$ convergent? 
+From the sequences chapter, we know this limit converges if $|r| < 1$ 
+(that is, $-1 < r < 1$). If this is true, then $\lim_{n \to \infty} 
+r^n = 0$ and 
+$$s_n = \frac{a}{1-r}$$
+
+
+
+\textbf{Example}: Find the sum of the geometric series given by $2 - 
+\frac{2}{3} + \frac{2}{9} - \frac{2}{27} + \cdots$. 
+
+\textbf{Solution}: The first term is $a = 2$ and each the common 
+ratio is $r = \frac{-1}{3}$. Since $|r| < 1$, we know that the series 
+converges. We can calculate the value of the sum using the geometric 
+series formula: 
+$$\Sigma_{i=1}^\infty a(r)^{i-1} = \frac{a}{1-r}$$
+$$\Sigma_{i=1}^\infty 2(\frac{-1}{3})^{i-1} = \frac{2}{1-\frac{-1}{3}} = 
+\frac{2}{\frac{4}{3}} = \frac{6}{4} = 1.5$$
+
+We can confirm this graphically (see figure \ref{fig:geometric}). You 
+can also write out the first several partial sequences: you should 
+find the sums approach 1.5 as $n$ increases.
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = -0.5, xmax = 8, 
+        ymin = -1.5, ymax = 2, xlabel=n, legend pos = south east]
+        \addplot[blue, mark=*](1,2);
+        \addlegendentry{$s_n$};
+        \addplot[red, mark=o](1, 2);
+        \addlegendentry{$a_n$};
+        \addplot[blue, mark=*](2, 4/3);
+        \addplot[blue, mark=*](3, 14/9);
+        \addplot[blue, mark=*](4, 40/27);
+        \addplot[blue, mark=*](5, 122/81);
+        \addplot[blue, mark=*](6, 364/243);
+        \addplot[blue, mark=*](7, 1094/729);
+        \addplot[blue, mark=*](8, 3280/ 2187);
+        \addplot[red, mark=o](2, -2/3);
+        \addplot[red, mark=o](3, 2/9);
+        \addplot[red, mark=o](4, -2/27);
+        \addplot[red, mark=o](5, 2/81);
+        \addplot[red, mark=o](6, -2/243);
+        \addplot[red, mark=o](7, 2/729);
+        \addplot[red, mark=o](8, -2/2187);
+        \addplot[red, thin, dashed, domain = 0:8]{1.5};
+        \end{axis}
+\end{tikzpicture}
+    \caption{the $n^{th}$ term and partial sums of $\Sigma_{i=1}^n 
+    2(\frac{-1}{3})^{i-1}$}
+    \label{fig:geometric}
+\end{figure}
+
+\section{Estimating the Value of Series}
+
+\section{Ratio and Root Tests for Convergence}
+
+\section{Power Series}
