@@ -7,8 +7,10 @@ divided by the length of the hypotenuse.
 The sine function is defined for any real number. We treat that real number
 $\theta$ as an angle, we draw a ray from the origin out to the unit
 circle. The $y$ value of that point is the sine. So, for example,
-the $\sin(\frac{4\pi}{3})$ is $-\sqrt{3}/2$
+the $\sin(\frac{4\pi}{3})$ is $-\sqrt{3}/2$ (see figure \ref{fig:sine}).
 
+\begin{figure}[htbp]
+\centering
 \begin{tikzpicture}[declare function={angle=240;},bullet/.style={inner
     sep=1pt,fill,draw,circle,solid}, scale=3]
     % Axis
@@ -22,6 +24,10 @@ the $\sin(\frac{4\pi}{3})$ is $-\sqrt{3}/2$
     \draw[dashed, black] (-0.7, -0.866) -- (0.05, -0.866) node[right] {$\sin(\theta) = -\sqrt{3}/2$}; % horizontal
     \filldraw[black] (angle:1.0) circle(1pt);
 \end{tikzpicture}
+\caption{$\sin{\frac{4\pi}{3}} = \frac{-\sqrt{3}}{2}$}
+\label{fig:sine}
+\end{figure}
+
 
 (Note that in this section, we will be using radians instead of
 degrees unless otherwise noted. While degrees are more familiar to most
@@ -32,8 +38,10 @@ degrees mode. You want to be in radians mode.)
 Similarly, we define cosine using the unit circle: to find the cosine
 of $\theta$, we draw a ray from the origin at the angle $\theta$. The
 $x$ component of the point where the ray intersects the unit circle is
-the cosine of $\theta$.
+the cosine of $\theta$ (shown in figure \ref{fig:cosine}).
 
+\begin{figure}
+\centering
 \begin{tikzpicture}[declare function={angle=240;},bullet/.style={inner
     sep=1pt,fill,draw,circle,solid}, scale=3]
     % Axis
@@ -42,11 +50,16 @@ the cosine of $\theta$.
     % Rest
     \draw (0,0) circle (1);
     \draw[thick] (0,0) -- (angle:1.0) node [midway, right] {1};
-    \draw[sdkblue] (0.1, 0.32) node[above] {$\theta = \frac{4\pi}{3}\text{ radians} = 240^\circ$};
+    \draw[sdkblue] (0.1, 0.32) node[above] {$\theta = \frac{4\pi}{3}
+    \text{ radians} = 240^\circ$};
     \draw[-stealth,sdkblue] (0.3,0) arc (0:angle:0.3);
-    \draw[dashed, black]  (-0.5, -0.95) -- (-0.5, 0.05) node[left, above] {$\cos(\theta) = -0.5$}; % horizontal
+    \draw[dashed, black]  (-0.5, -0.95) -- (-0.5, 0.05) node[left, above] 
+    {$\cos(\theta) = \frac{-1}{2}$}; % horizontal
     \filldraw[black] (angle:1.0) circle(1pt);
 \end{tikzpicture}
+\caption{$\cos{\frac{4\pi}{3}} = \frac{-1}{2}$}
+\label{fig:cosine}
+\end{figure}
 
 From this description, it is easy to see why $\sin(\theta)^2 +
 \cos(\theta)^2 = 1$. They are the legs of a right triangle with a
@@ -155,7 +168,8 @@ run it, you should see something like this:
 
 \section{Derivatives of trigonometic functions}
 
-Here is a wonderful property of sine and cosine functions: At any point $\theta$, the slope of the sine graph at $\theta$ equals $cos(\theta)$.
+Here is a wonderful property of sine and cosine functions: At any point 
+$\theta$, the slope of the sine graph at $\theta$ equals $cos(\theta)$.
 
 For example, we know that $\sin(4\pi/3) = -(1/2)\sqrt{3}$ and
 $\cos(4\pi/3) = -1/2$. If we drew a line tangent to the sine curve at
@@ -187,20 +201,24 @@ tl/.style = {% tick labels
       domain=-1.75:6.5,samples=300,variable=\x] 
       plot (\x,{sin(deg{\x})});
 \filldraw[black] (4.188790204786391,-0.866025403784439) circle(2pt);
-\draw[->, thick, draw=red] (4.188790204786391,-0.866025403784439) -- (5.188790204786391,-1.366025403784439) node [right] {slope = -1/2} ;
+\draw[->, thick, draw=red] (4.188790204786391,-0.866025403784439) -- 
+(5.188790204786391,-1.366025403784439) node [right] {slope = -1/2} ;
 \end{tikzpicture}
 
 We say ``The derivative of the sine function is the cosine function.''
 
-Can you guess the derivative of the cosine function? For any $\theta$, the slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
+Can you guess the derivative of the cosine function? For any $\theta$, the 
+slope of the graph of the $\cos(\theta)$ is $-\sin(\theta)$.
 
 \begin{Exercise}
     [title=Derivatives of Trig Functions Practice 1, label=trigderiv1]
-    Use the limit definition of a derivative to show that $\frac{d}{dx}\cos{x}=-\sin{x}$
+    Use the limit definition of a derivative to show that $\frac{d}{dx} \cos{x} 
+    = -\sin{x}$
 \end{Exercise}
 \begin{Answer}
     [ref=trigderiv1]
-    We start by writing out the limit: $$\frac{d}{dx}\cos{x}=\lim_{h \to 0}\frac{\cos{x+h}-\cos{x}}{h}$$
+    We start by writing out the limit: 
+    $$\frac{d}{dx}\cos{x}=\lim_{h \to 0}\frac{\cos{x+h}-\cos{x}}{h}$$
 
     Applying the sum formula for $cos(x+h)$, we get:
     $$=\lim_{h \to 0}\frac{\cos{x}\cos{h}-\sin{x}\sin{h}-\cos{x}}{h}$$
@@ -231,8 +249,9 @@ The derivatives of all the trigonometric functions are presented below:
 \end{tabular}
 \end{center}
 
-Example: Find the derivative of $f(x)$ if $f(x) = x^2\sin{x}$
-Solution: Using the product rule, we find that: $$\frac{d}{dx}f(x)=(x^2)\frac{d}{dx}(\sin{x})+(\sin{x})\frac{d}{dx}(x^2)$$
+\textbf{Example}: Find the derivative of $f(x)$ if $f(x) = x^2\sin{x}$
+\textbf{Solution}: Using the product rule, we find that: 
+$$\frac{d}{dx}f(x)=(x^2)\frac{d}{dx}(\sin{x})+(\sin{x})\frac{d}{dx}(x^2)$$
 
 Taking the derivatives:
 $$=x^2(\cos{x})+2x(\sin{x})$$
