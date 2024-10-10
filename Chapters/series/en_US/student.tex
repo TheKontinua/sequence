@@ -72,7 +72,7 @@ n & Terms & Partial Sum\\
         \addplot[blue, mark=*](10,55);
         \end{axis}
 \end{tikzpicture}
-    \caption{For divergent series $\Sigma_{i=1}^n i$, the value of the 
+    \caption{For the divergent series $\Sigma_{i=1}^n i$, the value of the 
     partial sum increases to infinity as $n$ increases}
     \label{fig:divsum}
 \end{figure}
@@ -121,7 +121,7 @@ $\frac{15}{16}$\\
         \addplot[red, thin, dashed, domain = 0:8]{1};
         \end{axis}
 \end{tikzpicture}
-    \caption{For convergent series $\Sigma_{i=1}^n \frac{1}{2^i}$, 
+    \caption{For the convergent series $\Sigma_{i=1}^n \frac{1}{2^i}$, 
     the value of the partial sum approaches 1 as $n$ increases}
     \label{fig:convsum}
 \end{figure}
@@ -139,6 +139,21 @@ If the sequence \{$s_n$\} is convergent and $\lim_{n \to \infty} s_n$
 exists, then the series $\Sigma_{i=1}^\infty a_i$ is also convergent. 
 And if the sequence \{$s_n$\} is divergent, then the series 
 $\Sigma_{i=1}^\infty a_i$ is also divergent.
+
+\textbf{Example}: is the harmonic series, $\Sigma_{n = 1}^\infty \frac{1}{n}$ convergent or divergent?
+
+\textbf{Solution}: You may think that the series is convergent, since $\lim_{n \to \infty} \frac{1}{n} = 0$. Let's see if we can confirm this. We begin by looking at the partial sums $s_2$, $s_4$, $s_8$, and $s_16$:
+$$s_2 = 1 + \frac{1}{2}$$
+$$s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) > 1 + \frac{1}{2} + \left( \frac{1}{4} + \frac{1}{4} \right) = 1 + \frac{2}{2}$$
+$$s_8 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) > 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4} \right) + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right) = 1 + \frac{3}{2}$$
+$$s_{16} = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) + \left(\frac{1}{9} + \cdots + \frac{1}{16} \right) > $$
+$$1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4} \right) + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right) + \left(\frac{1}{16} + \cdots + \frac{1}{16} \right) = 1 + \frac{4}{2}$$
+
+Notice that, in general, $s_{2^n} > 1 + \frac{n}{2}$ for $n > 1$. Taking the limit as $n \to \infty$, we see that $\lim_{n \to \infty} s_{2^n} > \lim_{n \to \infty} 1 + \frac{n}{2} = \infty$. Therefore, $s_{2^n}$ also approaches $\infty$ as $n$ gets larger and the harmonic series $\Sigma_{n = 1}^\infty \frac{1}{n}$ is divergent. 
+
+This example shows a very important point: the converse of a theorem is not always true! We do know that if a series is convergent, then the limit as n approaches infinity must be zero. The harmonic series shows that \textit{just because the limit as n approaches infinity is zero, the series is not necessarily convergent}. What we can say, though, is that the contrapositive statement is true: if the limit as n approaches infinity of a series does not exist or is not zero, then the series is divergent (i.e. not convergent). 
+
+\subsection{Geometric Series}
 
 Let's apply this definition of convergent and divergent to geometric 
 series. You should recall from the chapter on sequences that a 
@@ -162,15 +177,13 @@ $$s_n - rs_n = (a + ar + ar^2 + \cdots + ar^{n-1}) - (ar + ar^2 +
 ar^3 + \cdots + ar^{n-1} + ar^n)$$
 $$= a - ar^n$$
 
-
-
 Solving for $s_n$, we find:
 $$s_n = \frac{a(1-r^n)}{1-r}$$
 
 We take the limit as $n \to \infty$ to determine for what values of 
 $r$ the series converges:
 $$\lim_{n \to \infty} s_n = \lim_{n \to \infty} \frac{a(1-r^n)}{1-r}$$
-$$= \lim_{n\to \infty} \frac{a}{1-r} - \frac{ar^n}{1-r} = \frac{1}{1-r} 
+$$= \lim_{n\to \infty} \frac{a}{1-r} - \frac{ar^n}{1-r} = \frac{a}{1-r} 
 - \frac{a}{1-r}\lim_{n \to \infty} r^n$$
 
 This begs the question: when is $\lim_{n \to \infty} r^n$ convergent? 
@@ -179,7 +192,93 @@ From the sequences chapter, we know this limit converges if $|r| < 1$
 r^n = 0$ and 
 $$s_n = \frac{a}{1-r}$$
 
+(see figures \ref{fig:geometric1} and \ref{fig:geometric2} for a visual)
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.5, xmax = 10, ymin = 0, axis lines = center, xlabel = $n$, clip = false, ytick = \empty]
+        \addplot[red, mark=*] (1, 2); %r=1.5
+        \addplot[red, mark=*] (2, 5);
+        \addplot[red, mark=*] (3, 19/2);
+        \addplot[red, mark=*] (4, 65/4);
+        \addplot[red, mark=*] (5, 211/8);
+        \addplot[red, mark=*] (6, 665/16);
+        \addplot[red, mark=*] (7, 2059/32);
+        \node[red] at (5.5, 60) {$r > 1$};
+        
+        \addplot[orange, mark=*] (1, 2); %r=1
+        \addplot[orange, mark=*] (2, 4);
+        \addplot[orange, mark=*] (3, 6);
+        \addplot[orange, mark=*] (4, 8);
+        \addplot[orange, mark=*] (5, 10);
+        \addplot[orange, mark=*] (6, 12);
+        \addplot[orange, mark=*] (7, 14);
+        \addplot[orange, mark=*] (8, 16);
+        \addplot[orange, mark=*] (9, 18);
+        \addplot[orange, mark=*] (10, 20);
+        \node[orange] at (9, 25) {$r = 1$};
+        
+        \addplot[blue, mark =*] (1, 2); %r = 0.5
+        \addplot[blue, mark =*] (2, 3);
+        \addplot[blue, mark =*] (3, 7/2);
+        \addplot[blue, mark =*] (4, 15/4);
+        \addplot[blue, mark =*] (5, 31/8);  
+        \addplot[blue, mark =*] (6, 63/16);
+        \addplot[blue, mark =*] (7, 127/32);
+        \addplot[blue, mark =*] (8, 255/64);
+        \addplot[blue, mark =*] (9, 511/128);
+        \addplot[blue, mark =*] (10, 1023/256);
+        \node[blue] at (10, 10) {$0 < r < 1$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Geometric sequences are divergent if $r \geq 1$}
+    \label{fig:geometric1}
+\end{figure}
 
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.5, xmax = 10, axis lines = center, xlabel = $n$, clip = false, ytick = \empty]
+        \addplot[red, mark=*] (1, 2); %r=-1.5
+        \addplot[red, mark=*] (2, -1);
+        \addplot[red, mark=*] (3, 7/2);
+        \addplot[red, mark=*] (4, -13/4);
+        \addplot[red, mark=*] (5, 55/8);
+        \addplot[red, mark=*] (6, -133/16);
+        \addplot[red, mark=*] (7, 463/32);
+        %\addplot[red, mark=*] (8, -1261/64);
+        %\addplot[red, mark=*] (9, 4039/128);
+        %\addplot[red, mark=*] (10, -11605/256);
+        \node[red] at (5, 10) {$r > 1$};
+        
+        \addplot[orange, mark=*] (1, 2); %r=-1
+        \addplot[orange, mark=*] (2, 0);
+        \addplot[orange, mark=*] (3, 2);
+        \addplot[orange, mark=*] (4, 0);
+        \addplot[orange, mark=*] (5, 2);
+        \addplot[orange, mark=*] (6, 0);
+        \addplot[orange, mark=*] (7, 2);
+        \addplot[orange, mark=*] (8, 0);
+        \addplot[orange, mark=*] (9, 2);
+        \addplot[orange, mark=*] (10, 0);
+        \node[orange] at (9, -3) {$r = -1$};
+        
+        \addplot[blue, mark =*] (1, 2); %r = -0.5
+        \addplot[blue, mark =*] (2, 1);
+        \addplot[blue, mark =*] (3, 3/2);
+        \addplot[blue, mark =*] (4, 5/4);
+        \addplot[blue, mark =*] (5, 11/8);  
+        \addplot[blue, mark =*] (6, 21/16);
+        \addplot[blue, mark =*] (7, 43/32);
+        \addplot[blue, mark =*] (8, 85/64);
+        \addplot[blue, mark =*] (9, 171/128);
+        \addplot[blue, mark =*] (10, 341/256);
+        \node[blue] at (9, 5) {$-1 < r < 0$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Geometric sequences are divergent if $r \leq 1$. Notice that for $r = -1$, the partial sums alternate between the initial term and zero.}
+    \label{fig:geometric2}
+\end{figure}
 
 \textbf{Example}: Find the sum of the geometric series given by $2 - 
 \frac{2}{3} + \frac{2}{9} - \frac{2}{27} + \cdots$. 
