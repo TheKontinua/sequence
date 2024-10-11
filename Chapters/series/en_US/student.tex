@@ -140,18 +140,39 @@ exists, then the series $\Sigma_{i=1}^\infty a_i$ is also convergent.
 And if the sequence \{$s_n$\} is divergent, then the series 
 $\Sigma_{i=1}^\infty a_i$ is also divergent.
 
-\textbf{Example}: is the harmonic series, $\Sigma_{n = 1}^\infty \frac{1}{n}$ convergent or divergent?
+\textbf{Example}: is the harmonic series, $\Sigma_{n = 1}^\infty \frac{1}{n}$ 
+convergent or divergent?
 
-\textbf{Solution}: You may think that the series is convergent, since $\lim_{n \to \infty} \frac{1}{n} = 0$. Let's see if we can confirm this. We begin by looking at the partial sums $s_2$, $s_4$, $s_8$, and $s_16$:
+\textbf{Solution}: You may think that the series is convergent, since $\lim_
+{n \to \infty} \frac{1}{n} = 0$. Let's see if we can confirm this. We begin by 
+looking at the partial sums $s_2$, $s_4$, $s_8$, and $s_16$:
 $$s_2 = 1 + \frac{1}{2}$$
-$$s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) > 1 + \frac{1}{2} + \left( \frac{1}{4} + \frac{1}{4} \right) = 1 + \frac{2}{2}$$
-$$s_8 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) > 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4} \right) + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right) = 1 + \frac{3}{2}$$
-$$s_{16} = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) + \left(\frac{1}{9} + \cdots + \frac{1}{16} \right) > $$
-$$1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4} \right) + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right) + \left(\frac{1}{16} + \cdots + \frac{1}{16} \right) = 1 + \frac{4}{2}$$
+$$s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) > 1 + 
+\frac{1}{2} + \left( \frac{1}{4} + \frac{1}{4} \right) = 1 + \frac{2}{2}$$
+$$s_8 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( 
+\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) > 1 + \frac{1}{2} 
++ \left(\frac{1}{4} + \frac{1}{4} \right) + \left( \frac{1}{8} + \frac{1}{8} + 
+\frac{1}{8} + \frac{1}{8} \right) = 1 + \frac{3}{2}$$
+$$s_{16} = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) + \left( 
+\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right) + \left(
+\frac{1}{9} + \cdots + \frac{1}{16} \right) > $$
+$$1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4} \right) + \left( 
+\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right) + \left(
+\frac{1}{16} + \cdots + \frac{1}{16} \right) = 1 + \frac{4}{2}$$
 
-Notice that, in general, $s_{2^n} > 1 + \frac{n}{2}$ for $n > 1$. Taking the limit as $n \to \infty$, we see that $\lim_{n \to \infty} s_{2^n} > \lim_{n \to \infty} 1 + \frac{n}{2} = \infty$. Therefore, $s_{2^n}$ also approaches $\infty$ as $n$ gets larger and the harmonic series $\Sigma_{n = 1}^\infty \frac{1}{n}$ is divergent. 
+Notice that, in general, $s_{2^n} > 1 + \frac{n}{2}$ for $n > 1$. Taking the 
+limit as $n \to \infty$, we see that $\lim_{n \to \infty} s_{2^n} > \lim_{n 
+\to \infty} 1 + \frac{n}{2} = \infty$. Therefore, $s_{2^n}$ also approaches 
+$\infty$ as $n$ gets larger and the harmonic series $\Sigma_{n = 1}^\infty 
+\frac{1}{n}$ is divergent. 
 
-This example shows a very important point: the converse of a theorem is not always true! We do know that if a series is convergent, then the limit as n approaches infinity must be zero. The harmonic series shows that \textit{just because the limit as n approaches infinity is zero, the series is not necessarily convergent}. What we can say, though, is that the contrapositive statement is true: if the limit as n approaches infinity of a series does not exist or is not zero, then the series is divergent (i.e. not convergent). 
+This example shows a very important point: the converse of a theorem is not 
+always true! We do know that if a series is convergent, then the limit as n 
+approaches infinity must be zero. The harmonic series shows that \textit{just 
+because the limit as n approaches infinity is zero, the series is not 
+necessarily convergent}. What we can say, though, is that the contrapositive 
+statement is true: if the limit as n approaches infinity of a series does not 
+exist or is not zero, then the series is divergent (i.e. not convergent). 
 
 \subsection{Geometric Series}
 
@@ -196,7 +217,8 @@ $$s_n = \frac{a}{1-r}$$
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \begin{axis}[xmin = -0.5, xmax = 10, ymin = 0, axis lines = center, xlabel = $n$, clip = false, ytick = \empty]
+        \begin{axis}[xmin = -0.5, xmax = 10, ymin = 0, axis lines = center, 
+        xlabel = $n$, clip = false, ytick = \empty]
         \addplot[red, mark=*] (1, 2); %r=1.5
         \addplot[red, mark=*] (2, 5);
         \addplot[red, mark=*] (3, 19/2);
@@ -238,7 +260,8 @@ $$s_n = \frac{a}{1-r}$$
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \begin{axis}[xmin = -0.5, xmax = 10, axis lines = center, xlabel = $n$, clip = false, ytick = \empty]
+        \begin{axis}[xmin = -0.5, xmax = 10, axis lines = center, 
+        xlabel = $n$, clip = false, ytick = \empty]
         \addplot[red, mark=*] (1, 2); %r=-1.5
         \addplot[red, mark=*] (2, -1);
         \addplot[red, mark=*] (3, 7/2);
@@ -276,7 +299,8 @@ $$s_n = \frac{a}{1-r}$$
         \node[blue] at (9, 5) {$-1 < r < 0$};
         \end{axis}
     \end{tikzpicture}
-    \caption{Geometric sequences are divergent if $r \leq 1$. Notice that for $r = -1$, the partial sums alternate between the initial term and zero.}
+    \caption{Geometric sequences are divergent if $r \leq 1$. Notice that for 
+    $r = -1$, the partial sums alternate between the initial term and zero.}
     \label{fig:geometric2}
 \end{figure}
 
@@ -326,8 +350,224 @@ find the sums approach 1.5 as $n$ increases.
     \label{fig:geometric}
 \end{figure}
 
-\section{Estimating the Value of Series}
+\section{The Integral Test}
+We were able to determine the exact value of some infinite series because it 
+was possible to write the $n^{th}$ partial sum, $s_n$, in terms of $n$. For 
+example, we determined that the $n^{th}$ partial sum of $\Sigma_{i = 1}^n 
+\frac{1}{2^i}$ is $s_n = 1 - \frac{1}{2^n}$. However, it is not always possible 
+to do this. How can we estimate the value of an infinite series in cases where 
+we can't explicitly write $s_n$ in terms of $n$?
 
+Consider the series $\Sigma_{i = 1}^\infty \frac{1}{i^2}$. The first few terms 
+are:
+$$\Sigma_{i = 1}^\infty \frac{1}{2^i} = \frac{1}{1^2} + \frac{1}{2^2} + 
+\frac{1}{3^2} + \frac{1}{4^2} + \frac{1}{5^2} + \cdots$$
+
+The series is decreasing, but is it convergent? Let's plot this series on an 
+$xy$-plane (see figure \ref{fig:invsquare1}). 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $n$, 
+        ymin = 0, ymax = 1.25, ytick = \empty]
+        \foreach \n in {1,...,5}{
+        \addplot[red, mark=*]({\n}, {1/(\n)^2});
+        }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The first 5 terms of $\Sigma_{i = 1}^\infty \frac{1}{2^i}$}
+    \label{fig:invsquare1}
+\end{figure}
+
+We can overlay the function $y = \frac{1}{2^x}$ (figure \ref{fig:invsquare2}). 
+We can draw rectangles of width 1 and height $\frac{1}{x^2}$ (see figure 
+\ref{fig:invsquare3}). The area of the first $n$ rectangles is equal to the 
+$n^{th}$ partial sum. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, 
+        xlabel = $n$, ymin = 0, ymax = 1.25, ytick = \empty]
+        \foreach \n in {1,...,5}{
+        \addplot[red, mark=*]({\n}, {1/(\n)^2});
+        }
+        \addplot[blue, domain = 0.7:6] {1/x^2};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The first 5 terms of $\Sigma_{i = 1}^\infty \frac{1}{2^i}$ lie on 
+    the curve $y = \frac{1}{x^2}$}
+    \label{fig:invsquare2}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $n$, 
+        ymin = 0, ymax = 1.25, ytick = \empty, width = 1.5*\axisdefaultwidth, 
+        height = \axisdefaultheight]
+        \foreach \n in {1,...,5}{
+        \addplot[red, mark=*]({\n}, {1/(\n)^2});
+        }
+        \addplot[blue, domain = 0.7:6, samples=100] {1/x^2};
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (0, 0) rectangle (1,  1);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (1, 0) rectangle (2, 0.25);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (2, 0) rectangle (3,  1/9);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (3, 0) rectangle (4,  1/16);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (4, 0) rectangle (5,  1/25);
+        \node[] at (0.5, 0.5) {area $=\frac{1}{1^2}$};
+        \node[] at (1.5, 0.15) {area $=\frac{1}{2^2}$};
+        \node[] at (2.5, 0.5) {area $=\frac{1}{3^2}$};
+        \node[] at (3.5, 0.5) {area $=\frac{1}{4^2}$};
+        \node[] at (4.5, 0.5) {area $=\frac{1}{5^2}$};
+        \draw[-latex](2.5, 0.45) -- (2.5, 0.06);
+        \draw[-latex](3.5, 0.45) -- (3.5, 0.02);
+        \draw[-latex](4.5, 0.45) -- (4.5, 0.01);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The $5^{th}$ partial sum of $\Sigma_{i=1}^\infty \frac{1}{2^i}$ 
+    is equal to the area of the rectangles}
+    \label{fig:invsquare3}
+\end{figure}
+
+This should remind you of a Riemann sum. Since the total area of the rectangles 
+is less than the area under the curve, we can state:
+$$\Sigma_{i = 1}^\infty \frac{1}{2^i} < \int_0^\infty \frac{1}{x^2}\,dx$$
+
+We can exclude the first rectangle and also state that: 
+$$\Sigma_{i = 1}^\infty \frac{1}{2^i}< 1 + \int_1^\infty \frac{1}{x^2}\,dx$$
+
+We can evaluate this integral:
+$$\int_1^\infty \frac{1}{x^2}\,dx = \lim_{t \to \infty} \left[ \int_1^t 
+\frac{1}{x^2}\,dx \right]$$
+$$ = \lim_{t \to \infty} \frac{-1}{x}|_{x=1}^t = \lim_{t \to \infty} \left( 
+\frac{-1}{t} \right) - \frac{-1}{1} = 0 - (-1) = 1$$
+
+And therefore:
+$$\Sigma_{i = 1}^\infty \frac{1}{2^i}< 1 + 1 = 2$$
+
+This means the series $\Sigma_{i = 1}^\infty \frac{1}{2^i}$ is bounded above. 
+Since the series is also monotonic (each term is positive, so the value of the 
+sum increases as $n$ increases), we can state that the sum is convergent! 
+
+Let's look at a divergent example: $\Sigma_{i = 1}^\infty \frac{1}{\sqrt{x}}$. 
+Again, we will make a visual, but this time we will draw rectangles that lie 
+above the curve $y = \frac{1}{\sqrt{x}}$ (see figure \ref{fig:invroot}). In 
+this case, $\Sigma_{i = 1}^\infty \frac{1}{\sqrt{x}}> \int_1^\infty 
+\frac{1}{\sqrt{x}}\,dx$. Let's evaluate the integral:
+$$\int_1^\infty \frac{1}{\sqrt{x}}\,dx = \lim_{t \to \infty} \left[ \int_1^t 
+\frac{1}{\sqrt{x}}\,dx \right] $$
+$$= \lim_{t \to \infty} \left[ 2 \sqrt{x} \right]_{x=1}^t= \lim_{t \to \infty} 
+\left( 2\sqrt{t} \right) - 2\sqrt{1} = \infty - 2 \rightarrow \text{divergent}$$
+
+Since the integral diverges to infinity and the series is greater than the 
+integral, the series must also diverge to infinity. This is another case where 
+a monotonic decreasing series is not convergent!
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $n$, 
+        ymin = 0, ymax = 1.25, ytick = \empty, width = 1.5*\axisdefaultwidth, 
+        height = \axisdefaultheight]
+        \foreach \n in {1,...,5}{
+        \addplot[red, mark=*]({\n}, {1/sqrt(\n)});
+        }
+        \addplot[blue, domain = 0.7:6, samples=100] {1/sqrt(x)};
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (1, 0) rectangle (2,  1);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (2, 0) rectangle (3, 0.707);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (3, 0) rectangle (4,  0.577);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (4, 0) rectangle (5,  0.5);
+        \filldraw[fill=blue!30, draw = blue, opacity = 0.4] 
+        (5, 0) rectangle (6, 0.4472);
+        \node[] at (1.5, 0.25) {area $=\frac{1}{\sqrt{1}}$};
+        \node[] at (2.5, 0.25) {area $=\frac{1}{\sqrt{2}}$};
+        \node[] at (3.5, 0.25) {area $=\frac{1}{\sqrt{3}}$};
+        \node[] at (4.5, 0.25) {area $=\frac{1}{\sqrt{4}}$};
+        \node[] at (5.5, 0.25) {area $=\frac{1}{\sqrt{5}}$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$\Sigma_{i = 1}^\infty \frac{1}{\sqrt{x}}> \int_1^\infty 
+    \frac{1}{\sqrt{x}}\,dx$}
+    \label{fig:invroot}
+\end{figure}
+
+This leads us to the \textbf{Integral Test}. If $f$ is a continuous, positive, 
+decreasing function on the interval $x \in [1, \infty)$ and $a_n = f(n)$, then 
+the series $\Sigma_{n=1}^\infty a_n$ converges if and only if $\int_1^\infty 
+f(x)\,dx$ is convergent. Subsequently, if $\int_1^\infty f(x)\,dx$ is 
+divergent, then the series is also divergent.
+
+\textbf{Example}: Is the series $\Sigma_{i = 1}^\infty \frac{1}{n^2 + 1}$ 
+convergent or divergent?
+
+\textbf{Solution}: To apply the integral test, we define $f(x) = 
+\frac{1}{x^2 + 1}$, which is a positive, decreasing function on the interval 
+$x \in [1, \infty)$. 
+$$\int_1^\infty \frac{1}{x^2 + 1}\,dx = \lim_{t \to \infty} \int_{1}^t 
+\frac{1}{x^2 + 1}\,dx$$
+$$= \lim_{t \to \infty} \left[ \arctan{x} \right]_{x = 1}^t = \lim_{t \to \infty} 
+\left( \arctan{t} \right) - \arctan{1} = \frac{\pi}{2} - \frac{\pi}{4} = 
+\frac{\pi}{4}$$
+
+Because the integral $\int_1^\infty \frac{1}{x^2 + 1}\,dx$ converges, so does 
+the series $\Sigma_{n = 1}^\infty \frac{1}{n^2 + 1}$. 
+
+\begin{Exercise}[label = series1]
+Use the integral test to determine if the following series are convergent or 
+divergent. 
+\begin{enumerate}
+\item $\Sigma_{n = 1}^\infty 2n^{-3}$
+\item $\Sigma_{n = 1}^\infty \frac{5}{3n-1}$
+\item $\Sigma_{n = 1}^\infty \frac{n}{3n^2 + 1}$
+\end{enumerate}
+\vspace{40mm}
+\end{Exercise}
+
+\begin{Answer}[ref= series1]
+\begin{enumerate}
+\item The function $2x^{-3}$ is positive and decreasing for $x \in [1, \infty)$. 
+$\int_1^\infty 2x^{-3}\,dx = \lim_{t \to \infty} \int_1^t 2x^{-3}\,dx = \lim_{t 
+\to \infty} \left[-x^{-2} \right]_{x = 1}^t = \lim_{t \to \infty} ( -t^{-2}) - 
+-(1)^{-2} = 0 + 1 = 1$. Since the integral $\int_1^\infty 2x^{-3}\,dx$ converges, 
+the series $\Sigma_{n = 1}^\infty 2n^{-3}$ is also convergent.
+\item The function $\frac{5}{3x+1}$ is positive and decreasing for $x \in [1, 
+\infty)$. $\int_1^\infty \frac{5}{3x-1}\,dx = \lim_{t \to \infty} \int_1^t 
+\frac{5}{3x-1}\,dx$ Using u-substitution to evaluate the integral, we set $u = 
+3x-1$ and find that $du = 3dx \rightarrow dx = \frac{du}{3}$. Substituting, 
+$\int_1^t \frac{5}{3x-1}\,dx = \int_{x=1}^{x=t} \frac{5}{3}\frac{1}{u}\,du$. 
+Evaluating the integral, $\int_{x=1}^{x=t} \frac{5}{3}\frac{1}{u}\,du = 
+\frac{5}{3}\ln{u}|_{x = 1}^{x =t} = \frac{5}{3}\ln{3x+1}|_{1}^t$. Substituting 
+this back into the limit, $\int_1^\infty \frac{5}{3x-1}\,dx = \lim_{t \to 
+\infty} \frac{5}{3}\ln{3x+1}|_{1}^t = \lim_{t \to \infty} [ \frac{5}{3} 
+\ln{3t+1} ] - \frac{5}{3}\ln{4} = \infty - \frac{5}{3}\ln{4} = \infty$. 
+Therefore, the integral $\int_1^\infty \frac{5}{3x-1}\,dx$ is divergent and so 
+is the series $\Sigma_{n = 1}^\infty \frac{5}{3n-1}$
+\item The function $\frac{x}{3x^2 + 1}$ is positive and decreasing for $x\in 
+[1,\infty)$. $\int_1^\infty \frac{x}{3x^2 + 1}\,dx = \lim_{t \to \infty} 
+\int_1^t \frac{x}{3x^2 + 1}\,dx$. Applying the substitution $u = 3x^2 + 1$ 
+and $\frac{du}{6} = x\text{ }dx$, we see that $\lim_{t \to \infty} \int_1^t 
+\frac{x}{3x^2 + 1}\,dx = \lim_{t \to \infty} \int_{x=1}^{x=t} \frac{1}{6u}\,du 
+= \lim_{t \to \infty} \frac{1}{6}\ln{u}|_{x = 1}^{x = t} = \lim_{t \to \infty} 
+\frac{1}{6}\ln{3x^2 + 1}|_{1}^{t} = \lim_{t \to \infty} \left[ \frac{1}{6}
+\ln{3t^2 + 1} \right] - \frac{1}{6}\ln{4} = \infty$. Therefore the integral 
+$\int_1^\infty \frac{x}{3x^2 + 1}\,dx$ is divergent and so is the series 
+$\Sigma_{n = 1}^\infty \frac{n}{3n^2 + 1}$. 
+\end{enumerate}
+\end{Answer}
+
+
+\subsection{Using Integrals to Estimate the Value of a Series}
 \section{Ratio and Root Tests for Convergence}
 
 \section{Power Series}
