@@ -566,8 +566,325 @@ $\Sigma_{n = 1}^\infty \frac{n}{3n^2 + 1}$.
 \end{enumerate}
 \end{Answer}
 
+\subsection{p-series}
+A $p$-series takes the form $\Sigma_{n=1}^\infty \frac{1}{n^p}$. For what 
+values of $p$ does the $p$-series converge? We can apply the integral test to 
+find a general rule. First, we consider $p < 0$. 
+Since $p < 0$, we will define $q = -p$ and note that $q > 0$. Then $\Sigma_
+{n=1}^\infty \frac{1}{n^p} = \Sigma_{n=1}^\infty n^q$. And we can see that:
+$$\lim_{n \to \infty}\frac{1}{n^p} = \lim_{n \to \infty}n^q$$
+Since $q > 0$, $\lim_{n \to \infty}n^q = \infty$. Since $a_n$ does not 
+approach zero as $n \to \infty$, we know that $\Sigma_{n = 1}^\infty 
+\frac{1}{n^p}$ diverges for $p < 0$. 
+
+Next we examine the case where $p=0$. Since any real number raised to zero 
+power is 1, we can see that $lim_{n \to \infty} \frac{1}{n^p} = \lim_{n \to 
+\infty} 1 = 1$. Again, since $a_n$ does not approach zero as $n \to \infty$, 
+the series diverges for $p = 0$. 
+
+When $p > 0$, the function $f(x) = \frac{1}{x^p}$ is continuous, positive, and 
+decreasing on the interval $[1, \infty)$ and we can apply the integral test to 
+determine if $\Sigma_{n=1}^\infty \frac{1}{n^p}$ converges or diverges. We 
+already know that $\int_1^\infty \frac{1}{x}\,dx = \lim_{x \to \infty} \ln{x} 
+= \infty$. Since the integral diverges when $p = 1$, then the series $\Sigma_
+{n=1}^\infty \frac{1}{x^p}$ also diverges for $p = 1$. 
+
+When $p >0$ and $p \neq 1$, then:
+$$\int_1^\infty \frac{1}{x^p}\,dx = \lim_{t \to \infty} \int_1^t x^{-p}\,dx = 
+\lim_{t \to \infty} \frac{x^{-p + 1}}{-p + 1}|_{x=1}^{x=t} = \lim_{t \to \infty}
+\frac{t^{-p+1}}{-p + 1} - \frac{1}{1-p}$$ [fix me finish proof]
+
+So, in summary, the $p$-series $\Sigma_{n = 1} ^ \infty \frac{1}{x^p}$ converges 
+if $p > 1$ and diverges if $p \leq 1$. 
 
 \subsection{Using Integrals to Estimate the Value of a Series}
+Recall that $\Sigma_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \cdots = s$ and that 
+the $n^{th}$ partial sum, often represented as $s_n$, is $s_n = a_1 + a_2 + 
+\cdots + a_{n-1} + a_n$. Then we can define the $n^{th}$ remainder $R_n = s - 
+s_n$. Expanding $s$ and $s_n$, we see that:
+$$R_n = \left[ a_1 + a_2 + \cdots + a_{n-1} + a_n + a_{n+1} + \cdots \right] - 
+\left[ a_1 + a_2 + \cdots + a_{n-1} + a_{n} \right]$$
+$$R_n = [a_1 - a_1] + [a_2 - a_2] + \cdots + [a_{n-1} - a_{n-1}] + [a_n - a_n] 
++ a_{n-1} + a_{n-2} + \cdots$$
+$$R_n = a_{n+1} + a_{n+2} + a_{n+3} + \cdots$$
+
+Just like the integral test, suppose there is some continuous, positive, 
+decreasing function such that $a_n = f(n)$. The we can represent $R_n$ as the 
+right Riemann sum with width $\Delta x = 1$ from $x = n$ to $\infty$. Since 
+the rectangles are below the curve (see figure \ref{fig:remainderceiling}), we 
+can state that $R_n \leq \int_n^\infty f(x)\,dx$.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.1, xmax = 1.5, axis lines = center, 
+        xlabel = $x$, ymin = -0.2, ymax = 5, ytick = \empty, 
+        width = 1.25*\axisdefaultwidth, height = \axisdefaultheight, 
+        xtick={0.2}, xticklabels={$n$}, ylabel={$y$}]
+        \addplot[blue, domain = 0.1:1.5]{5*e^(-2*x)};
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.2, 0) rectangle (0.4, {5*e^(-2*0.4)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.4, 0) rectangle (0.6, {5*e^(-2*0.6)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.6, 0) rectangle (0.8, {5*e^(-2*0.8)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.8, 0) rectangle (1, {5*e^(-2*1)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (1, 0) rectangle (1.2, {5*e^(-2*1.2)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (1.2, 0) rectangle (1.4, {5*e^(-2*1.4)});
+        \node[font=\footnotesize] at (0.3, 0.3) {$a_{n+1}$};
+        \node[font=\footnotesize] at (0.5, 0.3) {$a_{n+2}$};
+        \node[font=\footnotesize] at (0.7, 0.3) {$a_{n+3}$};
+        \node[font=\footnotesize] at (0.9, 0.3) {$\cdots$};
+        \node[font=\footnotesize] at (1.1, 0.3) {$\cdots$};
+        \node[font=\footnotesize] at (1.3, 0.2) {$\cdots$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$R_n \leq \int_n^\infty f(x)\,dx$ }
+    \label{fig:remainderceiling}
+\end{figure}
+
+Similarly, we can represent $R_n$ as the left Riemann sum with width $\Delta x 
+= 1$ from $x= n + 1$ to $\infty$. This time the rectangles are above the curve 
+(see figure \ref{fig:remainderfloor}), and we can state that $R_n \geq \int_
+{n+1}^\infty f(x)\,dx$. Putting this all together, we have an estimate for the 
+remainder, $R_n$, from the integral test:
+
+Suppose there is a function such that $f(k) = a_k$, where $f$ is a continuous, 
+positive, decreasing function for $x \geq n$ and $\Sigma a_n$ is convergent. 
+Then, $\int_{n+1}^\infty f(x)\,dx \leq R_n \leq \int_N^\infty f(x)\,dx$, where 
+$R_n$ is the $s - s_n$. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[xmin = -0.1, xmax = 1.5, axis lines = center, 
+        xlabel = $x$, ymin = -0.2, ymax = 5, ytick = \empty, 
+        width = 1.25*\axisdefaultwidth, height = \axisdefaultheight, 
+        xtick={0.4}, xticklabels={$n+1$}, ylabel={$y$}]
+        \addplot[blue, domain = 0.1:1.5]{5*e^(-2*x)};
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.4, 0) rectangle (0.6, {5*e^(-2*0.4)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.6, 0) rectangle (0.8, {5*e^(-2*0.6)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (0.8, 0) rectangle (1, {5*e^(-2*0.8)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (1, 0) rectangle (1.2, {5*e^(-2*1)});
+        \filldraw[fill=blue!30, draw=black, opacity = 0.4] 
+        (1.2, 0) rectangle (1.4, {5*e^(-2*1.2)});
+        \node[font=\footnotesize] at (0.5, 0.3) {$a_{n+1}$};
+        \node[font=\footnotesize] at (0.7, 0.3) {$a_{n+2}$};
+        \node[font=\footnotesize] at (0.9, 0.3) {$a_{n+3}$};
+        \node[font=\footnotesize] at (1.1, 0.3) {$\cdots$};
+        \node[font=\footnotesize] at (1.3, 0.3) {$\cdots$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{$R_n \geq \int_{n+1}^\infty f(x)\,dx$ }
+    \label{fig:remainderfloor}
+\end{figure}
+
+\textbf{Example}: Approximate the sum of the series $\Sigma_{n=1}^\infty 
+\frac{3}{n^3}$ by finding the $10^{th}$ partial sum. Estimate the error of 
+this approximation. 
+
+\textbf{Solution}: Using a calculator, you can find the $10^{th}$ partial sum: 
+$$\Sigma_{n=1}^{10} \frac{3}{n^3} = \frac{3}{1^3} + \frac{3}{2^3} + 
+\frac{3}{3^3} + \cdots + \frac{3}{10^3} \approx 3.593 = s_{10}$$
+
+Recall that the remainder, $R_{10}$ is the difference between the actual sum, 
+$s$, and the partial sum, $s_{10}$. Using the integral test to estimate the 
+remainder, we can state that: $$R_{10} \leq \int_{10}^\infty \frac{3}{x^3}\,dx 
+= \frac{3}{2(10)^2} = \frac{3}{200} = 0.015$$ Therefore, the size of the error 
+is at most 0.015. 
+
+\textbf{Example}: How many terms are required for the error to be less than 
+0.0001?
+
+\textbf{Solution}: We are looking for an $n$ such that $R_n \leq 0.0001$. 
+Recalling that $R_n \leq \int_{n}^\infty \frac{3}{x^3}\,dx$, we need to find 
+an $n$ such that $\int_{n}^\infty \frac{3}{x^3}\,dx \leq 0.0001$. 
+
+$$\int_n^\infty \frac{3}{x^3}\,dx \leq 0.0001$$
+$$\frac{-1}{6x^2}|_{x=n}^\infty \leq 0.0001$$
+$$\lim_{x \to \infty} \frac{-1}{6x^2} - \frac{-1}{6n^2} \leq 0.0001$$
+$$0 + \frac{1}{6n^2} = \frac{1}{6n^2} \leq 0.0001$$
+$$1 \leq 0.0006n^2$$
+$$1667 \leq n^2$$
+$$40.8 \leq n \rightarrow n = 41$$
+Therefore, $s - s_{41} \leq 0.0001$ and the partial sum $\Sigma_{n=1}^{41} 
+\frac{3}{n^3}$ is less than 0.0001 from the value of the infinite sum $\Sigma_
+{n=1}^\infty \frac{3}{n^3}$.
+
+\begin{Exercise}[label=remainder1]
+\begin{enumerate}
+\item Find the partial sum $s_{10}$ of the series $\Sigma_{n=1}^\infty 
+\frac{1}{n^4}$. 
+\item Estimate the error from using $s_{10}$ as an approximation of the series.
+\item Use $s_n + \int_{n+1}^\infty \frac{1}{x^4}\,dx \leq s \leq s_n + \int_n^
+\infty \frac{1}{x^4}\,dx$ to give an improved estimate of the sum.
+\item The actual value of $\Sigma_{n=1}^\infty \frac{1}{n^4}$ is 
+$\frac{\pi^4}{90}$. Compare your estimate with the actual value.
+\item Find a value of $n$ such that $s_n$ is within 0.00001 of the sum. 
+\end{enumerate}
+\vspace{50mm}
+\end{Exercise}
+
+\begin{Answer}[ref=remainder1]
+\begin{enumerate}
+\item $s_{10} = \frac{1}{1^4} + \frac{1}{2^4} + \cdots + \frac{1}{10^4} \approx 
+1.082037$. 
+\item $R_{10} \leq \int_{10}^\infty \frac{1}{x^4}\,dx = \frac{-1}{3x^3}|_
+{x=10}^\infty = \lim_{x \to \infty} \frac{-1}{3x^3} - \frac{-1}{3 \cdot 10^3} 
+= \frac{1}{3000} = 0.000333$. Therefore, the error is less than 0.000333. 
+\item Given $s_{10} \approx 1.082037$, we can say that $1.082037 + \int_{n+1}^
+\infty \frac{1}{x^4}\,dx \leq s \leq 1.082037 + \int_{n}^{\infty} \frac{1}{x^4}
+\,dx$. Using a calculator to evaluate each integral, we see that: $1.082037 + 
+0.000250 \leq s \leq 1.082037 + 0.000333$ and therefore the sum is between 
+1.082287 and 1.082370. 
+\item Writing the actual value as a decimal, $\frac{\pi^4}{90} \approx 
+1.082323$, which is in the estimate window from the previous part. 
+\item We are looking for an $n$ such that $\int_n^\infty \frac{1}{x^4}\,dx 
+\leq 0.00001$. $\lim_{x \to \infty} \frac{-1}{3x^3} - \frac{-1}{3n^3} = 
+\frac{1}{3n^3} \leq 0.00001$. $100,000 \leq 3n^3$. $33,333.33 \leq n^3$. 
+$32.183 \leq n$. Since $n$ must be an integer, $n=33$ gives $R_n \leq 0.00001$. 
+\end{enumerate}
+\end{Answer}
+
+\section{Comparison Test}
+
 \section{Ratio and Root Tests for Convergence}
+\subsection{Absolute Convergence}
+Suppose there is a series $\Sigma_{n=1}^\infty a_n$, then there is a 
+corresponding series $\Sigma_{n=1}^\infty |a_n| = |a_1| + |a_2| + |a_3| + 
+\cdots$. If $\Sigma_{n=1}^\infty |a_n|$ is convergent, then the series $\Sigma_
+{n=1}^\infty a_n$ is called \textbf{absolutely convergent}. 
+
+\textbf{Example}: Consider the alternating series 
+$$\Sigma_{n=1}^\infty \frac{(-1)^{n-1}}{n^2} = 1 - \frac{1}{2^2} + 
+\frac{1}{3^2} + \cdots$$\\
+Is this series absolutely convergent?
+
+\textbf{Solution}: We examine the corresponding series where we take the 
+absolute value of each term:
+$$\Sigma_{n=1}^\infty \left|\frac{(-1)^{n-1}}{n^2} \right| = \Sigma_{n=1}^
+\infty \frac{1}{n^2}$$
+We can identify $\Sigma_{n=1}^\infty \frac{1}{n^2}$ as a convergent $p$-series. 
+Since $\Sigma_{n=1}^\infty \frac{1}{n^2}$ is convergent, we can state that 
+$\Sigma_{n=1}^\infty \frac{(-1)^{n-1}}{n^2}$ is absolutely convergent. 
+
+\textbf{Example} Is the convergent series $\Sigma_{n=1}^\infty 
+\frac{(-1)^{n-1}}{n}$ absolutely convergent?
+
+\textbf{Solution} We consider the sum of the absolute values of the terms:
+$$\Sigma_{n=1}^\infty \left|\frac{(-1)^{n-1}}{n}\right| = \Sigma_{n=1}^\infty 
+\frac{1}{n}$$\\
+You should recognize this as the harmonic series, which is divergent. When a 
+series is convergent but the corresponding series of absolute values is not, 
+we call it \textbf{conditionally convergent}. 
+
+We won't prove the theorem here, but it is useful to know that if a series 
+$\Sigma_{n=1}^\infty a_n$ is absolutely convergent, then it is convergent. You 
+can prove this yourself using the Comparison Test. 
+
+\begin{Exercise}[label = absconv1]
+Is the series given by 
+$$\frac{\cos{1}}{1^2} + \frac{\cos{2}}{2^2} + \frac{\cos{3}}{3^3} + \cdots$$ \\
+convergent or divergent?
+\vspace{40mm}
+\end{Exercise}
+
+\begin{Answer}[ref = absconv1]
+We can write the series as $\Sigma_{n=1}^\infty \frac{\cos{n}}{n^2}$. Since 
+$n$ is real, we know that $n^2 > 0$ and we can say that $\Sigma_{n=1}^\infty 
+\left| \frac{\cos{n}}{n^2} \right| = \Sigma_{n=1}^\infty \frac{|\cos{n}|}
+{n^2}$. Additionally, $|\cos{n}| \leq 1$ for all $n$, and therefore 
+$\frac{|\cos{n}|}{n^2} \leq \frac{1}{n^2}$. We know the series $\Sigma_{n=1}^
+\infty \frac{1}{n^2}$ is convergent. And since we have shown that $\Sigma_{n=1}
+^\infty \frac{|\cos{n}|}{n^2} \leq \Sigma_{n=1}^\infty \frac{1}{n^2}$, by the 
+comparison test $\Sigma_{n=1}^\infty \frac{|\cos{n}|}{n^2}$ is convergent. 
+Therefore, $\Sigma_{n=1}^\infty \frac{\cos{n}}{n^2}$ is absolutely convergent 
+and therefore convergent. 
+\end{Answer}
+
+\begin{Exercise}[label = absconv2]
+Determine whether each of the following series is absolutely or conditionally 
+convergent. 
+\begin{enumerate}
+\item $\Sigma_{n=1}^\infty \frac{(-1)^n}{3n + 2}$
+\item $\Sigma_{n=1}^\infty \frac{\sin{n}}{4^n}$
+\item $\Sigma_{n=1}^\infty (-1)^{n-1} \frac{2n}{n^2-4}$ 
+\end{enumerate}
+\vspace{50mm}
+\end{Exercise}
+
+\begin{Answer}[ref = absconv2]
+\begin{enumerate}
+\item $\Sigma_{n=1}^\infty \left| \frac{(-1)^n}{3n+2} \right| = \Sigma_{n=1}^
+\infty \frac{1}{3n + 2}$ Applying the integral test to this sum: $\int_1^
+\infty \frac{1}{3x+2}\,dx = \lim_{t \to \infty} \int_1^t \frac{1}{3x+2}\,dx = 
+\left[ \frac{1}{3} \ln{3x + 2} \right]_{x=1}^t = \lim_{t \to \infty} \left[ 
+\ln{3x + 2} \right] - \ln{3(1) - 2} = \infty - 0 = \infty$. Since $\int_1^\infty 
+\frac{1}{3x + 2}\,dx$ is divergent, $\Sigma_{n=1}^\infty \frac{1}{3n + 2}$ is 
+divergent and $\Sigma_{n=1}^\infty \frac{(-1)^n}{3n + 2}$ is conditionally 
+convergent.
+\item $\Sigma_{n=1}^\infty \left| \frac{\sin{n}}{4^n} \right| \leq \Sigma_{n=1}
+^\infty \frac{1}{4^n}$. Applying the integral test to $\Sigma_{n=1}^\infty 
+\frac{1}{4^n}$: $\int_1^\infty \frac{1}{4^x}\,dx = \lim_{t \to \infty} 
+\frac{-1}{4^x \ln{4}}|_{x=1}^t = \lim_{t \to \infty} \left[ \frac{-1}{4^t 
+\ln{4}} \right] - \frac{-1}{4^1 \ln{4}} = 0 + \frac{1}{4 \ln{4}} = \frac{1}{4 
+\ln{4}}$. Since $\int_1^\infty \frac{1}{4^x}\,dx$ is convergent, the series 
+$\Sigma_{n=1}^\infty \frac{1}{4^n}$ is also convergent. And since $\Sigma_{n=1}
+^\infty \left| \frac{\sin{n}}{4^n} \right| \leq \Sigma_{n=1}^\infty 
+\frac{1}{4^n}$, $\Sigma_{n=1}^\infty \left| \frac{\sin{n}}{4^n} \right|$ is 
+also convergent, which shows that $\Sigma_{n=1}^\infty \frac{\sin{n}}{4^n}$ is 
+absolutely convergent. 
+\end{enumerate}
+\end{Answer}
+
+\subsection{The Ratio Test}
+The ratio compares the $(n + 1)^{th}$ term of a series to the $n^{th}$ term 
+and takes the limit as $n \to \infty$ of the absolute value of this ratio:
+$$\lim_{n \to \infty} \left| \frac{a_{n + 1}}{a_n} \right| = L$$
+There are three possible outcomes of the ratio test:
+\begin{enumerate}
+\item if $L < 1$, then the series $\Sigma_{n=1}^\infty a_n$ is absolutely 
+convergent (and therefore convergent).
+\item if $L = 1$, then the ratio test is inconclusive and we cannot draw any 
+conclusions about whether $\Sigma_{n=1}^\infty a_n$ is convergent or divergent.
+\item if $L > 1$ or $\lim_{n \to \infty} \frac{a_{n + 1}}{a_n} = \infty$, then 
+the series $\Sigma_{n=1}^\infty a_n$ is divergent.
+\end{enumerate}
+
+\textbf{Example}: Apply the ratio test to determine if $\Sigma_{n=1}^\infty 
+(-1)^n \frac{n^3}{3^n}$.
+
+\textbf{Solution}: 
+$$\lim_{n \to \infty} \left| \frac{\frac{(-1)^{n + 1}(n + 1)^3}{3^{n + 1}}}{
+\frac{(-1)^n n^3}{3^n}} \right| = \lim_{n \to \infty} \frac{(n + 1)^3}{3^{n + 
+1}} \cdot \frac{3^n}{n^3}$$
+$$= \lim_{n \to \infty} \frac{(n + 1)^3}{n^3} \cdot \frac{3^n}{3 \cdot 3^n}$$
+$$= \lim_{n \to \infty} \left( \frac{n + 1}{n} \right) \cdot \frac{1}{3} = 
+\frac{1}{3} \lim_{n \to \infty} \left( \frac{n + 1}{n} \right) = \frac{1}{3} 
+\cdot 1 = \frac{1}{3} $$
+Since $L < 1$, the series $\Sigma_{n=1}^\infty (-1)^n \frac{n^3}{3^n}$ is absolutely convergent. 
+
+The ratio test is most useful for series that contain factorials, constants raised to the $n^{th}$ power, or other products. 
+
+\subsection{Root Test}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Power Series}
