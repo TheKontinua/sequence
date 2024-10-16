@@ -873,6 +873,45 @@ Since $L < 1$, the series $\Sigma_{n=1}^\infty (-1)^n \frac{n^3}{3^n}$ is absolu
 
 The ratio test is most useful for series that contain factorials, constants raised to the $n^{th}$ power, or other products. 
 
+\begin{Exercise}[label = ratio1]
+[This question was originally presented as a multiple-choice, no-calculator problem on the 2012 AP Calculus BC exam.] Which of the following series are convergent?
+\begin{enumerate}
+\item $\Sigma_{n=1}^\infty \frac{8^n}{n!}$
+\item $\Sigma_{n=1}^\infty \frac{n!}{n^{100}}$
+\item $\Sigma_{n=1}^\infty \frac{n + 1}{(n)(n+2)(n+3)}$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = ratio1]
+Series 1 and 3 converge
+\begin{enumerate}
+\item We apply the ratio test: $\lim_{n \to \infty} \left| \frac{\frac{8^{n + 1}}{(n + 1)!}}{\frac{8^n}{n!}} \right| = \lim_{n \to \infty} \frac{8 \cdot 8^n}{(n + 1)(n!)} \cdot \frac{n!}{8^n} = \lim_{n \to \infty} \frac{8}{n + 1} = 0$. Therefore, the series converges. 
+\item We apply the ratio test: $\lim_{n \to \infty} \left| \frac{\frac{(n + 1)!}{(n + 1)^{100}}}{\frac{n!}{n^{100}}} \right| = \lim_{n \to \infty} \frac{(n + 1)n!}{(n + 1)^{100}} \cdot \frac{n^{100}}{n!} = \lim_{n \to \infty} \left( \frac{n}{n + 1} \right)^{100} \cdot (n + 1) = \lim_{n \to \infty} \frac{n^{100}}{(n + 1)^{99}} = \infty$. Therefore, the series diverges. 
+\item We apply the comparison test: $\frac{n + 1}{(n)(n + 2)(n + 3)} = \frac{n}{(n)(n + 2)(n + 3)} + \frac{1}{(n)(n + 2)(n + 3)} = \frac{1}{(n + 2)(n + 3)} + \frac{1}{(n)(n + 2)(n + 3)} = \frac{1}{n^2 + 5n + 6} + \frac{1}{n^3 + 5n^2 + 6n} \leq \frac{1}{n^2} + \frac{1}{n^3}$. The series $\Sigma_{n = 1}^\infty \frac{1}{n^2}$ and $\Sigma_{n = 1}^\infty \frac{1}{n^3}$ are both convergent, because they are $p$-series with $p > 1$. Having established that $\Sigma_{n=1}^\infty \frac{n + 1}{(n)(n + 2)(n + 3)} \leq \Sigma_{n=1}^\infty \frac{1}{n^2} + \frac{1}{n^3}$ and that $\Sigma_{n=1}^\infty \frac{1}{n^2} + \frac{1}{n^3}$ converges, by the comparison test we can state that $\Sigma_{n=1}^\infty \frac{n + 1}{(n)(n+2)(n+3)}$ converges. 
+\end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[label = series2]
+[This question was originally presented as a multiple-choice, calculator-allowed problem on the 2012 AP Calculus BC exam.]If the series $\Sigma_{n = 1}^\infty a_n$ converges and $a_n > 0$ for all $n$, which of the following statements must be true? Explain. 
+\begin{enumerate}
+\item $\lim_{n \to \infty} \left| \frac{a_{n + 1}}{a_n} \right| = 0$
+\item $|a_n|<1$ for all $n$
+\item $\Sigma_{n=1}^\infty a_n = 0$
+\item $\Sigma_{n=1}^\infty na_n$ diverges
+\item $\Sigma_{n=1}^\infty \frac{a_n}{n}$ converges
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref=label2]
+\begin{enumerate}
+\item This is not necessarily true. For a convergent series, the result of the ratio test is $L < 1$, so the limit could be $\neq 0$. 
+\item This is not necessarily true. Consider the geometric series $\Sigma_{n=1}^\infty 2(\frac{1}{2})^{n-1}$. This series is convergent because the common ratio is less than one, but the first term is $2(\frac{1}{2})^0 = 2 > 1$. 
+\item This is not necessarily true. Again, consider the geometric series $\Sigma_{n=1}^\infty 2(\frac{1}{2})^{n-1}$, which converges to $4 \neq 0$. 
+\item This is not necessarily true. Consider the $p$-series $\Sigma_{n=1}^\infty \frac{1}{n^4}$. Then the series $\Sigma_{n=1}^\infty n \frac{1}{n^4} = \Sigma_{n=1}^\infty \frac{1}{n^3}$ is convergent. 
+\item This must be true. By the comparison test, $\Sigma_{n=1}^\infty \frac{a_n}{n} \leq \Sigma_{n = 1}^\infty a_n$. Since $\Sigma_{n = 1}^\infty a_n$ converges, so much $\Sigma_{n = 1}^\infty na_n$. 
+\end{enumerate}
+\end{Answer}
+
 \subsection{Root Test}
 
 
@@ -880,11 +919,3 @@ The ratio test is most useful for series that contain factorials, constants rais
 
 
 
-
-
-
-
-
-
-
-\section{Power Series}
