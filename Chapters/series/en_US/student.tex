@@ -29,8 +29,71 @@ $$s_n = a_1 + a_2 + \cdots + a_n = \sum_{i=1}^{n} a_i$$
 
 \textbf{Solution}: $s_4$ is the sum of the first 4 terms: 
 $$(\frac{-3}{4})^1 + (\frac{-3}{4})^2 + (\frac{-3}{4})^3 + (\frac{-3}{4})^4$$
-$$= \frac{-3}{4} + \frac{9}{16} + \frac{-27}{64} + \frac{81}{256} = \frac{-75}{256}$$
+$$= \frac{-3}{4} + \frac{9}{16} + \frac{-27}{64} + \frac{81}{256} = 
+\frac{-75}{256}$$
 
+\section{Reindexing}
+Sometimes it is necessary to re-index series. This means changing what $n$ the 
+series starts at. In general,
+$$\sum_{n=i}^\infty a_n = \sum_{n=i + 1}^\infty a_{n-1} \text{ and } \sum_{n=i}^
+\infty a_n = \sum_{n=i - 1}^\infty a_{n+1}$$
+
+That is, to increase the index by 1, you need to replace $n$ with $(n-1)$ and 
+do decrease the index by 1, you need to replace $n$ with $(n+1)$. Let's 
+visualize why this is true (see figure \ref{fig:reindex}). Notice that for 
+each series, the terms are the same. This is similar to shifting functions: 
+to move the function to the left on the $x$-axis, you plot $f(x + 1)$, and to 
+move it to the right, $f(x - 1)$. 
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[axis lines = center, xmin = 0, xmax = 5, ymin = 0, 
+        xlabel = $n$, ylabel = $a_n$]
+        \addplot[green, mark=*, only marks] coordinates {
+        (0, 1) (1, 1/2) (2, 1/3) (3, 1/4) (4, 1/5) (5, 1/6)};
+        \addlegendentry{$\sum_{n=0}^\infty \frac{1}{n+1}$};
+        \addplot[red, mark=*, only marks] coordinates {
+        (1, 1) (2, 1/2) (3, 1/3) (4, 1/4) (5, 1/5)};
+        \addlegendentry{$\sum_{n=1}^\infty \frac{1}{n}$};
+        \addplot[blue, mark=*, only marks] coordinates {
+        (2, 1) (3, 1/2) (4, 1/3) (5, 1/4)};
+        \addlegendentry{$\sum_{n=2}^\infty \frac{1}{n-1}$};
+        \end{axis}
+\end{tikzpicture}
+    \caption{$\sum_{n=0}^\infty \frac{1}{n + 1} = \sum_{n=1}^\infty a_n = 
+    \sum_{n=2}^\infty = 1 + \frac{1}{2} + \frac{1}{3} + \cdots$}
+    \label{fig:reindex}
+\end{figure}
+
+We can also prove each reindexing rule mathematically. Recall that 
+$$\sum_{n=1}^\infty a_n = a_1 + a_2 + a_3 + \cdots$$
+We also know that 
+$$\sum_{n=2}^\infty a_{n-1} = a_{2-1} + a_{3-1} + a_{4-1} + \cdots = a_1 + a_2 
++ a_3 + \cdots$$
+Therefore, $\sum_{n=1}^\infty a_n = \sum_{n=2}^\infty a_{n-1}$. 
+
+Similarly, 
+$$\sum_{n=0}^\infty a_{n + 1} = a_{0+1} + a_{1+1} + a_{2+1} + \cdots = a_1 + 
+a_2 + a_3 + \cdots = \sum_{n=1}^\infty a_n$$
+
+\textbf{Example}: Reindex the series $\sum_{n=3}^\infty \frac{n + 1}{n^2 - 2}$ 
+to begin with $n=1$.
+
+\textbf{Solution}: We are decreasing the index, so we will use $\sum_{n=i-1}^
+\infty a_{n+1} = \sum_{n=i}^\infty a_n$. We will apply this rule twice, to 
+decrease the index from 3 to 1:
+$$\sum_{n=2}^\infty \frac{(n + 1) + 1}{(n + 1)^2 - 2} = \sum_{n=2}^\infty 
+\frac{n + 2}{(n + 1)^2 - 2}$$
+$$\sum_{n=1}^\infty \frac{(n + 1) + 2}{\left[ (n + 1) + 1 \right]^2 - 2} = 
+\sum_{n=1}^\infty \frac{n + 3}{(n + 2)^2 - 2}$$
+
+It is easier and faster to be able to reindex a series by more than one step 
+at a time. Using the example above, we can write an even more general rule for 
+reindexing:
+$$\sum_{n=i}^\infty a_n = \sum_{n=i + j}^\infty a_{n - j}$$
+where $i$ and $j$ are integers. (Then to decrease the index, you would choose 
+a $j$ such that $j < 0$.)
 
 \section{Convergent and Divergent Series}
 Just like sequences, series can also be convergent or divergent. 
@@ -166,22 +229,47 @@ limit as $n \to \infty$, we see that $\lim_{n \to \infty} s_{2^n} > \lim_{n
 $\infty$ as $n$ gets larger and the harmonic series $\sum_{n = 1}^\infty 
 \frac{1}{n}$ is divergent. 
 
-This example shows a very important point: the converse of a theorem is not 
-always true! We do know that if a series is convergent, then the limit as n 
-approaches infinity must be zero. The harmonic series shows that \textit{just 
-because the limit as n approaches infinity is zero, the series is not 
-necessarily convergent}. What we can say, though, is that the contrapositive 
-statement is true: if the limit as n approaches infinity of a series does not 
-exist or is not zero, then the series is divergent (i.e. not convergent). 
+This example shows a very important point: a series whose terms decrease to 
+zero as n gets large is not necessarily convergent. What we can say, though, 
+is that if the limit as n approaches infinity of the terms of a series does not 
+exist or is not zero, then the series is divergent (i.e. not convergent). This 
+is called the \textbf{Test for Divergence}, and we will explore it further in 
+the next chapter.
+
+\subsection{Properties of Convergent Series}
+We just saw that if $\lim_{n \to \infty} a_n \neq 0$ then the series $\sum_
+{n=1}^\infty a_n$ diverges. The contrapositive statement gives a property of 
+convergent series:
+$$\text{If the series } \sum_{n=1}^\infty a_n \text{ is convergent, then } 
+\lim_{n \to \infty} = 0$$
+
+If a series is made of other convergent series, it may be convergent. Recall, 
+if a series is convergent, this means the $\lim_{n \to \infty} \sum_{i=1}^n 
+a_i = L$. By the properties of limits, then we can also say that the series 
+multiplied by a constant is convergent:
+$$\sum_{n=1}^\infty ca_n = c \cdot L = c \sum_{n=1}^\infty a_n$$
+Suppose there is another convergent series such that $\lim_{n \to \infty} 
+\sum_{i=1}^n b_i = M$. Then the sum of those series is also convergent. That is:
+$$\sum_{n=1}^\infty \left( a_n + b_n \right) = L + M = \sum_{n=1}^\infty a_n + 
+\sum_{n=1}^\infty b_n$$
+Similarly, the difference of the series is convergent:
+$$\sum_{n=1}^\infty \left( a_n - b_n \right) = L - M = \sum_{n=1}^\infty a_n - 
+\sum_{n=1}^\infty b_n$$
 
 \section{Geometric Series}
 
-Let's apply this definition of convergent and divergent to geometric 
-series. You should recall from the chapter on sequences that a 
-geometric sequence can be defined by $a_i = a(r)^{i-1}$, where $r$ 
-is the common ratio and $a \neq 0$. We can express the 
-\textit{geometric series} thusly:
-$$a + ar + ar^2 + ar^3 = \sum_{i=1}^\infty ar^{i-1}$$
+A geometric series is the sum of a geometric sequence, and has the form:
+$$\sum_{n=1}^\infty ar^n \text{ or } \sum_{n=1}^\infty ar^{n-1}$$
+
+Where $a$ is some constant and $r$ is the common ratio. For $\sum_{n=1}^\infty 
+ar^{n-1}$, $a$ is also the first term. 
+
+\textbf{Example}: Write the series $1 + \frac{1}{2} + \frac{1}{4} + 
+\frac{1}{8} + \cdots$ in sigma notation.
+
+\textbf{Solution}: We see that the first term is $a=1$ and the common ratio is 
+$\frac{1}{2}$, so we can write the series: $$\sum_{n=1}^\infty 1(\frac{1}{2})^
+{n-1} = \sum_{n=1}^\infty (\frac{1}{2})^{n-1}$$
 
 When are geometric series convergent? First, let's consider the case 
 where $r=1$. If this is true, then $s_n = a + a + a + \cdots + a = 
@@ -211,7 +299,7 @@ This begs the question: when is $\lim_{n \to \infty} r^n$ convergent?
 From the sequences chapter, we know this limit converges if $|r| < 1$ 
 (that is, $-1 < r < 1$). If this is true, then $\lim_{n \to \infty} 
 r^n = 0$ and 
-$$s_n = \frac{a}{1-r}$$
+$$\lim_{n \to \infty} s_n = \frac{a}{1-r}$$
 
 (see figures \ref{fig:geometric1} and \ref{fig:geometric2} for a visual)
 \begin{figure}
@@ -350,49 +438,114 @@ find the sums approach 1.5 as $n$ increases.
     \label{fig:geometric}
 \end{figure}
 
+\begin{Exercise}[label=geo1]
+Determine whether the geometric series is convergent or divergent. If it 
+convergent, find its sum.
+\begin{enumerate}
+\item $3 - 4 + \frac{16}{3} - \frac{64}{9} + \cdots$
+\item $2 + 0.5 + 0.125 + 0.03125 + \cdots$
+\item $\sum_{n=1}^\infty \frac{(-3)^{n-1}}{4^n}$
+\item $\sum_{n=1}^\infty \frac{e^{2n}}{6^{n-1}}$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = geo1]
+\begin{enumerate}
+\item We need to identify $a$ and $r$. If we use the form $\sum_{n=1}^\infty 
+ar^{n-1}$, then $a = 3$. To find the common ratio, we can evaluate $\frac{a_
+{n+1}}{a_n} = \frac{-4}{3}$. Then we can write the series as $\sum_{n=1}^\infty 
+3 \left( \frac{-4}{3} \right)^{n-1}$. In this case, $r = \frac{-4}{3}$ and $|r| 
+\geq 1$, and therefore the series is divergent. 
+\item Following the process outlined above, we see that $a = 2$ and $r = 
+\frac{1}{4}$. Therefore the series is $\sum_{n=1}^\infty 2 \left( \frac{1}{4} 
+\right)^{n-1}$. Since $|r| < 1$, the series converges to $\frac{a}{1-r} = 
+\frac{2}{1-1/4} = \frac{2 \cdot 4}{3} = \frac{8}{3}$
+\item We need to rewrite the series into a standard from in order to identify 
+$a$ and $r$:
+$$\sum_{n=1}^\infty \frac{(-3)^{n-1}}{4^n} = \sum_{n=1}^\infty \frac{(-3)^
+{n-1}}{4(4)^{n-1}} = \sum_{n=1}^\infty \frac{1}{4} \left( \frac{-3}{4} \right)
+^{n-1}$$
+So $r = \frac{-3}{4}$ and $|r| < 1$. Therefore, the series converges to 
+$\frac{1/4}{1 - (-3/4)} = \frac{1}{4} \cdot \frac{4}{7} = \frac{1}{7}$
+\item We need to rewrite the series into a standard from in order to identify 
+$a$ and $r$:
+$$\sum_{n=1}^\infty \frac{e^{2n}}{6^{n-1}} = \sum_{n=1}^\infty \frac{(e^2)^n}
+{6^{n-1}} = \sum_{n=1}^\infty \frac{(e^2)(e^2)^{n-1}}{6^{n-1}} = \sum_{n=1}^
+\infty e^2 \left( \frac{e^2}{6} \right)^{n-1}$$
+Therefore, $r = \frac{e^2}{6} \approx 1.232$. Since $|r| > 1$, the series 
+diverges. 
+\end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[label = geo2]
+Find a value of $c$ such that $\sum_{n=0}^\infty (1 + c)^{-n} = \frac{5}{3}$
+\end{Exercise}
+
+\begin{Answer}[ref = geo2]
+We want to rewrite this as a geometric series of the form $\sum_{n=i}^\infty 
+ar^{n-1}$ so we can use the fact that the sum of a convergent geometric series 
+is $\frac{a}{1-r}$. $\sum_{n=0}^\infty (1 + c)^{-n} = \sum_{n=0}^\infty \left( 
+\frac{1}{1+c} \right)^n = \sum_{n=1}^\infty \left( \frac{1}{1 + c} \right)^
+{n-1}$. This is a geometric series with $a = 1$ and $r = \frac{1}{1 + c}$. So 
+the value of the series is $\frac{1}{1 - \frac{1}{1+c}} = 
+\frac{1}{\frac{c}{c+1}} = \frac{c+1}{c}$. Setting this equal to $\frac{5}{3}$ 
+and solving for $c$, we find that $c = \frac{3}{2}$.
+\end{Answer}
+
 \section{p-series}
-A $p$-series takes the form $\sum_{n=1}^\infty \frac{1}{n^p}$. For what 
-values of $p$ does the $p$-series converge? We can apply the integral test to 
-find a general rule. First, we consider $p < 0$. 
-Since $p < 0$, we will define $q = -p$ and note that $q > 0$. Then $\sum_
-{n=1}^\infty \frac{1}{n^p} = \sum_{n=1}^\infty n^q$. And we can see that:
-$$\lim_{n \to \infty}\frac{1}{n^p} = \lim_{n \to \infty}n^q$$
-Since $q > 0$, $\lim_{n \to \infty}n^q = \infty$. Since $a_n$ does not 
-approach zero as $n \to \infty$, we know that $\sum_{n = 1}^\infty 
-\frac{1}{n^p}$ diverges for $p < 0$. 
+A $p$-series takes the form $\sum_{n=1}^\infty \frac{1}{n^p}$ and converges 
+if $p > 1$ and diverges if $p \leq 1$. We won't prove this here, since it 
+requires the application of a test you will learn about in the next chapter. 
 
-Next we examine the case where $p=0$. Since any real number raised to zero 
-power is 1, we can see that $lim_{n \to \infty} \frac{1}{n^p} = \lim_{n \to 
-\infty} 1 = 1$. Again, since $a_n$ does not approach zero as $n \to \infty$, 
-the series diverges for $p = 0$. 
+\textbf{Example} Write the series $1 + \frac{1}{\sqrt[3]{2}} + \frac{1}{
+\sqrt[3]{3}} + \frac{1}{\sqrt[3]{4}} + \cdots$. Is it convergent or divergent?
 
-When $p > 0$, the function $f(x) = \frac{1}{x^p}$ is continuous, positive, and 
-decreasing on the interval $[1, \infty)$ and we can apply the integral test to 
-determine if $\sum_{n=1}^\infty \frac{1}{n^p}$ converges or diverges. We 
-already know that $\int_1^\infty \frac{1}{x}\,dx = \lim_{x \to \infty} \ln{x} 
-= \infty$. Since the integral diverges when $p = 1$, then the series $\sum_
-{n=1}^\infty \frac{1}{x^p}$ also diverges for $p = 1$. 
+\textbf{Solution}: We see that $a_n = \frac{1}{\sqrt[3]{n}}$ and so the 
+infinite series is $$\sum_{n=1}^\infty \frac{1}{\sqrt[3]{n}}$$ 
+We see that this is a $p$-series with $p = \frac{1}{3}$. Since $p < 1$, the 
+series is divergent. 
 
-When $p > 0$ and $p \neq 1$, then:
-$$\int_1^\infty \frac{1}{x^p}\,dx = \lim_{t \to \infty} \int_1^t x^{-p}\,dx $$
-$$= \lim_{t \to \infty} \frac{x^{-p + 1}}{-p + 1}|_{x=1}^{x=t} = \left( \frac{1}
-{1 - p} \right) \lim_{t \to \infty} \left( \frac{1}{t^{p - 1}} - 1 \right)$$
+\begin{Exercise}[label = euler1]
+Euler found that the exact sum of the p-series where $p=2$ is:
+$$\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}$$
+And that the exact sum of the p-series where $p=4$ is:
+$$\sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^4}{90}$$
+Use this to find the sum of each of the following series:
+\begin{enumerate}
+\item $\sum_{n=1}^\infty \frac{n^2 + 1}{n^4}$
+\item $\sum_{n=2}^\infty \frac{1}{n^2}$
+\item $\sum_{n=3}^\infty \frac{1}{(n + 1)^2}$
+\item $\sum_{n=1}^\infty \left( \frac{3}{n} \right)^4$
+\item $\sum_{n=1}^\infty \left( \frac{4}{n^2} + \frac{3}{n^4} \right)$
+\end{enumerate}
+\vspace{50mm}
+\end{Exercise}
 
-If $p > 1$, then $p - 1 >0$ and $\lim_{t \to \infty} \frac{1}{t^{p - 1}} = 
-\frac{1}{\infty} = 0$ and the integral $\int_1^\infty \frac{1}{x^p}\,dx$ 
-converges to $\frac{1}{p - 1}$. 
-
-If $p < 1$, then $1 - p > 0$ and $\lim_{t \to \infty} \frac{1}{t^{p - 1}} = 
-\lim_{t \to \infty} t^{1 - p} = \infty$ and the integral $\int_1^\infty 
-\frac{1}{x^p}\,dx$ diverges. 
-
-So, in summary, the $p$-series $\sum_{n = 1} ^ \infty \frac{1}{x^p}$ converges 
-if $p > 1$ and diverges if $p \leq 1$. 
-
-
-
-
-
+\begin{Answer}[ref = euler1]
+\begin{enumerate}
+\item Separating the terms, we see that $\sum_{n=1}^\infty \frac{n^2 + 1}{n^4} 
+= \sum_{n=1}^\infty \left( \frac{n^2}{n^4} + \frac{1}{n^4} \right) = \sum_{n=1}
+^\infty \frac{1}{n^2} + \sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^2}{6} + 
+\frac{\pi^4}{90}$
+\item Notice that this series starts at $n = 2$. By the properties of series, 
+we know that $\sum_{n=1}^\infty a_n = a_1 + \sum_{n=2}^\infty a_n$. Therefore, 
+$\sum_{n=2}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \left( \frac{1}{n^2} 
+\right) - \frac{1}{1^2} = \frac{\pi^2}{6} - 1$
+\item We can begin by reindexing this series: $\sum_{n=3}^\infty \frac{1}{(n + 
+1)^2} = \sum_{n=4}^\infty \frac{1}{n^2}$. Similar to the previous problem, we 
+also know that $\sum_{n=4}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \left( 
+\frac{1}{n^2} \right) - \left( \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} 
+\right) = \frac{\pi^2}{6} - \frac{49}{36}$
+\item We can re-write this series as $\sum_{n=1}^\infty \left( \frac{3}{n} 
+\right)^4 = \sum_{n=1}^\infty (3^4)\frac{1}{n^4} = 81 \sum_{n=1}^\infty 
+\frac{1}{n^4} = \frac{81\pi^4}{90} = \frac{9\pi^4}{10}$
+\item We can re-write the series as $\sum_{n=1}^\infty \left( \frac{4}{n^2} + 
+\frac{3}{n^4} \right) = \sum_{n=1}^\infty \frac{4}{n^2} + \sum_{n=1}^\infty 
+\frac{3}{n^4} = 4 \sum_{n=1}^\infty \frac{1}{n^2} + 3 \sum_{n=1}^\infty 
+\frac{1}{n^4} = \frac{4\pi^2}{6} + \frac{3\pi^4}{90} = \frac{2\pi^2}{3} + 
+\frac{\pi^4}{30}$
+\end{enumerate}
+\end{Answer}
 
 \section{Alternating Series}
 An alternating series is one in which the terms alternate between positive and 
@@ -405,7 +558,8 @@ Where $b_n$ is positive (and therefore, $|a_n| = b_n$).
 
 An alternating series is convergent if (i)$b_{n+1} \leq b_n$ and (ii)$\lim_{n 
 \to \infty} b_n = 0$. In words, we say that if the absolute value of the terms 
-of a series decrease towards zero, then the series converges. 
+of a series decrease towards zero, then the series converges. This is called 
+the \textbf{Alternating Series Test}.
 
 \begin{figure}[htbp]
 \centering
@@ -452,3 +606,49 @@ of a series decrease towards zero, then the series converges.
     \caption{As $n$ increases, $s_n$ approaches $s$}
     \label{fig:alternating}
 \end{figure}
+
+\textbf{Example}: Is the alternating harmonic series $\sum_{n=1}^\infty 
+\frac{(-1)^{n-1}}{n}$ convergent?
+
+\textbf{Solution}: The Alternating series test states that an alternating 
+series is convergent if $|a_{n+1}| < |a_n|$:
+$$\left| \frac{(-1)^{n-1+1}}{n+1} \right| < \left| \frac{(-1)^{n-1}}{n} \right|$$
+$$\frac{1}{n+1} < \frac{1}{n}$$
+Since $|a_{n+1}| < |a_n|$ and the series is alternating, $\sum_{n=1}^\infty 
+\frac{(-1)^{n-1}}{n}$ is convergent. 
+
+\begin{Exercise}[label=alt1]
+Test the following alternating series for convergence:
+\begin{enumerate}
+\item $\sum_{n=1}^\infty \frac{(-1)^n 3n}{4n-1}$
+\item $\sum_{n=1}^\infty (-1)^{n+1} \frac{n^2}{n^3 + 1}$
+\item $\sum_{n=1}^\infty (-1)^{n-1} e^{2/n}$
+\end{enumerate}
+\vspace{50mm}
+\end{Exercise}
+
+\begin{Answer}[ref = alt1]
+\begin{enumerate}
+\item The series is convergent if $\left| \frac{(-1)^{n+1} 3(n+1)}{4(n+1)-1} 
+\right| < \left| \frac{(-1)^n 3n}{4n-1} \right|$ if $\frac{3n+3}{4n+4-1} < 
+\frac{3n}{4n-1}$ and if $\frac{3n+3}{4n+3} < \frac{3n}{4n-1}$ if $(3n+3)(4n-1) 
+< (3n)(4n+3)$ if $12n^2 + 12n - 3n - 3 < 12n^2 + 9n$ if $-3 < 0$ which is true. 
+Therefore, $\sum_{n=1}^\infty \frac{(-1)^n 3n}{4n-1}$ is convergent. 
+\item The series is convergent if $\left| (-1)^{n+1+1} \frac{(n+1)^2}{(n+1)^3 
++ 1} \right| < \left| (-1)^{n+1} \frac{n^2}{n^3 + 1} \right|$ which is true if 
+$\frac{(n+1)^2}{(n+1)^3 + 1} < \frac{n^2}{n^3 + 1}$ if $(n+1)^2 (n^3 + 1) < 
+(n^2) ((n+1)^3+1)$ if $(n^2 + 2n + 1)(n^3) < (n^2) (n^3 + 3n^2 + 3n + 1 + 1)$ 
+if $n^5 + 2n^4 + n^3 < n^5 + 3n^4 + 3n^3 + 2n^2$ which is true for all $n \geq 
+1$. Therefore, $\sum_{n=1}^\infty (-1)^{n+1} \frac{n^2}{n^3 + 1}$ is convergent.
+\item The series is convergent if $\left| (-1)^{n-1+1} e^{2/(n+1)} \right| < 
+\left| (-1)^{n - 1} e^{2/n} \right|$ which is true if $e^{2/(n+1)} < e^{2/n}$ 
+which is true if $\frac{2}{n+1} < \frac{2}{n}$ which is true for all $n \geq 1$. 
+Therefore, $\sum_{n=1}^\infty (-1)^{n-1} e^{2/n}$ is convergent. 
+\end{enumerate}
+\end{Answer}
+
+
+
+
+
+

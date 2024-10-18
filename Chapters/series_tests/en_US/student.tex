@@ -1,5 +1,18 @@
 \chapter{Convergence Tests for Series}
 
+\section{Test for Divergence}
+Recall from the previous chapter that if the terms of a series do not approach zero as $n$ approaches infinity, then the series is divergent. This is the Test for Divergence, and there are two possible outcomes. For a series $\sum_{n = 1}^\infty a_n$:
+$$\text{If } \lim_{n \to \infty} a_n \neq 0 \text{, then the series diverges}$$
+$$\text{If } \lim_{n \to \infty} a_n = 0 \text{, then the test is inconclusive}$$
+
+It is important to remember that the Test for Divergence cannot tell us conclusively that a series converges. Rather, it only identifies series that are divergent. 
+
+\textbf{Example}: Apply the Test for Divergence to the series $\sum_{n=1}^\infty \sqrt{n}$ and $\sum_{n=1}^\infty \frac{1}{n}$
+
+\textbf{Solution}: $\lim_{n \to \infty} \sqrt{n} = \infty \neq 0$. Therefore, the series $\sum_{n=1}^\infty \sqrt{n}$ is divergent. 
+
+$\lim_{n \to \infty} \frac{1}{n} = 0$. Therefore, the series $\sum_{n=1}^\infty \frac{1}{n}$ may be divergent or convergent. This is the harmonic series, which we proved to be divergent in the previous chapter. This is a good example where just because $\lim_{n \to \infty} a_n = 0$ does not mean the series is convergent. 
+
 \section{The Integral Test}
 We were able to determine the exact value of some infinite series because it 
 was possible to write the $n^{th}$ partial sum, $s_n$, in terms of $n$. For 
