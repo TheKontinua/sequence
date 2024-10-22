@@ -1,17 +1,28 @@
 \chapter{Convergence Tests for Series}
 
 \section{Test for Divergence}
-Recall from the previous chapter that if the terms of a series do not approach zero as $n$ approaches infinity, then the series is divergent. This is the Test for Divergence, and there are two possible outcomes. For a series $\sum_{n = 1}^\infty a_n$:
+Recall from the previous chapter that if the terms of a series do not approach 
+zero as $n$ approaches infinity, then the series is divergent. This is the 
+Test for Divergence\index{Test for Divergence}, and there are two possible 
+outcomes. For a series $\sum_{n = 1}^\infty a_n$:
 $$\text{If } \lim_{n \to \infty} a_n \neq 0 \text{, then the series diverges}$$
 $$\text{If } \lim_{n \to \infty} a_n = 0 \text{, then the test is inconclusive}$$
 
-It is important to remember that the Test for Divergence cannot tell us conclusively that a series converges. Rather, it only identifies series that are divergent. 
+It is important to remember that the Test for Divergence cannot tell us 
+conclusively that a series converges. Rather, it only identifies series that 
+are divergent. 
 
-\textbf{Example}: Apply the Test for Divergence to the series $\sum_{n=1}^\infty \sqrt{n}$ and $\sum_{n=1}^\infty \frac{1}{n}$
+\textbf{Example}: Apply the Test for Divergence to the series $\sum_{n=1}^
+\infty \sqrt{n}$ and $\sum_{n=1}^\infty \frac{1}{n}$
 
-\textbf{Solution}: $\lim_{n \to \infty} \sqrt{n} = \infty \neq 0$. Therefore, the series $\sum_{n=1}^\infty \sqrt{n}$ is divergent. 
+\textbf{Solution}: $\lim_{n \to \infty} \sqrt{n} = \infty \neq 0$. Therefore, 
+the series $\sum_{n=1}^\infty \sqrt{n}$ is divergent. 
 
-$\lim_{n \to \infty} \frac{1}{n} = 0$. Therefore, the series $\sum_{n=1}^\infty \frac{1}{n}$ may be divergent or convergent. This is the harmonic series, which we proved to be divergent in the previous chapter. This is a good example where just because $\lim_{n \to \infty} a_n = 0$ does not mean the series is convergent. 
+$\lim_{n \to \infty} \frac{1}{n} = 0$. Therefore, the series $\sum_{n=1}^
+\infty \frac{1}{n}$ may be divergent or convergent. This is the harmonic 
+series, which we proved to be divergent in the previous chapter. This is a 
+good example which demonstrates that just because $\lim_{n \to \infty} a_n = 
+0$ does not mean the series is convergent. 
 
 \section{The Integral Test}
 We were able to determine the exact value of some infinite series because it 
@@ -19,7 +30,7 @@ was possible to write the $n^{th}$ partial sum, $s_n$, in terms of $n$. For
 example, we determined that the $n^{th}$ partial sum of $\sum_{i = 1}^n 
 \frac{1}{2^i}$ is $s_n = 1 - \frac{1}{2^n}$. However, it is not always possible 
 to do this. How can we estimate the value of an infinite series in cases where 
-we can't explicitly write $s_n$ in terms of $n$?
+we can't explicitly write $s_n$ in terms of $n$? \index{Integral Test}
 
 Consider the series $\sum_{i = 1}^\infty \frac{1}{i^2}$. The first few terms 
 are:
@@ -32,8 +43,8 @@ $xy$-plane (see figure \ref{fig:invsquare1}).
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
-        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $n$, 
-        ymin = 0, ymax = 1.25, ytick = \empty]
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $i$, 
+        ymin = 0, ymax = 1.25, ytick = \empty, ylabel=$\frac{1}{2^i}$]
         \foreach \n in {1,...,5}{
         \addplot[red, mark=*]({\n}, {1/(\n)^2});
         }
@@ -52,7 +63,7 @@ $n^{th}$ partial sum.
     \centering
     \begin{tikzpicture}
         \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, 
-        xlabel = $n$, ymin = 0, ymax = 1.25, ytick = \empty]
+        xlabel = $i$, ymin = 0, ymax = 1.25, ytick = \empty, ylabel=$\frac{1}{2^i}$]
         \foreach \n in {1,...,5}{
         \addplot[red, mark=*]({\n}, {1/(\n)^2});
         }
@@ -67,9 +78,9 @@ $n^{th}$ partial sum.
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
-        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $n$, 
+        \begin{axis}[xmin = -0.25, xmax = 6, axis lines = center, xlabel = $i$, 
         ymin = 0, ymax = 1.25, ytick = \empty, width = 1.5*\axisdefaultwidth, 
-        height = \axisdefaultheight]
+        height = \axisdefaultheight, ylabel=$\frac{1}{2^i}$]
         \foreach \n in {1,...,5}{
         \addplot[red, mark=*]({\n}, {1/(\n)^2});
         }
@@ -94,8 +105,8 @@ $n^{th}$ partial sum.
         \draw[-latex](4.5, 0.45) -- (4.5, 0.01);
         \end{axis}
     \end{tikzpicture}
-    \caption{The $5^{th}$ partial sum of $\sum_{i=1}^\infty \frac{1}{2^i}$ 
-    is equal to the area of the rectangles}
+    \caption{The partial sum $\sum_{i=1}^{n=5} \frac{1}{2^i}$ is equal to the 
+    area of the rectangles}
     \label{fig:invsquare3}
 \end{figure}
 
@@ -229,11 +240,45 @@ $\sum_{n = 1}^\infty \frac{n}{3n^2 + 1}$.
 \end{enumerate}
 \end{Answer}
 
+\begin{Exercise}[label = pseries]
+Apply the Integral Test to show that $p$-series $\sum_{n=1}^\infty \frac{1}{
+n^p}$ are convergent only when $p > 1$ (hint: consider the cases $p \leq 0$, 
+$0 < p < 1$, $p=1$ and $p > 1$).
+\vspace{50mm}
+\end{Exercise}
+
+\begin{Answer}[ref = pseries]
+\begin{enumerate}
+\item If $p \leq 0$, then $\lim_{n \to \infty} \frac{1}{n^p} \neq 0$, and the 
+series fails the Test for Divergence. Therefore, a $p$-series is divergent if 
+$p \leq 0$. 
+\item If $p > 0$, then $f(x) = \frac{1}{x^p}$ is continuous, positive, and 
+decreasing on the interval $x \in [1, \infty)$ and we can apply the integral 
+test. So we want to know, when is $\int_1^\infty \frac{1}{x^p}\,dx$ convergent? 
+When $p=1$, $\int_1^\infty \frac{1}{x^p}\,dx = \ln{x}|_{x=1}^{x=\infty} = \lim_
+{t \to \infty} \ln{t} - \ln{1} = \infty$ and the integral and $p$-series are 
+both divergent.
+\item What about when $0 < p < 1$? Then the integral $\int_1^\infty \frac{1}{
+x^p}\,dx = \lim_{t \to \infty} \int_1^t x^{-p}\,dx = \lim_{t \to \infty} 
+\frac{1}{1-p}x^{1-p}|_{x=1}^{x=t} = \lim_{t \to \infty} \frac{1}{1-p}\frac{1}{
+x^{p-1}} = \left( \frac{1}{1-p} \right) \left[\lim_{t \to \infty} \left( \frac{
+1}{t^{p-1}} \right) - 1 \right]$. When $0 < p < 1$, then $1 - p > 0$ is 
+positive and $\lim_{t \to \infty} \frac{1}{t^{p-1}} = \lim_{t \to \infty} t^{1-
+p} = \infty$ and the integral diverges. Therefore, $p$-series are divergent for 
+$0 < p < 1$.
+\item When $p > 1$, then $\int_1^\infty \frac{1}{x^p}\,dx = \left( \frac{1}{1-
+p} \right) \left[\lim_{t \to \infty} \left( \frac{1}{t^{p-1}} \right) - 1 
+\right]$. When $p > 1$, $p - 1 > 0$ and $\lim_{t \to \infty} \frac{1}{t^{p-1}} 
+= 0$. Therefore, $\int_{1}^\infty \frac{1}{x^p}\,dx$ converges to $\frac{1}{p 
+- 1}$ when $p > 1$, and therefore the $p$-series is convergent when $p > 1$. 
+\end{enumerate}
+\end{Answer}
+
 \subsection{Using Integrals to Estimate the Value of a Series}
 Recall that $\sum_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \cdots = s$ and that 
 the $n^{th}$ partial sum, often represented as $s_n$, is $s_n = a_1 + a_2 + 
 \cdots + a_{n-1} + a_n$. Then we can define the $n^{th}$ remainder $R_n = s - 
-s_n$. Expanding $s$ and $s_n$, we see that:
+s_n$.\index{remainder estimate for series} Expanding $s$ and $s_n$, we see that:
 $$R_n = \left[ a_1 + a_2 + \cdots + a_{n-1} + a_n + a_{n+1} + \cdots \right] - 
 \left[ a_1 + a_2 + \cdots + a_{n-1} + a_{n} \right]$$
 $$R_n = [a_1 - a_1] + [a_2 - a_2] + \cdots + [a_{n-1} - a_{n-1}] + [a_n - a_n] 
@@ -286,8 +331,8 @@ remainder, $R_n$, from the integral test:
 
 Suppose there is a function such that $f(k) = a_k$, where $f$ is a continuous, 
 positive, decreasing function for $x \geq n$ and $\sum a_n$ is convergent. 
-Then, $\int_{n+1}^\infty f(x)\,dx \leq R_n \leq \int_N^\infty f(x)\,dx$, where 
-$R_n$ is the $s - s_n$. 
+Then, $\int_{n+1}^\infty f(x)\,dx \leq R_n \leq \int_n^\infty f(x)\,dx$, where 
+$R_n$ is $s - s_n$. 
 
 \begin{figure}[htbp]
     \centering
@@ -333,7 +378,7 @@ remainder, we can state that: $$R_{10} \leq \int_{10}^\infty \frac{3}{x^3}\,dx
 is at most 0.015. 
 
 \textbf{Example}: How many terms are required for the error to be less than 
-0.0001?
+0.0001 for the sum presented above?
 
 \textbf{Solution}: We are looking for an $n$ such that $R_n \leq 0.0001$. 
 Recalling that $R_n \leq \int_{n}^\infty \frac{3}{x^3}\,dx$, we need to find 
@@ -386,10 +431,10 @@ $32.183 \leq n$. Since $n$ must be an integer, $n=33$ gives $R_n \leq 0.00001$.
 \end{Answer}
 
 \section{Comparison Tests}
-In comparison tests, we compare a series to a known convergent or divergent 
-series. Take the series $\sum_{n=1}^\infty \frac{1}{3^n + 3}$. This is 
-similar to $\sum_{n=1}^\infty \frac{1}{3^n}$, which is a geometric series 
-that converges to $\frac{1}{2}$. Notice that:
+\index{comparison tests for series} In comparison tests, we compare a series 
+to a known convergent or divergent series. Take the series $\sum_{n=1}^\infty 
+\frac{1}{3^n + 3}$. This is similar to $\sum_{n=1}^\infty \frac{1}{3^n}$, 
+which is a geometric series that converges to $\frac{1}{2}$. Notice that:
 $$\frac{1}{3^n + 3} < \frac{1}{3^n}$$
 Which implies that 
 $$\sum_{n=1}^\infty \frac{1}{3^n + 3} < \Sigma_{n=1}^\infty \frac{1}{3^n}$$
@@ -427,13 +472,13 @@ approaches $\frac{1}{2}$, $\sum_{n=1}^\infty \frac{1}{3^n + 3}$ must be $\leq
     \label{fig:compare1}
 \end{figure}
 \subsection{The Direct Comparison Test}
-For the \textbf{Direct Comparison Test}, we compare the terms $a_n$ to $b_n$ 
-directly. Take $\sum a_n$ and $\Sigma b_n$ to be series with positive terms. 
-Then, 
+F\index{Direct Comparison Test} For the \textbf{Direct Comparison Test}, we 
+compare the terms $a_n$ to $b_n$ directly. Take $\sum a_n$ and $\sum b_n$ to 
+be series with positive terms. Then, 
 \begin{enumerate}
-\item If $a_n \leq b_n$ and $\Sigma b_n$ is convergent, then $\sum a_n$ is 
+\item If $a_n \leq b_n$ and $\sum b_n$ is convergent, then $\sum a_n$ is 
 also convergent.
-\item If $a_n \geq b_n$ and $\Sigma b_n$ is divergent, then $\sum a_n$ is 
+\item If $a_n \geq b_n$ and $\sum b_n$ is divergent, then $\sum a_n$ is 
 also divergent.
 \end{enumerate}
 
@@ -466,13 +511,13 @@ $\sum_{n=1}^\infty \frac{1}{n}$ diverges, then $\sum_{n=1}^\infty \frac{2
 \end{figure}
 
 \subsection{The Limit Comparison Test}
-Consider the series $\sum_{n=1}^\infty \frac{1}{2^n - 1}$. We may want to 
-compare this to the convergent series $\sum_{n=1}^\infty \frac{1}{2^n}$. The 
-direct comparison test isn't helpful here, since $\frac{1}{2^n - 1} > 
-\frac{1}{2^n}$, so $\sum_{n=1}^\infty \frac{1}{2^n}$ doesn't put a cap on 
-$\sum_{n=1}^\infty \frac{1}{2^n - 1}$ like our earlier example (see figure 
-\ref{fig:compare1}). In a case such as this, we can use the \textbf{Limit 
-Comparison Test}, which states that:
+\index{Limit Comparison Test for series}Consider the series $\sum_{n=1}^\infty 
+\frac{1}{2^n - 1}$. We may want to compare this to the convergent series $\sum_
+{n=1}^\infty \frac{1}{2^n}$. The direct comparison test isn't helpful here, 
+since $\frac{1}{2^n - 1} > \frac{1}{2^n}$, so $\sum_{n=1}^\infty \frac{1}{2^n}$ 
+doesn't put a cap on $\sum_{n=1}^\infty \frac{1}{2^n - 1}$ like our earlier 
+example (see figure \ref{fig:compare1}). In a case such as this, we can use 
+the \textbf{Limit Comparison Test}, which states that:\\
 If $\sum a_n$ and $\sum b_n$ are series with positive terms and $\lim_{n \to 
 \infty} \frac{a_n}{b_n} = c > 0$, then either both series converge or both 
 series diverge.
@@ -485,7 +530,7 @@ $$\lim_{n \to \infty} \frac{\frac{1}{2^n - 1}}{\frac{1}{2^n}} = \lim_{n \to
 $$= \lim_{n \to \infty} \frac{2^n}{2^n - 1} = \lim_{n \to \infty} \frac{1}{1 - 
 1/2^n} = \frac{1}{1-0} = 1 > 0$$
 
-Therefore, by the Limit comparison test, $\sum_{n=1}^\infty \frac{1}{2^n - 1}$ 
+Therefore, by the Limit Comparison Test, $\sum_{n=1}^\infty \frac{1}{2^n - 1}$ 
 converges.
 
 In general, comparison tests are most useful for series resembling geometric 
@@ -503,6 +548,21 @@ $$\frac{\sqrt{n^3}}{n^3} = \frac{n^{3/2}}{n^3} = \frac{1}{n^{3/2}}$$
 So we should compare $\sum_{n=1}^\infty \frac{\sqrt{n^3 + 1}}{3n^3 + 4n^2 + 2}$ 
 to the convergent $p$-series $\sum_{n=1}^\infty \frac{1}{n^{3/2}}$.
 
+\textbf{Example}: Is $\sum_{n=1}^\infty \frac{\sqrt{n^3 + 1}}{3n^3 + 4n^2 + 2}$ 
+convergent or divergent?
+
+\textbf{Solution}: We have already determine that we should compare this 
+series to $\sum_{n=1}^\infty \frac{1}{n^{3/2}}$. To apply the limit test, 
+we need to evaluate
+$$\lim_{n \to \infty} \frac{\frac{\sqrt{n^3 + 1}}{3n^3 + 4n^2 + 2}}{\frac{1}{n^
+{3/2}}}$$
+$$= \lim_{n \to \infty} \frac{n^{3/2} \sqrt{n^3 + 1}}{3n^3 + 4n^2 + 2} $$
+$$= \lim_{n \to \infty} \frac{\sqrt{n^6 + n^3}}{3n^3 + 4n^2 + 2} = \frac{1}{3} 
+> 0$$\\
+Therefore, by the Limit Comparison Test, $\sum_{n=1}^\infty \frac{\sqrt{n^3 + 
+1}}{3n^3 + 4n^2 + 2}$ is convergent because the $p$-series $\sum_{n=1}^\infty 
+\frac{1}{n^{3/2}}$ is convergent. 
+
 \begin{Exercise}[label = comp1]
 Use the Comparison Test or the Limit Comparison Test to determine if the 
 following series are convergent or divergent. 
@@ -510,6 +570,7 @@ following series are convergent or divergent.
 \item $\sum_{n=1}^\infty \frac{1}{\sqrt{n^2 + 1}}$
 \item $\sum_{n=1}^\infty \frac{9^n}{3 + 10^n}$
 \item $\sum_{n=1}^\infty \frac{n \sin^2{n}}{1 + n^3}$
+\vspace{50mm}
 \end{enumerate}
 \end{Exercise}
 
@@ -543,10 +604,10 @@ is also convergent.
 
 \section{Ratio and Root Tests for Convergence}
 \subsection{Absolute Convergence}
-Suppose there is a series $\sum_{n=1}^\infty a_n$, then there is a 
-corresponding series $\sum_{n=1}^\infty |a_n| = |a_1| + |a_2| + |a_3| + 
-\cdots$. If $\sum_{n=1}^\infty |a_n|$ is convergent, then the series $\sum_
-{n=1}^\infty a_n$ is called \textbf{absolutely convergent}. 
+\index{absolute convergence}Suppose there is a series $\sum_{n=1}^\infty a_n$, 
+then there is a corresponding series $\sum_{n=1}^\infty |a_n| = |a_1| + |a_2| 
++ |a_3| + \cdots$. If $\sum_{n=1}^\infty |a_n|$ is convergent, then the series 
+$\sum_{n=1}^\infty a_n$ is called \textbf{absolutely convergent}. 
 
 \textbf{Example}: Consider the alternating series 
 $$\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^2} = 1 - \frac{1}{2^2} + 
@@ -569,7 +630,7 @@ $$\sum_{n=1}^\infty \left|\frac{(-1)^{n-1}}{n}\right| = \sum_{n=1}^\infty
 \frac{1}{n}$$\\
 You should recognize this as the harmonic series, which is divergent. When a 
 series is convergent but the corresponding series of absolute values is not, 
-we call it \textbf{conditionally convergent}. 
+we call it \textbf{conditionally convergent}. \index{conditionally convergent}
 
 We won't prove the theorem here, but it is useful to know that if a series 
 $\sum_{n=1}^\infty a_n$ is absolutely convergent, then it is convergent. You 
@@ -601,39 +662,49 @@ convergent.
 \begin{enumerate}
 \item $\sum_{n=1}^\infty \frac{(-1)^n}{3n + 2}$
 \item $\sum_{n=1}^\infty \frac{\sin{n}}{4^n}$
-\item $\sum_{n=1}^\infty (-1)^{n-1} \frac{2n}{n^2-4}$ 
+\item $\sum_{n=1}^\infty (-1)^{n-1} \frac{2n}{n^2 + 4}$ 
 \end{enumerate}
 \vspace{50mm}
 \end{Exercise}
 
 \begin{Answer}[ref = absconv2]
 \begin{enumerate}
-\item $\sum_{n=1}^\infty \left| \frac{(-1)^n}{3n+2} \right| = \sum_{n=1}^
-\infty \frac{1}{3n + 2}$ Applying the integral test to this sum: $\int_1^
-\infty \frac{1}{3x+2}\,dx = \lim_{t \to \infty} \int_1^t \frac{1}{3x+2}\,dx = 
-\left[ \frac{1}{3} \ln{3x + 2} \right]_{x=1}^t = \lim_{t \to \infty} \left[ 
-\ln{3x + 2} \right] - \ln{3(1) - 2} = \infty - 0 = \infty$. Since $\int_1^\infty 
-\frac{1}{3x + 2}\,dx$ is divergent, $\sum_{n=1}^\infty \frac{1}{3n + 2}$ is 
-divergent and $\sum_{n=1}^\infty \frac{(-1)^n}{3n + 2}$ is conditionally 
-convergent.
-\item $\sum_{n=1}^\infty \left| \frac{\sin{n}}{4^n} \right| \leq \sum_{n=1}
-^\infty \frac{1}{4^n}$. Applying the integral test to $\sum_{n=1}^\infty 
-\frac{1}{4^n}$: $\int_1^\infty \frac{1}{4^x}\,dx = \lim_{t \to \infty} 
-\frac{-1}{4^x \ln{4}}|_{x=1}^t = \lim_{t \to \infty} \left[ \frac{-1}{4^t 
-\ln{4}} \right] - \frac{-1}{4^1 \ln{4}} = 0 + \frac{1}{4 \ln{4}} = \frac{1}{4 
-\ln{4}}$. Since $\int_1^\infty \frac{1}{4^x}\,dx$ is convergent, the series 
-$\sum_{n=1}^\infty \frac{1}{4^n}$ is also convergent. And since $\sum_{n=1}
-^\infty \left| \frac{\sin{n}}{4^n} \right| \leq \sum_{n=1}^\infty 
+\item Conditionally Convergent. $\sum_{n=1}^\infty \left| \frac{(-1)^n}{3n+2} 
+\right| = \sum_{n=1}^\infty \frac{1}{3n + 2}$ Applying the integral test to 
+this sum: $\int_1^\infty \frac{1}{3x+2}\,dx = \lim_{t \to \infty} \int_1^t 
+\frac{1}{3x+2}\,dx = \left[ \frac{1}{3} \ln{3x + 2} \right]_{x=1}^t = \lim_{t 
+\to \infty} \left[ \ln{3x + 2} \right] - \ln{3(1) - 2} = \infty - 0 = \infty$. 
+Since $\int_1^\infty \frac{1}{3x + 2}\,dx$ is divergent, $\sum_{n=1}^\infty 
+\frac{1}{3n + 2}$ is divergent and $\sum_{n=1}^\infty \frac{(-1)^n}{3n + 2}$ 
+is conditionally convergent.
+\item Absolutely Convergent. $\sum_{n=1}^\infty \left| \frac{\sin{n}}{4^n} 
+\right| \leq \sum_{n=1}^\infty \frac{1}{4^n}$. Applying the integral test to 
+$\sum_{n=1}^\infty \frac{1}{4^n}$: $\int_1^\infty \frac{1}{4^x}\,dx = \lim_{t 
+\to \infty} \frac{-1}{4^x \ln{4}}|_{x=1}^t = \lim_{t \to \infty} \left[ \frac{
+-1}{4^t \ln{4}} \right] - \frac{-1}{4^1 \ln{4}} = 0 + \frac{1}{4 \ln{4}} = 
+\frac{1}{4 \ln{4}}$. Since $\int_1^\infty \frac{1}{4^x}\,dx$ is convergent, 
+the series $\sum_{n=1}^\infty \frac{1}{4^n}$ is also convergent. And since 
+$\sum_{n=1}^\infty \left| \frac{\sin{n}}{4^n} \right| \leq \sum_{n=1}^\infty 
 \frac{1}{4^n}$, $\sum_{n=1}^\infty \left| \frac{\sin{n}}{4^n} \right|$ is 
 also convergent, which shows that $\sum_{n=1}^\infty \frac{\sin{n}}{4^n}$ is 
 absolutely convergent. 
+\item Conditionally Convergent. We are asking if the series $\sum_{n=1}^\infty 
+\left| (-1)^{n-1} \frac{2n}{n^2 + 4} \right|$ is convergent. $\sum_{n=1}^
+\infty \left| (-1)^{n-1} \frac{2n}{n^2 + 4} \right| = \sum_{n=1}^\infty 
+\frac{2n}{n^2 + 4}$ We will apply the Limit Comparison test and compare this 
+series to the known, divergent series $\sum_{n=1}^\infty \frac{1}{n}$. $\lim_{
+n \to \infty} \frac{\frac{2n}{n^2 + 4}}{\frac{1}{n}} = \lim_{n \to \infty} 
+\frac{2n^2}{n^2 + 4} = 2 >0$. Therefore, by the Limit Comparison test, $\sum_{
+n=1}^\infty \left| (-1)^{n-1} \frac{2n}{n^2 + 4} \right|$ is divergent AND 
+$\sum_{n=1}^\infty (-1)^{n-1} \frac{2n}{n^2 + 4}$  is conditionally convergent. 
 \end{enumerate}
 \end{Answer}
 
 \subsection{The Ratio Test}
-The ratio test compares the $(n + 1)^{th}$ term of a series to the $n^{th}$ term 
-and takes the limit as $n \to \infty$ of the absolute value of this ratio:
-$$\lim_{n \to \infty} \left| \frac{a_{n + 1}}{a_n} \right| = L$$
+\index{ratio test}The ratio test compares the $(n + 1)^{th}$ term of a series 
+to the $n^{th}$ term and takes the limit as $n \to \infty$ of the absolute 
+value of this ratio:
+$$\lim_{n \to \infty} \left| \frac{a_{n + 1}}{a_n} \right| = L$$\\
 There are three possible outcomes of the ratio test:
 \begin{enumerate}
 \item if $L < 1$, then the series $\sum_{n=1}^\infty a_n$ is absolutely 
@@ -645,7 +716,7 @@ the series $\sum_{n=1}^\infty a_n$ is divergent.
 \end{enumerate}
 
 \textbf{Example}: Apply the ratio test to determine if $\sum_{n=1}^\infty 
-(-1)^n \frac{n^3}{3^n}$.
+(-1)^n \frac{n^3}{3^n}$ is convergent or divergent. 
 
 \textbf{Solution}: 
 $$\lim_{n \to \infty} \left| \frac{\frac{(-1)^{n + 1}(n + 1)^3}{3^{n + 1}}}{
@@ -711,7 +782,7 @@ must be true? Explain.
 \end{enumerate}
 \end{Exercise}
 
-\begin{Answer}[ref=label2]
+\begin{Answer}[ref=series2]
 \begin{enumerate}
 \item This is not necessarily true. For a convergent series, the result of the 
 ratio test is $L < 1$, so the limit could be $\neq 0$. 
@@ -730,8 +801,9 @@ a_n$ converges, so much $\sum_{n = 1}^\infty na_n$.
 \end{Answer}
 
 \subsection{Root Test}
-The root test examines the behavior of the $n^{th}$ root of $a_n$ as $n \to 
-\infty$. Similar to the ratio test, there are three possible outcomes:
+\index{root test}The root test examines the behavior of the $n^{th}$ root of 
+$a_n$ as $n \to \infty$. Similar to the ratio test, there are three possible 
+outcomes:
 \begin{enumerate}
 \item If $\lim_{n \to \infty} \sqrt[n]{|a_n|} = L < 1$, then the series $\sum
 _{n=1}^\infty a_n$ is absolutely convergent, and therefore convergent.
@@ -763,6 +835,7 @@ divergent.
 \item $\sum_{n=1}^\infty \left( \frac{3n^2 + 1}{n^2 - 4} \right)^n$
 \item $\sum_{n=1}^\infty \frac{(-1)^{n}}{(\ln{n})^n}$
 \item $\sum_{n=1}^\infty \left( 1+ \frac{1}{n} \right)^{n^2}$
+\vspace{50mm}
 \end{enumerate}
 \end{Exercise}
 
@@ -829,26 +902,27 @@ divergent. Apply the test and classify the series as convergent or divergent.
 \item $\sum_{n=2}^\infty \frac{1}{n\sqrt{\ln{n}}}$
 \item $\sum_{n=1}^\infty \left( \frac{n}{n+1} \right)^{n^2}$
 \item $\sum_{n=1}^\infty \left( \sqrt[n]{2} - 1\right)^n$
+\vspace{75mm}
 \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}[ref = test]
 \begin{enumerate}
-\item Since there is a constant to the $n^{th}$ power and an algebraic 
+\item Divergent. Since there is a constant to the $n^{th}$ power and an algebraic 
 function of $n$, we will try the Ratio Test. $\lim_{n \to \infty} \left| 
 \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} \frac{e^{n + 1}}{(n + 1)^2} 
 \cdot \frac{n^2}{e^n} = \lim_{n \to \infty} \frac{e^n \cdot e}{e^n} \cdot 
 \left( \frac{n}{n + 1} \right)^2 = \lim_{n \to \infty} e \cdot \left( 
 \frac{n}{n + 1} \right)^2 = e \cdot 1^2 = e >1$. Therefore, $\sum_{n=1}^\infty 
 \frac{e^n}{n^2}$ is divergent. 
-\item Since there is a factorial, we will try the Ratio Test. $\lim_{n \to 
+\item Convergent. Since there is a factorial, we will try the Ratio Test. $\lim_{n \to 
 \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} 
 \frac{3^{n + 1}(n + 1)^2}{(n + 1)!} \cdot \frac{n!}{3^n n^2} = \lim_{n \to 
 \infty} \frac{3 \cdot 3^n}{3^n} \cdot \frac{n!}{(n+1)n!} \cdot \left( 
 \frac{n + 1}{n} \right)^2 = \lim_{n \to \infty} \frac{3(n+1)^2}{(n+1)n^2} = 
 \lim_{n \to \infty} \frac{3(n+1)}{n^2} = 0 < 1$. Therefore, the series 
 $\sum_{n=1}^\infty \frac{3^n n^2}{n!}$ is convergent. 
-\item Since $\int_2^\infty \frac{1}{x\sqrt{\ln{x}}}\,dx$ can be integrated, we 
+\item Divergent. Since $\int_2^\infty \frac{1}{x\sqrt{\ln{x}}}\,dx$ can be integrated, we 
 will apply the integral test. $\int_2^\infty \frac{1}{x\sqrt{\ln{x}}}\,dx = 
 \lim_{t \to \infty} \int_2^t \frac{1}{x\sqrt{\ln{x}}}\,dx$. Setting $u = 
 \ln{x}$, then $du = \frac{dx}{x}$ and $\frac{1}{x\sqrt{\ln{x}}}dx = 
@@ -859,7 +933,20 @@ x}}}\,dx = \lim_{t \to \infty} \int_{x=2}^{x=t} \frac{1}{\sqrt{u}}\,du =
 \frac{-1}{2} \right) \lim_{t \to \infty} \sqrt{\ln{t}} - \left( \frac{-1}{2} 
 \right) \sqrt{\ln{2}} = \infty$. Since the integral diverges, so does the 
 series. 
-\item FIXME complete answers
+\item Convergent. Since this series has terms to the $n^{th}$ power, we will 
+try the Root Test. $\lim_{n \to \infty} \sqrt[n]{\left| \left( \frac{n}{n+1} 
+\right)^{n^2} \right| } = \lim_{n \to \infty} \sqrt[n]{\left( \frac{n}{n+1} 
+\right)^{n+2}} = \lim_{n \to \infty} \left(\frac{n}{n+1} \right)^{\frac{n^2}{
+n}} = \lim_{n \to \infty} \left( \frac{n}{n+1} \right)^n = \lim_{n \to \infty} 
+\left( \frac{1}{1 + \frac{1}{n}} \right)^n = \frac{1}{lim_{n \to \infty} \left(
+1 + \frac{1}{n} \right)^n} = \frac{1}{e} < 1$ Therefore, by the root test, the 
+series is convergent.
+\item Convergent. This series also has terms raised to the $n^{th}$ power, we 
+will try the Root Test again. $\lim_{n \to \infty} \sqrt[n]{\left| \left(\sqrt[
+n]{2} - 1\right)^n \right| } = \lim_{n \to \infty} \sqrt[n]{\left( \sqrt[n]{2} 
+- 1 \right)^n} = \lim_{n \to \infty}\left(\sqrt[n]{2} - 1 \right)^{n/n} = \lim_
+{n \to \infty} \left( \sqrt[n]{2} - 1 \right) = \lim_{n \to \infty} 2^{1/n} - 
+1 = 1 - 1 = 0 < 1$. Therefore, the series converges. 
 \end{enumerate}
 \end{Answer}
 

@@ -16,7 +16,7 @@ terms. For infinite sums, $n = \infty$.
 
 \section{Partial Sums}
 Let us quickly define a \textit{partial sum}. A partial sum is where 
-we only look at the first $n$ terms of a series. For the general 
+we only look at the first $n$ terms of a series. \index{partial sum} For the general 
 series, $\sum_{i=1}^{n} a_i$, the partial sums are:
 $$s_1 = a_1$$
 $$s_2 = a_1 + a_2$$
@@ -34,7 +34,7 @@ $$= \frac{-3}{4} + \frac{9}{16} + \frac{-27}{64} + \frac{81}{256} =
 
 \section{Reindexing}
 Sometimes it is necessary to re-index series. This means changing what $n$ the 
-series starts at. In general,
+series starts at \index{reindexing series}. In general,
 $$\sum_{n=i}^\infty a_n = \sum_{n=i + 1}^\infty a_{n-1} \text{ and } \sum_{n=i}^
 \infty a_n = \sum_{n=i - 1}^\infty a_{n+1}$$
 
@@ -208,7 +208,7 @@ convergent or divergent?
 
 \textbf{Solution}: You may think that the series is convergent, since $\lim_
 {n \to \infty} \frac{1}{n} = 0$. Let's see if we can confirm this. We begin by 
-looking at the partial sums $s_2$, $s_4$, $s_8$, and $s_16$:
+looking at the partial sums $s_2$, $s_4$, $s_8$, and $s_{16}$:
 $$s_2 = 1 + \frac{1}{2}$$
 $$s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4} \right) > 1 + 
 \frac{1}{2} + \left( \frac{1}{4} + \frac{1}{4} \right) = 1 + \frac{2}{2}$$
@@ -234,7 +234,7 @@ zero as n gets large is not necessarily convergent. What we can say, though,
 is that if the limit as n approaches infinity of the terms of a series does not 
 exist or is not zero, then the series is divergent (i.e. not convergent). This 
 is called the \textbf{Test for Divergence}, and we will explore it further in 
-the next chapter.
+the next chapter. \index{Test for Divergence}
 
 \subsection{Properties of Convergent Series}
 We just saw that if $\lim_{n \to \infty} a_n \neq 0$ then the series $\sum_
@@ -259,7 +259,7 @@ $$\sum_{n=1}^\infty \left( a_n - b_n \right) = L - M = \sum_{n=1}^\infty a_n -
 \section{Geometric Series}
 
 A geometric series is the sum of a geometric sequence, and has the form:
-$$\sum_{n=1}^\infty ar^n \text{ or } \sum_{n=1}^\infty ar^{n-1}$$
+$$\sum_{n=1}^\infty ar^n \text{ or } \sum_{n=1}^\infty ar^{n-1}$$ \index{geometric series}
 
 Where $a$ is some constant and $r$ is the common ratio. For $\sum_{n=1}^\infty 
 ar^{n-1}$, $a$ is also the first term. 
@@ -292,8 +292,8 @@ $$s_n = \frac{a(1-r^n)}{1-r}$$
 We take the limit as $n \to \infty$ to determine for what values of 
 $r$ the series converges:
 $$\lim_{n \to \infty} s_n = \lim_{n \to \infty} \frac{a(1-r^n)}{1-r}$$
-$$= \lim_{n\to \infty} \frac{a}{1-r} - \frac{ar^n}{1-r} = \frac{a}{1-r} 
-- \frac{a}{1-r}\lim_{n \to \infty} r^n$$
+$$= \lim_{n\to \infty} \left[ \frac{a}{1-r} - \frac{ar^n}{1-r} \right] = \frac{a}{1-r} 
+- \left( \frac{a}{1-r} \right) \lim_{n \to \infty} r^n$$
 
 This begs the question: when is $\lim_{n \to \infty} r^n$ convergent? 
 From the sequences chapter, we know this limit converges if $|r| < 1$ 
@@ -438,6 +438,19 @@ find the sums approach 1.5 as $n$ increases.
     \label{fig:geometric}
 \end{figure}
 
+\textbf{Example}: What is the value of $\sum_{n=1}^\infty 2^{2n}5^{1-n}$
+
+\textbf{Solution}: The key here is to re-write the series in the form $\sum_
+{n=1}^\infty ar^{n -1}$ so we can use the fact that convergent geometric 
+series sum to $\frac{a}{1-r}$. 
+$$\sum_{n=1}^\infty 2^{2n}5^{1-n} = \sum_{n=1}^\infty \left( 2^2 \right)^n 
+\left( \frac{1}{5} \right)^{n-1}$$
+$$= \sum_{n=1}^\infty 4 \cdot \left( 4 \right)^{n-1} \left( \frac{1}{5} 
+\right)^{n-1} = \sum_{n=1}^\infty 4 \cdot \left( \frac{4}{5} \right)^{n-1}$$
+Which is in the form $\sum_{n=1}^\infty ar^{n -1}$ with $a=4$ and $r=
+\frac{4}{5}$. Since $|r| < 1$, the series converges to 
+$$\frac{a}{1-r} = \frac{4}{1-\frac{4}{5}} = \frac{4}{\frac{1}{5}} = 20$$
+
 \begin{Exercise}[label=geo1]
 Determine whether the geometric series is convergent or divergent. If it 
 convergent, find its sum.
@@ -495,7 +508,7 @@ and solving for $c$, we find that $c = \frac{3}{2}$.
 \section{p-series}
 A $p$-series takes the form $\sum_{n=1}^\infty \frac{1}{n^p}$ and converges 
 if $p > 1$ and diverges if $p \leq 1$. We won't prove this here, since it 
-requires the application of a test you will learn about in the next chapter. 
+requires the application of a test you will learn about in the next chapter. \index{p-series}
 
 \textbf{Example} Write the series $1 + \frac{1}{\sqrt[3]{2}} + \frac{1}{
 \sqrt[3]{3}} + \frac{1}{\sqrt[3]{4}} + \cdots$. Is it convergent or divergent?
@@ -510,7 +523,8 @@ Euler found that the exact sum of the p-series where $p=2$ is:
 $$\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}$$
 And that the exact sum of the p-series where $p=4$ is:
 $$\sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^4}{90}$$
-Use this to find the sum of each of the following series:
+Use this and the properties of convergent series to find the sum of each of 
+the following series:
 \begin{enumerate}
 \item $\sum_{n=1}^\infty \frac{n^2 + 1}{n^4}$
 \item $\sum_{n=2}^\infty \frac{1}{n^2}$
@@ -549,7 +563,7 @@ also know that $\sum_{n=4}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \left(
 
 \section{Alternating Series}
 An alternating series is one in which the terms alternate between positive and 
-negative. Here is an example:
+negative \index{alternating series}. Here is an example:
 $$-\frac{1}{2} + \frac{2}{3} - \frac{3}{4} + \frac{4}{5} - \frac{5}{6} + 
 \cdots = \sum_{n=1}^\infty (-1)^n \frac{n}{n + 1}$$
 Alternating series are generally of the form
@@ -559,7 +573,7 @@ Where $b_n$ is positive (and therefore, $|a_n| = b_n$).
 An alternating series is convergent if (i)$b_{n+1} \leq b_n$ and (ii)$\lim_{n 
 \to \infty} b_n = 0$. In words, we say that if the absolute value of the terms 
 of a series decrease towards zero, then the series converges. This is called 
-the \textbf{Alternating Series Test}.
+the \textbf{Alternating Series Test}. \index{Alternating Series Test}
 
 \begin{figure}[htbp]
 \centering
