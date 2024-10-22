@@ -505,6 +505,22 @@ the value of the series is $\frac{1}{1 - \frac{1}{1+c}} =
 and solving for $c$, we find that $c = \frac{3}{2}$.
 \end{Answer}
 
+\begin{Exercise}[label = geo3]
+For what values of $p$ does the series $\sum_{n = 1}^\infty \left( \frac{p}{2} 
+\right) ^ n$ converge?
+\end{Exercise}
+
+\begin{Answer}[ref = geo3]
+$-2 < p < 2$ Let's re-write this geometric series into standard form: $\sum_{n 
+= 1}^\infty \left( \frac{p}{2} \right) ^ n = \sum_{n = 1}^\infty \frac{p}{2} 
+\left( \frac{p}{2} \right) ^ n$ which means $a = \frac{p}{2}$ and $r = 
+\frac{p}{2}$. We know that geometric series converge if $\left| r \right| < 
+1$, so we set up an inequality and solve for $p$:
+$$\left| \frac{p}{2} \right| < 1$$
+$$-1 < \frac{p}{2} < 1$$
+$$-2 < p < 2$$
+\end{Answer}
+
 \section{p-series}
 A $p$-series takes the form $\sum_{n=1}^\infty \frac{1}{n^p}$ and converges 
 if $p > 1$ and diverges if $p \leq 1$. We won't prove this here, since it 
@@ -559,6 +575,16 @@ also know that $\sum_{n=4}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \left(
 \frac{1}{n^4} = \frac{4\pi^2}{6} + \frac{3\pi^4}{90} = \frac{2\pi^2}{3} + 
 \frac{\pi^4}{30}$
 \end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[label = pseries1]
+For what values of $k$ does the series $\sum_{n = 1}^\infty \frac{1}{n^{2k}}$ 
+converge?
+\end{Exercise}
+
+\begin{Answer}[ref = pseries1]
+This is a $p$-series where $p = 2k$. We know that $p$-series converge for $p > 
+1$: $2k > 1 \rightarrow k > \frac{1}{2}$. 
 \end{Answer}
 
 \section{Alternating Series}
