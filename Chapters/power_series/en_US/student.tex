@@ -1,65 +1,23 @@
-\chapter{Power Series, Taylor Series, and Maclaurin Series}
+\chapter{Power Series}
 
-\section{Representing Complex Functions as Polynomials}
-FIXME is this the best example I can think of? there's room for improvement here
+Consider the function $f(x) = \frac{1}{1-x}$. This looks similar to the value 
+of convergent geometric series, $\sum_{n=1}^\infty ar^{n-1} = \frac{a}{1-r}$. 
+If we let $a = 1$ and $r = x$, then we see that $\sum_{n=1}^\infty x^{n-1} = 
+\frac{1}{1-x}$. We can reindex to begin at $n=0$ and see that:
+$$\frac{1}{1-x} = \sum_{n=0}^\infty x^n$$
 
-Consider the function $f(x) = \frac{80}{1-x^2}$. Suppose this represents the 
-rate at which a tub is filling (that is, $V'(t) = \frac{80}{1-t^2}$, where 
-$V'$ is the rate of change of volume of water (in units of gallons per hour) 
-in the tub for $0 \leq t < 1$ and $t$ is the time in hours). Suppose the tub 
-starts off empty and you want to turn off the faucet when it is full. If this 
-bathtub holds 80 gallons, when should you turn off the faucet? This may seem 
-trivial, but it's more complicated than it seems! As you may have guessed, we 
-need to set up an integral:
-$$V(t) = \int_{0}^t \frac{80}{1-x^2}\,dx = 80$$
-That is, we are looking for some $t$ such that the area under $V'(t)$ is equal 
-to 80 gallons. Try to evaluate this integral without a calculator: it's 
-difficult! It would be much easier to integrate a polynomial. This is where 
-power series come in.
-
-Power series allow us to approximate complex functions as polynomials. They 
-take the general form $\sum_{n=0}^\infty a_n (x - c)^n$, where $c$ is some 
-constant. We say the power series is "centered at $c$" (we will discuss this 
-further in later sections). For now, we just want to demonstrate the usefulness 
-of these series. 
-
-The power series that approximates $V'(t) = \frac{80}{1-t^2}$ near $x = 0$ is 
-$\sum_{n=0}^\infty 80x^n$ (see figure \ref{fig:taylorapprox}). Taking the 
-$5^{th}$ order series (that is, $n = 5$), we can estimate the volume in the 
-tub as:
-$$V(t) \approx \int_{0}^t \left[80 + 80x + 80x^2 + 80x^3 + 80x^4 + 80x^5 
-\right]\,dx = 80$$
-While this \textit{looks} like a longer integral, it's actually much easier 
-to evaluate! As you can determine for yourself, 
-$$V(t) = 80t + 40t^2 + \frac{80}{3}t^3 + 20t^4 + 16t^5 + \frac{40}{3}t^6 = 80$$
-And while it may be tedious to find a $t$ such that $V(t) = 80$ by hand, it is 
-very easy for a computer! Using a calculator, we find that $V(t) = 80$ when $t 
-= 0.63727$ hours (or  about 40 minutes)
-
-\begin{figure}[htbp]
-\centering
-    \begin{tikzpicture}
-        \begin{axis}[axis lines = center, ymin = 0, ymax=800,
-        xtick align = outside, xmin = -1.25, xmax = 1.25, 
-        xtick = {-1, 1}, legend pos = north west]
-        \addplot[red, thick, domain = -1.25:0.999, samples=100]{80/(1 - x)};
-        \addlegendentry{$\frac{80}{1-x}$};
-        \addplot[orange, domain = -1.25:1.25]{80+80*x};
-        \addlegendentry{$n = 1$};
-        \addplot[yellow, domain = -1.25:1.25]{80 + 80*x + 80*x^2};
-        \addlegendentry{$n = 2$};
-        \addplot[green, domain = -1.25:1.25]{80 + 80*x + 80*x^2 + 80*x^3};
-        \addlegendentry{$n = 3$};
-        \addplot[blue, domain = -1.25:1.25]{80 + 80*x + 80*x^2 + 80*x^3 + 80*x^4};
-        \addlegendentry{$n = 4$};
-        \addplot[violet, domain = -1.25:1.25]{80 + 80*x + 80*x^2 + 80*x^3 + 80*x^4 + 80*x^5};
-        \addlegendentry{$n = 5$};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{$s_n = \sum_{i=0}^n 80x^i$ is a closer and closer approximation of 
-    the function $f(x) = \frac{80}{1-x}$ near $x = 0$ as $n$ increases}
-    \label{fig:taylorapprox}
-\end{figure}
+This is a \textbf{power series}. \index{power series}We use power series in place of functions for many 
+applications: integrals where an explicit antiderivative don't exist, solving 
+differential equations, and computer scientists representing functions on 
+computers are a few examples. Consider $f(x) = \frac{1}{1-x^2}$. What is $\int 
+f(x)\,dx$? We can't directly use u-substitution, and this isn't a derivative of 
+any inverse trigonometric function. [You may have realized we could integrate 
+this explicitly by using partial fractions, but this is not true for other 
+functions, and we are using this as a demonstration anyway.] One way to 
+evaluate this integral would be to represent $f(x)$ as a power series, then 
+integrate the series. This is easier, since we know how to take the integral 
+of any polynomial ($\int x^n\,dx = \frac{1}{n+1}x^{n+1} + C$). First, we 
+discuss what power series are further.
 
 \section{Power Series}
 Power series are series of the form \index{power series}
@@ -79,6 +37,28 @@ c_n(x - a)^n$$
 
 Which we say is a \textit{power series in }$(x - a)$, or a \textit{power 
 series centered at }$a$, or a \textit{power series about }$a$. 
+
+\textbf{Example}: Find a power series representation for $f(x) = \frac{2x - 4}{
+x^2 - 4x +3}$. 
+
+\textbf{Solution}: Since we know $\frac{1}{1-x} = \sum_{n=0}^\infty x^n$, we 
+will use partial fractions to decompose the function into two fractions. (The 
+process is left as an exercise for the student.) We find that:
+$$\frac{2x - 4}{x^2 - 4x + 3} = \frac{1}{x - 1} + \frac{1}{x-3}$$
+Noting that $\frac{1}{x-1} = (-1) \cdot\frac{1}{1-x}$, we can say that:
+$$\frac{1}{x-1} = (-1) \cdot \sum_{n=0}^\infty x^n$$
+Now let's look at $\frac{1}{x-3}$. We can show that:
+$$\frac{1}{x-3} = \frac{\frac{1}{3}}{\frac{x}{3}-1} = \frac{1}{3} \frac{1}{
+\frac{x}{3}-1} = \frac{-1}{3} \frac{1}{1-\frac{x}{3}}$$
+Substituting $\frac{x}{3}$ for $x$ into $\frac{1}{1-x} = \sum_{n=0}^\infty 
+x^n$ we see that:
+$$\frac{1}{1-\frac{x}{3}} = \sum_{n=0}^\infty \left(\frac{x}{3} \right)^n$$
+And therefore
+$$\frac{1}{x-3} = \left( \frac{-1}{3} \right) \sum_{n=0}^\infty \left( 
+\frac{x}{3} \right)^n$$
+Adding the terms, we see that:
+$$\frac{1}{x-1} + \frac{1}{x-3} = (-1) \sum_{n=0}^\infty x^n + \left( 
+\frac{-1}{3} \right) \sum_{n=0}^\infty \left( \frac{x}{3} \right)^n$$
 
 \section{Power Series Convergence}
 Sometimes, you'll be asked to find the value(s) of $x$ 
@@ -300,57 +280,96 @@ converges for $x = 1$ and the interval of convergence is $x \in [-1, 1]$,
 which can also be written as $-1 \leq x \leq 1$. 
 \end{Answer}
 
-\section{Taylor and Maclaurin Series}
+\section{Calculus with Power Series}
+You can integrate and differentiate power series. Let $f(x) = \sum_{n=0}^\infty 
+c_n (x-a)^n$. Recall that $f(x)$ is just a very long polynomial and that the 
+derivative of a polynomial $x^n$ is $n \cdot x^{n-1}$. Then we can state that:
+$$\frac{d}{dx}f(x) = \frac{d}{dx} \left[c_0 + c_1(x-a)^1 + c_2(x-a)^2 + \cdots 
++ c_n(x-a)^n \right]$$
+$$f'(x) = 0 + c_1 + 2c_2(x-a)^1 + \cdots + n c_n(x-a)^{n-1}$$
+$$f'(x) = \sum_{n=1}^\infty c_n(x-a)^{n-1}$$
 
-\begin{Exercise}[label = mac1]
-[The problem was originally presented as a no-calculator, multiple-choice 
-question on the 2012 AP Calculus BC exam.] The Maclaurin series for the 
-function $f$ is given by $f(x) = \sum_{n=0}^\infty \left( -\frac{x}{4} \right)^
-n$. What is the value of $f(3)$?
+Which is true when $x$ is in the interval of convergence for the series. 
+
+Similarly, we know $\int x^n\,dx = \frac{1}{n+1}x^{n+1}$. Then we can say that:
+$$\int f(x) \,dx = \int \left[c_0 + c_1(x-a)^1 + c_2(x-a)^2 + \cdots + c_n(x-a)
+^n\right],dx$$
+$$\int f(x)\,dx = C + c_0(x-a) + \frac{c_1}{2}(x-a)^2 + \frac{c_2}{3}(x-a)^3 + 
+\cdots \frac{c_n}{n+1}(x-a)^{n+1}$$
+$$\int f(x)\,dx = C + \sum_{n=0}^\infty \frac{c_n}{n+1}(x-a)^{n+1}$$
+
+Where $C$ is the integration constant. Again, this is true when $x$ is in the 
+interval of convergence for the series. 
+
+\textbf{Example}: Express $\frac{1}{(1-x)^2}$ as a power series by 
+differentiating $\frac{1}{1-x}$. 
+
+\textbf{Solution}: Recall that $\frac{1}{1-x} = \sum_{n=0}^\infty x^n$ when 
+$|x|<1$. 
+$$\frac{1}{1-x} = \sum_{n=1}^\infty x^n$$
+Differentiating both sides:
+$$\frac{d}{dx} \left[ \frac{1}{1-x} \right] = \frac{d}{dx} \sum_{n=0}^\infty 
+x^n$$
+$$(-1) \cdot \frac{1}{(1-x)^2} \cdot \frac{d}{dx}(1-x) = \sum_{n=1}^\infty 
+nx^{n-1}$$
+$$\frac{1}{(1-x)^2} = \sum_{n=1}^\infty nx^{n-1}$$
+Reindexing to begin at $n = 0$
+$$\frac{1}{(1-x)^2} = \sum_{n=0}^\infty (n+1)x^n$$
+Because $\sum_{n=0}^\infty$ has a radius of convergence of 1, so does $\sum_{
+n=0}^\infty (n+1)x^n$. We can confirm our series makes sense by plotting the 
+partials sums for $n = 3, 5, and 7$ with the original function (see figure 
+\ref{power1}).
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[xmin = -1, xmax = 1, axis lines = center, ymin = 0, ymax = 10, 
+	legend pos = north west]
+            \addplot[black, thick, domain = -1:0.9, samples = 100]{1/(1-x)^2};
+            \addlegendentry{$f(x)$};
+            \addplot[red, thick, domain = -1:1, samples = 100]{1 + 2*x + 3*x^2};
+            \addlegendentry{$\sum_{n=1}^3 nx^{n-1}$};
+            \addplot[green, thick, domain = -1:1, samples = 100]{1 + 2*x + 
+            3*x^2 + 4*x^3 + 5*x^4};
+            \addlegendentry{$\sum_{n=1}^5 nx^{n-1}$};
+            \addplot[blue, thick, domain = -1:1, samples = 100]{1 + 2*x + 
+            3*x^2 + 4*x^3 + 5*x^4 + 6*x^5 + 7*x^6};
+            \addlegendentry{$\sum_{n=1}^7 nx^{n-1}$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The function $f(x) = \frac{1}{(1-x)^2}$ is equal to the power 
+    series $\sum_{n=1}^\infty nx^{n-1}$}
+    \label{power1}
+\end{figure}
+
+\textbf{Example}: Find a power series representing $\ln{(1+x)}$. 
+
+\textbf{Solution}: We know that $\frac{d}{dx} \frac{1}{1-x} = \ln{(1-x)}$. 
+Replacing $x$ with $-x$ we see that:
+$$\frac{1}{1-(-x)} = \frac{1}{1+x} = \sum_{n=0}^\infty (-x)^n$$
+Which converges for $|x| < 1$. Then we can integrate both sides:
+$$\int \frac{1}{1+x}\,dx = \int \left[ \sum_{n=0}^\infty (-x)^n \right] \,dx$$
+$$\ln{(1 + x)} = \int \left( 1 - x + x^2 - x^3 + \cdots \right)\,dx $$
+$$\ln{(1 + x)} = C + x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + (-1)^{n-1} \frac{x^n}{n}$$
+$$\ln{(1 + x)} = \sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n} + C$$
+When $|x|<1$. To find $C$, substitute $x = 0$ and solve:
+$$\ln{(1 + 0)} = C + \sum_{n=1}^\infty (-1)^{n-1} \frac{0^n}{n} = C + 0$$
+$$C = \ln{1} = 0$$
+So our final answer is $\ln{(1 + x)} = \sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{
+n}$. 
+
+\begin{Exercise}[label = seriescalc1]
+Find a power series representation for $f(x) = \arctan{x}$. 
 \end{Exercise}
 
-\begin{Answer}[ref = mac1]
-Substituting $x = 3$, the series is $\sum_{n=0}^\infty \left( -\frac{3}{4} 
-\right)^n$, which is an alternating geometric series. Reindexing the series to 
-begin at $n = 1$, this is equivalent to $\sum_{n = 1}^\infty \left( - 
-\frac{3}{4} \right) ^ {n - 1}$, which is in the standard form $\sum_{n=1}^
-\infty ar^{n-1}$ with $a = 1$ and $r = -\frac{3}{4}$. Then the value of the 
-series is $\frac{a}{1-r} = \frac{1}{1-\left(- \frac{3}{4} \right)} = \frac{1}{1 
-+ \frac{3}{4}} = \frac{1}{\frac{7}{4}} = \frac{4}{7}$. 
+\begin{Answer}[ref = seriescalc1]
+Recall that $\frac{d}{dx} \arctan{x} = \frac{1}{1+x^2}$. Replacing $x$ with 
+$-x^2$, we see that $\frac{1}{1 + x^2} = \frac{1}{1- (-x^2)} = \sum_{n=0}^
+\infty \left[ -x^2 \right]^n = \sum_{n=0}^\infty (-1)^n x^{2n}$. Then we can 
+also say that $\arctan{x} = \int \frac{1}{1 + x^2}\,dx = \int \left[ sum_{n=0}
+^\infty (-1)^n x^{2n} \right]\,dx$. Evaluating the integral, $\int \left[ sum_
+{n=0}^\infty (-1)^n x^{2n} \right]\,dx = \sum_{n=0}^\infty (-1)^n \int 
+x^{2n}\,dx = C + \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$. Knowing that 
+$\arctan{0} = 0$, we find that $C = 0$ and $\arctan{x} = \sum_{n=0}^\infty 
+\frac{(-1)^n x^{2n+1}}{2n+1}$. 
 \end{Answer}
-
-\begin{Exercise}[label = taylor1]
-[This problem was originally presented as a calculator-allowed, multiple-choice 
-question on the 2012 AP Calculus BC exam.] Let $f$ be function having 
-derivatives of all orders for $x > 0$ such taht $f(3) = 2$, $f'(3) = -1$, 
-$f''(3) = 6$, and $f'''(3) = 12$. Write a $3^{rd}$-degree Taylor polynomial 
-for $f$ about $x = 3$ and estimate the value of $f(3.4)$
-\end{Exercise}
-
-\begin{Answer}[ref = taylor1]
-A third-degree Taylor polynomial about $x = 3$ is given by $f(3) + \frac{
-f'(3)}{1!} (x - 3) + \frac{f''(3)}{2!} (x - 3) ^ 2 + \frac{f'''(3)}{3!} (x - 3) 
-^ 3$. Substituting what we know, they 3rd-degree Taylor polynomial is $f(x) 
-\approx 2 + \frac{-1}{1} (x - 3) + \frac{6}{2} (x - 3) ^ 2 + \frac{12}{6}(x - 
-3) ^ 3 = 2 - (x - 3) + 3 (x - 3) ^ 2 + 2 (x - 3) ^ 3$. Substituting $x = 3.5$, 
-we find that $f(3.5) \approx 2 - (3.5 - 3) + 3 ( 3.5 - 3) ^ 2 + 2 (3.5 - 3) ^ 3 
-= 2 - \frac{1}{2} + 3 \frac{1}{4} + 2\frac{1}{8} = 2 - \frac{1}{2} + 
-\frac{3}{4} + \frac{1}{4} = 2.5$.
-\end{Answer}
-
-\begin{Exercise}[label = taylor2]
-[This problem was originally presented as a calculator-allowed, free-response 
-question on the 2012 AP Calculus BC exam.] The function $f$ is twice 
-differentiable for $x > 0$ with $f(1) = 15$, $f'(1) = 8$, and $f''(1) = 20$. 
-Write the second-degree Taylor polynomial about $x = 1$ and use it to 
-estimate $f(1.4)$.
-\end{Exercise}
-
-\begin{Answer}
-A second-degree Taylor polynomial about $x = 1$ is given by $f(x) \approx f(1) 
-+ \frac{f'(1)}{1!}(x - 1) + \frac{f''(1)}{2!}(x - 1)^2 = 15 + 8(x - 1) + 10(x 
-- 1)^2$. Substituting $x = 1.4$, we find that $f(1.4) \approx 15 + 8(1.4 - 1) 
-+ 10(1.4 - 1)^2 = 19.8$.
-\end{Answer}
-
-
