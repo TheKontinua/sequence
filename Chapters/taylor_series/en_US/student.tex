@@ -1,0 +1,55 @@
+\chapter{Taylor and Maclaurin Series}
+
+
+\begin{Exercise}[label = mac1]
+[The problem was originally presented as a no-calculator, multiple-choice 
+question on the 2012 AP Calculus BC exam.] The Maclaurin series for the 
+function $f$ is given by $f(x) = \sum_{n=0}^\infty \left( -\frac{x}{4} \right)^
+n$. What is the value of $f(3)$?
+\end{Exercise}
+
+\begin{Answer}[ref = mac1]
+Substituting $x = 3$, the series is $\sum_{n=0}^\infty \left( -\frac{3}{4} 
+\right)^n$, which is an alternating geometric series. Reindexing the series to 
+begin at $n = 1$, this is equivalent to $\sum_{n = 1}^\infty \left( - 
+\frac{3}{4} \right) ^ {n - 1}$, which is in the standard form $\sum_{n=1}^
+\infty ar^{n-1}$ with $a = 1$ and $r = -\frac{3}{4}$. Then the value of the 
+series is $\frac{a}{1-r} = \frac{1}{1-\left(- \frac{3}{4} \right)} = \frac{1}{1 
++ \frac{3}{4}} = \frac{1}{\frac{7}{4}} = \frac{4}{7}$. 
+\end{Answer}
+
+\begin{Exercise}[label = taylor1]
+[This problem was originally presented as a calculator-allowed, multiple-choice 
+question on the 2012 AP Calculus BC exam.] Let $f$ be function having 
+derivatives of all orders for $x > 0$ such taht $f(3) = 2$, $f'(3) = -1$, 
+$f''(3) = 6$, and $f'''(3) = 12$. Write a $3^{rd}$-degree Taylor polynomial 
+for $f$ about $x = 3$ and estimate the value of $f(3.4)$
+\end{Exercise}
+
+\begin{Answer}[ref = taylor1]
+A third-degree Taylor polynomial about $x = 3$ is given by $f(3) + \frac{
+f'(3)}{1!} (x - 3) + \frac{f''(3)}{2!} (x - 3) ^ 2 + \frac{f'''(3)}{3!} (x - 3) 
+^ 3$. Substituting what we know, they 3rd-degree Taylor polynomial is $f(x) 
+\approx 2 + \frac{-1}{1} (x - 3) + \frac{6}{2} (x - 3) ^ 2 + \frac{12}{6}(x - 
+3) ^ 3 = 2 - (x - 3) + 3 (x - 3) ^ 2 + 2 (x - 3) ^ 3$. Substituting $x = 3.5$, 
+we find that $f(3.5) \approx 2 - (3.5 - 3) + 3 ( 3.5 - 3) ^ 2 + 2 (3.5 - 3) ^ 3 
+= 2 - \frac{1}{2} + 3 \frac{1}{4} + 2\frac{1}{8} = 2 - \frac{1}{2} + 
+\frac{3}{4} + \frac{1}{4} = 2.5$.
+\end{Answer}
+
+\begin{Exercise}[label = taylor2]
+[This problem was originally presented as a calculator-allowed, free-response 
+question on the 2012 AP Calculus BC exam.] The function $f$ is twice 
+differentiable for $x > 0$ with $f(1) = 15$, $f'(1) = 8$, and $f''(1) = 20$. 
+Write the second-degree Taylor polynomial about $x = 1$ and use it to 
+estimate $f(1.4)$.
+\end{Exercise}
+
+\begin{Answer}
+A second-degree Taylor polynomial about $x = 1$ is given by $f(x) \approx f(1) 
++ \frac{f'(1)}{1!}(x - 1) + \frac{f''(1)}{2!}(x - 1)^2 = 15 + 8(x - 1) + 10(x 
+- 1)^2$. Substituting $x = 1.4$, we find that $f(1.4) \approx 15 + 8(1.4 - 1) 
++ 10(1.4 - 1)^2 = 19.8$.
+\end{Answer}
+
+

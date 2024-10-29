@@ -125,7 +125,7 @@ where $n = 1, 2, 3, \cdots$.
 the value of $y(1)$ if $\frac{dy}{dx} = 2x + y$ and $y(0) = 1$. 
 
 \textbf{Solution}: We are given $h = 0.2$, $x_0 = 0$, $y_0 = 1$, and $F(x, y) 
-= 2x + y$. This means we will need 10 steps to reach $x_{5} = 1$. So we know 
+= 2x + y$. This means we will need 5 steps to reach $x_{5} = 1$. So we know 
 that:
 $$y_1 = 1 + 0.2[2(0) + 1] = 1 + 0.2[1] = 1.2$$
 $$y_2 = 1.2 + 0.2[2(0.2) + 1.2] = 1.2 + 0.2(1.6) = 1.52$$
@@ -145,3 +145,90 @@ n & $x_n$ & $y_n$ & $F(x_n, y_n)$ \\\hline
 \end{center}
 
 Therefore, $y(1) \approx 3.4696$.
+
+\textbf{Example}: This problem was originally presented as a no-calculator, 
+multiple-choice question on the 2012 AP Calculus BC exam. Let $y = f(x)$ be 
+the solution to $\frac{dy}{dx} = x - y$ with initial condition $f(1) = 3$. 
+What is the approximation of $f(2)$ obtained using Euler's method with two 
+steps of equal length starting at $x = 1$?
+
+\textbf{Solution}: The question asks that we use Euler's method two steps. The 
+step size should be $h = \frac{x_2 - x_0}{2} = \frac{2 - 1}{2} = \frac{1}{2}$. 
+Taking $x_0 = 1$ and $y_0 = 3$, we find that:
+$$y_1 = y_0 + h \left[x_0 - y_0 \right]$$
+$$y_1 = 3 + \frac{1}{2} \left[1 - 3 \right]$$
+$$y_1 = 3 + \frac{1}{2} \left[ -2 \right] = 3 - 1 = 2$$
+
+So our intermediate point is $(x_1, y_1) = (\frac{3}{2}, 2)$. Finding $y_2$:
+$$y_2 = y_1 + h \left[x_1 - y_1 \right]$$
+$$y_2 = 2 + \frac{1}{2} \left[ \frac{3}{2} - 2 \right]$$
+$$y_2 = 2 + \frac{1}{2} \left[\frac{-1}{2} \right] = 2 - \frac{1}{4} 
+= \frac{7}{4}$$
+
+So the approximate value of $f(2)$ is $\frac{7}{4}$.
+
+\begin{Exercise}[label = eulercircuit]
+
+In the previous chapter on slope fields, we discussed the behavior of inductors in electronic circuits. As you may recall, capacitors also exhibit more complex behavior than regular resistors. Consider a circuit with a resistor and capacitor (see figure below). Let the resistor have resistance R ohms and the capacitor have capacitance C farads. Then by Kirchhoff's law, we know that:
+$$RI + \frac{Q}{C} = V$$
+Where Q is the charge on each side of the capacitor and $\frac{Q}{C}$ is the voltage drop across the capacitor. Recall that current is the change in charge over time. Therefore, $I = \frac{dQ}{dt}$ and we can write the differential equation:
+$$R \frac{dQ}{dt} + \frac{1}{C}Q = V$$
+When the switch is first closed, there is no charge (that is, $Q(0) = 0$). If the resistor is $5 \Omega$, the battery is $60 V$, and the capacitor is $0.05 F$, use Euler's method with a step size of 0.1 to estimate the charge after half a second. 
+
+    \begin{tikzpicture}
+	\begin{axis}[xmin = -3.1, xmax = 3.1, ymin = -3.1, ymax = 3.1, axis lines = 
+	none, clip = false]
+	\draw[blue, thick](-3, 1.5) -- (-0.2, 1.5);
+        \draw[blue, thick] (0.2, 1.5) -- (3, 1.5);
+        \draw[blue, thick] (-0.2, 1.3) -- (-0.2, 1.7);
+        \draw[blue, thick] (0.2, 1.3) -- (0.2, 1.7);
+        \draw[blue, thick](3,1.5) -- (3, 0.5);
+        \draw[decorate, decoration = zigzag, color=blue, thick] 
+        	(3, 0.5) -- (3, -0.5);
+        \draw[blue, thick] (3, -0.5) -- (3, -1.5);
+        \draw[blue, thick] (3, -1.5) -- (0.7, -1.5);
+        \draw[blue, thick] (0.7, -1.5) -- (-0.7, -1);
+        \draw[blue, thick] (-0.73, -1.5) -- (-3, -1.5);
+        \addplot[blue, mark=o](-0.75, -1.5);
+        \draw[blue, thick] (-3, -1.5) -- (-3, -0.6);
+        \draw[blue, thick] (-3, 0.6) -- (-3, 1.5);
+        \draw[blue, thick] (-3, 0) ellipse (0.5 and 0.6);
+        \node[blue] at (-3, 0) {$V$};
+        \node[blue] at (0, -2) {switch};
+        \node[blue] at (3.3, 0) {R};
+        \node[blue] at (0, 1.9) {C};
+        \end{axis}
+    \end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref = eulercircuit]
+Substituting the given values, we find that $(5)\frac{dQ}{dT} + \frac{1}{0.05}Q = 60$. Solving for $\frac{dQ}{dt}$:
+$$(5) \frac{dQ}{dt} + (20)Q = 60$$
+$$\frac{dQ}{dt} + 4Q = 12$$
+$$\frac{dQ}{dt} = 12 - 4Q$$
+We also know that $Q(0) = 0$. Using Euler's method with step size $h = 0.1$, $Q(0.1) \approx Q(0) + h \left[12 - 4Q(0) \right] = 0 + 0.1 \left[12 - 4(0) \right] = 1.2$. And $Q(0.2) \approx Q(0.1) + h \left[12 - 4Q(0.1) \right] = 1.2 + 0.1 \left[12 - 4(1.2) \right] = 1.92$. And $Q(0.3) \approx Q(0.2) + h \left[12 - 4Q(0.2) \right] = 1.92 + 0.1 \left[ 12 - 4(1.92) \right] = 2.352$. And $Q(0.4) \approx Q(0.3) + h \left[12 - 4Q(0.3) \right] = 2.352 + 0.1 \left[ 12 - 4(2.352) \right] = 2.6112$. And finally, $Q(0.5) \approx Q(0.4) + h \left[12 - 4Q(0.4) \right] = 2.6112 + 0.1 \left[12 - 4(2.6112) \right] = 2.76672$. Because we are finding a charge, the unit it Coulombs (C), so our final answer is $Q(0.5) \approx 2.77 C$.
+\end{Answer}
+
+\begin{Exercise}[label = euler1]
+[This problem was originally presented as a calculator-allowed, free-response 
+question on the 2012 AP Calculus BC exam.] The function $f$ is twice-
+differentiable for $x > 0$ with $f(1) = 15$ and $f''(1) = 20$. Values of $f'$, 
+the derivative of $f$, are given for selected values of $x$ in the table 
+below. Use Euler's method, starting at $x = 1$ with two steps of equal size, 
+to approximate $f(1.4)$. Show the computations that lead to your answer. 
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}\hline
+		$x$ & 1 & 1.1 & 1.2 & 1.3 & 1.4\\\hline
+		$f'(x)$ & 8 & 10 & 12 & 13 & 14.5\\\hline
+		\end{tabular}
+	\end{center}
+\end{Exercise} 
+
+\begin{Answer}[ref = euler1]
+We are given $x_0 = 1$ and $x_2 = 1.4$. Therefore we will use step size $h = 
+\frac{1.4 - 1}{2} = \frac{0.4}{2} = 0.2$. Taking $x_0 = 1$ and $y_0 = f(1) = 
+15$, we find $y_1$: $y_1 = y_0 + h \cdot f'(x_0) = 15 + 0.2 \cdot f'(1) = 15 + 
+0.2(8) = 15 + 1.6 = 16.6$. And then $y_2 = y_1 + h \cdot f'(x_1) = 16.6 + 0.2 
+\cdot f'(1.2) = 16.6 + 0.2(12) = 16.6 + 2.4 = 19$. Therefore, $f(1.4) \approx 
+19$. 
+\end{Answer}
