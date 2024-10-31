@@ -1,5 +1,77 @@
 \chapter{Taylor and Maclaurin Series}
 
+Consider the generic power series:
+$$f(x) = c_0 + c_1(x - a) + c_2(x - a)^2 + c_3(x - a)^3 + \cdots + c_n(x - a)^n$$
+Notice that substituting $x = a$ yields:
+$$f(a) = c_0$$
+Suppose we differentiate both sides, which gives:
+$$f'(x) = c_1 + 2c_2(x - a) + 3c_3(x - a)^2 + \cdots nc_n(x-a)^{n-1}$$
+Again, substituting $x = a$:
+$$f'(a) = c_1$$
+Continuing, we see that
+$$f''(x) = 2c_2 + 2 \cdot 3c_3(x-a) + \cdot + sn(n-1)(x-a)^{n-2}$$
+And
+$$f''(a) = 2c_2$$
+Once more, we see that:
+$$f'''(x) = 2 \cdot 3 c_3 + 2 \cdot 3 c\dot 4 (x-a) + \cdots + n (n-1)(n-2)(x-a)^{n-3}$$
+And substituting $x = a$ gives
+$$f'''(a) = 2 \cdot 3 c_3 = 3!c_3$$
+
+Do you see the pattern? It is 
+$$f^{(n)}(a) = 2 \cdot 3 \cdot 4 \cdot \cdots \cdot nc_n = n!c_n$$
+Which also means that 
+$$c_n = \frac{f^{(n)}(a)}{n!}$$
+(recall the convention that $0! = 1$, so this is valid for $n = 0$ as well). 
+
+If we substitute for $c_n$ into our definition of a power series, we get a \textbf{Taylor series}\index{Taylor series}:
+$$f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!} \left( x - a \right)^n$$
+
+This is called the \textit{Taylor series of $f$ centered at $a$}. If $a = 0$, we call this special case a \textbf{Maclaurin series}\index{Maclaurin series}:
+$$f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n$$
+
+\textbf{Example}: Find the Maclaurin series for $f(x) = e^x$ and its radius of convergence.
+
+\textbf{Solution}: We know that if $f(x) = e^x$, then $f'(x) = e^x$, and $f''(x) = e^x$, $\cdots$, $f^{(n)}(x) = e^x$. Since $e^0 = 1$, we can say that $f^{(n)}(0) = 1$ for all $n$. Substituting this into our equation for Maclaurin series:
+$$f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n = \sum_{n=0}^\infty \frac{1}{n!}x^n $$
+$$= \sum_{n=0}^\infty \frac{x^n}{n!}$$
+
+Taking $a_n = \frac{x^n}{n!}$ and applying the Ratio test, we can find the radius of convergence:
+$$\lim_{n \to \infty} \left| \frac{a_{n + 1}}{a_n} \right| < 1$$
+$$\lim_{n \to \infty} \left| \frac{x^{n + 1}}{(n+1)n!} \cdot \frac{n!}{x^n} \right| < 1$$
+$$\lim_{n \to \infty} \frac{|x|}{n + 1} = 0 < 1$$
+The limit converges to 0 for all $x$, so the radius of convergence is $\infty$. 
+
+We can confirm this graphically. But first, a quick definition. The $n^{th}$-degree Taylor polynomial is the first $n$ terms of the infinite Taylor polynomial. That is,
+$$T_n(x) = \sum_{i=0}^n \frac{f^{(n)}(a)}{i!}(x - a)^n$$
+
+In the case of $f(x) = e^x$ and $a = 0$, the $n^{th}$ degree Taylor polynomial is given by:
+$$T_n(x) = \sum_{i = 0}^\infty \frac{x^i}{i!}$$
+As expected, as the degree of the polynomial increases, the closer it is to $e^x$ (see figure \ref{taylorexp}).
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[xmin = -2, xmax = 2, axis lines = center, ymin = -2, ymax = 10, legend pos = north west]
+        \addplot[black, thick, domain = -2:2]{e^x};
+        \addlegendentry{$f(x) = e^x$};
+        \addplot[red, thick, domain = -2:2]{1 + x};
+        \addlegendentry{$T_1(x)$};
+        \addplot[orange, thick, domain = -2:2]{1 + x + x^2/2};
+        \addlegendentry{$T_2(x)$};
+        \addplot[yellow, thick, domain = -2:2]{1 + x + x^2/2 + x^3/6};
+        \addlegendentry{$T_3(x)$};
+        \addplot[green, thick, domain = -2:2]{1 + x + x^2/2 + x^3/6 + x^4/24};
+        \addlegendentry{$T_4(x)$};
+        \addplot[blue, thick, domain = -2:2]{1 + x + x^2/2 + x^3/6 + x^4/24 + x^5/120};
+        \addlegendentry{$T_5(x)$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{As $n$ increases, $T_n(x)$ approaches $f(x)$}
+    \label{taylorexp}
+\end{figure}
+
+\section{Maclaurin series of trigonometric functions}
+Let us write a Maclaurin series for $\sin{x}$. 
 
 \begin{Exercise}[label = mac1]
 [The problem was originally presented as a no-calculator, multiple-choice 

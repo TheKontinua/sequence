@@ -203,6 +203,15 @@ A useful identity that we used here is
 $$\int \frac{1}{x^2 + a^2}\,dx = \frac{1}{a} \arctan{\left( \frac{x}{a} \right)} 
 + C$$
 
+\subsubsection{Repeated irreducible quadratic factors}
+Lastly, the denominator might contain repeated irreducible quadratic factors. 
+Similar to repeated linear factors, when setting up your partial fractions, 
+instead of only writing 
+$$\frac{A}{ax^2 + bx + c}$$
+For a quadratic factor that is repeated $r$ times, your equation should include:
+$$\frac{A_1}{ax^2 + bx + c} + \frac{A_2}{(ax^2 + bx + c)^2} + \cdots + 
+\frac{A_r}{(ax^2 + bx + c)^r}$$
+
 \section{Integration by Parts}
 
 \section{Practice}
@@ -270,3 +279,34 @@ Use the method of partial fractions to evaluate the following integrals:
 \item $int \frac{x^3 + 2x}{x^4 + 4x^2 + 3}\,dx$
 \end{enumerate}
 \end{Exercise}
+
+\begin{Answer}[ref=partfrac]
+\begin{enumerate}
+\item Let $\frac{4x}{x^3 + x^2 + x + 1} = \frac{A}{x + 1} + \frac{Bx + C}{x^2 
++ 1}$. Rearranging, we see that $4x = A(x^2 + 1) + (Bx + C)(x + 1)$. Which 
+means that $4x = Ax^2 + A + Bx^2 + Bx + Cx + C$, which implies that $A + B = 
+0$ and $B + C = 4$ and $A + C = 0$. Solving this system of equations, we see 
+that $A = -2$, $B = 2$, and $C = 2$. So we can say that $\int \frac{4x}{x^3 + 
+x^2 + x + 1}\,dx = \int \left[ \frac{-2}{x + 1} + \frac{2x}{x^2 + 1} + \frac{2
+}{x^2 + 1} \right]\,dx$. Which evaluates to $-2\ln{|x + 1|} + \ln{|x^2 + 1|} 
++ 2\arctan{(x)} + K$, where $K$ is the constant of integration.  
+\item Since the order of x is greater in the numerator, first we divide and 
+see that $\frac{x^3 - 4x + 1}{x^2 - 3x + 2} = (x + 3) + \frac{3x - 5}{x^2 - 3x 
++ 2}$. Now let $\frac{3x-5}{x^2 - 3x + 2} = \frac{A}{x-2} + \frac{B}{x - 1}$, 
+which means that $3x - 5 = A(x - 1) + B(x - 2)$. Solving, we find that $A = 1$ 
+and $B = 2$. Therefore, $\int_{-1}^0 \frac{x^3 - 4x + 1}{x^2 - 3x + 2}\,dx = 
+\int_{-1}^0 \left[ x + 3 + \frac{1}{x-2} + \frac{2}{x-1} \right]\,dx$ which 
+evaluates to $\frac{1}{2}x^2 + 3x + \ln{|x - 2|} + \ln{|x - 1|}|_{x = -1}^{x = 
+0} = \frac{5}{2} - \ln{(3)}$. 
+\item Note that $\frac{x^3 + 2x}{x^4 + 4x^2 + 3} = \frac{x^3 + 2x}{(x^2 + 1)(x^
+2 + 3)}$. Then let $\frac{x^3 + 2x}{(x^2 + 1)(x^2 + 3)} = \frac{Ax + B}{x^2 + 1
+} + \frac{Cx + D}{x^2 + 3}$. Then $x^3 + 2x = (A + C)x^3 + (B + D)x^2 + (3A + C
+)x + (3B + D)$ which implies that $A + C = 1$, $B + D = 0$, $3A + C = 2$, and $
+3b + D = 0$. Solving this system of equations, we see that $A = C = \frac{1}{2}
+$ and $B = D = 0$, which means that $\frac{x^3 + 2x}{x^4 + 4x^2 + 3} = \frac{x
+}{2(x^2 + 1)} + \frac{x}{2(x^3 + 3}$. And therefore, $int \frac{x^3 + 2x}{x^4 
++ 4x^2 + 3}\,dx = \int \left[ \frac{x}{2(x^2 + 1)} + \frac{x}{2(x^3 + 3} 
+\right]\,dx = \frac{1}{4}\ln{|x^2 + 1|} + \frac{1}{4}\ln{|x^2 + 3|} + K$, 
+where $K$ is the constant of integration. 
+\end{enumerate}
+\end{Answer}
