@@ -69,12 +69,14 @@ growth is proportional to the population, then we can write a first-order
 differential equation:
 $$\frac{dP}{dt} = kP$$
 
-Where k is a proportionality constant. To find a solution, we must answer the 
-question: what function's derivative is a constant multiple of itself? Recall 
-that we've seen that the derivative of the exponential function $e^{kt}$ is 
-$ke^{kt}$. Setting $P(t) = Ce^{kt}$ (where $C$ is some constant), we see that 
-the derivative is $\frac{dP}{dt} = kCe^{kt} = kP(t)$ (see figure 
-\ref{expdiff}). You can determine C from initial conditions. 
+Where k is a proportionality constant. This is called \textbf{natural growth} 
+or \textbf{logarithmic growth}\index{natural growth}\index{logarithmic growth}. 
+To find a solution, we must answer the question: what function's derivative is 
+a constant multiple of itself? Recall that we've seen that the derivative of 
+the exponential function $e^{kt}$ is $ke^{kt}$. Setting $P(t) = Ce^{kt}$ 
+(where $C$ is some constant), we see that the derivative is $\frac{dP}{dt} = 
+kCe^{kt} = kP(t)$ (see figure \ref{expdiff}). You can determine C from initial 
+conditions. 
 
 \begin{figure}
 \centering
@@ -113,22 +115,23 @@ As stated above, this model works well for populations under specific, ideal
 conditions. However, there are very few environments in which these conditions 
 are met. Real animals suffer from disease, are hunted by predators, and have 
 limited food supplies. Most environments have a maximum number of animals they 
-can support, which ecologists call a ''carrying capacity". Let us call the 
-carrying capacity of an environment $M$. Then the population growth can be 
-modeled by the logistic differential equation: \index{logistic differential 
-equation}
+can support, which ecologists call a \textbf{carrying capacity}\index{carrying 
+capacity}. Let us call the carrying capacity of an environment $M$. Then the 
+population growth can be modeled by the logistic differential equation: \index{
+logistic differential equation}
 $$\frac{dP}{dt} = kP \left( 1 - \frac{P}{M} \right)$$
 
-Notice that if $P$ is small, then $\frac{dP}{dt} \approx kP$. This makes 
-sense: if the population is very small compared to the carrying capacity, 
-the conditions are nearly ideal, and so growth should be nearly ideal too. 
-On the other hand, if the population ever goes \textit{above} the carrying 
-capacity, the $\frac{dP}{dt} < 0$ and the population will decrease back 
-below the carrying capacity (see figure \ref{logdiff}). Notice that if the 
-initial population is $P_0 = M$, then $\frac{dP}{dt} = kP \left( 1 - 1 \right) 
-= 0$ and the population is stable at $P(t) = M$. We call this an 
-\textbf{equilibrium solution}. Can you logically find the other equilibrium 
-solution? 
+This is called a \textbf{logistic differential growth model}\index{logistic 
+differential growth model}. Notice that if $P$ is small, then $\frac{dP}{dt} 
+\approx kP$. This makes sense: if the population is very small compared to the 
+carrying capacity, the conditions are nearly ideal, and so growth should be 
+nearly ideal too. On the other hand, if the population ever goes \textit{
+above} the carrying capacity, the $\frac{dP}{dt} < 0$ and the population will 
+decrease back below the carrying capacity (see figure \ref{logdiff}). Notice 
+that if the initial population is $P_0 = M$, then $\frac{dP}{dt} = kP \left( 1 
+- 1 \right) = 0$ and the population is stable at $P(t) = M$. We call this an 
+\textbf{equilibrium solution}\index{equilibrium solution}. Can you logically 
+find the other equilibrium solution? 
 
 If there are no animals to begin with, then there are none to reproduce, and 
 $P(t) = 0$. This is the other equilibrium solution. Notice that when the 
@@ -201,6 +204,7 @@ Recall that logistic differential equations are of the form $\frac{dy}{dt} =
 ky(1 - \frac{y}{m})$ where $y$ is a function and $t$ is the independent 
 variable. (e) is the only logistic differential equation, with $m = 1$. 
 \end{Answer}
+
 
 \subsection{Separable Differential Equations}
 Sometimes, differential equations can be explicitly solved. A 
@@ -318,6 +322,23 @@ particular solution is $B(t) = 100 - 80e^{\frac{-t}{5}}$
 \end{enumerate}
 \end{Answer}
 
+\begin{Exercise}[label = popgrowth]
+[This problem was originally presented as a no-calculator, multiple-choice 
+question on the 2012 AP Calculus BC exam.] If $P(t)$ is the size of a 
+population at time $t$, which of the following differential equations 
+describes \textit{linear} growth in the size of the population?
+(a) $\frac{dP}{dt} = 200$
+(b) $\frac{dP}{dt} = 200t$
+(c) $\frac{dP}{dt} = 100t^2$
+(d) $\frac{dP}{dt} = 200P$
+(e) $\frac{dP}{dt} = 100P^2$
+\end{Exercise}
+
+\begin{Answer}[ref = popgrowth]
+(A). (a), (b), and (c) are all separable equations. But only the solution to A 
+is linear ($P(t) = 200t + C$). (d) is logarithmic, or natural growth and (e) 
+is also not linear.
+\end{Answer}
 \section{Partial Differential Equations}
 
 Partial differential equations (PDEs), on the other hand, involve a
