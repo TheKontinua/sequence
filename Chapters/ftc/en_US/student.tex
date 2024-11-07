@@ -37,6 +37,83 @@ We will also use shorthand as follows:
 
 Which means "$F(t)$ evaluated from $t=a$ to $t=b$". 
 
+\section{FTC and Definite Integrals}
+Let $f$ be a function that is continuous on the interval $x \in \left[ a, b \right]$ and $g(x)$ is given by:
+$$g(x) = \int_a^x f(t)\,dt$$
+Then $g$ is continuous on $\left[a, b \right]$ and differentiable on $\left( a, b \right)$. Additionally, 
+$$g'(x) = f(x)$$
+
+\textbf{Proof}: Let $x$ and $x + h$ be in $\left( a, b \right)$. Then,
+$$g(x + h) - g(x) = \int_a^{x + h} f(t)\,dt - \int_a^x f(t)\,dt$$
+
+Recall from the chapter on definite integrals that we can split the first integral, rewriting it as:
+$$g(x + h) - g(x) = \left[ \int_a^x f(t)\,dt + \int_x^{x + h} f(t)\,dt \right] - \int_a^x f(t)\,dt$$
+$$g(x + h) - g(x) = \int_x^{x + h} f(t)\,dt$$
+
+And for $h \neq 0$:
+$$\frac{g(x + h) - g(x)}{h} = \frac{1}{h}\int_x^{x + h} f(t)\,dt$$
+
+Since $f$ is continuous, there is some $u$ in $(a, b)$ such that $f(u) = m$, where $m$ is the minimum value of $f$ on the interval $(a, b)$. Similarly, there is also some $v$ such that $f(v) = M$, where $M$ is the maximum value (see figure \ref{FTCextreme}). Then we can state the true inequality that:
+$$mh \leq \int_x^{x + h} f(t) \,dt \leq Mh$$
+And therefore (assuming $h > 0$):
+$$f(u) \leq \frac{1}{h} \int_x^{x + h} f(t)\,dt \leq f(v)$$
+
+Substituting the equation above for the integral, we see that:
+$$f(u) \leq \frac{g(x + h) - g(x)}{h} \leq f(v)$$
+
+If we let $h$ approach zero, then the window that $u$ and $v$ are in collapses and $u$ and $v$ both approach $x$. Therefore, 
+$$\lim_{h \to 0} f(u) = \lim_{u \to x} f(u) = f(x)$$
+
+Recall also that 
+$$\lim_{h \to 0} \frac{g(x + h) - g(x)}{h} = g'(x)$$
+
+Then taking the limit as $h \to 0$ of the whole inequality becomes the Squeeze Theorem:
+$$\lim_{h \to 0} f(u) \leq \lim_{h \to 0} \frac{g(x + h) - g(x)}{h} \leq \lim_{h \to 0} f(v)$$
+$$f(x) \leq g'(x) \leq f(x)$$
+
+And therefore if $g(x) = \int_a^x f(t)\,dt$, then $g'(x) = f(x)$. Notice it doesn't matter what $a$ is!
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[xmin = 0, xmax = 6.28, axis lines = center, xlabel = $x$, x label style = {anchor = north}, xtick = {1.5, 2.094, 4.189, 5}, xticklabels = {$a$, $v$, $u$, $b$},
+    ylabel = $f(x)$, y label style = {at={(axis description cs:-0.1,1.2)}, anchor = north}, ytick = {2.457, 3.826}, yticklabels = {$m$, $M$}]
+        \addplot[blue, thick, domain = 0:6.28]{2*sin(deg(x)) + x};
+        \draw[red, dashed](1.5, 0) -- (1.5, 6);
+        \draw[red, dashed] (5, 0) -- (5, 6);
+        \draw[black, dashed](2.094, 0) -- (2.094, 3.826);
+        \draw[black, dashed](0, 3.826) -- (2.094, 3.826);
+        \draw[black, dashed] (4.189, 0) -- (4.189, 2.457);
+        \draw[black, dashed] (0, 2.457) -- (4.189, 2.457);
+        \end{axis}
+    \end{tikzpicture}
+    \label{FTCextreme}
+    \caption{$f(v) = M$, the maximum value, and $f(u) = m$, the minimum value on the interval $x \in [a, b]$}
+    \end{figure}
+
+\begin{Exercise}[label = defint5]
+[This question was originally presented as a no-calculator, multiple-choice 
+problem on the 2012 AP Calculus BC Exam.] Let $g$ be a continuously 
+differentiable function with $g(1) = 6$ and $g'(1) = 3$. What is the value of 
+$\lim_{x \to 1} \frac{\int_1^x g(t)\,dt}{g(x) - 6}$?\\
+(A) 0\\
+(B) $\frac{1}{2}$\\
+(C) 1\\
+(D) 2\\
+(E) The limit does not exist\\
+\vspace{40mm}
+\end{Exercise}
+
+\begin{Answer}[ref = defint5]
+(D) 2. First, we try to compute the limit directly: $\lim_{x \to 1} \frac{\int_
+1^x g(t)\,dt}{g(x) - 6} = \frac{\int_1^1 g(t)\,dt}{6 - 6} = \frac{0}{0}$, 
+which is undefined. Because $g$ is continuous and differentiable, we can apply 
+L'Hospital's rule. $\lim_{x \to 1} \frac{\int_1^x g(t)\,dt}{g(x) - 6} = \lim_{
+x \to 1} \frac{d}{dx} \left[ \frac{\int_1^x g(t)\,dt}{g(x) - 6} \right] = 
+\lim_{x \to 1} \frac{g(x)}{g'(x)} = \frac{g(6)}{g'(6)} = \frac{6}{3} = 2$.
+\end{Answer}
+
+
 \section{The Meaning of the FTC}
 What the Fundamental Theorem of Calculus is really saying is that 
 differentiation and integration are opposite processes. Mathematically, 
