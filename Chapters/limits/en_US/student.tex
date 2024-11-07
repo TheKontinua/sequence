@@ -3,8 +3,8 @@
 The asymptotic behavior we see in rational functions suggests that we need to 
 expand our vocabulary of function characteristics. We examined vertical 
 asymptotes and end behavior through graphs and tables and discussed them in 
-English. The language of limits enables us to discuss these attributes with 
-greater efficiency. 
+English. The language of limits enables us to discuss these attributes 
+mathematically and with greater efficiency. 
 
 Let us revisit an example from the previous chapter. This function has a hole 
 at $ x = 1 $, a vertical asymptote at $ x = 3 $, and a horizontal asymptote of 
@@ -39,12 +39,19 @@ side. We can describe these behaviors as the left- and right-hand limits,
 respectively. We say that the left-hand limit of $ f $ at $ x = 3 $ is 
 negative infinity. Another way of communicating this is to say that as $ x $ 
 approaches $ 3 $ from the left, the function approaches negative infinity. 
-Symbolically, we summarize this as $ \lim_{x \rightarrow 3^-} f(x) = -\infty $.
+Symbolically, we summarize this as 
+$$ \lim_{x \rightarrow 3^-} f(x) = -\infty $$
+
+The little negative sign in $x \rightarrow 3^-$ indicates we are approaching 
+$x = 3$ from the left (the negative side of the axis). 
 
 Similarly, the right-hand limit of $ f $ at $ x = 3 $ is positive infinity. In 
 other words, as $ x $ approaches $ 3 $ from the right, the function approaches 
-positive infinity. Symbolically, we write $ \lim_{x \rightarrow 3^+} f(x) = 
-\infty $.
+positive infinity. Symbolically, we write 
+$$ \lim_{x \rightarrow 3^+} f(x) = \infty $$
+
+This time, the little $^+$ indicates we are approaching the $x$-value from the 
+right (positive) side of the axis. 
 
 The limit of a function at a particular $ x $-value is the $ y $-value that the 
 function approaches as it approaches the given $ x $-value. In the previous 
@@ -64,6 +71,43 @@ function takes on values near $\frac{1}{2}$. This is more apparent numerically:
  \hline
 \end{tabular}
 \end{center}
+
+We can also see this by zooming in on the graph (see figure \ref{holezoom}):
+
+\begin{figure}[htbp]
+\begin{subfigure}{0.5\textwidth}
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[width = 1\textwidth, xmin = 0.5, xmax = 1.5, axis lines = 
+	center, xlabel = $x$, x label style = {anchor = north}, ylabel = $f(x)$, 
+	y label style = {at={(axis description cs:-0.1,1.2)}, anchor = north}]
+        \addplot[blue, thick, domain = 0.5:0.999]{(x^2 - 3*x + 2)/(x^2 - 4*x 
+        + 3)};
+        \addplot[blue, thick, domain = 1.001:1.5]{(x^2 - 3*x + 2)/(x^2 - 4*x 
+        + 3)};
+        \addplot[mark = o, blue]coordinates{(1, 0.5)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[width = 1\textwidth, xmin = 0.9, xmax = 1.1, axis lines = 
+	center, xlabel = $x$, x label style = {at={(axis description cs:1.1,0)}, 
+	anchor = north}, ylabel = $f(x)$, y label style = {at={(axis description 
+	cs:-0.1,1.2)}, anchor = north}]
+        \addplot[blue, thick, domain = 0.9:0.9999]{(x^2 - 3*x + 2)/(x^2 - 4*x 
+        + 3)};
+        \addplot[blue, thick, domain = 1.0001:1.1]{(x^2 - 3*x + 2)/(x^2 - 4*x 
+        + 3)};
+        \addplot[mark = o, blue]coordinates{(1, 0.5)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{subfigure}
+    \label{holezoom}
+    \caption{Two graphs of $f(x) = \frac{x^2 - 3x + 2}{x^2 - 4x + 3}$ zoomed 
+    in about $x = 1$}
+    \end{figure}
 
 The left-hand and right-hand limits of $ f $ at $ 1 $ are both $\frac{1}{2}$. Since 
 they are equal, we can also say that the limit of $ f $ at $ 1 $ is $\frac{1}{2}$. 
@@ -715,14 +759,14 @@ $g(x) = \begin{cases}
     {-x};
     \end{axis}
 \end{tikzpicture}
-\caption{Graphs of the piecewise fucntions $f(x)$ and $g(x)$}
+\caption{Graphs of the piecewise functions $f(x)$ and $g(x)$}
 \end{figure}
 We can use these laws to evaluate limits involving $f(x)$ and $g(x)$ (shown on the 
 graph above). Here are some examples:
 Use the graphs of f(x) and g(x) given above to evaluate each limit, if it exists. 
 If the limit does not exist, explain why. Two examples are given first:
 
-\textbf{Example 1}: evaluate $\lim_{x\to0} f(x) \cdot g(x)$
+\textbf{Example 1}: Evaluate $\lim_{x\to0} f(x) \cdot g(x)$
 
 \textbf{Solution 1}: From the Product Law, we know that:
 $$\lim_{x\to0} f(x) \cdot g(x) = \lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x)$$
@@ -738,7 +782,7 @@ $$\lim_{x\to0}f(x) \cdot \lim_{x\to0} g(x) = \text{undef} \cdot 1 = \text{undef}
 
 Therefore, \textit{the limit does not exist}. 
 
-\textbf{Example 2}: evaluate $\lim_{x\to2}f(x) - g(x)$
+\textbf{Example 2}: Evaluate $\lim_{x\to2}f(x) - g(x)$
 
 \textbf{Solution 2}: Applying the Difference Law, we see that:
 

@@ -24,11 +24,51 @@ A real-world example of the application of differential equations is an
 oscillating spring (or any harmonic motion). When a spring is stretched, the 
 restoring force (the force pulling or pushing it back to its neutral position) 
 is proportional to the distance by which the spring has been stretched (see 
-figure --- fixme image of spring at equilibrium position and displaced with 
-label). Mathematically, we say that
+figure \ref{spring}). Mathematically, we say that
 $$\text{restoring force} = -kx$$
 where $k$ is the positive spring constant (the stiffer a spring, the greater 
-$k$). Recall that Newton's Second Law tells us that force is equal to mass 
+$k$). 
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[width = 1.7*\axisdefaultwidth, height = 0.8*\axisdefaultwidth, 
+	xmin = 0, xmax = 10, ymin = 0, ymax = 11, axis lines = none, clip = false]
+        \addplot[black, domain = 0:10]{10.5};
+        \draw[decorate, blue, thick, decoration = {zigzag, segment length = 
+        5mm, amplitude = 2mm}](5,10)--(5,5);
+        \draw[blue, thick](5,10)--(5,10.5);
+        \draw[blue, thick](5, 5)--(5, 4.5);
+        \addplot[red, dashed, domain = 1:9]{4.5};
+        \draw[blue, thick](2.5, 10.5) --(2.5, 10);\
+        \draw[decorate, blue, thick, decoration = {zigzag, segment length = 
+        8mm, amplitude = 2mm}](2.5, 10)--(2.5, 2);
+        \draw[blue, thick](2.5,2)--(2.5,1.5);
+        \draw[blue, thick](7.5,10)--(7.5,10.5);
+        \draw[decorate, blue, thick, decoration = {zigzag, segment length = 
+        2.5mm, amplitude = 2mm}](7.5,10) -- (7.5, 7.5);
+        \draw[blue, thick](7.5, 7.5) -- (7.5, 7);
+        \node[font=\footnotesize] at (9.2, 3) {$x = 0$};
+        \addplot[black, domain = 9:10.75]{(2.25/0.5)*sqrt(0.5^2 - (x - 9)^2) 
+        + 2.25};
+        \draw[black, -latex] (9.1, 4.45)--(9,4.45);
+        \draw[black, dashed](7.2,4.5)--(7.8,4.5);
+        \draw[black, dashed](7.2, 7) --(7.8, 7);
+        \draw[black, latex-latex](7.75, 7) -- (7.75, 4.5);
+        \node[font = \footnotesize] at (8.3, 5.5) {$\Delta x < 0$};
+        \node[font = \footnotesize] at (6, 2) {$\Delta x = 0$};
+        \draw[black, -latex](5.8, 2.2) -- (5, 4.4);
+        \draw[black, dashed](2.2, 4.5) -- (2.8, 4.5);
+        \draw[black, dashed](2.2, 1.5) -- (2.8, 1.5);
+        \draw[black, latex-latex] (2.25, 1.5) -- (2.25, 4.5);
+        \node[font = \footnotesize] at (1.5, 3) {$\Delta x > 0$};
+        \end{axis}
+    \end{tikzpicture}
+    \label{spring}
+    \caption{A spring can have a positive or negative displacement}
+    \end{figure}
+
+Recall that Newton's Second Law tells us that force is equal to mass 
 times acceleration, and that acceleration is the second derivative of position. 
 We can then write the differential equation:
 $$m \frac{d^2x}{dt^2} = -kx$$
@@ -78,7 +118,7 @@ the exponential function $e^{kt}$ is $ke^{kt}$. Setting $P(t) = Ce^{kt}$
 kCe^{kt} = kP(t)$ (see figure \ref{expdiff}). You can determine C from initial 
 conditions. 
 
-\begin{figure}
+\begin{figure}[htbp]
 \centering
     \begin{tikzpicture}
 	\begin{axis}[xmin = -1, xmax = 2, ymin = -5, ymax = 5, xtick = \empty, 
@@ -138,7 +178,7 @@ $P(t) = 0$. This is the other equilibrium solution. Notice that when the
 population is in equilibrium, then the rate of change is zero. Mathematically, 
 to find equilibrium solutions, we can set $\frac{dP}{dt} = 0$ and solve for $P$. 
 
-\begin{figure}
+\begin{figure}[htbp]
 \centering
     \begin{tikzpicture}
 	\begin{axis}[xmin = 0, xmax = 3, ymin = 0, ymax = 10, ytick = {7}, 
@@ -191,11 +231,11 @@ and solving. The solutions are $P(t) = 0$ and $P(t) = 4200$.
 \begin{Exercise}[label = logdiff2]
 [This problem was originally presented as a calculator-allowed, free response 
 question on the 2012 AP Calculus BC exam.] Let $k$ be a positive constant. 
-Which of the following is a logistic differential equation?
-(a) $\frac{dy}{dt} = kt$
-(b) $\frac{dy}{dt} = ky$
-(c) $\frac{dy}{dt} = kt(1 - t)$
-(d) $\frac{dy}{dt} = ky(1 - t)$
+Which of the following is a logistic differential equation?\\
+(a) $\frac{dy}{dt} = kt$\\
+(b) $\frac{dy}{dt} = ky$\\
+(c) $\frac{dy}{dt} = kt(1 - t)$\\
+(d) $\frac{dy}{dt} = ky(1 - t)$\\
 (e) $\frac{dy}{dt} = ky(1 - y)$
 \end{Exercise}
 
@@ -262,6 +302,7 @@ $x$. The practice problem below is an example of this.
 
 \begin{Exercise}[label = diffeq1]
 	Solve the differential equation $\frac{dy}{dx} = \frac{3x^2}{2y + \sin{y}}$. 
+	\vspace{50mm}
 \end{Exercise}
 
 \begin{Answer}[ref = diffeq1]
@@ -326,11 +367,11 @@ particular solution is $B(t) = 100 - 80e^{\frac{-t}{5}}$
 [This problem was originally presented as a no-calculator, multiple-choice 
 question on the 2012 AP Calculus BC exam.] If $P(t)$ is the size of a 
 population at time $t$, which of the following differential equations 
-describes \textit{linear} growth in the size of the population?
-(a) $\frac{dP}{dt} = 200$
-(b) $\frac{dP}{dt} = 200t$
-(c) $\frac{dP}{dt} = 100t^2$
-(d) $\frac{dP}{dt} = 200P$
+describes \textit{linear} growth in the size of the population?\\
+(a) $\frac{dP}{dt} = 200$\\
+(b) $\frac{dP}{dt} = 200t$\\
+(c) $\frac{dP}{dt} = 100t^2$\\
+(d) $\frac{dP}{dt} = 200P$\\
 (e) $\frac{dP}{dt} = 100P^2$
 \end{Exercise}
 
@@ -339,6 +380,8 @@ describes \textit{linear} growth in the size of the population?
 is linear ($P(t) = 200t + C$). (d) is logarithmic, or natural growth and (e) 
 is also not linear.
 \end{Answer}
+
+
 \section{Partial Differential Equations}
 
 Partial differential equations (PDEs), on the other hand, involve a
