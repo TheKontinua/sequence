@@ -607,6 +607,34 @@ but not including $0$, and the use of parentheses excludes $x=0$ from the domain
 continuity.
 
 \subsection{Continuity Practice}
+\begin{Exercise}[label = continuity1]
+[This problem was originally presented as a calculator-allowed, multiple-
+choice question on the 2012 AP Calculus BC exam.] Suppose a function $f$ is 
+continuous at $x = 3$. Classify the following statements at always true, 
+sometimes true, or never true. Explain your answers. 
+\begin{enumerate}
+\item $f(3) < \lim_{x \to 3} f(x)$
+\item $\lim{x \to 3^+} f(x) \neq \lim_{x \to 3^-} f(x)$
+\item $f(3) = \lim_{x \to 3^+} f(x) = \lim_{x \to 3^-} f(x)$
+\item The derivative of $f$ at $x = 3$ exists.
+\item The derivative of $f$ is positive for $x < 3$ and negative for $x > 3$.
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = continuity1]
+\begin{enumerate}
+\item Never true. If a function is continuous at $a$, then $f(a) = \lim_{x \to 
+a} f(x)$. 
+\item Never true. If a function is continuous at $a$, then $\lim{x \to a^+} 
+f(x) = \lim{x \to a^-} f(x)$
+\item Always true. This is the definition of continuity.
+\item Sometimes true. The derivative of $f$ at $x = 3$ exists for $f(x) = x^2$ 
+but not for $f(x) = |x - 3|$.
+\item Sometimes true. This statement is true for $f(x) = -(x - 3)^2$ but not 
+for $f(x) = 4x$.
+\end{enumerate}
+\end{Answer}
+
 \begin{Exercise}[title=Limits Practice 5, label=limits5]
 State the location of discontinuities (if any) and explain why the function is 
 discontinuous at that location:

@@ -1,0 +1,48 @@
+\chapter{Polar Coordinates}
+
+We have already seen how to plot a function with $(x,y)$ coordinates. For every $x$ that we put into a function, it returns a $y$. These pairs of coordinates tell us where on the $xy$-plane to graph the function. This coordinate system, where $x$ and $y$ are oriented horizontally and vertically, is called the \textit{Cartesian} coordinate system. It can be used to describe 2D space, but it is not the only way. 
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[xmin = 0, xmax = 3, ymin = 0, ymax = 3, axis lines = center, xlabel = $x$, x label style = {anchor = north east}, ylabel = $y$]
+        \addplot[blue, mark=*] coordinates {(1, 2)};
+        \draw[red, dashed](0,0) -- (1, 2);
+        \addplot[red, domain = 0.31:0.83, samples = 100]{sqrt(0.5 - x^2)};
+        \draw[red, -latex](0.35, 0.61) -- (0.3, 0.66);
+        \node[black] at (2, 2) {$r = \sqrt{x^2 + y^2}$};
+        \draw[black, -latex](1.5, 2) -- (0.75, 1.5);
+        \node[] at (2, 0.5) {$\theta = \arctan{\frac{y}{x}}$};
+        \node[] at (0.25, 0.15) {$\theta$};
+        \draw[-latex](1.5, 0.5) -- (0.75, 0.15);
+        \end{axis}
+    \end{tikzpicture}
+    \label{cartesian}
+    \caption{The point $(1, 2)$ is $\sqrt{5}$ units from the origin and approximately $63^o$ counterclockwise from horizontal}
+    \end{figure}
+
+Instead of thinking about horizontal and vertical position, we could think about distance from the origin and rotation about the origin. Take the Cartesian coordinate point $(1, 2)$ (see figure \ref{cartesian}). How far is $(1,2)$ from the origin, $(0,0)$? We can create a right triangle, where the legs are parallel to the $x$ and $y$ axes. Then the leg lengths are 1 and 2, and we can use the Pythagorean theorem to find the length of the hypotenuse (which is the distance from the origin to the point):
+$$c^2 = a^2 + b^2$$
+$$c^2 = 1^2 + 2^2 = 1 + 4 = 5$$
+$$c = \sqrt{5}$$
+
+Therefore, the Cartesian point $(1, 2)$ is $\sqrt{5}$ units from the origin. This is not enough to find our point: there are infinite points that are $\sqrt{5}$ from the origin (see \ref{circle}). To identify a particular point that is a distance of $\sqrt{5}$ from the origin, we also need an \textit{angle of rotation}. By convention, angles are measured from the positive $x$-axis. This means points on the positive $x$-axis have an angle of $\theta = 0^o$, points on the positive $y$-axis have an angle of $\theta = 90^o$, and so on. 
+
+\begin{figure}[htbp]
+\centering
+    \begin{tikzpicture}
+	\begin{axis}[xmin = -3, xmax = 3, ymin = -3, ymax = 3, axis lines = center, xlabel = $x$, x label style = {anchor = north east}, ylabel = $y$]
+        \addplot[blue, thick, domain = -2.236:2.236, samples = 200]{sqrt(5 - x^2)};
+        \addplot[blue, thick, domain = -2.236:2.236, samples = 200]{-1*sqrt(5 - x^2)};
+        \end{axis}
+    \end{tikzpicture}
+    \label{circle}
+    \caption{There are infinite points $\sqrt{5}$ from the origin, represented by the circle with a radius of $\sqrt{5}$}
+    \end{figure}
+
+We can use trigonometry to find the appropriate angle of rotation for our Cartesian point. There are many ways to do this, but using $\arctan$ is the most straightforward. Recall that:
+$$\tan{\theta} = \frac{opposite}{adjacent}$$
+
+That is, for a given angle in a right triangle, the tangent of that angle is given by the length of the opposite leg divided by the adjacent leg. In our case, the opposite leg is the vertical distance ($y$-value of the Cartesian point) and the adjacent leg is the horizontal distance ($x$-value of the Cartesian point), which means"
+$$\tan{\theta} = \frac{2}{1}$$
+$$\theta = \arctan{2} \approx 63^o$$
