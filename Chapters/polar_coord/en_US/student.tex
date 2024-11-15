@@ -16,16 +16,16 @@ is called the \textit{Cartesian} coordinate system. It can be used to describe
         \draw[red, dashed](0,0) -- (1, 2);
         \addplot[red, domain = 0.31:0.84, samples = 200]{sqrt(0.5 - x^2)};
         \draw[red, -latex](0.35, 0.61) -- (0.3, 0.66);
-        \node[black] at (2, 2) {$r = \sqrt{x^2 + y^2}$};
+        \node[black] at (2.1, 2.1) {$r = \sqrt{x^2 + y^2}$};
         \draw[black, -latex](1.5, 2) -- (0.75, 1.5);
-        \node[] at (2, 0.5) {$\theta = \arctan{\frac{y}{x}}$};
+        \node[] at (2.1, 0.5) {$\theta = \arctan{\frac{y}{x}}$};
         \node[] at (0.25, 0.15) {$\theta$};
         \draw[-latex](1.5, 0.5) -- (0.75, 0.15);
         \end{axis}
     \end{tikzpicture}
-    \label{fig:cartesian}
     \caption{The point $(1, 2)$ is $\sqrt{5}$ units from the origin and 
     approximately $1.107$ radians counterclockwise from horizontal}
+    \label{fig:cartesian}
     \end{figure}
 
 Instead of thinking about horizontal and vertical position, we could think 
@@ -62,9 +62,9 @@ and so on.
         (-1.581, 1.581) (1.936, 1.118) (0, -2.236)};
         \end{axis}
     \end{tikzpicture}
-    \label{fig:circle}
     \caption{There are infinite points $\sqrt{5}$ from the origin, represented 
     by the circle with a radius of $\sqrt{5}$ centered about the origin}
+    \label{fig:circle}
     \end{figure}
 
 We can use trigonometry to find the appropriate angle of rotation for our 
@@ -79,6 +79,146 @@ point) and the adjacent leg is the horizontal distance ($x$-value of the
 Cartesian point), which means"
 $$\tan{\theta} = \frac{2}{1}$$
 $$\theta = \arctan{2} \approx 1.107\text{ radians}$$
+
+\section{Plotting Polar Coordinate Points}
+How do we plot polar coordinate points? Begin by locating the angle given by the second coordinate (remember, the angle is measured counterclockwise from the horizontal). Your point will lie somewhere on this line. Then, move outwards along the angle by the radius given by the first coordinate. 
+
+\textbf{Example}: plot the polar coordinate point $(2, \frac{\pi}{3})$. 
+
+\textbf{Solution}: begin by locating $\theta = \frac{\pi}{3}$ (see figure \ref{fig:plot1})
+
+\begin{figure}[htbp]
+\centering
+	\begin{tikzpicture}
+		\begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$ ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, clip = false, ymax = 2.5]
+			\draw[blue, dashed](0,0) -- (60, 2.5);
+                \addplot[white, thick, domain = 0:360, samples = 300]{2.5};
+		\end{polaraxis}
+	\end{tikzpicture}
+ \caption{$\theta = \frac{\pi}{3}$}
+    \label{fig:plot1}
+    \end{figure}
+
+Then, move your finger or pencil along the line $\theta = \frac{\pi}{3}$ until you reach $r = 2$ (see figure \ref{fig:plot2}). 
+
+\begin{figure}[htbp]
+\centering
+	\begin{tikzpicture}
+		\begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$ ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, clip = false, ymax = 2.5]
+			\draw[blue, dashed](0,0) -- (60, 2.5);
+                \addplot[blue, mark=*] coordinates {(60, 2)};
+                \addplot[white, thick, domain = 0:360, samples = 300]{2.5};
+		\end{polaraxis}
+	\end{tikzpicture}
+ 	\caption{$(2, \frac{\pi}{3})$}
+    \label{fig:plot2}
+\end{figure}
+
+\begin{Exercise}[label = polarplot]
+Plot the following polar coordinate points on the provided polar axis (hints: negative angles are taken counterclockwise):
+\begin{enumerate}
+\item $(1, \pi)$
+\item $(1.5, \frac{\pi}{2})$
+\item $(1.5, -\frac{\pi}{6})$
+\item $(2, \frac{3\pi}{4})$
+\end{enumerate}
+\centering
+\begin{tikzpicture}
+        \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 3, 
+	clip = false]
+	\addplot[white, thick, domain = 0:360, samples = 300]{3};
+    \end{polaraxis}
+    \end{tikzpicture}
+\end{Exercise}
+
+\begin{Answer}[ref = polarplot]
+\begin{tikzpicture}
+\centering
+        \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 3, 
+	clip = false]
+ \addplot[white, thick, domain = 0:360, samples = 300]{3};
+ \addplot[blue, mark=*, only marks] coordinates {(180, 1) (90, 1.5) (-30, 1.5) (135, 2)};
+ \node[] at (180, 1.2) {$1$};
+ \node[] at (90, 1.7) {$2$};
+ \node[] at (-30, 1.7) {$3$};
+ \node[] at (135, 2.2) {$4$};
+    \end{polaraxis}
+    \end{tikzpicture}
+\end{Answer}
+
+\section{Equivalent Points}
+Unlike the Cartesian coordinate system, two different coordinates may lie at the same location. Consider the points $(1, \frac{\pi}{4})$ and $(-1, \frac{5\pi}{4})$ (see figure \ref{fig:eqpoints}). When a radius is negative, you move \textit{backwards} back over the origin, like a mirror image. 
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\centering
+    \begin{tikzpicture}
+	\begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$ ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, clip = false, ymax = 1.5]
+        \draw[blue, dashed](0,0) -- (45, 1.5);
+        \draw[red, thick] (0,0) -- (45, 1);
+        \addplot[red, mark=*] coordinates {(45, 1)};
+        \addplot[blue, dashed, domain = 0:45]{0.75};
+        \draw[black, latex-](15, 0.75) -- (-45, 0.5);
+        \node[] at (-55, 0.55) {$\theta = \frac{\pi}{4}$};
+        \draw[black, latex-](45, 0.5) -- (110, 1.25);
+        \node[] at (110, 1.3) {$r = 1$};
+        \addplot[white, thick, domain = 0:360, samples = 300]{1.5};
+        \end{polaraxis}
+    \end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\centering
+    \begin{tikzpicture}
+        \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$ ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, clip = false, ymax = 1.5]
+        \draw[blue, dashed](0,0) -- (225, 1.5);
+        \draw[red, thick] (0,0) -- (45, 1);
+        \addplot[red, mark=*] coordinates {(45, 1)};
+        \draw[red, dashed] (0,0) -- (225, 1);
+        \addplot[blue, dashed, domain = 0:225]{0.75};
+        \draw[black, -latex](127, 1.15) -- (115, 0.75);
+        \draw[black, -latex](-95, 1.25) -- (225, 0.5);
+        \node[] at (-95, 1.28) {$r = 1$};
+        \draw[black, -latex] (-45, 1) -- (45, 0.35);
+        \node[] at (-45, 1.1) {$r = -1$};
+        \addplot[white, thick, domain = 0:360, samples = 300]{1.5};
+        \node[] at (135, 1.3) {$\theta = \frac{5\pi}{4}$};
+        \end{polaraxis}
+    \end{tikzpicture}
+\end{subfigure}
+    \caption{The polar coordinates points $(1, \frac{\pi}{4})$ and $(-1, \frac{5\pi}{4})$ are the same location on a polar axis}
+    \label{fig:eqpoints}
+    \end{figure}
 
 \section{Changing coordinate systems}
 
@@ -144,9 +284,9 @@ and a hypotenuse that goes from the origin to the polar coordinate $(2, \frac{
         \node[red] at (-0.2, 0) {$(0,0)$};
         \end{axis}
     \end{tikzpicture}  
-    \label{fig:polar_to_cart}
     \caption{To convert from polar to Cartesian coordinates, use the identities 
     $x = r\cos{\theta}$ and $y = r\sin{\theta}$}
+    \label{fig:polar_to_cart}
     \end{figure}
 
 Recall from trigonometry that:
@@ -243,7 +383,7 @@ correct quadrant.
 \end{enumerate}
 \end{Answer}
 
-\section{Equivalent Points}
+
 
 \section{Circles in Polar Coordinates}
 Many conic sections, including circles, are simpler to express as polar 
@@ -274,8 +414,8 @@ $$r^2 = x^2 + y^2$$
         \node[rotate = 60] at (0.4,1) {$\sqrt{x^2 + y^2}$};
         \end{axis}
     \end{tikzpicture}
-    \label{fig:circle2}
     \caption{All $(x,y)$ pairs on the circle are the same distance from the origin}
+    \label{fig:circle2}
     \end{figure}
     
 We can solve this equation for $y$, given that $r = 2$ (in this case):
@@ -298,10 +438,10 @@ $\frac{\pi}{6}$ & $\frac{3}{2}$\\\hline
 $\frac{\pi}{4}$ & $\frac{3\sqrt{2}}{2}$\\\hline
 $\frac{\pi}{3}$ & $\frac{3\sqrt{3}}{2}$\\\hline
 $\frac{\pi}{2}$ & $3$\\\hline
-$\frac{2\pi}{3}$ & $-\frac{3\sqrt{3}}{2}$\\\hline
-$\frac{3\pi}{4}$ & $-\frac{3\sqrt{2}}{2}$\\\hline
-$\frac{5\pi}{6}$ & $-\frac{3}{2}$\\\hline
-$\pi$ & $-3$\\\hline
+$\frac{2\pi}{3}$ & $\frac{3\sqrt{3}}{2}$\\\hline
+$\frac{3\pi}{4}$ & $\frac{3\sqrt{2}}{2}$\\\hline
+$\frac{5\pi}{6}$ & $\frac{3}{2}$\\\hline
+$\pi$ & $0$\\\hline
 \end{tabular}
 \end{center}
 
@@ -310,6 +450,8 @@ Here is how those points look plotted (see figures \ref{fig:sinecircle} and
 \ref{fig:polarsine}):
 
 \begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.5\textwidth}
 \centering
     \begin{tikzpicture}
 	\begin{axis}[xmin = -3.25, xmax = 3.25, ymin = -0.25, ymax = 3.25, 
@@ -320,21 +462,34 @@ Here is how those points look plotted (see figures \ref{fig:sinecircle} and
         (-1.299, 0.75)};
         \end{axis}
     \end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\centering
+    \begin{tikzpicture}
+        \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6)}, xticklabels={,0,
+	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$}, xmin = 0, xmax = 180, ymax = 3.25, clip = false]
+        \addplot[red, mark=*, only marks] coordinates {(0, 0) (30, 3/2) (45, 2.121) (60, 2.598) (90, 3) (120, 2.598) (135, 2.121) (150, 3/2) (180, 0)};
+        \addplot[white, thick, domain = 0:180, samples = 300]{3.25};
+        \end{polaraxis}
+    \end{tikzpicture}
+\end{subfigure}
+    \caption{Several points for $r = 3\sin{\theta}$ plotted on Cartesian and polar coordinate systems}
     \label{fig:sinecircle}
-    \caption{Several points for $r = 3\sin{\theta}$ plotted on a Cartesian 
-    coordinate system}
     \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, $\pi$,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
-	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}]
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, clip = false, ymax = 3.3]
         \addplot[blue, thick, domain = 0:180, samples = 200]{3*sin(x)};
+        \addplot[white, thick, domain = 0:360, samples = 300]{3.3};
     \end{polaraxis}
     \end{tikzpicture}
     \caption{$r = 3\sin{\theta}$ plotted on a polar coordinate system}
@@ -351,14 +506,14 @@ a rough plot on the blank polar axis below:
 \begin{tikzpicture}
 
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$,$\pi$ ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 1.5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 1.6);
-    \node[black] at (180, 1.65) {$\pi$};
+	\addplot[white, thick, domain = 0:360, samples = 300]{1.5};
+    \node[black] at (2.5, 1.49) {.};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -370,15 +525,15 @@ $(0.5, 0)$ (in polar coordinates).
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 1.5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 1.6);
-    \node[black] at (180, 1.65) {$\pi$};
-    \addplot[blue, thick, domain = 0:180]{cos(x)};
+	\addplot[white, thick, domain = 0:360, samples = 300]{1.5};
+    \addplot[blue, thick, domain = 0:180, samples = 200]{cos(x)};
+    \node[black] at (2.5, 1.49) {.};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -397,14 +552,13 @@ Sketch the following polar functions on the provided polar axis for $0 \leq
 \centering
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
+	\addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{Exercise}
@@ -416,15 +570,14 @@ Sketch the following polar functions on the provided polar axis for $0 \leq
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
     \addplot[blue, thick, domain = 0:360, samples = 200]{3};
+    \addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -436,15 +589,14 @@ line $\theta = \pi$ extends in both directions
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
     \draw[blue, thick, latex-latex] (0, 5) -- (180,5);
+    \addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -455,15 +607,14 @@ line $\theta = \pi$ extends in both directions
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
     \addplot[blue, thick, domain = 0:360, samples = 200]{2*cos(x/2)};
+    \addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -474,15 +625,14 @@ line $\theta = \pi$ extends in both directions
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
     \addplot[blue, thick, domain = 0:360, samples = 200]{-4*sin(x)};
+    \addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}
@@ -493,15 +643,14 @@ line $\theta = \pi$ extends in both directions
 \begin{center}
 \begin{tikzpicture}
         \begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
-	$\frac{5\pi}{6}$, ,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
+	$\frac{5\pi}{6}$, $\pi$, $\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
 	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymin = 0, ymax = 5, 
 	clip = false]
-    \draw[gray!30](0,0) -- (180, 5);
-    \node[black] at (180, 5.05) {$\pi$};
     \addplot[blue, thick, domain = 0:286, samples = 200]{x*(2*pi)/360};
+    \addplot[white, thick, domain = 0:360, samples = 300]{5};
     \end{polaraxis}
     \end{tikzpicture}
 \end{center}

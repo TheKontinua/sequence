@@ -1,4 +1,5 @@
 u-substitution
+polar_calc
 diff_eqs
 slope_fields
 euler_method
