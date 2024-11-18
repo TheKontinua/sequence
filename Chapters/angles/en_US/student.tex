@@ -2,12 +2,13 @@
 
 In the following recommend videos, the narrator talks about
 lines, line segments, and rays. When mathematicians talk about
-\emph{lines}, they mean a straight line that goes forever in two
-directions. And if you pick any two points on that line; the space between them is
-a \emph{line segment}. If you take any line, pick a point on that line
-and discard all the points on one side of the point, that is a
-\emph{ray}. All three have no width.
+\emph{lines}\index{lines}, they mean a straight line that goes forever in two 
+directions. And if you pick any two points on that line; the space between 
+them is a \emph{line segment}\index{line segment}. If you take any line, pick 
+a point on that line and discard all the points on one side of the point, that 
+is a \emph{ray}\index{ray}. All three have no width.
 
+\begin{center}
 \begin{tikzpicture}[scale=1.5]
   \coordinate (a) at (-0.3, -0.6);
   \coordinate (d) at (1.3, 2.6);
@@ -26,6 +27,8 @@ and discard all the points on one side of the point, that is a
   \coordinate (lab) at (0.8, 1.0);
   \draw [->](b)--node[right] {"Ray"} (d)  ;
 \end{tikzpicture}
+\end{center}
+
 
 
 Watch the following videos from Khan Academy:
@@ -36,6 +39,7 @@ Watch the following videos from Khan Academy:
 
 When two lines cross, they form four angles:
 
+\begin{center}
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0, 1.5);
   \coordinate (b) at (1.6, 2);
@@ -46,21 +50,33 @@ When two lines cross, they form four angles:
   \draw [->](e)--(b) node[right] {$B$}  ;
   \draw [->](e)--(c) node[right] {$C$}  ;
   \draw [->](e)node[above]{$E$}--(d) node[left] {D} ;
-  \pic [draw, <->, "$\scriptstyle  \angle AEB$ ", angle radius = 0.8cm, angle eccentricity=1.3] {angle = b--e--a};
-  \pic [draw, <->, "$\scriptstyle  \angle BEC$ ", angle radius = 1.1cm, angle eccentricity = 1.5] {angle = c--e--b};
-  \pic [draw, <->, "$\scriptstyle  \angle CED$ ", angle radius = 0.8cm, angle eccentricity=1.3] {angle = d--e--c};
-  \pic [draw, <->, "$\scriptstyle  \angle DEA$ ", angle radius = 1.1cm, angle eccentricity=1.5] {angle = a--e--d};
+  \pic [draw, <->, "$\scriptstyle  \angle AEB$ ", angle radius = 0.8cm, 
+  angle eccentricity=1.3] {angle = b--e--a};
+  \pic [draw, <->, "$\scriptstyle  \angle BEC$ ", angle radius = 1.1cm, 
+  angle eccentricity = 1.5] {angle = c--e--b};
+  \pic [draw, <->, "$\scriptstyle  \angle CED$ ", angle radius = 0.8cm, 
+  angle eccentricity=1.3] {angle = d--e--c};
+  \pic [draw, <->, "$\scriptstyle  \angle DEA$ ", angle radius = 1.1cm, 
+  angle eccentricity=1.5] {angle = a--e--d};
 \end{tikzpicture}
+\end{center}
+
 
 What do we know about those angles?
 \begin{itemize}
-\item The sum of any two adjacent angles add to be $180^\circ$.  So, for example, $m \angle AEB + m \angle BEC = 180^\circ$. We use the phrase ``add to be $180^{\circ}$'' so often that we have a special word for it: \emph{supplementary}.
+\item The sum of any two adjacent angles add to be $180^\circ$.  So, for 
+example, $m \angle AEB + m \angle BEC = 180^\circ$. We use the phrase ``add to 
+be $180^{\circ}$'' so often that we have a special word for it: 
+\emph{supplementary}.\index{supplementary angles}
 \item The sum of all four angles is $360^\circ$.
-\item Angles opposite each other are equal. So, for example, $m \angle AEB = m \angle CED$.
+\item Angles opposite each other are equal. So, for example, $m \angle AEB = m 
+\angle CED$.
 \end{itemize}
 
-In a diagram, to indicate that two angles are equal we often put hash marks in the angle:
+In a diagram, to indicate that two angles are equal we often put hash marks in 
+the angle:
 
+\begin{center}
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0, 1.5);
   \coordinate (b) at (1.6, 2);
@@ -76,11 +92,17 @@ In a diagram, to indicate that two angles are equal we often put hash marks in t
   \tkzMarkAngle[size = 0.2cm,mark = |](d,e,c)
   \tkzMarkAngle[size = 0.3cm,mark = ||](a,e,d)
 \end{tikzpicture}
+\end{center}
 
-Here the two angles with a single hash mark are equal and the two angles with double hash marks are equal.
 
-When two lines are perpendicular, the angle between them is $90^\circ$ and we say they meet at a \emph{right angle}. When drawing diagrams, we indicate right angles with an elbow:
+Here the two angles with a single hash mark are equal and the two angles with 
+double hash marks are equal.
 
+When two lines are perpendicular, the angle between them is $90^\circ$ and we 
+say they meet at a \emph{right angle}. When drawing diagrams, we indicate right
+angles with an elbow:
+
+\begin{center}
 \begin{tikzpicture}[scale=1.5]
   \coordinate (a) at (0, 1.5);
   \coordinate (b) at (0, 0);
@@ -89,19 +111,23 @@ When two lines are perpendicular, the angle between them is $90^\circ$ and we sa
   \draw [->](b)--(c)  ;
   \pic [draw,thick,angle eccentricity=.5]{right angle = a--b--c};
 \end{tikzpicture}
+\end{center}
+
  
 When an angle is less than $90^\circ$, it is said to be
 \emph{acute}. When an angle is more than $90^\circ$, it is said to be
 \emph{obtuse}.
 % Add: Complementary Angles
 
+\begin{center}
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0.4, 0.6);
   \coordinate (b) at (0, 0);
   \coordinate (c) at (0.9, 0);
   \draw [->](b)--(a)  ;
   \draw [->](b)--(c)  ;
-  \pic [draw, <->, "acute", angle radius = 1cm, angle eccentricity=1.5] {angle = c--b--a};
+  \pic [draw, <->, "acute", angle radius = 1cm, angle eccentricity=1.5] {
+  angle = c--b--a};
   \end{tikzpicture}
 \hspace{2cm}
 \begin{tikzpicture}[scale=3]
@@ -110,11 +136,16 @@ When an angle is less than $90^\circ$, it is said to be
   \coordinate (c) at (0, 0);
   \draw [->](b)--(a)  ;
   \draw [->](b)--(c)  ;
-  \pic [draw, <->, "obtuse", angle radius = 0.6cm, angle eccentricity=1.5] {angle = a--b--c};
+  \pic [draw, <->, "obtuse", angle radius = 0.6cm, angle eccentricity=1.5] {
+  angle = a--b--c};
 \end{tikzpicture}
+\end{center}
 
-If two lines are parallel, line segments that intersect both lines, form the same angles with each line:
 
+If two lines are parallel, line segments that intersect both lines, form the 
+same angles with each line:
+
+\begin{center}
 \begin{tikzpicture}[scale=3]
   \coordinate (a) at (0, 1);
   \coordinate [circle, fill, inner sep=1pt](b) at (1.5, 1.5);
@@ -141,6 +172,48 @@ If two lines are parallel, line segments that intersect both lines, form the sam
   \tkzMarkAngle[size = 0.15cm,mark = |](h,d,g)
   \tkzMarkAngle[size = 0.2cm,mark = ||](f,d,h)
 \end{tikzpicture}
+\end{center}
+
+
+\section{Radians}
+As you've seen above, angles can be measured in degrees. Just like you can 
+measure length in more than one unit (inches, meters, etc.), there is more 
+than one unit to measure angles in. Angles can also be measured in \textit{
+radians}\index{radians}. Radians are unitless (that is, you don't have to put 
+a letter after the number) and there are $\pi$ radians across a straight line. 
+This means $180^\circ$ is the same as $\pi$ radians. 
+
+\textbf{Example}: An angle is measured to be $\frac{\pi}{2}$ radians. What is 
+the angle in degrees?
+
+\textbf{Solution}: Since we know that $\pi$ radians is the same as $180^\circ$,
+we can set up the unit conversion:
+$$\frac{\pi}{2} \cdot \frac{180^\circ}{\pi} = 90^o$$
+
+Therefore, a $\frac{\pi}{2}$ angle is $90^\circ$. 
+
+\begin{Exercise}[label = radians]
+Convert the following angles from degrees to radians or from radians to degrees. 
+\begin{enumerate}
+\item $360^\circ$
+\item $\frac{\pi}{3}$
+\item $225^\circ$
+\item $\frac{3\pi}{4}$
+\item $30^\circ$
+\item $45^\circ$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = radians]
+\begin{enumerate}
+\item $2\pi$
+\item $60^\circ$
+\item $\frac{5\pi}{4}$
+\item $135^\circ$
+\item $\frac{\pi}{6}$
+\item $\frac{\pi}{4}$
+\end{enumerate}
+\end{Answer}
 
 
 
