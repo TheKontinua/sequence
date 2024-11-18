@@ -26,7 +26,7 @@ main_locale = config["Languages"][0]
 resources_dir = f"Resources-{main_locale}"
 
 # Linkfile
-linkpath = f"Intermediate/Links-{main_locale}.json"
+linkpath = f"Resources-{main_locale}/Links.json"
 if os.path.exists(linkpath):
     with open(linkpath,"r") as f:
         links = json.load(f)
