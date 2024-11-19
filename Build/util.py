@@ -4,6 +4,19 @@ import json
 import shutil
 
 title_pattern = re.compile("chapter\{([^\}]+)\}")
+# chapter_pattern = re.compile("chapter\}\{\\\\numberline \{([^\}]+)\}[^\}]+\{([0-9]+)\}")
+chapter_pattern = re.compile("chapter\}\{\\\\numberline \{([^\}]+)\}[^\}]+\}\{([0-9]+)\}")
+
+def chapter_toc(bookstr):
+    toc = {}
+    chapter_path = f"Intermediate/workbook-{bookstr}.toc"
+    with open(chapter_path) as f:
+        for i, line in enumerate(open(chapter_path)):
+            for match in re.finditer(chapter_pattern, line):
+                chapter = match.group(1)
+                page = int(match.group(2))
+                toc[chapter] = page
+    return toc
 
 def dir_for_id(mod_dir, identifier, langlist):
     # FIXME: should search from fav to least fave
@@ -37,7 +50,7 @@ def title_for_dir(dir):
         for match in re.finditer(title_pattern, line):
             return match.group(1)
     return "UNKNOWN"
-        
+
 def metadata_for_dir(dir):
     rpath = os.path.join(dir, "digital_resources.json")
     if not os.path.exists(rpath):
@@ -47,7 +60,7 @@ def metadata_for_dir(dir):
         with open(rpath, 'r') as f:
             data = f.read().strip()
         if len(data) < 2:
-            result = {} 
+            result = {}
         else:
             result = json.loads(data)
     title = title_for_dir(dir)
@@ -75,7 +88,7 @@ def gather_data(mod_dir, book_str, config):
             for j in range(len(filelist)):
                 filename = filelist[j]["path"]
                 filelist[j]["link"] = f"https://github.com/TheKontinua/sequence/raw/master/Chapters/{ids[i]}/en_US/{filename}"
-        # Add it to the array 
+        # Add it to the array
         metadatas.append(md)
 
         # Also put the data in the topics dictionary
@@ -85,10 +98,10 @@ def gather_data(mod_dir, book_str, config):
                 cd["book"] = book_str
                 cd["chap_title"] = title
                 cd["chap_num"] = i + 1
-                cd["chap_id"] = ids[i] 
+                cd["chap_id"] = ids[i]
                 topics[cd["id"]] = cd
 
-    return (metadatas, topics)       
+    return (metadatas, topics)
 
 def build_chapter(chapter_file, chap_dir, config, final_pdf_path, draft=True):
     locale_list = config["Languages"]
@@ -110,7 +123,7 @@ def build_chapter(chapter_file, chap_dir, config, final_pdf_path, draft=True):
     gpath_string = "\\graphicspath{{{{{}/}}}}\n".format(chap_dir)
     output_tex.write(gpath_string)
 
-    
+
     # Include file
     full_path = os.path.join(chap_dir, chapter_file)
     include_string = "\\input{{{}}}\n".format(full_path)

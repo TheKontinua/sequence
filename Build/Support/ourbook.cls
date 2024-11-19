@@ -801,7 +801,7 @@
 \usepackage[american]{circuitikz}
 \usepackage{tikz-3dplot}
 \usepackage{cancel}
-
+\usepackage{wrapfig}
 \usepackage{listings}
 
 \usepackage{mdframed}

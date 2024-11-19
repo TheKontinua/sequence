@@ -23,12 +23,12 @@ if not os.path.exists("user.cfg"):
     # Give them the default
     shutil.copyfile("Support/default.cfg", "user.cfg")
 
-# Read in the config 
+# Read in the config
 with open("user.cfg", "r") as config_fd:
     config = json.load(config_fd)
 
 # Linkfile
-linkpath = f"Intermediate/Links-{config['Languages'][0]}.json"
+linkpath = f"Resources-{config['Languages'][0]}/Links.json"
 
 # Read the last lookup
 if os.path.exists(linkpath):
@@ -47,7 +47,7 @@ else:
     fetch_if_after = None
     print("Refetching everything")
 
-# Gather all metadatas    
+# Gather all metadatas
 print("Reading metadata for all books")
 book_nums = [str(x).zfill(2) for x in range(1, vol_count + 1)]
 all_chaps = []
