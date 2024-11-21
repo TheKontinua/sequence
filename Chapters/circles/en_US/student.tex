@@ -4,6 +4,7 @@ A circle is the set of points $(x, y)$ that are a particular distance $r$ from a
 particular point $(x_c, y_c)$.  We say that $r$ is the
 \newterm{radius} and $(x_c, y_c)$ is the \newterm{center}
 
+\begin{center}
 \begin{tikzpicture}
     \filldraw [sdkblue] (1,2) circle (2pt) node[anchor=west]{$(x_c, y_c)$};
     \filldraw [sdkblue] (2,4.82842712474619) circle (2pt) node[anchor=west]{
@@ -14,6 +15,8 @@ particular point $(x_c, y_c)$.  We say that $r$ is the
     \draw [stealth-stealth](-2.5,0)--(4.5,0);
     \draw [stealth-stealth](0,-1.5)--(0,5.5);
 \end{tikzpicture}
+\end{center}
+
 
 \begin{mdframed}[style=important, frametitle={Area and Radius}]
 
@@ -49,6 +52,7 @@ Note that a circle lives in a particular plane. The points $(x, y, z)$ that
 are a particular distance $r$ from a particular point $(x_c, y_c, z_c)$ are a 
 sphere:
 
+\begin{center}
 \begin{tikzpicture}
   \begin{axis}[
     view={35}{15},
@@ -75,6 +79,8 @@ sphere:
     \addplot3[samples y=0,domain=0:180,smooth]({3*sin(x)}, 0, {3*cos(x)});
   \end{axis}
 \end{tikzpicture}
+\end{center}
+
 
 The distance all the way across the middle of a circle (or a sphere) is its
 \newterm{diameter}.  The diameter is always twice the radius.
@@ -133,7 +139,65 @@ lines \textit{in a plane}.
 \end{tikzpicture}
 \end{Answer}
 
+\section{Arc Length}
+Previously, you learned that angles can be measured in degrees and radians. A 
+circle is $360^o$ (see figure \ref{fig:circledeg}). 
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+        \begin{polaraxis}[axis lines = none, clip = false]
+    \draw[black](0,0) -- (0, 3);
+    \draw[black, dashed] (0,0) -- (180, 3);
+    \addplot[blue, thick, domain = 0:360, samples = 200]{2.5};
+    \addplot[red, domain = 0:175]{1};
+    \draw[red, -latex](175, 1) -- (180,1);
+    \addplot[red, domain = 180:355]{1};
+    \draw[red, -latex] (355, 1) -- (360, 1);
+    \node[] at (90, 1.5) {$\theta_1 = 180^\circ$};
+    \node[] at (270, 1.5) {$\theta_2 = 180^\circ$};
+    \end{polaraxis}
+    \end{tikzpicture}
+    \caption{The total internal angle of a circle is $\theta_1 + \theta_2 = 
+    360^\circ$}
+    \label{fig:circledeg}
+\end{figure}
+
+This means a circle is also $2\pi$ radians:
+$$360^\circ \cdot \frac{\pi}{180^\circ} = 2\pi$$
+
+You may have been wondering: why is it that there are $\pi$ radians in a 
+$180^\circ$ angle? A radian is defined such that one radian is the angle at the 
+center of a circle which defines an arc of the circumference equal to the 
+radius of the circle (see figure \ref{fig:oneradian}). 
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+        \begin{polaraxis}[axis lines = none, ymin = 0, ymax = 3, 
+	clip = false]
+ \addplot[blue, thick, domain = 0:360, samples = 300] {2.5};
+ \addplot[red, thick, domain = 0:57.3] {2.5};
+ \draw[red, thick](0,0) -- (0, 2.5);
+ \draw[red, thick] (0,0) -- (57.3, 2.5);
+ \addplot[red, domain = 0:57.3]{0.5};
+ \addplot[black, domain = 0:57.3]{2.75};
+ \draw[black](0,2.7) -- (0,2.8);
+ \draw[black] (57.3, 2.7) -- (57.3, 2.8);
+ \node[rotate = -60] at (27.5, 2.9) {\small length $= r$};
+ \node[] at (27.5, 1) {\small $\theta = 1$};
+    \end{polaraxis}
+    \end{tikzpicture}
+    \caption{When the center angle is 1 radian, the length of the arc is equal 
+    to the radius of the circle}
+    \label{fig:oneradian}
+\end{figure} 
+
+
+
+This makes it very straightforward to find the lengths of arcs if we know the 
+center angle in radians. The arc length is just $r \theta$, where $\theta$ is 
+the center angle in radians. 
 
 \begin{mdframed}[style=important, frametitle={Length of an Arc}]
 
@@ -142,6 +206,7 @@ center through $a$ and the ray from the center through $b$ form an
 angle.  If $\theta$ is the angle in radians and $r$ is the radius of
 the circle, the distance from $a$ to $b$ on the circle is $r \theta$.
 
+\begin{center}
 \begin{tikzpicture}
     \filldraw [black] (0,0) circle (2pt) node[anchor=west]{Center};
     \filldraw [sdkblue] (-1,2.82842712474619) circle (2pt) node[anchor=west]{$b$};
@@ -154,8 +219,53 @@ the circle, the distance from $a$ to $b$ on the circle is $r \theta$.
     \draw [sdkblue, <->] (0.707,0.707) arc (45:109.47:1) node [midway, 
     anchor=south]{$\theta$};
 \end{tikzpicture}
+\end{center}
+
 
 \end{mdframed}
+
+This shows us why $\pi\text{ radians} = 180^\circ$. Recall the formula for 
+circumference: $c = \pi d$, where $d$ is the diameter of the circle. Since the 
+diameter is twice the radius, then we can also say that $c = 2\pi r$, where r 
+is the radius of the circle. The circumference of the circle is just an arc 
+where the central angle is the entirety of the circle. Since we know that the 
+length of an arc is $r \theta$, we can find the total internal angle of a 
+circle in radians:
+$$2 \pi r = r \theta$$
+$$\theta = 2\pi$$
+Which is how we know $360^\circ = 2\pi\text{ radians}$. 
+
+\begin{Exercise}[title = {Angle of Rotation}, label = radian1]
+A car tire has a radius of approximately 25 centimeters. If you roll your car 
+forward 10 cm, by how many radians has your tire rotated?
+\end{Exercise}
+
+\begin{Answer}[ref = radian1]
+If you roll forward by 10 cm, that means you move along the edge of your tire 
+such that the arc length is 10 cm. So, we are looking for a central angle such 
+that $r \theta = 10 \text{ cm}$. Substituting $r = 25 \text{ cm}$ and solving 
+for $\theta$: $\theta = \frac{10\text{ cm}}{25\text{ cm}} = 0.4\text{ radians}$. 
+\end{Answer}
+
+\begin{Exercise}[title = {Arc Length Ranking}, label = radian2]
+Rank the following arc lengths from longest to shortest (the central angle that defines the arc and the radius of the circle are provided:
+\begin{enumerate}
+\item central angle of $\frac{\pi}{4}$ and a radius of 2 cm
+\item central angle of $\pi$ and a radius of 1 cm
+\item central angle of $\frac{\pi}{10}$ and a radius of 5 cm
+\item central angle of $\frac{3\pi}{4}$ and a radius of 3 cm
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = radian2]
+\begin{enumerate}
+\item $\frac{\pi}{4} \cdot 2\text{ cm} = \frac{\pi}{2}\text{ cm}$
+\item $\pi \cdot 1\text{ cm} = \pi \text{ cm}$
+\item $\frac{\pi}{10} \cdot 5\text{ cm} = \frac{\pi}{2}\text{ cm}$
+\item $\frac{3\pi}{4} \cdot 3\text{ cm} = \frac{9\pi}{4}\text{ cm}$
+\end{enumerate}
+Therefore, from longest to shortest are 4, (1,3), 2 (1 and 3 are the same length).
+\end{Answer}
 
 \begin{Exercise}[title={Arc Length}, label=arc_length]
 
@@ -195,9 +305,76 @@ What is the radius of the tank in meters?
 \end{tikzpicture}
 \end{Answer}
 
+\section{Wedge Area}
+We already know the area of a circle is given by $A = \pi r^2$. What about a 
+piece of a circle? Let's start with a straightforward example:
+
+\textbf{Example}: A pizza with a radius of $15$ cm is divided into 6 equal 
+pieces. What is the area of each piece?
+
+\textbf{Solution}: First, we find the area of the entire pizza:
+$$A = \pi r^2$$
+$$A = \pi (18\text{ cm})^2$$
+$$A = 324\pi\text{ cm}^2 \approx 1018\text{ cm}^2$$
+
+Then, we divide by 6, since the pieces of equal sizes:
+$$A_{piece} = \frac{A}{6} = \frac{324\pi\text{ cm}^2}{6} = 54\pi\text{ cm}^2$$
+
+Let's use this to write a general formula for the area of a wedge defined by a 
+central angle $\theta$ (see figure \ref{fig:wedge}). We know that when a 
+circle is divided into 6 equal wedges, the central angle of each wedge is 
+$\theta = \frac{2\pi}{6} = \frac{\pi}{3}$. Additionally, we know the area of 
+each wedge is the total area divided by 6: $A_{wedge} = \frac{\pi r^2}{6} = 
+\frac{\pi}{6} r^2 = \frac{\theta}{2} r^2$. 
+
+\begin{mdframed}[style=important, frametitle={Area of a Wedge}]
+For a wedge whose corner 
+is at the center of a circle, the area is given by $A_{wedge} = \frac{\theta}{2} 
+r^2$, where $\theta$ is the central angle and $r$ is the radius. 
+
+\end{mdframed}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+        \begin{polaraxis}[axis lines = none, ymin = 0, ymax = 3, 
+	clip = false]
+ \addplot[blue, thick, domain = 0:360, samples = 300] {2.5};
+ \addplot[red, thick, domain = 0:135] {2.5};
+ \draw[red, thick](0,0) -- (0, 2.5);
+ \draw[red, thick] (0,0) -- (135, 2.5);
+ \fill[red!30, opacity = 0.4](0,0) -- (0, 2.5) -- (5, 2.5) -- (10, 2.5) -- 
+ (15, 2.5) -- (20, 2.5) -- (25, 2.5) -- (30, 2.5) -- (35, 2.5) -- (40, 2.5) 
+ -- (45, 2.5) -- (50, 2.5) -- (55, 2.5) -- (60, 2.5) -- (65, 2.5) -- (70, 2.5)
+  -- (75, 2.5) -- (80, 2.5) -- (85, 2.5) -- (90, 2.5) -- (95, 2.5) -- (100, 2.5)
+   -- (105, 2.5) -- (110, 2.5) -- (115, 2.5) -- (120, 2.5) -- (125, 2.5) -- 
+   (130, 2.5) -- (135, 2.5) -- (135, 0) -- cycle;
+ \addplot[red, domain = 0:135]{0.5};
+ \node[] at (50, 0.75) {\small $\theta$};
+    \end{polaraxis}
+    \end{tikzpicture}
+    \caption{The area of a wedge with central angle $\theta$ is $\frac{\theta}{2}r^2$}
+    \label{fig:wedge}
+\end{figure}
+
+\begin{Exercise}[title = {Area of a Wedge}, label = wedge]
+You are tasked with painting a large, circular logo on the side of a building. 
+If a liter of paint covers covers 6 square meters and the logo is 5 meters 
+wide, how many liters of red paint will you need to paint a wedge whose central 
+angle is $\frac{3\pi}{4}$ radians?
+\end{Exercise}
+
+\begin{Answer}[ref = wedge]
+If the logo is 5 meters wide, the diameter is 5 meters and the radius is 2.5 
+meters. Using the formula for the area of a wedge: $A_{wedge} = \frac{1}{2}
+\frac{3\pi}{4}(21.5\text{ m})^2 \approx 7.363\text{ m}^2$. Since a liter covers 
+$6\text{ m}^2$, you will need $\frac{7.363}{6} \approx 1.227\text{ L}$ of paint. 
+\end{Answer}
+
 \section{Tangents}
 
-A line that is \newterm{tangent} to a circle touches it at exactly one point:
+A line that is \newterm{tangent}\index{tangent line} to a circle touches it at 
+exactly one point:
 
 \begin{tikzpicture}
     \filldraw [black] (0,0) circle (2pt);
@@ -328,60 +505,3 @@ The tangent line is always perpendicular to the radius to the point of tangency:
 
 \end{Answer}
 
-\section{Radians and circles}
-Previously, you learned that angles can be measured in degrees and radians. A 
-circle is $360^o$ (see figure \ref{fig:circledeg}). 
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-        \begin{polaraxis}[axis lines = none, clip = false]
-    \draw[black](0,0) -- (0, 3);
-    \draw[black, dashed] (0,0) -- (180, 3);
-    \addplot[blue, thick, domain = 0:360, samples = 200]{2.5};
-    \addplot[red, domain = 0:175]{1};
-    \draw[red, -latex](175, 1) -- (180,1);
-    \addplot[red, domain = 180:355]{1};
-    \draw[red, -latex] (355, 1) -- (360, 1);
-    \node[] at (90, 1.5) {$\theta_1 = 180^\circ$};
-    \node[] at (270, 1.5) {$\theta_2 = 180^\circ$};
-    \end{polaraxis}
-    \end{tikzpicture}
-    \caption{The total internal angle of a circle is $\theta_1 + \theta_2 = 
-    360^\circ$}
-    \label{fig:circledeg}
-\end{figure}
-
-This means a circle is also $2\pi$ radians:
-$$360^\circ \cdot \frac{\pi}{180^\circ} = 2\pi$$
-
-You may have been wondering: why is it that there are $\pi$ radians in a 
-$180^\circ$ angle? A radian is defined such that one radian is the angle at the 
-center of a circle which defines an arc of the circumference equal to the 
-radius of the circle (see figure \ref{fig:oneradian}). 
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-        \begin{polaraxis}[axis lines = none, ymin = 0, ymax = 3, 
-	clip = false]
- \addplot[blue, thick, domain = 0:360, samples = 300] {2.5};
- \addplot[red, thick, domain = 0:57.3] {2.5};
- \draw[red, thick](0,0) -- (0, 2.5);
- \draw[red, thick] (0,0) -- (57.3, 2.5);
- \addplot[red, domain = 0:57.3]{0.5};
- \addplot[black, domain = 0:57.3]{2.75};
- \draw[black](0,2.7) -- (0,2.8);
- \draw[black] (57.3, 2.7) -- (57.3, 2.8);
- \node[rotate = -60] at (27.5, 2.9) {\small length $= r$};
- \node[] at (27.5, 1) {\small $\theta = 1$};
-    \end{polaraxis}
-    \end{tikzpicture}
-    \caption{When the center angle is 1 radian, the length of the arc is equal 
-    to the radius of the circle}
-    \label{fig:oneradian}
-\end{figure} 
-
-This makes it very straightforward to find the lengths of arcs if we know the 
-center angle in radians. The arc length is just $\theta r$, where $\theta$ is 
-the center angle in radians. 
