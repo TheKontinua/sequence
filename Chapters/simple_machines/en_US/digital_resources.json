@@ -1,0 +1,60 @@
+{
+  "covers" : [
+    {
+      "videos" : [
+        "https://youtu.be/jAPxALm9fZA?si=bq6eXC-tIB9m3x46"
+      ],
+      "id" : "sim-mach",
+      "desc" : "Basics of simple machines",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Simple_machine"
+      ]
+    },
+    {
+      "desc" : "Principles of levers",
+      "videos" : [
+        "https://youtu.be/YlYEi0PgG1g?si=defJzaATaQXgcrUL"
+      ],
+      "id" : "levers",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Lever"
+      ]
+    },
+    {
+      "id" : "inc-planes",
+      "videos" : [
+        "https://youtu.be/WI8j3UlR-SE?si=MnnnoSSdNTmDrFey"
+      ],
+      "desc" : "Principles of inclined planes",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Inclined_plane"
+      ]
+    },
+    {
+      "videos" : [
+        "https://youtu.be/4ROtKKuSaBI?si=PH7iV3Ok3Ftstr5T"
+      ],
+      "id" : "gears",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Gear"
+      ],
+      "desc" : "Principles of gears"
+    },
+    {
+      "videos" : [
+        "https://youtu.be/KEs_h-ucJEs?si=fXU0BybEXOZn5788"
+      ],
+      "references" : [
+        "https://en.wikipedia.org/wiki/Hydraulics"
+      ],
+      "desc" : "Principles of hydraulics",
+      "id" : "hydraulics"
+    }
+  ],
+  "files" : [
+
+  ],
+  "requires" : [
+
+  ]
+}
