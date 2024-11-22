@@ -12,11 +12,12 @@ far the point is from the origin (see figure \ref{polarex}).
 \centering
     \begin{tikzpicture}
 	\begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
 	$\frac{5\pi}{6}$, $\pi$,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, 
-	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}]
+	$\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymax = 2.25, clip = false]
+		\addplot[white, thick, domain = 0:360, samples = 200]{2.25};
         \addplot[blue, only marks]coordinates {(0,1) (60, 1.5) (240, 2)};
         \addplot[red, domain = 0:60]{1.5};
         \draw[red, -latex](58, 1.5)--(60,1.5);
@@ -40,11 +41,12 @@ is the slope of the line tangent to the curve at $\theta = \frac{\pi}{2}$?
 \centering
     \begin{tikzpicture}
 	\begin{polaraxis}[xtick = {0,0,deg((pi)/6),deg((2*pi)/6),deg((3*pi)/6),
-	deg(4*pi)/6,deg((5*pi)/6), deg((5*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
+	deg(4*pi)/6,deg((5*pi)/6), deg((6*pi)/6), deg((7*pi)/6), deg((8*pi)/6), 
 	deg((9*pi)/6), deg((10*pi)/6), deg((11*pi)/6)}, xticklabels={,0,
 	$\frac{\pi}{6}$,$\frac{\pi}{3}$,$\frac{\pi}{2}$,$\frac{2\pi}{3}$, 
 	$\frac{5\pi}{6}$, $\pi$,$\frac{7\pi}{6}$, $\frac{4\pi}{3}$, $\frac{3\pi}{2}$, 
-	$\frac{5\pi}{3}$, $\frac{11\pi}{6}$}]
+	$\frac{5\pi}{3}$, $\frac{11\pi}{6}$}, ymax = 2.25, clip = false]
+		\addplot[white, thick, domain = 0:360, samples = 200]{2.25};
         \addplot[blue, thick, domain = 0:360, samples = 100]{1 + sin(x)};
         \end{polaraxis}
     \end{tikzpicture}
@@ -69,8 +71,10 @@ find $\frac{dy}{dx}$:
 $$\frac{dy}{dx} = \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}$$
 
 Finding $\frac{dy}{d\theta}$ and $\frac{dx}{d\theta}$:
-$$\frac{dy}{d\theta} = \frac{d}{d\theta} \left( 2\sin{\theta} + \sin^2{\theta} \right) = 2\cos{\theta} + 2\sin{\theta}\cos{\theta}$$
-$$\frac{dx}{d\theta} = \frac{d}{d\theta} \left( 2\cos{\theta} + \sin{\theta}\cos{\theta} \right) = \cos^2{\theta} - \sin^2{\theta} - 2\sin{\theta}$$
+$$\frac{dy}{d\theta} = \frac{d}{d\theta} \left( 2\sin{\theta} + \sin^2{\theta} 
+\right) = 2\cos{\theta} + 2\sin{\theta}\cos{\theta}$$
+$$\frac{dx}{d\theta} = \frac{d}{d\theta} \left( 2\cos{\theta} + \sin{\theta}
+\cos{\theta} \right) = \cos^2{\theta} - \sin^2{\theta} - 2\sin{\theta}$$
 
 Substituting $\theta = \frac{pi}{2}$, we find that:
 $$\frac{dy}{d\theta} = 2(0) + 2(1)(0) = 0$$
@@ -79,7 +83,8 @@ $$\frac{dx}{d\theta} = (0)^2 - (1)^2 - 2(1) = -3$$
 And therefore,
 $$\frac{dy}{dx} = \frac{0}{-3} = 0$$
 
-Which is the result we expected from examining the graph of $r = 2 + \sin{\theta}$. 
+Which is the result we expected from examining the graph of $r = 2 + \sin{
+\theta}$. 
 
 
 \begin{Exercise}[label = polar1]
@@ -89,17 +94,90 @@ tangent to the polar curve $r = 1 + 2\sin{\theta}$ at $\theta = 0$?
 \end{Exercise}
 
 \begin{Answer}[ref = polar1]
-Recall that for a polar function, $\frac{dy}{dx} = \frac{\frac{dr}{d\theta}
-\sin{\theta} + r\cos{\theta}}{\frac{dr}{d\theta}\cos{\theta} - r\sin{\theta}}$. 
-At $\theta = 0$, $r = 1 + 2\sin{0} = 1$ and $\frac{dr}{d\theta} = 2\cos{0} = 
-2$. Substituting, we find that $\frac{dy}{dx} = \frac{2\sin{0} + 1\cos{0}}{2
-\cos{0} - 1\sin{0}} = \frac{0 + 1}{2 - 0} = \frac{1}{2}$. 
+Recall that for a polar function, $\frac{dy}{dx} = \frac{\frac{dy}{d\theta}}{
+\frac{dx}{d\theta}}$. We also know that $x = r \cos{\theta}$, which equals 
+$\left[ 1 + 2\sin{\theta} \right] \cdot \cos{\theta} = \cos{\theta} + 2\sin{
+\theta}\cos{\theta}$ in this case. And we know that $y = r \cdot \sin{\theta}$, 
+which equals $\left[ 1 + 2 \sin{\theta} \right] \cdot \sin{\theta} = \sin{
+\theta} + 2 \sin^2{\theta}$ in this case. Taking the derivative with respect 
+to $\theta$:
+$$\frac{dy}{d\theta} = \frac{d}{d\theta} \left[ \sin{\theta} + 2 \sin^2{\theta} 
+\right]$$
+$$\frac{dy}{d\theta} = \cos{\theta} + 4\sin{\theta}\cos{\theta}$$
+
+And
+
+$$\frac{dx}{d\theta} = \frac{d}{d\theta} \left[ \cos{\theta} + 2\sin{\theta}\cos{
+\theta} \right]$$
+$$\frac{dx}{d\theta} = -\sin{\theta} - 2\sin^2{\theta} + 2\cos^2{\theta}$$
+
+Evaluating each at $\theta = 0$:
+$$\frac{dy}{d\theta} = \cos{0} + 4\sin{0}\cos{0} = 1 + 0 = 1$$
+$$\frac{dx}{d\theta} = -\sin{0} - 2\sin^2{0} + 2\cos^2{0} = 0 - 0 + 2 = 2$$
+
+And therefore $\frac{dr}{d\theta} = \frac{dy/d\theta}{dx/d\theta} = \frac{1}{2}$
 \end{Answer}
 
 \begin{Exercise}[label = polar2]
-The figure below shows the graphs of polar curves $r = 2\cos{3\theta}$ and $r = 2$. What is the sum of the areas of the shaded regions?	[fix me graph]
+[This question was originally presented as a multiple-choice, calculator-
+allowed problem on the 2012 AP Calculus BC exam.] The figure below shows the 
+graphs of polar curves $r = 2\cos{3\theta}$ and $r = 2$. What is the sum of 
+the areas of the shaded regions to three decimal places?
+\begin{center}
+\begin{tikzpicture}
+	\begin{polaraxis}[ymax = 2.25, clip = false, xtick = {0, 30, 60, 90, 120, 150, 
+	180, 210, 240, 270, 300, 330}, xticklabels = {$0$, $\frac{\pi}{6}$, $\frac{\pi
+	}{3}$, $\frac{\pi}{2}$, $\frac{2\pi}{3}$, $\frac{5\pi}{6}$, $\pi$, $\frac{7\pi
+	}{6}$, $\frac{4\pi}{3}$, $\frac{3\pi}{2}$, $\frac{5\pi}{3}$, $\frac{11\pi}{6}$
+	}]
+            \addplot[white, thick, domain = 0:360, samples = 200]{2.25};
+		\addplot[name path = A, blue, thick, domain = 0:180, samples = 200]{
+		2*cos(3*x)};
+        \filldraw[gray!30, opacity = 0.4](0,2) -- (5, 1.932) -- (10, 1.732) -- 
+        (15, 1.414) -- (20, 1) -- (25, 0.518) -- (30, 0) -- (90, 0) -- 
+        (95, 0.518) -- (100, 1) -- (105, 1.414) -- (110, 1.732) -- 
+        (115, 1.932) -- (120, 2) -- (110, 2) -- (100, 2) -- (90, 2) -- (80, 2) 
+        -- (70, 2) -- (60, 2) -- (50, 2) -- (40, 2) -- (30, 2) -- (20, 2) -- 
+        (10, 2) -- cycle;
+        \filldraw[gray!30, opacity = 0.4](120, 2) -- (125, 1.932) -- 
+        (130, 1.732) -- (135, 1.414) -- (140, 1) -- (145, 0.518) -- (150, 0) 
+        -- (30, 0) -- (35, -0.518) -- (40, -1) -- (45, -1.414) -- (50, -1.732) 
+        -- (55, -1.932) -- (60, -2) -- (240, 2) -- (230, 2) -- (220, 2) -- 
+        (210, 2) -- (200, 2) -- (190, 2) -- (180, 2) -- (170, 2) -- (160, 2) 
+        -- (150, 2) -- (140, 2) -- (130, 2) -- cycle;
+        \filldraw[gray!30, opacity = 0.4](240, 2) -- (245, 1.932) -- 
+        (250, 1.732) -- (255, 1.414) -- (260, 1) -- (265, 0.518) -- (270, 0) 
+        -- (330, 0) -- (335, 0.518) -- (340, 1) -- (345, 1.414) -- 
+        (350, 1.732) -- (355, 1.932) -- (360, 2) -- (350, 2) -- (340, 2) -- 
+        (330, 2) -- (320, 2) -- (310, 2) -- (300, 2) -- (290, 2) -- (280, 2) 
+        -- (270, 2) -- (260, 2) -- (250, 2) -- cycle;
+	\end{polaraxis}
+    \end{tikzpicture}
+\end{center}
 \end{Exercise}
 
 \begin{Answer}[ref = polar2]
-We know the area of the circle is $\pi r^2 = \pi(2)^2 = 4\pi$. To find the area of the shaded regions, we need to subtract the area of the trefoil from the area of the circle. The area of the trefoil is given by $\frac{1}{2} \int_0^{\pi} \left[2 \cos{3\theta} \right]^2\,d\theta =$ [fixme finish solution]
+We know the area of the circle is $\pi r^2 = \pi(2)^2 = 4\pi$. To find the 
+area of the shaded regions, we need to subtract the area of the trefoil from 
+the area of the circle. The trefoil has three equal areas. We can find the 
+area of the leaf that is formed on the interval $\frac{\pi}{6} \leq \theta 
+\leq \frac{\pi}{2}$ (see figure below)
+
+\begin{center}
+  \begin{tikzpicture}
+	\begin{polaraxis}[ymax = 2.25, clip = false, xmin = 180, xmax = 270, 
+	xtick = {180, 210, 240, 270}, xticklabels = {$\pi$, $\frac{7\pi}{6}$, 
+	$\frac{4\pi}{3}$, $\frac{3\pi}{2}$}]
+            \addplot[white, thick, domain = 0:360, samples = 200]{2.25};
+		\addplot[blue, thick, domain = 30:90, samples = 50]{2*cos(3*x)};
+	\end{polaraxis}
+\end{tikzpicture}  
+\end{center}
+
+The area of one leaf of the trefoil is given by $\frac{1}{2} \int_{\pi/6}^{
+\pi/2} \left[2\cos{3\theta} \right]^2\,d\theta$. Using a calculator, the area 
+of one leaf is $\approx 1.0472$. The area of the circle is given by $\pi r^2 = 
+\pi (2)^2 \approx 12.5664$. Then the area of the shaded region is the area of 
+the circle minus three times the area of a single leaf: $12.5664 - 3 \cdot 
+1.0472 = 9.4248 \approx 9.425$. 
 \end{Answer}

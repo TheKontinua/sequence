@@ -1,3 +1,4 @@
+volume_single_integral
 volume_double_integral
 multiv_dist
 multiv_normal

@@ -340,15 +340,9 @@ r^2$, where $\theta$ is the central angle and $r$ is the radius.
         \begin{polaraxis}[axis lines = none, ymin = 0, ymax = 3, 
 	clip = false]
  \addplot[blue, thick, domain = 0:360, samples = 300] {2.5};
- \addplot[red, thick, domain = 0:135] {2.5};
- \draw[red, thick](0,0) -- (0, 2.5);
- \draw[red, thick] (0,0) -- (135, 2.5);
- \fill[red!30, opacity = 0.4](0,0) -- (0, 2.5) -- (5, 2.5) -- (10, 2.5) -- 
- (15, 2.5) -- (20, 2.5) -- (25, 2.5) -- (30, 2.5) -- (35, 2.5) -- (40, 2.5) 
- -- (45, 2.5) -- (50, 2.5) -- (55, 2.5) -- (60, 2.5) -- (65, 2.5) -- (70, 2.5)
-  -- (75, 2.5) -- (80, 2.5) -- (85, 2.5) -- (90, 2.5) -- (95, 2.5) -- (100, 2.5)
-   -- (105, 2.5) -- (110, 2.5) -- (115, 2.5) -- (120, 2.5) -- (125, 2.5) -- 
-   (130, 2.5) -- (135, 2.5) -- (135, 0) -- cycle;
+ \addplot[name path= arc, red, thick, domain = 0:135] {2.5};
+ \addplot[name path= legs, red, thick] coordinates {(135, 2.5) (135, 0) (0, 0) (0, 2.5)};
+ \addplot[red!30, opacity = 0.4] fill between [of=arc and legs];
  \addplot[red, domain = 0:135]{0.5};
  \node[] at (50, 0.75) {\small $\theta$};
     \end{polaraxis}
