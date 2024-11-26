@@ -305,7 +305,7 @@ What is the radius of the tank in meters?
 \end{tikzpicture}
 \end{Answer}
 
-\section{Wedge Area}
+\section{Sector Area}
 We already know the area of a circle is given by $A = \pi r^2$. What about a 
 piece of a circle? Let's start with a straightforward example:
 
@@ -320,17 +320,16 @@ $$A = 324\pi\text{ cm}^2 \approx 1018\text{ cm}^2$$
 Then, we divide by 6, since the pieces of equal sizes:
 $$A_{piece} = \frac{A}{6} = \frac{324\pi\text{ cm}^2}{6} = 54\pi\text{ cm}^2$$
 
-Let's use this to write a general formula for the area of a wedge defined by a 
+Let's use this to write a general formula for the area of a sector defined by a 
 central angle $\theta$ (see figure \ref{fig:wedge}). We know that when a 
-circle is divided into 6 equal wedges, the central angle of each wedge is 
+circle is divided into 6 equal sectors, the central angle of each wedge is 
 $\theta = \frac{2\pi}{6} = \frac{\pi}{3}$. Additionally, we know the area of 
-each wedge is the total area divided by 6: $A_{wedge} = \frac{\pi r^2}{6} = 
+each wedge is the total area divided by 6: $A_{sector} = \frac{\pi r^2}{6} = 
 \frac{\pi}{6} r^2 = \frac{\theta}{2} r^2$. 
 
 \begin{mdframed}[style=important, frametitle={Area of a Wedge}]
-For a wedge whose corner 
-is at the center of a circle, the area is given by $A_{wedge} = \frac{\theta}{2} 
-r^2$, where $\theta$ is the central angle and $r$ is the radius. 
+For a sector whose corner is at the center of a circle, the area is given by 
+$A_{sector} = \frac{\theta}{2} r^2$, where $\theta$ is the central angle and $r$ is the radius. 
 
 \end{mdframed}
 
@@ -347,7 +346,7 @@ r^2$, where $\theta$ is the central angle and $r$ is the radius.
  \node[] at (50, 0.75) {\small $\theta$};
     \end{polaraxis}
     \end{tikzpicture}
-    \caption{The area of a wedge with central angle $\theta$ is $\frac{\theta}{2}r^2$}
+    \caption{The area of a sector with central angle $\theta$ is $\frac{\theta}{2}r^2$}
     \label{fig:wedge}
 \end{figure}
 
