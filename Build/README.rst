@@ -46,6 +46,17 @@ Mac is preferred, but if you only have access to a Windows device, the following
 
 * Open ``sequence\Build\Support\default.cfg``. Replace ``/Library/TeX/texbin/lualatex`` with ``lualatex``.
 
+Contributing
+------------
+
+If you are planning on contributing, you will need to setup SSH keys and access for Github. You can find info `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>`_.
+
+Once SSH access is configured, you need to clone from the SSH repo::
+
+  git clone git@github.com:KontinuaFoundation/sequence.git
+
+It may ask to trust ``github.com``, say yes.
+
 Configuration
 -------------
 
