@@ -44,8 +44,7 @@ Mac is preferred, but if you only have access to a Windows device, the following
 
   git clone https://github.com/TheKontinua/sequence.git
 
-* Open ``sequence\Build\Support\default.cfg``.
-  * Replace ``/Library/TeX/texbin/lualatex`` with ``lualatex``.
+* Open ``sequence\Build\Support\default.cfg``. Replace ``/Library/TeX/texbin/lualatex`` with ``lualatex``.
 
 Configuration
 -------------
