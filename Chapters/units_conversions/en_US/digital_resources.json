@@ -1,0 +1,41 @@
+{
+  "files" : [
+
+  ],
+  "covers" : [
+    {
+      "desc" : "Conversion factors",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Conversion_of_units"
+      ],
+      "id" : "conv_fac",
+      "videos" : [
+        "https://youtu.be/HRe1mire4Gc?si=v5-VGfxf8YXDZFtE"
+      ]
+    },
+    {
+      "id" : "metric_pre",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Metric_prefix"
+      ],
+      "desc" : "Prefixes of the metric system",
+      "videos" : [
+        "https://youtu.be/ZNX-a-5jGeM?si=-abx3YswAknQ4teG&t=209"
+      ]
+    },
+    {
+      "id" : "unit_types",
+      "videos" : [
+        "https://youtu.be/ZNX-a-5jGeM?si=eLOthWquM7fqCH6a",
+        "https://youtu.be/y2RHWA7t0WM?si=psLGyTsepD_fJeEz"
+      ],
+      "references" : [
+        "https://en.wikipedia.org/wiki/Unit_of_measurement"
+      ],
+      "desc" : "Types of common units"
+    }
+  ],
+  "requires" : [
+
+  ]
+}

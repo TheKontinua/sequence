@@ -4,7 +4,7 @@ The Technical Sequence
 The workforce of the future will demand scientists, engineers,
 programmers, architects, and data scientists with a deep understanding
 of math, physics, and computer science. Today, some kids go to schools where
-there are good classes in these topics, but most don't. I am going to
+there are good classes in these topics, but most don't. We are going to
 help to fix this problem by introducing a new approach to how these
 ideas are taught and creating a set of free course materials to
 support that approach.
@@ -32,18 +32,18 @@ paper when you are learning to solve deep problems.
 
 There will be a collection of lecture videos to accompany the
 workbooks. The videos will be freely available on the internet. In the
-meantime, this sequence will utilize the great videos created by Khan
-Academy.
+meantime, this sequence will utilize existing videos (mostly the great videos created by Khan
+Academy).
 
 I hope that each student has a mentor who will answer their questions
 and evaluate their progress. It is my hope that the comprehensive
 nature of the materials will make the job of the mentor
 pretty easy.
 
-To this end, there will be a system that generates a test and its
+To this end, there is an online system ("Mentoris") that generates a test and its
 answer key for each workbook. Mentors will need to join the mentor
 network to access this system.  It is hoped that mentors will also use
-this system to suggest improvements to the materals.
+this system to suggest new quiz questions and improvements to the materals.
 
 Learning these ideas is a journey, and everyone will travel at
 different speeds. Not everyone will make it to through to the
@@ -56,7 +56,7 @@ students work for two hours per day, they will consume 9 workbooks per
 year.  Working for four years, the average student should be able to complete all 36
 workbooks.
 
-Here is `The state of things. <https://thekontinua.github.io>`_
+Here is `The state of things. <https://kontinuafoundation.github.io>`_
 
 The first version of the workbooks, videos, and tests will be in
 American English, as that is the language that I speak. I hope that in
@@ -114,29 +114,29 @@ book will use Google Sheets.
 
 For data structures, we will probably write some code in C++. No one
 loves C++, but it makes you think deeply about memory management and the heap vs.
-the stack. Finally whenever a team needs code that is small, fast, and portable, C++ 
+the stack. Finally whenever a software development team needs code that is small, fast, and portable, C++
 is usually the language we use.
 
-The student can do this sequence using only open source software. This
+The student can do this entire sequence using only open source software. This
 lowers the cost of software to zero, and empowers the student by
 inviting them to explore the foundational code they rely upon.
 
 Philosophy
 ----------
 
-The ideas covered by this sequence are really powerful. I think the learner's sense of 
-empowerment will motivate them, if we don't abuse it by spending a lot of time on history 
-and philosophy.  Instead, each chapter says "Here is an idea, and here is an example of 
+The ideas covered by this sequence are really powerful. I think the learner's sense of
+empowerment will motivate them, if we don't abuse it by spending a lot of time on history
+and philosophy.  Instead, each chapter says "Here is an idea, and here is an example of
 how to use it."
 
 We plan to have a mentor's guide that will include the history and
 philosophy behind the ideas, which can be shared with the students
 that care.
 
-This is **not** a project-based approach. We teach an idea and give
-the student a chance to solve a problem with it.  We do not assume
-that the student has access to a lab.  We do not assume that there is
-a teacher available to help the student set up an experiment.
+This is **not** a project-based approach. Project-based learning relies heavily
+upon a teacher and well-equiped classroom -- these assumptions do not align with our goals. Instead, we teach an idea and give
+the student a chance to solve a problem with it.
+
 
 Once again, this course is not for everybody. It assumes the student
 is curious and willing to struggle a little to satisfy that curiosity.
@@ -146,6 +146,6 @@ More
 
 Want to know more about what will be in the books? `Outline <ProjectDocs/outline.rst>`_.
 
-Want to know how to build the books? `Build <Build/README.rst>`_. 
+Want to know how to build the books? `Build <Build/README.rst>`_.
 
-Want to help? `To-Do <ProjectDocs/todo.rst>`_. 
+Want to help? `To-Do <ProjectDocs/todo.rst>`_.

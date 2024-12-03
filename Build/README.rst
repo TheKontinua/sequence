@@ -32,6 +32,31 @@ To build the web resources, you will need some python libraries:
   pip3 install jinja2
   pip3 install bs4
 
+Windows
+-------------
+
+Mac is preferred, but if you only have access to a Windows device, the following steps must be taken in addition to downloading fonts and libraries:
+
+* Download `MiKTex <https://miktex.org/download>`_.
+* Download `Git Bash <https://git-scm.com/downloads>`_.
+* Download `Python <https://www.python.org/downloads/>`_.
+* Clone the github repository::
+
+  git clone https://github.com/TheKontinua/sequence.git
+
+* Open ``sequence\Build\Support\default.cfg``. Replace ``/Library/TeX/texbin/lualatex`` with ``lualatex``.
+
+Contributing
+------------
+
+If you are planning on contributing, you will need to setup SSH keys and access for Github. You can find info `here <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>`_.
+
+Once SSH access is configured, you need to clone from the SSH repo::
+
+  git clone git@github.com:KontinuaFoundation/sequence.git
+
+It may ask to trust ``github.com``, say yes.
+
 Configuration
 -------------
 

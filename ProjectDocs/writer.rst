@@ -6,13 +6,13 @@ You must have a github account.
 
 If you haven't been made a collaborator, you will need to do your
 edits in your own fork.  Go to
-https://github.com/TheKontinua/sequence/tree/master and use the menu
+https://github.com/KontinuaFoundation/sequence/tree/master and use the menu
 to create a fork.
 
 First, you need to follow the instructions for cloning the repository
-and building the book. You can find these in the 
-`README.rst <https://github.com/TheKontinua/sequence/blob/master/README.rst>`_.
-Be sure to use the URL for *your* fork when you do the clone. 
+and building the book. You can find these in the
+`README.rst <https://github.com/KontinuaFoundation/sequence/blob/master/README.rst>`_.
+Be sure to use the URL for *your* fork when you do the clone.
 
 Then, create a new branch::
 
@@ -29,7 +29,7 @@ Commit and push what you have to your fork::
   git push
 
 To make a pull request for your branch, go to the original repository
-on github (https://github.com/TheKontinua/sequence/pulls) and find
+on github (https://github.com/KontinuaFoundation/sequence/pulls) and find
 your branch in your fork.  Make a pull request from it.
 
 =======
@@ -40,7 +40,7 @@ The source is in the ``Chapters`` directory.  For each workbook there is a
 text file with the names of the directories that go into that
 workbook. For example, there is a ``book_01.txt`` which lists several
 directories::
- 
+
   matter_energy_intro
   atomic_mass
   work_energy
@@ -78,7 +78,7 @@ If you want to create a new chapter, you will need to give it a unique ID like `
 
 Add ``smells`` in the appropriate line in the appropriate ``book_??.txt``.
 
-Create ``Chapters/smells/en_US/`` directory and put a new ``student.tex`` and 
+Create ``Chapters/smells/en_US/`` directory and put a new ``student.tex`` and
 ``digital_resources.json`` in it.
 
 Add all that to the repo.  If you are working on a Mac, please don't add any ``DS_Store`` files.
@@ -87,13 +87,13 @@ Add all that to the repo.  If you are working on a Mac, please don't add any ``D
 Images
 ======
 
-Images should be PNG or SVG.  An image should be in the same directory as 
+Images should be PNG or SVG.  An image should be in the same directory as
 the ``student.tex`` that references it.
 
-If you use another application to create the image, please include the original source. 
+If you use another application to create the image, please include the original source.
 For example, I have done a few diagrams in OmniGraffle. I have included the ``.graffle`` file.
 
-Overall, I'm trying to do diagrams in LaTeX whenever possible.  Maintanence is 
+Overall, I'm trying to do diagrams in LaTeX whenever possible.  Maintanence is
 just so much easier.
 
 ======
@@ -110,4 +110,4 @@ Style
 ======
 
 You can refer to the style guide
-`The Style Guide <style.rst>`__ 
+`The Style Guide <style.rst>`__

@@ -1,0 +1,20 @@
+{
+  "requires" : [
+
+  ],
+  "covers" : [
+    {
+      "id" : "buoyancy",
+      "desc" : "Principles of buoyancy",
+      "references" : [
+        "https://en.wikipedia.org/wiki/Buoyancy"
+      ],
+      "videos" : [
+        "https://youtu.be/4Xn7cXGhFu8?si=GaFdsb_gmm_1HHUA"
+      ]
+    }
+  ],
+  "files" : [
+
+  ]
+}

@@ -11,9 +11,13 @@ the origin (see figure \ref{fig:sphere})
 \begin{figure}[htbp]
 \centering
     \begin{tikzpicture}
-        \begin{axis}[xmin = -3.5, xmax = 3.5, ymin = -3.5, ymax = 3.5, axis lines = center, unit vector ratio=1 1 1, xtick = \empty, ytick = \empty, xlabel = $x$, ylabel = $y$]
-            \draw[blue!30, shading = ball, ball color = blue, opacity= 0.4] (0,0) circle [radius = 3];
-            \draw[red, fill = red!30, opacity = 0.4] (2, 0) ellipse [x radius = 0.3, y radius = 2.2];
+        \begin{axis}[xmin = -3.5, xmax = 3.5, ymin = -3.5, ymax = 3.5, axis 
+        lines = center, unit vector ratio=1 1 1, xtick = \empty, ytick = 
+        \empty, xlabel = $x$, ylabel = $y$]
+            \draw[blue!30, shading = ball, ball color = blue, opacity= 0.4] 
+            (0,0) circle [radius = 3];
+            \draw[red, fill = red!30, opacity = 0.4] (2, 0) ellipse [x radius 
+            = 0.3, y radius = 2.2];
             \draw[black, dashed] (0,0) -- (2, 2.2) -- (2, 0);
             \draw[black] (2, 0) rectangle (2.15, 0.15);
             \node[] at (1.1, 1.5) {$r$};
@@ -47,10 +51,10 @@ $$V_{sphere} = 2 \pi r^3 - \frac{2\pi}{3} r^3 = \frac{4}{3}\pi r^3$$
 
 \section{Volumes of Solids of Revolution}
 We can also find the volume of solids made by revolving a graph about the $x$ 
-or $y$-axis. Suppose the graph $y = \sin{x}$ from $x = 0$ to $x = \frac{\pi}{2}$ were 
-rotated vertically about the $x$-axis to form a solid. How could we find the 
-volume of that solid? Well, we can imagine a rectangle of width $dx$ and 
-height $y$ (see figure \ref{fig:sine_2d})
+or $y$-axis. Suppose the graph $y = \sin{x}$ from $x = 0$ to $x = \frac{\pi}{2
+}$ were rotated vertically about the $x$-axis to form a solid. How could we 
+find the volume of that solid? Well, we can imagine a rectangle of width $dx$ 
+and height $y$ (see figure \ref{fig:sine_2d})
 
 \begin{center}
 \begin{figure}[htbp]
@@ -58,10 +62,13 @@ height $y$ (see figure \ref{fig:sine_2d})
     \begin{tikzpicture}
         \begin{axis}[axis lines = center, xmin = 0, xmax = 1.75, ymin = 0, 
         ymax = 1.05, clip = false]
-          \addplot[name path = A, blue, thick, domain = 0:1.57, samples = 50]{sin(deg(x))}; 
-          \addplot[name path = B, blue, thick] coordinates {(1.57, 0) (1.57, 1)};
+          \addplot[name path = A, blue, thick, domain = 0:1.57, samples = 50]{
+          sin(deg(x))}; 
+          \addplot[name path = B, blue, thick] coordinates {(1.57, 0) (1.57, 1)
+          };
           \addplot[blue!30, opacity = 0.4] fill between[ of = A and B];
-          \filldraw[draw = red, fill = red!30, opacity = 0.4](1.1, 0) rectangle (1.13, 0.9); 
+          \filldraw[draw = red, fill = red!30, opacity = 0.4](1.1, 0) 
+          rectangle (1.13, 0.9); 
           \node[] at (1.115, -0.05) {$dx$};
           \draw[] (1.15, 0.01) -- (1.15, 0.89);
           \draw[] (1.14, 0.01) -- (1.16, 0.01);
@@ -82,20 +89,30 @@ slice} = \pi r^2 dx = \pi \cdot \sin^2{x} dx$.
 \begin{figure}[htbp]
 \centering
     \begin{tikzpicture}
-        \begin{axis}[axis lines = center, unit vector ratio=1 1 1, xtick = \empty, ytick = \empty, xlabel = $x$, ylabel = $y$]
-        \addplot[name path = A, blue, thick, domain = 0:1.57, samples = 50]{sin(deg(x))}; 
-        \addplot[name path = B, blue, thick, domain = 0:1.57, samples = 50]{-sin(deg(x))};
-        \draw[blue, thick, fill = blue!30, opacity = 0.4] (1.57, 0) ellipse [x radius = 0.2, y radius = 1];
-        \draw[red] (1, 0.841) arc [start angle = 90, end angle = 270, x radius = 0.1, y radius = 0.841];
-        \draw[red, dashed] (1, -0.841) arc [start angle = -90, end angle = 90, x radius = 0.1, y radius = 0.841];
-        \draw[red] (0.95, 0.841) arc [start angle = 90, end angle = 270, x radius = 0.1, y radius = 0.841];
+        \begin{axis}[axis lines = center, unit vector ratio=1 1 1, xtick = 
+        \empty, ytick = \empty, xlabel = $x$, ylabel = $y$]
+        \addplot[name path = A, blue, thick, domain = 0:1.57, samples = 50]{
+        sin(deg(x))}; 
+        \addplot[name path = B, blue, thick, domain = 0:1.57, samples = 50]{
+        -sin(deg(x))};
+        \draw[blue!30, thick, fill = blue!30, opacity = 0.4] (1.57, 0) ellipse 
+        [x radius = 0.2, y radius = 1];
+        \draw[red] (1, 0.841) arc [start angle = 90, end angle = 270, x radius 
+        = 0.1, y radius = 0.841];
+        \draw[red, dashed] (1, -0.841) arc [start angle = -90, end angle = 90, 
+        x radius = 0.1, y radius = 0.841];
+        \draw[red] (0.95, 0.841) arc [start angle = 90, end angle = 270, 
+        x radius = 0.1, y radius = 0.841];
+        \draw[blue, thick] (1.57, 1) arc [start angle = 90, end angle = 270, 
+        x radius = 0.2, y radius = 1];
+        \draw[blue, thick, dashed] (1.57, -1) arc [start angle = -90, 
+        end angle = 90, x radius = 0.2, y radius = 1];
         \draw[red] (0.95, 0.841) -- (1, 0.841);
         \draw[red] (0.95, -0.841) -- (1, -0.841);
-        \node[] at (1, .9) {fixme shade graph};
         \end{axis}
     \end{tikzpicture}
-    \caption{When rotated, the cross-section becomes a cylinder with radius $\sin{
-	x}$ and width $dx$, which has a total volume of $\pi \sin^2{x} dx$}
+    \caption{When rotated, the cross-section becomes a cylinder with radius $
+    \sin{x}$ and width $dx$, which has a total volume of $\pi \sin^2{x} dx$}
     \label{fig:sine_3d}
 \end{figure}
 
@@ -163,7 +180,6 @@ Sometimes there is space between the region we are rotating and the line we are
 rotating it about. Consider the region bounded between $y = 2x$ and $y = x^2$  
 (see figure \ref{fig:donut}):
 
-\begin{center}
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
@@ -182,7 +198,6 @@ rotating it about. Consider the region bounded between $y = 2x$ and $y = x^2$
     and inner radius $x^2$}
     \label{fig:donut}
 \end{figure}
-\end{center}
 
 When rotated, the slices will take the form of donuts (or washers), the volume 
 of which is $\pi \left( R^2 - r^2 \right) dx$, where $R$ is the outer radius 
@@ -262,7 +277,8 @@ $$V = 16(2) - \frac{8}{3}(2)^3 + \frac{1}{5}(2)^5 = \frac{256}{15}
 		\begin{axis}[axis lines = center, clip = false]
 			\addplot[blue, thick, domain = 0:2]{x^2};
 			\addplot[red, thick, domain = 0:2]{4};
-			\filldraw[draw = red, fill = red!30, opacity = 0.4] (1, 1) rectangle (1.05, 4);
+			\filldraw[draw = red, fill = red!30, opacity = 0.4] (1, 1) 
+			rectangle (1.05, 4);
 			\addplot[black] coordinates {(0.95, 4) (0.95, 1)};
 			\addplot[black] coordinates {(0.92, 4) (0.98, 4)};
 			\addplot[black] coordinates {(0.92, 1) (0.98, 1)};

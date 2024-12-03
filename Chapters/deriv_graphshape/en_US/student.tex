@@ -701,6 +701,38 @@ Therefore, $f(x)$ has an inflection point at $(2, -16)$.
 	increasing, and therefore $g''$ is positive).
 \end{Answer}
 
+\begin{Exercise}[label = concavity3]
+[This question was originally presented as a calculator-allowed, multiple-choice 
+problem on the 2012 AP Calculus BC exam.] For $-1.5 < x < 1.5$, let $f$ be a 
+function with first derivative given by $f'(x) = e^{(x^4 - 2x^2 + 1)} - 2$. State 
+the interval(s) (to three decimal places) for which $f$ is concave down. 
+\end{Exercise}
+
+\begin{Answer}[ref = concavity3]
+Since the question asks about concavity, we need to examine the second derivative:
+$$f''(x) = \frac{d}{dx} f'(x) = \frac{d}{dx} \left[ e^{(x^4 - 2x^2 + 1)} - 2 
+\right]$$
+$$f''(x) = \left( x^4 - 2x^2 + 1 \right) e^{(x^4 - 2x^2 + 1)} \left(4x^3 - 4x 
+\right)$$
+
+The second derivative equals zero when $x^4 - 2x^2 + 1 = (x^2 - 1)^2 = 0$ or 
+$4x^3 - 4x = 4(x)(x^2-1) = 0$, which gives roots $x = 0$, $x = 1$, and $x = 
+-1$. So the intervals we need to test are $(-1.5, -1)$, $(-1, 0)$, $(0, 1)$, 
+and $(1, 1.5)$. To test $x \in (-1.5, -1)$, we will substitute $x = -1.25$ 
+into $f''(x)$:
+$$f''(-1.25) = -3.85928 < 0$$
+Therefore, $f(x)$ is concave down on the interval $x \in (-1.5, -1)$. 
+Next, we test $x \in (-1, 0)$:
+$$f''(-0.5) = 2.63258 > 0$$
+So we eliminate $x \in (-1, 0)$. Next we test $x \in (0, 1)$:
+$$f''(0.5) = -2.63258 < 0$$
+And $f(x)$ is concave down on the interval $x \in (0, 1)$. Finally, we test 
+the interval $x \in (1, 1.5)$:
+$$f''(1.25) = 3.85928 > 0$$
+Which eliminates that interval. Therefore, $f(x)$ is concave down on the 
+intervals $x \in (-1.5, -1)$ and $x \in (0, 1)$. 
+\end{Answer}
+
 \begin{Exercise}[label = shape1]
 [The following problem was originally presented as a calculator-allowed, 
 multiple-choice question on the 2012 AP Calculus BC exam.] Consider the 
