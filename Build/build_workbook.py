@@ -16,7 +16,7 @@ def usage():
 def path_for_chapter_locale_list(chapter, locale_list):
     # Assumes mod has already been stripped of whitespace
     # FIXME: When we start localizing, this will need to be smarter
-    return os.path.join(mod_dir, chapter, locale_list[0], "student.tex")
+    return f"{mod_dir}/{chapter}/{locale_list[0]}/student.tex"
 
 
 def build_book(book_id, config, draft, final_dir):

@@ -19,7 +19,6 @@ That said, here are some topics that definitely need to be attacked:
 * Simple linear regression and residuals
 * How a transistor works
 * Weather (why is there wind? What is a high-pressure system? Why does it rain?)
-* Calculus
 
 =================
 Digital Resources
