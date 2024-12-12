@@ -1,4 +1,5 @@
 trig_functions
 inv_trig_functions
+trig_identities
 transforms
 polar_coord
