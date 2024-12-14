@@ -235,6 +235,274 @@ where $K$ is the constant of integration.
 \end{enumerate}
 \end{Answer}
 
+\section{Integrating Powers of Trigonometric Functions}
+\subsection{Odd powers of sine and cosine}
+Consider the integral:
+$$\int \cos^5{x}\,dx$$
+
+To evaluate this integral, we may first try $u$-substitution, with $u = \cos{x}
+$. But then $du = -\sin{x} dx$, and there is no sine function in the integral. 
+Instead, let's take advantage of the identity:
+$$\cos^2{x} = 1 - \sin^2{x}$$
+We begin by separating $\cos^5{x}$ into three terms:
+$$\int \cos{x} \cdot \cos^2{x} \cdot \cos^2{x}\,dx$$
+
+Now we substitute in $\cos^2{x} = 1 - \sin^2{x}$:
+$$\int \cos{x} \left( 1 - \sin^2{x} \right) \left( 1 - \sin^2{x} \right)\,dx$$
+$$= \int \left( 1 - sin^2{x} \right)^2 \cos{x} \,dx$$
+
+Now we have sine and cosine functions, which makes $u$-substitution possible. 
+Let $u = \sin{x}$, then $du = \cos{x} dx$:
+$$\int \left( 1 - u^2 \right)^2\,du = \int \left( 1 - 2u^2 + u^4 \right)\,du$$
+$$= u - \frac{2}{3}u^3 + \frac{1}{5}u^5 + C|_{u = \sin{x}} = \sin{x} - \frac{
+2}{3}\sin^2{x} + \frac{1}{5}\sin^5{x} + C$$
+
+\begin{Exercise}[title = {Integrating odd powers of sine and cosine}, 
+label = power_1]
+Use the identity $\sin^2{\theta} + \cos^2{\theta} = 1$ and $u$-substitution to 
+evaluate the following integrals:
+\begin{enumerate}
+\item $\int \sin^2{x} \cos^3{x}\,dx$
+\item $\int_0^{\pi/2} \sin^7{\theta} \cos^5{\theta}\,d\theta$
+\item $\int \sin^3{\theta} \cos^4{\theta}\,d\theta$
+\item $\int_0^{\pi/2} \sin^5{x}\,dx$
+\item $\int t \cos^5{\left( t^2 \right)}\,dt$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = power_1]
+\begin{enumerate}
+\item $\int \sin^2{x} \cos^3{x}\,dx = \int \sin^2{x} \cos{x} \left( 1 - \sin^2{
+x} \right)\,dx = \int \sin^2{x} \cos{x}\,dx - \int \sin^4{x} \cos{x}\,dx$. 
+Applying the $u$-substitution $u = \sin{x}$ and $du = \cos{x}dx$: $\int \sin^2{
+x} \cos{x}\,dx - \int \sin^4{x} \cos{x}\,dx = \int u^2\,du - \int u^4\,du = 
+\frac{1}{3}u^3 - \frac{1}{5}u^5 + C|_{u = \sin{x}} = \frac{1}{3}\sin^3{x} - 
+\frac{1}{5}\sin^5{x} + C$
+\item $\int_0^{\pi/2} \sin^7{\theta} \cos^5{\theta}\,d\theta = \int_0^{\pi/2} 
+\sin^7{\theta} \left( \cos^2{\theta} \right)^2 \cos{\theta}\,d\theta = \int_0^{
+\pi/2} \sin^7{\theta} \left( 1 - \sin^2{\theta} \right)^2 \cos{\theta}\,d\theta
+= \int_0^{\pi/2} \sin^7{\theta} \left( 1 - 2\sin^2{\theta} + \sin^4{\theta} 
+\right) \cos{\theta}\,d\theta = \int_0^{\pi/2} \left( \sin^7{\theta} - 2\sin^9{
+\theta} + \sin^{11}{\theta} \right) \cos{\theta}\,d\theta$. Substituting $u = 
+\sin{\theta}$ and $du = \cos{\theta} d\theta$: $\int_0^{\pi/2} \left( \sin^7{
+\theta} - 2\sin^9{\theta} + \sin^{11}{\theta} \right) \cos{\theta}\,d\theta = 
+\int_{\theta = 0}^{\theta = \pi/2} \left( u^7 - 2u^9 + u^{11} \right)\,du = 
+\left[ \frac{1}{8}u^8 - \frac{1}{5}u^{10} + \frac{1}{12}u^{12} \right]_{\theta 
+= 0}^{\theta = \pi/2} = \left[ \frac{1}{8}\sin^8{\theta} - \frac{1}{5}\sin^{10
+}{\theta} + \frac{1}{12}\sin^{12}{\theta} \right]_{\theta = 0}^{\theta = \pi/2}
+= \frac{1}{8} - \frac{1}{5} + \frac{1}{12} = \frac{1}{120}$
+\item $\int \sin^3{\theta} \cos^4{\theta}\,d\theta = \int \sin{\theta} \left( 
+1 - \cos^2{\theta} \right) \cos^4{\theta}\,d\theta = \int \left( \cos^4{\theta}
+- \cos^6{\theta} \right)\sin{\theta}\,d\theta$. Substituting $u = \cos{\theta}$
+and $du = -\sin{\theta} d\theta$: $\int \left( u^6 - u^4 \right)\,du = \frac{1
+}{7}u^7 - \frac{1}{5}u^5 + C= \frac{1}{7}\cos^7{\theta} - \frac{1}{5}\cos^5{
+\theta} + C$
+\item $\int_0^{\pi/2} \sin^5{x}\,dx = \int_0^{\pi/2} \sin^4{x} \sin{x}\,dx = 
+\int_0^{\pi/2} \left( 1 - \cos^2{x} \right)^2 \sin{x}\,dx = \int_0^{\pi/2} 
+\left( 1 - 2\cos^2{x} + \cos^4{x} \right) \sin{x}\,dx$. Substituting $u = \cos{
+x}$ and $du = -\sin{x} dx$: $\int_{x = 0}^{x = \pi/2} \left( -1 + 2u^2 - u^4 
+\right)\,du = \left[ -u + \frac{2}{3}u^3 - \frac{1}{5}u^5 \right]_{x = 0}^{x = 
+\pi/2} = \left[ -\cos{x} + \frac{2}{3}\cos^3{x} - \frac{1}{5}\cos^5{x} \right]_
+{x = 0}^{x = \pi/2} = 1 - \frac{2}{3} + \frac{1}{5} = \frac{8}{15}$
+\item First, we substitute for $t^2$: $u = t^2$ and $\frac{du}{2} = (t)dt$. $
+\int t \cos^5{\left( t^2 \right)}\,dt = \int \frac{1}{2}\cos^5{u}\,du = \frac{
+1}{2} \int \cos^4{u} \cos{u}\,du = \frac{1}{2} \int \left( 1 - \sin^2{u} 
+\right)^2 \cos{u}\,du$. Substituting again, we set $v = \sin{u}$ and $dv = 
+\cos{u}du$: $\frac{1}{2} \int \left( 1 - 2v^2 + v^4 \right)\,dv = \frac{1}{2}
+\left[ v - \frac{2}{3}v^3 + \frac{1}{5}v^5 \right] + C$. Back-substituting $v =
+\sin{u}$: $\frac{1}{2} \left( \sin{u} - \frac{2}{3}\sin^3{u} + \frac{1}{5}\sin^
+5{u} \right) + C$. And back-substituting $u = t^2$: $\frac{1}{2} \left( \sin{t^
+2} - \frac{2}{3}\sin^3{t^2} + \frac{1}{5}\sin^5{t^2} \right) + C = \frac{1}{2}
+\sin{t^2} - \frac{1}{3}\sin^3{t^2} + \frac{1}{10}\sin^5{t^2} + C$.
+\end{enumerate}
+\end{Answer}
+
+\subsection{Even powers of sine and cosine}
+Consider $\int \cos^4{x}\,dx$. Let's try applying the identity $\cos^2{x} = 1 -
+\sin^2{x}$:
+$$\int \cos^4{x}\,dx = \int \cos^2{x} \left( 1 - \sin^2{x} \right)\,dx$$
+
+We can't use $u$-substitution for this. If we were to set $u = \sin{x}$, we 
+see $du = \cos{x} dx$, and we would have an extra $\cos{x}$ left. Instead, 
+let's use the double-angle identity $\cos^2{x} = \frac{1}{2} \left( 1 + 
+\cos{2x} \right)$:
+$$\int \cos^4{x}\,dx = \int \left( \cos^2{x} \right)^2\,dx$$
+$$= \frac{1}{4} \int \left( 1 + \cos{2x} \right)^2\,dx = \frac{1}{4} \int 
+\left( 1 + 2\cos{2x} + \cos^2{2x} \right)\,dx$$
+
+We can apply the double-angle identity again, noting that $\cos^2{2x} = 
+\frac{1}{2} \left( 1 + \cos{4x} \right)$:
+$$= \frac{1}{4} \int \left[ 1 + \cos{2x} + \frac{1}{2} \left( 1 + \cos{4x} 
+\right) \right]\,dx$$
+$$= \frac{1}{4} \left[ x + \frac{1}{2}\sin{2x} + \frac{1}{2} \left( x + 
+\frac{1}{4}\sin{4x} \right) \right] + C$$
+$$= \frac{1}{4} \left[\frac{3}{2}x + \frac{1}{2}\sin{2x} + \frac{1}{8}\sin{4x} 
+\right] + C$$
+
+In general, when the powers of sine and cosine are both even, apply the 
+double-angle identities
+$$\sin^2{x} = \frac{1}{2} \left( 1 - \cos{2x} \right)$$
+$$\cos^2{x} = \frac{1}{2} \left( 1 + \cos{2x} \right)$$
+
+Until the powers are reduced sufficiently to be able to evaluate the integral. 
+
+\begin{Exercise}[title = {Integrating even powers of sine and cosine}, 
+label = power_2]
+Use the double-angle identities to evaluate the following integrals:
+\begin{enumerate}
+\item $\int_0^{\pi/2} \cos^2{\theta}\,d\theta$
+\item $\int_0^\pi \cos^4{2t}\,dt$
+\item $\int \sin^2{x} \cos^2{x}\,dx$
+\item $\int_0^{2\pi} \sin^2{\frac{1}{3}\theta}\,d\theta$
+\item $\int_0^{\pi} \sin^2{t} \cos^4{t}\,dt$ 
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = power_2]
+\begin{enumerate}
+\item  $\int_0^{\pi/2} \cos^2{\theta}\,d\theta = \int_0^{\pi/2} \frac{1}{2} 
+\left( 1 + \cos{2\theta} \right)\,d\theta = \frac{1}{2} \left[ \theta + 
+\frac{1}{2}\sin{2\theta} \right]_{\theta = 0}^{\theta = \pi/2} = \frac{1}{2} 
+\left[ \left( \frac{\pi}{2} - 0 \right) + \frac{1}{2} \left( \sin{2 \cdot 
+\frac{\pi}{2}} - \sin{0} \right) \right] = \frac{1}{2} \left[ \frac{\pi}{2} + 
+\frac{1}{2} \sin{\pi} \right] = \frac{1}{2} \cdot \frac{\pi}{2} = \frac{\pi}{4}$
+\item $\int_0^{\pi} \cos^4{2t}\,dt = \int_0^{\pi} \left( \cos^2{2t} \right)^2\,
+dt = \int_0^{\pi} \left[ \frac{1}{2} \left( 1 + \cos{4t} \right) \right]^2\,dt 
+= \frac{1}{4} \int_0^{\pi} \left( 1 + 2\cos{4t} + \cos^2{4t} \right)\,dt = 
+\frac{1}{4} \int_0^{\pi} \left[ 1 + 2\cos{4t} + \frac{1}{2} \left( 1 + \cos{8t} 
+\right) \right]\,dt = \frac{1}{4} \int_0^{\pi} \left[ \frac{3}{2} + 2\cos{4t} + 
+\frac{1}{2}\cos{8t} \right]\,dt = \frac{1}{4} \left[ \frac{3}{2}t + \frac{1}{2}
+\sin{4t} + \frac{1}{16}\sin{8t} \right]_{t = 0}^{t = \pi} = \frac{1}{4} \left[ 
+\left( \frac{3\pi}{2} - 0 \right) + \frac{1}{2}\left( \sin{4\pi} - \sin{0} 
+\right) + \frac{1}{16} \left( \sin{8\pi} - \sin{0} \right) \right] = 
+\frac{3\pi}{8}$
+\item $\int \sin^2{x} \cos^2{x}\,dx = \int \frac{1}{2}\left( 1 - \cos{2x} 
+\right) \frac{1}{2} \left( 1 + \cos{2x} \right)\,dx = \frac{1}{4} \int \left( 
+1 - \cos^2{2x} \right)\,dx = \frac{1}{4} \int \left[ 1 - \frac{1}{2}\left( 1 
++ \cos{4x} \right) \right]\,dx = \frac{1}{4} \int \left( \frac{1}{2} - 
+\frac{1}{2}\cos{4x} \right)\,dx = \frac{1}{8} \int 1 - \cos{4x}\,dx = 
+\frac{1}{8} \left[ x - \frac{1}{4}\sin{4x} \right] + C = \frac{1}{32} \left[ 
+4x - \sin{4x} \right] + C$
+\item $\int_0^{2\pi} \sin^2{\left( \frac{1}{3}\theta \right)}\,d\theta = 
+\int_0^{2\pi} \frac{1}{2} \left( 1 - \cos{\left( \frac{2}{3}\theta \right)} 
+\right)\,d\theta = \frac{1}{2} \left[ \theta - \frac{3}{2}\sin{\left( 
+\frac{2}{3}\theta \right)} \right]_{\theta = 0}^{\theta = 2\pi} = \frac{1}{2} 
+\left[ \left( 2\pi - 0 \right) - \frac{3}{2} \left( \sin{\frac{4\pi}{3} - 
+\sin{0}} \right) \right] = \frac{1}{2} \left( 2\pi - \frac{3}{2} \left( 
+-\frac{\sqrt{3}}{2} \right) \right) = \pi + \frac{3\sqrt{3}}{8}$
+\item $\int_0^{\pi} \sin^2{t} \cos^4{t}\,dt = \int_0^{\pi} \frac{1}{2} \left( 
+1 - \cos{2t} \right) \left( \frac{1}{2} \left( 1 + \cos{2t} \right) \right)^2\,
+dt = \frac{1}{8} \int_0^{\pi} \left( 1 - \cos{2t} \right) \left( 1 + 2\cos{2t} 
++ \cos^2{2t} \right)\,dt = \frac{1}{8} \int_0^{\pi} \left( 1 + 2\cos{2t} + 
+\cos^2{2t} - \cos{2t} - 2\cos^2{2t} - \cos^3{2t} \right)\,dt = \frac{1}{8} 
+\int_0^{\pi} \left( 1 + \cos{2t} - \cos^2{2t} -\cos^3{2t} \right)\,dt = 
+\frac{1}{8} \int_0^{\pi} \left(1 + \cos{2t} - \frac{1}{2} \left(1 + \cos{4t} 
+\right) \right)\,dt - \frac{1}{8}\int_0^{\pi} \cos{2t} \cos^2{2t}\,dt = 
+\frac{1}{8} \int_0^{\pi} \left( \frac{1}{2} + \cos{2t} - \frac{1}{2}\cos{4t} 
+\right)\,dt - \frac{1}{16}\int_0^{\pi} \cos{2t} \left( 1 - \sin^2{2t} \right)\,
+dt$. Let $u = \sin{2t}$, then $du = 2\cos{2t}dt$ and $\cos{2t}dt = 
+\frac{du}{2}$. Then the previous integrals are equal to $\frac{1}{8} \left[ 
+\frac{t}{2} + \frac{1}{2}\sin{2t} - \frac{1}{8}\sin{4t} \right]_{t = 0}^{t = 
+\pi} - \frac{1}{16} \int_{t = 0}^{t = \pi} \frac{1}{2} \left( 1 - u^2 \right)\,
+du = \frac{1}{8} \left[ \left( \frac{\pi}{2} - 0 \right) + \frac{1}{2} \left( 
+\sin{2\pi} - \sin{0} \right) - \frac{1}{8} \left( \sin{4\pi} - \sin{0} \right) 
+\right] - \frac{1}{32} \left[ u - \frac{1}{3}u^3 \right]_{t = 0}^{t = \pi} = 
+\frac{1}{8} \left( \frac{\pi}{2} \right) - \frac{1}{32} \left[ \sin{2t} - 
+\frac{1}{3}\sin^3{2t} \right]_{t = 0}^{t = \pi} = \frac{\pi}{16} - \frac{1}{32} 
+\left[ \left( \sin{2\pi} - \sin{0} \right) - \frac{1}{3} \left( \sin^3{2\pi} - 
+\sin^3{0} \right) \right] = \frac{\pi}{16} - \frac{1}{32} \left( 0 \right) = 
+\frac{\pi}{16}$
+\end{enumerate}
+\end{Answer}
+
+\subsection{Integrating powers of secant and tangent}
+There are a few identities that we won't prove here, but will be useful:
+\begin{enumerate}
+\item $\int \tan{x}\,dx = \ln{|\sec{x}|} + C$
+\item $\int \sec{x}\,dx = \ln{|\sec{x} + \tan{x}|} + C$
+\end{enumerate}
+
+Consider the integral $\int \tan^6{x} \sec^4{x}\,dx$. We know that $\frac{d}{dx}
+\tan{x} = \sec^2{x}$, so we want to arrange things such that we can use the 
+$u$-substitution $u = \tan{x}$ and $du = \sec^2{x} dx$. Let's separate terms so
+we can easily see our intended $du$:
+$$\int \tan^6{x} \sec^2{x} \sec^2{x}\,dx$$
+
+What to do with the extra $sec^2{x}$? We already know that $\sin^2{\theta} + 
+\cos^2{\theta} = 1$. If we divide both sides by $\cos^2{\theta}$, we get the 
+identity $\tan^2{\theta} + 1 = \sec^2{\theta}$. So we can replace the extra 
+$sec^2{x}$ with $\tan^2{x} + 1$:
+$$\int \tan^6{x} \left( \tan^2{x} + 1 \right) \sec^2{x}\,dx = $$
+$$\int \tan^8{x} \sec^2{x}\,dx + \int \tan^6{x} \sec^2{x}\,dx$$
+
+We can now apply our $u$-substitution, as outlined above:
+$$= \int u^8\,du + \int u^6\,du = \frac{1}{9}u^9 + \frac{1}{7}u^7 + C$$
+$$= \frac{1}{9}\tan^9{x} + \frac{1}{7}\tan^7{x} + C$$
+
+This method works best when the secant is raised to an even power. Reserve a 
+$\sec^2$ to use for the $u$-substitution and express the remaining secants in 
+terms of the tangent. 
+
+We can use a similar method when the power of tangent is odd. We will evaluate 
+$\int \tan^5{x} \sec^3{x}\,dx$. First, remember that $\frac{d}{dx} \sec{x} = 
+\sec{x} \tan{x}$. We'll use this for a $u$-substitution, so let's pull out a 
+secant factor and a tangent factor:
+$$\int tan^5{x} \sec^3{x}\,dx = \int \tan^4{x} \sec^2{x} \sec{x} \tan{x}\,dx$$
+
+We re-write $tan^4{x}$ in terms of $\sec{x}$, since we will use the 
+$u$-substitution $u = \sec{x}$ and $du = \sec{x} \tan{x} dx$:
+$$\int \tan^4{x} \sec^2{x} \sec{x} \tan{x}\,dx = \int \left( 1 + \sec^2{x} 
+\right)^2 \sec^2{x} \sec{x} \tan{x}\,dx$$
+$$= \int \left( 1 + u^2 \right)^2 u^2\,du = \int \left(1 + 2u^2 + u^4 \right) 
+u^2\,du$$
+$$= \int \left( u^2 + 2u^4 + u^6 \right)\,du = \frac{1}{3}u^3 + \frac{2}{5}u^5 
++ \frac{1}{7}u^7 + C$$
+$$= \frac{1}{3}\sec^3{x} + \frac{2}{5}\sec^5{x} + \frac{1}{7}\sec^7{x} + C$$
+
+When the power of tangent is even and the power of secant is odd, you will 
+need to try additional methods, including using integration by pats (explained 
+below) or the identities for $\int \tan{x}\,dx$ and $\int \sec{x}\,dx$ given 
+above. 
+
+\begin{Exercise}[title = {Integrating Powers of Secant and Tangent}, 
+label = power_3]
+\begin{enumerate}
+\item $\int \tan{x} \sec^3{x}\,dx$
+\item $\int \tan^4{x} \sec^6{x}\,dx$
+\item $\int_0^{\pi/4} \sec^6{\theta} \tan^6{\theta}\,d\theta$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = power_3]
+\begin{enumerate}
+\item $\int \tan{x} \sec^3{x}\,dx = \int \sec^2{x} \tan{x} \sec{x}\,dx$. Let 
+$u = \sec{x}$, then $du = \sec{x} \tan{x} dx$. Substituting, $\int \sec^2{x} 
+\tan{x} \sec{x}\,dx = \int u^2\,du = \frac{1}{3}u^3 + C = \frac{1}{3}\sec^3{x} 
++ C$
+\item $\int \tan^4{x} \sec^6{x}\,dx = \int \tan^4{x} \sec^4{x} \sec^2{x}\,dx = 
+\int \tan^4{x} \left( 1 + \tan^2{x} \right)^2 \sec^2{x}\,dx$. Let $u = 
+tan{x}$, then $du = \sec^2{x} dx$. Substituting, $\int \tan^4{x} \left( 1 + 
+\tan^2{x} \right)^2 \sec^2{x}\,dx = \int u^4 \left( 1 + u^2 \right)^2 du = 
+\int u^4 \left( 1 + 2u^2 + u^4 \right)\,du = \int u^4 + 2u^6 + u^8\,du = 
+\frac{1}{5}u^5 + \frac{2}{7}u^7 + \frac{1}{9}u^9 + C = \frac{1}{5}\tan^5{x} + 
+\frac{2}{7}\tan^7{x} + \frac{1}{9}\tan^9{x} + C$
+\item $\int_0^{\pi/4} \sec^6{\theta} \tan^6{\theta}\,d\theta = \int_0^{\pi/4} 
+\sec^4{\theta} \tan^6{\theta} \sec^2{\theta}\,d\theta = \int_0^{\pi/4} \left( 
+1 + \tan^2{\theta} \right)^2 \tan^6{\theta} \sec^2{\theta}\,d\theta$. Let $u = 
+\tan{\theta}$ and $du = \sec^2{\theta} d\theta$. Substituting, $\int_0^{\pi/4} 
+\left( 1 + \tan^2{\theta} \right)^2 \tan^6{\theta} \sec^2{\theta}\,d\theta = 
+\int_{\theta = 0}^{\theta = \pi/4} \left( 1 + u^2 \right)^2 u^6\,du = \int_{
+\theta = 0}^{\theta = \pi/4} \left( 1 + 2u^2 + u^4 \right) u^6\,du = \int_{
+\theta = 0}^{\theta = \pi/4} u^6 + 2u^8 + u^{10}\,du = \left[ \frac{1}{7}u^7 + 
+\frac{2}{9}u^9 + \frac{1}{11}u^{11} \right]_{\theta = 0}^{\theta = \pi/4} = 
+\left[ \frac{1}{7}\tan^7{\theta} + \frac{2}{9}\tan^9{\theta} + \frac{1}{11}
+\tan^{11}{\theta} \right]_{\theta = 0}^{\theta = \pi/4} = \frac{1}{7}\left( 
+1^7 - 0^7 \right) + \frac{2}{9} \left( 1^9 - 0^9 \right) + \frac{1}{11} \left( 
+1^{11} - 0^{11} \right) = \frac{1}{7} + \frac{2}{9} + \frac{1}{11} = 
+\frac{316}{693}$ 
+\end{enumerate}
+\end{Answer}
+
 \section{Integration by Parts}
 
 Recall the Product Rule for derivatives:
@@ -276,7 +544,7 @@ our result in this case:
 $$\frac{d}{dx} \left[ x \sin{x} + \cos{x} + C \right] = \frac{d}{dx} \left[x 
 \sin{x} \right] + \frac{d}{dx} \cos{x}$$
 $$= x \frac{d}{dx} \left( \sin{x} \right) + \sin{x} \frac{d}{dx} (x) - \sin{x}$$
-$$= x \cos{x} +|SIN{x} - \sin{x} = x \cos{x}$$
+$$= x \cos{x} +\sin{x} - \sin{x} = x \cos{x}$$
 
 How did we choose that $f(x)$ should be $x$ and $g(x)$ should be $\sin{x}$ in 
 the example above? In general, you want to choose such that the resulting 
