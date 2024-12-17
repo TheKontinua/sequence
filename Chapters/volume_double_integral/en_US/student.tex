@@ -294,6 +294,13 @@ d\theta\,dt = \left( \int_0^3 t^2\,dt \right) \times \left( \int_0^{\pi/2}
 
 \section{Fubini's Theorem for Double Integrals}
 
+As stated above, a double integral is not quite the same thing as two iterated 
+integrals. However, they are related. Fubini's theorem states that for a 
+function, $f$, that is continuous over the rectangular region, \textit{R}, the 
+double integral of $f$ over the region $\textit{R} = \{ (x, y) | a \leq x \leq 
+b, c \leq y \leq d\}$ is equal to the iterated integral of $f$ with respect to 
+$x$ and $y$. This is expressed mathematically below:
+
 \begin{mdframed}[style = important, frametitle = {Fubini's Theorem}]
 If $f$ is continuous on the rectangle $R = \{ \left( x, y \right) | a \leq x 
 \leq b, c \leq y \leq d \}$, then
@@ -301,7 +308,7 @@ $$\iint_R f(x,y)\,\,dA = \int_a^b \int_c^d f(x,y)\,dy\,dx = \int_c^d \int_a^b
 f(x,y)\,dx\,dy$$
 \end{mdframed}
 
-\begin{Exercise}[title={Applying Fubini's Theorem},label = fubini]
+\begin{Exercise}[title={Applying Fubini's Theorem},label = fubini_1]
 Rewrite the following double integrals as iterated integrals.
 \begin{enumerate}
 \item $\iint_R \frac{xy^2}{x^2 + 1}\,\,dA$, $R = \{(x,y)|0 \leq x \leq 1, -3 
@@ -312,7 +319,7 @@ Rewrite the following double integrals as iterated integrals.
 \vspace{40mm}
 \end{Exercise}
 
-\begin{Answer}[ref = fubini]
+\begin{Answer}[ref = fubini_1]
 \begin{enumerate}
 \item $\int_0^1 \int_{-3}^3 \frac{xy^2}{x^2 + 1}\,dy\,dx$ OR $\int_{-3}^3 
 \int_0^1 \frac{xy^2}{x^2 + 1}\,dx\,dy$
@@ -322,6 +329,118 @@ d\theta \,dt$
 \end{enumerate}
 \end{Answer}
 
+\begin{Exercise}[label = fubini_2]
+Evaluate the double integral. 
+\begin{enumerate}
+\item $\iint_R \frac{xy^2}{x^2 + 1}\,dA$, $\textit{R} = \{ \left( x, y \right) 
+| \text{ } 0 \leq x \leq 2, \text{ } -3 \leq y \leq 3 \}$
+\item $\iint_R \frac{\tan{\theta}}{\sqrt{1 - t^2}}\,dA$, $\textit{R} = \{ 
+\left( \theta, t \right) | \text{ } 0 \leq \theta \leq \pi/3, \text{ } 0 \leq 
+t \leq \frac{1}{2} \}$
+\item $\iint_R x \sin{ \left( x + y \right) }\,dA$, $\textit{R} = \left[0, 
+\pi/6 \right] \times \left[ 0, \pi/3 \right]$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = fubini_2]
+\begin{enumerate}
+\item $\iint_R \frac{xy^2}{x^2 + 1}\,dA$, $\textit{R} = \{ \left( x, y \right) 
+| 0 \leq x \leq 2, -3 \leq y \leq 3 \} = \int_0^2 \int_{-3}^3 \frac{xy^2}{x^2 
++ 1}\,dy\,dx = \int_0^2 \frac{x}{x^2 + 1}\,dx \cdot \int_{-3}^{3} y^2\,dy$. To 
+evaluate the integral with respect to $x$, we use the $u$-substitution $u = 
+x^2 + 1$, $(x)dx = \frac{1}{2} du$: $\int_0^2 \frac{x}{x^2 + 1}\,dx \cdot 
+\int_{-3}^{3} y^2\,dy = \int_{x = 0}^{x = 2} \frac{1}{2} \frac{1}{u}\,du \cdot 
+\int_{-3}^3 y^2\,dy = \frac{1}{2} \ln{|u|}|_{x = 0}^{x = 2} \cdot \frac{1}{3} 
+\left[ y^3 \right]_{y = -3}^{y = 3} = \frac{1}{2} \left[ \ln{\left( 2^2 + 1 
+\right) - \ln{ \left( 0^2 + 1 \right)}} \right] \cdot \frac{1}{3} \left[ 3^3 - 
+\left( -3 \right)^3 \right] = \frac{1}{2} \ln{5} \cdot \frac{1}{3} \left( 27 - 
+(-27) \right) = \frac{\ln{5}}{2} \frac{54}{3} = 9\ln{5}$
+\item $\iint_R \frac{\tan{\theta}}{\sqrt{1 - t^2}}\,dA$, $\textit{R} = \{ 
+\left( \theta, t \right) | \text{ } 0 \leq \theta \leq \pi/3, \text{ } 0 \leq 
+t \leq \frac{1}{2} \} = \int_0^{\pi/3} \int_0^{1/2} \frac{\tan{\theta}}{\sqrt{
+1 - t^2}}\,dt\,d\theta = \left[ \int_0^{\pi/3} \tan{\theta}\,d\theta \right] 
+\cdot \left[ \int_0^{1/2} \frac{1}{\sqrt{1 - t^2}}\,dt \right]$. Recall that 
+$\frac{d}{dt} \arcsin{t} = \frac{1}{\sqrt{1 - t^2}}$. Applying FTC, then 
+$\left[ \int_0^{\pi/3} \tan{\theta}\,d\theta \right] \cdot \left[ \int_0^{1/2} 
+\frac{1}{\sqrt{1 - t^2}}\,dt \right] = \left[ \int_0^{\pi/3} \tan{\theta}\,d\theta 
+\right] \cdot \left[ \arcsin{t} \right]_{t = 0}^{t = 1/2} = \left[ \int_0^{\pi/
+3} \tan{\theta}\,d\theta \right] \cdot \left[ \arcsin{\frac{1}{2}} - \arcsin{0}
+\right] = \left[ \int_0^{\pi/3} \tan{\theta}\,d\theta \right] \cdot \left[ 
+\frac{\pi}{6} \right] = \frac{\pi}{6} \int_0^{\pi/3} \frac{\sin{\theta}}{\cos{
+\theta}}\,d\theta$. To evaluate this final integral, we use the $u$-substitution
+$u = \cos{\theta}$ and $-du = \sin{\theta} d\theta$: $\frac{\pi}{6} \int_0^{\pi
+/3} \frac{\sin{\theta}}{\cos{\theta}}\,d\theta = -\frac{\pi}{6}\int_{\theta = 0
+}^{\theta = \pi/3} \frac{1}{u}\,du = -\frac{\pi}{6} \ln{u}|_{\theta = 0}^{
+\theta = \pi/3} = -\frac{\pi}{6} \left[ \ln{ \left( \cos{\theta} \right)} 
+\right]_{\theta = o}^{\theta = \pi/3} = \frac{\pi}{6} \left[ \ln{\left( \cos{0} 
+\right) - \ln{ \left( \cos{\frac{\pi}{3}} \right)}} \right] = \frac{\pi}{6} 
+\left[ \ln{1} - \ln{\frac{1}{2}} \right] = \frac{\pi}{6} \ln{\frac{1}{1/2}} = 
+\frac{\pi}{6} \ln{2}$
+\item $\iint_R x \sin{ \left( x + y \right) }\,dA$, $\textit{R} = \left[0, 
+\pi/6 \right] \times \left[ 0, \pi/3 \right] = \int_0^{\pi/6} \int_0^{\pi/3} x 
+\sin{ \left( x + y \right) }\,dy\,dx$. Recall the sum formula for sine:
+$$\sin{ \left( x + y \right)} = \sin{x}\cos{y} + \cos{x}\sin{y}$$
+
+We can substitute this into our iterated integral:
+$$\int_0^{\pi/6} \int_0^{\pi/3} x \sin{ \left( x + y \right) }\,dy\,dx = 
+\int_0^{\pi/6} \int_0^{\pi/3} x \left[ \sin{x}\cos{y} + \cos{x}\sin{y} 
+\right]\,dy\,dx$$
+$$= \int_0^{\pi/6} \left[ \int_0^{\pi/3} x \sin{x} \cos{y}\,dy + \int_0^{\pi/3}
+x \cos{x} \sin{y}\,dy \right]\,dx$$
+
+Let us designate $\int_0^{\pi/3} x \sin{x} \cos{y}\,dy$ as integral \textbf{A} 
+and $\int_0^{\pi/3} x \cos{x} \sin{y}\,dy$ as integral \textbf{B}. First, we 
+will evaluate integral \textbf{A}:
+$$\int_0^{\pi/3} x \sin{x} \cos{y}\,dy = x \sin{x} \int_0^{\pi/3} \cos{y}\,dy$$
+$$= x \sin{x} \left[ \sin{y} \right]_{y = 0}^{y = \pi/3} = x \sin{x} \left[ 
+\sin{\frac{\pi}{3}} - \sin{0} \right]$$
+$$= x \sin{x} \left( \frac{\sqrt{3}}{2} \right) = \frac{x \sqrt{3}}{2} \sin{x}$$
+
+Next we evaluate integral \textbf{B}:
+$$\int_0^{\pi/3} x \cos{x} \sin{y}\,dy = x \cos{x} \int_0^{\pi/3} \sin{y}\,dy$$
+$$= x \cos{x} \left[ - \cos{y} \right]_{y = 0}^{y = \pi/3} = x \cos{x} \left[ -
+\cos{\frac{\pi}{3}} - \left( - \cos{0} \right) \right]$$
+$$= x\cos{x} \left[ - \frac{1}{2} - (-1) \right] = \frac{x}{2}\cos{x}$$
+
+Substituting back in for integrals \textbf{A} and \textbf{B}:
+$$\int_0^{\pi/6} \left[ \int_0^{\pi/3} x \sin{x} \cos{y}\,dy + \int_0^{\pi/3} 
+x \cos{x} \sin{y}\,dy \right]\,dx = \int_0^{\pi/6} \left[ \frac{x \sqrt{3}}{2} 
+\sin{x} + \frac{x}{2}\cos{x} \right]\,dx$$
+$$= \frac{\sqrt{3}}{2} \int_0^{\pi/6} x \sin{x}\,dx + \frac{1}{2} \int_0^{
+\pi/6} x \cos{x}\,dx$$
+
+Again, we will designate $\int_0^{\pi/6} x \sin{x}\,dx$ as integral \textbf{C} 
+and $\int_0^{\pi/6} x \cos{x}\,dx$ as integral \textbf{D}. We start by using 
+integration by parts to evaluate integral \textbf{C}:
+
+Let $u = x$ and $dv = \sin{x} dx$. Then $v = -cos{x}$ and $du = dx$ and 
+therefore:
+$$\int_0^{\pi/6} x \sin{x}\,dx = \left[ x \left(- \cos{x} \right) \right]_{x = 
+0}^{x = \pi/6} - \int_0^{\pi/6} \left( - \cos{x} \right)\,dx$$
+$$= \left[ \frac{\pi}{6} \left(- \cos{\frac{\pi}{6}} \right) \right] - \left[ 
+0 \left(- \cos{0} \right) \right] + \sin{x}|_{x = 0}^{x = \pi/6}$$
+$$= -\frac{\pi}{6} \cdot \frac{\sqrt{3}}{2} - 0 + \sin{\frac{\pi}{6}} - 
+\sin{0} = \frac{1}{2} - \frac{\pi \sqrt{3}}{12} = \frac{6 - \pi \sqrt{3}}{12}$$
+
+Next, we will use integration by parts to evaluate integral \textbf{D}. Let $u 
+= x$ and $dv = \cos{x} dx$. Then $du = dx$ and $v = \sin{x}$ and therefore:
+$$\int_0^{\pi/6} x \cos{x}\,dx = \left[ x \sin{x} \right]_{x = 0}^{x = \pi/6} -
+\int_0^{\pi/6} \sin{x}\,dx$$
+$$= \left[ \frac{\pi}{6}\sin{\frac{\pi}{6}} - 0\sin{0} \right] - \left( - 
+\cos{x} \right)|_{x = 0}^{x = \pi/6} = \frac{\pi}{6} \cdot \frac{1}{2} + 
+\cos{\frac{\pi}{6}} - \cos{0}$$
+$$= \frac{\pi}{12} + \frac{\sqrt{3}}{2} - 1 = \frac{\pi + 6\sqrt{3} - 12}{12}$$
+
+Substituting back in for integrals \textbf{C} and \textbf{D}:
+$$\frac{\sqrt{3}}{2} \int_0^{\pi/6} x \sin{x}\,dx + \frac{1}{2} \int_0^{\pi/6} 
+x \cos{x}\,dx = \frac{\sqrt{3}}{2} \left( \frac{6 - \pi \sqrt{3}}{12} \right) 
++ \frac{1}{2} \left( \frac{\pi + 6\sqrt{3}- 12}{12} \right)$$
+$$= \frac{6 \sqrt{3} - 3\pi + \pi + 6\sqrt{3} - 12}{24} = \frac{6 \sqrt{3} - 6 
+- \pi}{12}$$
+\end{enumerate}
+\end{Answer}
+
+\section{Double Integrals in Other Coordinate Systems}
 \begin{Exercise}[title={Using Polar Coordinates in Multiple Integration}, 
 label=polarmulti]
 
