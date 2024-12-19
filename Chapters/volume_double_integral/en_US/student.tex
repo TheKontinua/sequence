@@ -442,12 +442,140 @@ $$= \frac{6 \sqrt{3} - 3\pi + \pi + 6\sqrt{3} - 12}{24} = \frac{6 \sqrt{3} - 6
 
 \section{Double Integrals over Non-Rectangular Regions}
 
-\textbf{Example}: Evaluate $\iint_{\textit{D}} (2x + y)\,dA$, where \textit{D} is the region bounded by the parabolas $y = 3x^2$ and $y = 2 + x^2$. Region \textit{D} is shown in figure \ref{fig:parabola}. 
+Now that we've seen how to evaluate double integrals over rectangular regions, 
+let's consider non-rectangular regions. Suppose we are interested in the 
+integral of a function, $f(x,y)$, over a region, \textit{D}, exists such that 
+it can be bounded by inside a rectangular region, \textit{R} (see figure 
+\ref{fig:enclose}). We can then define a new function:
+$$F(x, y) = 
+\begin{cases}
+	f(x, y) & \text{if } (x, y) \text{ is in \textit{D}}\\
+	0 & \text{if } (x, y) \text{ is in \textit{R} but not in \textit{D}}
+\end{cases}$$
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}
+            \draw[-latex] (-0.5, 0) -- (4.5, 0) node[right] {$x$};
+            \draw[-latex] (0, -0.5) -- (0, 4.5) node[above] {$y$};
+            \draw[fill = orange!30] plot [smooth cycle] 
+        coordinates {(0.4, 2) (0.7, 2.7) (1.1, 3) (1.85, 3.33) (2.33, 3.4) 
+        (2.7, 3.45) (3.33, 3.33) (4, 2.85) (4.3, 2.33) (4.3, 1.7) (4.15, 1) 
+        (3.7, 0.7) (3, 1) (2.5, 1.33) (2, 1.5) (1, 1.33)};
+        \node[] at (2, 2) {\textit{D}};
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \begin{tikzpicture}
+            \draw[-latex] (-0.5, 0) -- (4.5, 0) node[right] {$x$};
+            \draw[-latex] (0, -0.5) -- (0, 4.5) node[above] {$y$};
+            \draw[blue, fill = blue!30] (0.33, 0.33) rectangle (4.5, 4);
+            \draw[fill = orange!30] plot [smooth cycle] 
+        coordinates {(0.4, 2) (0.7, 2.7) (1.1, 3) (1.85, 3.33) (2.33, 3.4) 
+        (2.7, 3.45) (3.33, 3.33) (4, 2.85) (4.3, 2.33) (4.3, 1.7) (4.15, 1) 
+        (3.7, 0.7) (3, 1) (2.5, 1.33) (2, 1.5) (1, 1.33)};
+        \node[] at (2, 2) {\textit{D}};
+        \node[] at (1, 3.5) {\textit{R}};
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{We can find a rectangular region, \textit{R}, that completely 
+    encloses \textit{D}}
+    \label{fig:enclose}
+\end{figure}
+
+Then, we can see that:
+$$\iint_{\textit{D}} f(x, y)\,dA = \iint_{\textit{R}} F(x, y)\,dA$$
+
+Which makes sense intuitively, since integrating over $F$ outside of \textit{D}
+doesn't contribute anything to the integral, and the integral of $F$ inside 
+\textit{D} is equal to the integral of $f$ inside \textit{D}. In general, there
+are two types of regions for \textit{D}. A region is \textbf{type I} if it lies
+between two continuous functions of $x$ and can be defined thusly:
+$$\textit{D} = \{ (x, y) \text{ } | \text{ } a \leq x \leq b, g_1(x) \leq y 
+\leq g_2(x) \}$$
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{tikzpicture}
+            \begin{axis}[ymin = -0.3, ymax = 4, xmin = -0.3, xmax = 3, 
+            axis lines = center, ticks = none, xlabel = $x$, ylabel = $y$] 
+                \addplot[name path = A, domain = 0.5:2.5, orange, thick] {
+                (0.5*x - 0.75)^2 + 0.5};
+                \addplot[name path = B, domain = 0.5:2.5, orange, thick] {
+                (x-2)^3 + 2*(x-2)^2 + x -1 + 1.5};
+                \addplot[fill = orange!30] fill between [of = A and B];
+                \draw[orange, thick] (0.5, 0.75) -- (0.5, 2.12);
+                \draw[orange, thick] (2.5, 0.75) -- (2.5, 3.65);
+                \draw[dashed] (0.5, 0.75) -- (0.5, 0) node[below] {$a$};
+                \draw[dashed] (2.5, 0.75) -- (2.5, 0) node[below] {$b$};
+                \node[] at (1.5, 2.8) {$y = g_2 (x)$};
+                \node[] at (1.75, 0.25) {$y = g_1 (x)$};
+                \node[] at (1.5, 1.5) {\textit{D}};
+            \end{axis}
+        \end{tikzpicture}
+    \end{minipage}
+    
+    \begin{minipage}{0.5\textwidth}
+        \begin{tikzpicture}
+            \begin{axis}[ymin = -0.3, ymax = 4, xmin = -0.3, xmax = 3, 
+            axis lines = center, ticks = none, xlabel = $x$, ylabel = $y$] 
+                \addplot[name path = A, domain = 0.5:2.5, orange, thick, 
+                samples = 150] {1.75 + sqrt(x - 0.5)};
+                \addplot[name path = B, domain = 0.5:2.5, orange, thick, 
+                samples = 150] {1.75 - sqrt(x - 0.5)};
+                \addplot[fill = orange!30] fill between [of = A and B];
+                \draw[orange, thick] (2.5, 0.33) -- (2.5, 3.17);
+                \draw[dashed] (0.5, 1.75) -- (0.5, 0) node[below] {$a$};
+                \draw[dashed] (2.5, 0.33) -- (2.5, 0) node[below] {$b$};
+                \node[] at (1.25, 3.1) {$y = g_2 (x)$};
+                \node[] at (1.5, 0.25) {$y = g_1 (x)$};
+                \node[] at (1.5, 1.5) {\textit{D}};
+            \end{axis}
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{Two examples of type I domains}
+    \label{fig:type1}
+\end{figure}
+
+Some type I regions are shown in figure \ref{fig:type1}. To evaluate $\iint_{
+\textit{D}} f(x,y)\,dA$, we begin by choosing a rectangle $\textit{R} = \left[ 
+a, b \right] \times \left[ c, d \right]$ such that \textit{D} is completely 
+contained in \textit{R}. We again define $F(x, y)$ such that $F(x, y) = f(x,y)$
+on \textit{D} and $F = 0$ outside of \textit{D}. Then, by Fubini's theorem:
+$$\iint_{\textit{D}} f(x, y)\,dA = \iint_{\textit{R}} F(x, y)\,dA = \int_a^b 
+\int_c^d F(x, y)\,dy\,dx$$
+
+Since $F(x, y) = 0$ when $y \leq g_1(x)$ or $y \geq g_2(x)$, we know that:
+$$\int_c^d F(x, y)\,dy = \int_{g_1(x)}^{g_2(x)} F(x, y)\,dy = \int_{g_1(x)}^{
+g_2(x)} f(x, y)\,dy$$
+
+Substituting this into the iterated integral above, we see that for a type I 
+region $\textit{D} = \{ (x, y) \text{ } | \text{ } a \leq x \leq b, g_1(x) 
+\leq y \leq g_2(x) \}$, 
+$$\iint_{\textit{D}} f(x, y)\,dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x, y)
+\,dy\,dx$$
+
+A \textbf{type II} region is a region such that we can define the limits of 
+$x$ in terms of $y$ (see figure fixme figures of type II regions). That is, a 
+type II region can be defined as:
+$$\textit{D} = \{(x, y) \text{ } | \text{ } c \leq y \leq d, h_1(y0 \leq x 
+\leq h_2(y) \}$$
+
+And in a similar manner to above, we can show that:
+$$\iint_{\textit{D}} f(x, y)\,dA = \int_c^d \int_{h_1(y)}^{h_2(y)} f(x, y)
+\,dx\,dy$$
+
+\textbf{Example}: Evaluate $\iint_{\textit{D}} (2x + y)\,dA$, where \textit{D} 
+is the region bounded by the parabolas $y = 3x^2$ and $y = 2 + x^2$. Region 
+\textit{D} is shown in figure \ref{fig:parabola}. 
 
 \begin{figure}[htbp]
 \centering
     \begin{tikzpicture}
-        \begin{axis}[ymin = 0, ymax = 4, xmin = -1.2, xmax = 1.2, axis lines = center]
+        \begin{axis}[ymin = 0, ymax = 4, xmin = -1.2, xmax = 1.2, axis lines = 
+        center]
             \addplot[blue, thick, name path = A, domain = -1:1]{2 + x^2};
             \addplot[blue, thick, name path = B, domain = -1:1]{3*x^2};
             \addplot[blue, thick, domain = -1.2:1.2]{2 + x^2};
@@ -456,28 +584,85 @@ $$= \frac{6 \sqrt{3} - 3\pi + \pi + 6\sqrt{3} - 12}{24} = \frac{6 \sqrt{3} - 6
             \addplot[fill = orange!30, opacity = 0.4] fill between [of = A and B];
         \end{axis}
     \end{tikzpicture}
-    \caption{Region \textit{D} is bounded above by $y = 2 + x^2$ and below by $y = 3x^2$}
+    \caption{Region \textit{D} is bounded above by $y = 2 + x^2$ and below by 
+    $y = 3x^2$}
     \label{fig:parabola}
 \end{figure}
 
-\textbf{Solution}: [fixme there is an error in this solution] We can define region \textit{D} as $\textit{D} = \{(x, y)\text{ }|\text{ } -1 \leq x \leq 1, 3x^2 \leq y \leq 2 + x^2 \}$. Therefore, 
-$$\iint_{\textit{D}} (2x + y)\,dA = \int_{-1}^1 \int_{3x^2}^{2 + x^2} \left(2x + y \right)\,dy\,dx$$
-$$= \int_{-1}^1 \left[2xy + \frac{1}{2}y^2 \right]_{y = 3x^2}^{2 + x^2}\,dx = \int_{-1}^1 \left[ 2x \left( 2 + x^2 - 3x^2 \right) + \frac{1}{2} \left( (2 + x^2)^2 - (3x^2)^2 \right) \right]\,dx$$
-$$= \int_{-1}^1 \left[ 2x(2 - 2x^2) + \frac{1}{2} (4 + 4x^2 + x^4 - 9x^4) \right]\,dx$$
-$$= \int_{-1}^1 \left[ 4x - 4x^2 + 2 + 2x^2 + -4x^4 \right]\,dx = \int_{-1}^1 \left( -4x^4 - 2x^2 + 4x + 2 \right)\,dx$$
-$$=  \left[-\frac{4}{5}x^5 - \frac{2}{3}x^3 + 2x^2 + 2x \right]_{x = -1}^{x = 1} = \left( -\frac{4}{5} - \frac{2}{3} + 2 + 2 \right) - \left( \frac{4}{5} + \frac{2}{3} + 2 - 2 \right)$$
-$$= -\frac{8}{5} + 4 = \frac{20 - 8}{5} = \frac{12}{5}$$
+\textbf{Solution}: We can define region \textit{D} as $\textit{D} = \{(x, y)
+\text{ }|\text{ } -1 \leq x \leq 1, 3x^2 \leq y \leq 2 + x^2 \}$. Therefore, 
+$$\iint_{\textit{D}} (2x + y)\,dA = \int_{-1}^1 \int_{3x^2}^{2 + x^2} \left(2x 
++ y \right)\,dy\,dx$$
+$$= \int_{-1}^1 \left[ \int_{3x^2}^{2 + x^2} 2x\,dy + \int_{3x^2}^{2 + x^2} y
+\,dy \right]\,dx$$
+$$= \int_{-1}^{1} \left[ 2xy|_{y = 3x^2}^{y = 2 + x^2} + \frac{1}{2}y^2|_{y = 
+3x^2}^{y = 2+x^2} \right]\,dx$$
+$$= \int_{-1}^1 \left[ 2x \left( 2 + x^2 - 3x^2 \right) + \frac{1}{2} \left( 
+(2 + x^2)^2 - (3x^2)^2 \right) \right]\,dx$$
+
+$$= \int_{-1}^1 \left[ 2 + 4x + 2x^2 - 4x^3 - 4x^4 \right]\,dx$$
+$$= \left[ 2x + 2x^2 + \frac{2}{3}x^3 - x^4 - \frac{4}{5}x^5 \right]_{x = -1}^{
+x = 1}$$
+$$= \left( 2 + 2 + \frac{2}{3} - 1 - \frac{4}{5} \right) - \left( -2 + 2 - 
+\frac{2}{3} - 1 + \frac{4}{5} \right)$$
+$$= 4 + \frac{4}{3} - \frac{8}{5} = \frac{56}{15}$$
+
+\begin{Exercise}[title = {Double Integrals over Non-Rectangular Regions}, 
+label = non-rect]
+Evaluate the double integral.
+\begin{enumerate}
+\item $\iint_{\textit{D}} e^{-y^2} \,dA$, \textit{D} $= \{(x, y) \text{ } | 
+\text{ } 0 \leq y \leq 3, 0 \leq x \leq 2y \}$.
+\item $\iint_{\textit{D}} x \sin{y}\,dA$, \textit{D} is bounded by $y = 0$, 
+$y = x^2$, $x = 2$. 
+\item $\iint_{\textit{D}} \left(2y - x \right)\,dA$, \textit{D} is bounded by 
+the circle with center at the origin and radius 3. 
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}[ref = non-rect]
+\begin{enumerate}
+    \item $\iint_{\textit{D}} e^{-y^2} \,dA = \int_0^3 \int_{0}^{2y} e^{-y^2}\,
+    dx\,dy$ $= \int_0^3 \left[ e^{-y^2} x|_{x = 0}^{x = 2y} \right]\,dy$ $= 
+    \int_0^3 2y e^{-y^2}\,dy$ $= -e^{-y^2}|_{y = 0}^{y = 3} = 1 - e^{-9} 
+    \approx 0.9999$
+
+    \item $\iint_{\textit{D}} x \sin{y}\,dA = \int_0^{2} \int_0^{x^2} x \sin{y}
+    \,dy\,dx$ $= \int_0^{2} x \int_0^{x^2} \sin{y}\,dy\,dx$ $= \int_0^{2} x 
+    \left[ -\cos{y} \right]_{y = 0}^{y = x^2}$ $= \int_0^{2} x \left( \cos{0} -
+    \cos{x^2} \right)\,dx$ $= \int_0^{2} \left( x - x\cos{x^2} \right)\,dx$ $= 
+    \left[ \frac{1}{2}x^2 - \frac{1}{2}\sin{x^2} \right]_{x = 0}^{x = 2}$ $= 
+    \frac{1}{2}(2)^2 - \frac{1}{2} \left( \sin{2^2} - \sin{0} \right)$ $= 2 - 
+    \frac{1}{2} \left( \sin{4} - 0 \right) = 2 - \frac{\sin{4}}{2} \approx 
+    2.378$
+
+    \item We can describe the region as \textit{D} $= \{ (x, y) \text{ } | 
+    \text{ } -3 \leq x \leq -3, -\sqrt{9 - x^2} \leq y \leq \sqrt{9 - x^2} \}$.
+    Therefore, $\iint_{\textit{D}} \left(2y - x \right)\,dA = \int_{-3}^3 
+    \int_{-\sqrt{9 - x^2}}^{\sqrt{9 - x^2}} \left( 2x - y \right)\,dy\,dx$ $= 
+    \int_{-3}^3 \left[ 2xy - \frac{1}{2}y^2 \right]_{y = -\sqrt{9 - x^2}}^{y = 
+    \sqrt{9 - x^2}}\,dx$ $= \int_{-3}^3 \left[ 2x \left( \sqrt{9 - x^2} + 
+    \sqrt{9 - x^2} \right) - \frac{1}{2} \left( 9 - x^2 - \left(9 - x^2 \right) 
+    \right) \right]\,dx$ $= \int_{-3}^3 4x\sqrt{9 - x^2}\,dx$. Let $u = 9 - 
+    x^2$, then $du = -2x$ and $4x = -2du$. Substituting, $\int_{-3}^3 4x\sqrt{
+    9 - x^2}\,dx$ $= \int_{x = -3}^{x = 3} -2\sqrt{u}\,du$ $= -2 \cdot 
+    \frac{2}{3} u^{3/2}|_{x = -3}^{x = 3}$ $= -\frac{4}{3} \left[ \left( 9 - 
+    x^2 \right) \right]_{x = -3}^{x = 3} = 0$
+\end{enumerate}
+\end{Answer}
 
 \section{Double Integrals in Other Coordinate Systems}
 \begin{Exercise}[title={Using Polar Coordinates in Multiple Integration}, 
 label=polarmulti]
 
-\Question Use double integration to find the volume of the solid that lies under the surface $z = 4 - x^2 - y^2$ and above the $xy$-plane.
+\Question Use double integration to find the volume of the solid that lies 
+under the surface $z = 4 - x^2 - y^2$ and above the $xy$-plane.
 
 \end{Exercise}
 \begin{Answer}[ref=polarmulti]
 
-We are finding the volume of the solid that lies under the surface $z = 4 - x^2 - y^2$ and above the $xy$-plane.
+We are finding the volume of the solid that lies under the surface $z = 4 - 
+x^2 - y^2$ and above the $xy$-plane.
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -507,13 +692,16 @@ We are finding the volume of the solid that lies under the surface $z = 4 - x^2 
   \end{axis}
 \end{tikzpicture}
 
-We can use polar coordinates to simplify the double integral. In polar coordinates, $x = r\cos(\theta)$ and $y = r\sin(\theta)$, so $x^2 + y^2 = r^2$. The volume under the surface and above the $xy$-plane is given by
+We can use polar coordinates to simplify the double integral. In polar 
+coordinates, $x = r\cos(\theta)$ and $y = r\sin(\theta)$, so $x^2 + y^2 = r^2$.
+The volume under the surface and above the $xy$-plane is given by
 
 \begin{equation}
 V = \int \int (4 - r^2) r \, dr \, d\theta,
 \end{equation}
 
-where $r$ ranges from 0 to 2 (since $4 - r^2 \geq 0$ if $0 \leq r \leq 2$) and $\theta$ ranges from 0 to $2\pi$.
+where $r$ ranges from 0 to 2 (since $4 - r^2 \geq 0$ if $0 \leq r \leq 2$) and 
+$\theta$ ranges from 0 to $2\pi$.
 
 Hence,
 
